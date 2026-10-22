@@ -2912,10 +2912,13 @@ mod flush_publication_recovery_tests {
         assert!(err.to_string().contains("paused-admit"));
         assert!(started.elapsed() >= std::time::Duration::from_millis(100));
 
-        let (tx, rx) = std::sync::mpsc::channel::<()>();
+        // A flush task that never finishes. It is pending on the runtime, not
+        // parked on the blocking pool: tokio does not auto-advance a paused
+        // clock while blocking work is in flight, so no timer of any kind
+        // fires then (see `within_wall_clock`).
+        let (tx, rx) = tokio::sync::oneshot::channel::<()>();
         let task = tokio::spawn(async move {
-            // Parks a blocking-pool thread until the test drops `tx`.
-            let _ = tokio::task::spawn_blocking(move || rx.recv()).await;
+            let _ = rx.await;
             Ok(())
         });
         let started = std::time::Instant::now();
@@ -33846,6 +33849,9 @@ async fn wait_for_flush_permit<T>(
 /// early-fire branch below is only taken when the clock is paused. It waits a
 /// real slice on the blocking pool (no timer, so no auto-advance) and tries
 /// again. `None` means the wall-clock budget ran out; the future is dropped.
+/// While blocking-pool work is in flight a paused clock does not advance at
+/// all, so the deadline is only checked once that work (or the future)
+/// makes progress; a running clock has no such gap.
 async fn within_wall_clock<F: std::future::Future>(
     budget: std::time::Duration,
     fut: F,
