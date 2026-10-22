@@ -6,7 +6,7 @@ are in `rows.jsonl`. Spec: docs/CORPUS_HUB_V2_IMPLEMENTATION.md §12.1.
 
 ## Current state
 
-497 corpora attempted: 449 published at their latest attempt, 48 not.
+501 corpora attempted: 454 published at their latest attempt, 47 not.
 
 ### Latest attempt did not publish (fix or delist on purpose)
 
@@ -59,11 +59,22 @@ are in `rows.jsonl`. Spec: docs/CORPUS_HUB_V2_IMPLEMENTATION.md §12.1.
 | `nuclei-templates` | `24a43e14` |  |  | no result | the pack job recorded no result (pack jobs: failure, build xerj: success) |
 | `xerj-blogposts` | `a9ad4fc0` |  |  | failed at `build` | xerj hub build-pack: `corpus add` failed (exit 2) |
 | `xerj-columnar` | `31081d9f` |  |  | no result | the pack job recorded no result (pack jobs: failure, build xerj: success) |
-| `xerj-search` | `3a55bc98` |  |  | cancelled at `build` | autoindex: search failed: search: error sending request for url (http://127.0.0.1:19200/xc-xerj-search-b1792632964-lucene-lucene-2/_search); retrying (attempt 1 of 6, 300 s in this request so far) |
 
 ## Runs (newest first)
 
-The 30 newest of 32 runs; every row is in `rows.jsonl`.
+The 30 newest of 33 runs; every row is in `rows.jsonl`.
+
+### Run [39726179289](https://github.com/xerj-org/xerj/actions/runs/39726179289), 2026-10-22: 5 of 7 published
+
+| slug | pin8 | bytes | defs | result | error |
+|---|---|---:|---:|---|---|
+| `xerj-blogposts` | `a9ad4fc0` |  |  | failed at `build` | xerj hub build-pack: `corpus add` failed (exit 2) |
+| `xerj-columnar` | `31081d9f` |  |  | no result | the pack job recorded no result (pack jobs: failure, build xerj: success) |
+| `xerj-search` | `3a55bc98` | 960560829 | 579535 | published `pack-xerj-search-3a55bc98` |  |
+| `xerj-vector` | `74f3e85b` | 76049973 | 30767 | published `pack-xerj-vector-74f3e85b` |  |
+| `xz` | `b355a311` | 29157345 | 2060 | published `pack-xz-b355a311` |  |
+| `zalando-restful-api-guidelines` | `88cdfdb1` | 2121473 | 0 | published `pack-zalando-restful-api-guidelines-88cdfdb1` |  |
+| `zlib-ng` | `a7f51090` | 12256827 | 1966 | published `pack-zlib-ng-a7f51090` |  |
 
 ### Run [39623848815](https://github.com/xerj-org/xerj/actions/runs/39623848815), 2026-10-21: 24 of 40 published
 
@@ -1369,48 +1380,3 @@ The 30 newest of 32 runs; every row is in `rows.jsonl`.
 | `chamber` | `5f93f5f3` | 1126572 | 471 | published `pack-chamber-5f93f5f3` |  |
 | `chaos-mesh` | `780cb80c` | 23381806 | 7320 | published `pack-chaos-mesh-780cb80c` |  |
 | `chaostoolkit-docs` | `d113ae82` | 1497001 | 10 | published `pack-chaostoolkit-docs-d113ae82` |  |
-
-### Run [39091860082](https://github.com/xerj-org/xerj/actions/runs/39091860082), 2026-10-18: 22 of 40 published
-
-| slug | pin8 | bytes | defs | result | error |
-|---|---|---:|---:|---|---|
-| `adyen-openapi` | `45520ee6` | 127033718 | 0 | failed at `e2e` | xerj hub pull adyen-openapi failed (exit 1) |
-| `aeron` | `d3499bb1` | 52531523 | 28139 | failed at `e2e` | xerj hub pull aeron failed (exit 1) |
-| `agno` | `1f2aac51` |  |  | failed at `build` | xerj hub build-pack: defs bulk index reported errors: {"took":4,"errors":true,"items":[{"index":{"_index":"xc-agno-b1792292503-defs","_id":"","_version":1,"_shards":{"total":1,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1,"status |
-| `anthropic-cookbook` | `9c1e493d` | 84939283 | 901 | failed at `e2e` | xerj hub pull anthropic-cookbook failed (exit 1) |
-| `api-blueprint` | `86fc3a12` | 660629 | 0 | failed at `e2e` | defs.jsonl has no identifier to look up |
-| `argo-cd` | `03a10c74` | 116015334 | 25467 | failed at `e2e` | xerj hub pull argo-cd failed (exit 1) |
-| `argo-workflows` | `8f57ec73` | 91730049 | 14769 | failed at `e2e` | xerj hub pull argo-workflows failed (exit 1) |
-| `arrow-rs` | `73595d58` | 56254615 | 24047 | failed at `e2e` | xerj hub pull arrow-rs failed (exit 1) |
-| `awesome-llm-apps` | `4bf51ab7` | 56861150 | 7418 | failed at `e2e` | xerj hub pull awesome-llm-apps failed (exit 1) |
-| `awesome-mcp-servers` | `cc7f1f42` | 2809865 | 0 | failed at `e2e` | defs.jsonl has no identifier to look up |
-| `awesome-sre` | `e91ef69a` | 115543 | 0 | failed at `e2e` | defs.jsonl has no identifier to look up |
-| `biome` | `39d7595b` |  |  | failed at `build` | xerj hub build-pack: defs bulk index reported errors: {"took":10,"errors":true,"items":[{"index":{"_index":"xc-biome-b1792292746-defs","_id":"","_version":1,"_shards":{"total":1,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1,"stat |
-| `bookkeeper` | `773a988d` | 68757576 | 29420 | failed at `e2e` | xerj hub pull bookkeeper failed (exit 1) |
-| `botan` | `9fc28d5b` | 164011813 | 18513 | failed at `e2e` | xerj hub pull botan failed (exit 1) |
-| `boulder` | `f877538d` |  |  | failed at `build` | xerj hub build-pack: defs bulk index reported errors: {"took":11,"errors":true,"items":[{"index":{"_index":"xc-boulder-b1792292898-defs","_id":"","_version":1,"_shards":{"total":1,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1,"st |
-| `brex-prompt-engineering` | `50871be1` | 474953 | 0 | failed at `e2e` | defs.jsonl has no identifier to look up |
-| `calcite` | `8f27e24a` | 108806227 | 49987 | failed at `e2e` | xerj hub pull calcite failed (exit 1) |
-| `caliber-ehr-phenotypes` | `f4f614fc` | 8256247 | 0 | failed at `e2e` | defs.jsonl has no identifier to look up |
-| `badger` | `5688f140` | 4850849 | 1800 | published `pack-badger-5688f140` |  |
-| `bandit-plugins` | `68ebe11e` | 2271033 | 1067 | published `pack-bandit-plugins-68ebe11e` |  |
-| `bebop` | `03a2a761` | 3694767 | 3075 | published `pack-bebop-03a2a761` |  |
-| `blake2` | `ed1974ea` | 2859278 | 675 | published `pack-blake2-ed1974ea` |  |
-| `blake3` | `f55849f8` | 4448805 | 1122 | published `pack-blake3-f55849f8` |  |
-| `bleve` | `6abe3730` | 42683669 | 5910 | published `pack-bleve-6abe3730` |  |
-| `blst` | `19b285a4` | 4992652 | 2824 | published `pack-blst-19b285a4` |  |
-| `bluge` | `57414197` | 6564295 | 2485 | published `pack-bluge-57414197` |  |
-| `boringtun` | `6dcc889a` | 1185429 | 518 | published `pack-boringtun-6dcc889a` |  |
-| `borsh-rs` | `c9a2ed48` | 2849421 | 1260 | published `pack-borsh-rs-c9a2ed48` |  |
-| `box-openapi` | `38fa64be` | 3398743 | 18 | published `pack-box-openapi-38fa64be` |  |
-| `brotli` | `42a2ed43` | 40961895 | 3157 | published `pack-brotli-42a2ed43` |  |
-| `brpc` | `7a2c1d5e` | 46898776 | 17281 | published `pack-brpc-7a2c1d5e` |  |
-| `bson-rust` | `81dcdcae` | 3892655 | 2270 | published `pack-bson-rust-81dcdcae` |  |
-| `btrblocks` | `c950c3c0` | 4440890 | 655 | published `pack-btrblocks-c950c3c0` |  |
-| `buf` | `91f127d3` | 37057776 | 19130 | published `pack-buf-91f127d3` |  |
-| `buildpacks-pack` | `99894bcb` | 9899243 | 4292 | published `pack-buildpacks-pack-99894bcb` |  |
-| `bulletproofs` | `be67b6d5` | 2161647 | 339 | published `pack-bulletproofs-be67b6d5` |  |
-| `c-ares` | `f4156c12` | 10811210 | 4077 | published `pack-c-ares-f4156c12` |  |
-| `caddy` | `ac834b5d` | 14497818 | 4633 | published `pack-caddy-ac834b5d` |  |
-| `caldera` | `cb8d6a81` | 11038475 | 2989 | published `pack-caldera-cb8d6a81` |  |
-| `caldera-stockpile` | `996ec41c` | 2479556 | 743 | published `pack-caldera-stockpile-996ec41c` |  |
