@@ -17,7 +17,7 @@ live), so the pages show no retrieval figure at all rather than a placeholder.
   out/corpus/<slug>.html               candidate corpora (author / themed) that have no
                                        registry page yet, so every contributor's corpus links
 """
-import json, pathlib, re, urllib.parse, collections
+import datetime, html, json, pathlib, re, urllib.parse, collections
 import treemap
 
 LOGIN_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$")   # GitHub's login alphabet: safe as a file name
@@ -52,6 +52,19 @@ border:1px solid var(--z-line);padding:.25em .6em;color:var(--z-mute)}
 .share a,.share button{font-family:var(--font-data);font-size:var(--fs-11);font-weight:600;text-transform:uppercase;
 letter-spacing:var(--track-ui);text-decoration:none;color:var(--z-ink);border:1px solid var(--z-ink);background:none;padding:.6em 1em;cursor:pointer}
 .share a:hover,.share button:hover{background:var(--z-ink);color:#fff}
+.agentuse{border:1px solid var(--z-line);background:#fff;padding:var(--sp-5) var(--sp-6);margin:var(--sp-4) 0}
+.agentuse h2{margin:0 0 var(--sp-3)}
+.agentuse .rdesc{margin:0 0 var(--sp-3)}
+.agentuse ul{margin:var(--sp-2) 0 var(--sp-4);padding-left:1.2em}
+.agentuse li{margin:var(--sp-1) 0}
+.xposts{margin:var(--sp-4) 0}
+.xposts h2{font-size:var(--fs-13);text-transform:uppercase;letter-spacing:.04em;margin:0 0 var(--sp-2)}
+.xposts blockquote{margin:0 0 var(--sp-3);padding:var(--sp-2) var(--sp-4);border-left:3px solid var(--z-line)}
+.xposts blockquote p{margin:0 0 var(--sp-2);overflow-wrap:anywhere}
+.xposts blockquote p.by{font-size:var(--fs-13);color:var(--z-mute);margin:0}
+.agentuse pre{font-family:var(--font-mono);font-size:var(--fs-13);white-space:pre-wrap;word-break:break-word;margin:var(--sp-2) 0;background:var(--z-paper,#f6f6f4);padding:var(--sp-3)}
+.agentuse .askhead{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-3)}
+.agentuse .askhead button{font-family:var(--font-data);font-size:var(--fs-11);font-weight:600;text-transform:uppercase;border:1px solid var(--z-ink);background:#fff;padding:2px 8px;cursor:pointer}
 .badgebox{border:1px solid var(--z-line);background:#fff;padding:var(--sp-4) var(--sp-5);margin:var(--sp-4) 0}
 .badgebox pre{font-family:var(--font-mono);font-size:var(--fs-13);white-space:pre-wrap;word-break:break-all;margin:var(--sp-3) 0 0}
 .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--sp-3);margin-top:var(--sp-6)}
@@ -261,7 +274,24 @@ def _n(x):
     return f"{x:,}" if isinstance(x, int) else "—"
 
 
-def person_body(pp, esc, live_slugs, pages=()):
+def xposts_section(posts, esc):
+    """Contributors' own X posts (data/x_posts.json, see fetch_x_posts.py), as plain quotes."""
+    if not posts:
+        return ""
+    items = []
+    for x in posts:
+        # Exact post text: X returns &amp; &lt; &gt; pre-escaped, so normalise and escape once.
+        # html.escape, not esc(): esc() rewrites dashes and the quote must stay verbatim.
+        body = html.escape(html.unescape(x["text"])).replace("\n", "<br>")
+        d = datetime.datetime.fromisoformat(x["created_at"].replace("Z", "+00:00"))
+        tag = "Featured by XERJ · " if x.get("match", "").startswith("featured") else ""
+        items.append(f'<blockquote cite="{esc(x["url"])}"><p>{body}</p><p class="by">{tag}— {html.escape(x["author_name"] or x["author_username"])} '
+                     f'(@{html.escape(x["author_username"])}), <time datetime="{esc(x["created_at"])}">{d:%b} {d.day}, {d.year}</time> · '
+                     f'<a href="{esc(x["url"])}" rel="nofollow noopener">View on X</a></p></blockquote>')
+    return f'<section class="xposts"><h2>On X</h2>{"".join(items)}</section>\n'
+
+
+def person_body(pp, esc, live_slugs, pages=(), agent="", xposts=""):
     login = pp["login"]
     work = sorted(pp["work"].values(), key=lambda w: (-(w.get("repo_stars") or 0), w["repo"].lower()))
     name = pp["name"] or login
@@ -321,13 +351,213 @@ When an agent meets the same problem, it gets this implementation back as a work
 <a href="https://news.ycombinator.com/submitlink?u={urllib.parse.quote(url)}&t={urllib.parse.quote(name + ' on the XERJ Corpus Hub')}" target="_blank" rel="noopener">Hacker News</a>
 <button data-copy="badge-{esc(login)}">Copy README badge</button></div>
 </div></section>
-<h2>Selected work</h2>{"".join(cards)}{also}
+{agent}{xposts}<h2>Selected work</h2>{"".join(cards)}{also}
 {more_block("contributor", login, esc)}
 <div class="badgebox"><img src="{esc(login)}/badge.svg" alt="XERJ Corpus Hub contributor badge">
 <pre id="badge-{esc(login)}">{esc(md)}</pre></div>
 <p style="color:var(--z-mute);font-size:var(--fs-13)">Included with the author's permission (email, {esc(v["since"][:10])}), under each repository's own licence, with attribution.
 Want it removed? Reply to the email or open an issue on <a href="https://github.com/xerj-org/xerj">xerj-org/xerj</a>.</p>
 </main>{COPY_BADGE_JS}{STARS_JS}{MORE_JS}"""
+
+
+# ---- SEO: per-page facts, read only from the ledger, the candidate manifests
+# (their "domain" line carries the repository's GitHub description, written by
+# the outreach pipeline) and the registry. A fact we do not have is left out.
+DESC_RE = re.compile(r"^an agent working on (.*?) queries this for how (\S+) implements it"
+                     r"(?:: (.*?))?(?: \(selected work: (.*)\))?$", re.S)
+# xerj.org pages that match a domain; every page also links the reference-coding case study.
+XERJ_LINKS = {
+    "SEC": ("https://xerj.org/use-cases/code-security-audit", "Code security audit with XERJ"),
+    "AI": ("https://xerj.org/use-cases/ai-search-retrieval", "AI search and retrieval with XERJ"),
+    "OPS": ("https://xerj.org/use-cases/operational-intelligence", "Operational intelligence with XERJ"),
+    "API": ("https://xerj.org/answers/search-openapi-spec-for-agent", "Search an OpenAPI spec from an agent"),
+}
+REFCODE = ("https://xerj.org/case-studies/reference-coding", "Case study: reference coding for agents")
+
+
+def repo_descs(hub_dir):
+    """corpus slug -> the repository's GitHub description (pipeline cuts it at 140 chars)."""
+    out = {}
+    for f in sorted((pathlib.Path(hub_dir) / "candidates" / "authors").glob("*.json")):
+        try:
+            d = json.loads(f.read_text())
+        except ValueError:
+            continue
+        m = DESC_RE.match(d.get("domain") or "")
+        if not (m and m.group(3)):
+            continue
+        t = " ".join(m.group(3).split())
+        if len(t) >= 140:
+            sp = t.rfind(" ")
+            t = (t[:sp] if sp > 100 else t[:139]).rstrip(" ,;:-") + "…"
+        out[d.get("corpus") or f.stem] = t
+    return out
+
+
+def clean_title(t):
+    """Commit subject without the conventional-commit type and PR number."""
+    t = re.sub(r"\s*\(#\d+\)\s*$", "", t or "").strip()
+    t2 = re.sub(r"^[a-z]+(\([^)]*\))?!?:\s*", "", t)
+    return (t2 or t).strip()
+
+
+def _fit(s, n=160):
+    s = " ".join(s.split())
+    if len(s) <= n:
+        return s
+    cut = s[:n - 1]
+    sp = cut.rfind(" ")
+    return (cut[:sp] if sp > n * 0.6 else cut).rstrip(" ,;:.-") + "…"
+
+
+def _h(s):
+    return int.from_bytes(s.encode(), "little") % 1000003
+
+
+def seo_facts(pp, live_slugs, reg, descs, cats, by_cat):
+    """Everything the title, description, agent section and JSON-LD need, or None-ish fields."""
+    login = pp["login"]
+    name = pp["name"] or login
+    work = sorted(pp["work"].values(), key=lambda w: (-(w.get("repo_stars") or 0), w["repo"].lower()))
+    w = work[0]
+    rank = lambda c: (0 if c in live_slugs else 1 if c in descs else 2, c)
+    slug = sorted(w["corpora"], key=rank)[0] if w["corpora"] else ""
+    short = w["repo"].split("/")[-1]
+    shelf = w.get("shelf") or (reg.get(slug) or {}).get("cat") or ""
+    domain = (cats or {}).get(shelf, ("", ""))[0]
+    usecase = (reg.get(slug) or {}).get("usecase") or "" if slug in live_slugs else ""
+    desc = next((descs[c] for c in sorted(w["corpora"], key=rank) if c in descs), "")
+    topics = [t for t in w["topics"] if t and t.lower() not in (short.lower(), w["repo"].split("/")[0].lower())][:6]
+    langs = w["langs"][:2]
+    title = clean_title(w.get("title"))
+    areas = [a for a in w["areas"] if a and a != "the project root"][:2]
+    who = f"{name} (@{login})" if name != login else f"@{login}"
+    # use cases: each one only when its data exists
+    uses = []
+    if usecase:
+        uses.append(plain_cap(usecase) + ".")
+    if topics:
+        uses.append(f"Look up how {short} implements {', '.join(topics[:3])}, with answers cited to file and line.")
+    if title:
+        size = " · ".join(x for x in [f'{w["files"]} files' if w.get("files") else "", ", ".join(langs)] if x)
+        uses.append(f"Reuse a worked example: the commit “{title}”" + (f" ({size})" if size else "") + ".")
+    if domain and len(uses) < 3:
+        uses.append(f"Answer from {short}'s real {langs[0] + ' ' if langs else ''}source instead of memory ({domain}).")
+    uses = uses[:3]
+    qs = []
+    if title and len(title) <= 70 and not title.endswith(("…", "...")):
+        qs.append(f"Where does {short} handle “{title}”?")
+    if topics:
+        qs.append(f"How does {short} implement {topics[0]}?")
+    if areas:
+        qs.append(f"What does {areas[0]} do in {short}?")
+    qs = qs[:3]
+    # related live corpora in the same domain: topic overlap first, then a stable spread
+    rel = []
+    if shelf in by_cat:
+        tp = set(w["topics"])
+        cand = [c for c in by_cat[shelf] if c["slug"] not in w["corpora"]]
+        cand.sort(key=lambda c: (-len(tp & set((c.get("tags") or {}).get("topics") or [])), _h(login + c["slug"])))
+        rel = cand[:4]
+    thin = len(uses) < 2 or not (len(desc) >= 20 or topics or usecase)
+    return dict(login=login, name=name, who=who, w=w, slug=slug, short=short, shelf=shelf, domain=domain,
+                desc=desc, topics=topics, langs=langs, title=title, uses=uses, qs=qs, rel=rel, thin=thin,
+                live=slug in live_slugs)
+
+
+def plain_cap(s):
+    s = " ".join(str(s).split()).rstrip(".")
+    return s[:1].upper() + s[1:]
+
+
+def seo_title(f):
+    who, short, login = f["who"], f["short"], f["login"]
+    opts = [f"{who}: {short} corpus for AI agents | XERJ Hub",
+            f"{who}: {short} corpus for AI agents",
+            f"@{login}: {short} corpus for AI agents | XERJ Hub",
+            f"@{login}: {short} corpus for AI agents",
+            f"{who}: {short} corpus | XERJ Hub",
+            f"@{login}: {short} corpus"]
+    for o in opts:
+        if len(o) <= 62:
+            return o
+    return opts[-1]
+
+
+def seo_desc(f):
+    lang = f["langs"][0] + " " if f["langs"] else ""
+    head = f"{f['short']}: {f['desc'].rstrip('.…')}." if f["desc"] else f"{f['w']['repo']} on the XERJ Corpus Hub."
+    tp = f" for {', '.join(f['topics'][:2])}" if f["topics"] else ""
+    tails = [f" A {lang}corpus AI agents search{tp}, with work by {f['name']}.",
+             f" A {lang}corpus AI agents search, with work by {f['name']}.",
+             f" A {lang}corpus for AI agents.", " For AI agents."]
+    for t in tails:
+        if len(head + t) <= 160:
+            d = head + t
+            break
+    else:
+        d = _fit(head, 160 - len(tails[-1])).rstrip(".") + tails[-1]
+    if len(d) < 110:
+        d += " Agents get it back as cited worked examples."
+    return _fit(d, 160)
+
+
+def agent_section(f, esc, pages):
+    if f["thin"]:
+        return ""
+    login, slug, short = f["login"], f["slug"], f["short"]
+    q = f["qs"][0] if f["qs"] else f"How does {short} work?"
+    cmd = f'xerj ask --corpus {slug} "{q}"' if slug else f'xerj "{q}"'
+    when = ("An agent asks:" if f["live"] else
+            "When the licence review passes and the corpus is live, an agent asks:")
+    desc = (f'<p class="rdesc"><a href="{esc(f["w"]["repo_url"])}">{esc(f["w"]["repo"])}</a>: {esc(f["desc"])}</p>'
+            if f["desc"] else "")
+    uses = "".join(f"<li>{esc(u)}</li>" for u in f["uses"])
+    qs = "".join(f"<li>{esc(x)}</li>" for x in f["qs"])
+    links = []
+    if slug:
+        links.append(f'<a href="../corpus/{esc(slug)}">corpus {esc(slug)}</a>' if slug in pages else f"corpus {esc(slug)}")
+    if f["shelf"] and f["domain"]:
+        links.append(f'<a href="../category/{esc(f["shelf"])}">{esc(f["domain"])}</a>')
+    rel = ", ".join(f'<a href="../corpus/{esc(c["slug"])}" title="{esc(c.get("usecase") or "")}">{esc(c["slug"])}</a>' for c in f["rel"])
+    x = XERJ_LINKS.get(f["shelf"])
+    more = f'<a href="{x[0]}">{esc(x[1])}</a> · ' if x else ""
+    return f"""<section class="agentuse"><h2>What an agent can do with the {esc(short)} corpus</h2>{desc}
+<ul>{uses}</ul>
+{f'<b>Example questions</b><ul>{qs}</ul>' if qs else ''}
+<div class="askhead"><span class="note">{esc(when)}</span><button data-copy="ask-{esc(login)}">Copy</button></div>
+<pre id="ask-{esc(login)}">{esc(cmd)}</pre>
+<p class="note">{" · ".join(links)}{f'<br>Related live corpora in this domain: {rel}' if rel else ''}<br>{more}<a href="{REFCODE[0]}">{esc(REFCODE[1])}</a></p>
+</section>"""
+
+
+def seo_ld(f, posts=()):
+    url = f"{SITE}/contributors/{f['login']}"
+    pid = url + "#person"
+    w = f["w"]
+    person = {"@type": "Person", "@id": pid, "name": f["name"], "alternateName": "@" + f["login"],
+              "identifier": f["login"], "url": url, "image": f"https://github.com/{f['login']}.png?size=400",
+              "sameAs": [f"https://github.com/{f['login']}"] + sorted(
+                  {f"https://x.com/{x['author_username']}" for x in posts if not x.get("match", "").startswith("featured")})}
+    code = {"@type": "SoftwareSourceCode", "name": w["repo"], "codeRepository": w["repo_url"],
+            **({"description": f["desc"]} if f["desc"] else {}),
+            **({"programmingLanguage": w["langs"]} if w["langs"] else {}),
+            **({"license": f"https://spdx.org/licenses/{w['spdx']}"} if w.get("spdx") and re.match(r"^[A-Za-z0-9.+-]+$", w["spdx"]) else {}),
+            **({"keywords": w["topics"]} if w["topics"] else {}), "contributor": {"@id": pid}}
+    about = [code]
+    if f["slug"]:
+        ds = {"@type": "Dataset", "name": f"{f['slug']} corpus", "url": f"{SITE}/corpus/{f['slug']}",
+              "description": _fit(f"Reference corpus of {w['repo']} at a pinned commit for AI agents"
+                                  + (f": {f['desc']}" if f["desc"] else "."), 300),
+              "contributor": {"@id": pid}, "isBasedOn": w["repo_url"],
+              "includedInDataCatalog": {"@type": "DataCatalog", "name": "XERJ Corpus Hub", "url": SITE + "/"}}
+        if "license" in code:
+            ds["license"] = code["license"]
+        kw = [k for k in [f["domain"]] + w["topics"] if k]
+        if kw:
+            ds["keywords"] = kw
+        about.append(ds)
+    return {"mainEntity": person, "about": about}
 
 
 # Hub stars: counts and the Star button come from /api/hub-stars
@@ -960,7 +1190,7 @@ def candidate_body(slug, e, esc, people):
             f'{"".join(rows)}</table></section>{pins}{corpus_section(logins, esc, people)}</main>')
 
 
-def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, upstream=None):
+def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, upstream=None, cats=None):
     if people is None:
         people = load(hub_dir, registry)
     if not people:
@@ -971,13 +1201,26 @@ def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, up
     d = pathlib.Path(out) / "contributors"
     d.mkdir(exist_ok=True)
     (pathlib.Path(out) / "corpus").mkdir(exist_ok=True)
+    reg = {c["slug"]: c for c in registry or []}
+    descs = repo_descs(hub_dir)
+    by_cat = collections.defaultdict(list)
+    for c in registry or []:
+        if c["slug"] in live_slugs and c.get("cat"):
+            by_cat[c["cat"]].append(c)
+    stats = collections.Counter()
+    xp = pathlib.Path(__file__).resolve().parent / "data" / "x_posts.json"
+    xposts = json.loads(xp.read_text(encoding="utf-8")) if xp.exists() else {}
     for login, pp in people.items():
         name = pp["name"] or login
         first = sorted(pp["work"].values(), key=lambda w: -(w.get("repo_stars") or 0))[0]
-        title = f"{name} (@{login}): XERJ Corpus Hub contributor"
-        desc = f"{name}'s work in {first['repo']} is in the XERJ Corpus Hub, the reference memory AI coding agents search before writing code."
-        html = page(title, desc, person_body(pp, esc, live_slugs, pages), rel="../",
-                    path=f"/contributors/{login}", image=f"https://github.com/{login}.png?size=400")
+        f = seo_facts(pp, live_slugs, reg, descs, cats, by_cat)
+        title, desc = seo_title(f), seo_desc(f)
+        posts = xposts.get(login, [])
+        stats["x posts"] += len(posts)
+        html = page(title, desc, person_body(pp, esc, live_slugs, pages, agent_section(f, esc, pages), xposts_section(posts, esc)),
+                    rel="../", path=f"/contributors/{login}", image=f"https://github.com/{login}.png?size=400",
+                    kind="ProfilePage", noindex=f["thin"], ld_extra=seo_ld(f, posts))
+        stats["indexable" if not f["thin"] else "thin"] += 1
         (d / f"{login}.html").write_text(html)
         (d / login).mkdir(exist_ok=True)
         (d / login / "badge.svg").write_text(badge_svg())
@@ -1013,4 +1256,5 @@ def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, up
                     og_title=f"{what}, page {n}: XERJ Corpus Hub",
                     og_desc="Developers who agreed to let AI agents learn from their work")
         (d / f"{stem}.html").write_text(html)
+    print(f"contributors: {stats['indexable']} indexable, {stats['thin']} thin (noindex), {stats['x posts']} X posts")
     return len(people)

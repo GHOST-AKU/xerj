@@ -943,5 +943,31 @@ class BuiltSiteDiscoverabilityTest(SiteLinksTest):
         self.assertIn("/favicon.ico /favicon.png 200", (self.out / "_redirects").read_text())
 
 
+class XPostsTest(unittest.TestCase):
+    def test_quote_is_plain_html_with_exact_text(self):
+        import contributors
+        post = {"id": "1", "url": "https://x.com/ann/status/1", "author_username": "ann", "author_name": "Ann <A>",
+                "created_at": "2026-10-22T20:28:03.000Z", "text": "a &amp; b &gt; c \u2014 \"q\"\nnext",
+                "match": "post links /contributors/ann"}
+        h = contributors.xposts_section([post], gen.esc)
+        self.assertIn("<h2>On X</h2>", h)
+        self.assertIn("<p>a &amp; b &gt; c \u2014 &quot;q&quot;<br>next</p>", h)
+        self.assertIn("Ann &lt;A&gt; (@ann)", h)
+        self.assertIn('<time datetime="2026-10-22T20:28:03.000Z">Oct 22, 2026</time>', h)
+        self.assertIn('href="https://x.com/ann/status/1" rel="nofollow noopener"', h)
+        self.assertNotIn("<script", h)
+        self.assertEqual(contributors.xposts_section([], gen.esc), "")
+
+    def test_data_file_shape(self):
+        p = pathlib.Path(__file__).resolve().parent / "data" / "x_posts.json"
+        if not p.exists():
+            self.skipTest("no data/x_posts.json")
+        data = json.loads(p.read_text(encoding="utf-8"))
+        for login, posts in data.items():
+            for x in posts:
+                self.assertTrue({"id", "url", "author_username", "author_name", "created_at", "text"} <= set(x), login)
+                self.assertTrue(x["url"].startswith("https://x.com/"), login)
+
+
 if __name__ == "__main__":
     unittest.main()
