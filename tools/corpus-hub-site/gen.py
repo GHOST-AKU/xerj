@@ -880,7 +880,7 @@ def _ld(obj):
 
 
 def seo_block(title, desc, path, rel, kind="WebPage", image=None, noindex=False,
-              og_title=None, og_desc=None):
+              og_title=None, og_desc=None, ld_extra=None):
     """Canonical, social tags, JSON-LD, favicon, analytics. Not visible layout."""
     url = canonical_url(path)
     ot, od = og_title if og_title is not None else title, og_desc if og_desc is not None else desc
@@ -948,6 +948,7 @@ def seo_block(title, desc, path, rel, kind="WebPage", image=None, noindex=False,
             "inLanguage": "en",
             "isPartOf": {"@id": SITE_ID},
             "publisher": {"@id": ORG_ID},
+            **(ld_extra or {}),
         }),
         f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>',
         "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}"
@@ -1178,11 +1179,11 @@ NOT_FOUND_BODY = """<section class="hero"><h1>Not found</h1>
 
 
 def page(title, desc, body, rel="", path="/", image=None, kind="WebPage", noindex=False,
-         og_title=None, og_desc=None):
+         og_title=None, og_desc=None, ld_extra=None):
     return PAGE.format(title=esc(title), desc=esc(desc), body=body, rel=rel,
                        fonts=FONTS, stamp=STAMP, ver=STYLE_VER, navjs=NAVCTA_JS, authjs=AUTH_JS,
                        sver=SEARCH_VER, search=search_index.NAV_FORM.format(rel=rel),
-                       seo=seo_block(title, desc, path, rel, kind, image, noindex, og_title, og_desc),
+                       seo=seo_block(title, desc, path, rel, kind, image, noindex, og_title, og_desc, ld_extra),
                        home=href(f"{rel}index.html"), people=href(f"{rel}contributors/index.html"),
                        add=href(f"{rel}contribute.html"))
 
@@ -1761,7 +1762,7 @@ def main():
               "  https://hub.xerj.org/search/index.json (names; field list inside) and",
               "  https://hub.xerj.org/search/more.json (languages, topics, use case; same row order)."]
     (OUT / "llms.txt").write_text("\n".join(lines) + "\n")
-    n_people = contributors.generate(OUT, HUB, page, esc, {c["slug"] for c in live}, corpora, people, upstream)
+    n_people = contributors.generate(OUT, HUB, page, esc, {c["slug"] for c in live}, corpora, people, upstream, cats=CATS)
     # search: static index + script (search_index.py); no Function, no Worker request
     live_slugs = {c["slug"] for c in live}
     cands = contributors.candidates(people, {c["slug"] for c in corpora}, HUB)
