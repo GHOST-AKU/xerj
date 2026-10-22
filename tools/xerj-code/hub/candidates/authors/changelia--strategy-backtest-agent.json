@@ -9,13 +9,14 @@
    "repo": "strategy-backtest-agent",
    "url": "https://github.com/changelia/strategy-backtest-agent",
    "sha": "0aa1710facdfc85703e901ef09397a3b9cb62556",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 0aa1710facdf, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 0aa1710facdf: \"feat: add offline CLI doctor diagnostics\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T21:12Z",
+    "consent_receipt": "b9e99aed45c3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T21:12Z (receipt b9e99aed45c3); selected commit 0aa1710facdf: \"feat: add offline CLI doctor diagnostics\". LICENSE file at pin 0aa1710facdf detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

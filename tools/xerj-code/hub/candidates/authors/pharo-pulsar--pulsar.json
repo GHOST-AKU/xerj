@@ -1,0 +1,23 @@
+{
+ "corpus": "pharo-pulsar--pulsar",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on gtk, ide, pharo queries this for how pharo-pulsar/pulsar implements it: Mirror of https://forge.smallworks.eu/pharo/Pulsar (selected work: src/Pulsar-Tool-LLM, src/Pulsar-Tool-FileEditor, src/Pulsar-Tool-Repositories)",
+ "repos": [
+  {
+   "repo": "pulsar",
+   "url": "https://github.com/pharo-pulsar/pulsar",
+   "sha": "95fab6341d20b17c1c3fc961fd05fe3dc439086d",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "4875b29d0190",
+    "note": "author consent by email 2026-10-20T19:13Z (receipt 4875b29d0190); selected commit 95fab6341d20: \"pass on panel agents, added \"update comment\" option\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "glimpse",
    "url": "https://github.com/yuzu-octopus/glimpse",
    "sha": "9abe8ecf38464c7701b1f01fd1b10fd363c5555f",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 9abe8ecf3846, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 9abe8ecf3846: \"feat: fluid interactions, pull-to-refresh, and a native speedtest engine\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T04:30Z",
+    "consent_receipt": "b7a672805366",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T04:30Z (receipt b7a672805366); selected commit 9abe8ecf3846: \"feat: fluid interactions, pull-to-refresh, and a native speedtest engine\". LICENSE file at pin 9abe8ecf3846 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

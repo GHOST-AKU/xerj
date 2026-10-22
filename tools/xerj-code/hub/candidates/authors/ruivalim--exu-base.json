@@ -9,13 +9,14 @@
    "repo": "exu-base",
    "url": "https://github.com/Ruivalim/exu-base",
    "sha": "353e0adf42df649c6c6d77a275ddecb71beb54f7",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 353e0adf42df, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 353e0adf42df: \"feat(data)!: an optional context per record, read before the state\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T13:53Z",
+    "consent_receipt": "f36e3a13a3f1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T13:53Z (receipt f36e3a13a3f1); selected commit 353e0adf42df: \"feat(data)!: an optional context per record, read before the state\". LICENSE file at pin 353e0adf42df detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "Cairn",
    "url": "https://github.com/lol40560/Cairn",
    "sha": "2462473bd34ef6259a91b73f6718a20bf8481182",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 2462473bd34e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 2462473bd34e: \"feat: redesign project workflow and prepare rc.3\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T04:21Z",
+    "consent_receipt": "c7a613a1fdf3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T04:21Z (receipt c7a613a1fdf3); selected commit 2462473bd34e: \"feat: redesign project workflow and prepare rc.3\". LICENSE file at pin 2462473bd34e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

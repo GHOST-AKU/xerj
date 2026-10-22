@@ -9,13 +9,14 @@
    "repo": "action-hub",
    "url": "https://github.com/1solomonwakhungu/action-hub",
    "sha": "eb6c0e660734531e08a5cdfcf9d12df88967b2ec",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin eb6c0e660734, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit eb6c0e660734: \"Abstention recalibration (held-out, 87 negatives), cache-stable desig\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T22:32Z",
+    "consent_receipt": "f335a6818fb0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T22:32Z (receipt f335a6818fb0); selected commit eb6c0e660734: \"Abstention recalibration (held-out, 87 negatives), cache-stable desig\u2026\". LICENSE file at pin eb6c0e660734 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

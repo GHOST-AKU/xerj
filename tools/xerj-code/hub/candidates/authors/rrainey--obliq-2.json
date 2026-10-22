@@ -1,0 +1,23 @@
+{
+ "corpus": "rrainey--obliq-2",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on modeling-and-simulation, c-code-generator, code-generation queries this for how rrainey/obliq-2 implements it: A web-based modeling and simulation system (selected work: src/app, src/components)",
+ "repos": [
+  {
+   "repo": "obliq-2",
+   "url": "https://github.com/rrainey/obliq-2",
+   "sha": "99f423eb2ff644b6daf47e720c5c2b15699579d3",
+   "licence": "MIT (LICENSE file at pin 99f423eb2ff6, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T14:26Z",
+    "consent_receipt": "09c1a7919c60",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T14:26Z (receipt 09c1a7919c60); selected commit 99f423eb2ff6: \"Editor header: single non-wrapping row at every width\". LICENSE file at pin 99f423eb2ff6 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

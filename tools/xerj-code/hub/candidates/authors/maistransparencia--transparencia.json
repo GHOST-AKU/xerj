@@ -1,0 +1,23 @@
+{
+ "corpus": "maistransparencia--transparencia",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on data-analysis, data-visualization, dbt queries this for how maistransparencia/transparencia implements it: Dashboard com dados extra\u00eddos do Portal da Transpar\u00eancia de Mun\u00edcipios do Brasil (selected work: apps/web)",
+ "repos": [
+  {
+   "repo": "transparencia",
+   "url": "https://github.com/maistransparencia/transparencia",
+   "sha": "a8781aea2a8a3bd78dfcb49c5cdfed373078cac8",
+   "licence": "AGPL-3.0 (LICENSE file at pin a8781aea2a8a, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T12:01Z",
+    "consent_receipt": "d005ad58db68",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T12:01Z (receipt d005ad58db68); selected commit a8781aea2a8a: \"feat(web): implementar visualizacao de empenhos federais no modal de \u2026\". LICENSE file at pin a8781aea2a8a detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

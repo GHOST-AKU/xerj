@@ -9,13 +9,14 @@
    "repo": "fastsdcpu",
    "url": "https://github.com/rupeshs/fastsdcpu",
    "sha": "887fba29b3d0598c9949d6905685a4f74353c378",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 887fba29b3d0, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 887fba29b3d0: \"Add Iris 3B Turbo OpenVINO support (pixel-space generation, no VAE or\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T15:24Z",
+    "consent_receipt": "dc463f9bafcb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T15:24Z (receipt dc463f9bafcb); selected commit 887fba29b3d0: \"Add Iris 3B Turbo OpenVINO support (pixel-space generation, no VAE or\u2026\". LICENSE file at pin 887fba29b3d0 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

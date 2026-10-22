@@ -9,13 +9,14 @@
    "repo": "svdo-meter",
    "url": "https://github.com/brianofrokk3r/svdo-meter",
    "sha": "6128a077060c4984279c303956a122408274f0f8",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 6128a077060c, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 6128a077060c: \"asd-ste100 vs standard prompt, perf comparison in terms of token cons\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T05:12Z",
+    "consent_receipt": "28cd03f872a7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T05:12Z (receipt 28cd03f872a7); selected commit 6128a077060c: \"asd-ste100 vs standard prompt, perf comparison in terms of token cons\u2026\". LICENSE file at pin 6128a077060c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

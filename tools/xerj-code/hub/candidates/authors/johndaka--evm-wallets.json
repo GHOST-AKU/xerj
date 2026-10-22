@@ -9,13 +9,14 @@
    "repo": "evm-wallets",
    "url": "https://github.com/JohnDaka/evm-wallets",
    "sha": "0e49602f2b405c5d1d962b90bfac4e0256ce9825",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 0e49602f2b40, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-09 (reply to Corpus Hub outreach); selected commit 0e49602f2b40: \"publish: no registry-url, so npm authenticates as the workflow, not w\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T16:56Z",
+    "consent_receipt": "330aa18dc658",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T16:56Z (receipt 330aa18dc658); selected commit 0e49602f2b40: \"publish: no registry-url, so npm authenticates as the workflow, not w\u2026\". LICENSE file at pin 0e49602f2b40 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "CeedeBooks",
    "url": "https://github.com/MusaAis/CeedeBooks",
    "sha": "56c40520f05e8632afc7fff824cb0d705ccdf839",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 56c40520f05e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 56c40520f05e: \"v1.2.9.4: return to agent, re-run, optional deployer key, red team (P\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T10:36Z",
+    "consent_receipt": "109e2681fad1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T10:36Z (receipt 109e2681fad1); selected commit 56c40520f05e: \"v1.2.9.4: return to agent, re-run, optional deployer key, red team (P\u2026\". LICENSE file at pin 56c40520f05e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

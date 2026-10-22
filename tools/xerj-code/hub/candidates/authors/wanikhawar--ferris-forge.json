@@ -8,14 +8,15 @@
   {
    "repo": "ferris-forge",
    "url": "https://github.com/wanikhawar/ferris-forge",
-   "sha": "0a47c7aeec1431654af442e1e0ec9c32b19bf742",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "f16716d58d172581e4742f8b15bb275e6e0b9803",
+   "licence": "MIT (LICENSE file at pin f16716d58d17, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 0a47c7aeec14: \"add worlds 10 - 15\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T06:48Z",
+    "consent_receipt": "f496a59caba3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T06:48Z (receipt f496a59caba3); selected commit f16716d58d17: \"add worlds 10 - 15\". LICENSE file at pin f16716d58d17 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head f16716d58d17 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

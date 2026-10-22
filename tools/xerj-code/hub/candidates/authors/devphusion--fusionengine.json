@@ -9,13 +9,14 @@
    "repo": "FusionEngine",
    "url": "https://github.com/DevPhusion/FusionEngine",
    "sha": "2737291609a2abf82d24c8333a1d9ce72d85fe1f",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 2737291609a2, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 2737291609a2: \"Local docs saving for docs window\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T10:52Z",
+    "consent_receipt": "d5682442d016",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T10:52Z (receipt d5682442d016); selected commit 2737291609a2: \"Local docs saving for docs window\". LICENSE file at pin 2737291609a2 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

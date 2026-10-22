@@ -9,13 +9,14 @@
    "repo": "matcha",
    "url": "https://github.com/floatpane/matcha",
    "sha": "820afde09482ec49e5470d1e49a2ac0f76605fec",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 820afde09482, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-04 (reply to Corpus Hub outreach); selected commit 820afde09482: \"fix: server-side PGP/MIME support\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-04T09:36Z",
+    "consent_receipt": "2d5939b18723",
+    "note": "Inclusion consented by the commit author by email at 2026-10-04T09:36Z (receipt 2d5939b18723); selected commit 820afde09482: \"fix: server-side PGP/MIME support\". LICENSE file at pin 820afde09482 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

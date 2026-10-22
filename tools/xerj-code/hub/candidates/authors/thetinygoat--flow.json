@@ -9,13 +9,14 @@
    "repo": "flow",
    "url": "https://github.com/thetinygoat/flow",
    "sha": "41527fc0c709d78f0aabd6f093c8c4760c40a195",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 41527fc0c709: \"Reorder workspaces by dragging them in the sidebar\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "57691dced500",
+    "note": "author consent by email 2026-10-16T05:38Z (receipt 57691dced500); selected commit 41527fc0c709: \"Reorder workspaces by dragging them in the sidebar\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

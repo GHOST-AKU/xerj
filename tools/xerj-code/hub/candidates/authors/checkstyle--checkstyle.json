@@ -9,13 +9,14 @@
    "repo": "checkstyle",
    "url": "https://github.com/checkstyle/checkstyle",
    "sha": "bfe45c6f95d88e012e9cffbdfeca3ad91fb3ef0c",
-   "licence": "hint only: LGPL-2.1 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: LGPL-2.1 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "LGPL-2.1",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit bfe45c6f95d8: \"Issue #14121: IndentationCheck: inner Handlers should not have refere\u2026\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "68234ac4f0aa",
+    "note": "author consent by email 2026-10-18T00:19Z (receipt 68234ac4f0aa); selected commit bfe45c6f95d8: \"Issue #14121: IndentationCheck: inner Handlers should not have refere\u2026\"; LICENSE at pin: NOASSERTION vs repository LGPL-2.1 \u2014 needs a human licence review."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "shipyard",
    "url": "https://github.com/Vaache/shipyard",
    "sha": "aa9671a5a1d66f2c8535bf64855b2f08472914c9",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit aa9671a5a1d6: \"Gray sidebar selection, check for updates every 6 hours and announce \u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "c955b075d95a",
+    "note": "author consent by email 2026-10-16T08:18Z (receipt c955b075d95a); selected commit aa9671a5a1d6: \"Gray sidebar selection, check for updates every 6 hours and announce \u2026\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "Thinkwise",
    "url": "https://github.com/Aryan-Lade/Thinkwise",
    "sha": "332cd50e3d04a6231a6066495def5479e5f4d58c",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 332cd50e3d04, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 332cd50e3d04: \":)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T09:28Z",
+    "consent_receipt": "fd9c4e8a5fcb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:28Z (receipt fd9c4e8a5fcb); selected commit 332cd50e3d04: \":)\". LICENSE file at pin 332cd50e3d04 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

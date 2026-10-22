@@ -9,13 +9,14 @@
    "repo": "penecho",
    "url": "https://github.com/penecho/penecho",
    "sha": "f64a8be4d9d719cd21889ce939a076820b560dc3",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit f64a8be4d9d7: \"Improve desktop menus and update experience (#72)\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "1d84c667bd44",
+    "note": "author consent by email 2026-10-12T06:48Z (receipt 1d84c667bd44); selected commit f64a8be4d9d7: \"Improve desktop menus and update experience (#72)\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

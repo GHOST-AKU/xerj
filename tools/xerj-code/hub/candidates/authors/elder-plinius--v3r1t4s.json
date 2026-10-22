@@ -9,13 +9,14 @@
    "repo": "V3R1T4S",
    "url": "https://github.com/elder-plinius/V3R1T4S",
    "sha": "16bbd6cce444248bf337542d689a26328f711e6d",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 16bbd6cce444: \"claim: codetables-qubit-upper-bounds-n101-256 2026-10-17-verexxi-de7e\u2026\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "b6c12a88609a",
+    "note": "author consent by email 2026-10-17T19:11Z (receipt b6c12a88609a); selected commit 16bbd6cce444: \"claim: codetables-qubit-upper-bounds-n101-256 2026-10-17-verexxi-de7e\u2026\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "quietroom",
    "url": "https://github.com/clorth0/quietroom",
    "sha": "c3462c96d5ac17381220aff5a69220c7c61e23cc",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin c3462c96d5ac, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit c3462c96d5ac: \"feat: require emitters to persist across live sweeps (fewer one-sweep\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T11:01Z",
+    "consent_receipt": "1f0c4db604e3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T11:01Z (receipt 1f0c4db604e3); selected commit c3462c96d5ac: \"feat: require emitters to persist across live sweeps (fewer one-sweep\u2026\". LICENSE file at pin c3462c96d5ac detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

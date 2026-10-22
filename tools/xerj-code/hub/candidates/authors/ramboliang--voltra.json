@@ -1,0 +1,23 @@
+{
+ "corpus": "ramboliang--voltra",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how ramboLiang/voltra implements it: ramboLiang/voltra (TypeScript) (selected work: cmd/voltra-cli, services)",
+ "repos": [
+  {
+   "repo": "voltra",
+   "url": "https://github.com/ramboLiang/voltra",
+   "sha": "84f837b6266d6d5ced920fd62d377d0b9dd7cfa1",
+   "licence": "MIT (LICENSE file at pin 84f837b6266d, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T05:53Z",
+    "consent_receipt": "ec58083927a7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T05:53Z (receipt ec58083927a7); selected commit 84f837b6266d: \"feat(cli): \u65b0\u589e project \u9879\u76ee\u7ba1\u7406\u4e0e doc API \u6587\u6863\u751f\u6210\". LICENSE file at pin 84f837b6266d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

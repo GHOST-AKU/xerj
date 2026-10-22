@@ -9,13 +9,14 @@
    "repo": "opensre",
    "url": "https://github.com/Tracer-Cloud/opensre",
    "sha": "2d47937f519392ce11f1fd54af2a2b92abbdceb1",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 2d47937f5193, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 2d47937f5193: \"fix(sessions): add arrow-key navigation and resume to /sessions (#6477)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T18:55Z",
+    "consent_receipt": "755b8d3e0416",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T18:55Z (receipt 755b8d3e0416); selected commit 2d47937f5193: \"fix(sessions): add arrow-key navigation and resume to /sessions (#6477)\". LICENSE file at pin 2d47937f5193 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

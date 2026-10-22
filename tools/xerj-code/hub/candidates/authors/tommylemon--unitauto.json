@@ -9,13 +9,14 @@
    "repo": "UnitAuto",
    "url": "https://github.com/TommyLemon/UnitAuto",
    "sha": "e6e6140b41cb84725b0f8e0dba78c2d98807c17c",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin e6e6140b41cb, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-08 (reply to Corpus Hub outreach); selected commit e6e6140b41cb: \"Java: upgrade unitauto-java, unitauto-springboot, demo 3.2.1, unitaut\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-08T15:04Z",
+    "consent_receipt": "23321f55d727",
+    "note": "Inclusion consented by the commit author by email at 2026-10-08T15:04Z (receipt 23321f55d727); selected commit e6e6140b41cb: \"Java: upgrade unitauto-java, unitauto-springboot, demo 3.2.1, unitaut\u2026\". LICENSE file at pin e6e6140b41cb detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

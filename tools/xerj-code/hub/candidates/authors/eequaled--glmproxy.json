@@ -9,13 +9,14 @@
    "repo": "GLM_proxy",
    "url": "https://github.com/eequaled/GLM_proxy",
    "sha": "71bf1a2450918b17a8a14d80747e8ab8fca58421",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 71bf1a245091: \"delete the local desktop-agent fallback and retry a capacity throttle\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "70cfe028eaf6",
+    "note": "author consent by email 2026-10-11T21:44Z (receipt 70cfe028eaf6); selected commit 71bf1a245091: \"delete the local desktop-agent fallback and retry a capacity throttle\u2026\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

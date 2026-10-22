@@ -1,0 +1,23 @@
+{
+ "corpus": "spwn02--switch",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how spwn02/Switch implements it: A modern C++26 testing framework (selected work: src/public, tests, src/private)",
+ "repos": [
+  {
+   "repo": "Switch",
+   "url": "https://github.com/spwn02/Switch",
+   "sha": "a532ed517220a4a6c41f2da0c5d13ea17661cb3b",
+   "licence": "Apache-2.0 (LICENSE file at pin a532ed517220, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T06:10Z",
+    "consent_receipt": "e15a3e116e04",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:10Z (receipt e15a3e116e04); selected commit a532ed517220: \"fix: adapt to the latest Miracle release\". LICENSE file at pin a532ed517220 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

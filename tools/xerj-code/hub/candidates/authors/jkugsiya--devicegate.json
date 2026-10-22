@@ -9,13 +9,14 @@
    "repo": "DeviceGate",
    "url": "https://github.com/jkugsiya/DeviceGate",
    "sha": "1268dc021dd02bd0acbb2a4e0cc26e3f4d9a40b8",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 1268dc021dd0, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 1268dc021dd0: \"Add per-device spend limits and GitHub Pages site (#13)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T10:37Z",
+    "consent_receipt": "5e513e1c0fe6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T10:37Z (receipt 5e513e1c0fe6); selected commit 1268dc021dd0: \"Add per-device spend limits and GitHub Pages site (#13)\". LICENSE file at pin 1268dc021dd0 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

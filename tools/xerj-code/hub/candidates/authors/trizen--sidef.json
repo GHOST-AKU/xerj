@@ -9,13 +9,14 @@
    "repo": "sidef",
    "url": "https://github.com/trizen/sidef",
    "sha": "2ab19584973b0c65b39ee9d133ee11a929bf1152",
-   "licence": "hint only: Artistic-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Artistic-2.0 (LICENSE file at pin 2ab19584973b, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Artistic-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 2ab19584973b: \"- Added support for operaror-precedence inside the Parser.\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T06:25Z",
+    "consent_receipt": "9ef7ff25712c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T06:25Z (receipt 9ef7ff25712c); selected commit 2ab19584973b: \"- Added support for operaror-precedence inside the Parser.\". LICENSE file at pin 2ab19584973b detected as Artistic-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

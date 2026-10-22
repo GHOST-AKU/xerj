@@ -9,13 +9,14 @@
    "repo": "claudescope",
    "url": "https://github.com/vladar107/claudescope",
    "sha": "fc7988a35a50222003d496b3e9cca6da428de4eb",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin fc7988a35a50, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit fc7988a35a50: \"feat(web): rename Skills to Extensions with per-kind tabs\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T07:30Z",
+    "consent_receipt": "05fd89c723cc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T07:30Z (receipt 05fd89c723cc); selected commit fc7988a35a50: \"feat(web): rename Skills to Extensions with per-kind tabs\". LICENSE file at pin fc7988a35a50 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

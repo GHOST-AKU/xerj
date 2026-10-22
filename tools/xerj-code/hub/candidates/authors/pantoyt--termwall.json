@@ -9,13 +9,14 @@
    "repo": "termwall",
    "url": "https://github.com/PantoYT/termwall",
    "sha": "b6f4674866143f180871a0995f24d5d8f00aed8a",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin b6f467486614, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit b6f467486614: \"logo = image: a picture or animated GIF (logo.gif/png/jpg/webp) as ha\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T22:45Z",
+    "consent_receipt": "bcb3c7072093",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T22:45Z (receipt bcb3c7072093); selected commit b6f467486614: \"logo = image: a picture or animated GIF (logo.gif/png/jpg/webp) as ha\u2026\". LICENSE file at pin b6f467486614 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "ngd-b--100-tools",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on nextjs, online-tools, typescript queries this for how ngd-b/100-tools implements it: \u514d\u8d39\u5728\u7ebf\u5de5\u5177\u5408\u96c6\uff1a\u56fe\u7247\u88c1\u526a\u3001GIF \u5236\u4f5c\u3001\u4e8c\u7ef4\u7801\u751f\u6210\u3001\u989c\u8272\u5de5\u5177\u7b49 30+ \u5b9e\u7528\u5de5\u5177\uff0c\u65e0\u9700\u6ce8\u518c\uff0c\u6253\u5f00\u5373\u7528\u3002 (selected work: src/data, src/lib, src/app)",
+ "repos": [
+  {
+   "repo": "100-tools",
+   "url": "https://github.com/ngd-b/100-tools",
+   "sha": "0433b3447d0e53646cc55c328ec299557270df8a",
+   "licence": "MIT (LICENSE file at pin 0433b3447d0e, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T04:41Z",
+    "consent_receipt": "2960ada70ead",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T04:41Z (receipt 2960ada70ead); selected commit 0433b3447d0e: \"feat: \u5b8c\u5584\u5de5\u5177\u7ad9 SEO\u3001\u5206\u7c7b\u9875\u9762\u4e0e\u4f7f\u7528\u8bf4\u660e\". LICENSE file at pin 0433b3447d0e detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

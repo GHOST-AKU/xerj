@@ -9,13 +9,14 @@
    "repo": "Aura",
    "url": "https://github.com/GoobusTheNoobus/Aura",
    "sha": "52a61fada5cb1b938c120e015b108df218d2defc",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 52a61fada5cb, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 52a61fada5cb: \"Added assignments and chain assignments\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T19:20Z",
+    "consent_receipt": "e33f41385397",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T19:20Z (receipt e33f41385397); selected commit 52a61fada5cb: \"Added assignments and chain assignments\". LICENSE file at pin 52a61fada5cb detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

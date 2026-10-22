@@ -9,13 +9,14 @@
    "repo": "temps",
    "url": "https://github.com/gotempsh/temps",
    "sha": "93996692ddf73e247843abead561a9ffef098d35",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 93996692ddf7: \"feat(git): optionally clone only the project root directory (#1067)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "63ad40a06aa7",
+    "note": "author consent by email 2026-10-15T04:22Z (receipt 63ad40a06aa7); selected commit 93996692ddf7: \"feat(git): optionally clone only the project root directory (#1067)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

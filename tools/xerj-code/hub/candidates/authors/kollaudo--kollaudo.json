@@ -1,0 +1,23 @@
+{
+ "corpus": "kollaudo--kollaudo",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on cdevents, continuous-delivery, ctrf queries this for how kollaudo/kollaudo implements it: The health passport of every version: collects test results from any tool, then judges whether it can be promoted, politely \u2728 (selected work: packages/cli, apps/server, packages/schema)",
+ "repos": [
+  {
+   "repo": "kollaudo",
+   "url": "https://github.com/kollaudo/kollaudo",
+   "sha": "7c67392530e671cd762607278078332483376254",
+   "licence": "Apache-2.0 (LICENSE file at pin 7c67392530e6, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:42Z",
+    "consent_receipt": "b1199d43a229",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:42Z (receipt b1199d43a229); selected commit 7c67392530e6: \"feat(cli): add deployed list (#130)\". LICENSE file at pin 7c67392530e6 detected as Apache-2.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

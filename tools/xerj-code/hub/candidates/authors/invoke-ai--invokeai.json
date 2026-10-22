@@ -9,13 +9,14 @@
    "repo": "InvokeAI",
    "url": "https://github.com/invoke-ai/InvokeAI",
    "sha": "f128d584a9bf6efed5eec5f2d050e497ca02ace9",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit f128d584a9bf: \"fix(models): record pipeline components relative to the model folder\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "561d0c73296c",
+    "note": "author consent by email 2026-10-16T00:32Z (receipt 561d0c73296c); selected commit f128d584a9bf: \"fix(models): record pipeline components relative to the model folder\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

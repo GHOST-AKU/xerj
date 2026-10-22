@@ -9,13 +9,14 @@
    "repo": "incognide",
    "url": "https://github.com/NPC-Worldwide/incognide",
    "sha": "b31dffa21f6810f2103b6e7c242a5e00679204b5",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin b31dffa21f68, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-06 (reply to Corpus Hub outreach); selected commit b31dffa21f68: \"agent context usage meter fixes and compression in agents\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-06T04:14Z",
+    "consent_receipt": "e4db6f558b7d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T04:14Z (receipt e4db6f558b7d); selected commit b31dffa21f68: \"agent context usage meter fixes and compression in agents\". LICENSE file at pin b31dffa21f68 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

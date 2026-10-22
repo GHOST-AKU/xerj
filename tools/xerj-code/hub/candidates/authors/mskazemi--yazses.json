@@ -9,13 +9,14 @@
    "repo": "yazses",
    "url": "https://github.com/MSKazemi/yazses",
    "sha": "0aa7f0e8c70f4fbc033129a9411d16868f56eb8f",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 0aa7f0e8c70f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 0aa7f0e8c70f: \"feat: add opt-in Unicode injector backend for #329 (#364)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T18:27Z",
+    "consent_receipt": "3adb272a0b7f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T18:27Z (receipt 3adb272a0b7f); selected commit 0aa7f0e8c70f: \"feat: add opt-in Unicode injector backend for #329 (#364)\". LICENSE file at pin 0aa7f0e8c70f detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "open-edge-platform--dlstreamer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on gstreamer, gstreamer-plugins, inference queries this for how open-edge-platform/dlstreamer implements it: Deep Learning Streamer (DL Streamer) Pipeline Framework is an open-source streaming media analytics framework, based on GStreamer* multimedi (selected work: tests, src/monolithic)",
+ "repos": [
+  {
+   "repo": "dlstreamer",
+   "url": "https://github.com/open-edge-platform/dlstreamer",
+   "sha": "81d58a25af7bb1040fbdfc333c9640bbc5f4f957",
+   "licence": "MIT (LICENSE file at pin 81d58a25af7b, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T06:27Z",
+    "consent_receipt": "f2285df8f715",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:27Z (receipt f2285df8f715); selected commit 81d58a25af7b: \"[GVAWATERMARK] Fix seg mask dims (#1131)\". LICENSE file at pin 81d58a25af7b detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

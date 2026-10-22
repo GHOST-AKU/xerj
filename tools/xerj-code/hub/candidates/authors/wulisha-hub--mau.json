@@ -9,13 +9,14 @@
    "repo": "mau",
    "url": "https://github.com/WuLiSha-HUB/mau",
    "sha": "24f11b6be6c78bf1d6d029c5dd4ccc5c36a198a0",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 24f11b6be6c7, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 24f11b6be6c7: \"v1.8.141 A260 startup resilience phase 1 - degradation registry + fiv\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T05:36Z",
+    "consent_receipt": "729e9b7aa770",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T05:36Z (receipt 729e9b7aa770); selected commit 24f11b6be6c7: \"v1.8.141 A260 startup resilience phase 1 - degradation registry + fiv\u2026\". LICENSE file at pin 24f11b6be6c7 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

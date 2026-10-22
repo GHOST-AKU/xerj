@@ -1,0 +1,23 @@
+{
+ "corpus": "astro-ascendant--skills",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on astrology-ai, claude-skills, opencode-plugin queries this for how astro-ascendant/skills implements it: AI Skills and Tools for Astrology Analysis and Prediction (selected work: packages/opencode-ascendant, skills, scripts)",
+ "repos": [
+  {
+   "repo": "ascendant-agents",
+   "url": "https://github.com/thaletto/ascendant-agents",
+   "sha": "221593a46fff63e25e821b40f8bf1ca48b4d8238",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: not checked yet)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "3a85fc1afb41",
+    "note": "author consent by email 2026-10-16T20:40Z (receipt 3a85fc1afb41); selected commit 221593a46fff: \"fix(opencode): load plugin on host effect beta via platform-bun\"; LICENSE at pin: not checked yet vs repository AGPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

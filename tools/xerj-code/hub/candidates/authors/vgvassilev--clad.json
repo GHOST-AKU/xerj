@@ -9,13 +9,14 @@
    "repo": "clad",
    "url": "https://github.com/vgvassilev/clad",
    "sha": "6493bba139dea1417efe8a05eb144c57a983a632",
-   "licence": "hint only: LGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: LGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "LGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 6493bba139de: \"Fix adjoint shape for objects (#2212)\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "589c11b2fc2f",
+    "note": "author consent by email 2026-10-15T17:48Z (receipt 589c11b2fc2f); selected commit 6493bba139de: \"Fix adjoint shape for objects (#2212)\"; LICENSE at pin: NOASSERTION vs repository LGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

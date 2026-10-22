@@ -9,13 +9,14 @@
    "repo": "aml-core",
    "url": "https://github.com/aruintelligence/aml-core",
    "sha": "6644018b23dab9c89bbb7af0d52a29652fb6de70",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 6644018b23da: \"Bind action receipts to one validated dispatch snapshot (#340)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "27bd21a09e9b",
+    "note": "author consent by email 2026-10-14T18:37Z (receipt 27bd21a09e9b); selected commit 6644018b23da: \"Bind action receipts to one validated dispatch snapshot (#340)\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

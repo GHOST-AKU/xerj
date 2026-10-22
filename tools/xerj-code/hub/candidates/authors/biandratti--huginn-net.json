@@ -9,13 +9,14 @@
    "repo": "huginn-net",
    "url": "https://github.com/biandratti/huginn-net",
    "sha": "aa8956ea0fd46f9d39e4bbbfb22817d55c860a2c",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit aa8956ea0fd4: \"update tcp-syn db (#332)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "db8ec3e7bcbe",
+    "note": "author consent by email 2026-10-10T05:19Z (receipt db8ec3e7bcbe); selected commit aa8956ea0fd4: \"update tcp-syn db (#332)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

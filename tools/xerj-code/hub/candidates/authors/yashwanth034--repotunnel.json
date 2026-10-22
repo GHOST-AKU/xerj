@@ -9,13 +9,14 @@
    "repo": "RepoTunnel",
    "url": "https://github.com/Yashwanth034/RepoTunnel",
    "sha": "a3409aa7d94987793619e074a77718ef52e7baa0",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin a3409aa7d949, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit a3409aa7d949: \"feat: add RepoTunnel continuation extension\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T19:45Z",
+    "consent_receipt": "7fee8fbe9489",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T19:45Z (receipt 7fee8fbe9489); selected commit a3409aa7d949: \"feat: add RepoTunnel continuation extension\". LICENSE file at pin a3409aa7d949 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

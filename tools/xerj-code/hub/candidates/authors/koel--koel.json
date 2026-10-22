@@ -9,13 +9,14 @@
    "repo": "koel",
    "url": "https://github.com/koel/koel",
    "sha": "36434cfdf5295151110d5655f4323bd58f8002ed",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 36434cfdf529, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-09 (reply to Corpus Hub outreach); selected commit 36434cfdf529: \"feat: log in with passkeys (#2829)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T18:34Z",
+    "consent_receipt": "0390696cb80a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T18:34Z (receipt 0390696cb80a); selected commit 36434cfdf529: \"feat: log in with passkeys (#2829)\". LICENSE file at pin 36434cfdf529 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

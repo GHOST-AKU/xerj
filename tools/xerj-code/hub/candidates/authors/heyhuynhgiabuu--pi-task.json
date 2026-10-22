@@ -9,13 +9,14 @@
    "repo": "pi-task",
    "url": "https://github.com/heyhuynhgiabuu/pi-task",
    "sha": "0f2112b362462374a3ec8b3a6b1a702f05414e29",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 0f2112b36246, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-06 (reply to Corpus Hub outreach); selected commit 0f2112b36246: \"feat(agents): owner-scoped history with overlay browsing\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-06T08:30Z",
+    "consent_receipt": "e06d09008e7b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T08:30Z (receipt e06d09008e7b); selected commit 0f2112b36246: \"feat(agents): owner-scoped history with overlay browsing\". LICENSE file at pin 0f2112b36246 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

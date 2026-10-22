@@ -9,13 +9,14 @@
    "repo": "ROCmFPX",
    "url": "https://github.com/ROCmFPX/ROCmFPX",
    "sha": "0da2ff58d1449fa33314c7a72e7ac8c6ec2bb458",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 0da2ff58d144, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 0da2ff58d144: \"qwen4exp: per-context, per-sequence MTP draft vocabulary, on by default\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T02:04Z",
+    "consent_receipt": "0fb103d1e848",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T02:04Z (receipt 0fb103d1e848); selected commit 0da2ff58d144: \"qwen4exp: per-context, per-sequence MTP draft vocabulary, on by default\". LICENSE file at pin 0da2ff58d144 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

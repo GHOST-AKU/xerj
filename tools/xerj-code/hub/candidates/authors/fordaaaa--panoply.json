@@ -1,0 +1,23 @@
+{
+ "corpus": "fordaaaa--panoply",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, claude-code, code-review queries this for how fordaaaa/panoply implements it: Slash commands and MCP servers for AI agents, written once and compiled everywhere (selected work: lib/harness, tests, bin)",
+ "repos": [
+  {
+   "repo": "panoply",
+   "url": "https://github.com/fordaaaa/panoply",
+   "sha": "97abbc85599a2a7201673f6fe7054fd77d69b6cd",
+   "licence": "MIT (LICENSE file at pin 97abbc85599a, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:41Z",
+    "consent_receipt": "4de02af7027d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:41Z (receipt 4de02af7027d); selected commit 97abbc85599a: \"feat: add deterministic harness with gates, verify and blast radius\". LICENSE file at pin 97abbc85599a detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "talon",
    "url": "https://github.com/thefalconry/talon",
    "sha": "ac9c5a98a1ce6f299fc22d2605bc5321515950b0",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-09 (reply to Corpus Hub outreach); selected commit ac9c5a98a1ce: \"feat(claude): support multiple Claude accounts as distinct backends (\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "caeca734e4e1",
+    "note": "author consent by email 2026-10-09T19:06Z (receipt caeca734e4e1); selected commit ac9c5a98a1ce: \"feat(claude): support multiple Claude accounts as distinct backends (\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

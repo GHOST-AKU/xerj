@@ -9,13 +9,14 @@
    "repo": "bpp",
    "url": "https://github.com/bullet-physics-playground/bpp",
    "sha": "945dd811424eb20463402525a13f7d310a588fcb",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "AGPL-3.0 (LICENSE file at pin 945dd811424e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 945dd811424e: \"Adding to Euler's Gallery\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-13T07:23Z",
+    "consent_receipt": "7f2843e39870",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:23Z (receipt 7f2843e39870); selected commit 945dd811424e: \"Adding to Euler's Gallery\". LICENSE file at pin 945dd811424e detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

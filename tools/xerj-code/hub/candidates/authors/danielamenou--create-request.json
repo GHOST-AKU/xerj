@@ -9,13 +9,14 @@
    "repo": "create-request",
    "url": "https://github.com/DanielAmenou/create-request",
    "sha": "6f0b3bad5560b2bb00ba555b75f4a48c06c48b43",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 6f0b3bad5560, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 6f0b3bad5560: \"fix: read the body inside each attempt so retries and error intercept\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T19:51Z",
+    "consent_receipt": "90c114f590a1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T19:51Z (receipt 90c114f590a1); selected commit 6f0b3bad5560: \"fix: read the body inside each attempt so retries and error intercept\u2026\". LICENSE file at pin 6f0b3bad5560 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

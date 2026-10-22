@@ -1,0 +1,23 @@
+{
+ "corpus": "avslab--basilisk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on astrodynamics, control, dynamics queries this for how AVSLab/basilisk implements it: Astrodynamics simulation framework (selected work: src/simulation)",
+ "repos": [
+  {
+   "repo": "basilisk",
+   "url": "https://github.com/AVSLab/basilisk",
+   "sha": "5aa048c327a359e84160c0356462f823a8b13d96",
+   "licence": "ISC (LICENSE file at pin 5aa048c327a3, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "ISC",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T06:59Z",
+    "consent_receipt": "19c5406255d8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T06:59Z (receipt 19c5406255d8); selected commit 5aa048c327a3: \"[#1619] fix imuSensor delta v\". LICENSE file at pin 5aa048c327a3 detected as ISC by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

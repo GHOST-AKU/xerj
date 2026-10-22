@@ -9,13 +9,14 @@
    "repo": "aginit",
    "url": "https://github.com/antomanc/aginit",
    "sha": "cc764c47d1a5a6b8071de3473a5f36c2e1e3f6e8",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin cc764c47d1a5, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit cc764c47d1a5: \"Polish v2 wizard defaults and portable Claude helpers\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T05:19Z",
+    "consent_receipt": "e9e5e4dcb8ad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T05:19Z (receipt e9e5e4dcb8ad); selected commit cc764c47d1a5: \"Polish v2 wizard defaults and portable Claude helpers\". LICENSE file at pin cc764c47d1a5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

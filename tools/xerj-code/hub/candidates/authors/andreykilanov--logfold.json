@@ -9,13 +9,14 @@
    "repo": "logfold",
    "url": "https://github.com/AndreyKilanov/logfold",
    "sha": "b6715a6918f3d7b72b8ee000aa49c1081d1ff696",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin b6715a6918f3, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-06 (reply to Corpus Hub outreach); selected commit b6715a6918f3: \"feat(cli): add inspect, a level filter and clearer terminal output (#64)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-06T10:37Z",
+    "consent_receipt": "d338a2ff0ac2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T10:37Z (receipt d338a2ff0ac2); selected commit b6715a6918f3: \"feat(cli): add inspect, a level filter and clearer terminal output (#64)\". LICENSE file at pin b6715a6918f3 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

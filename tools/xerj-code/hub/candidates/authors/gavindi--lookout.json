@@ -1,0 +1,23 @@
+{
+ "corpus": "gavindi--lookout",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how gavindi/lookout implements it: Lookout is a native GNOME mail client written in Rust on GTK 4 \u2014 mail, calendar, contacts and tasks in one window, laid out the way you alre (selected work: source)",
+ "repos": [
+  {
+   "repo": "lookout",
+   "url": "https://github.com/gavindi/lookout",
+   "sha": "571b1c829122bf3072df64ac32352ada9fcd2b93",
+   "licence": "GPL-3.0 (LICENSE file at pin 571b1c829122, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-21T05:56Z",
+    "consent_receipt": "7f42d22f3715",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T05:56Z (receipt 7f42d22f3715); selected commit 571b1c829122: \"Fixed a Gmail \"All Mail\" folder (and any large folder) staying empty \u2026\". LICENSE file at pin 571b1c829122 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

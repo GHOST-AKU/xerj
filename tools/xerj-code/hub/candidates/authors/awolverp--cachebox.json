@@ -9,13 +9,14 @@
    "repo": "cachebox",
    "url": "https://github.com/awolverp/cachebox",
    "sha": "b4f7ae20a5c44749719344acf13cbc71f480813c",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-08 (reply to Corpus Hub outreach); selected commit b4f7ae20a5c4: \"Fix lint warnings, add ruff and mypy as `lint` dependency\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "b58628b87896",
+    "note": "author consent by email 2026-10-08T09:26Z (receipt b58628b87896); selected commit b4f7ae20a5c4: \"Fix lint warnings, add ruff and mypy as `lint` dependency\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

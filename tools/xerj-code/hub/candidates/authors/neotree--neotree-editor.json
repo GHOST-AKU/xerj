@@ -1,0 +1,23 @@
+{
+ "corpus": "neotree--neotree-editor",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how neotree/neotree-editor implements it: neotree/neotree-editor (TypeScript) (selected work: lib, app/(dashboard), hooks)",
+ "repos": [
+  {
+   "repo": "neotree-editor",
+   "url": "https://github.com/neotree/neotree-editor",
+   "sha": "18e1be801497ad5a1cc8940fdeb1444d0d7b8951",
+   "licence": "MIT (LICENSE file at pin 18e1be801497, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:21Z",
+    "consent_receipt": "e1c15b012212",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:21Z (receipt e1c15b012212); selected commit 18e1be801497: \"show dif on content sync toggle\". LICENSE file at pin 18e1be801497 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

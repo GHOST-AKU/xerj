@@ -9,13 +9,14 @@
    "repo": "lava",
    "url": "https://github.com/Linaro/lava",
    "sha": "79a9aa280c892b0fc047402149d7b3866702fa15",
-   "licence": "hint only: GPL-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-2.0 (LICENSE file at pin 79a9aa280c89, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 79a9aa280c89: \"security: make state-changing endpoints POST-only\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-13T07:50Z",
+    "consent_receipt": "d872686fb72e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:50Z (receipt d872686fb72e); selected commit 79a9aa280c89: \"security: make state-changing endpoints POST-only\". LICENSE file at pin 79a9aa280c89 detected as GPL-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

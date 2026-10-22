@@ -1,0 +1,23 @@
+{
+ "corpus": "formal-applied-math--formal-mathfin",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on black-scholes, formal-verification, lean4 queries this for how formal-applied-math/formal-mathfin implements it: The Lean Financial Mathematics Library (selected work: MathFin)",
+ "repos": [
+  {
+   "repo": "formal-mathfin",
+   "url": "https://github.com/formal-applied-math/formal-mathfin",
+   "sha": "edb09986c458216f140a00e203ac20c2dc043e08",
+   "licence": "Apache-2.0 (LICENSE file at pin edb09986c458, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T04:13Z",
+    "consent_receipt": "07f7b577fa9c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T04:13Z (receipt 07f7b577fa9c); selected commit edb09986c458: \"fix: act on the values review of #251, #253, #274, #278, #279, #280\". LICENSE file at pin edb09986c458 detected as Apache-2.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "ThirdBrain-skills-mcp",
    "url": "https://github.com/cbruyndoncx/ThirdBrain-skills-mcp",
    "sha": "f6ff18a2d4d2dfb8a3343900aa4d2a6735826ca7",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin f6ff18a2d4d2, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit f6ff18a2d4d2: \"Fix reviewed security and integrity issues\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T08:19Z",
+    "consent_receipt": "55fba79d0b9d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T08:19Z (receipt 55fba79d0b9d); selected commit f6ff18a2d4d2: \"Fix reviewed security and integrity issues\". LICENSE file at pin f6ff18a2d4d2 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

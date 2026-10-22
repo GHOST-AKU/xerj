@@ -1,0 +1,23 @@
+{
+ "corpus": "xavierwanghx--pi-distributed",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on TypeScript queries this for how XavierWangHX/pi-distributed implements it: One brain, many hands: a fork of earendil-works/pi with multi-machine execution envs, PostgreSQL-backed sessions & fleet, machine-pinned sub (selected work: packages/coding-agent)",
+ "repos": [
+  {
+   "repo": "pi-distributed",
+   "url": "https://github.com/XavierWangHX/pi-distributed",
+   "sha": "cd372a7dd173157cc9203727b32ae9f83aad65b8",
+   "licence": "MIT (LICENSE file at pin cd372a7dd173, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T04:12Z",
+    "consent_receipt": "06cfcf30934b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T04:12Z (receipt 06cfcf30934b); selected commit cd372a7dd173: \"subagent: background runs on ownerless children, with wait/stop and c\u2026\". LICENSE file at pin cd372a7dd173 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

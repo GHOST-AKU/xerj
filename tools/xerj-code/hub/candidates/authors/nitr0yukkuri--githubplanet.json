@@ -9,13 +9,14 @@
    "repo": "githubplanet",
    "url": "https://github.com/nitr0yukkuri/githubplanet",
    "sha": "104a365b0d12018ed57d2ef1278c79226c1082f0",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 104a365b0d12, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 104a365b0d12: \"OAuth\u5931\u6557\u7406\u7531\u3092\u79d8\u5bc6\u60c5\u5831\u306a\u3057\u3067\u8a3a\u65ad\u3059\u308b\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T00:17Z",
+    "consent_receipt": "29b956b29eee",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T00:17Z (receipt 29b956b29eee); selected commit 104a365b0d12: \"OAuth\u5931\u6557\u7406\u7531\u3092\u79d8\u5bc6\u60c5\u5831\u306a\u3057\u3067\u8a3a\u65ad\u3059\u308b\". LICENSE file at pin 104a365b0d12 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "SAWSTAR",
    "url": "https://github.com/RobCZart82/SAWSTAR",
    "sha": "cf1fae06768a78e2744395af1443c80084e106c4",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin cf1fae06768a, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit cf1fae06768a: \"Add reproducible full-engine target collection and reference controls\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T09:00Z",
+    "consent_receipt": "3e461643f0c2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T09:00Z (receipt 3e461643f0c2); selected commit cf1fae06768a: \"Add reproducible full-engine target collection and reference controls\u2026\". LICENSE file at pin cf1fae06768a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

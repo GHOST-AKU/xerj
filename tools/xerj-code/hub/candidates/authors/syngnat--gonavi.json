@@ -9,13 +9,14 @@
    "repo": "GoNavi",
    "url": "https://github.com/Syngnat/GoNavi",
    "sha": "2dbed25ddfe7bc76ded6ecdf16cfa7f7c6408aa0",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 2dbed25ddfe7, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-07 (reply to Corpus Hub outreach); selected commit 2dbed25ddfe7: \"\ud83d\udc1b fix(ai-chat): \u5185\u7f6e AI \u89e3\u91ca\u548c\u4f18\u5316 SQL \u65f6\u4e0d\u518d\u53ea\u590d\u8ff0\u539f\u53e5\uff0c\u4e5f\u4e0d\u518d\u7f16\u9020\u67e5\u8be2\u7ed3\u679c\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-07T00:38Z",
+    "consent_receipt": "fec31ed91e84",
+    "note": "Inclusion consented by the commit author by email at 2026-10-07T00:38Z (receipt fec31ed91e84); selected commit 2dbed25ddfe7: \"\ud83d\udc1b fix(ai-chat): \u5185\u7f6e AI \u89e3\u91ca\u548c\u4f18\u5316 SQL \u65f6\u4e0d\u518d\u53ea\u590d\u8ff0\u539f\u53e5\uff0c\u4e5f\u4e0d\u518d\u7f16\u9020\u67e5\u8be2\u7ed3\u679c\". LICENSE file at pin 2dbed25ddfe7 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

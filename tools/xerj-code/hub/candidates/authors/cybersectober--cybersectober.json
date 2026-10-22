@@ -9,13 +9,14 @@
    "repo": "Cybersectober",
    "url": "https://github.com/CyberSecTober/Cybersectober",
    "sha": "c395729f744acb3f50b455a527dedd528b00852d",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit c395729f744a: \"feat(ai-security): add LogPilot AI authentication log analyzer (#123)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "c0ee74c50200",
+    "note": "author consent by email 2026-10-19T05:51Z (receipt c0ee74c50200); selected commit c395729f744a: \"feat(ai-security): add LogPilot AI authentication log analyzer (#123)\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "StaticCs",
    "url": "https://github.com/agocke/StaticCs",
    "sha": "00ce62c73704a2558dc2ab8ea0af10b29988f683",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 00ce62c73704, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 00ce62c73704: \"Add hard-link support to PathRoot (#43)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T21:02Z",
+    "consent_receipt": "fbe11c4f5f9e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T21:02Z (receipt fbe11c4f5f9e); selected commit 00ce62c73704: \"Add hard-link support to PathRoot (#43)\". LICENSE file at pin 00ce62c73704 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

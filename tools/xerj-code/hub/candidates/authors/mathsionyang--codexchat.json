@@ -1,0 +1,23 @@
+{
+ "corpus": "mathsionyang--codexchat",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how MathsionYang/CodexChat- implements it: OpenAI Codex VS Code \u6269\u5c55\u7684\u672c\u5730\u4f1a\u8bdd\u4f34\u751f\u7ba1\u7406\u5668\u3002\u5b83\u8bfb\u53d6\u672c\u673a .codex \u6570\u636e\u76ee\u5f55\uff0c\u6309\u4f1a\u8bdd\u4e2d\u7684 cwd \u5c06\u5386\u53f2\u4f1a\u8bdd\u5f52\u5165\u9879\u76ee\u6587\u4ef6\u5939\u3002 (selected work: test, src, media)",
+ "repos": [
+  {
+   "repo": "CodexChat-",
+   "url": "https://github.com/MathsionYang/CodexChat-",
+   "sha": "57dbcbccc7f2ab95f8f119808eb7dc6e2a856d1c",
+   "licence": "MIT (LICENSE file at pin 57dbcbccc7f2, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T09:03Z",
+    "consent_receipt": "c7c33b75559d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T09:03Z (receipt c7c33b75559d); selected commit 57dbcbccc7f2: \"feat: add persistent pins and confirmed deletion in 0.1.9\". LICENSE file at pin 57dbcbccc7f2 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

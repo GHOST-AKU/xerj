@@ -9,13 +9,14 @@
    "repo": "antigravity-mcp-bridge",
    "url": "https://github.com/Daniiislo/antigravity-mcp-bridge",
    "sha": "2a965d41f1450ec09db335ef22554afec64309e3",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 2a965d41f145, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit 2a965d41f145: \"Eliminate model-driven task wait polling\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T10:44Z",
+    "consent_receipt": "2036766cf6ba",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T10:44Z (receipt 2036766cf6ba); selected commit 2a965d41f145: \"Eliminate model-driven task wait polling\". LICENSE file at pin 2a965d41f145 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

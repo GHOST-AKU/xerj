@@ -9,13 +9,14 @@
    "repo": "ios",
    "url": "https://github.com/nextcloud/ios",
    "sha": "4ac2f0d797dbfdf31f65f2c1c9fe6b21062dc5d0",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: GPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 4ac2f0d797db: \"fix: add fullscreen video menus and improve playback transitions (#4375)\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "4b16e08b7bc7",
+    "note": "author consent by email 2026-10-13T07:11Z (receipt 4b16e08b7bc7); selected commit 4ac2f0d797db: \"fix: add fullscreen video menus and improve playback transitions (#4375)\"; LICENSE at pin: NOASSERTION vs repository GPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

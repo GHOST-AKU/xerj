@@ -1,0 +1,23 @@
+{
+ "corpus": "raptordnj--goti",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Go queries this for how raptordnj/goti implements it: SwiftFetch \u2014 intelligent cross-platform download manager in Go (selected work: scripts, internal/mobile, android)",
+ "repos": [
+  {
+   "repo": "goti",
+   "url": "https://github.com/raptordnj/goti",
+   "sha": "9b056da43f80bb509b30fcf59a05c2c0c398b7c7",
+   "licence": "MIT (LICENSE file at pin 9b056da43f80, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T06:10Z",
+    "consent_receipt": "1571687593c9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:10Z (receipt 1571687593c9); selected commit 9b056da43f80: \"test(android): emulator smoke script and debug add intent\". LICENSE file at pin 9b056da43f80 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

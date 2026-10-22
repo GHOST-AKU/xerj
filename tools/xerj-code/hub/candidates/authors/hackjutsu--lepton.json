@@ -9,13 +9,14 @@
    "repo": "Lepton",
    "url": "https://github.com/hackjutsu/Lepton",
    "sha": "209f2724b2f500ad5001402b2a4735f7de35f6bb",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 209f2724b2f5: \"Add Shift-enabled multi-tag filtering (#679)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "53d516a2aae2",
+    "note": "author consent by email 2026-10-13T01:34Z (receipt 53d516a2aae2); selected commit 209f2724b2f5: \"Add Shift-enabled multi-tag filtering (#679)\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

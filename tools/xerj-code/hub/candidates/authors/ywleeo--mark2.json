@@ -9,13 +9,14 @@
    "repo": "mark2",
    "url": "https://github.com/ywleeo/mark2",
    "sha": "e6f8d69fea6f9332c921b0a33d488dc2cc6595e2",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin e6f8d69fea6f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit e6f8d69fea6f: \"feat: improve AI document editing and chat controls\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T04:36Z",
+    "consent_receipt": "9c44a67a0357",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T04:36Z (receipt 9c44a67a0357); selected commit e6f8d69fea6f: \"feat: improve AI document editing and chat controls\". LICENSE file at pin e6f8d69fea6f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

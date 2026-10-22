@@ -9,13 +9,14 @@
    "repo": "eov",
    "url": "https://github.com/eosin-platform/eov",
    "sha": "69b1151bac758819b8ad0f13229a9e07f8005af2",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 69b1151bac75: \"clippy\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "70a705926041",
+    "note": "author consent by email 2026-10-16T16:31Z (receipt 70a705926041); selected commit 69b1151bac75: \"clippy\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

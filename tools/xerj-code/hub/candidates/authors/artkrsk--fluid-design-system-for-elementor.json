@@ -9,13 +9,14 @@
    "repo": "fluid-design-system-for-elementor",
    "url": "https://github.com/artkrsk/fluid-design-system-for-elementor",
    "sha": "245a626a1ed813a8ee41621ad27179226cac0d72",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin 245a626a1ed8, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 245a626a1ed8: \"feat: let themes register preset groups through a filter\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-17T05:54Z",
+    "consent_receipt": "a78b78473893",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T05:54Z (receipt a78b78473893); selected commit 245a626a1ed8: \"feat: let themes register preset groups through a filter\". LICENSE file at pin 245a626a1ed8 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

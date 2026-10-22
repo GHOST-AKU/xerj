@@ -1,0 +1,23 @@
+{
+ "corpus": "hylfrd--zhengya-sharedtoolbox",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Hylfrd/zhengya-sharedtoolbox implements it: \u9762\u5411 BNBU \u6b63\u96c5\u82d1\u7684\u5171\u4eab\u5de5\u5177\u7bb1\u501f\u8fd8\u4e0e\u7ba1\u7406\u7cfb\u7edf (selected work: frontend)",
+ "repos": [
+  {
+   "repo": "tongtongsuo",
+   "url": "https://github.com/Hylfrd/tongtongsuo",
+   "sha": "08254cffc8a96fe8a190a0e2f0f0122f56f55b14",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: not checked yet)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "1411d9a01da0",
+    "note": "author consent by email 2026-10-20T10:00Z (receipt 1411d9a01da0); selected commit 08254cffc8a9: \"fix(admin): autosave AI settings and align shared controls\"; LICENSE at pin: not checked yet vs repository AGPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

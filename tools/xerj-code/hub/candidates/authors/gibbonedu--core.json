@@ -1,0 +1,23 @@
+{
+ "corpus": "gibbonedu--core",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on PHP queries this for how GibbonEdu/core implements it: Gibbon is a flexible, open source school management platform designed to make life better for teachers, students, parents and leaders (selected work: the project root, resources, tests)",
+ "repos": [
+  {
+   "repo": "core",
+   "url": "https://github.com/GibbonEdu/core",
+   "sha": "683d2c4d2ebc03cc62592b2796185dc1e21338f9",
+   "licence": "GPL-3.0 (LICENSE file at pin 683d2c4d2ebc, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-21T01:40Z",
+    "consent_receipt": "daa39ea2be63",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T01:40Z (receipt daa39ea2be63); selected commit 683d2c4d2ebc: \"Docker: Based on PR# 2160 by Peter Li (fixed code breaking the CI pip\u2026\". LICENSE file at pin 683d2c4d2ebc detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

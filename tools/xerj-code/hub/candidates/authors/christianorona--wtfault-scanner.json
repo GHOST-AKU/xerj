@@ -9,13 +9,14 @@
    "repo": "wtfault-scanner",
    "url": "https://github.com/christianOrona/wtfault-scanner",
    "sha": "12431d09eaf2fa985a9b94dc965565908e880b6d",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 12431d09eaf2: \"feat: the vehicle is drawn in 3D, with the part of it a fault is in l\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "e9ca68dc0f03",
+    "note": "author consent by email 2026-10-14T00:27Z (receipt e9ca68dc0f03); selected commit 12431d09eaf2: \"feat: the vehicle is drawn in 3D, with the part of it a fault is in l\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

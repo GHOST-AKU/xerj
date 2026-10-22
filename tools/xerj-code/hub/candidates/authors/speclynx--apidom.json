@@ -1,0 +1,23 @@
+{
+ "corpus": "speclynx--apidom",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on api, asyncapi, asyncapi2 queries this for how speclynx/apidom implements it: Semantic parser for API specifications (selected work: packages/apidom-parser-adapter-yaml-1-2)",
+ "repos": [
+  {
+   "repo": "apidom",
+   "url": "https://github.com/speclynx/apidom",
+   "sha": "24090d3cb9a18fa26a03b3b1d2bb127e49d74c2c",
+   "licence": "Apache-2.0 (LICENSE file at pin 24090d3cb9a1, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T19:44Z",
+    "consent_receipt": "bd4c6ef9f287",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T19:44Z (receipt bd4c6ef9f287); selected commit 24090d3cb9a1: \"fix(parser-adapter-yaml-1-2): keep trailing whitespace of block lines\u2026\". LICENSE file at pin 24090d3cb9a1 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

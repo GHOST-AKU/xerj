@@ -9,13 +9,14 @@
    "repo": "ebiten",
    "url": "https://github.com/hajimehoshi/ebiten",
    "sha": "db1d60842e06eda6149fa9243b29b9fae402ff67",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit db1d60842e06: \"ebiten: add Image.ReadPixelsAsync (#3828)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "44026688abcb",
+    "note": "author consent by email 2026-10-14T15:27Z (receipt 44026688abcb); selected commit db1d60842e06: \"ebiten: add Image.ReadPixelsAsync (#3828)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "agent-barn",
    "url": "https://github.com/aai-labs/agent-barn",
    "sha": "b537658be9a2f3a0f6d6678a790072676da9d448",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin b537658be9a2, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit b537658be9a2: \"fix(templates): restore built-in snapshots into organization drafts\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T14:38Z",
+    "consent_receipt": "eece24df6adf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T14:38Z (receipt eece24df6adf); selected commit b537658be9a2: \"fix(templates): restore built-in snapshots into organization drafts\". LICENSE file at pin b537658be9a2 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

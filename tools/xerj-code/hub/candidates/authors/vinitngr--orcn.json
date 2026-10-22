@@ -9,13 +9,14 @@
    "repo": "Orcn",
    "url": "https://github.com/vinitngr/Orcn",
    "sha": "f0f381b4044939a3e90924bf78aa80358250baed",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin f0f381b40449, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit f0f381b40449: \"fix(vllm): improve validation and handle invalid configurations\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T20:53Z",
+    "consent_receipt": "ed3f4879a311",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T20:53Z (receipt ed3f4879a311); selected commit f0f381b40449: \"fix(vllm): improve validation and handle invalid configurations\". LICENSE file at pin f0f381b40449 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

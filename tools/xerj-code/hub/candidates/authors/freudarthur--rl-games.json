@@ -9,13 +9,14 @@
    "repo": "RL-Games",
    "url": "https://github.com/FreudArthur/RL-Games",
    "sha": "d52353eb22f947df95b6fd54c1802adfcf2220c4",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin d52353eb22f9, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit d52353eb22f9: \"Add new gameplay videos and update existing video file\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T20:47Z",
+    "consent_receipt": "e1d99b0568f0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T20:47Z (receipt e1d99b0568f0); selected commit d52353eb22f9: \"Add new gameplay videos and update existing video file\". LICENSE file at pin d52353eb22f9 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

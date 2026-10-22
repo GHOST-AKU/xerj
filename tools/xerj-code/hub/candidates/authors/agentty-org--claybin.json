@@ -9,13 +9,14 @@
    "repo": "claybin",
    "url": "https://github.com/1ay1/claybin",
    "sha": "d5394995227c22537a388683e41ef25d50c958bb",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit d5394995227c: \"windows: the apply step -- appcontainer, restricted token, job object\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "0ba1da1961a1",
+    "note": "author consent by email 2026-10-19T07:16Z (receipt 0ba1da1961a1); selected commit d5394995227c: \"windows: the apply step -- appcontainer, restricted token, job object\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

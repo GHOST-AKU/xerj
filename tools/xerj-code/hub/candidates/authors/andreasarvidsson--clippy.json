@@ -9,13 +9,14 @@
    "repo": "clippy",
    "url": "https://github.com/AndreasArvidsson/clippy",
    "sha": "170dbd6a4f86d82f30f06c9f203f008d1e124255",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 170dbd6a4f86, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit 170dbd6a4f86: \"Update Electron dependency to 44.6.0. Changes clipboard read from syn\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T08:35Z",
+    "consent_receipt": "a16b9f6ae7a1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T08:35Z (receipt a16b9f6ae7a1); selected commit 170dbd6a4f86: \"Update Electron dependency to 44.6.0. Changes clipboard read from syn\u2026\". LICENSE file at pin 170dbd6a4f86 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

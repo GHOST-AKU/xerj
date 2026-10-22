@@ -1,0 +1,23 @@
+{
+ "corpus": "arenadata--adcm-aio-client",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how arenadata/adcm-aio-client implements it: ADCM Client (selected work: adcm_aio_client, custom-templates, the project root)",
+ "repos": [
+  {
+   "repo": "adcm-aio-client",
+   "url": "https://github.com/arenadata/adcm-aio-client",
+   "sha": "d0d2ede576f126e716d69b435e40c1b3c095a247",
+   "licence": "Apache-2.0 (LICENSE file at pin d0d2ede576f1, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T12:36Z",
+    "consent_receipt": "0407856bce1e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T12:36Z (receipt 0407856bce1e); selected commit d0d2ede576f1: \"ADCM-6490 Update doc format\". LICENSE file at pin d0d2ede576f1 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "MetalSharp",
    "url": "https://github.com/metalsharp/MetalSharp",
    "sha": "7b11d0ed4e53305fb5581e2f5ef948dc7758d949",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-09 (reply to Corpus Hub outreach); selected commit 7b11d0ed4e53: \"Run GTA V Enhanced on D3DMetal and VKD3D through the Rockstar launcher\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "20aace684bea",
+    "note": "author consent by email 2026-10-09T17:16Z (receipt 20aace684bea); selected commit 7b11d0ed4e53: \"Run GTA V Enhanced on D3DMetal and VKD3D through the Rockstar launcher\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

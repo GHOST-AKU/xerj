@@ -9,13 +9,14 @@
    "repo": "atomic-flow",
    "url": "https://github.com/Akseleu-J/atomic-flow",
    "sha": "656c8158d010ab9cfe4a541e65c9e8456e5e1d98",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 656c8158d010, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 656c8158d010: \"Phase 3: deterministic pytest verify + preserve failure on STOP replan\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T05:13Z",
+    "consent_receipt": "e78b4ccde6a4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T05:13Z (receipt e78b4ccde6a4); selected commit 656c8158d010: \"Phase 3: deterministic pytest verify + preserve failure on STOP replan\". LICENSE file at pin 656c8158d010 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

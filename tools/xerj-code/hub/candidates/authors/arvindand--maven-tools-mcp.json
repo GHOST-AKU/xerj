@@ -9,13 +9,14 @@
    "repo": "maven-tools-mcp",
    "url": "https://github.com/arvindand/maven-tools-mcp",
    "sha": "c9de90b34ccbae30e2a74bea0c1d9176f56aa0cd",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin c9de90b34ccb, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit c9de90b34ccb: \"fix: preserve release variants and refresh dependencies for 3.2.3\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T14:46Z",
+    "consent_receipt": "4ddee7e02ac0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T14:46Z (receipt 4ddee7e02ac0); selected commit c9de90b34ccb: \"fix: preserve release variants and refresh dependencies for 3.2.3\". LICENSE file at pin c9de90b34ccb detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

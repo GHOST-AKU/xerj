@@ -9,13 +9,14 @@
    "repo": "rhwp",
    "url": "https://github.com/edwardkim/rhwp",
    "sha": "732047aa253e92772fd7625e4a5d7f6a9897fd73",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit 732047aa253e: \"fix(typeset): preserve stored frame space and map page ownership (#7574)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "164cea4645a0",
+    "note": "author consent by email 2026-10-10T23:43Z (receipt 164cea4645a0); selected commit 732047aa253e: \"fix(typeset): preserve stored frame space and map page ownership (#7574)\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

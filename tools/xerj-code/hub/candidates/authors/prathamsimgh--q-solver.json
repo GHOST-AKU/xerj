@@ -8,14 +8,15 @@
   {
    "repo": "Q-solver",
    "url": "https://github.com/Prathamsimgh/Q-solver",
-   "sha": "3b3caf7725d5258d73c397f9e9fdc1d2142977d3",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "eb75e20a1055eb2dd91f8cf9fdbe2c97d4f8d431",
+   "licence": "MIT (LICENSE file at pin eb75e20a1055, GitHub licence API 2026-10-22)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 3b3caf7725d5: \"Update Q-Solver with custom AI providers, UI fixes, and documentation\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T21:13Z",
+    "consent_receipt": "f06c93d4ba33",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T21:13Z (receipt f06c93d4ba33); selected commit eb75e20a1055: \"Update Q-Solver with custom AI providers, UI fixes, and documentation\". LICENSE file at pin eb75e20a1055 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution. Pinned to head eb75e20a1055 (contains the selected commit): the LICENSE at the selected commit was NOASSERTION."
    }
   }
  ]

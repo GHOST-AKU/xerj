@@ -9,13 +9,14 @@
    "repo": "LLM-based-Campus-Visual-Question-Answering-System",
    "url": "https://github.com/gaiya-puni/LLM-based-Campus-Visual-Question-Answering-System",
    "sha": "0b5f6dac996ca7616b82cf639cbf2889eb9cb526",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 0b5f6dac996c, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 0b5f6dac996c: \"\u5220\u9664\u65e0\u5173\u6587\u4ef6\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T08:19Z",
+    "consent_receipt": "11b496ba835c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T08:19Z (receipt 11b496ba835c); selected commit 0b5f6dac996c: \"\u5220\u9664\u65e0\u5173\u6587\u4ef6\". LICENSE file at pin 0b5f6dac996c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

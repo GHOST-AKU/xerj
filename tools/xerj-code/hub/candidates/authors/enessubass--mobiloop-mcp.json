@@ -9,13 +9,14 @@
    "repo": "mobiloop-mcp",
    "url": "https://github.com/enessubass/mobiloop-mcp",
    "sha": "14a93893d22a825030bf3cfb9df632cd81450167",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 14a93893d22a, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 14a93893d22a: \"feat: guarded mobile QA skill, safe setup and cross-platform validati\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T23:04Z",
+    "consent_receipt": "37bea03baf6b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T23:04Z (receipt 37bea03baf6b); selected commit 14a93893d22a: \"feat: guarded mobile QA skill, safe setup and cross-platform validati\u2026\". LICENSE file at pin 14a93893d22a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "Nane",
    "url": "https://github.com/Can-Inal/Nane",
    "sha": "4852bd5ab368380ee1c18006f112dbed5e3e4f10",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 4852bd5ab368, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 4852bd5ab368: \"calculus start\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T09:19Z",
+    "consent_receipt": "0be64a191b2b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T09:19Z (receipt 0be64a191b2b); selected commit 4852bd5ab368: \"calculus start\". LICENSE file at pin 4852bd5ab368 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "Odin",
    "url": "https://github.com/Calmingstorm/Odin",
    "sha": "77ce0748b87ee0d44396e72ea80a39f2dd1b18f6",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 77ce0748b87e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 77ce0748b87e: \"fix(codex): pin acquired account ownership across reloads\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T12:54Z",
+    "consent_receipt": "53acbb191150",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T12:54Z (receipt 53acbb191150); selected commit 77ce0748b87e: \"fix(codex): pin acquired account ownership across reloads\". LICENSE file at pin 77ce0748b87e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

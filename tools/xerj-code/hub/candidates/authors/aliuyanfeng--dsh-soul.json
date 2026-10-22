@@ -8,14 +8,15 @@
   {
    "repo": "dsh-soul",
    "url": "https://github.com/Aliuyanfeng/dsh-soul",
-   "sha": "85615f86be2e3103a6dd067f1c22b5871e7e0be9",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "0a203cc24e39beea3d3c8cc00541b4709e87c49f",
+   "licence": "MIT (LICENSE file at pin 0a203cc24e39, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 85615f86be2e: \"feat(soul): \u4eba\u8bbe\u9884\u8bbe\u53ea\u7ba1 Agent \u4eba\u683c\uff0c\u4e0d\u518d\u5305\u542b\u300c\u5173\u4e8e\u4f60\u300d\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T05:58Z",
+    "consent_receipt": "00857a21e560",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T05:58Z (receipt 00857a21e560); selected commit 0a203cc24e39: \"feat(soul): \u4eba\u8bbe\u9884\u8bbe\u53ea\u7ba1 Agent \u4eba\u683c\uff0c\u4e0d\u518d\u5305\u542b\u300c\u5173\u4e8e\u4f60\u300d\". LICENSE file at pin 0a203cc24e39 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head 0a203cc24e39 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "hadisarefanjazi--adaptive-human-in-the-loop-llm-agent",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agentic-ai, dqn, human-in-the-loop queries this for how HadisArefanJazi/adaptive-human-in-the-loop-llm-agent implements it: Resource-aware LLM agent that learns when to answer, retrieve, use a tool, or ask a human with PyTorch DQN (selected work: results, adaptive_hitl_agent, tests)",
+ "repos": [
+  {
+   "repo": "adaptive-human-in-the-loop-llm-agent",
+   "url": "https://github.com/HadisArefanJazi/adaptive-human-in-the-loop-llm-agent",
+   "sha": "c8154ac99b2b5ae69ab3033e8659e9c4b8a1065b",
+   "licence": "MIT (LICENSE file at pin c8154ac99b2b, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T03:27Z",
+    "consent_receipt": "f57b8863db73",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T03:27Z (receipt f57b8863db73); selected commit c8154ac99b2b: \"Expand benchmark to 500 train and 200 test questions and refresh results\". LICENSE file at pin c8154ac99b2b detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

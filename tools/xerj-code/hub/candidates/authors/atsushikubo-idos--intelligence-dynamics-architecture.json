@@ -1,0 +1,23 @@
+{
+ "corpus": "atsushikubo-idos--intelligence-dynamics-architecture",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on active-inference, ai-governance, ai-safety queries this for how atsushikubo-idos/intelligence-dynamics-architecture implements it: An open trajectory-centered architecture for intelligence, interoperability, and co-evolution in the age of AI/ASI (selected work: implementation)",
+ "repos": [
+  {
+   "repo": "intelligence-dynamics-architecture",
+   "url": "https://github.com/atsushikubo-idos/intelligence-dynamics-architecture",
+   "sha": "6c4cc67c7df2cb7950ec79cc068e03201d548795",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "276e60fe05ab",
+    "note": "author consent by email 2026-10-22T01:09Z (receipt 276e60fe05ab); selected commit 6c4cc67c7df2: \"Add cross-domain trajectory observation prototype v0.5\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

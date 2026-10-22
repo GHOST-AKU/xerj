@@ -1,0 +1,23 @@
+{
+ "corpus": "jpboliv--eridian",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how jpboliv/eridian implements it: Rocky-speak for Claude Code \u2014 terse Eridian token compression, stats, and a statusline buddy (selected work: test, scripts)",
+ "repos": [
+  {
+   "repo": "eridian",
+   "url": "https://github.com/jpboliv/eridian",
+   "sha": "c5dd60d8350fa4ea2503001e22b1894f20826d7a",
+   "licence": "MIT (LICENSE file at pin c5dd60d8350f, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T11:22Z",
+    "consent_receipt": "dffdc0a20083",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T11:22Z (receipt dffdc0a20083); selected commit c5dd60d8350f: \"fix(codex): preserve prose snapshots and animate buddy renders\". LICENSE file at pin c5dd60d8350f detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

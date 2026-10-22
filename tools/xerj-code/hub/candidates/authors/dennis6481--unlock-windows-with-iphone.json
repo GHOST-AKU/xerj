@@ -1,0 +1,23 @@
+{
+ "corpus": "dennis6481--unlock-windows-with-iphone",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on authentication, windows-hello, windows-credential-provider queries this for how dennis6481/unlock-windows-with-iphone implements it: Unlock your Windows PC with iPhone just like your Apple Watch unlocks your Mac (selected work: windows)",
+ "repos": [
+  {
+   "repo": "unlock-windows-with-iphone",
+   "url": "https://github.com/dennis6481/unlock-windows-with-iphone",
+   "sha": "759b2b1eae0fea831c3105effba33e7ecf912467",
+   "licence": "MIT (LICENSE file at pin 759b2b1eae0f, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T08:50Z",
+    "consent_receipt": "4c033478806f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:50Z (receipt 4c033478806f); selected commit 759b2b1eae0f: \"fix: revalidate BLE snapshots and preserve communication renewal\". LICENSE file at pin 759b2b1eae0f detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

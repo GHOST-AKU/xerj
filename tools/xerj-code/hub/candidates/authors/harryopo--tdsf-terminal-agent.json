@@ -9,13 +9,14 @@
    "repo": "tdsf-terminal-agent",
    "url": "https://github.com/harryopo/tdsf-terminal-agent",
    "sha": "603bf6151db6bfedfd1b448b0b2a00095d3edc4c",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 603bf6151db6, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 603bf6151db6: \"fix(security): enforce file approval and isolate SSH forwarding\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T00:45Z",
+    "consent_receipt": "55833af607ec",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T00:45Z (receipt 55833af607ec); selected commit 603bf6151db6: \"fix(security): enforce file approval and isolate SSH forwarding\". LICENSE file at pin 603bf6151db6 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

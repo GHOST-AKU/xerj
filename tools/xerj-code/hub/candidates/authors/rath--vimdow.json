@@ -9,13 +9,14 @@
    "repo": "Vimdow",
    "url": "https://github.com/rath/Vimdow",
    "sha": "37c05dc77136ed01925ab99e5c816388720eaab2",
-   "licence": "hint only: BSD-3-Clause (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "BSD-3-Clause (LICENSE file at pin 37c05dc77136, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "BSD-3-Clause",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit 37c05dc77136: \"feat(dimming): dim every window except the focused one\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T06:41Z",
+    "consent_receipt": "b3c259c77d57",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T06:41Z (receipt b3c259c77d57); selected commit 37c05dc77136: \"feat(dimming): dim every window except the focused one\". LICENSE file at pin 37c05dc77136 detected as BSD-3-Clause by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

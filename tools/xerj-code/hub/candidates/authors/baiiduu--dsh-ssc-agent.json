@@ -9,13 +9,14 @@
    "repo": "dsh-ssc-agent",
    "url": "https://github.com/Baiiduu/dsh-ssc-agent",
    "sha": "774fdff1e8d9dad41b78f4d5f800b7bd01d4c590",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 774fdff1e8d9, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 774fdff1e8d9: \"feat: add evidence-driven security investigation workflow\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T05:25Z",
+    "consent_receipt": "5b06edcdb91e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T05:25Z (receipt 5b06edcdb91e); selected commit 774fdff1e8d9: \"feat: add evidence-driven security investigation workflow\". LICENSE file at pin 774fdff1e8d9 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

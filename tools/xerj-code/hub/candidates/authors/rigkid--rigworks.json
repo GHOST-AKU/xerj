@@ -1,0 +1,23 @@
+{
+ "corpus": "rigkid--rigworks",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how rigkid/RigWorks implements it: A no-code creative application framework (selected work: schemas, examples, tools)",
+ "repos": [
+  {
+   "repo": "RigWorks",
+   "url": "https://github.com/rigkid/RigWorks",
+   "sha": "b650de1cc9a1a87509e6a278e96835852056571a",
+   "licence": "MIT (LICENSE file at pin b650de1cc9a1, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T00:56Z",
+    "consent_receipt": "213fbacea2ed",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T00:56Z (receipt 213fbacea2ed); selected commit b650de1cc9a1: \"Contract 0.33.0: electronics with the KiCad encoding, node buses, ani\u2026\". LICENSE file at pin b650de1cc9a1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

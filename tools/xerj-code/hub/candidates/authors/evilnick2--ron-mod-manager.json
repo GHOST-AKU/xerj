@@ -1,0 +1,23 @@
+{
+ "corpus": "evilnick2--ron-mod-manager",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how EvilNick2/ron-mod-manager implements it: EvilNick2/ron-mod-manager (Rust) (selected work: src-tauri, src/components, src)",
+ "repos": [
+  {
+   "repo": "ron-mod-manager",
+   "url": "https://github.com/EvilNick2/ron-mod-manager",
+   "sha": "1d6d9117fb5943af5c8db73477e5e104ae4a6680",
+   "licence": "MIT (LICENSE file at pin 1d6d9117fb59, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T15:42Z",
+    "consent_receipt": "438877ae63fe",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T15:42Z (receipt 438877ae63fe); selected commit 1d6d9117fb59: \"fix(publish): guard every pack writer, check uploads and clean up int\u2026\". LICENSE file at pin 1d6d9117fb59 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "inkwell",
    "url": "https://github.com/SongFengYunHe/inkwell",
    "sha": "fd89bea03cd9ecac93ea195b401fbbc8db3f601a",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin fd89bea03cd9, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit fd89bea03cd9: \"M12-C: \u5411\u91cf\u7d22\u5f15\u540e\u53f0\u961f\u5217\u4e0e\u7a7a\u95f2\u6267\u884c + \u589e\u91cf\u7ef4\u62a4\uff08v10 embedding_queue\uff09+ \u8bbe\u7f6e\u9875\u5f85\u7d22\u5f15/\u6682\u505c\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T05:59Z",
+    "consent_receipt": "74db36a7ccb6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T05:59Z (receipt 74db36a7ccb6); selected commit fd89bea03cd9: \"M12-C: \u5411\u91cf\u7d22\u5f15\u540e\u53f0\u961f\u5217\u4e0e\u7a7a\u95f2\u6267\u884c + \u589e\u91cf\u7ef4\u62a4\uff08v10 embedding_queue\uff09+ \u8bbe\u7f6e\u9875\u5f85\u7d22\u5f15/\u6682\u505c\". LICENSE file at pin fd89bea03cd9 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

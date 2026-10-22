@@ -1,0 +1,23 @@
+{
+ "corpus": "plitzi--plitzi-workspace",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how Plitzi/plitzi-workspace implements it: Plitzi/plitzi-workspace (TypeScript) (selected work: apps/builder, packages/sdk-shared, apps/server)",
+ "repos": [
+  {
+   "repo": "plitzi-workspace",
+   "url": "https://github.com/Plitzi/plitzi-workspace",
+   "sha": "61271756640f21a27b739823f0af5e7c60b3ccd2",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "174b6431cd3b",
+    "note": "author consent by email 2026-10-19T23:48Z (receipt 174b6431cd3b); selected commit 61271756640f: \"some changes in authoring, builder, and related to the docs\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

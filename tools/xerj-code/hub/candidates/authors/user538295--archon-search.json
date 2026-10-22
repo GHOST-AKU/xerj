@@ -9,13 +9,14 @@
    "repo": "archon-search",
    "url": "https://github.com/user538295/archon-search",
    "sha": "7314a52a35337e6076b013032ed877b83a6f481b",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 7314a52a3533, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 7314a52a3533: \"fix(models): honour FASTEMBED_CACHE_PATH for fastembed weights\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T14:44Z",
+    "consent_receipt": "2a8485e6357a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T14:44Z (receipt 2a8485e6357a); selected commit 7314a52a3533: \"fix(models): honour FASTEMBED_CACHE_PATH for fastembed weights\". LICENSE file at pin 7314a52a3533 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

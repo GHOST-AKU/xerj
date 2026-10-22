@@ -9,13 +9,14 @@
    "repo": "JellyCine",
    "url": "https://github.com/sureshfizzy/JellyCine",
    "sha": "3b35bce70215c261b919667c3f10feaaef146c94",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin 3b35bce70215, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 3b35bce70215: \"feat: Add LAN network support with server discovery\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-13T04:35Z",
+    "consent_receipt": "47bf98d3f6b6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T04:35Z (receipt 47bf98d3f6b6); selected commit 3b35bce70215: \"feat: Add LAN network support with server discovery\". LICENSE file at pin 3b35bce70215 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

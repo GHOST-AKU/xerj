@@ -1,0 +1,23 @@
+{
+ "corpus": "milos-agathon--forge3d",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on python, rust, rust-lang queries this for how milos-agathon/forge3d implements it: Rust\u2011first, cross\u2011platform wgpu/WebGPU renderer exposed to Python for fast, headless 3D rendering. Built in Rust, shipped as Python wheels (selected work: src/core, src/loaders, tests)",
+ "repos": [
+  {
+   "repo": "forge3d",
+   "url": "https://github.com/milos-agathon/forge3d",
+   "sha": "a8cdb710c5ac09375913a039806eaadcbb6709a8",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "b21de3c79077",
+    "note": "author consent by email 2026-10-20T14:54Z (receipt b21de3c79077); selected commit a8cdb710c5ac: \"refactor(ktx2): drop dead core KTX2/DDS stubs\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

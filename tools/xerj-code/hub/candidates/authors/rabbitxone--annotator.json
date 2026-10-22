@@ -1,0 +1,23 @@
+{
+ "corpus": "rabbitxone--annotator",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on JavaScript queries this for how rabbitxone/annotator implements it: Browser extension for creating annotations \ud83d\ude09 (selected work: src/shared, src/_locales, src/pages)",
+ "repos": [
+  {
+   "repo": "annotator",
+   "url": "https://github.com/rabbitxone/annotator",
+   "sha": "00ef67066c3d69211ccb2a0649fec5d91fb8c1a6",
+   "licence": "Apache-2.0 (LICENSE file at pin 00ef67066c3d, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T04:50Z",
+    "consent_receipt": "c995137bb8da",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T04:50Z (receipt c995137bb8da); selected commit 00ef67066c3d: \"Markdown help, \u2318/Ctrl+click links, lists and escapes in the note editor\". LICENSE file at pin 00ef67066c3d detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

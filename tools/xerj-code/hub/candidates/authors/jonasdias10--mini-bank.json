@@ -1,0 +1,23 @@
+{
+ "corpus": "jonasdias10--mini-bank",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how JonasDias10/mini-bank implements it: Spring Boot banking microservices with RabbitMQ saga and outbox (selected work: transaction-service, account-service, the project root)",
+ "repos": [
+  {
+   "repo": "mini-bank",
+   "url": "https://github.com/JonasDias10/mini-bank",
+   "sha": "555e30a4d2440d1fbb2c5852d8f9d833ed10cd2e",
+   "licence": "MIT (LICENSE file at pin 555e30a4d244, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T18:44Z",
+    "consent_receipt": "fd447a46f1a8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T18:44Z (receipt fd447a46f1a8); selected commit 555e30a4d244: \"feat: move money between services through a rabbitmq saga\". LICENSE file at pin 555e30a4d244 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head 555e30a4d244 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

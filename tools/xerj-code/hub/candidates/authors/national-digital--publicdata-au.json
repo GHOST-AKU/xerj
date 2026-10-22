@@ -9,13 +9,14 @@
    "repo": "publicdata.au",
    "url": "https://github.com/National-Digital/publicdata.au",
    "sha": "2717f3408454323aae9df190c3d72d3fd5481888",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-07 (reply to Corpus Hub outreach); selected commit 2717f3408454: \"feat(register): add NT public housing and mineral production datasets\u2026\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "b1493f5b22a5",
+    "note": "author consent by email 2026-10-07T05:05Z (receipt b1493f5b22a5); selected commit 2717f3408454: \"feat(register): add NT public housing and mineral production datasets\u2026\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "fcpp--fcpp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how fcpp/fcpp implements it: C++ library implementing efficiently the Field Calculus (selected work: src/lib)",
+ "repos": [
+  {
+   "repo": "fcpp",
+   "url": "https://github.com/fcpp/fcpp",
+   "sha": "e89b1ccb3f008b1dff072f2e017b52ce96076975",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "1e30a5187913",
+    "note": "author consent by email 2026-10-20T06:20Z (receipt 1e30a5187913); selected commit e89b1ccb3f00: \"refactoring to atlas-based font rendering to get a 1000x speedup on t\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "bennix--genzenmuxaioffice",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on academic-writing, ai-office, docx queries this for how bennix/GenZenMuxAIOffice implements it: ZenOffice \u2014 Open-source AI Office suite (Word, Excel, PowerPoint, PDF & Markdown) for macOS, Windows & Linux, powered by ZenMux with academi (selected work: apps/markdown, e2e, packages/electron-utils)",
+ "repos": [
+  {
+   "repo": "GenZenMuxAIOffice",
+   "url": "https://github.com/bennix/GenZenMuxAIOffice",
+   "sha": "6376fb3d5887973e505848755a875fbc80c54acc",
+   "licence": "hint only: GPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "6defab35ef72",
+    "note": "author consent by email 2026-10-20T01:44Z (receipt 6defab35ef72); selected commit 6376fb3d5887: \"fix(markdown): render printable equations and release v0.6.103\"; LICENSE at pin: NOASSERTION vs repository GPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

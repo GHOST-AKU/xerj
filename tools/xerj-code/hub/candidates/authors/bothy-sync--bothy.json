@@ -1,0 +1,23 @@
+{
+ "corpus": "bothy-sync--bothy",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how bothy-sync/bothy implements it: bothy-sync/bothy (Rust) (selected work: crates/bothy)",
+ "repos": [
+  {
+   "repo": "bothy",
+   "url": "https://github.com/bothy-sync/bothy",
+   "sha": "6c9bf9a210eb7a1db6ae98978222e4b07bf09df8",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "657577ec4764",
+    "note": "author consent by email 2026-10-22T07:56Z (receipt 657577ec4764); selected commit 6c9bf9a210eb: \"feat(store): add local SQLite store (#16)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

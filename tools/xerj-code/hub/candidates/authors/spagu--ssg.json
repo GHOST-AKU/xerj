@@ -1,0 +1,23 @@
+{
+ "corpus": "spagu--ssg",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on generator, github-actions, golang queries this for how spagu/ssg implements it: A simple static site generator written in Go. Converts content from WordPress exports (Markdown format with YAML frontmatter) to static HTML (selected work: internal/generator, internal/config, cmd/ssg)",
+ "repos": [
+  {
+   "repo": "ssg",
+   "url": "https://github.com/spagu/ssg",
+   "sha": "66711a0e0f1932d8a593e566156dc3fbe0974447",
+   "licence": "hint only: BSD-3-Clause (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "BSD-3-Clause",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "1d09541d8245",
+    "note": "author consent by email 2026-10-20T20:44Z (receipt 1d09541d8245); selected commit 66711a0e0f19: \"fix: breadcrumbs name real pages; the 404 page stays out of the sitemap\"; LICENSE at pin: NOASSERTION vs repository BSD-3-Clause \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

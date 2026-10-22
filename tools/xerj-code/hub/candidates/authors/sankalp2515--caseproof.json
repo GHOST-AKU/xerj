@@ -1,0 +1,23 @@
+{
+ "corpus": "sankalp2515--caseproof",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how sankalp2515/CaseProof implements it: sankalp2515/CaseProof (Python) (selected work: scripts, frontend, tests)",
+ "repos": [
+  {
+   "repo": "CaseProof",
+   "url": "https://github.com/sankalp2515/CaseProof",
+   "sha": "3f93ea5b01da7750e79fb679a93c53dc89e660be",
+   "licence": "MIT (LICENSE file at pin 3f93ea5b01da, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T14:17Z",
+    "consent_receipt": "155b92645e81",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T14:17Z (receipt 155b92645e81); selected commit 3f93ea5b01da: \"Integrate redesigned frontend with current main and add Claude redepl\u2026\". LICENSE file at pin 3f93ea5b01da detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

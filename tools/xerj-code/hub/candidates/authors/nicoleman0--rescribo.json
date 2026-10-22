@@ -9,13 +9,14 @@
    "repo": "rescribo",
    "url": "https://github.com/nicoleman0/rescribo",
    "sha": "b69826b6b11572768f39199f7a1b58aa0a29004e",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "AGPL-3.0 (LICENSE file at pin b69826b6b115, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit b69826b6b115: \"Add a command palette (#210)\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-13T21:47Z",
+    "consent_receipt": "f2bddaac0143",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T21:47Z (receipt f2bddaac0143); selected commit b69826b6b115: \"Add a command palette (#210)\". LICENSE file at pin b69826b6b115 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

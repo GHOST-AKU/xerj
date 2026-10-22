@@ -3,19 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on JavaScript queries this for how chaseleantj/deskworlds implements it: Interactive, living desktop wallpapers (selected work: scenes, the project root, wallpaper)",
+ "domain": "an agent working on procedural-generation, simulation, wallpaper queries this for how chaseleantj/deskworlds implements it: Interactive, living desktop wallpapers (selected work: scenes, the project root, wallpaper)",
  "repos": [
   {
    "repo": "deskworlds",
    "url": "https://github.com/chaseleantj/deskworlds",
    "sha": "4d8abe02eeba1a55f08f9a0ea61e263eb5177a18",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 4d8abe02eeba, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 4d8abe02eeba: \"Add Bonfire, a sixth world\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T08:27Z",
+    "consent_receipt": "7f99dd3ac71f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T08:27Z (receipt 7f99dd3ac71f); selected commit 4d8abe02eeba: \"Add Bonfire, a sixth world\". LICENSE file at pin 4d8abe02eeba detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

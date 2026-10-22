@@ -1,0 +1,23 @@
+{
+ "corpus": "mash-up-kr--promise-9-web",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how mash-up-kr/Promise.9-Web implements it: \ubc14\ud034\ub97c \ub2e4\uc2dc \ubc1c\uba85\ud574 \ubcf4\uaca0\uc2b5\ub2c8\ub2e4. \ud558\uc9c0\ub9cc \ub354 \ub124\ubaa8\ub098\uace0 \ubc18\uc9dd\uac70\ub9ac\uc8e0. \ud83d\ude98\ud83d\udede\u2728 (selected work: src/features, the project root, shared)",
+ "repos": [
+  {
+   "repo": "Promise.9-Web",
+   "url": "https://github.com/mash-up-kr/Promise.9-Web",
+   "sha": "56df328cada25803362af8363f0d1fce17262ec8",
+   "licence": "MIT (LICENSE file at pin 56df328cada2, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T15:32Z",
+    "consent_receipt": "1dc72cec1d9f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T15:32Z (receipt 1dc72cec1d9f); selected commit 56df328cada2: \"feat(auth): \uc6f9\u00b7\ud06c\ub86c \uc775\uc2a4\ud150\uc158 \uc560\ud50c \ub85c\uadf8\uc778 \uc9c0\uc6d0 (#127)\". LICENSE file at pin 56df328cada2 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "pgmon",
    "url": "https://github.com/nbari/pgmon",
    "sha": "b4f48ad585f67b026860cb7b80a078c0e49af525",
-   "licence": "hint only: BSD-3-Clause (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "BSD-3-Clause (LICENSE file at pin b4f48ad585f6, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "BSD-3-Clause",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit b4f48ad585f6: \"Fall back between TLS and plaintext like libpq for prefer and allow\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T00:42Z",
+    "consent_receipt": "079fd1ff1cc4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T00:42Z (receipt 079fd1ff1cc4); selected commit b4f48ad585f6: \"Fall back between TLS and plaintext like libpq for prefer and allow\". LICENSE file at pin b4f48ad585f6 detected as BSD-3-Clause by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

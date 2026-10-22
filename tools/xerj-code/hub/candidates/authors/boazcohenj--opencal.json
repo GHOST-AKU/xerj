@@ -9,13 +9,14 @@
    "repo": "OpenCal",
    "url": "https://github.com/BoazCohenJ/OpenCal",
    "sha": "1dde8896d49ca648580b43a7a1322accd71d0793",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 1dde8896d49c, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 1dde8896d49c: \"Make the app respond to taps right after it opens\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T10:58Z",
+    "consent_receipt": "ec44b8c1df3e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T10:58Z (receipt ec44b8c1df3e); selected commit 1dde8896d49c: \"Make the app respond to taps right after it opens\". LICENSE file at pin 1dde8896d49c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

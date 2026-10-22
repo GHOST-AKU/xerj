@@ -1,0 +1,23 @@
+{
+ "corpus": "servo--servo",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on servo, rust, browser queries this for how servo/servo implements it: Servo aims to empower developers with a lightweight, high-performance alternative for embedding web technologies in applications (selected work: components, the project root)",
+ "repos": [
+  {
+   "repo": "servo",
+   "url": "https://github.com/servo/servo",
+   "sha": "e21d2e4d5886f80d754da0340a788902e788cf3a",
+   "licence": "hint only: MPL-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MPL-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "42db6e9641c0",
+    "note": "author consent by email 2026-10-22T05:12Z (receipt 42db6e9641c0); selected commit e21d2e4d5886: \"svg: add the data model (#48467)\"; LICENSE at pin: NOASSERTION vs repository MPL-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

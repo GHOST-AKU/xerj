@@ -1,0 +1,23 @@
+{
+ "corpus": "kuyanov--lemmatheca",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Lean queries this for how kuyanov/lemmatheca implements it: A growing library of mathematics (selected work: formal, corpus)",
+ "repos": [
+  {
+   "repo": "lemmatheca",
+   "url": "https://github.com/kuyanov/lemmatheca",
+   "sha": "49ed766dc66dd8d15c3b40e999069e14ddeee2b1",
+   "licence": "Apache-2.0 (LICENSE file at pin 49ed766dc66d, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T12:13Z",
+    "consent_receipt": "bb2c20a070a0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T12:13Z (receipt bb2c20a070a0); selected commit 49ed766dc66d: \"New entries\". LICENSE file at pin 49ed766dc66d detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

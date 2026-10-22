@@ -1,0 +1,23 @@
+{
+ "corpus": "sonukapoor--warpdom",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on jsdom, testing queries this for how sonukapoor/warpdom implements it: A DOM for unit tests that loads almost instantly and behaves like jsdom (selected work: scripts, test, src)",
+ "repos": [
+  {
+   "repo": "warpdom",
+   "url": "https://github.com/sonukapoor/warpdom",
+   "sha": "8d733622961a47ca190885274306a08ce00c4a42",
+   "licence": "MIT (LICENSE file at pin 8d733622961a, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T17:11Z",
+    "consent_receipt": "55299eb2bff4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T17:11Z (receipt 55299eb2bff4); selected commit 8d733622961a: \"0.1.3: warn about a jsdom newer than the newest modeled; weekly upstr\u2026\". LICENSE file at pin 8d733622961a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

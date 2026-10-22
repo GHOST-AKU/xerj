@@ -9,13 +9,14 @@
    "repo": "Levis",
    "url": "https://github.com/CatVinci-Studio/Levis",
    "sha": "ce2cde964b046dcd3c46b6d3affe80aa87030f72",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-05 (reply to Corpus Hub outreach); selected commit ce2cde964b04: \"feat(export): write PDFs natively on Windows and Linux too\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "47635c279e55",
+    "note": "author consent by email 2026-10-05T20:35Z (receipt 47635c279e55); selected commit ce2cde964b04: \"feat(export): write PDFs natively on Windows and Linux too\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

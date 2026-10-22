@@ -1,0 +1,23 @@
+{
+ "corpus": "in2core--screenportsdk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Swift queries this for how in2core/screenportsdk implements it: The ScreenPort SDK allows app developers to receive video and audio from ScreenPort devices over USB or network (selected work: Demo, ScreenPortSDK.doccarchive, the project root)",
+ "repos": [
+  {
+   "repo": "screenportsdk",
+   "url": "https://github.com/in2core/screenportsdk",
+   "sha": "8dc3dd36fb9855ff1c4d6a2314d994f3bc5dd64f",
+   "licence": "Apache-2.0 (LICENSE file at pin 8dc3dd36fb98, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T18:06Z",
+    "consent_receipt": "48b1a2232d5c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T18:06Z (receipt 48b1a2232d5c); selected commit 8dc3dd36fb98: \"Add video and audio buffer subscription API, add visionOS support (#7\u2026\". LICENSE file at pin 8dc3dd36fb98 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

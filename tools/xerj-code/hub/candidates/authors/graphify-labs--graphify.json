@@ -9,13 +9,14 @@
    "repo": "graphify",
    "url": "https://github.com/Graphify-Labs/graphify",
    "sha": "daee93f78267bf349e2ef939ffe124ab7197d60b",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit daee93f78267: \"fix(extract): refuse a dedup shrink unless the user accepts it\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "32d8f8040027",
+    "note": "author consent by email 2026-10-13T19:13Z (receipt 32d8f8040027); selected commit daee93f78267: \"fix(extract): refuse a dedup shrink unless the user accepts it\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

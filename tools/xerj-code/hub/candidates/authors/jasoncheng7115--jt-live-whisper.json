@@ -9,13 +9,14 @@
    "repo": "jt-live-whisper",
    "url": "https://github.com/jasoncheng7115/jt-live-whisper",
    "sha": "9194e3d68af1c75f2a0c173ddb75908da0dd2141",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 9194e3d68af1, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 9194e3d68af1: \"v2.30.0\uff1a\u5373\u6642\u6a21\u5f0f\u671f\u9593\u9632\u6b62\u96fb\u8166\u7761\u7720\u8207\u87a2\u5e55\u9396\u5b9a\uff08\u9810\u8a2d\u555f\u7528\uff09\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T03:18Z",
+    "consent_receipt": "339ec521af72",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T03:18Z (receipt 339ec521af72); selected commit 9194e3d68af1: \"v2.30.0\uff1a\u5373\u6642\u6a21\u5f0f\u671f\u9593\u9632\u6b62\u96fb\u8166\u7761\u7720\u8207\u87a2\u5e55\u9396\u5b9a\uff08\u9810\u8a2d\u555f\u7528\uff09\". LICENSE file at pin 9194e3d68af1 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

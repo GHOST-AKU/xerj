@@ -9,13 +9,14 @@
    "repo": "obsidian-plugin-callout-studio",
    "url": "https://github.com/Niv20/obsidian-plugin-callout-studio",
    "sha": "5ac682161a0793cc2a4a2e0e221778321488800b",
-   "licence": "hint only: 0BSD (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "0BSD (LICENSE file at pin 5ac682161a07, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "0BSD",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 5ac682161a07: \"Find callouts: flash on landing, sidebar follows the caret\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T21:35Z",
+    "consent_receipt": "8362c42271fe",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T21:35Z (receipt 8362c42271fe); selected commit 5ac682161a07: \"Find callouts: flash on landing, sidebar follows the caret\". LICENSE file at pin 5ac682161a07 detected as 0BSD by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

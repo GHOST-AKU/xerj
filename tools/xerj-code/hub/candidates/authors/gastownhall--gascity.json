@@ -9,13 +9,14 @@
    "repo": "gascity",
    "url": "https://github.com/gastownhall/gascity",
    "sha": "8ab110141fc44352635a8d61e5e6ad07c6903594",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 8ab110141fc4, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 8ab110141fc4: \"fix(mail): add unread-mail TTL so never-read mail wisps age out (#524\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T01:32Z",
+    "consent_receipt": "42b7b5a58311",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T01:32Z (receipt 42b7b5a58311); selected commit 8ab110141fc4: \"fix(mail): add unread-mail TTL so never-read mail wisps age out (#524\u2026\". LICENSE file at pin 8ab110141fc4 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

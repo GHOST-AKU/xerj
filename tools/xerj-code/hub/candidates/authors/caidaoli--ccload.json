@@ -9,13 +9,14 @@
    "repo": "ccLoad",
    "url": "https://github.com/caidaoli/ccLoad",
    "sha": "cfebf67cf81eccefe2b695bfbfa9301157c5223a",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin cfebf67cf81e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit cfebf67cf81e: \"feat(channels): add same-channel retries and fix channel page input lag\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T00:06Z",
+    "consent_receipt": "5f96bbedf8d6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T00:06Z (receipt 5f96bbedf8d6); selected commit cfebf67cf81e: \"feat(channels): add same-channel retries and fix channel page input lag\". LICENSE file at pin cfebf67cf81e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

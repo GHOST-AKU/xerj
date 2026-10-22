@@ -9,13 +9,14 @@
    "repo": "omarchy-iso",
    "url": "https://github.com/omacom/omarchy-iso",
    "sha": "72773f63ef292aed4c0d1335d8672bc9c1b8b899",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 72773f63ef29, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 72773f63ef29: \"Build one aarch64 image for every board\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T19:43Z",
+    "consent_receipt": "1ba5671c0eb3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T19:43Z (receipt 1ba5671c0eb3); selected commit 72773f63ef29: \"Build one aarch64 image for every board\". LICENSE file at pin 72773f63ef29 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

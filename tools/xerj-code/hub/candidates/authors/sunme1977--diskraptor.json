@@ -9,13 +9,14 @@
    "repo": "DiskRaptor",
    "url": "https://github.com/SunMe1977/DiskRaptor",
    "sha": "2c8a360f5d748559dccdc3db98fec9abf51975eb",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 2c8a360f5d74, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-05 (reply to Corpus Hub outreach); selected commit 2c8a360f5d74: \"feat: 10 growth improvements - trial mode, compare table, one-click u\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-05T14:36Z",
+    "consent_receipt": "8f930aca65f6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-05T14:36Z (receipt 8f930aca65f6); selected commit 2c8a360f5d74: \"feat: 10 growth improvements - trial mode, compare table, one-click u\u2026\". LICENSE file at pin 2c8a360f5d74 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

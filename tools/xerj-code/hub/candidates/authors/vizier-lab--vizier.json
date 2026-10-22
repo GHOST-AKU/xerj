@@ -1,0 +1,23 @@
+{
+ "corpus": "vizier-lab--vizier",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent, ai, ai-agents queries this for how vizier-lab/vizier implements it: AI agents that remember who they are, and who you are. Hosted by you (selected work: src/channels, src/agents, src/skill)",
+ "repos": [
+  {
+   "repo": "vizier",
+   "url": "https://github.com/vizier-lab/vizier",
+   "sha": "d6ca50212249c8a7393101f1dc3a8ca972d88c6d",
+   "licence": "MIT (LICENSE file at pin d6ca50212249, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T05:27Z",
+    "consent_receipt": "dd9140e356ef",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T05:27Z (receipt dd9140e356ef); selected commit d6ca50212249: \"[Spec Kit] Implementation progress\". LICENSE file at pin d6ca50212249 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

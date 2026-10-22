@@ -1,0 +1,23 @@
+{
+ "corpus": "jr7122004j-dot--documate-ai",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how jr7122004j-dot/DocuMate-AI implements it: A secure, on-device RAG chatbot for multi-PDF analysis built with Python, LangChain, and Ollama, featuring semantic caching and precise sour (selected work: src/documate_ai, test, the project root)",
+ "repos": [
+  {
+   "repo": "DocuMate-AI",
+   "url": "https://github.com/jr7122004j-dot/DocuMate-AI",
+   "sha": "e3caf9ce6d90c2932fab8230f4499f163f58e9a5",
+   "licence": "MIT (LICENSE file at pin e3caf9ce6d90, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:51Z",
+    "consent_receipt": "8f13a2bf9c6b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:51Z (receipt 8f13a2bf9c6b); selected commit e3caf9ce6d90: \"feat(core): modernize configuration, logging, and shared exceptions\". LICENSE file at pin e3caf9ce6d90 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

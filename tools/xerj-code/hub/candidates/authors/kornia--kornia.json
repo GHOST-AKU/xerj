@@ -9,13 +9,14 @@
    "repo": "kornia",
    "url": "https://github.com/kornia/kornia",
    "sha": "faa843d432d3b77b9a2c67f4d18063e97feb4c64",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit faa843d432d3: \"fix(geometry): handle gimbal lock in euler_from_quaternion (#5702)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "fc80ebd46e63",
+    "note": "author consent by email 2026-10-19T04:47Z (receipt fc80ebd46e63); selected commit faa843d432d3: \"fix(geometry): handle gimbal lock in euler_from_quaternion (#5702)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "pyrite",
    "url": "https://github.com/pyrite-wiki/pyrite",
    "sha": "2817f28953334b434e4bb2d6e49438157f3521c2",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 2817f2895333, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 2817f2895333: \"feat(mcp): page cascade_network and investigation_network in both dir\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T21:00Z",
+    "consent_receipt": "db75c5861f3a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T21:00Z (receipt db75c5861f3a); selected commit 2817f2895333: \"feat(mcp): page cascade_network and investigation_network in both dir\u2026\". LICENSE file at pin 2817f2895333 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

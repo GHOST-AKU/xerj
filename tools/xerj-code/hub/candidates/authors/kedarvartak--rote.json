@@ -9,13 +9,14 @@
    "repo": "rote",
    "url": "https://github.com/kedarvartak/rote",
    "sha": "1b0fa16e8f2f6b0141386a292190191243272958",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 1b0fa16e8f2f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 1b0fa16e8f2f: \"feat(cli): add responsive chat terminal workspace\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T09:09Z",
+    "consent_receipt": "84b5bd1f805a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T09:09Z (receipt 84b5bd1f805a); selected commit 1b0fa16e8f2f: \"feat(cli): add responsive chat terminal workspace\". LICENSE file at pin 1b0fa16e8f2f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

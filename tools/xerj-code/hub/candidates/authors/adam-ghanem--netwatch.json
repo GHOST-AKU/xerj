@@ -9,13 +9,14 @@
    "repo": "NetWatch",
    "url": "https://github.com/Adam-Ghanem/NetWatch",
    "sha": "e8f6d39132c0b09792a3ee07421bfadbe06f3ca3",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin e8f6d39132c0, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit e8f6d39132c0: \"Add bounded TCP payload evidence for PCAP analysis\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T20:26Z",
+    "consent_receipt": "82071fb8aba5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T20:26Z (receipt 82071fb8aba5); selected commit e8f6d39132c0: \"Add bounded TCP payload evidence for PCAP analysis\". LICENSE file at pin e8f6d39132c0 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

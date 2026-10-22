@@ -1,0 +1,23 @@
+{
+ "corpus": "louiewoolger--medieval-total-war-collection-unofficial-patch",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on bug-fix, game-patch, modding queries this for how LouieWoolger/medieval-total-war-collection-unofficial-patch implements it: Unofficial bug-fix patch for Medieval: Total War Collection (selected work: tests, tools, src)",
+ "repos": [
+  {
+   "repo": "medieval-total-war-collection-unofficial-patch",
+   "url": "https://github.com/LouieWoolger/medieval-total-war-collection-unofficial-patch",
+   "sha": "ba9db057b6d96cd9093a2a00021c065d9cf72737",
+   "licence": "GPL-3.0 (LICENSE file at pin ba9db057b6d9, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-21T22:34Z",
+    "consent_receipt": "812a6cf27d30",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T22:34Z (receipt 812a6cf27d30); selected commit ba9db057b6d9: \"feat: add balance, zoom, credits and keybinding fixes\". LICENSE file at pin ba9db057b6d9 detected as GPL-3.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

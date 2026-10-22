@@ -9,13 +9,14 @@
    "repo": "network-doctor",
    "url": "https://github.com/heymaikol/network-doctor",
    "sha": "6989e9e78fed1e512c1661da1d31a8086e7c17ce",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 6989e9e78fed, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-07 (reply to Corpus Hub outreach); selected commit 6989e9e78fed: \"Return encrypted DNS on first verified success (#263)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-07T04:07Z",
+    "consent_receipt": "a4330e6ee62a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-07T04:07Z (receipt a4330e6ee62a); selected commit 6989e9e78fed: \"Return encrypted DNS on first verified success (#263)\". LICENSE file at pin 6989e9e78fed detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

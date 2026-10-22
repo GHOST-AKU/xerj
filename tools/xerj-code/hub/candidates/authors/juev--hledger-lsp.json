@@ -9,13 +9,14 @@
    "repo": "hledger-lsp",
    "url": "https://github.com/juev/hledger-lsp",
    "sha": "35c0abc0d802050374357cd8c15010f5de7f8a72",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 35c0abc0d802, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 35c0abc0d802: \"perf(include): one parse per document version, not one per consumer\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T06:37Z",
+    "consent_receipt": "57b10d9414fb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T06:37Z (receipt 57b10d9414fb); selected commit 35c0abc0d802: \"perf(include): one parse per document version, not one per consumer\". LICENSE file at pin 35c0abc0d802 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

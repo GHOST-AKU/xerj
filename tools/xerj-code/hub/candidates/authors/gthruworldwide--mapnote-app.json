@@ -9,13 +9,14 @@
    "repo": "RouteNote-App",
    "url": "https://github.com/Gthruworldwide/RouteNote-App",
    "sha": "df8042a3da0e39f250ef9c4eebe68b7bb882b4c4",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit df8042a3da0e: \"feat(motion): add PolylineSmoother & MotionBehaviorAnalyzer with 26 u\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "654fc68b7f04",
+    "note": "author consent by email 2026-10-18T23:25Z (receipt 654fc68b7f04); selected commit df8042a3da0e: \"feat(motion): add PolylineSmoother & MotionBehaviorAnalyzer with 26 u\u2026\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

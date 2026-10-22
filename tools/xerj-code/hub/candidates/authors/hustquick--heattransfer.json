@@ -9,13 +9,14 @@
    "repo": "HeatTransfer",
    "url": "https://github.com/hustquick/HeatTransfer",
    "sha": "8a2a0d1f23543cd9d4d38bfad8d89aea2a5ebabc",
-   "licence": "hint only: Zlib (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Zlib (LICENSE file at pin 8a2a0d1f2354, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Zlib",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 8a2a0d1f2354: \"Fix numerical examples and batch plotting; standardize Chinese fonts\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T22:46Z",
+    "consent_receipt": "f5d113bbbe64",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T22:46Z (receipt f5d113bbbe64); selected commit 8a2a0d1f2354: \"Fix numerical examples and batch plotting; standardize Chinese fonts\". LICENSE file at pin 8a2a0d1f2354 detected as Zlib by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

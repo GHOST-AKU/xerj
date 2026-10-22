@@ -9,13 +9,14 @@
    "repo": "universal-trust-adapter",
    "url": "https://github.com/alicelabs-llc/universal-trust-adapter",
    "sha": "f7fe8e75e01e9787dc830028a019261c2daf46ef",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit f7fe8e75e01e: \"feat: x402 paywall kit \u2014 sell ATC/1.0 trust checks per-call in USDC (\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "6ffc7b2df68b",
+    "note": "author consent by email 2026-10-17T21:44Z (receipt 6ffc7b2df68b); selected commit f7fe8e75e01e: \"feat: x402 paywall kit \u2014 sell ATC/1.0 trust checks per-call in USDC (\u2026\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

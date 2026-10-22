@@ -9,13 +9,14 @@
    "repo": "CodeVault",
    "url": "https://github.com/Anos714/CodeVault",
    "sha": "88bb61e45bcb3a9534caa3d8f292febefcdee8b8",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 88bb61e45bcb, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 88bb61e45bcb: \"feat(frontend): public share and embeddable snippet routes with OG pr\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T02:54Z",
+    "consent_receipt": "5895f282cbfd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T02:54Z (receipt 5895f282cbfd); selected commit 88bb61e45bcb: \"feat(frontend): public share and embeddable snippet routes with OG pr\u2026\". LICENSE file at pin 88bb61e45bcb detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

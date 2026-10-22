@@ -1,0 +1,23 @@
+{
+ "corpus": "aerospike--aerospike-kubernetes-operator",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on aerospike-kubernetes-operator, kubernetes queries this for how aerospike/aerospike-kubernetes-operator implements it: Kubernetes operator for the Aerospike database (selected work: internal/controller, test, api)",
+ "repos": [
+  {
+   "repo": "aerospike-kubernetes-operator",
+   "url": "https://github.com/aerospike/aerospike-kubernetes-operator",
+   "sha": "2235ad9d9ebf5c6746b6938fb662ff3042c3f278",
+   "licence": "Apache-2.0 (LICENSE file at pin 2235ad9d9ebf, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T08:39Z",
+    "consent_receipt": "5be7dabef1a3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T08:39Z (receipt 5be7dabef1a3); selected commit 2235ad9d9ebf: \"feat: Add support for index-checkpoint feature [KO-585] (#599)\". LICENSE file at pin 2235ad9d9ebf detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

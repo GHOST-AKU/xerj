@@ -9,13 +9,14 @@
    "repo": "mux-media",
    "url": "https://github.com/nujievik/mux-media",
    "sha": "b8298054a0bcd604489db7085f966fc883dad409",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit b8298054a0bc: \"Update Linux prebuilds building\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "6e2190d32536",
+    "note": "author consent by email 2026-10-12T17:30Z (receipt 6e2190d32536); selected commit b8298054a0bc: \"Update Linux prebuilds building\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

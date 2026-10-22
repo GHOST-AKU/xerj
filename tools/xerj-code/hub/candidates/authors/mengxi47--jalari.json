@@ -9,13 +9,14 @@
    "repo": "jalari",
    "url": "https://github.com/MengXi47/jalari",
    "sha": "530c05c6638ed9858605b417b875d77051d7de64",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 530c05c6638e: \"fix: Close race conditions in claiming, Replace and maintenance\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "cb6bb0999561",
+    "note": "author consent by email 2026-10-19T05:34Z (receipt cb6bb0999561); selected commit 530c05c6638e: \"fix: Close race conditions in claiming, Replace and maintenance\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

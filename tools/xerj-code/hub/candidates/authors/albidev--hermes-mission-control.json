@@ -9,13 +9,14 @@
    "repo": "hermes-mission-control",
    "url": "https://github.com/albidev/hermes-mission-control",
    "sha": "b04ef79fdc4a002d70eaced52c07e77ed9fdf6c6",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin b04ef79fdc4a, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit b04ef79fdc4a: \"feat(chat): add live session picker with profile-safe resume\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T09:49Z",
+    "consent_receipt": "c13644c87805",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T09:49Z (receipt c13644c87805); selected commit b04ef79fdc4a: \"feat(chat): add live session picker with profile-safe resume\". LICENSE file at pin b04ef79fdc4a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

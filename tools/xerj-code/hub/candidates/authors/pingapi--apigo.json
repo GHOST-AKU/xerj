@@ -9,13 +9,14 @@
    "repo": "apigo",
    "url": "https://github.com/pingapi/apigo",
    "sha": "f40c28fea69338675f7db71e784915e255d9f3f6",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin f40c28fea693, GitHub licence API 2026-10-22)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit f40c28fea693: \"\u6570\u636e\u63d2\u4ef6\u4f18\u5316\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T11:46Z",
+    "consent_receipt": "7e2b5f3c6e01",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T11:46Z (receipt 7e2b5f3c6e01); selected commit f40c28fea693: \"\u6570\u636e\u63d2\u4ef6\u4f18\u5316\". LICENSE file at pin f40c28fea693 detected as Apache-2.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
    }
   }
  ]

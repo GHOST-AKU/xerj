@@ -9,13 +9,14 @@
    "repo": "ACM-Helper",
    "url": "https://github.com/EthanLiamOliverFelix/ACM-Helper",
    "sha": "dc0652f105dc1e54f46f00a807f834f52379461d",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin dc0652f105dc, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit dc0652f105dc: \"Add QOJ catalogs and submission support; stabilize CPH diagnostics\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T01:08Z",
+    "consent_receipt": "c579766b2bb9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T01:08Z (receipt c579766b2bb9); selected commit dc0652f105dc: \"Add QOJ catalogs and submission support; stabilize CPH diagnostics\". LICENSE file at pin dc0652f105dc detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

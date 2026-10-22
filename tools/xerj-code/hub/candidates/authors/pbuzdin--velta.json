@@ -9,13 +9,14 @@
    "repo": "velta",
    "url": "https://github.com/pbuzdin/velta",
    "sha": "b45296973d2edcdc9459b326767b7cce858078f4",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin b45296973d2e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit b45296973d2e: \"app: bound in-memory caches with a shared LRU helper\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-15T00:55Z",
+    "consent_receipt": "e9f01ba308b3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T00:55Z (receipt e9f01ba308b3); selected commit b45296973d2e: \"app: bound in-memory caches with a shared LRU helper\". LICENSE file at pin b45296973d2e detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

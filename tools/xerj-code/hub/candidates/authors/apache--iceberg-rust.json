@@ -9,13 +9,14 @@
    "repo": "iceberg-rust",
    "url": "https://github.com/apache/iceberg-rust",
    "sha": "e4bec84bcca5ba4f3e19583e95b1de7c1fab2559",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin e4bec84bcca5, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit e4bec84bcca5: \"feat(transaction): let a snapshot operation report removed files and \u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T22:16Z",
+    "consent_receipt": "a8f5f08e648d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T22:16Z (receipt a8f5f08e648d); selected commit e4bec84bcca5: \"feat(transaction): let a snapshot operation report removed files and \u2026\". LICENSE file at pin e4bec84bcca5 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

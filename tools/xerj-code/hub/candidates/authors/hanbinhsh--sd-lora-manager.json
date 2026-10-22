@@ -9,13 +9,14 @@
    "repo": "SD-LoRA-Manager",
    "url": "https://github.com/hanbinhsh/SD-LoRA-Manager",
    "sha": "eadce6fca39e14389605a27d3b2bd9f0362af00d",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin eadce6fca39e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit eadce6fca39e: \"1.5.14\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T07:32Z",
+    "consent_receipt": "0101c7518ee8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T07:32Z (receipt 0101c7518ee8); selected commit eadce6fca39e: \"1.5.14\". LICENSE file at pin eadce6fca39e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

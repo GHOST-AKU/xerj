@@ -1,0 +1,23 @@
+{
+ "corpus": "teklumt--easy-ping",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on email, in-app-notifications, mongodb queries this for how teklumt/easy-ping implements it: Self-hosted, type-safe notifications for TypeScript. In-app inbox, email, web push, mobile push and Telegram from one send() call, stored in (selected work: examples, demo-app, the project root)",
+ "repos": [
+  {
+   "repo": "easy-ping",
+   "url": "https://github.com/teklumt/easy-ping",
+   "sha": "99d356cfa6aba1b2d2969aaac70889f010e54b29",
+   "licence": "MIT (LICENSE file at pin 99d356cfa6ab, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T20:20Z",
+    "consent_receipt": "3eb82fbc0bc9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T20:20Z (receipt 3eb82fbc0bc9); selected commit 99d356cfa6ab: \"feat: runnable web examples showing in-app, web push and email on the\u2026\". LICENSE file at pin 99d356cfa6ab detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

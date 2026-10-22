@@ -1,0 +1,23 @@
+{
+ "corpus": "ios-bundles--carriersim",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how ios-bundles/CarrierSIM implements it: CarrierSIM - \u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u043f\u0440\u043e\u0444\u0438\u043b\u0435\u0439 \u043e\u043f\u0435\u0440\u0430\u0442\u043e\u0440\u043e\u0432 \u0434\u043b\u044f \u0440\u0430\u0437\u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0435\u0439 iPhone \u0438 iPad: VoWiFi, 5G \u0438 EVS \u0432 \u0420\u043e\u0441\u0441\u0438\u0438 \u0438 \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u0438 (selected work: the project root, tests)",
+ "repos": [
+  {
+   "repo": "CarrierSIM",
+   "url": "https://github.com/ios-bundles/CarrierSIM",
+   "sha": "dd7b9755d2e5186fb61ec025a838c2a97b5916dd",
+   "licence": "MIT (LICENSE file at pin dd7b9755d2e5, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T19:31Z",
+    "consent_receipt": "cc753f019386",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T19:31Z (receipt cc753f019386); selected commit dd7b9755d2e5: \"Add native Linux AirTraffic backend and USB support\". LICENSE file at pin dd7b9755d2e5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

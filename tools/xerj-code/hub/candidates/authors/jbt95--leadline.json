@@ -1,0 +1,23 @@
+{
+ "corpus": "jbt95--leadline",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agentic-ai, ai, cli queries this for how jbt95/leadline implements it: Deterministic function-level complexity analysis for Java, JavaScript, TypeScript, and TSX \u2014 built as a feedback loop for humans, CI, and AI (selected work: crates/analysis, crates/report)",
+ "repos": [
+  {
+   "repo": "leadline",
+   "url": "https://github.com/jbt95/leadline",
+   "sha": "df7b69a8ef9d37537f938a40cf424959c303dbf9",
+   "licence": "MIT (LICENSE file at pin df7b69a8ef9d, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T02:48Z",
+    "consent_receipt": "822764323da0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T02:48Z (receipt 822764323da0); selected commit df7b69a8ef9d: \"feat(analysis): carry test ids and symbol keys in the test map\". LICENSE file at pin df7b69a8ef9d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

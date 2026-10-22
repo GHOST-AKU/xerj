@@ -9,13 +9,14 @@
    "repo": "c64ready",
    "url": "https://github.com/mortyeriksen/c64ready",
    "sha": "8d5c65886cd243bbcff343234051c5d6f53392d8",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin 8d5c65886cd2, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 8d5c65886cd2: \"Add the User Port with a WiFi modem, installable devices with an inst\u2026\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T06:46Z",
+    "consent_receipt": "d9f0252a1205",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:46Z (receipt d9f0252a1205); selected commit 8d5c65886cd2: \"Add the User Port with a WiFi modem, installable devices with an inst\u2026\". LICENSE file at pin 8d5c65886cd2 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

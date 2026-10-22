@@ -9,13 +9,14 @@
    "repo": "Tapix",
    "url": "https://github.com/Ryuzaki-Nightmare/Tapix",
    "sha": "1b2d53e49128515e2cbfea85d8425e5e927e9b20",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 1b2d53e49128: \"UPD shell.c, kernel.c and keyboard.c\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "559ca87e6f25",
+    "note": "author consent by email 2026-10-11T04:04Z (receipt 559ca87e6f25); selected commit 1b2d53e49128: \"UPD shell.c, kernel.c and keyboard.c\"; LICENSE at pin: not checked yet vs repository AGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

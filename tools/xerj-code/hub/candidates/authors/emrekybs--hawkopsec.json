@@ -9,13 +9,14 @@
    "repo": "hawkopsec",
    "url": "https://github.com/emrekybs/hawkopsec",
    "sha": "4959b41aa91de4e5b525bdd107be6cc4f075fd82",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 4959b41aa91d, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 4959b41aa91d: \"v2.1.0\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T13:41Z",
+    "consent_receipt": "368d07cac37c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T13:41Z (receipt 368d07cac37c); selected commit 4959b41aa91d: \"v2.1.0\". LICENSE file at pin 4959b41aa91d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

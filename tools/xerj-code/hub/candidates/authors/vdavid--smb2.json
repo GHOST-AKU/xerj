@@ -9,13 +9,14 @@
    "repo": "smb2",
    "url": "https://github.com/vdavid/smb2",
    "sha": "56b2fda89f041efef8eedf7c886b8a4d5666cb83",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-07 (reply to Corpus Hub outreach); selected commit 56b2fda89f04: \"fix(client)!: a call through a DFS link leaves the caller's tree on i\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "f8a68b5e8c33",
+    "note": "author consent by email 2026-10-07T20:49Z (receipt f8a68b5e8c33); selected commit 56b2fda89f04: \"fix(client)!: a call through a DFS link leaves the caller's tree on i\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

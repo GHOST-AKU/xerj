@@ -9,13 +9,14 @@
    "repo": "purplepie",
    "url": "https://github.com/DavidVilela1/purplepie",
    "sha": "b7f7c5c532e9cd60f46d5bd4503908df8863b728",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit b7f7c5c532e9: \"feat(editor): edit quads, sprites, texts and game components in the i\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "1e9376b652fa",
+    "note": "author consent by email 2026-10-16T09:55Z (receipt 1e9376b652fa); selected commit b7f7c5c532e9: \"feat(editor): edit quads, sprites, texts and game components in the i\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

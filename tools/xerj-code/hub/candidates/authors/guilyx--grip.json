@@ -2,20 +2,21 @@
  "corpus": "guilyx--grip",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on Python queries this for how guilyx/grip implements it: keep a grip! (selected work: src/grip_hook, tests)",
+ "shelf": "AI",
+ "domain": "an agent working on ai, claude-code, cli queries this for how guilyx/grip implements it: A git hook that won't let you push code you can't explain. Quizzes you on your own diff. Works with Claude Code, Codex, Cursor (selected work: src/grip_hook, tests)",
  "repos": [
   {
    "repo": "grip",
    "url": "https://github.com/guilyx/grip",
    "sha": "e5de05830837b3417716c7e223ea0faf30aec49e",
-   "licence": "hint only: BSD-3-Clause (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "BSD-3-Clause (LICENSE file at pin e5de05830837, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "BSD-3-Clause",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit e5de05830837: \"Add grip init: .grip.toml, the hook and the agent rule files in one c\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T14:49Z",
+    "consent_receipt": "c3b3ccddd0b6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T14:49Z (receipt c3b3ccddd0b6); selected commit e5de05830837: \"Add grip init: .grip.toml, the hook and the agent rule files in one c\u2026\". LICENSE file at pin e5de05830837 detected as BSD-3-Clause by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

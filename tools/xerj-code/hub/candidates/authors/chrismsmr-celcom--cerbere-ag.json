@@ -9,13 +9,14 @@
    "repo": "cerbere-AG",
    "url": "https://github.com/chrismsmr-celcom/cerbere-AG",
    "sha": "5898fa41d5b715e9f693e11ab8fbbb85803e74c8",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit 5898fa41d5b7: \"fix:deploy.sh without rollback and AGENTGUARD_WHITELIST_FAIL_MODE=ope\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "410e55819a9f",
+    "note": "author consent by email 2026-10-10T05:41Z (receipt 410e55819a9f); selected commit 5898fa41d5b7: \"fix:deploy.sh without rollback and AGENTGUARD_WHITELIST_FAIL_MODE=ope\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

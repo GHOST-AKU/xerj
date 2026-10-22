@@ -9,13 +9,14 @@
    "repo": "abvx-agent-skills",
    "url": "https://github.com/markoblogo/abvx-agent-skills",
    "sha": "fc504a3c961bd17d430787e0c7bb6371b381bfae",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin fc504a3c961b, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit fc504a3c961b: \"publish measured Chisle comparison\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T18:13Z",
+    "consent_receipt": "f09e47dbb7ea",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T18:13Z (receipt f09e47dbb7ea); selected commit fc504a3c961b: \"publish measured Chisle comparison\". LICENSE file at pin fc504a3c961b detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "lambdakilo--dotclaude",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on claude-code, dotfiles, ai queries this for how lambdakilo/dotclaude implements it: How I use Claude Code, in the open (selected work: hooks, the project root)",
+ "repos": [
+  {
+   "repo": "dotclaude",
+   "url": "https://github.com/lambdakilo/dotclaude",
+   "sha": "74a5666afbbee8a2cb63ca6128740e02f68e7980",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "85c16d97699c",
+    "note": "author consent by email 2026-10-22T06:50Z (receipt 85c16d97699c); selected commit 74a5666afbbe: \"Infer the scope of corrections, show usage after each turn\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

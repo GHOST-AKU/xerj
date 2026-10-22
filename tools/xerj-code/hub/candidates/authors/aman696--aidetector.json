@@ -1,0 +1,23 @@
+{
+ "corpus": "aman696--aidetector",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how aman696/aidetector implements it: Built a hybrid AI-image detection pipeline using classical image-forensics features and DINOv2 embeddings with leakage-safe training and cal (selected work: demo, tests, the project root)",
+ "repos": [
+  {
+   "repo": "aidetector",
+   "url": "https://github.com/aman696/aidetector",
+   "sha": "9a7d98d8cce480b7a9325bb662298a2d6ea09f20",
+   "licence": "MIT (LICENSE file at pin 9a7d98d8cce4, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T09:37Z",
+    "consent_receipt": "144d408a7b64",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T09:37Z (receipt 144d408a7b64); selected commit 9a7d98d8cce4: \"Add real classical-detector demo API and image-testing page\". LICENSE file at pin 9a7d98d8cce4 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "Cifar-10",
    "url": "https://github.com/DanielSarmiento04/Cifar-10",
    "sha": "9a5afc21e58d7a256b3ceb191d68254f0b1d31b2",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 9a5afc21e58d, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 9a5afc21e58d: \"feat: add hybrid and traditional CIFAR-10 network implementations wit\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T18:38Z",
+    "consent_receipt": "a0a693065830",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T18:38Z (receipt a0a693065830); selected commit 9a5afc21e58d: \"feat: add hybrid and traditional CIFAR-10 network implementations wit\u2026\". LICENSE file at pin 9a5afc21e58d detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

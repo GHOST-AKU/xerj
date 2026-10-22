@@ -1,0 +1,23 @@
+{
+ "corpus": "tahsine--momo-mcp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on africa, ai-agents, fintech queries this for how Tahsine/momo-mcp implements it: Serveur MCP pour Mobile Money en Afrique de l'Ouest francophone (MTN MoMo, Moov Africa, Orange Money) \u2014 paiements, statuts et transferts pou (selected work: src/momo_mcp, tests, the project root)",
+ "repos": [
+  {
+   "repo": "momo-mcp",
+   "url": "https://github.com/Tahsine/momo-mcp",
+   "sha": "f6e95f4a18eedb32814eb1b833837300f15ef4a1",
+   "licence": "MIT (LICENSE file at pin f6e95f4a18ee, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T20:52Z",
+    "consent_receipt": "2a26aad7a3c8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T20:52Z (receipt 2a26aad7a3c8); selected commit f6e95f4a18ee: \"Renforce la securite (audit Bryand): annotations, plafonds, allowlist\u2026\". LICENSE file at pin f6e95f4a18ee detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

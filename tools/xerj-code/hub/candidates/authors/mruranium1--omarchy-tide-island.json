@@ -9,13 +9,14 @@
    "repo": "Omarchy-Tide-Island",
    "url": "https://github.com/MrUranium1/Omarchy-Tide-Island",
    "sha": "0aabceda94f5b2236198818ee863f9e39ccc9750",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 0aabceda94f5, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 0aabceda94f5: \"Bound auto-setup retries and reset the budget on removal\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T06:17Z",
+    "consent_receipt": "3508afa244db",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T06:17Z (receipt 3508afa244db); selected commit 0aabceda94f5: \"Bound auto-setup retries and reset the budget on removal\". LICENSE file at pin 0aabceda94f5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

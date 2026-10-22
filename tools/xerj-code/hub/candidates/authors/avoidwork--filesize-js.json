@@ -9,13 +9,14 @@
    "repo": "filesize.js",
    "url": "https://github.com/avoidwork/filesize.js",
    "sha": "ece1a832dd0514c3ecebcbcc27aa8e8505587b29",
-   "licence": "hint only: BSD-3-Clause (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "BSD-3-Clause (LICENSE file at pin ece1a832dd05, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "BSD-3-Clause",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit ece1a832dd05: \"fix: preserve BigInt precision above Number.MAX_SAFE_INTEGER (#355)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T12:24Z",
+    "consent_receipt": "80e3a7296e68",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T12:24Z (receipt 80e3a7296e68); selected commit ece1a832dd05: \"fix: preserve BigInt precision above Number.MAX_SAFE_INTEGER (#355)\". LICENSE file at pin ece1a832dd05 detected as BSD-3-Clause by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

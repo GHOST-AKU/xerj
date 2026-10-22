@@ -9,13 +9,14 @@
    "repo": "cli_req_refiner",
    "url": "https://github.com/reigadegr/cli_req_refiner",
    "sha": "dfcb7af72b3edb7efcebd9a1e4301541dfc5b0a6",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin dfcb7af72b3e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit dfcb7af72b3e: \"feat: \u652f\u6301 upstream \u914d\u7f6e\u591a model \u6570\u7ec4\u5e76\u5b9e\u73b0\u6a21\u578b\u7ea7\u6545\u969c\u8f6c\u79fb\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-16T06:17Z",
+    "consent_receipt": "04d712270fe2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T06:17Z (receipt 04d712270fe2); selected commit dfcb7af72b3e: \"feat: \u652f\u6301 upstream \u914d\u7f6e\u591a model \u6570\u7ec4\u5e76\u5b9e\u73b0\u6a21\u578b\u7ea7\u6545\u969c\u8f6c\u79fb\". LICENSE file at pin dfcb7af72b3e detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

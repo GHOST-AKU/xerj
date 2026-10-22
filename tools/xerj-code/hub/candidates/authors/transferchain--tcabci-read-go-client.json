@@ -9,13 +9,14 @@
    "repo": "tcabci-read-go-client",
    "url": "https://github.com/TransferChain/tcabci-read-go-client",
    "sha": "d915632ed0494dcba70a0c6049d6d04a583bfea9",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit d915632ed049: \"Security improvements and changed wsClient structure\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "64f63aeec55c",
+    "note": "author consent by email 2026-10-11T22:42Z (receipt 64f63aeec55c); selected commit d915632ed049: \"Security improvements and changed wsClient structure\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

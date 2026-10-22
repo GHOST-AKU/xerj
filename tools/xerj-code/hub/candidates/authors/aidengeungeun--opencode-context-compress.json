@@ -1,0 +1,23 @@
+{
+ "corpus": "aidengeungeun--opencode-context-compress",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how AidenGeunGeun/opencode-context-compress implements it: Durable context compression for OpenCode 2. Replaces native auto-compaction: folds old history into compressed blocks, keeps a recent workin (selected work: tests, lib/messages)",
+ "repos": [
+  {
+   "repo": "opencode-context-compress",
+   "url": "https://github.com/AidenGeunGeun/opencode-context-compress",
+   "sha": "e80e926ecc3cfc890d05555460500cd35dbf1698",
+   "licence": "MIT (LICENSE file at pin e80e926ecc3c, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T20:58Z",
+    "consent_receipt": "d48436960afe",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T20:58Z (receipt d48436960afe); selected commit e80e926ecc3c: \"test: drive transform tests through the plugin context hook\". LICENSE file at pin e80e926ecc3c detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

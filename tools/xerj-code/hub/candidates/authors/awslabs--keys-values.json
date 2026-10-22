@@ -9,13 +9,14 @@
    "repo": "keys_values",
    "url": "https://github.com/awslabs/keys_values",
    "sha": "e84a03cf11f0a1528ff9ff3e823162bde7bc7b1d",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit e84a03cf11f0: \"K, V padding in FlexAttention SDPA. Introducing kv_lens alongside q_l\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "747197f64fcc",
+    "note": "author consent by email 2026-10-10T15:07Z (receipt 747197f64fcc); selected commit e84a03cf11f0: \"K, V padding in FlexAttention SDPA. Introducing kv_lens alongside q_l\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

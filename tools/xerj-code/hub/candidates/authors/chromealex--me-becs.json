@@ -1,0 +1,23 @@
+{
+ "corpus": "chromealex--me-becs",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on C# queries this for how chromealex/ME.BECS implements it: Bursted Entity Component System (selected work: Addons)",
+ "repos": [
+  {
+   "repo": "ME.BECS",
+   "url": "https://github.com/chromealex/ME.BECS",
+   "sha": "73cabebd1ab95682ab37831106bd4173059364d4",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "796e50c136b2",
+    "note": "author consent by email 2026-10-22T06:24Z (receipt 796e50c136b2); selected commit 73cabebd1ab9: \"[Views] AssignTo fix + allocations fix\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

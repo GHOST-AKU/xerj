@@ -9,13 +9,14 @@
    "repo": "Anonymous_Chat",
    "url": "https://github.com/gguatit/Anonymous_Chat",
    "sha": "e57e898a5187fea7dc0a1277f1df49ab668ff025",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit e57e898a5187: \"fix: \uacf5\uc9c0\uc0ac\ud56d\uc744 D1\uc5d0 \uc601\uad6c\uc800\uc7a5\uc73c\ub85c \uc804\ud658 \u2014 DO \uc800\uc7a5 \ud55c\ub3c4\ub85c \uc778\ud55c \uacf5\uc9c0 \uc720\uc2e4 \uc218\uc815\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "e5d43b1f8abf",
+    "note": "author consent by email 2026-10-14T02:35Z (receipt e5d43b1f8abf); selected commit e57e898a5187: \"fix: \uacf5\uc9c0\uc0ac\ud56d\uc744 D1\uc5d0 \uc601\uad6c\uc800\uc7a5\uc73c\ub85c \uc804\ud658 \u2014 DO \uc800\uc7a5 \ud55c\ub3c4\ub85c \uc778\ud55c \uacf5\uc9c0 \uc720\uc2e4 \uc218\uc815\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

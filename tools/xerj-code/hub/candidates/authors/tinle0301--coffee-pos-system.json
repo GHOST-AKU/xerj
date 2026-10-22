@@ -9,13 +9,14 @@
    "repo": "coffee-pos-system",
    "url": "https://github.com/Tinle0301/coffee-pos-system",
    "sha": "11ce8565d6329d30d97d6c1f85598f0c5ddf529c",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 11ce8565d632, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 11ce8565d632: \"POS-16: Row level security on payments and immutable transaction logs\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T01:39Z",
+    "consent_receipt": "41fc0a6a3d02",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T01:39Z (receipt 41fc0a6a3d02); selected commit 11ce8565d632: \"POS-16: Row level security on payments and immutable transaction logs\". LICENSE file at pin 11ce8565d632 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

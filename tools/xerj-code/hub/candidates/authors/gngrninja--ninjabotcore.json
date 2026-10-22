@@ -9,13 +9,14 @@
    "repo": "NinjaBotCore",
    "url": "https://github.com/gngrninja/NinjaBotCore",
    "sha": "fed62fe4931c98bdcf439f9e5e62c0112886857d",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin fed62fe4931c, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit fed62fe4931c: \"Recover rejected Warcraft Logs tokens and add error alerts\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T02:40Z",
+    "consent_receipt": "1ddf70f4e5f2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T02:40Z (receipt 1ddf70f4e5f2); selected commit fed62fe4931c: \"Recover rejected Warcraft Logs tokens and add error alerts\". LICENSE file at pin fed62fe4931c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

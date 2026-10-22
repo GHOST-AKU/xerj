@@ -9,13 +9,14 @@
    "repo": "qLDPC",
    "url": "https://github.com/qLDPCOrg/qLDPC",
    "sha": "7ee50910ea2420d29372166ba053639ddb3b7843",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit 7ee50910ea24: \"formatting hygiene (#646)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "aac31ffa1b45",
+    "note": "author consent by email 2026-10-10T23:27Z (receipt aac31ffa1b45); selected commit 7ee50910ea24: \"formatting hygiene (#646)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

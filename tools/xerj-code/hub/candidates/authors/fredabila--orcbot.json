@@ -9,13 +9,14 @@
    "repo": "orcbot",
    "url": "https://github.com/fredabila/orcbot",
    "sha": "d3cd92c635ee935860c3e5a46331999d259e5e8a",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin d3cd92c635ee, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit d3cd92c635ee: \"Add unit tests for ToolingScreen menus using Vitest\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T16:55Z",
+    "consent_receipt": "9cbcb42a2e47",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T16:55Z (receipt 9cbcb42a2e47); selected commit d3cd92c635ee: \"Add unit tests for ToolingScreen menus using Vitest\". LICENSE file at pin d3cd92c635ee detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

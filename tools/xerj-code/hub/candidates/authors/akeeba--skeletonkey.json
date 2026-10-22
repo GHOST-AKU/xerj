@@ -9,13 +9,14 @@
    "repo": "skeletonkey",
    "url": "https://github.com/akeeba/skeletonkey",
    "sha": "874e27a7112e957888ce6d06a6f764395ad354d6",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin 874e27a7112e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 874e27a7112e: \"Audit refused key requests and the redemption of the key\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-15T06:28Z",
+    "consent_receipt": "3a6110d4dd09",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T06:28Z (receipt 3a6110d4dd09); selected commit 874e27a7112e: \"Audit refused key requests and the redemption of the key\". LICENSE file at pin 874e27a7112e detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

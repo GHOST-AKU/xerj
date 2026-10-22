@@ -9,13 +9,14 @@
    "repo": "shrike",
    "url": "https://github.com/SumantxD/shrike",
    "sha": "2aadeca9daddf7aba7fd3281263e2ef5b0ff6652",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 2aadeca9dadd, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 2aadeca9dadd: \"Make sign-in work on a live site: its own session, a plain user agent\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T14:41Z",
+    "consent_receipt": "09275aa203af",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T14:41Z (receipt 09275aa203af); selected commit 2aadeca9dadd: \"Make sign-in work on a live site: its own session, a plain user agent\u2026\". LICENSE file at pin 2aadeca9dadd detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

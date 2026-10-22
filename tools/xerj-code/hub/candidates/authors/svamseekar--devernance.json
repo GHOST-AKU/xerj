@@ -9,13 +9,14 @@
    "repo": "eu-ai-assurance-os",
    "url": "https://github.com/SVamseekar/eu-ai-assurance-os",
    "sha": "ad38a0e2a2b4d160533f98834b5483441f6deb67",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit ad38a0e2a2b4: \"feat: production compose stack, image pipeline, and backups (#104)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "e555506d61a6",
+    "note": "author consent by email 2026-10-18T12:23Z (receipt e555506d61a6); selected commit ad38a0e2a2b4: \"feat: production compose stack, image pipeline, and backups (#104)\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

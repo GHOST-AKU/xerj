@@ -9,13 +9,14 @@
    "repo": "solrwayback",
    "url": "https://github.com/netarchivesuite/solrwayback",
    "sha": "c23687901e5931def2fdf571c837e0150d2891ec",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin c23687901e59, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit c23687901e59: \"Image similarity search implemented. (#514)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T07:19Z",
+    "consent_receipt": "5db1024e7f4b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:19Z (receipt 5db1024e7f4b); selected commit c23687901e59: \"Image similarity search implemented. (#514)\". LICENSE file at pin c23687901e59 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

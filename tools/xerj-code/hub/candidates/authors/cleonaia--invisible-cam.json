@@ -8,14 +8,15 @@
   {
    "repo": "invisible_cam",
    "url": "https://github.com/cleonaia/invisible_cam",
-   "sha": "658a5ca0802dbbe7e9c3d34040c25df32e3fea30",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "b2bca06eafc4e0b07b0d6415f750d3c00c0cda65",
+   "licence": "MIT (LICENSE file at pin b2bca06eafc4, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 658a5ca0802d: \"Add files via upload\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T08:25Z",
+    "consent_receipt": "dd8289baefb5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T08:25Z (receipt dd8289baefb5); selected commit b2bca06eafc4: \"Add files via upload\". LICENSE file at pin b2bca06eafc4 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head b2bca06eafc4 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

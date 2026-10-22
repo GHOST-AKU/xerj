@@ -1,0 +1,23 @@
+{
+ "corpus": "scabarcas17--laravel-permissions-redis",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on laravel, performance, permissions queries this for how scabarcas17/laravel-permissions-redis implements it: A Redis-powered roles and permissions package for Laravel designed to eliminate repetitive database queries and deliver high-performance aut (selected work: tests, src/Models, src/Traits)",
+ "repos": [
+  {
+   "repo": "laravel-permissions-redis",
+   "url": "https://github.com/scabarcas17/laravel-permissions-redis",
+   "sha": "11d148f11daec8b7eb90f7a4ef93c23a4e67b9f0",
+   "licence": "MIT (LICENSE file at pin 11d148f11dae, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T15:09Z",
+    "consent_receipt": "789e3c2503a5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T15:09Z (receipt 789e3c2503a5); selected commit 11d148f11dae: \"fix: accept model instances, validate Role permission IDs by guard, a\u2026\". LICENSE file at pin 11d148f11dae detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "bolivartech--magi",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Rust queries this for how BolivarTech/magi implements it: Magi Agent \u2014 terminal AI assistant in Rust (selected work: src/agent, src/headless, src)",
+ "repos": [
+  {
+   "repo": "magi",
+   "url": "https://github.com/BolivarTech/magi",
+   "sha": "29524d3eb0850f4a83564de0276f6c8fc9444537",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "f8b8a2f44d2e",
+    "note": "author consent by email 2026-10-19T18:20Z (receipt f8b8a2f44d2e); selected commit 29524d3eb085: \"fix: read HTTP status from typed provider errors, never from text\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

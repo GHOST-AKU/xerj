@@ -1,0 +1,23 @@
+{
+ "corpus": "xd-mohamed--grammers",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how xD-Mohamed/grammers implements it: Rust Telegram/MTProto client with managed lifecycle, typed session imports, and portable sessions. Independently maintained grammers fork (selected work: grammers-session, grammers-client)",
+ "repos": [
+  {
+   "repo": "grammers",
+   "url": "https://github.com/xD-Mohamed/grammers",
+   "sha": "ab09fa5cbe9ab301ef821b53df43f791151754b0",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "6accabe6aab4",
+    "note": "author consent by email 2026-10-20T21:47Z (receipt 6accabe6aab4); selected commit ab09fa5cbe9a: \"feat(session): import Pyrogram Telethon and gotd sessions in memory\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

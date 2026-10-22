@@ -1,0 +1,23 @@
+{
+ "corpus": "rhymezip--kyros-online-desktop-assistant",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how rhymezip/kyros-online-desktop-assistant implements it: Live voice assistant for macOS \u2014 Gemini native audio + full Mac control. Speak, it acts (selected work: core, tests, gui)",
+ "repos": [
+  {
+   "repo": "kyros-online-desktop-assistant",
+   "url": "https://github.com/rhymezip/kyros-online-desktop-assistant",
+   "sha": "b1346ce3400390b10e1ad083ccb60940598957a0",
+   "licence": "MIT (LICENSE file at pin b1346ce34003, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T02:46Z",
+    "consent_receipt": "59edcf81f977",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T02:46Z (receipt 59edcf81f977); selected commit b1346ce34003: \"antoher one fix\". LICENSE file at pin b1346ce34003 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

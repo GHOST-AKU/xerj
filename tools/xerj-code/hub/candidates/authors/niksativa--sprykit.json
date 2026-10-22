@@ -9,13 +9,14 @@
    "repo": "SpryKit",
    "url": "https://github.com/NikSativa/SpryKit",
    "sha": "22e03739eb16767452de05c429b8784ecbb7e97d",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 22e03739eb16, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 22e03739eb16: \"Add waiting for calls and deferred stub responses\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T08:05Z",
+    "consent_receipt": "ab75d0fd478d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T08:05Z (receipt ab75d0fd478d); selected commit 22e03739eb16: \"Add waiting for calls and deferred stub responses\". LICENSE file at pin 22e03739eb16 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

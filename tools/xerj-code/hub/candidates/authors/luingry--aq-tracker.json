@@ -1,0 +1,23 @@
+{
+ "corpus": "luingry--aq-tracker",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on C# queries this for how luingry/aq-tracker implements it: Agent Quota Tracker \u2014 native Windows widget for Codex and Claude quotas, usage analytics and live agent activity (selected work: src/AqTracker, src/CodexTracker, tests)",
+ "repos": [
+  {
+   "repo": "aq-tracker",
+   "url": "https://github.com/luingry/aq-tracker",
+   "sha": "67c586dc587c7ad23a5aabd5444d623026e1a38d",
+   "licence": "MIT (LICENSE file at pin 67c586dc587c, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T23:44Z",
+    "consent_receipt": "dfe7029b03cf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T23:44Z (receipt dfe7029b03cf); selected commit 67c586dc587c: \"feat: release Agent Quota Tracker 0.24.1\". LICENSE file at pin 67c586dc587c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

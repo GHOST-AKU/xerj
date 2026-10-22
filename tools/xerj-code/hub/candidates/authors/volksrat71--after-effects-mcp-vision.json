@@ -9,13 +9,14 @@
    "repo": "after-effects-mcp-vision",
    "url": "https://github.com/VolksRat71/after-effects-mcp-vision",
    "sha": "6303c393d4c8864cf5161be1b6f42b2b8f579959",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 6303c393d4c8, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 6303c393d4c8: \"Add Illustrator support alongside AE workflows, contributed by Noah L\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T14:19Z",
+    "consent_receipt": "0f7f0764e905",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T14:19Z (receipt 0f7f0764e905); selected commit 6303c393d4c8: \"Add Illustrator support alongside AE workflows, contributed by Noah L\u2026\". LICENSE file at pin 6303c393d4c8 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "prod-code",
    "url": "https://github.com/alex09x/prod-code",
    "sha": "5db473fe8b85bb3416dcfa73a00f6e481cf1e84b",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 5db473fe8b85: \"fix(mcp, gateway): resolve type aliases, stdlib symbols, swift call s\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "ab5134245d11",
+    "note": "author consent by email 2026-10-13T00:07Z (receipt ab5134245d11); selected commit 5db473fe8b85: \"fix(mcp, gateway): resolve type aliases, stdlib symbols, swift call s\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "kinopoisk-to-imdb",
    "url": "https://github.com/demrom/kinopoisk-to-imdb",
    "sha": "06698a6654bebb7cd7a31359ebfdda7f4eb2a50d",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 06698a6654be, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 06698a6654be: \"imdb.ratings/watched: keep what you set yourself, undo by report (#5)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T05:41Z",
+    "consent_receipt": "8aaab162c428",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T05:41Z (receipt 8aaab162c428); selected commit 06698a6654be: \"imdb.ratings/watched: keep what you set yourself, undo by report (#5)\". LICENSE file at pin 06698a6654be detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

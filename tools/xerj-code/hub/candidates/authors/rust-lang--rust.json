@@ -9,13 +9,14 @@
    "repo": "rust",
    "url": "https://github.com/rust-lang/rust",
    "sha": "2b90a47296c3a909afe7c725749c409cd3747d99",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 2b90a47296c3: \"fix delegation generic parameter remapping ICEs\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "862d650898e4",
+    "note": "author consent by email 2026-10-18T22:46Z (receipt 862d650898e4); selected commit 2b90a47296c3: \"fix delegation generic parameter remapping ICEs\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

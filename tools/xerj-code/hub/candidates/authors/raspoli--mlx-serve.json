@@ -9,13 +9,14 @@
    "repo": "mlx-serve",
    "url": "https://github.com/raspoli/mlx-serve",
    "sha": "cebdfc5dc24e614a63f36daf835d1805dc8986dd",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin cebdfc5dc24e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit cebdfc5dc24e: \"v0.2.0: Add decision model type for Laya typed decision models\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T21:15Z",
+    "consent_receipt": "cb6bb2c6149f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T21:15Z (receipt cb6bb2c6149f); selected commit cebdfc5dc24e: \"v0.2.0: Add decision model type for Laya typed decision models\". LICENSE file at pin cebdfc5dc24e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

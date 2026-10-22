@@ -1,0 +1,23 @@
+{
+ "corpus": "sneldao--ligis",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, blockchain, buildathon queries this for how sneldao/ligis implements it: Ligis is the portable identity and credential layer for AI agents on the Pharos Network (selected work: web, test, packages/contracts-evm)",
+ "repos": [
+  {
+   "repo": "ligis",
+   "url": "https://github.com/sneldao/ligis",
+   "sha": "c7a707d2797adfe2df921edfd150d2016dfda1cb",
+   "licence": "MIT (LICENSE file at pin c7a707d2797a, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T09:57Z",
+    "consent_receipt": "2aa547b836f3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T09:57Z (receipt 2aa547b836f3); selected commit c7a707d2797a: \"feat(passkey): guard operator onboarding and default-off sponsorship\". LICENSE file at pin c7a707d2797a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

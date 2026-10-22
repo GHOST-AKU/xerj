@@ -9,13 +9,14 @@
    "repo": "live_flights_map",
    "url": "https://github.com/MaciejZiel/live_flights_map",
    "sha": "d7b3c2c28b17aea7ccfcee889681bdad55a158df",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit d7b3c2c28b17: \"Add DEMO_MODE: synthetic traffic, read-only API and rate limiting\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "6530da9834c5",
+    "note": "author consent by email 2026-10-13T22:00Z (receipt 6530da9834c5); selected commit d7b3c2c28b17: \"Add DEMO_MODE: synthetic traffic, read-only API and rate limiting\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

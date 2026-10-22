@@ -9,13 +9,14 @@
    "repo": "effectcraft",
    "url": "https://github.com/storytold/effectcraft",
    "sha": "db6b2e8079e202d4f8644dc52f7de29a61081b3e",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit db6b2e8079e2: \"Relink missing footage by scanning a folder for compatible files.\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "762bcc24a4c5",
+    "note": "author consent by email 2026-10-12T02:19Z (receipt 762bcc24a4c5); selected commit db6b2e8079e2: \"Relink missing footage by scanning a folder for compatible files.\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

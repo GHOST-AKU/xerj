@@ -9,13 +9,14 @@
    "repo": "not-abc",
    "url": "https://github.com/michael-lehn/not-abc",
    "sha": "d7162afd03fe01f485b40facb8b2644a56718b85",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin d7162afd03fe, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit d7162afd03fe: \"added session 18\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-12T21:38Z",
+    "consent_receipt": "25bffc474f62",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T21:38Z (receipt 25bffc474f62); selected commit d7162afd03fe: \"added session 18\". LICENSE file at pin d7162afd03fe detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

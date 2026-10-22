@@ -9,13 +9,14 @@
    "repo": "go-gin-clean",
    "url": "https://github.com/irfhakeem/go-gin-clean",
    "sha": "fdda020c0863f4b785c4b2213696baed9363dea5",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin fdda020c0863, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit fdda020c0863: \"fix (internal): major security issues, refactoring to follow atomic d\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T07:20Z",
+    "consent_receipt": "ab65076dac8a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:20Z (receipt ab65076dac8a); selected commit fdda020c0863: \"fix (internal): major security issues, refactoring to follow atomic d\u2026\". LICENSE file at pin fdda020c0863 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

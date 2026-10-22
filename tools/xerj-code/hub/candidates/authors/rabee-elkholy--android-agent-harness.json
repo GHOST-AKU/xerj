@@ -1,0 +1,23 @@
+{
+ "corpus": "rabee-elkholy--android-agent-harness",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, android, antigravity queries this for how rabee-elkholy/android-agent-harness implements it: Stricter proof, not heavier workflow \u2014 an Antigravity-first Android AI harness for approval-bound changes, adaptive verification, and eviden (selected work: agents, the project root)",
+ "repos": [
+  {
+   "repo": "android-agent-harness",
+   "url": "https://github.com/rabee-elkholy/android-agent-harness",
+   "sha": "62cc584b39f02647b25722975de6eecc7d39038f",
+   "licence": "MIT (LICENSE file at pin 62cc584b39f0, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T06:48Z",
+    "consent_receipt": "b2bc3971f3ad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:48Z (receipt b2bc3971f3ad); selected commit 62cc584b39f0: \"feat(update): add opt-in discard for locally modified files and docto\u2026\". LICENSE file at pin 62cc584b39f0 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

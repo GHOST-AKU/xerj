@@ -9,13 +9,14 @@
    "repo": "vallow.nvim",
    "url": "https://github.com/xeind/vallow.nvim",
    "sha": "c9d7913570222192cab432440ca380c1aedcfaee",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin c9d791357022, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit c9d791357022: \"flags: add Stale Flags from fallow flags --retirement\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T11:05Z",
+    "consent_receipt": "04c8d52b418c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T11:05Z (receipt 04c8d52b418c); selected commit c9d791357022: \"flags: add Stale Flags from fallow flags --retirement\". LICENSE file at pin c9d791357022 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

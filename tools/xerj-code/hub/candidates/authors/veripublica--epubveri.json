@@ -9,13 +9,14 @@
    "repo": "epubveri",
    "url": "https://github.com/veripublica/epubveri",
    "sha": "4055497cda178b3308c95c82ab0be79ab939d501",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-05 (reply to Corpus Hub outreach); selected commit 4055497cda17: \"Judge XML names and whitespace with epubcheck's own tables\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "8cb59df11e32",
+    "note": "author consent by email 2026-10-05T18:49Z (receipt 8cb59df11e32); selected commit 4055497cda17: \"Judge XML names and whitespace with epubcheck's own tables\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

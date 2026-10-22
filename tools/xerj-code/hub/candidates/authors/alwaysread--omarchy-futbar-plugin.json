@@ -9,13 +9,14 @@
    "repo": "omarchy-futbar-plugin",
    "url": "https://github.com/AlwaysRead/omarchy-futbar-plugin",
    "sha": "5c6b35811c4fc3f729db8ed062c4fd2308ae7549",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 5c6b35811c4f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 5c6b35811c4f: \"Fix Omarchy theme palette bindings and dropdown contrast\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T10:52Z",
+    "consent_receipt": "0931f76210b1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T10:52Z (receipt 0931f76210b1); selected commit 5c6b35811c4f: \"Fix Omarchy theme palette bindings and dropdown contrast\". LICENSE file at pin 5c6b35811c4f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

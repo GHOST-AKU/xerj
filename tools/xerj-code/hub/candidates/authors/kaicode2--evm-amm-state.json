@@ -1,0 +1,23 @@
+{
+ "corpus": "kaicode2--evm-amm-state",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how KaiCode2/evm-amm-state implements it: KaiCode2/evm-amm-state (Rust) (selected work: src/adapters, tests)",
+ "repos": [
+  {
+   "repo": "evm-amm-state",
+   "url": "https://github.com/KaiCode2/evm-amm-state",
+   "sha": "6e307145b4a8b70ca3cff4b5d001ed5b028f037c",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "22ff3dcf7910",
+    "note": "author consent by email 2026-10-20T08:57Z (receipt 22ff3dcf7910); selected commit 6e307145b4a8: \"Narrow Slipstream NFT traffic without dropping staking evidence\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

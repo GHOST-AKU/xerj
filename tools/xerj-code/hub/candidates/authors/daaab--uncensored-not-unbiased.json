@@ -1,0 +1,23 @@
+{
+ "corpus": "daaab--uncensored-not-unbiased",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on abliteration, ai-safety, benchmark queries this for how dAAAb/uncensored-not-unbiased implements it: Uncensored is not unbiased: abliteration and PRC-aligned priors in open-weight LLMs (Taiwan sovereignty, 1989 Tiananmen; Traditional/Simplif (selected work: results, analysis, items)",
+ "repos": [
+  {
+   "repo": "uncensored-not-unbiased",
+   "url": "https://github.com/dAAAb/uncensored-not-unbiased",
+   "sha": "753416ff1c0e13365639998de74d566d0d81bc71",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "66d690003a15",
+    "note": "author consent by email 2026-10-22T03:26Z (receipt 66d690003a15); selected commit 753416ff1c0e: \"1992-Consensus framings: six themes stated in the formulas of ROC gov\u2026\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

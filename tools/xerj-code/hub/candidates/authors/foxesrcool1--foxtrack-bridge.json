@@ -9,13 +9,14 @@
    "repo": "FoxTrack-Bridge",
    "url": "https://github.com/FoxesRCool1/FoxTrack-Bridge",
    "sha": "395731d1f55c3216cdb73957af93636ffdd6d01e",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 395731d1f55c: \"Add an assistant that can diagnose printers and look at the camera\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "8c9876aa9271",
+    "note": "author consent by email 2026-10-15T04:27Z (receipt 8c9876aa9271); selected commit 395731d1f55c: \"Add an assistant that can diagnose printers and look at the camera\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

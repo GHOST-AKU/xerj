@@ -9,13 +9,14 @@
    "repo": "AutoECUv2",
    "url": "https://github.com/VHEMaster/AutoECUv2",
    "sha": "e4e0736f81216f9f6ab09ac14801906d7c394afc",
-   "licence": "hint only: GPL-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-2.0 (LICENSE file at pin e4e0736f8121, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit e4e0736f8121: \"Signals: implementation\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-16T10:43Z",
+    "consent_receipt": "ad488fa01999",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T10:43Z (receipt ad488fa01999); selected commit e4e0736f8121: \"Signals: implementation\". LICENSE file at pin e4e0736f8121 detected as GPL-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

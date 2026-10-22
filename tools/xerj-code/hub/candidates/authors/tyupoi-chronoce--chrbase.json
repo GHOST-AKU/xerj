@@ -1,0 +1,23 @@
+{
+ "corpus": "tyupoi-chronoce--chrbase",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on C queries this for how Tyupoi-Chronoce/ChrBase implements it: A from-scratch 32-bit virtual CPU / instruction-set simulator in C++17 \u2014 segmented protected memory, x86-like ISA, multi-core processing cen (selected work: _4refactoring, the project root, plans)",
+ "repos": [
+  {
+   "repo": "ChrBase",
+   "url": "https://github.com/Tyupoi-Chronoce/ChrBase",
+   "sha": "be7f772818232c589c9957a49824d9dab2e46731",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "311cc5144a9b",
+    "note": "author consent by email 2026-10-21T17:53Z (receipt 311cc5144a9b); selected commit be7f77281823: \"v0.1.9R-1\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

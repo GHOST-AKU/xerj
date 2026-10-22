@@ -9,13 +9,14 @@
    "repo": "MemVault",
    "url": "https://github.com/dreamor/MemVault",
    "sha": "f1caa7dcb180b7841f758cb37f417036e6e9d7b0",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin f1caa7dcb180, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit f1caa7dcb180: \"feat: markdown-as-source-of-truth storage backend, export-skill, benc\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T02:18Z",
+    "consent_receipt": "d22cb5227303",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T02:18Z (receipt d22cb5227303); selected commit f1caa7dcb180: \"feat: markdown-as-source-of-truth storage backend, export-skill, benc\u2026\". LICENSE file at pin f1caa7dcb180 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

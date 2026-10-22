@@ -9,13 +9,14 @@
    "repo": "architecture-intelligence-platform",
    "url": "https://github.com/michaelegner/architecture-intelligence-platform",
    "sha": "c5bc7cb58d4d6efef80b744347c51f36d14b6356",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-05 (reply to Corpus Hub outreach); selected commit c5bc7cb58d4d: \"v0.6.0 I5.2: qualify the independent two-Workload capture (#431)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "0f1d9bbe2e2f",
+    "note": "author consent by email 2026-10-05T13:38Z (receipt 0f1d9bbe2e2f); selected commit c5bc7cb58d4d: \"v0.6.0 I5.2: qualify the independent two-Workload capture (#431)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

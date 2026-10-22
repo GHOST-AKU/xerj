@@ -9,13 +9,14 @@
    "repo": "total-recall",
    "url": "https://github.com/dax8it/total-recall",
    "sha": "57aaffaddc886b4873158bed5df169c57e08fe19",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 57aaffaddc88: \"fix: harden ledger parsing and isolate external index maintenance\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "2c334aaf0e89",
+    "note": "author consent by email 2026-10-12T02:01Z (receipt 2c334aaf0e89); selected commit 57aaffaddc88: \"fix: harden ledger parsing and isolate external index maintenance\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "code4161--memgit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, claude, context queries this for how code4161/memgit implements it: Git for AI memory \u2014 version-controlled context persistence across Claude, GPT, Gemini, Cursor, Windsurf, and more (selected work: memgit, tests)",
+ "repos": [
+  {
+   "repo": "memgit",
+   "url": "https://github.com/code4161/memgit",
+   "sha": "9b8f4ea638e9608408535f869d4b2f10d41fcaca",
+   "licence": "MIT (LICENSE file at pin 9b8f4ea638e9, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:10Z",
+    "consent_receipt": "5986060c80ea",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:10Z (receipt 5986060c80ea); selected commit 9b8f4ea638e9: \"cloud: autosync after every save and at session start, cloud watch fo\u2026\". LICENSE file at pin 9b8f4ea638e9 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

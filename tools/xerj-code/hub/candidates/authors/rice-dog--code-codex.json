@@ -9,13 +9,14 @@
    "repo": "code-codex",
    "url": "https://github.com/Rice-dog/code-codex",
    "sha": "7dd6bbba7b5f38a44654a829b07b142a30f182d3",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 7dd6bbba7b5f: \"fix: add subdued update arrow and prepare v0.4.18\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "4096b40f1220",
+    "note": "author consent by email 2026-10-18T19:19Z (receipt 4096b40f1220); selected commit 7dd6bbba7b5f: \"fix: add subdued update arrow and prepare v0.4.18\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

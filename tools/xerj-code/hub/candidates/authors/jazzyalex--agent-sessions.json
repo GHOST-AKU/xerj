@@ -9,13 +9,14 @@
    "repo": "agent-sessions",
    "url": "https://github.com/jazzyalex/agent-sessions",
    "sha": "6fa9a73f489d37f655873871e5e6a5cf6975d1ff",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 6fa9a73f489d, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 6fa9a73f489d: \"feat(session-info): split quick metadata from telemetry\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T16:31Z",
+    "consent_receipt": "04ec180c51d3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T16:31Z (receipt 04ec180c51d3); selected commit 6fa9a73f489d: \"feat(session-info): split quick metadata from telemetry\". LICENSE file at pin 6fa9a73f489d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

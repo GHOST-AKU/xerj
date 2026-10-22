@@ -8,14 +8,15 @@
   {
    "repo": "GhostShield",
    "url": "https://github.com/aniketsidhu123/GhostShield",
-   "sha": "8d57558af89fb478859be78a85d363194ab3e2a4",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "e4fc2cfe610732fad4bf5e548e881f6927a4c0ca",
+   "licence": "MIT (LICENSE file at pin e4fc2cfe6107, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 8d57558af89f: \"Feature's Improvement\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T03:19Z",
+    "consent_receipt": "6d1f4b72f357",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T03:19Z (receipt 6d1f4b72f357); selected commit e4fc2cfe6107: \"Feature's Improvement\". LICENSE file at pin e4fc2cfe6107 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head e4fc2cfe6107 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

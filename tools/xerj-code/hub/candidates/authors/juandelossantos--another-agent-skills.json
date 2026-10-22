@@ -1,0 +1,23 @@
+{
+ "corpus": "juandelossantos--another-agent-skills",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-harness, agent-skills, ai-agents queries this for how juandelossantos/another-agent-skills implements it: Agent harness for AI coding agents: 57 skills + mechanical enforcement (TDD/commit gates). OpenCode, Claude Code, Cursor, Codex, Gemini. Age (selected work: scripts, tests, the project root)",
+ "repos": [
+  {
+   "repo": "another-agent-skills",
+   "url": "https://github.com/juandelossantos/another-agent-skills",
+   "sha": "d764a74792f8b83720a290e66885dfa13ccba625",
+   "licence": "MIT (LICENSE file at pin d764a74792f8, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T03:12Z",
+    "consent_receipt": "13cfcb09aa97",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T03:12Z (receipt 13cfcb09aa97); selected commit d764a74792f8: \"feat(gate): add the external agent runner (capability boundary)\". LICENSE file at pin d764a74792f8 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

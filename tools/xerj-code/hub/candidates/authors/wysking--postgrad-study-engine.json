@@ -2,20 +2,21 @@
  "corpus": "wysking--postgrad-study-engine",
  "cloned_at": null,
  "status": "draft",
- "shelf": "NET",
- "domain": "an agent working on Python queries this for how wysking/postgrad-study-engine implements it: Reusable study engine, schemas, workflows, and learning protocols (selected work: tests, scripts, schemas)",
+ "shelf": "AI",
+ "domain": "an agent working on adaptive-learning, ai-tutor, chatgpt queries this for how wysking/postgrad-study-engine implements it: \u8003\u7814 AI \u79c1\u6559\u5b66\u4e60\u5f15\u64ce\uff1a\u957f\u671f\u5b66\u4e60\u6863\u6848\u3001\u4e2a\u4eba\u9057\u5fd8\u66f2\u7ebf\u62df\u5408\uff08\u534a\u8870\u671f / \u53ef\u9009 FSRS\uff09\u3001\u9519\u56e0\u8bca\u65ad\u4e0e\u5148\u4fee\u63a2\u9488 | Evidence-based AI study engine for Kaoyan (China's postgraduate entrance exam) \u2014 lea (selected work: tests, scripts, schemas)",
  "repos": [
   {
    "repo": "postgrad-study-engine",
    "url": "https://github.com/wysking/postgrad-study-engine",
    "sha": "05b0487e146a1863c4e7c80126f9bccf8fdd19c9",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 05b0487e146a: \"Add compact study records independently of assessed learning events\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "82444d3075ad",
+    "note": "author consent by email 2026-10-19T01:15Z (receipt 82444d3075ad); selected commit 05b0487e146a: \"Add compact study records independently of assessed learning events\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

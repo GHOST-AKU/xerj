@@ -1,0 +1,23 @@
+{
+ "corpus": "cucoleadan--circles-app",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on astro, bun, chrome-extension queries this for how cucoleadan/circles-app implements it: Self-hosted relationship CRM for Substack writers: contacts, interaction timelines, engagement scores, Note scheduling, a Chrome companion a (selected work: apps/api)",
+ "repos": [
+  {
+   "repo": "circles-app",
+   "url": "https://github.com/cucoleadan/circles-app",
+   "sha": "de8c7234aee93e3afa9e949f80ce47eb228accf5",
+   "licence": "MIT (LICENSE file at pin de8c7234aee9, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T10:09Z",
+    "consent_receipt": "d9c4f5cfc467",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T10:09Z (receipt d9c4f5cfc467); selected commit de8c7234aee9: \"feat: implement scope-filtered discovery and inline SDK results; enha\u2026\". LICENSE file at pin de8c7234aee9 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution. Pinned to head de8c7234aee9 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

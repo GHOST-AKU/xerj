@@ -9,13 +9,14 @@
    "repo": "OpenATC-AI",
    "url": "https://github.com/billpayne4x4/OpenATC-AI",
    "sha": "19dd857b02c0ad08a0d0e457c18b60b1c8adefa9",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 19dd857b02c0, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 19dd857b02c0: \"Fixed: Preserve conversation and social remarks in crew replies.\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T00:02Z",
+    "consent_receipt": "7f3402ece002",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T00:02Z (receipt 7f3402ece002); selected commit 19dd857b02c0: \"Fixed: Preserve conversation and social remarks in crew replies.\". LICENSE file at pin 19dd857b02c0 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

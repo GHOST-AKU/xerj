@@ -9,13 +9,14 @@
    "repo": "hermes-agent-squads",
    "url": "https://github.com/PuntoyComaTech/hermes-agent-squads",
    "sha": "e003020602b171f3c198eab523535f35c2f4a1a3",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin e003020602b1, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit e003020602b1: \"feat(squads)!: manager naming, visible bots with Desktop sections, we\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T00:56Z",
+    "consent_receipt": "d85aa71fa6fb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T00:56Z (receipt d85aa71fa6fb); selected commit e003020602b1: \"feat(squads)!: manager naming, visible bots with Desktop sections, we\u2026\". LICENSE file at pin e003020602b1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

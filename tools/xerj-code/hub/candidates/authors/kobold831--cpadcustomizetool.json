@@ -9,13 +9,14 @@
    "repo": "CPadCustomizeTool",
    "url": "https://github.com/Kobold831/CPadCustomizeTool",
    "sha": "d21354af1e17c707296ee243b400be95f5a9bfa1",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin d21354af1e17, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit d21354af1e17: \"v2.8.0\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T08:47Z",
+    "consent_receipt": "549273fd2ab8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T08:47Z (receipt 549273fd2ab8); selected commit d21354af1e17: \"v2.8.0\". LICENSE file at pin d21354af1e17 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

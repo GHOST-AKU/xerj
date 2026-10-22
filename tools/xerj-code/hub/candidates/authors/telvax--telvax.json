@@ -3,19 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on apache-arrow, compiler, data-processing queries this for how telvax/telvax implements it: Telvax: a statically typed, compiled language for data, ML pipelines and AI serving. Tensor shapes in the type system, a pipeline operator,  (selected work: python, runtime, tools)",
+ "domain": "an agent working on apache-arrow, compiler, data-processing queries this for how telvax/telvax implements it: A statically typed, compiled language for data, ML pipelines and AI serving. Python-like syntax, tensor shapes in the types, typed tables on (selected work: python, runtime, tools)",
  "repos": [
   {
    "repo": "telvax",
    "url": "https://github.com/telvax/telvax",
    "sha": "d5918b3773a29b150f9442c237b20b524e4ab9ca",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit d5918b3773a2: \"feat: notebooks, a Jupyter kernel and the %%telvax magic (#100)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "22aea3644a54",
+    "note": "author consent by email 2026-10-16T22:45Z (receipt 22aea3644a54); selected commit d5918b3773a2: \"feat: notebooks, a Jupyter kernel and the %%telvax magic (#100)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

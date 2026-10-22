@@ -9,13 +9,14 @@
    "repo": "Sail-Launcher",
    "url": "https://github.com/Aseoriy/Sail-Launcher",
    "sha": "c48d78e29f12a2690970a35583e75afc11f30d7b",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin c48d78e29f12, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit c48d78e29f12: \"Linux: uninstall, download pause/resume, TorBox; download and library\u2026\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T00:25Z",
+    "consent_receipt": "2f3d99d966d6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T00:25Z (receipt 2f3d99d966d6); selected commit c48d78e29f12: \"Linux: uninstall, download pause/resume, TorBox; download and library\u2026\". LICENSE file at pin c48d78e29f12 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

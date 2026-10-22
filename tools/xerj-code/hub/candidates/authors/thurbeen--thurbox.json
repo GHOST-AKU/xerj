@@ -9,13 +9,14 @@
    "repo": "thurbox",
    "url": "https://github.com/Thurbeen/thurbox",
    "sha": "6660d1064f070f3db7fd60c64b04b334f460655f",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 6660d1064f07, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-05 (reply to Corpus Hub outreach); selected commit 6660d1064f07: \"perf(core): skip snapshot reloads for telemetry and repeated hooks (#\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-05T19:04Z",
+    "consent_receipt": "e3d5463ef254",
+    "note": "Inclusion consented by the commit author by email at 2026-10-05T19:04Z (receipt e3d5463ef254); selected commit 6660d1064f07: \"perf(core): skip snapshot reloads for telemetry and repeated hooks (#\u2026\". LICENSE file at pin 6660d1064f07 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

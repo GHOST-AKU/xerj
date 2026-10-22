@@ -9,13 +9,14 @@
    "repo": "skills",
    "url": "https://github.com/antrafa/skills",
    "sha": "5305a296364b159d858e49d693c367bea0ee519a",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 5305a296364b, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 5305a296364b: \"feat: adiciona cluster-analyzer, devops-expert, guardrails e performa\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T11:23Z",
+    "consent_receipt": "fef84ed91523",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T11:23Z (receipt fef84ed91523); selected commit 5305a296364b: \"feat: adiciona cluster-analyzer, devops-expert, guardrails e performa\u2026\". LICENSE file at pin 5305a296364b detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

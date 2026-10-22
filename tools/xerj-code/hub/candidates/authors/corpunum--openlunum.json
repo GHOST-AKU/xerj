@@ -2,20 +2,21 @@
  "corpus": "corpunum--openlunum",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how corpunum/OpenLunum implements it: corpunum/OpenLunum (TypeScript) (selected work: reports, packages/mcp)",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, greek, llm-memory queries this for how corpunum/OpenLunum implements it: Write down what a sentence means once, in a small checkable language \u2014 then say it again in any language. Pre-registered experiments, failur (selected work: reports, packages/mcp)",
  "repos": [
   {
    "repo": "OpenLunum",
    "url": "https://github.com/corpunum/OpenLunum",
    "sha": "d88d54addd91178244edd9cf38f680add8d601f4",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit d88d54addd91: \"Publish reproducible client MCP compatibility evidence (#701)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "561182dd5682",
+    "note": "author consent by email 2026-10-16T13:54Z (receipt 561182dd5682); selected commit d88d54addd91: \"Publish reproducible client MCP compatibility evidence (#701)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]
