@@ -285,7 +285,7 @@ def xposts_section(posts, esc):
         body = html.escape(html.unescape(x["text"])).replace("\n", "<br>")
         d = datetime.datetime.fromisoformat(x["created_at"].replace("Z", "+00:00"))
         tag = "Featured by XERJ · " if x.get("match", "").startswith("featured") else ""
-        items.append(f'<blockquote cite="{esc(x["url"])}"><p>{body}</p><p class="by">{tag}— {html.escape(x["author_name"] or x["author_username"])} '
+        items.append(f'<blockquote cite="{esc(x["url"])}"><p>{body}</p><p class="by">{tag}{html.escape(x["author_name"] or x["author_username"])} '
                      f'(@{html.escape(x["author_username"])}), <time datetime="{esc(x["created_at"])}">{d:%b} {d.day}, {d.year}</time> · '
                      f'<a href="{esc(x["url"])}" rel="nofollow noopener">View on X</a></p></blockquote>')
     return f'<section class="xposts"><h2>On X</h2>{"".join(items)}</section>\n'
