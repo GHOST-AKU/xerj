@@ -241,6 +241,8 @@ const CORPUS_USAGE: &str =
 
 a flag may precede the verb (xerj corpus --url URL index <name>);
 clone the repos, detect licences, write corpora/<name>/corpus.json;
+a local <path>'s untracked .xerjignore is copied into its clone (a tracked
+one wins);
 --from takes the corpus name from the manifest's 'corpus' field (or the
 pack's 'pack' field) unless <name> or --as overrides it; a harvested pack
 also checksum-verifies and materializes records per source; --verify-sig
@@ -661,6 +663,7 @@ fn run_corpus_add(args: &[String]) -> i32 {
         }
         if target.join(".git").exists() {
             println!("  [skip] {repo_name} already cloned");
+            report_carried_xerjignore(&repo_name, &url, &target);
             record(&mut entries, &repo_name, &url, &target, &declared, &carry);
             continue;
         }
@@ -683,6 +686,7 @@ fn run_corpus_add(args: &[String]) -> i32 {
                     continue;
                 }
             }
+            report_carried_xerjignore(&repo_name, &url, &target);
         } else {
             println!("  [pin] {repo_name} -> {}", &sha[..12.min(sha.len())]);
             if let Err(e) = checkout_at_sha(&target, &url, &sha) {
@@ -738,6 +742,43 @@ fn run_corpus_add(args: &[String]) -> i32 {
     }
     println!("next: xerj corpus index {name}");
     0
+}
+
+/// #2199: `corpus add <name> <path>` clones a LOCAL tree, and a clone only
+/// carries tracked files, so an untracked `.xerjignore` in the source tree
+/// was silently dropped and the corpus indexed with built-in rules only.
+/// Copy it into the clone when the clone has none of its own (a tracked one
+/// already arrived with the clone and wins). Returns the copied path.
+fn carry_untracked_xerjignore(source: &str, clone: &Path) -> std::io::Result<Option<PathBuf>> {
+    let source = Path::new(source.strip_prefix("file://").unwrap_or(source));
+    if !source.is_dir() {
+        return Ok(None);
+    }
+    let from = source.join(crate::ignore_rules::XERJIGNORE);
+    let to = clone.join(crate::ignore_rules::XERJIGNORE);
+    if !from.is_file() || to.exists() {
+        return Ok(None);
+    }
+    std::fs::copy(&from, &to)?;
+    Ok(Some(to))
+}
+
+/// Run [`carry_untracked_xerjignore`] and say what happened, out loud either
+/// way: a dropped `.xerjignore` changes what the corpus indexes.
+fn report_carried_xerjignore(repo_name: &str, source: &str, clone: &Path) {
+    match carry_untracked_xerjignore(source, clone) {
+        Ok(Some(to)) => println!(
+            "  [ignore] {repo_name}: copied the source tree's untracked .xerjignore to {}",
+            to.display()
+        ),
+        Ok(None) => {}
+        Err(e) => eprintln!(
+            "  [warn] {repo_name}: the source tree has a .xerjignore the clone lacks, and \
+             copying it failed ({e}); this corpus will index with built-in ignore rules \
+             only — copy it into {} before `xerj corpus index`",
+            clone.display()
+        ),
+    }
 }
 
 // ── xerj corpus add --from <pack> ───────────────────────────────────────────
@@ -2161,6 +2202,48 @@ pub fn licence_map_for(root: &Path, corpus: &str) -> HashMap<String, String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    /// #2199: an untracked `.xerjignore` in a local source tree reaches the
+    /// clone; a tracked one (already in the clone) is never overwritten, and a
+    /// remote URL is left alone.
+    #[test]
+    fn corpus_add_carries_an_untracked_xerjignore_into_the_clone() {
+        let source = tempfile::tempdir().unwrap();
+        let clone = tempfile::tempdir().unwrap();
+        std::fs::write(source.path().join(".xerjignore"), "fixtures/\n").unwrap();
+        let source_s = source.path().to_string_lossy().into_owned();
+
+        let copied = carry_untracked_xerjignore(&source_s, clone.path()).unwrap();
+        assert_eq!(copied, Some(clone.path().join(".xerjignore")));
+        assert_eq!(
+            std::fs::read_to_string(clone.path().join(".xerjignore")).unwrap(),
+            "fixtures/\n"
+        );
+
+        // The clone now has one (as a tracked file would): never overwrite it.
+        std::fs::write(clone.path().join(".xerjignore"), "tracked/\n").unwrap();
+        assert_eq!(
+            carry_untracked_xerjignore(&format!("file://{source_s}"), clone.path()).unwrap(),
+            None
+        );
+        assert_eq!(
+            std::fs::read_to_string(clone.path().join(".xerjignore")).unwrap(),
+            "tracked/\n"
+        );
+
+        // A remote URL or a source without the file is a no-op.
+        let empty = tempfile::tempdir().unwrap();
+        assert_eq!(
+            carry_untracked_xerjignore("https://github.com/a/b.git", empty.path()).unwrap(),
+            None
+        );
+        let bare = tempfile::tempdir().unwrap();
+        assert_eq!(
+            carry_untracked_xerjignore(&bare.path().to_string_lossy(), empty.path()).unwrap(),
+            None
+        );
+        assert!(!empty.path().join(".xerjignore").exists());
+    }
 
     #[test]
     fn git_fetch_failure_names_tls_and_a_stale_pin() {
