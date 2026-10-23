@@ -21,19 +21,86 @@ use crate::{EngineError, Result};
 
 // ── Memory-pressure drain plumbing (issue #948) ─────────────────────────────
 //
-// The parent RSS breaker used to only REJECT writes (429). Under a workload
+// The parent breaker used to only REJECT writes (429). Under a workload
 // whose caches hold gigabytes of re-hydratable state and whose memtable
 // holds raw write payloads, rejection frees nothing: the breaker stays
-// engaged, the client retries forever, and the run never finishes — exactly
+// engaged, the client retries, and the run never finishes — exactly
 // the #948 mailbox ingest (16 GiB cap, 26.5 GiB demand, 118-147 s engaged
-// stretches, 3-4 s releases). The sampler now also requests a DRAIN: flush
-// every index, release rebuildable caches, purge allocator pages.
+// stretches, 3-4 s releases) and the #2238 corpus-index loop (8 GiB auto
+// tier, dozens of indices under their own flush line but over the 2 GiB
+// summed-memtable budget, indexed count stuck at 0). The sampler requests
+// a DRAIN on either latch: flush every index, release rebuildable caches,
+// purge allocator pages. The latches do not share a timer. RSS uses
+// [`crate::governor::MemoryDrainSchedule`], which doubles its spacing up to
+// 15 minutes when a drain does not lower RSS (#1981). The summed-memtable
+// latch keeps the fixed 2 s window (#2238): that flush is what lets corpus
+// index move, and a stable RSS must not stretch it.
 
 /// Minimum spacing between automatic drains while the breaker stays engaged.
 /// The engage edge always fires immediately; repeats are rate-limited so a
 /// long pinned stretch drains progressively (caches refill under continued
 /// reads) without the drain worker competing with ingest for every tick.
 const MEMORY_DRAIN_MIN_INTERVAL: std::time::Duration = std::time::Duration::from_secs(2);
+
+/// Whether this sampler tick should ask the drain worker to run on the fixed
+/// window (#948, #2238).
+///
+/// The sampler passes the summed-memtable latch. A memtable-only trip used to
+/// be ignored, so a multi-index ingest that had filled the auto tier's 2 GiB
+/// memtable budget kept receiving HTTP 429 with nothing flushed and the
+/// indexed count stayed at 0. The engage edge fires immediately; while the
+/// latch stays up, repeats wait `min_interval`. Releasing the latch clears
+/// the timer so the next engage drains at once.
+///
+/// The RSS latch does not use this function. A drain that cannot shrink RSS
+/// backs off ([`crate::governor::MemoryDrainSchedule`], #1981). Applying that
+/// backoff to the memtable latch would stall corpus index while RSS sits
+/// still, which is the normal shape of a memtable-only trip.
+fn pressure_drain_due(
+    needs_drain: bool,
+    last_drain_at: &mut Option<std::time::Instant>,
+    now: std::time::Instant,
+    min_interval: std::time::Duration,
+) -> bool {
+    if !needs_drain {
+        *last_drain_at = None;
+        return false;
+    }
+    let due = match *last_drain_at {
+        None => true,
+        Some(at) => now.saturating_duration_since(at) >= min_interval,
+    };
+    if due {
+        *last_drain_at = Some(now);
+    }
+    due
+}
+
+/// Whether this sample should request one drain for either parent latch.
+///
+/// RSS and the summed-memtable budget each keep their own clock. A flat RSS
+/// backs off ([`crate::governor::MemoryDrainSchedule`]); memtable pressure
+/// stays on [`MEMORY_DRAIN_MIN_INTERVAL`], including when the RSS clock is
+/// already stretched. One `true` is one request — the channel coalesces a
+/// second — so a staggered engage can ask slightly sooner than one window,
+/// and neither latch waits out the other's gap.
+fn sample_drain_due(
+    now: std::time::Instant,
+    rss: u64,
+    rss_engaged: bool,
+    memtable_engaged: bool,
+    rss_drains: &mut crate::governor::MemoryDrainSchedule,
+    last_memtable_drain_at: &mut Option<std::time::Instant>,
+) -> bool {
+    let rss_due = rss_drains.observe(now, rss, rss_engaged);
+    let memtable_due = pressure_drain_due(
+        memtable_engaged,
+        last_memtable_drain_at,
+        now,
+        MEMORY_DRAIN_MIN_INTERVAL,
+    );
+    rss_due || memtable_due
+}
 
 /// Bounded request channel from the sampler thread to the drain worker.
 /// Capacity 1 + try_send ⇒ requests coalesce: one arrives mid-drain is
@@ -3538,28 +3605,90 @@ impl Engine {
 
     /// V4 M5.2 — route a document to the node that owns its shard.
     ///
-    /// Returns `Ok(None)` when the doc belongs to this node (handle it
-    /// locally via the existing `Index::index_document_with_version`
-    /// path). Returns `Ok(Some(node_id))` when the doc belongs to a
-    /// peer and must be forwarded via the cluster transport.
+    /// Returns `None` when this node should write the document itself:
+    /// there is no shard assignment (single-node mode, and any index that
+    /// was not created through the replicated shard plan), or the assigned
+    /// owner is this node. Returns `Some(node_id)` when a peer owns the
+    /// shard. Callers forward that write; they do not also store it here.
     ///
-    /// In single-node mode (`num_shards == 1` and the router has no
-    /// assignments) this always resolves to "local" and the caller
-    /// takes the existing fast path — zero overhead for single-node
-    /// deployments.
+    /// With no cluster handle the owner comparison uses `"local"`, which
+    /// no replicated plan names, and the empty routing table makes every
+    /// call `None`.
     pub fn route_write(&self, index: &str, doc_id: &str) -> Option<String> {
+        let me = self.routing_node_id();
         let router = self.shard_router.read();
-        let (_shard, owner) = router.route_doc(index, doc_id);
-        match owner {
-            // No assignment yet — treat as local. This is the
-            // single-node default path.
+        match router.route_doc(index, doc_id).1 {
             None => None,
-            Some(owner) if owner == self.node_id.as_str() => None,
+            Some(owner) if owner == me => None,
             Some(owner) => Some(owner.to_string()),
         }
     }
 
-    /// Read-only view of the local node id.
+    /// `true` when a replicated shard plan names this node as the primary
+    /// for `doc_id`. An index with no plan is `false` — that is not the
+    /// same as [`Engine::route_write`] returning `None`, which also covers
+    /// the unassigned case.
+    pub fn owns_shard(&self, index: &str, doc_id: &str) -> bool {
+        let me = self.routing_node_id();
+        let router = self.shard_router.read();
+        matches!(router.route_doc(index, doc_id).1, Some(owner) if owner == me)
+    }
+
+    /// Node ids that hold at least one primary of `index`, sorted.
+    pub fn shard_search_targets(&self, index: &str) -> Vec<String> {
+        self.shard_router.read().search_targets(index)
+    }
+
+    /// Identity [`Engine::route_write`] compares against shard owners.
+    ///
+    /// The cluster handle's node id when one is attached, otherwise the
+    /// single-node `"local"` id.
+    pub fn routing_node_id(&self) -> String {
+        self.cluster
+            .lock()
+            .as_ref()
+            .map(|handle| handle.node_id().to_string())
+            .unwrap_or_else(|| self.node_id.to_string())
+    }
+
+    /// Replace `index`'s primary assignments and widen the hash width so
+    /// every shard in `plan` is reachable.
+    pub fn install_shard_plan(&self, index: &str, plan: &[xerj_cluster::ShardAssignment]) {
+        if plan.is_empty() {
+            return;
+        }
+        let mut router = self.shard_router.write();
+        let width = plan
+            .iter()
+            .map(|assignment| assignment.shard.saturating_add(1))
+            .max()
+            .unwrap_or(1);
+        if width > router.num_shards() {
+            router.set_num_shards(width);
+        }
+        router.clear_index(index);
+        for assignment in plan {
+            router.assign(index, assignment.shard, &assignment.node_id);
+        }
+    }
+
+    /// Record one primary without dropping the index's other shards.
+    pub fn assign_one_shard(&self, index: &str, shard: u32, node_id: &str) {
+        let mut router = self.shard_router.write();
+        let width = shard.saturating_add(1);
+        if width > router.num_shards() {
+            router.set_num_shards(width);
+        }
+        router.assign(index, shard, node_id);
+    }
+
+    /// Drop `index` from the routing table. Called when a delete commits.
+    pub fn clear_shard_plan(&self, index: &str) {
+        self.shard_router.write().clear_index(index);
+    }
+
+    /// Read-only view of the single-node id (`"local"` unless a test
+    /// replaced the field). Cluster routing uses [`Engine::routing_node_id`].
     pub fn local_node_id(&self) -> &str {
         self.node_id.as_str()
     }
@@ -4143,13 +4272,16 @@ impl Engine {
                 period_ms = crate::governor::SAMPLE_INTERVAL_MS,
                 "memory/disk sampler thread started (parent circuit breaker)"
             );
-            // #948 drain bookkeeping, with backoff when a drain does not
-            // lower RSS (#1981). The engage edge still fires immediately.
-            // Repeats start at MEMORY_DRAIN_MIN_INTERVAL and double up to
-            // the governor's cap while RSS does not fall, so a footprint
-            // the drain cannot shrink does not request a flush of every
-            // index every 2 s for the rest of the process.
-            let mut drains = crate::governor::MemoryDrainSchedule::new(MEMORY_DRAIN_MIN_INTERVAL);
+            // Two clocks (#948). RSS backs off when a drain does not lower
+            // it (#1981). The summed-memtable latch stays on the 2 s window
+            // (#2238), including while that RSS clock is already stretched:
+            // a stable RSS is the normal shape of a memtable-only trip, and
+            // backing off there leaves corpus index at 429 with nothing
+            // flushed. try_send never blocks, so Thread A's no-lock contract
+            // still holds.
+            let mut rss_drains =
+                crate::governor::MemoryDrainSchedule::new(MEMORY_DRAIN_MIN_INTERVAL);
+            let mut last_memtable_drain_at: Option<std::time::Instant> = None;
             loop {
                 std::thread::sleep(period);
                 if weak_a.strong_count() == 0 {
@@ -4163,17 +4295,13 @@ impl Engine {
                 let (disk_pct, disk_avail) = crate::governor::disk_used_pct_and_avail(&data_dir);
                 governor.refresh_memory_disk(rss, disk_pct, disk_avail);
 
-                // Issue #948 — a breaker that only rejects never lets a
-                // memory-pinned workload finish: caches hold gigabytes
-                // of re-hydratable state and the memtable holds raw
-                // write payloads, and 429s free none of it. Request a
-                // drain on the engage edge and then on the schedule.
-                // try_send never blocks, so Thread A's no-lock/no-block
-                // contract above still holds.
-                if drains.observe(
+                if sample_drain_due(
                     std::time::Instant::now(),
                     rss,
                     governor.memory_breaker_engaged(),
+                    governor.memtable_breaker_engaged(),
+                    &mut rss_drains,
+                    &mut last_memtable_drain_at,
                 ) {
                     if let Some(tx) = MEMORY_DRAIN_TX.get() {
                         let _ = tx.try_send(());
@@ -5494,5 +5622,145 @@ mod governor_thread_spawn_tests {
             || {},
         );
         assert!(!started);
+    }
+}
+
+#[cfg(test)]
+mod pressure_drain_tests {
+    use super::{pressure_drain_due, sample_drain_due, MEMORY_DRAIN_MIN_INTERVAL};
+    use crate::governor::MemoryDrainSchedule;
+    use std::time::{Duration, Instant};
+
+    /// #2238: the engage edge drains immediately, a still-engaged latch does
+    /// not drain again inside the window, and releasing the latch arms the
+    /// next engage. The sampler passes the memtable latch; the RSS latch
+    /// has its own schedule.
+    #[test]
+    fn pressure_drain_fires_on_the_engage_edge_and_respects_the_window() {
+        let mut last = None;
+        let t0 = Instant::now();
+        let window = Duration::from_secs(2);
+        assert!(pressure_drain_due(true, &mut last, t0, window));
+        assert!(
+            !pressure_drain_due(true, &mut last, t0 + Duration::from_millis(500), window),
+            "one engaged stretch drains once per window"
+        );
+        assert!(pressure_drain_due(
+            true,
+            &mut last,
+            t0 + Duration::from_secs(2),
+            window
+        ));
+        assert!(!pressure_drain_due(
+            false,
+            &mut last,
+            t0 + Duration::from_secs(3),
+            window
+        ));
+        assert!(last.is_none(), "a released latch clears the timer");
+        assert!(
+            pressure_drain_due(true, &mut last, t0 + Duration::from_secs(3), window),
+            "the next engage drains immediately"
+        );
+    }
+
+    /// #1981 x #2238: a flat RSS backs off, and that backoff must not hide a
+    /// memtable trip. Corpus index hits the summed budget while RSS is
+    /// stable; the flush that frees it stays on the 2 s window. A memtable
+    /// engage that arrives during an RSS gap drains on that sample, not at
+    /// the end of the gap.
+    #[test]
+    fn memtable_pressure_is_not_stretched_by_the_rss_backoff() {
+        let min = MEMORY_DRAIN_MIN_INTERVAL;
+        let t0 = Instant::now();
+        let stuck = 64 * 1024 * 1024;
+        let mut rss_drains = MemoryDrainSchedule::new(min);
+        let mut last_memtable = None;
+
+        let mut rss_fires = 0u32;
+        let mut t = Duration::ZERO;
+        let warmup = Duration::from_secs(60);
+        while t < warmup {
+            if sample_drain_due(
+                t0 + t,
+                stuck,
+                true,
+                false,
+                &mut rss_drains,
+                &mut last_memtable,
+            ) {
+                rss_fires += 1;
+            }
+            t += min;
+        }
+        assert!(
+            rss_fires < 20,
+            "a flat RSS must back off across 60s, fired {rss_fires}"
+        );
+        assert!(
+            !sample_drain_due(
+                t0 + warmup,
+                stuck,
+                true,
+                false,
+                &mut rss_drains,
+                &mut last_memtable,
+            ),
+            "the RSS clock is still inside its backed-off gap"
+        );
+        assert!(
+            sample_drain_due(
+                t0 + warmup,
+                stuck,
+                true,
+                true,
+                &mut rss_drains,
+                &mut last_memtable,
+            ),
+            "a memtable engage drains immediately during that gap"
+        );
+        assert!(!sample_drain_due(
+            t0 + warmup + Duration::from_millis(500),
+            stuck,
+            true,
+            true,
+            &mut rss_drains,
+            &mut last_memtable,
+        ));
+        assert!(sample_drain_due(
+            t0 + warmup + min,
+            stuck,
+            true,
+            true,
+            &mut rss_drains,
+            &mut last_memtable,
+        ));
+
+        // Memtable only, RSS stable and disengaged: every 2 s step fires.
+        // Folding this latch into the RSS backoff would drop fires well
+        // below the step count.
+        let mut rss_drains = MemoryDrainSchedule::new(min);
+        let mut last_memtable = None;
+        let horizon = Duration::from_secs(120);
+        let mut mem_fires = 0u32;
+        let mut t = Duration::ZERO;
+        while t < horizon {
+            if sample_drain_due(
+                t0 + t,
+                stuck,
+                false,
+                true,
+                &mut rss_drains,
+                &mut last_memtable,
+            ) {
+                mem_fires += 1;
+            }
+            t += min;
+        }
+        let steps = (horizon.as_secs() / min.as_secs()) as u32;
+        assert_eq!(
+            mem_fires, steps,
+            "memtable pressure keeps the fixed window while RSS does not fall"
+        );
     }
 }
