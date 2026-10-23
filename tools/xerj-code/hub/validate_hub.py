@@ -23,6 +23,11 @@ BACKLOG = HUB / "backlog" / "backlog-100.json"
 
 LEGAL_USE = {"adapt-with-attribution", "approach-only", "mixed"}
 SHA_RE = re.compile(r"^[0-9a-f]{40}$")
+# Mirrors xerj_common::xccode::pathgate::valid_sparse_path (#1842). A paths
+# entry becomes the non-cone sparse-checkout pattern /{path}/, so glob and
+# negation characters are syntax, not a directory name.
+MAX_SPARSE_PATHS = 32
+_SPARSE_SPECIAL = set("*?[]!#:")
 
 errors: list[str] = []
 # Manifests whose pin is withdrawn are not clone recipes. `read_hub_manifest`
@@ -33,6 +38,85 @@ withdrawn_names: set[str] = set()
 
 def err(msg: str) -> None:
     errors.append(msg)
+
+
+def sparse_path_error(raw: object) -> str | None:
+    """Why `raw` is not a relative directory, or None when it is one."""
+    if not isinstance(raw, str):
+        return "must be a string"
+    if any(ord(c) < 32 or ord(c) == 127 for c in raw):
+        return "contains a control character"
+    trimmed = raw.strip()
+    if not trimmed:
+        return "is empty"
+    if trimmed.startswith("/") or trimmed.startswith("\\"):
+        return "is absolute"
+    if (len(trimmed) >= 2 and trimmed[1] == ":"
+            and trimmed[0].isascii() and trimmed[0].isalpha()):
+        return "is absolute"
+    if "\\" in trimmed:
+        return "contains a backslash"
+    body = trimmed.rstrip("/")
+    if not body:
+        return "is empty"
+    if len(body.encode()) > 240:
+        return "is longer than 240 bytes"
+    for component in body.split("/"):
+        if component in ("", ".", ".."):
+            return "escapes the repository"
+        if component.startswith("-"):
+            return "must not start a path component with '-'"
+        if any(c in _SPARSE_SPECIAL for c in component):
+            return "contains a glob or gitignore pattern character"
+        if any(c.isspace() for c in component):
+            return "contains whitespace"
+    return None
+
+
+def check_paths_field(paths: object) -> list[str]:
+    """Errors for one repo's `paths` value. The caller skips a missing field."""
+    if not isinstance(paths, list):
+        return [
+            "'paths' must be a non-empty array of relative directories such as "
+            '[\"data/osv\"]; omit the field to harvest the whole pin'
+        ]
+    if not paths:
+        return [
+            "'paths' is empty; omit the field to harvest the whole pin, "
+            "or name at least one directory"
+        ]
+    if len(paths) > MAX_SPARSE_PATHS:
+        return [
+            f"'paths' has {len(paths)} entries; at most {MAX_SPARSE_PATHS} "
+            "directories can be sparse-checked out. Name a parent directory instead."
+        ]
+    found: list[str] = []
+    for entry in paths:
+        reason = sparse_path_error(entry)
+        if reason:
+            found.append(f"'paths' entry {entry!r} {reason}")
+    return found
+
+
+def _self_check_paths() -> None:
+    """The path rules are part of this gate. A drift here fails the run."""
+    assert sparse_path_error("data/osv") is None
+    assert sparse_path_error("  data/osv/ ") is None
+    assert sparse_path_error("docs") is None
+    for bad in (
+        "", " ", "/", "/etc/passwd", "C:/Windows", "..", "../secret",
+        "data/../../etc", "data//osv", "data/./osv", "data/osv/*", "data:osv",
+        "!", "#only", "-rf", "data/osv extra", "data/osv\ncmd",
+    ):
+        assert sparse_path_error(bad) is not None, bad
+    assert check_paths_field("data/osv")
+    assert check_paths_field([])
+    assert check_paths_field(["data/osv", "cmd"]) == []
+    assert check_paths_field(["../secret"])
+    assert check_paths_field([f"d{i}" for i in range(MAX_SPARSE_PATHS + 1)])
+
+
+_self_check_paths()
 
 
 # ── Lane A: reference-corpus manifests ────────────────────────────────────
@@ -75,6 +159,11 @@ for path in manifests:
                 err(f"{where}: missing {field}")
         if r.get("sha") and not SHA_RE.match(r["sha"]):
             err(f"{where}: sha must be full 40-hex, got {r['sha']!r}")
+        # Optional. Absent harvests the whole pin. Present is the subpath
+        # `corpus add --from` sparse-checks out (#1842).
+        if "paths" in r:
+            for msg in check_paths_field(r.get("paths")):
+                err(f"{where}: {msg}")
         review = r.get("review")
         if not isinstance(review, dict):
             err(f"{where}: missing human licence review block (see CONTRIBUTING.md §3)")
