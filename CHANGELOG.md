@@ -33,6 +33,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (including 0/N), and when a phase with no total has been silent for 10
   minutes (#1981).
 
+- `xerj corpus index` killed mid-index resumes that build's journal instead of
+  starting a legacy index under a new prefix. When the journal still has a
+  generation in progress, indexing continues at the uncommitted operations and
+  files already applied are not hashed again. A resume that verifies records
+  that build. A resume that cannot verify is recorded as unverified, or left
+  unrecorded with the journal kept, instead of a ledger that names no build
+  ([#2239](https://github.com/xerj-org/xerj/issues/2239)).
+
 - A `semantic` query on a `semantic_text` field returns `highlight` fragments
   when the request asks for them (#1947). The fragments are the field's
   best-scoring chunks for the query embedding, in score order, limited by
@@ -51,6 +59,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   skip the thread and retry or stay off; share-tunnel and ONNX init fail that
   startup step. Each site logs once. `panic = "abort"` is unchanged
   ([#1122](https://github.com/xerj-org/xerj/issues/1122)).
+
+- `xerj search --prefix`, `xerj def --prefix`, and MCP `xerj_search`'s `prefix`
+  argument resolve through one function: the prefix `xerj autoindex` stores.
+  `My_Proj` searches `my-proj-*`, and a trailing `-*` is not part of the
+  prefix. A prefix that cannot name an index is refused before any request.
+  Omitting both `index` and `prefix` on `xerj_search` still searches `ax-*`
+  (#2080).
 
 - `xerj corpus add <name> <local-path>` copies the checkout's root
   `.xerjignore` into the clone when that file is untracked or has uncommitted
