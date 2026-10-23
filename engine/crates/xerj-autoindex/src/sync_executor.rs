@@ -1503,12 +1503,14 @@ impl SyncOperationBackend for EsSyncBackend<'_> {
             .collect();
         const REFRESH_WINDOW: usize = 50;
         for batch in indexes.chunks(REFRESH_WINDOW) {
-            self.es.refresh(&batch.join(","))?;
+            // #2234: one attempt. `Es::refresh` would retry a timed-out window
+            // five more times (300s each) with no new information.
+            self.es.refresh_once(&batch.join(","))?;
             for _ in batch {
                 self.pr.item_done(0);
             }
         }
-        self.es.refresh(crate::catalog::CATALOG_INDEX)?;
+        self.es.refresh_once(crate::catalog::CATALOG_INDEX)?;
         let prior_run_id =
             base.execution
                 .as_ref()
@@ -1549,7 +1551,7 @@ impl SyncOperationBackend for EsSyncBackend<'_> {
         // that file's document (plus datasets and the run document), not one
         // document per file in the corpus.
         checked_bulk_windowed(self.es, body, self.bulk_bytes)?;
-        self.es.refresh(crate::catalog::CATALOG_INDEX)?;
+        self.es.refresh_once(crate::catalog::CATALOG_INDEX)?;
         // Exactly the documents this generation wrote carry its run_id (kept
         // documents keep the run_id of the generation that last touched them),
         // so the run_id-scoped read-back is O(changed) by construction.
@@ -1609,13 +1611,27 @@ impl SyncOperationBackend for EsSyncBackend<'_> {
             desired.plan.datasets.len() as u64 + 1,
             0,
         );
+        let mut refresh_failures: Vec<String> = Vec::new();
         for dataset in &desired.plan.datasets {
             let _refreshing = self.pr.file(&dataset.index, 0);
-            self.es.refresh(&dataset.index)?;
+            // #2234: one attempt per index. The file guard names the index
+            // on the progress line for as long as this request is in flight.
+            if let Err(error) = self.es.refresh_once(&dataset.index) {
+                refresh_failures.push(format!("{}: {error:#}", dataset.index));
+            }
         }
         {
             let _refreshing = self.pr.file(crate::catalog::CATALOG_INDEX, 0);
-            self.es.refresh(crate::catalog::CATALOG_INDEX)?;
+            if let Err(error) = self.es.refresh_once(crate::catalog::CATALOG_INDEX) {
+                refresh_failures.push(format!("{}: {error:#}", crate::catalog::CATALOG_INDEX));
+            }
+        }
+        if !refresh_failures.is_empty() {
+            anyhow::bail!(
+                "finalize-refresh failed for {} index(es): {}",
+                refresh_failures.len(),
+                refresh_failures.join(" | ")
+            );
         }
         // The generation-wide barrier reads changed groups back. Every
         // question it asks has the same shape — "how many rows in this index

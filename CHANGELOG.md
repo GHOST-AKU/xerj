@@ -16,6 +16,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `POST /{index}/_refresh` makes recent writes searchable without waiting for
+  a background segment merge to finish, and a multi-index or wildcard refresh
+  is not serialized behind one busy index. The route used to call the
+  durability flush (snapshot fsync and WAL prune) once per index; autoindex
+  finalize sent that as one `POST /<prefix>-*/_refresh` and stalled at the
+  end of the run when a large matching index had a merge in progress.
+  `_refresh` now publishes an unflushed memtable and returns immediately when
+  the memtable is already empty. `_flush` is unchanged and still checkpoints
+  the WAL. A merge encode no longer occupies a tokio blocking thread for the
+  whole encode, so a refresh that does have to publish a segment is not
+  queued behind that merge. Autoindex finalize refreshes each dataset index
+  (and the edges index) on its own, names the index it is waiting on, and
+  does not retry a timed-out refresh
+  ([#2234](https://github.com/xerj-org/xerj/issues/2234)).
+
 - A best-effort helper thread that cannot be created no longer aborts the
   process. On Unix those threads are started with `pthread_create` and do not
   map an alternate signal stack, so the allocation failure that used to panic
