@@ -456,7 +456,7 @@ the other direction: it hosts an MCP endpoint other agents connect to, and its s
 their servers from the harness underneath. Grok Bot has no documented local stdio registration; the
 Grok CLI does, which is the `grok` row above.
 
-Twenty tools are exposed. Eleven are thin proxies over an endpoint XERJ already serves:
+Twenty-one tools are exposed. Eleven are thin proxies over an endpoint XERJ already serves:
 
 | Tool | What it does |
 |---|---|
@@ -469,10 +469,23 @@ Twenty tools are exposed. Eleven are thin proxies over an endpoint XERJ already 
 | `xerj_plan` | a plain-words filter in, validated query DSL out (`POST /_ask`; deterministic and rule-based, not an LLM) |
 
 For `xerj_search`, pass `{"prefix":"project","query":"retry policy"}` to search
-`project-*`, matching `xerj search --prefix project`. Use `index` for an explicit
-index name or pattern instead; non-empty `index` and `prefix` cannot be combined.
-The prefix is trimmed and must be non-empty. With neither argument, the tool
-searches `ax-*`.
+`project-*`, matching `xerj search --prefix project`. `prefix` is resolved by
+the same function as the CLI: the prefix `xerj autoindex --prefix` stores, so
+`My_Proj` searches `my-proj-*`. Use `index` for an explicit index name or
+pattern instead; non-empty `index` and `prefix` cannot be combined. An empty
+prefix, a prefix with no `[a-z0-9]` character, or a prefix that cannot name an
+index is an error. With neither argument, the tool searches `ax-*`.
+
+`xerj_def` finds local definitions with the same query, ranking and location deduplication
+as `xerj def --json`. For example, `{"symbol":"Cache","prefix":"project","kind":"struct","lang":"rust","k":5}`
+searches `project-*`; `index` can replace `prefix`, with the same scope rules as `xerj_search`.
+`symbol` also accepts capability phrases. `k` must be 1–50 (default 5); optional `max_tokens`
+caps the response. Results are ES JSON: declarations live in `hits.hits[]._source.code`,
+locations in `ax_path`/`path` and `line`/`start_line`; older file hits may use `fields._passage`.
+`hits.total` counts engine matches before deduplication. No match returns an empty hit list.
+As in the CLI, kind/language filters are ignored when no target index maps the field
+or any target index maps it as numeric. Ranking is lexical. This tool queries the configured node;
+`xerj_hub_def` instead looks up definitions in a named Hub pack.
 
 Two more are not plain proxies: `xerj_map` returns the per-index field map from the autoindex
 catalog (trimmed to a byte cap, otherwise verbatim), and `xerj_code_search` runs the `xerj code`

@@ -9,10 +9,10 @@
 //!
 //! It speaks the MCP **stdio transport**: newline-delimited
 //! JSON-RPC 2.0 messages on stdin/stdout. It exposes XERJ to any MCP-capable
-//! agent host (Claude Desktop, IDE agents, custom orchestrators) as twenty
-//! tools: seventeen without a hub key, and three Corpus Hub tools
+//! agent host (Claude Desktop, IDE agents, custom orchestrators) as twenty-one
+//! tools: eighteen without a hub key, and three Corpus Hub tools
 //! (`xerj_hub_*`) that run the `xerj ask` flow itself. Thirteen of those
-//! seventeen construct exactly the request the running engine already accepts
+//! eighteen construct exactly the request the running engine already accepts
 //! and forward it to a configurable base URL. `xerj_index_budget` counts a
 //! folder and returns the budget plans; it does not index. `xerj_autoindex_remove`
 //! deletes one autoindexed folder after listing what that folder owns, and only
@@ -23,10 +23,11 @@
 //! when GitHub is unavailable. It sends by default; `confirm: false` previews,
 //! and `--disable-feedback` / `XERJ_DISABLE_FEEDBACK=true` turn sending off.
 //!
-//! ## The thirteen canonical agent operations
+//! ## Canonical agent operations
 //!
 //! | MCP tool               | XERJ endpoint                         | Real capability |
 //! |------------------------|---------------------------------------|-----------------|
+//! | `xerj_def` | `GET /{index}/_mapping` + `POST /{index}/_search` | local definition lookup with CLI ranking and deduplication |
 //! | `xerj_search`          | `POST /{index}/_search`               | ES query-DSL search (full-text / keyword / structured) |
 //! | `xerj_semantic_search` | `POST /{index}/_search` (`semantic`)  | server-side lexical embedding, no external key |
 //! | `xerj_vector_search`   | `POST /{index}/_search` (`knn`)       | kNN over a `dense_vector` field (HNSW-served unfiltered, exact filtered) |
@@ -64,8 +65,8 @@
 //!   understanding, no query language, no unbounded traversal. Every brain
 //!   tool description says both things, and engine refusals (e.g. the hops
 //!   cap) are passed back to the agent verbatim.
-//! * This proxy adds **no** capabilities of its own — whatever the engine
-//!   returns (including errors) is passed straight back to the agent.
+//! * `xerj_def` shares the CLI definition query and local result ranking;
+//!   engine errors are passed back unchanged.
 //!
 //! ## Configuration (environment)
 //!
@@ -93,12 +94,13 @@
 //!
 //! ## Token budgets (#1058)
 //!
-//! The five search tools accept `max_tokens` and are held to it: the response
+//! The six search tools accept `max_tokens` and are held to it: the response
 //! text NEVER exceeds the budget. Enforcement lives in [`token_budget`],
 //! counted with one named tokenizer (XERJ's `StandardTokenizer`, UAX #29
 //! words), with overlapping file:line passages deduped before budgeting and
 //! over-budget hits reduced to locators.
 
+mod def;
 mod hub;
 mod map;
 mod token_budget;
@@ -698,7 +700,7 @@ fn judge_arg_schema(query_required: bool) -> Value {
 }
 
 /// JSON-schema fragment for the optional `max_tokens` argument, shared by all
-/// five search tools (`xerj_search`, `xerj_hybrid_search`,
+/// six search tools (`xerj_def`, `xerj_search`, `xerj_hybrid_search`,
 /// `xerj_semantic_search`, `xerj_vector_search`, `xerj_code_search`) so the
 /// budget contract cannot drift between them.
 ///
@@ -747,11 +749,14 @@ pub fn tool_specs() -> Value {
 /// do not have to mutate `XERJ_HUB_PUBKEY`, which is process-global.
 pub fn tool_specs_with(include_hub: bool) -> Value {
     let mut specs = json!([
+        def::spec(),
         {
             "name": "xerj_search",
             "description":
                 "Full-text / keyword / structured search over a XERJ index. Proxies \
-                 POST /{index}/_search. Pass `query` as a PLAIN STRING for the \
+                 POST /{index}/_search. Pass `prefix` (a `xerj search --prefix` value, \
+                 resolved by that command) or `index` (a name or pattern) — not both; \
+                 with neither, searches `ax-*`. Pass `query` as a PLAIN STRING for the \
                  definition-first code search (ranks the file that defines a symbol \
                  above files that merely mention it — the right default for code), \
                  or as an ES query-DSL object (e.g. {\"term\":{\"status\":\"open\"}}, \
@@ -779,11 +784,15 @@ pub fn tool_specs_with(include_hub: bool) -> Value {
                     },
                     "prefix": {
                         "type": "string",
-                        "description": "Autoindex prefix, like `xerj search --prefix`: \
-                         `project` searches `project-*`. Pass the prefix without the \
-                         `-*` suffix. Leading/trailing whitespace is trimmed; an empty \
-                         prefix is an error. Cannot be combined with a non-empty `index`. \
-                         With neither argument, searches `ax-*`."
+                        "description": "Autoindex prefix, resolved by the same function as \
+                         `xerj search --prefix` and `xerj autoindex --prefix`: lower-case \
+                         [a-z0-9] runs joined by '-', so `project` searches `project-*` and \
+                         `My_Proj` searches `my-proj-*`. A trailing `-*` is dropped. \
+                         Whitespace is trimmed. An empty prefix, a prefix with no [a-z0-9] \
+                         character, or a prefix that cannot name an index is an error before \
+                         any request. Cannot be combined with a non-empty `index`. With \
+                         neither argument, searches `ax-*` (the CLI default when `--prefix` \
+                         is omitted)."
                     },
                     "query": {
                         "type": ["object", "string"],
@@ -1839,6 +1848,7 @@ async fn call_tool(ctx: &Ctx, msg: &Value) -> Value {
     // the response hits are penalized and trimmed back to `page`.
     let mut demote_page: Option<usize> = None;
     let result = match name {
+        "xerj_def" => return def::run(ctx, &args).await,
         "xerj_search" => {
             // Resolve before even the mapping GET: conflicting or malformed
             // scope arguments must never silently query a different corpus.
@@ -2263,9 +2273,14 @@ fn build_search(args: &Value) -> Result<BuiltRequest, String> {
     build_search_with_mapping(args, None)
 }
 
-/// One scope for both mapping discovery and search. `prefix` follows the
-/// CLI's `{prefix}-*` expansion (`xerj-autoindex/src/search.rs`); `index`
-/// retains its existing blank-as-absent behavior (#962).
+/// One scope for both mapping discovery and search.
+///
+/// `prefix` is [`xerj_autoindex::search::resolve_prefix`], the function
+/// `xerj search --prefix` uses. `index` keeps its blank-as-absent behavior
+/// (#962). Neither argument uses the CLI default prefix (`ax`), which is
+/// what `xerj search` does when `--prefix` is omitted — an error there would
+/// break every caller that searches the default corpus. Both is an error:
+/// the two scopes name different things and neither is a safe default.
 fn search_index(args: &Value) -> Result<String, String> {
     let index = args
         .get("index")
@@ -2283,8 +2298,14 @@ fn search_index(args: &Value) -> Result<String, String> {
                 .into(),
         ),
         (Some(index), None) => Ok(index.to_owned()),
-        (None, Some(prefix)) => Ok(format!("{prefix}-*")),
-        (None, None) => Ok("ax-*".into()),
+        (None, Some(prefix)) => xerj_autoindex::search::resolve_prefix(prefix)
+            .map(|resolved| resolved.pattern)
+            .map_err(|e| format!("`prefix` {e}")),
+        (None, None) => {
+            xerj_autoindex::search::resolve_prefix(xerj_autoindex::search::DEFAULT_SEARCH_PREFIX)
+                .map(|resolved| resolved.pattern)
+                .map_err(|e| format!("`prefix` {e}"))
+        }
     }
 }
 
@@ -3346,7 +3367,12 @@ mod tests {
         // call — nothing said the corpus lives under `ax-*`. The default
         // now matches what autoindex writes (and what `xerj search` uses).
         let (_, path, _) = built(build_search(&json!({})));
-        assert_eq!(path, "/ax-*/_search");
+        let default_pattern =
+            xerj_autoindex::search::resolve_prefix(xerj_autoindex::search::DEFAULT_SEARCH_PREFIX)
+                .unwrap()
+                .pattern;
+        assert_eq!(path, format!("/{default_pattern}/_search"));
+        assert_eq!(default_pattern, "ax-*");
         // Whitespace-only is treated as absent; explicit index still wins.
         let (_, path, _) = built(build_search(&json!({ "index": "  " })));
         assert_eq!(path, "/ax-*/_search");
@@ -3367,6 +3393,16 @@ mod tests {
             "index": "  ", "prefix": "project"
         })));
         assert_eq!(path, "/project-*/_search");
+        // The pattern is the CLI resolver's, including autoindex's rewrite
+        // (`My_Proj` is stored as `my-proj-*`) and a trailing `-*` the caller
+        // copied off an index name.
+        for prefix in ["My_Proj", "  my-proj  ", "my-proj-*"] {
+            let (_, path, body) = built(build_search(&json!({"prefix": prefix})));
+            let resolved = xerj_autoindex::search::resolve_prefix(prefix).unwrap();
+            assert_eq!(path, format!("/{}/_search", resolved.pattern), "{prefix}");
+            assert_eq!(resolved.pattern, "my-proj-*");
+            assert!(body.get("prefix").is_none());
+        }
     }
 
     #[test]
@@ -3379,6 +3415,8 @@ mod tests {
         for prefix in [
             json!(""),
             json!("  "),
+            json!("___"),
+            json!("2042"),
             json!(42),
             json!(false),
             json!([]),
@@ -3387,6 +3425,9 @@ mod tests {
             let error = build_search(&json!({"prefix": prefix})).unwrap_err();
             assert!(error.contains("`prefix`"), "{error}");
         }
+        let digit = build_search(&json!({"prefix": "2042"})).unwrap_err();
+        assert!(digit.contains("lowercase letter"), "{digit}");
+        assert!(!digit.contains("walked"), "{digit}");
         let (_, path, _) = built(build_search(&json!({"prefix": null})));
         assert_eq!(path, "/ax-*/_search");
     }
@@ -4037,9 +4078,10 @@ mod tests {
     }
 
     #[test]
-    fn exactly_the_five_search_tools_advertise_max_tokens() {
+    fn exactly_the_six_search_tools_advertise_max_tokens() {
         let specs = tool_specs();
         let search_tools = [
+            "xerj_def",
             "xerj_search",
             "xerj_hybrid_search",
             "xerj_semantic_search",
@@ -4642,6 +4684,8 @@ mod tests {
             json!({"index": "docs", "prefix": "project", "query": "retry"}),
             json!({"prefix": false, "query": "retry"}),
             json!({"prefix": "  ", "query": {"match_all": {}}}),
+            json!({"prefix": "___", "query": "retry"}),
+            json!({"prefix": "2042", "query": "retry"}),
         ] {
             let result = block_on(call_tool(
                 &ctx,
@@ -5058,7 +5102,7 @@ mod tests {
     }
 
     #[test]
-    fn tools_list_has_all_eighteen() {
+    fn tools_list_has_all_tools() {
         let specs = tool_specs_with(true);
         let names: Vec<&str> = specs
             .as_array()
@@ -5066,8 +5110,9 @@ mod tests {
             .iter()
             .map(|t| t["name"].as_str().unwrap())
             .collect();
-        assert_eq!(names.len(), 20);
+        assert_eq!(names.len(), 21);
         for n in [
+            "xerj_def",
             "xerj_search",
             "xerj_semantic_search",
             "xerj_vector_search",
@@ -5166,23 +5211,23 @@ mod tests {
                 .collect()
         };
         let without = names(false);
-        assert_eq!(without.len(), 17, "{without:?}");
+        assert_eq!(without.len(), 18, "{without:?}");
         assert!(
             without.iter().all(|n| !n.starts_with("xerj_hub_")),
             "{without:?}"
         );
         let with = names(true);
-        assert_eq!(with.len(), 20, "{with:?}");
+        assert_eq!(with.len(), 21, "{with:?}");
         for n in ["xerj_hub_find", "xerj_hub_def", "xerj_hub_ask"] {
             assert!(with.iter().any(|name| name == n), "missing {n}");
         }
 
         let help = tools_paragraph(false);
-        assert!(help.contains("proxies 17 tools"), "{help}");
+        assert!(help.contains("proxies 18 tools"), "{help}");
         assert!(!help.contains("xerj_hub_"), "{help}");
         assert!(help.contains("~/xerj-data"), "{help}");
         let help = tools_paragraph(true);
-        assert!(help.contains("proxies 20 tools"), "{help}");
+        assert!(help.contains("proxies 21 tools"), "{help}");
         assert!(help.contains("xerj_hub_ask"), "{help}");
         assert!(help.contains("serves 3 Corpus Hub tools"), "{help}");
     }
