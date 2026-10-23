@@ -21,19 +21,51 @@ use crate::{EngineError, Result};
 
 // ── Memory-pressure drain plumbing (issue #948) ─────────────────────────────
 //
-// The parent RSS breaker used to only REJECT writes (429). Under a workload
+// The parent breaker used to only REJECT writes (429). Under a workload
 // whose caches hold gigabytes of re-hydratable state and whose memtable
 // holds raw write payloads, rejection frees nothing: the breaker stays
-// engaged, the client retries forever, and the run never finishes — exactly
+// engaged, the client retries, and the run never finishes — exactly
 // the #948 mailbox ingest (16 GiB cap, 26.5 GiB demand, 118-147 s engaged
-// stretches, 3-4 s releases). The sampler now also requests a DRAIN: flush
-// every index, release rebuildable caches, purge allocator pages.
+// stretches, 3-4 s releases) and the #2238 corpus-index loop (8 GiB auto
+// tier, dozens of indices under their own flush line but over the 2 GiB
+// summed-memtable budget, indexed count stuck at 0). The sampler requests
+// a DRAIN on either latch: flush every index, release rebuildable caches,
+// purge allocator pages.
 
 /// Minimum spacing between automatic drains while the breaker stays engaged.
 /// The engage edge always fires immediately; repeats are rate-limited so a
 /// long pinned stretch drains progressively (caches refill under continued
 /// reads) without the drain worker competing with ingest for every tick.
 const MEMORY_DRAIN_MIN_INTERVAL: std::time::Duration = std::time::Duration::from_secs(2);
+
+/// Whether this sampler tick should ask the drain worker to run (#948, #2238).
+///
+/// `needs_drain` is [`crate::governor::ResourceGovernor::ingest_pressure_needs_drain`]:
+/// the RSS latch or the summed-memtable latch. A memtable-only trip used to
+/// return false here, so a multi-index ingest that had filled the auto tier's
+/// 2 GiB memtable budget kept receiving HTTP 429 with nothing flushed and the
+/// indexed count stayed at 0. The engage edge fires immediately; while the
+/// latch stays up, repeats wait `min_interval`. Releasing the latch clears
+/// the timer so the next engage drains at once.
+fn pressure_drain_due(
+    needs_drain: bool,
+    last_drain_at: &mut Option<std::time::Instant>,
+    now: std::time::Instant,
+    min_interval: std::time::Duration,
+) -> bool {
+    if !needs_drain {
+        *last_drain_at = None;
+        return false;
+    }
+    let due = match *last_drain_at {
+        None => true,
+        Some(at) => now.saturating_duration_since(at) >= min_interval,
+    };
+    if due {
+        *last_drain_at = Some(now);
+    }
+    due
+}
 
 /// Bounded request channel from the sampler thread to the drain worker.
 /// Capacity 1 + try_send ⇒ requests coalesce: one arrives mid-drain is
@@ -3538,28 +3570,90 @@ impl Engine {
 
     /// V4 M5.2 — route a document to the node that owns its shard.
     ///
-    /// Returns `Ok(None)` when the doc belongs to this node (handle it
-    /// locally via the existing `Index::index_document_with_version`
-    /// path). Returns `Ok(Some(node_id))` when the doc belongs to a
-    /// peer and must be forwarded via the cluster transport.
+    /// Returns `None` when this node should write the document itself:
+    /// there is no shard assignment (single-node mode, and any index that
+    /// was not created through the replicated shard plan), or the assigned
+    /// owner is this node. Returns `Some(node_id)` when a peer owns the
+    /// shard. Callers forward that write; they do not also store it here.
     ///
-    /// In single-node mode (`num_shards == 1` and the router has no
-    /// assignments) this always resolves to "local" and the caller
-    /// takes the existing fast path — zero overhead for single-node
-    /// deployments.
+    /// With no cluster handle the owner comparison uses `"local"`, which
+    /// no replicated plan names, and the empty routing table makes every
+    /// call `None`.
     pub fn route_write(&self, index: &str, doc_id: &str) -> Option<String> {
+        let me = self.routing_node_id();
         let router = self.shard_router.read();
-        let (_shard, owner) = router.route_doc(index, doc_id);
-        match owner {
-            // No assignment yet — treat as local. This is the
-            // single-node default path.
+        match router.route_doc(index, doc_id).1 {
             None => None,
-            Some(owner) if owner == self.node_id.as_str() => None,
+            Some(owner) if owner == me => None,
             Some(owner) => Some(owner.to_string()),
         }
     }
 
-    /// Read-only view of the local node id.
+    /// `true` when a replicated shard plan names this node as the primary
+    /// for `doc_id`. An index with no plan is `false` — that is not the
+    /// same as [`Engine::route_write`] returning `None`, which also covers
+    /// the unassigned case.
+    pub fn owns_shard(&self, index: &str, doc_id: &str) -> bool {
+        let me = self.routing_node_id();
+        let router = self.shard_router.read();
+        matches!(router.route_doc(index, doc_id).1, Some(owner) if owner == me)
+    }
+
+    /// Node ids that hold at least one primary of `index`, sorted.
+    pub fn shard_search_targets(&self, index: &str) -> Vec<String> {
+        self.shard_router.read().search_targets(index)
+    }
+
+    /// Identity [`Engine::route_write`] compares against shard owners.
+    ///
+    /// The cluster handle's node id when one is attached, otherwise the
+    /// single-node `"local"` id.
+    pub fn routing_node_id(&self) -> String {
+        self.cluster
+            .lock()
+            .as_ref()
+            .map(|handle| handle.node_id().to_string())
+            .unwrap_or_else(|| self.node_id.to_string())
+    }
+
+    /// Replace `index`'s primary assignments and widen the hash width so
+    /// every shard in `plan` is reachable.
+    pub fn install_shard_plan(&self, index: &str, plan: &[xerj_cluster::ShardAssignment]) {
+        if plan.is_empty() {
+            return;
+        }
+        let mut router = self.shard_router.write();
+        let width = plan
+            .iter()
+            .map(|assignment| assignment.shard.saturating_add(1))
+            .max()
+            .unwrap_or(1);
+        if width > router.num_shards() {
+            router.set_num_shards(width);
+        }
+        router.clear_index(index);
+        for assignment in plan {
+            router.assign(index, assignment.shard, &assignment.node_id);
+        }
+    }
+
+    /// Record one primary without dropping the index's other shards.
+    pub fn assign_one_shard(&self, index: &str, shard: u32, node_id: &str) {
+        let mut router = self.shard_router.write();
+        let width = shard.saturating_add(1);
+        if width > router.num_shards() {
+            router.set_num_shards(width);
+        }
+        router.assign(index, shard, node_id);
+    }
+
+    /// Drop `index` from the routing table. Called when a delete commits.
+    pub fn clear_shard_plan(&self, index: &str) {
+        self.shard_router.write().clear_index(index);
+    }
+
+    /// Read-only view of the single-node id (`"local"` unless a test
+    /// replaced the field). Cluster routing uses [`Engine::routing_node_id`].
     pub fn local_node_id(&self) -> &str {
         self.node_id.as_str()
     }
@@ -4164,26 +4258,23 @@ impl Engine {
                 let (disk_pct, disk_avail) = crate::governor::disk_used_pct_and_avail(&data_dir);
                 governor.refresh_memory_observing(observed, disk_pct, disk_avail, available_commit);
 
-                // Issue #948 — a breaker that only rejects never lets a
-                // memory-pinned workload finish: caches hold gigabytes
-                // of re-hydratable state and the memtable holds raw
-                // write payloads, and 429s free none of it. Request a
-                // drain on the engage edge and at most once per window
-                // while engaged. try_send never blocks, so Thread A's
-                // no-lock/no-block contract above still holds.
-                if governor.memory_breaker_engaged() {
-                    let fire = match last_drain_at {
-                        None => true,
-                        Some(at) => at.elapsed() >= MEMORY_DRAIN_MIN_INTERVAL,
-                    };
-                    if fire {
-                        last_drain_at = Some(std::time::Instant::now());
-                        if let Some(tx) = MEMORY_DRAIN_TX.get() {
-                            let _ = tx.try_send(());
-                        }
+                // Issue #948 / #2238 — a breaker that only rejects never lets
+                // a memory-pinned workload finish: caches hold gigabytes of
+                // re-hydratable state and the memtable holds raw write
+                // payloads, and 429s free none of it. Request a drain on the
+                // engage edge of EITHER parent latch (RSS or summed memtable)
+                // and at most once per window while it stays engaged.
+                // try_send never blocks, so Thread A's no-lock/no-block
+                // contract above still holds.
+                if pressure_drain_due(
+                    governor.ingest_pressure_needs_drain(),
+                    &mut last_drain_at,
+                    std::time::Instant::now(),
+                    MEMORY_DRAIN_MIN_INTERVAL,
+                ) {
+                    if let Some(tx) = MEMORY_DRAIN_TX.get() {
+                        let _ = tx.try_send(());
                     }
-                } else {
-                    last_drain_at = None;
                 }
 
                 // Runtime disk flood-stage override, matching ES's
@@ -5500,5 +5591,43 @@ mod governor_thread_spawn_tests {
             || {},
         );
         assert!(!started);
+    }
+}
+
+#[cfg(test)]
+mod pressure_drain_tests {
+    use super::pressure_drain_due;
+    use std::time::{Duration, Instant};
+
+    /// #2238: the engage edge drains immediately, a still-engaged latch does
+    /// not drain again inside the window, and releasing the latch arms the
+    /// next engage. `needs_drain` is the governor's memtable-or-RSS predicate.
+    #[test]
+    fn pressure_drain_fires_on_the_engage_edge_and_respects_the_window() {
+        let mut last = None;
+        let t0 = Instant::now();
+        let window = Duration::from_secs(2);
+        assert!(pressure_drain_due(true, &mut last, t0, window));
+        assert!(
+            !pressure_drain_due(true, &mut last, t0 + Duration::from_millis(500), window),
+            "one engaged stretch drains once per window"
+        );
+        assert!(pressure_drain_due(
+            true,
+            &mut last,
+            t0 + Duration::from_secs(2),
+            window
+        ));
+        assert!(!pressure_drain_due(
+            false,
+            &mut last,
+            t0 + Duration::from_secs(3),
+            window
+        ));
+        assert!(last.is_none(), "a released latch clears the timer");
+        assert!(
+            pressure_drain_due(true, &mut last, t0 + Duration::from_secs(3), window),
+            "the next engage drains immediately"
+        );
     }
 }

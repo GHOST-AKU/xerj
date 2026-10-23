@@ -170,7 +170,8 @@ impl ResourceGovernor {
             return Err(XerjError::circuit_breaking(format!(
                 "[parent] memtable byte budget exceeded: used={}MB, limit={}MB across all \
                  indices; writes rejected to prevent an out-of-memory kill (raise \
-                 limits.max_total_memtable_mb or slow ingest)",
+                 limits.max_process_memory_mb or XERJ_MAX_PROCESS_MEMORY_MB — the auto \
+                 tier derives this budget from that cap — or set limits.max_total_memtable_mb)",
                 used / (1024 * 1024),
                 self.memtable_budget_bytes / (1024 * 1024),
             )));
@@ -209,12 +210,32 @@ impl ResourceGovernor {
 
     /// Whether the parent RSS memory breaker is currently engaged (issue
     /// #948). Admission (429) is only half of the contract: the resource
-    /// sampler uses this same flag to request a memory-pressure DRAIN of
-    /// rebuildable state (flush + cache release), because a breaker that
-    /// only rejects never lets a workload whose caches hold gigabytes of
-    /// re-hydratable data make progress.
+    /// sampler uses this flag, together with [`Self::memtable_breaker_engaged`],
+    /// to request a memory-pressure DRAIN of rebuildable state (flush + cache
+    /// release). A breaker that only rejects never lets a workload whose
+    /// caches or memtables hold the bytes make progress.
     pub fn memory_breaker_engaged(&self) -> bool {
         self.memory_tripped.load(Ordering::Relaxed)
+    }
+
+    /// Whether the summed-memtable budget breaker is currently engaged.
+    pub fn memtable_breaker_engaged(&self) -> bool {
+        self.memtable_tripped.load(Ordering::Relaxed)
+    }
+
+    /// Whether the sampler must request a memory-pressure drain (#948, #2238).
+    ///
+    /// Both parent latches answer writes with HTTP 429, and a 429 frees
+    /// nothing by itself. The RSS latch has requested a drain since #948.
+    /// The summed-memtable latch did not. On the 8 GiB auto tier that budget
+    /// is 2 GiB (`auto_memtable_budget`: 25% floored at 2 GiB) while each
+    /// index flushes at `storage.flush_size_mb` (default 512 MiB), so a
+    /// corpus spread across dozens of indices crosses the process budget
+    /// with every index still under its own flush line. Writes then stay
+    /// 429 and the indexed count stays 0 unless this latch requests the
+    /// same drain.
+    pub fn ingest_pressure_needs_drain(&self) -> bool {
+        self.memory_breaker_engaged() || self.memtable_breaker_engaged()
     }
 
     /// Whether it is safe to spawn a best-effort helper thread right now (#1122).
@@ -1568,10 +1589,11 @@ struct CommitBreakerDetail {
 
 /// Admission text for the parent memory breaker.
 ///
-/// `commit == None` is the pre-#1122 sentence, including the cluster-settings
-/// hint. A Windows commit ceiling replaces that hint: raising
-/// `indices.breaker.total.limit` cannot create commit, and the sentence names
-/// the limit and the pagefile instead.
+/// `commit == None` is the ordinary RSS sentence: it names
+/// `limits.max_process_memory_mb` / `XERJ_MAX_PROCESS_MEMORY_MB` and the live
+/// `indices.breaker.total.limit` hint (#2238). A Windows commit ceiling
+/// replaces that hint: raising `indices.breaker.total.limit` cannot create
+/// commit, and the sentence names the limit and the pagefile instead.
 fn memory_breaker_reason(
     rss: u64,
     relation: &str,
@@ -1599,7 +1621,8 @@ fn memory_breaker_reason(
             detail.reserve / MIB,
         ),
         None => format!(
-            "{base} (raise it live with PUT _cluster/settings {{\"persistent\":\
+            "{base} (raise limits.max_process_memory_mb or XERJ_MAX_PROCESS_MEMORY_MB, or live \
+             with PUT _cluster/settings {{\"persistent\":\
              {{\"indices.breaker.total.limit\":\"<N>gb\"}}}})"
         ),
     }
@@ -2194,9 +2217,55 @@ mod tests {
         // `circuit_breaking_exception` type; the Display is the bare reason).
         assert_eq!(err.http_status(), 429);
         assert!(matches!(err, XerjError::CircuitBreaking { .. }));
-        assert!(format!("{err}").contains("memtable byte budget exceeded"));
+        let rendered = format!("{err}");
+        assert!(
+            rendered.contains("memtable byte budget exceeded"),
+            "{rendered}"
+        );
+        // #2238: the auto tier derives this budget from the process cap. The
+        // remedy has to name that knob, and it has to survive the client's
+        // 300-character per-item reason prefix.
+        let marker = rendered.find("limits.max_process_memory_mb");
+        assert!(
+            marker.is_some_and(|at| at < 300),
+            "the process-memory cap must be named inside the first 300 chars: {rendered}"
+        );
         // Recovery once usage drops back under the budget.
         g.refresh(10 * 1024 * 1024, 0, 0);
+        assert!(g.check_ingest_admission().is_ok());
+    }
+
+    /// #2238: a multi-index ingest on the 8 GiB auto tier trips the 2 GiB
+    /// memtable budget while RSS is still under the watermark. The sampler
+    /// used to drain only on the RSS latch, so every later write stayed 429
+    /// and the indexed count stayed 0. Memtable pressure must request the
+    /// same drain.
+    #[test]
+    fn memtable_pressure_requests_a_drain_while_rss_is_under_the_watermark() {
+        let mut cfg = Config::default();
+        cfg.limits.max_total_memtable_mb = 100;
+        cfg.limits.memory_watermark_percent = 95;
+        let g = build(&cfg);
+        let watermark = g.memory_watermark_bytes.load(Ordering::Relaxed);
+        assert!(watermark > 0, "this test needs a live RSS watermark");
+        g.refresh(200 * 1024 * 1024, watermark / 2, 0);
+        assert!(
+            g.memtable_breaker_engaged(),
+            "summed memtables are over budget"
+        );
+        assert!(
+            !g.memory_breaker_engaged(),
+            "RSS at half the watermark must not engage the RSS latch"
+        );
+        assert!(
+            g.ingest_pressure_needs_drain(),
+            "memtable pressure alone must request a drain (#2238)"
+        );
+        assert!(g.check_ingest_admission().is_err());
+
+        g.refresh(10 * 1024 * 1024, watermark / 2, 0);
+        assert!(!g.memtable_breaker_engaged());
+        assert!(!g.ingest_pressure_needs_drain());
         assert!(g.check_ingest_admission().is_ok());
     }
 
@@ -2257,9 +2326,10 @@ mod tests {
     }
 
     /// The sentence autoindex matches on (`real memory circuit breaker tripped`
-    /// … `writes rejected to prevent an out-of-memory kill`) stays, and the
-    /// cluster-settings hint stays when commit is not the ceiling. Numbers are
-    /// the historical 16 GiB fixture.
+    /// … `writes rejected to prevent an out-of-memory kill`) stays when commit
+    /// is not the ceiling. That sentence names the process-memory cap and the
+    /// live cluster-settings hint (#2238). Numbers are the historical 16 GiB
+    /// fixture, and it does not mention the pagefile.
     #[test]
     fn the_rss_breaker_message_is_unchanged_without_a_commit_ceiling() {
         const MIB: u64 = 1024 * 1024;
@@ -2268,7 +2338,8 @@ mod tests {
             msg,
             "[parent] real memory circuit breaker tripped: rss=15679MB >= watermark=15564MB \
              (94% of limit=16384MB); writes rejected to prevent an out-of-memory kill \
-             (raise it live with PUT _cluster/settings {\"persistent\":{\"indices.breaker.total.limit\":\"<N>gb\"}})"
+             (raise limits.max_process_memory_mb or XERJ_MAX_PROCESS_MEMORY_MB, or live \
+             with PUT _cluster/settings {\"persistent\":{\"indices.breaker.total.limit\":\"<N>gb\"}})"
         );
         assert!(!msg.contains("pagefile"));
     }
@@ -2364,12 +2435,29 @@ mod tests {
         assert!(g.thread_spawn_safe());
     }
 
+    /// Off Windows there is no commit charge, so the breaker probe is the RSS
+    /// sample it just took. Both probes read the kernel counter, and that
+    /// read allocates, as do other tests in this process, so one pair can
+    /// differ by pages. A quiet pair is the contract.
     #[cfg(not(target_os = "windows"))]
     #[test]
     fn process_memory_matches_rss_off_windows() {
-        assert_eq!(current_process_memory_bytes(), current_rss_bytes());
+        assert!(xerj_common::resource::process_commit_charge_bytes().is_none());
         assert!(xerj_common::resource::available_commit_bytes().is_none());
         assert!(xerj_common::resource::windows_commit_sample().is_none());
+        let mut last_process = 0u64;
+        let mut last_rss = 0u64;
+        for _ in 0..128 {
+            last_process = current_process_memory_bytes();
+            last_rss = current_rss_bytes();
+            if last_process > 0 && last_process == last_rss {
+                return;
+            }
+        }
+        panic!(
+            "off Windows the breaker probe is RSS; no quiet pair in 128 tries \
+             (last process={last_process} rss={last_rss})"
+        );
     }
 
     #[test]
@@ -2653,6 +2741,17 @@ mod tests {
             err.contains("draining below watermark"),
             "an in-band rejection must not claim rss >= watermark: {err}"
         );
+        if g.commit_capped {
+            assert!(
+                err.contains("Windows commit limit"),
+                "a commit-capped rejection names the limit instead of the process cap: {err}"
+            );
+        } else {
+            assert!(
+                err.contains("limits.max_process_memory_mb"),
+                "an RSS rejection must name the process-memory cap: {err}"
+            );
+        }
         g.refresh(0, wm * 97 / 100, 0);
         assert!(
             g.check_ingest_admission().is_err(),

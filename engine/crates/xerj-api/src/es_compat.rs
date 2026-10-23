@@ -11,7 +11,7 @@ use axum::{
     Json,
 };
 use chrono::{Datelike, TimeZone, Timelike, Utc};
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use std::collections::{HashMap, HashSet};
 use uuid::Uuid;
@@ -3911,12 +3911,36 @@ pub async fn index_doc_auto(
         Err(resp) => return resp,
     };
 
-    let idx = match state.engine.get_or_create_index(&index) {
-        Ok(i) => i,
-        Err(e) => return ApiError::new(xerj_common::XerjError::from(e)).into_response(),
+    // Cluster mode picks the id before routing so the shard owner is a
+    // function of the id that will be stored. Single-node keeps the engine's
+    // auto-id.
+    let preset_id = if state.engine.has_cluster() {
+        let id = uuid::Uuid::new_v4().to_string();
+        match crate::cluster_shard::dispatch_index(
+            &state, &index, &id, &doc, "index", None, None, None, None,
+        )
+        .await
+        {
+            crate::cluster_shard::Dispatch::Done(response) => return response,
+            crate::cluster_shard::Dispatch::Local => Some(id),
+        }
+    } else {
+        None
     };
 
-    match idx.index_document(None, doc).await {
+    let idx = if preset_id.is_some() {
+        match state.engine.get_index(&index) {
+            Ok(i) => i,
+            Err(_) => return crate::cluster_shard::shard_not_ready_response(&index),
+        }
+    } else {
+        match state.engine.get_or_create_index(&index) {
+            Ok(i) => i,
+            Err(e) => return ApiError::new(xerj_common::XerjError::from(e)).into_response(),
+        }
+    };
+
+    match idx.index_document(preset_id, doc).await {
         Ok(resp) => {
             state.metrics.record_doc_indexed(&index);
             let er = EsDocResponse::created(
@@ -4046,11 +4070,6 @@ pub async fn index_doc(
         Err(resp) => return resp,
     };
 
-    let idx = match state.engine.get_or_create_index(&index) {
-        Ok(i) => i,
-        Err(e) => return ApiError::new(xerj_common::XerjError::from(e)).into_response(),
-    };
-
     // op_type=create means fail if document already exists.
     let is_create_op = params.op_type.as_deref() == Some("create");
 
@@ -4059,6 +4078,37 @@ pub async fn index_doc(
     // (which runs on internal seqs), so a value read from GET/_search/_mget
     // or a previous write response round-trips correctly.
     let if_seq_no_internal = params.if_seq_no.map(|s| s.saturating_add(1));
+
+    if state.engine.has_cluster() {
+        match crate::cluster_shard::dispatch_index(
+            &state,
+            &index,
+            &id,
+            &doc,
+            if is_create_op { "create" } else { "index" },
+            if_seq_no_internal,
+            params.if_primary_term,
+            params.version,
+            params.version_type.clone(),
+        )
+        .await
+        {
+            crate::cluster_shard::Dispatch::Done(response) => return response,
+            crate::cluster_shard::Dispatch::Local => {}
+        }
+    }
+
+    let idx = if state.engine.has_cluster() {
+        match state.engine.get_index(&index) {
+            Ok(i) => i,
+            Err(_) => return crate::cluster_shard::shard_not_ready_response(&index),
+        }
+    } else {
+        match state.engine.get_or_create_index(&index) {
+            Ok(i) => i,
+            Err(e) => return ApiError::new(xerj_common::XerjError::from(e)).into_response(),
+        }
+    };
 
     if is_create_op {
         match idx.create_document(id.clone(), doc).await {
@@ -4179,9 +4229,27 @@ pub async fn create_doc(
         Err(resp) => return resp,
     };
 
-    let idx = match state.engine.get_or_create_index(&index) {
-        Ok(i) => i,
-        Err(e) => return ApiError::new(xerj_common::XerjError::from(e)).into_response(),
+    if state.engine.has_cluster() {
+        match crate::cluster_shard::dispatch_index(
+            &state, &index, &id, &doc, "create", None, None, None, None,
+        )
+        .await
+        {
+            crate::cluster_shard::Dispatch::Done(response) => return response,
+            crate::cluster_shard::Dispatch::Local => {}
+        }
+    }
+
+    let idx = if state.engine.has_cluster() {
+        match state.engine.get_index(&index) {
+            Ok(i) => i,
+            Err(_) => return crate::cluster_shard::shard_not_ready_response(&index),
+        }
+    } else {
+        match state.engine.get_or_create_index(&index) {
+            Ok(i) => i,
+            Err(e) => return ApiError::new(xerj_common::XerjError::from(e)).into_response(),
+        }
     };
 
     match idx.create_document(id.clone(), doc).await {
@@ -4225,6 +4293,12 @@ pub async fn get_doc(
     // Strict membership only — frozen/open indices are unaffected.
     if state.engine.closed_indices.contains_key(&index) {
         return closed_index_error(&index);
+    }
+
+    if let crate::cluster_shard::Dispatch::Done(response) =
+        crate::cluster_shard::dispatch_get(&state, &index, &id, &params).await
+    {
+        return response;
     }
 
     let idx = match state.engine.get_index(&index) {
@@ -4277,7 +4351,7 @@ pub async fn get_doc(
 }
 
 /// Filter the _source of a GET _doc response based on query params.
-fn apply_get_doc_source_filter(source: Value, params: &GetDocParams) -> Value {
+pub(crate) fn apply_get_doc_source_filter(source: Value, params: &GetDocParams) -> Value {
     // _source=false → suppress everything.
     if params.source.as_deref() == Some("false") {
         return Value::Null;
@@ -4374,13 +4448,25 @@ pub async fn delete_doc(
     Path((index, id)): Path<(String, String)>,
     Query(params): Query<DeleteDocParams>,
 ) -> impl IntoResponse {
+    // Wire → internal seq translation, same convention as the index path.
+    let if_seq_no_internal = params.if_seq_no.map(|s| s.saturating_add(1));
+
+    if let crate::cluster_shard::Dispatch::Done(response) = crate::cluster_shard::dispatch_delete(
+        &state,
+        &index,
+        &id,
+        if_seq_no_internal,
+        params.if_primary_term,
+    )
+    .await
+    {
+        return response;
+    }
+
     let idx = match state.engine.get_index(&index) {
         Ok(i) => i,
         Err(e) => return ApiError::new(xerj_common::XerjError::from(e)).into_response(),
     };
-
-    // Wire → internal seq translation, same convention as the index path.
-    let if_seq_no_internal = params.if_seq_no.map(|s| s.saturating_add(1));
 
     match idx
         .delete_document_versioned(&id, if_seq_no_internal, params.if_primary_term)
@@ -4421,7 +4507,7 @@ pub async fn delete_doc(
 // Supports comma-separated multi-index: /index1,index2/_search
 // ─────────────────────────────────────────────────────────────────────────────
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct EsSearchBody {
     #[serde(default)]
     pub query: Option<Value>,
@@ -8963,7 +9049,7 @@ fn parse_highlight(hl_val: &Value) -> Option<xerj_query::ast::HighlightRequest> 
 ///
 /// These are common params used by simple ES clients and curl one-liners.
 /// Most are accepted and ignored (preference, routing, etc.) to avoid 400 errors.
-#[derive(Debug, Default, Deserialize)]
+#[derive(Debug, Clone, Default, Deserialize, Serialize)]
 pub struct EsSearchQueryParams {
     /// Simple query string — `?q=title:rust`.
     pub q: Option<String>,
@@ -11972,7 +12058,7 @@ pub async fn search(
     // `memory_api`'s recall test, which calls this handler directly, overflows
     // its stack on the extra copy. Boxing keeps the wrapper pointer-sized.
     let (response, fault) = xerj_engine::painless::with_script_fault_capture(Box::pin(
-        search_impl(state, index, params, principal, body),
+        search_dispatch(state, index, params, principal, body),
     ))
     .await;
     match fault {
@@ -12480,6 +12566,32 @@ impl SkippedIndices {
             None
         }
     }
+}
+
+async fn search_dispatch(
+    state: AppState,
+    index: String,
+    params: EsSearchQueryParams,
+    principal: crate::auth::Principal,
+    body: EsSearchJson,
+) -> Response {
+    if let Some(response) =
+        crate::cluster_shard::fanout_search(&state, &index, &params, &principal, &body).await
+    {
+        return response;
+    }
+    search_impl(state, index, params, principal, body).await
+}
+
+/// One shard's search, used by the cluster fan-out. Does not fan out again.
+pub(crate) async fn search_shard_local(
+    state: AppState,
+    index: String,
+    params: EsSearchQueryParams,
+    principal: crate::auth::Principal,
+    body: EsSearchBody,
+) -> Response {
+    search_impl(state, index, params, principal, EsSearchJson(Some(body))).await
 }
 
 async fn search_impl(
@@ -23001,6 +23113,32 @@ pub async fn count_docs(
     Query(params): Query<CountParams>,
     body: OptionalJson<Value>,
 ) -> impl IntoResponse {
+    // #193-style parity: ES's `_count` body accepts `min_score` and filters the
+    // counted set by it. The handler rebuilds a `size: 0` search body from the
+    // query alone, so this field used to be dropped and `_count` answered the
+    // unfiltered total while `_search` with the same body answered 0. A
+    // non-numeric value is the same 400 parse_exception `_search` gives.
+    let min_score = match body.as_ref().and_then(|b| b.get("min_score")) {
+        None | Some(Value::Null) => None,
+        Some(value) => match value.as_f64() {
+            Some(ms) => Some(ms),
+            None => {
+                return (
+                    StatusCode::BAD_REQUEST,
+                    Json(json!({
+                        "error": {
+                            "type": "parse_exception",
+                            "reason": format!(
+                                "malformed JSON in request body: invalid value for [min_score]: {value}"
+                            ),
+                            "status": 400,
+                        }
+                    })),
+                )
+                    .into_response();
+            }
+        },
+    };
     // Multi-index / all selector: sum counts from every participating index.
     //
     // An ALIAS belongs in this branch too. It used not to, so a multi-index
@@ -23070,6 +23208,7 @@ pub async fn count_docs(
             }
         }
         let has_query = !alias_filters.is_empty()
+            || min_score.is_some()
             || body
                 .as_ref()
                 .and_then(|b| b.get("query"))
@@ -23123,13 +23262,19 @@ pub async fn count_docs(
                 let search_body = json!({ "query": query_val, "size": 0, "from": 0 });
                 // A body that does not parse is not per-index: it is the same
                 // 400 the single-index arm returns, for the same reason.
-                let req = match xerj_query::parse_request(&search_body) {
+                let mut req = match xerj_query::parse_request(&search_body) {
                     Ok(r) => r,
                     Err(e) => {
                         let ze = xerj_common::XerjError::invalid_query(e.to_string());
                         return ApiError::new(ze).into_response();
                     }
                 };
+                // `parse_request` leaves `min_score` at None (the `_search`
+                // handler fills it from `EsSearchBody`), so the count path has
+                // to set it explicitly or the threshold is silently dropped.
+                if let Some(ms) = min_score {
+                    req.min_score = Some(ms);
+                }
                 match idx.search(&req).await {
                     Ok(result) => {
                         // A script resource limit in the filter (terms_set's
@@ -23192,12 +23337,15 @@ pub async fn count_docs(
         Err(e) => return ApiError::new(xerj_common::XerjError::from(e)).into_response(),
     };
 
-    // If no query or match_all, use the stored stats for speed.
-    let has_query = body
-        .as_ref()
-        .and_then(|b| b.get("query"))
-        .map(|q| !q.is_null())
-        .unwrap_or(false);
+    // If no query or match_all, use the stored stats for speed. A body that
+    // carries `min_score` still has to run the query: match_all scores 1.0, so
+    // a threshold above it counts zero.
+    let has_query = min_score.is_some()
+        || body
+            .as_ref()
+            .and_then(|b| b.get("query"))
+            .map(|q| !q.is_null())
+            .unwrap_or(false);
 
     let count = if has_query {
         // Run a search with size=0 to get the total.
@@ -23212,15 +23360,25 @@ pub async fn count_docs(
         resolve_terms_lookups(&mut query_val, &state).await;
         let search_body = json!({ "query": query_val, "size": 0, "from": 0 });
         match xerj_query::parse_request(&search_body) {
-            Ok(req) => match idx.search(&req).await {
-                Ok(result) => {
-                    if let Some(reason) = &result.script_failure {
-                        return script_limit_response(reason);
-                    }
-                    result.total.value
+            Ok(mut req) => {
+                // `parse_request` leaves `min_score` at None (the `_search`
+                // handler fills it from `EsSearchBody`), so the count path has
+                // to set it explicitly or the threshold is silently dropped.
+                if let Some(ms) = min_score {
+                    req.min_score = Some(ms);
                 }
-                Err(e) => return ApiError::new(xerj_common::XerjError::from(e)).into_response(),
-            },
+                match idx.search(&req).await {
+                    Ok(result) => {
+                        if let Some(reason) = &result.script_failure {
+                            return script_limit_response(reason);
+                        }
+                        result.total.value
+                    }
+                    Err(e) => {
+                        return ApiError::new(xerj_common::XerjError::from(e)).into_response()
+                    }
+                }
+            }
             Err(e) => {
                 let ze = xerj_common::XerjError::invalid_query(e.to_string());
                 return ApiError::new(ze).into_response();
@@ -47394,7 +47552,7 @@ fn count_dense_vector_fields(node: &Value) -> u64 {
 /// targets an index that has been closed via `POST /:index/_close`.
 /// Mirrors Elasticsearch's body shape so wire-compat clients see the
 /// exact `type`/`reason`/`index` triplet plus the duplicated root_cause.
-fn closed_index_error(index: &str) -> axum::response::Response {
+pub(crate) fn closed_index_error(index: &str) -> axum::response::Response {
     (
         StatusCode::BAD_REQUEST,
         Json(json!({
