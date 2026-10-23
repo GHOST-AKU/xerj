@@ -789,6 +789,24 @@ fn object_io_runtime() -> &'static tokio::runtime::Runtime {
 
 const WAL_MAINTENANCE_INTERVAL_MS: u64 = 1_000;
 
+/// Refuse one raw document before `IgnoredAny` or `from_slice` builds a DOM
+/// (#1122). Bulk filters the same ceiling per item so a mixed batch does not
+/// reach here; this is the backstop for `index_batch_turbo_raw`.
+fn reject_oversized_indexed_document(
+    doc_id: &str,
+    position: usize,
+    source_bytes: &[u8],
+) -> Result<()> {
+    if xerj_common::document_limit::indexed_document_too_large(source_bytes.len()) {
+        return Err(StorageError::RawBatchValidation {
+            doc_id: doc_id.to_string(),
+            position,
+            reason: xerj_common::document_limit::indexed_document_refusal(source_bytes.len()),
+        });
+    }
+    Ok(())
+}
+
 impl IndexStore {
     /// Open (or create) an index at `data_dir`.
     ///
@@ -4850,6 +4868,7 @@ impl IndexStore {
         docs.par_iter()
             .enumerate()
             .map(|(position, (doc_id, source_bytes))| {
+                reject_oversized_indexed_document(doc_id, position + 1, source_bytes)?;
                 validate_raw_json_nesting(source_bytes).map_err(|reason| {
                     StorageError::RawBatchValidation {
                         doc_id: doc_id.clone(),
@@ -4877,6 +4896,7 @@ impl IndexStore {
             .par_iter()
             .enumerate()
             .map(|(position, (doc_id, source_bytes))| {
+                reject_oversized_indexed_document(doc_id, position + 1, source_bytes)?;
                 validate_raw_json_nesting(source_bytes).map_err(|reason| {
                     StorageError::RawBatchValidation {
                         doc_id: doc_id.clone(),
