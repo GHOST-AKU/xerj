@@ -22,6 +22,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- A matching index template's `semantic_text` properties and
+  `index.default_pipeline` are applied when an index is created, including
+  the body `xerj autoindex` sends and the first bulk or single-document
+  write that auto-creates the index. The template already matched (a
+  `keyword` field from it was mapped), but `semantic_text` was stored as
+  `object` and the default pipeline was dropped, so the pipeline never ran
+  ([#2281](https://github.com/xerj-org/xerj/issues/2281)).
+
 - `xerj --help` lists `xerj hub` next to `xerj ask` when the build has a hub
   signing key. The `xerj ask` line names `xerj hub stop` as the way to stop
   the node that command started. A build with no hub key still does not
@@ -42,6 +50,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   compilation is bit-identical. Installers install on CPUs without AVX2
   instead of refusing. `XERJ_SKIP_CPU_CHECK` is gone
   ([#2161](https://github.com/xerj-org/xerj/issues/2161)).
+
+- MCP JSON search responses with `max_tokens` no longer deduplicate rows
+  with distinct `ax_locator` values or hits from different indices merely
+  because their relative paths and passage line numbers match. Deduplication
+  includes the available source index, file identity and record locator;
+  overlapping file and code-symbol passages in the same source still
+  deduplicate. Plain-string `xerj_search` requests the
+  provenance fields needed for this distinction by default.
 
 - `xerj corpus index` killed mid-index resumes that build's journal instead of
   starting a legacy index under a new prefix. When the journal still has a
@@ -66,6 +82,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   selects this highlighter, and it is the default for a `semantic_text`
   field on a semantic query. Chunks are not wrapped in `<em>` tags. A
   lexical `match` on the same field still highlights query terms.
+
+- A single JSON document over 8 MiB is not indexed, so one file of 50 MB
+  or more cannot abort the node during autoindex or `_bulk` (#1122).
+  Autoindex streams a top-level array, or a top-level array of records
+  inside a larger object, one element at a time and skips only the values
+  that exceed the limit. The skip names the file. A bulk item over the
+  limit is HTTP 413 and its neighbours still index. The ceiling is fixed,
+  not a new setting. Files over 64 MiB are still not read; the skip now
+  says so.
+
+- Opening an index whose snapshot names a segment file that is already
+  gone drops that segment instead of failing every later `_search` with
+  `Segment … not found`. A sibling segment that is still on disk stays
+  readable, and sequence numbers from the missing segment are not reused.
+  Object-store mode is unchanged: a catalogue whose bundle is missing
+  still refuses to open. This is what let `xerj brain --fresh` finish
+  its catalog read-back after a data directory was only partly removed.
 
 - A best-effort helper thread that cannot be created no longer aborts the
   process. On Unix those threads are started with `pthread_create` and do not
