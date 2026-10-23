@@ -22,6 +22,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- x86_64 release binaries no longer require AVX2. The build baseline is
+  `x86-64-v2` (SSE4.2). The HNSW eight-accumulator dot product — the kernel
+  `x86-64-v3` was actually vectorizing — compiles an AVX2+FMA variant and
+  selects it at runtime when the CPU has both features; the scalar
+  compilation is bit-identical. Installers install on CPUs without AVX2
+  instead of refusing. `XERJ_SKIP_CPU_CHECK` is gone
+  ([#2161](https://github.com/xerj-org/xerj/issues/2161)).
+
 - SIGTERM and SIGINT keep the HTTP ports bound until the final memtable
   flush has finished writing the data directory. New HTTP requests during
   that window get 503, except `/health/live`, which stays 200 so a liveness
@@ -47,6 +55,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   that build. A resume that cannot verify is recorded as unverified, or left
   unrecorded with the journal kept, instead of a ledger that names no build
   ([#2239](https://github.com/xerj-org/xerj/issues/2239)).
+
+- `_validate/query` now asks every resolved index the same buildability
+  question `_search` does: a query naming a field that is neither indexed nor
+  has doc values, or a non-numeric value against a numeric field, reports
+  `valid: false` (with `error`/`explanations`) instead of claiming a body
+  `_search` rejects is valid. The parse-only answer is kept for a selector
+  that resolves to no index.
 
 - A `semantic` query on a `semantic_text` field returns `highlight` fragments
   when the request asks for them (#1947). The fragments are the field's
