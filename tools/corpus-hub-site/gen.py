@@ -20,6 +20,7 @@ import datetime as dt
 import hashlib
 import agent_score
 import contributors
+import search_index
 import os
 import private_data
 import struct
@@ -229,6 +230,30 @@ def corpus_stats(c):
     return files, nbytes, licences
 
 
+def upstream_ids(c):
+    """GitHub `owner/name` values this corpus actually pins, first-seen, at most four.
+
+    Read from the manifest URL (and a repo field that is already `owner/name`).
+    A bare repo name is not an owner and is left out.
+    """
+    ids = []
+    for r in c.get("repos") or []:
+        u = search_index.github_owner_repo(r.get("url", ""), r.get("repo", ""))
+        if u and u not in ids:
+            ids.append(u)
+    for s in c.get("sources") or []:
+        u = search_index.github_owner_repo(s.get("url", ""), s.get("repo", "") or s.get("slug", ""))
+        if u and u not in ids:
+            ids.append(u)
+        if len(ids) == 4:
+            break
+    return ids[:4]
+
+
+def upstream_label(c):
+    return ", ".join(upstream_ids(c))
+
+
 def region(c):
     return (c.get("tags") or {}).get("region", "")
 
@@ -275,8 +300,10 @@ def card(c, g7, graded, impact, rel=""):
     (a 404) before it existed."""
     files, nbytes, licences = corpus_stats(c)
     st, stcls = STATUSES.get(c["status"], (c["status"], "mute"))
+    up = upstream_label(c)
+    repo_line = f'\n  <p class="crepo">{esc(up)}</p>' if up else ""
     return f'''<a class="card" data-cat="{esc(c['cat'])}" data-region="{esc(region(c))}" data-slug="{esc(c['slug'].lower())}" href="{rel}corpus/{esc(c['slug'])}">
-  <div class="chead"><span class="cname">{esc(c['slug'])}</span><span class="dot {stcls}"></span></div>
+  <div class="chead"><span class="cname">{esc(c['slug'])}</span><span class="dot {stcls}"></span></div>{repo_line}
   <p class="cuse">{esc(plain(c['usecase'])[:180])}{'...' if len(c['usecase']) > 180 else ''}</p>
   {tag_line(c)}
   <div class="cmeta">{'<span>merged into ' + esc(c['merged_into']) + '</span>' if c.get('merged_into') else '<span>' + human_bytes(nbytes) + '</span><span>' + human_files(files) + '</span>'}<span>{st}</span></div>
@@ -384,9 +411,11 @@ def install_prompt(c):
     `--def` form, and what success looks like. No manifest, no clone, no index."""
     slug = c["slug"]
     use = plain(c.get("usecase") or "")[:200]
+    up = upstream_label(c)
     return (
         f'Use the "{slug}" reference corpus from the XERJ Corpus Hub '
         f"(https://hub.xerj.org/corpus/{slug}) for this task."
+        + (f" Upstream repo: {up}." if up else "")
         + (f" What it is for: {use}" if use else "") + "\n"
         "Run these in a shell, in order, and check each result before the next:\n"
         + CLI_STEP +
@@ -412,10 +441,11 @@ def category_prompt(k, title, live):
     """One paste-ready prompt PER DOMAIN. It lists the domain's corpora with
     their sizes for context; the agent does not have to pick one, because XERJ
     routes the question to the right corpus and names it in the answer."""
-    listing = "\n".join(
-        f"- {c['slug']} ({human_bytes(corpus_stats(c)[1])}): {plain(c.get('usecase') or '')[:110]}"
-        for c in live
-    )
+    def one(c):
+        up = upstream_label(c)
+        who = f"{up}, " if up else ""
+        return f"- {c['slug']} ({who}{human_bytes(corpus_stats(c)[1])}): {plain(c.get('usecase') or '')[:110]}"
+    listing = "\n".join(one(c) for c in live)
     return (
         f"The XERJ Corpus Hub {k} domain ({title}) has {len(live)} reference corpora. "
         "You do not have to name one: XERJ routes the question to the right corpus and says which. "
@@ -451,7 +481,10 @@ def tile(c):
         meta = f"{human_bytes(nbytes)} · {human_files(files)}" if nbytes else "curated pack"
     else:
         meta = st
-    ttl = f'{c["slug"]} — {meta}'
+    up = upstream_label(c)
+    if up:
+        meta = f"{up} · {meta}"
+    ttl = f'{c["slug"]} · {meta}'
     return (f'<div class="tile" data-cat="{esc(c["cat"])}" '
             f'data-region="{esc(region(c))}" data-name="{esc(c["slug"])}" '
             f'data-bytes="{nbytes}" title="{esc(ttl)}">'
@@ -639,6 +672,7 @@ background:var(--z-bg);padding:var(--sp-4)}
 .card:hover{background:var(--z-faint)}
 .chead{display:flex;justify-content:space-between;align-items:center}
 .cname{font-family:var(--font-mono);font-weight:600;font-size:var(--fs-13)}
+.crepo{font-family:var(--font-mono);font-size:var(--fs-11);color:var(--z-mute);margin:0}
 .dot{width:.65em;height:.65em;border-radius:50%;display:inline-block}
 .dot.ok{background:var(--ok)}.dot.warn{background:var(--warn)}
 .dot.bad{background:var(--bad)}.dot.mute{background:var(--z-mute)}
@@ -879,7 +913,7 @@ def _ld(obj):
 
 
 def seo_block(title, desc, path, rel, kind="WebPage", image=None, noindex=False,
-              og_title=None, og_desc=None):
+              og_title=None, og_desc=None, ld_extra=None):
     """Canonical, social tags, JSON-LD, favicon, analytics. Not visible layout."""
     url = canonical_url(path)
     ot, od = og_title if og_title is not None else title, og_desc if og_desc is not None else desc
@@ -947,6 +981,7 @@ def seo_block(title, desc, path, rel, kind="WebPage", image=None, noindex=False,
             "inLanguage": "en",
             "isPartOf": {"@id": SITE_ID},
             "publisher": {"@id": ORG_ID},
+            **(ld_extra or {}),
         }),
         f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>',
         "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}"
@@ -1046,13 +1081,14 @@ PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 <a href="{people}">CONTRIBUTORS</a>
 <a href="{rel}whats-this/">WHAT'S THIS?</a>
 <a href="{rel}llms.txt" title="The catalogue: every live corpus, one line each">CATALOGUE</a>
-<span class="spacer"></span><details class="authbox" id="hubauth" hidden></details><a class="navicon" href="https://x.com/xerj_org" title="XERJ on X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a class="navicon" href="https://discord.com/invite/yetXFusXfs" title="XERJ on Discord" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.74 19.74 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.1 13.1 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.3 12.3 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.84 19.84 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a><a href="https://xerj.org">XERJ.ORG</a><a href="{add}" class="navcta">ADD YOUR CORPUS</a></nav>
+<span class="spacer"></span>{search}<details class="authbox" id="hubauth" hidden></details><a class="navicon" href="https://x.com/xerj_org" title="XERJ on X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a class="navicon" href="https://discord.com/invite/yetXFusXfs" title="XERJ on Discord" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.74 19.74 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.1 13.1 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.3 12.3 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.84 19.84 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a><a href="https://xerj.org">XERJ.ORG</a><a href="{add}" class="navcta">ADD YOUR CORPUS</a></nav>
 {body}
 <footer><span>XERJ · CORPUS HUB · {stamp}</span>
 <span>PINNED SOURCES · VERIFIED LICENCES · MEASURED RETRIEVAL</span>
 <span><a href="{home}">CORPORA</a> · <a href="{rel}whats-this/">WHAT'S THIS?</a> ·
 <a href="{rel}llms.txt">LLMS.TXT</a></span></footer>
 {navjs}{authjs}
+<script src="{rel}assets/search.js?v={sver}" defer></script>
 </body></html>"""
 
 
@@ -1081,6 +1117,8 @@ STYLE += """
 """
 STYLE += usage.STYLE
 STYLE += agent_score.STYLE
+STYLE += search_index.STYLE
+SEARCH_VER = hashlib.sha1(search_index.JS.encode("utf-8")).hexdigest()[:8]
 STYLE_VER = hashlib.sha1(STYLE.encode("utf-8")).hexdigest()[:8]
 
 
@@ -1174,10 +1212,11 @@ NOT_FOUND_BODY = """<section class="hero"><h1>Not found</h1>
 
 
 def page(title, desc, body, rel="", path="/", image=None, kind="WebPage", noindex=False,
-         og_title=None, og_desc=None):
+         og_title=None, og_desc=None, ld_extra=None):
     return PAGE.format(title=esc(title), desc=esc(desc), body=body, rel=rel,
                        fonts=FONTS, stamp=STAMP, ver=STYLE_VER, navjs=NAVCTA_JS, authjs=AUTH_JS,
-                       seo=seo_block(title, desc, path, rel, kind, image, noindex, og_title, og_desc),
+                       sver=SEARCH_VER, search=search_index.NAV_FORM.format(rel=rel),
+                       seo=seo_block(title, desc, path, rel, kind, image, noindex, og_title, og_desc, ld_extra),
                        home=href(f"{rel}index.html"), people=href(f"{rel}contributors/index.html"),
                        add=href(f"{rel}contribute.html"))
 
@@ -1400,7 +1439,8 @@ def detail_body(c, g7, graded, impact, prov, contrib=""):
     rows = []
     for r in c["repos"]:
         rv = r.get("review", {})
-        rows.append(f'''<tr><td class="mono"><a href="{esc(r.get('url',''))}">{esc(r.get('repo',''))}</a></td>
+        label = search_index.github_owner_repo(r.get("url", ""), r.get("repo", "")) or r.get("repo", "")
+        rows.append(f'''<tr><td class="mono"><a href="{esc(r.get('url',''))}">{esc(label)}</a></td>
 <td class="mono">{esc(r.get('sha','')[:12])}</td><td>{esc(rv.get('spdx','?'))}</td>
 <td class="mono">{human_bytes(r.get('bytes'))} / {human_files(r.get('files'))}</td>
 <td class="note">{esc(plain(rv.get('note',''))[:400])}</td></tr>''')
@@ -1463,10 +1503,12 @@ def detail_body(c, g7, graded, impact, prov, contrib=""):
         useit = (f'<div class="kbox"><b>Use it</b><br>'
                  f'<span class="note">This entry has no hub pack, so there is nothing to ask. '
                  f'<a href="../llms.txt">The catalogue</a> lists the corpora that can be asked.</span></div>')
+    up = upstream_label(c)
+    upline = f'<p class="crepo">{esc(up)}</p>\n' if up else ""
     return f'''<main>
 <p><a class="backlink" href="../">&larr; all corpora</a></p>
 <h1 class="slug">{esc(c['slug'])} <span class="dot {stcls}"></span></h1>
-{contributors.star_widget("corpus", c["slug"], esc, inline=True)}
+{upline}{contributors.star_widget("corpus", c["slug"], esc, inline=True)}
 <p class="note">{esc(c['kind'])} · status <b>{st}</b> · domain <b>{esc(c['cat'])}</b> ({esc(cat_desc[0])}) · lane {esc(c['lane'])} · refresh {esc(c['refresh'])} · tags <b>{esc(tags_txt)}</b></p>
 <section class="detail"><h2>What an agent uses it for</h2><p>{esc(c['usecase'] or 'n/a')}</p></section>
 {useit}
@@ -1746,13 +1788,27 @@ def main():
         r = imp2.get(c["slug"])
         if r and r.get("status") == "measured":
             ab = f"; agent A/B {r['p']} -> {r['x']}"
-        lines.append(f"- [{c['slug']}](https://hub.xerj.org/corpus/{c['slug']}): {c['cat']} · {tags} · {'+'.join(licences) or '?'} · {human_bytes(nbytes)} · {g7s}{ab}; {plain(c['usecase'])[:160]}")
+        up = upstream_label(c)
+        who = f"{up} · " if up else ""
+        lines.append(f"- [{c['slug']}](https://hub.xerj.org/corpus/{c['slug']}): {who}{c['cat']} · {tags} · {'+'.join(licences) or '?'} · {human_bytes(nbytes)} · {g7s}{ab}; {plain(c['usecase'])[:160]}")
     lines += ["", "## Also in the registry", "",
               f"- {len(corpora) - len(live)} rows in candidate, planned, deferred, killed, or",
               "  withdrawn states (visible, not hidden: hub policy is honest statuses).",
-              "  Browse all: https://hub.xerj.org"]
+              "  Browse all: https://hub.xerj.org",
+              "", "## Search", "",
+              "- Every corpus, repository and contributor, as two static JSON files:",
+              "  https://hub.xerj.org/search/index.json (names; field list inside) and",
+              "  https://hub.xerj.org/search/more.json (languages, topics, use case; same row order)."]
     (OUT / "llms.txt").write_text("\n".join(lines) + "\n")
-    n_people = contributors.generate(OUT, HUB, page, esc, {c["slug"] for c in live}, corpora, people, upstream)
+    n_people = contributors.generate(OUT, HUB, page, esc, {c["slug"] for c in live}, corpora, people, upstream, cats=CATS)
+    # search: static index + script (search_index.py); no Function, no Worker request
+    live_slugs = {c["slug"] for c in live}
+    cands = contributors.candidates(people, {c["slug"] for c in corpora}, HUB)
+    vols = {login: contributors.volume(pp, live_slugs) for login, pp in people.items()}
+    n_sc, n_sp = search_index.write(OUT, search_index.build(corpora, people, cands, upstream, vols, plain, STAMP))
+    (OUT / "assets" / "search.js").write_text(search_index.JS)
+    (OUT / "search" / "index.html").write_text(page("Search: XERJ Corpus Hub", "Search corpora, repositories and contributors",
+                                                    search_index.PAGE_BODY, rel="../", path="/search/", noindex=True))
     n_urls = write_sitemap(OUT)
     (OUT / "robots.txt").write_text(ROBOTS)
     # Signed-in details: bundled into the Pages Functions, never written to out/.

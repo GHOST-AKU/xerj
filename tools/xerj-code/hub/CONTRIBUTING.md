@@ -87,6 +87,12 @@ rejected.
 **Pins:** leave the SHAs exactly as the build recorded them. A shared pin is what makes
 two people's retrieval results comparable. Refreshing a pin is its own PR, saying why.
 
+**Subpath harvest:** a repo entry may set `"paths": ["data/osv"]` — relative directories
+inside that pin. `xerj corpus add --from` checks out only those directories, so a
+repository that also contains reports or generated data does not become the corpus.
+Omit `paths` to harvest the whole pin. Absolute paths, `..`, and globs are refused
+here and by the consumer gate. `go-vulndb` is the example: `data/osv` only.
+
 ## 4. Lane B — record pack
 
 A pack is built from a declarative recipe; the tooling is domain-agnostic (identity
