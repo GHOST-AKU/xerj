@@ -22,6 +22,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- An existing index's persisted `index.default_pipeline` runs again after a
+  clean restart. `GET /_settings` still reported the binding, and the
+  pipeline definition was still there, but an ordinary document write no
+  longer copied the field: the in-memory binding was filled on create and
+  on settings update, and opening the index from disk did not rebuild it.
+  Boot, a failed-index retry, and snapshot restore now copy `settings.json`
+  back into that map. Explicit `?pipeline=` was already unaffected
+  ([#2294](https://github.com/xerj-org/xerj/issues/2294)).
+
 - A matching index template's `semantic_text` properties and
   `index.default_pipeline` are applied when an index is created, including
   the body `xerj autoindex` sends and the first bulk or single-document
