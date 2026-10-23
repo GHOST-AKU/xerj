@@ -15691,12 +15691,13 @@ impl Index {
             if get_field_value(&src, &chunk_field).is_some() {
                 return None;
             }
-            let doc_vec: Vec<f32> = match get_field_value(&src, field) {
-                Some(Value::Array(arr)) => arr
-                    .iter()
-                    .filter_map(|v| v.as_f64().map(|f| f as f32))
-                    .collect(),
-                _ => return None,
+            // Packed embeddings are the retained source form (#1940). A
+            // number array is still valid for segments written before that.
+            // `extract_numeric_vector` reads both. Any other shape, or a
+            // vector whose length is not the query's, is an extract anomaly:
+            // hand the whole request back to the exact scan.
+            let Some(doc_vec) = extract_numeric_vector(&src, field) else {
+                return None;
             };
             if doc_vec.len() != query_vec.len() {
                 return None;
