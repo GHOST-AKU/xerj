@@ -32,6 +32,10 @@ xerj-rerank = { path = "../xerj-rerank" }
 xerj-hub     = { path = "../xerj-hub" }
 xerj-autoindex = { path = "../xerj-autoindex" }
 xerj-wasm    = { path = "../xerj-wasm" }
+# Shard routing: the ES document and search handlers forward to the
+# owner named by the Raft shard plan. The cluster crate does not depend
+# on this one.
+xerj-cluster = { path = "../xerj-cluster" }
 # Local decision head (feature `decide-local`); no other purpose, so the
 # dependency itself is optional.
 xerj-ai      = { path = "../xerj-ai", optional = true }
@@ -71,8 +75,6 @@ sha2         = "0.10"
 
 [dev-dependencies]
 tempfile     = { workspace = true }
-# #2257: the metadata-replication test drives an in-memory Raft ring.
-xerj-cluster = { path = "../xerj-cluster" }
 # #2234: the HTTP refresh test holds one index inside `Index::refresh`.
 # The feature stays off the release graph (resolver v2, dev-dependency only).
 xerj-engine  = { path = "../xerj-engine", features = ["refresh-test-hook"] }
