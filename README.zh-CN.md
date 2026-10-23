@@ -350,7 +350,7 @@ DeepSeek Harness 在它的 Cordis 补丁文件里把 MCP 作为插件加载：
 | `xerj_brain_overview` / `xerj_brain_ego` / `xerj_brain_link` / `xerj_brain_unlink` | 操作“第二大脑”链接索引：查看概况、展开某个节点有证据支持的邻域、建立和撤销链接 |
 | `xerj_plan` | 输入自然语言筛选条件，返回经过校验的查询 DSL（`POST /_ask`；确定性的规则处理，不使用 LLM） |
 
-调用 `xerj_search` 时传入 `{"prefix":"project","query":"retry policy"}` 可搜索 `project-*`，等同于 `xerj search --prefix project`。要指定具体索引名或模式，改用 `index`；`index` 和 `prefix` 不能同时非空。`prefix` 会被去掉首尾空白，且不能为空。两个参数都不传时，工具搜索 `ax-*`。
+调用 `xerj_search` 时传入 `{"prefix":"project","query":"retry policy"}` 可搜索 `project-*`，等同于 `xerj search --prefix project`。`prefix` 与 CLI 走同一个解析函数，也就是 `xerj autoindex --prefix` 实际写入的前缀，因此 `My_Proj` 搜索 `my-proj-*`。要指定具体索引名或模式，改用 `index`；`index` 和 `prefix` 不能同时非空。空前缀、不含 `[a-z0-9]` 的前缀，以及无法作为索引名的前缀都会报错。两个参数都不传时，工具搜索 `ax-*`。
 
 另外两个工具不只是简单代理：`xerj_map` 从 autoindex 目录读取各索引的字段映射，除按字节上限裁剪外原样返回；`xerj_code_search` 执行 `xerj code` 参考代码检索流程（[`tools/xerj-code/`](tools/xerj-code/)），返回渲染后的文本。`xerj_index_budget` 在 `xerj autoindex` 计算哈希之前统计文件夹，按节点的磁盘预算估算索引大小，本身不做索引。`xerj_autoindex_remove` 删除一个已 autoindex 的文件夹，删前先列出其内容，`confirm` 不为 true 时什么都不删。`xerj_corpus_feedback` 为 hub 语料评分。`xerj_field_report` 提交使用反馈；`xerj_hub_find`、`xerj_hub_def` 和 `xerj_hub_ask` 用本机已有的 Corpus Hub 语料包作答（即 `xerj ask` 流程）。
 

@@ -469,10 +469,12 @@ Twenty tools are exposed. Eleven are thin proxies over an endpoint XERJ already 
 | `xerj_plan` | a plain-words filter in, validated query DSL out (`POST /_ask`; deterministic and rule-based, not an LLM) |
 
 For `xerj_search`, pass `{"prefix":"project","query":"retry policy"}` to search
-`project-*`, matching `xerj search --prefix project`. Use `index` for an explicit
-index name or pattern instead; non-empty `index` and `prefix` cannot be combined.
-The prefix is trimmed and must be non-empty. With neither argument, the tool
-searches `ax-*`.
+`project-*`, matching `xerj search --prefix project`. `prefix` is resolved by
+the same function as the CLI: the prefix `xerj autoindex --prefix` stores, so
+`My_Proj` searches `my-proj-*`. Use `index` for an explicit index name or
+pattern instead; non-empty `index` and `prefix` cannot be combined. An empty
+prefix, a prefix with no `[a-z0-9]` character, or a prefix that cannot name an
+index is an error. With neither argument, the tool searches `ax-*`.
 
 Two more are not plain proxies: `xerj_map` returns the per-index field map from the autoindex
 catalog (trimmed to a byte cap, otherwise verbatim), and `xerj_code_search` runs the `xerj code`
