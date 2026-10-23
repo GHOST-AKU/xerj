@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- MCP `xerj_def` exposes local definition lookup, completing #2080 after the
+  `xerj_search` prefix support. It shares `xerj def --json` query construction,
+  mapping guards, ranking and location deduplication; accepts `symbol`,
+  `prefix`/`index`, `kind`, `lang`, `k` (1–50) and `max_tokens`. No match is a
+  successful empty hit list; invalid arguments are rejected before HTTP.
+
 - MCP `xerj_search` accepts `prefix` as an alternative to `index`, matching
   `xerj search --prefix`: `project` searches `project-*`. Conflicting scope
   arguments and empty or non-string prefixes are rejected before HTTP requests.
@@ -24,6 +30,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   failed` (#1122). The AUTO tier is still chosen from physical RAM, then
   lowered when commit is the tighter ceiling. Linux and macOS budgets are
   unchanged.
+
+- A `semantic` query on a `semantic_text` field returns `highlight` fragments
+  when the request asks for them (#1947). The fragments are the field's
+  best-scoring chunks for the query embedding, in score order, limited by
+  `number_of_fragments` (default 5; `0` returns the whole field). `order:
+  none` emits that same selection in document order. `"type": "semantic"`
+  selects this highlighter, and it is the default for a `semantic_text`
+  field on a semantic query. Chunks are not wrapped in `<em>` tags. A
+  lexical `match` on the same field still highlights query terms.
 
 - A best-effort helper thread that cannot be created no longer aborts the
   process. On Unix those threads are started with `pthread_create` and do not
