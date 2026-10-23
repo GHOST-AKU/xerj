@@ -303,6 +303,8 @@ fn handle_http(mut stream: TcpStream, state: &Arc<Mutex<HttpState>>) {
     } else if method == "POST" && path.contains("/_delete_by_query") {
         let deleted = delete_http(path, &body, state);
         (200, json!({"deleted": deleted, "failures": []}))
+    } else if method == "POST" && path.ends_with("/_mget") {
+        (200, mget_http(path, &body, state))
     } else if method == "POST" && path.ends_with("/_search") {
         if let Ok(query) = serde_json::from_slice::<Value>(&body) {
             state.lock().unwrap().search_bodies.push(query);
@@ -824,6 +826,40 @@ fn delete_http(path: &str, body: &[u8], state: &Arc<Mutex<HttpState>>) -> usize 
     before - locked.docs.len()
 }
 
+/// `POST /{index}/_mget` `{"ids":[...]}` — the catalog read-back (#1267).
+/// A missing id is `found: false`, not an error, matching the engine.
+fn mget_http(path: &str, body: &[u8], state: &Arc<Mutex<HttpState>>) -> Value {
+    let index = path
+        .trim_start_matches('/')
+        .trim_end_matches("/_mget")
+        .to_owned();
+    let query: Value = serde_json::from_slice(body).unwrap_or(Value::Null);
+    let ids = query
+        .get("ids")
+        .and_then(Value::as_array)
+        .cloned()
+        .unwrap_or_default();
+    let locked = state.lock().unwrap();
+    let docs: Vec<Value> = ids
+        .iter()
+        .map(|id| {
+            let Some(id) = id.as_str() else {
+                return json!({"_index": index, "found": false});
+            };
+            match locked.docs.get(&(index.clone(), id.to_owned())) {
+                Some(source) => json!({
+                    "_index": index,
+                    "_id": id,
+                    "found": true,
+                    "_source": source
+                }),
+                None => json!({"_index": index, "_id": id, "found": false}),
+            }
+        })
+        .collect();
+    json!({"docs": docs})
+}
+
 fn search_http(path: &str, body: &[u8], state: &Arc<Mutex<HttpState>>) -> Value {
     let indices = path
         .trim_start_matches('/')
@@ -854,6 +890,22 @@ fn search_http(path: &str, body: &[u8], state: &Arc<Mutex<HttpState>>) -> Value 
     let must_not_exists = query
         .pointer("/query/bool/must_not/0/exists/field")
         .and_then(Value::as_str);
+    // #1977: the catalog gate reads rows back with `query.ids`. Dropping that
+    // clause made the search a match-all, and `size` (the published id count)
+    // then kept the `ds:` rows plus the `file:` rows that sort between `ds:`
+    // and `run:`. The run document was in the store and still looked missing.
+    // An id that was never written stays out of the hits, which is the case
+    // the gate exists to fail.
+    let ids: Option<Vec<String>> = query
+        .pointer("/query/ids/values")
+        .and_then(Value::as_array)
+        .map(|values| {
+            values
+                .iter()
+                .filter_map(Value::as_str)
+                .map(str::to_owned)
+                .collect()
+        });
     let locked = state.lock().unwrap();
     // #890: a catalog field an older build left as `text` is ANALYZED, so a
     // `term` on it matches tokens, not the raw value. `legacy` is empty for
@@ -869,8 +921,9 @@ fn search_http(path: &str, body: &[u8], state: &Arc<Mutex<HttpState>>) -> Value 
     let mut matching: Vec<_> = locked
         .docs
         .iter()
-        .filter(|((index, _), doc)| {
+        .filter(|((index, id), doc)| {
             indices.contains(&index.as_str())
+                && ids.as_ref().is_none_or(|wanted| wanted.contains(id))
                 && term
                     .map(|(field, value)| term_matches(doc, field, value, legacy_for(index)))
                     .unwrap_or(true)
@@ -5255,10 +5308,9 @@ fn the_generated_path_reports_indexing_as_indexing_not_as_a_stalled_scan() {
         "each long step of the generated route is its own phase, in order:\n{stream}"
     );
 
-    // #1267: that read-back phase opens with the engine's own match total as
-    // its denominator — a moving bar with an ETA from the first page, not a
-    // count with no total. The two-dataset generation writes at least its run
-    // document, so the denominator is non-zero.
+    // #1267: that read-back phase opens at zero with a real denominator — the
+    // number of catalog documents this generation publishes (at least the run
+    // document), read by id. A count with no total is the frozen ticker.
     let readback_opened = lines
         .iter()
         .find(|line| line["phase"] == "finalize-catalog-readback")

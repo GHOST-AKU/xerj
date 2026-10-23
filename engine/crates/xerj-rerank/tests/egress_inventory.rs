@@ -84,6 +84,14 @@ const KNOWN: &[(&str, Role)] = &[
         "xerj-autoindex/src/esclient.rs",
         Role::Client("`xerj autoindex`"),
     ),
+    // #2181: when `xerj code` / `xerj corpus list` find an empty ledger they
+    // POST one catalog search to the node URL those commands already use
+    // (`--url`, `XERJ_URL`, else localhost:9200). The body is a fixed
+    // `doc_kind: run` prefix query; the API key goes only when one is
+    // configured. No document text and no user query leave, and the peer is
+    // the operator's own node, so DATA_EGRESS and the air-gapped rows do
+    // not change.
+    ("xerj-autoindex/src/xc.rs", Role::Client("`xerj code`")),
     (
         "xerj-autoindex/src/feedback.rs",
         Role::Client("`xerj feedback --open-pr`"),
@@ -139,6 +147,14 @@ const KNOWN: &[(&str, Role)] = &[
     // accept loop on drop, label_http_tests.rs is a #[cfg(test)] module.
     ("xerj-autoindex/src/label.rs", Role::TestOnly),
     ("xerj-autoindex/src/label_http_tests.rs", Role::TestOnly),
+    // #2222's finalize-verify deletion test: production verify talks to the
+    // node through the shared Es client (esclient.rs, already classified as
+    // `xerj autoindex`). The only `TcpStream::connect` is inside `#[cfg(test)]`,
+    // a connect to that test's own `127.0.0.1` listener so a parked `accept`
+    // wakes after the index is "deleted". Nothing in this file is a node or
+    // client path, so the published list, DATA_EGRESS and the air-gapped
+    // recipe stay as they are.
+    ("xerj-autoindex/src/sync_executor.rs", Role::TestOnly),
     // #1055's xerj_map module: the tool itself reuses the proxy's shared
     // client (xerj-mcp/src/lib.rs, already classified); only its unit tests
     // construct one, to point at an unroutable address.
