@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- MCP `xerj_def` exposes local definition lookup, completing #2080 after the
+  `xerj_search` prefix support. It shares `xerj def --json` query construction,
+  mapping guards, ranking and location deduplication; accepts `symbol`,
+  `prefix`/`index`, `kind`, `lang`, `k` (1–50) and `max_tokens`. No match is a
+  successful empty hit list; invalid arguments are rejected before HTTP.
+
 - MCP `xerj_search` accepts `prefix` as an alternative to `index`, matching
   `xerj search --prefix`: `project` searches `project-*`. Conflicting scope
   arguments and empty or non-string prefixes are rejected before HTTP requests.
@@ -34,6 +40,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   skip the thread and retry or stay off; share-tunnel and ONNX init fail that
   startup step. Each site logs once. `panic = "abort"` is unchanged
   ([#1122](https://github.com/xerj-org/xerj/issues/1122)).
+
+- `xerj search --prefix`, `xerj def --prefix`, and MCP `xerj_search`'s `prefix`
+  argument resolve through one function: the prefix `xerj autoindex` stores.
+  `My_Proj` searches `my-proj-*`, and a trailing `-*` is not part of the
+  prefix. A prefix that cannot name an index is refused before any request.
+  Omitting both `index` and `prefix` on `xerj_search` still searches `ax-*`
+  (#2080).
 
 - `xerj corpus add <name> <local-path>` copies the checkout's root
   `.xerjignore` into the clone when that file is untracked or has uncommitted
