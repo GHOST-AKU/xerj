@@ -1546,15 +1546,15 @@ fn resolve_available_data_dir(requested: &str) -> String {
 /// How many `<dir>-N` siblings [`resolve_available_data_dir`] will try.
 const MAX_DATA_DIR_SIBLINGS: usize = 64;
 
-/// Is `dir/node.lock` currently locked by a live process? A missing or
-/// unopenable lock file is "not held" — the engine's own lock acquisition is
-/// the authority and reports anything stranger.
+/// Is `dir/node.lock` currently locked by a live process?
+///
+/// A missing file, a free OS lock, or a busy lock whose recorded PID is not
+/// running is not held. The engine reclaims the stale case itself; treating
+/// it as held here would make `--auto-port` start on an empty sibling and
+/// leave the real data directory behind. A PID that cannot be read still
+/// counts as held.
 fn data_dir_held(dir: &Path) -> bool {
-    std::fs::OpenOptions::new()
-        .read(true)
-        .write(true)
-        .open(dir.join("node.lock"))
-        .is_ok_and(|f| matches!(f.try_lock(), Err(std::fs::TryLockError::WouldBlock)))
+    xerj_engine::data_dir_lock_held(dir)
 }
 
 /// Bind one listener, attempting consecutive ports if `auto_port` is true and
@@ -4896,6 +4896,49 @@ mod auto_port_tests {
         std::fs::create_dir_all(d).unwrap();
         std::fs::write(Path::new(d).join("node.lock"), "12345").unwrap();
         assert_eq!(resolve_available_data_dir(d), d);
+    }
+
+    #[test]
+    fn a_busy_lock_recorded_against_a_dead_pid_does_not_move_when_readable() {
+        let t = tempfile::tempdir().unwrap();
+        let d = t.path().join("data");
+        std::fs::create_dir_all(&d).unwrap();
+        let dead = reaped_pid();
+        let lock_path = d.join("node.lock");
+        std::fs::write(&lock_path, format!("{dead}\n")).unwrap();
+        let holder = std::fs::OpenOptions::new()
+            .read(true)
+            .write(true)
+            .open(&lock_path)
+            .unwrap();
+        holder.try_lock().unwrap();
+        let readable = std::fs::read_to_string(&lock_path)
+            .ok()
+            .is_some_and(|text| text.trim().parse::<u32>().ok() == Some(dead));
+        let ds = d.to_str().unwrap();
+        if readable {
+            // Advisory lock: the PID can be shown to be dead, so --auto-port
+            // stays on this directory and the engine reclaims the lock.
+            assert_eq!(resolve_available_data_dir(ds), ds);
+        } else {
+            // Mandatory lock hides the PID. A live handle still counts as held.
+            assert_eq!(resolve_available_data_dir(ds), format!("{ds}-2"));
+        }
+        drop(holder);
+    }
+
+    fn reaped_pid() -> u32 {
+        let mut cmd = if cfg!(windows) {
+            let mut cmd = std::process::Command::new("cmd");
+            cmd.args(["/C", "exit", "0"]);
+            cmd
+        } else {
+            std::process::Command::new("true")
+        };
+        let mut child = cmd.spawn().expect("spawn a process that exits");
+        let pid = child.id();
+        child.wait().unwrap();
+        pid
     }
 
     #[test]

@@ -29,6 +29,7 @@ pub mod index_guard;
 pub mod ingest_memory;
 pub mod lifecycle;
 pub mod memtable;
+mod node_lock;
 pub mod painless;
 pub mod pools;
 pub mod rbac;
@@ -54,6 +55,7 @@ pub use index::{
     storage_mode_from_config, EnrichTable, FieldEncodingInfo, Index, IndexResponse, IndexStats,
     LogFormat,
 };
+pub use node_lock::data_dir_lock_held;
 // Second-brain graph expansion (bounded columnar traversal over an edges
 // index). Lives under `index` for private-field access; re-exported at the
 // crate root so callers write `xerj_engine::graph::GraphExpandRequest`.

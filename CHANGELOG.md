@@ -22,6 +22,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- A `node.lock` left by a process that is no longer running no longer blocks
+  the next start
+  ([#2233](https://github.com/xerj-org/xerj/issues/2233)). The data-directory
+  lock is still the OS file lock, so a live node blocks a second start. When
+  that lock is busy and the PID recorded in the file is not running — a
+  Windows crash can leave `LockFileEx` stuck after the process is gone — the
+  file is replaced and the reclaim is logged. A PID that cannot be read or
+  checked is left alone. `--auto-port` does not treat that stale lock as a
+  reason to start on an empty sibling directory.
+
 - A `semantic` query on a `semantic_text` field returns `highlight` fragments
   when the request asks for them (#1947). The fragments are the field's
   best-scoring chunks for the query embedding, in score order, limited by
