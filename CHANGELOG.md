@@ -16,6 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- On Windows, the process memory cap is limited by commit space (the commit
+  limit and what this process can still commit), not only by physical RAM. A
+  default `xerj autoindex` on a machine with no pagefile and little free
+  commit rejects writes with HTTP 429 naming that limit and how to enlarge
+  the pagefile, instead of aborting with `memory allocation of N bytes
+  failed` (#1122). The AUTO tier is still chosen from physical RAM, then
+  lowered when commit is the tighter ceiling. Linux and macOS budgets are
+  unchanged.
+
 - A best-effort helper thread that cannot be created no longer aborts the
   process. On Unix those threads are started with `pthread_create` and do not
   map an alternate signal stack, so the allocation failure that used to panic
