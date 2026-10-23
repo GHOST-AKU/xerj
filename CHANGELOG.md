@@ -22,6 +22,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- SIGTERM and SIGINT keep the HTTP ports bound until the final memtable
+  flush has finished writing the data directory. New HTTP requests during
+  that window get 503, except `/health/live`, which stays 200 so a liveness
+  probe does not restart the process mid-flush. Connection refusal is the
+  signal that the process is done with the data directory; closing the port
+  first let a wipe that keys off that signal delete a segment the flush was
+  still publishing.
+
 - A `node.lock` left by a process that is no longer running no longer blocks
   the next start
   ([#2233](https://github.com/xerj-org/xerj/issues/2233)). The data-directory
