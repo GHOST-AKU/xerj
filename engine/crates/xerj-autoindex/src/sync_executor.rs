@@ -778,12 +778,17 @@ impl<'a> EsSyncBackend<'a> {
     /// `extra_filters` are appended verbatim to the window query's
     /// `bool.filter`: the semantic leg's `exists`, the catalog leg's
     /// `run_id` term.
+    ///
+    /// `tick` advances the `finalize-verify` phase by one window. The probe
+    /// that times a representative window before the walk passes `false` —
+    /// that call is not one of the windows the phase denominator counted.
     fn windowed_value_counts(
         &self,
         index: &str,
         field: &str,
         values: &[String],
         extra_filters: &[Value],
+        tick: bool,
     ) -> Result<HashMap<String, u64>> {
         let mut counts: HashMap<String, u64> =
             values.iter().map(|value| (value.clone(), 0u64)).collect();
@@ -805,6 +810,18 @@ impl<'a> EsSyncBackend<'a> {
                     "aggs": {"values": {"terms": {"field": field, "size": window.len()}}}
                 }),
             )?;
+            // A deadline page is HTTP 200 with `timed_out` and an empty
+            // aggregation. Counting it as "every digest is absent" aborts a
+            // generation whose rows are on the node (#1761's concurrent
+            // catalog writer hits this deadline). Say so; rerunning resumes.
+            if response.get("timed_out") == Some(&Value::Bool(true)) {
+                anyhow::bail!(
+                    "finalize-verify search on {index} returned timed_out: the page is partial \
+                     and is not a live count (a concurrent writer on this index can hold \
+                     publication across the deadline). Nothing from this window was counted — \
+                     rerun the same command, which resumes"
+                );
+            }
             for bucket in response
                 .pointer("/aggregations/values/buckets")
                 .and_then(Value::as_array)
@@ -819,6 +836,9 @@ impl<'a> EsSyncBackend<'a> {
                     .and_then(Value::as_u64)
                     .context("batched validation bucket has no doc_count")?;
                 counts.insert(key.to_owned(), doc_count);
+            }
+            if tick {
+                self.pr.item_done(0);
             }
         }
         Ok(counts)
@@ -872,6 +892,16 @@ impl<'a> EsSyncBackend<'a> {
                         ]}}
                     }),
                 )?;
+                if response.get("timed_out") == Some(&Value::Bool(true)) {
+                    anyhow::bail!(
+                        "finalize-verify search on {} returned timed_out: the page is partial \
+                         and is not a live catalog count (a concurrent corpus build publishing \
+                         to this shared index can hold the publication bracket across the \
+                         deadline). Nothing from this window was counted — rerun the same \
+                         command, which resumes",
+                        crate::catalog::CATALOG_INDEX
+                    );
+                }
                 let page_total = response
                     .pointer("/hits/total/value")
                     .and_then(Value::as_u64)
@@ -908,6 +938,9 @@ impl<'a> EsSyncBackend<'a> {
                 "catalog read-back counted {counted} of {} matched documents in a window",
                 window_total.unwrap_or(0)
             );
+            // One tick per window, after the page loop, so the phase does not
+            // sit at 0/N for the whole catalog read-back (#1761).
+            self.pr.item_done(0);
         }
         Ok(counts)
     }
@@ -1759,6 +1792,7 @@ impl SyncOperationBackend for EsSyncBackend<'_> {
                         "ax_file",
                         std::slice::from_ref(value),
                         &extra,
+                        false,
                     )?;
                     Ok(started.elapsed())
                 },
@@ -1769,14 +1803,14 @@ impl SyncOperationBackend for EsSyncBackend<'_> {
         let mut record_counts: HashMap<String, HashMap<String, u64>> = HashMap::new();
         for (index, values) in &record_wanted {
             let _reading = self.pr.file(index, 0);
-            let counts = self.windowed_value_counts(index, "ax_file", values, &[])?;
+            let counts = self.windowed_value_counts(index, "ax_file", values, &[], true)?;
             record_counts.insert(index.clone(), counts);
         }
         let mut semantic_counts: HashMap<(String, String), HashMap<String, u64>> = HashMap::new();
         for ((index, field), values) in &semantic_wanted {
             let _reading = self.pr.file(index, 0);
             let exists = serde_json::json!({"exists": {"field": field}});
-            let counts = self.windowed_value_counts(index, "ax_file", values, &[exists])?;
+            let counts = self.windowed_value_counts(index, "ax_file", values, &[exists], true)?;
             semantic_counts.insert((index.clone(), field.clone()), counts);
         }
         // Scoped to this generation's `run_id`, the same way the run-summary
@@ -5960,7 +5994,8 @@ mod tests {
             let dir = tempfile::tempdir().unwrap();
             let pr = crate::progress::Progress::silent();
             let backend = EsSyncBackend::new(&es, dir.path(), 8 * 1024 * 1024, &pr);
-            let result = backend.windowed_value_counts(INDEX, "ax_file", &["digest".into()], &[]);
+            let result =
+                backend.windowed_value_counts(INDEX, "ax_file", &["digest".into()], &[], false);
             let _ = tx.send(result.map_err(|error| format!("{error:#}")));
         });
 
@@ -6030,6 +6065,7 @@ mod tests {
                 "ax_file",
                 &["digest-a".into(), "digest-b".into()],
                 &[],
+                false,
             )
             .unwrap();
         assert_eq!(counts.get("digest-a"), Some(&3));
