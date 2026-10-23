@@ -2059,6 +2059,104 @@ mod flush_publication_recovery_tests {
         assert_eq!(result.hits[0].id, "survivor");
     }
 
+    /// Issue #2254. `page_Id` is a portable literal under filename layout v2,
+    /// so on NTFS it is the same file as `page_id`. The flush must publish
+    /// layout v3, keep both fields searchable, and still open after restart.
+    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
+    async fn mixed_case_field_flush_publishes_v3_and_restarts_searchable() {
+        let _fault_test = FLUSH_FAULT_TEST_LOCK.lock().await;
+        let dir = tempfile::tempdir().unwrap();
+        let mut config = Config::default();
+        config.server.data_dir = dir.path().to_string_lossy().into_owned();
+        let engine = crate::Engine::new(config.clone()).unwrap();
+        let mut schema = Schema::empty();
+        schema
+            .add_field(FieldConfig::new("page_Id", FieldType::Text))
+            .unwrap();
+        schema
+            .add_field(FieldConfig::new("page_id", FieldType::Text))
+            .unwrap();
+        schema
+            .add_field(FieldConfig::new("component", FieldType::Text))
+            .unwrap();
+        engine.create_index("case-field-publish", schema).unwrap();
+        let idx = engine.get_index("case-field-publish").unwrap();
+        idx.abort_background_tasks();
+        assert_eq!(data_dir_format_version(&idx), 1);
+        idx.index_document(
+            Some("jbar".into()),
+            json!({
+                "page_Id": "1212561321588641792",
+                "page_id": "other-page",
+                "component": "JBar3d"
+            }),
+        )
+        .await
+        .unwrap();
+        idx.index_document(
+            Some("jimg".into()),
+            json!({"component": "JImg", "page_id": "img-only"}),
+        )
+        .await
+        .unwrap();
+
+        idx.flush().await.unwrap();
+        assert_eq!(data_dir_format_version(&idx), 3);
+        assert_eq!(idx.memtable.doc_count(), 0);
+        let segment_names: Vec<String> = std::fs::read_dir(idx.data_dir.join("segments"))
+            .unwrap()
+            .flatten()
+            .map(|entry| entry.file_name().to_string_lossy().into_owned())
+            .collect();
+        assert!(
+            segment_names
+                .iter()
+                .any(|name| name.ends_with(".fts-layout-v3")),
+            "{segment_names:?}"
+        );
+        assert!(segment_names
+            .iter()
+            .all(|name| !name.ends_with(".fts-layout-v2")));
+        let mut case_keys = std::collections::HashSet::new();
+        for name in segment_names.iter().filter(|name| name.ends_with(".fst")) {
+            assert!(
+                case_keys.insert(name.to_ascii_lowercase()),
+                "case-folded FTS sidecar collision: {name}"
+            );
+        }
+
+        let request = xerj_query::parse_request(&json!({
+            "query": {"match": {"component": "JBar3d"}},
+            "size": 10,
+            "track_total_hits": true
+        }))
+        .unwrap();
+        let result = idx.search(&request).await.unwrap();
+        assert_eq!(result.total.value, 1);
+        assert_eq!(result.hits[0].id, "jbar");
+        let by_page = xerj_query::parse_request(&json!({
+            "query": {"match": {"page_Id": "1212561321588641792"}},
+            "size": 10
+        }))
+        .unwrap();
+        let result = idx.search(&by_page).await.unwrap();
+        assert_eq!(result.hits.len(), 1);
+        assert_eq!(result.hits[0].id, "jbar");
+        drop(idx);
+        drop(engine);
+
+        let restarted = crate::Engine::new(config).unwrap();
+        let idx = restarted.get_index("case-field-publish").unwrap();
+        idx.abort_background_tasks();
+        assert_eq!(data_dir_format_version(&idx), 3);
+        let result = idx.search(&request).await.unwrap();
+        assert_eq!(result.total.value, 1);
+        assert_eq!(result.hits[0].id, "jbar");
+        let result = idx.search(&by_page).await.unwrap();
+        assert_eq!(result.hits.len(), 1);
+        assert_eq!(result.hits[0].id, "jbar");
+    }
+
     /// Build a one-date-field index whose `ts` field carries `precision`.
     async fn date_index(
         engine: &crate::Engine,
@@ -10859,6 +10957,18 @@ impl Index {
         // Process-wide admission: disk flood-stage block (item 3) + parent
         // memory circuit breaker (item 1). Fires before any per-index work.
         self.governor_write_gate()?;
+        // Already-parsed bodies (PUT `/_doc/{id}` builds a `Value` in the
+        // extractor) still have to be refused before semantic embedding and
+        // `analyze_doc`. Bulk NDJSON is refused on the raw bytes earlier.
+        if let Some(seen) =
+            xerj_common::document_limit::json_value_exceeds_indexed_document_limit(&source)
+        {
+            return Err(EngineError::Common(
+                xerj_common::XerjError::invalid_document_json(
+                    xerj_common::document_limit::indexed_document_refusal_at_least(seen),
+                ),
+            ));
+        }
         let index_start = std::time::Instant::now();
         let doc_id = id.unwrap_or_else(|| Uuid::new_v4().to_string());
 
@@ -13836,7 +13946,26 @@ impl Index {
                                         fts_writer.add_documents_parallel(&fts_input)
                                     }
                                 }
-                                if fts_writer.uses_encoded_field_filename_components() {
+                                if fts_writer
+                                    .uses_case_distinguished_field_filename_components()
+                                {
+                                    if let Err(e) = store_for_task
+                                        .ensure_fts_case_distinguished_field_component_format()
+                                    {
+                                        tracing::warn!(
+                                            "merge: case-distinguished FTS filename format preflight failed: {e:#}"
+                                        );
+                                        return Ok(());
+                                    }
+                                    if let Err(e) = fts_writer
+                                        .publish_case_distinguished_filename_layout()
+                                    {
+                                        tracing::warn!(
+                                            "merge: FTS filename-layout publication failed: {e:#}"
+                                        );
+                                        return Ok(());
+                                    }
+                                } else if fts_writer.uses_encoded_field_filename_components() {
                                     if let Err(e) = store_for_task
                                         .ensure_fts_encoded_field_component_format()
                                     {
@@ -13855,7 +13984,7 @@ impl Index {
                                     }
                                 }
                                 if let Err(e) = fts_writer.finish() {
-                                    tracing::warn!("merge: FTS build failed: {e}");
+                                    tracing::warn!("merge: FTS build failed: {e:#}");
                                 }
                                 Ok(())
                             });
@@ -20391,6 +20520,29 @@ impl Index {
     }
 
     /// Execute a search request against this index.
+    /// #1504. Autoindex writes `index.query.default_match_operator: and` on a
+    /// logs dataset so an omitted `match` requires every token. The key is
+    /// stored the way the create body sent it (a flat dotted key, or nested
+    /// under `index.query`). Any other value, including absence, keeps ES's
+    /// OR default.
+    fn match_operator_defaults_to_and(settings: &Value) -> bool {
+        let is_and = |v: &Value| v.as_str().is_some_and(|s| s.eq_ignore_ascii_case("and"));
+        if settings
+            .pointer("/index/query/default_match_operator")
+            .is_some_and(is_and)
+        {
+            return true;
+        }
+        [Some(settings), settings.get("index")]
+            .into_iter()
+            .flatten()
+            .any(|container| {
+                container
+                    .get("index.query.default_match_operator")
+                    .is_some_and(is_and)
+            })
+    }
+
     pub async fn search(&self, request: &SearchRequest) -> Result<SearchResult> {
         use crate::collection_publication::ReadAdmission;
 
@@ -20500,6 +20652,22 @@ impl Index {
                 savings: None,
             }
         };
+        // #1504: a logs index resolves an omitted match operator to AND
+        // before the cache key is hashed, so a cached page cannot be the OR
+        // hit list. Indices without the setting keep the request as parsed
+        // (Omitted executes as OR). Explicit `"operator": "or"` is untouched.
+        let default_match_and = {
+            let settings = self.settings.read().await;
+            Self::match_operator_defaults_to_and(&settings)
+        };
+        let rewritten = if default_match_and {
+            let mut owned = request.clone();
+            xerj_query::apply_default_match_operator(&mut owned, xerj_query::BoolOperator::And);
+            Some(owned)
+        } else {
+            None
+        };
+        let request = rewritten.as_ref().unwrap_or(request);
         // M3 framework: response cache.  Hash the request shape and the
         // current dataset version; on a hit return the cloned `Arc<SearchResult>`
         // immediately, skipping the semaphore, search_inner, locks, and
@@ -34541,19 +34709,28 @@ async fn do_flush_shard(
                 fts_writer.add_documents_parallel(&drained_fts_for_build);
                 fts_add_us = t_add.elapsed().as_micros();
                 let t_fin = std::time::Instant::now();
-                if fts_writer.uses_encoded_field_filename_components() {
+                if fts_writer.uses_case_distinguished_field_filename_components() {
+                    store_for_warm.ensure_fts_case_distinguished_field_component_format()?;
+                    fts_writer
+                        .publish_case_distinguished_filename_layout()
+                        .map_err(|error| {
+                            xerj_storage::StorageError::Io(std::io::Error::other(format!(
+                                "FTS filename-layout publication failed: {error:#}"
+                            )))
+                        })?;
+                } else if fts_writer.uses_encoded_field_filename_components() {
                     store_for_warm.ensure_fts_encoded_field_component_format()?;
                     fts_writer
                         .publish_encoded_filename_layout()
                         .map_err(|error| {
                             xerj_storage::StorageError::Io(std::io::Error::other(format!(
-                                "FTS filename-layout publication failed: {error}"
+                                "FTS filename-layout publication failed: {error:#}"
                             )))
                         })?;
                 }
                 fts_writer.finish().map_err(|error| {
                     xerj_storage::StorageError::Io(std::io::Error::other(format!(
-                        "FTS side-car build failed: {error}"
+                        "FTS side-car build failed: {error:#}"
                     )))
                 })?;
                 fts_finish_us = t_fin.elapsed().as_micros();
@@ -47884,15 +48061,18 @@ pub(crate) fn doc_matches_query_typed(q: &QueryNode, source: &Value, schema: &Sc
                 }
                 let need = match operator {
                     xerj_query::ast::BoolOperator::And => q_tokens.len(),
-                    xerj_query::ast::BoolOperator::Or => match minimum_should_match {
-                        None => 1,
-                        Some(MinShouldMatch::Fixed(n)) => *n as usize,
-                        Some(MinShouldMatch::Percentage(pct)) => {
-                            ((q_tokens.len() as f32 * (*pct as f32 / 100.0)).floor() as usize)
-                                .max(1)
+                    // Omitted is OR until a log index rewrites it (#1504).
+                    xerj_query::ast::BoolOperator::Or | xerj_query::ast::BoolOperator::Omitted => {
+                        match minimum_should_match {
+                            None => 1,
+                            Some(MinShouldMatch::Fixed(n)) => *n as usize,
+                            Some(MinShouldMatch::Percentage(pct)) => {
+                                ((q_tokens.len() as f32 * (*pct as f32 / 100.0)).floor() as usize)
+                                    .max(1)
+                            }
+                            Some(other) => other.required(q_tokens.len()).unwrap_or(1),
                         }
-                        Some(other) => other.required(q_tokens.len()).unwrap_or(1),
-                    },
+                    }
                 };
                 let raw_values: Vec<String> = match get_field_value(source, field) {
                     Some(Value::String(value)) => vec![value],
@@ -48006,17 +48186,21 @@ pub(crate) fn doc_matches_query_typed(q: &QueryNode, source: &Value, schema: &Sc
             // so the threshold applies across the union.
             let need: usize = match operator {
                 xerj_query::ast::BoolOperator::And => q_tokens.len(),
-                xerj_query::ast::BoolOperator::Or => match minimum_should_match {
-                    None => 1,
-                    Some(MinShouldMatch::Fixed(n)) => *n as usize,
-                    Some(MinShouldMatch::Percentage(pct)) => {
-                        ((q_tokens.len() as f32 * (*pct as f32 / 100.0)).floor() as usize).max(1)
+                // Omitted is OR until a log index rewrites it (#1504).
+                xerj_query::ast::BoolOperator::Or | xerj_query::ast::BoolOperator::Omitted => {
+                    match minimum_should_match {
+                        None => 1,
+                        Some(MinShouldMatch::Fixed(n)) => *n as usize,
+                        Some(MinShouldMatch::Percentage(pct)) => {
+                            ((q_tokens.len() as f32 * (*pct as f32 / 100.0)).floor() as usize)
+                                .max(1)
+                        }
+                        // #846: negative / negative-% / combination resolve against
+                        // the token count; terms_set field/script counts aren't
+                        // valid on a plain match, so degrade those to OR (need 1).
+                        Some(other) => other.required(q_tokens.len()).unwrap_or(1),
                     }
-                    // #846: negative / negative-% / combination resolve against
-                    // the token count; terms_set field/script counts aren't
-                    // valid on a plain match, so degrade those to OR (need 1).
-                    Some(other) => other.required(q_tokens.len()).unwrap_or(1),
-                },
+                }
             };
             let count_matched = |field_tokens: &[String]| -> usize {
                 q_tokens
@@ -62280,6 +62464,137 @@ mod exact_scan_hydration_tests {
         assert!(
             drained.load(std::sync::atomic::Ordering::SeqCst),
             "on_drained must fire on the empty-shard fast path"
+        );
+    }
+}
+
+/// #1504: a logs index's omitted `match` requires every token. The same
+/// query on an index without the setting stays ES's OR, and an explicit
+/// `"operator": "or"` on the logs index stays OR too.
+#[cfg(test)]
+mod log_match_operator_tests {
+    use super::*;
+    use serde_json::json;
+
+    fn message_schema() -> Schema {
+        let mut schema = Schema::empty();
+        schema
+            .add_field(FieldConfig::new("message", FieldType::Text))
+            .unwrap();
+        schema
+    }
+
+    fn english() -> Value {
+        json!({"analysis": {"analyzer": {"default": {"type": "english"}}}})
+    }
+
+    async fn index_lines(idx: &Index, lines: &[(&str, &str)]) {
+        idx.abort_background_tasks();
+        for (id, message) in lines {
+            idx.index_document(Some((*id).to_string()), json!({"message": message}))
+                .await
+                .unwrap();
+        }
+    }
+
+    fn hit_ids(result: &SearchResult) -> Vec<String> {
+        let mut ids: Vec<String> = result.hits.iter().map(|hit| hit.id.clone()).collect();
+        ids.sort();
+        ids
+    }
+
+    const LINES: &[(&str, &str)] = &[
+        ("sip-only", "SIP engine not registered"),
+        ("forbidden", "SIP/2.0 403 Forbidden"),
+        ("is-only", "device is online"),
+        ("both-words", "invalid configuration detected"),
+    ];
+
+    #[test]
+    fn the_setting_is_read_from_a_flat_key_or_a_nested_object() {
+        assert!(Index::match_operator_defaults_to_and(&json!({
+            "index.query.default_match_operator": "and"
+        })));
+        assert!(Index::match_operator_defaults_to_and(&json!({
+            "index": {"query": {"default_match_operator": "AND"}}
+        })));
+        assert!(!Index::match_operator_defaults_to_and(&json!({
+            "analysis": {"analyzer": {"default": {"type": "english"}}}
+        })));
+        assert!(!Index::match_operator_defaults_to_and(&json!({
+            "index.query.default_match_operator": "or"
+        })));
+    }
+
+    #[tokio::test]
+    async fn a_log_index_match_requires_every_token_and_a_plain_index_does_not() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut config = Config::default();
+        config.server.data_dir = dir.path().to_string_lossy().into_owned();
+        let engine = crate::Engine::new(config).unwrap();
+
+        let mut logs_settings = english();
+        logs_settings["index.query.default_match_operator"] = json!("and");
+        engine
+            .create_index_with_settings("logs", message_schema(), logs_settings)
+            .unwrap();
+        engine
+            .create_index_with_settings("plain", message_schema(), english())
+            .unwrap();
+        let logs = engine.get_index("logs").unwrap();
+        let plain = engine.get_index("plain").unwrap();
+        index_lines(&logs, LINES).await;
+        index_lines(&plain, LINES).await;
+
+        let sip = xerj_query::parse_request(&json!({
+            "query": {"match": {"message": "SIP 403 Forbidden"}},
+            "size": 10
+        }))
+        .unwrap();
+        let sip_or = xerj_query::parse_request(&json!({
+            "query": {"match": {"message": {"query": "SIP 403 Forbidden", "operator": "or"}}},
+            "size": 10
+        }))
+        .unwrap();
+
+        // Memtable path (operator AND is a stored scan) and the flushed FTS
+        // path must agree: a line that only says SIP is not the phrase.
+        for idx in [&logs, &plain] {
+            let before = hit_ids(&idx.search(&sip).await.unwrap());
+            idx.flush().await.unwrap();
+            let after = hit_ids(&idx.search(&sip).await.unwrap());
+            assert_eq!(before, after, "flush must not change the hit set");
+        }
+        assert_eq!(
+            hit_ids(&logs.search(&sip).await.unwrap()),
+            vec!["forbidden".to_string()],
+            "SIP 403 Forbidden must not hit a line that only contains SIP"
+        );
+        assert_eq!(
+            hit_ids(&logs.search(&sip_or).await.unwrap()),
+            vec!["forbidden".to_string(), "sip-only".to_string()],
+            "an explicit operator or still matches any token"
+        );
+        let plain_hits = hit_ids(&plain.search(&sip).await.unwrap());
+        assert!(
+            plain_hits.contains(&"sip-only".to_string())
+                && plain_hits.contains(&"forbidden".to_string()),
+            "without the setting, match stays OR: {plain_hits:?}"
+        );
+
+        let phrase = xerj_query::parse_request(&json!({
+            "query": {"match": {"message": "configuration is invalid"}},
+            "size": 10
+        }))
+        .unwrap();
+        assert_eq!(
+            hit_ids(&logs.search(&phrase).await.unwrap()),
+            vec!["both-words".to_string()],
+            "is is not a term, and the other two words must both be present"
+        );
+        assert!(
+            !hit_ids(&plain.search(&phrase).await.unwrap()).contains(&"is-only".to_string()),
+            "the english analyzer already drops is, on a non-log index too"
         );
     }
 }
