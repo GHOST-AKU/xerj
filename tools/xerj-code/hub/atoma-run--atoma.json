@@ -1,0 +1,21 @@
+{
+ "corpus": "atoma-run--atoma",
+ "cloned_at": "2026-10-23T12:00:00Z",
+ "repos": [
+  {
+   "repo": "atoma",
+   "url": "https://github.com/atoma-run/atoma",
+   "licence": "AGPL-3.0-only",
+   "sha": "7c049cbe32552bacf07dc7e8a056370470856356",
+   "files": 2686,
+   "bytes": 136671388,
+   "review": {
+    "spdx": "AGPL-3.0-only",
+    "use": "approach-only",
+    "by": "@mgtf",
+    "at": "2026-10-23",
+    "note": "I am the author. LICENSE at the pin is the GNU AGPL v3 text and package.json declares AGPL-3.0-only; a CLA covers inbound contributions. Copyleft, so approach-only: read the design, never paste. Pinned commit is the one the hub selected on 2026-10-19."
+   }
+  }
+ ]
+}
