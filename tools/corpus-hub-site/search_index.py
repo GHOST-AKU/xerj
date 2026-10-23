@@ -27,12 +27,31 @@ FIELDS = {
     "more": ["langs", "topics", "usecase"],
     "p": ["login", "name", "stars", "corpora", "kind"],
 }
-GH = re.compile(r"^https?://github\.com/([^/]+/[^/#?]+)", re.I)
+# https://github.com/owner/name, git://, ssh://git@, and git@github.com:owner/name.
+# A bare repo field ("fabric") is not an owner, so it does not match.
+GH = re.compile(
+    r"^(?:https?://github\.com/|git://github\.com/|ssh://git@github\.com/|git@github\.com:)([^/\s:]+/[^/#?\s]+)",
+    re.I,
+)
+
+
+def github_owner_repo(url, repo=""):
+    """`owner/name` from a GitHub remote, or from a repo field that already is one.
+
+    A bare name (`fabric`) returns "" — the slug already says that, and a guessed
+    owner would point an agent at the wrong project.
+    """
+    m = GH.match((url or "").strip())
+    if m:
+        return m.group(1).removesuffix(".git").rstrip("/")
+    repo = (repo or "").strip().removesuffix(".git")
+    if repo.count("/") == 1 and " " not in repo and ":" not in repo:
+        return repo
+    return ""
 
 
 def _gh(url):
-    m = GH.match(url or "")
-    return m.group(1).removesuffix(".git") if m else ""
+    return github_owner_repo(url, "")
 
 
 def build(corpora, people, cands, upstream, vols, plain, stamp):
@@ -40,8 +59,9 @@ def build(corpora, people, cands, upstream, vols, plain, stamp):
     reg = {c["slug"]: c for c in corpora}
     # registry corpora
     for c in corpora:
-        repos = [_gh(r.get("url", "")) for r in c.get("repos") or []]
-        repos += [_gh(s.get("url", "")) for s in c.get("sources") or []]
+        repos = [github_owner_repo(r.get("url", ""), r.get("repo", "")) for r in c.get("repos") or []]
+        repos += [github_owner_repo(s.get("url", ""), s.get("repo", "") or s.get("slug", ""))
+                  for s in c.get("sources") or []]
         repos = [r for r in dict.fromkeys(repos) if r][:4]
         t = c.get("tags") or {}
         rows_c.append([c["slug"], " ".join(repos), 0, c.get("cat", ""), c.get("status", ""),
@@ -105,8 +125,33 @@ JS = r"""(function(){
 var base=new URL('../search/',document.currentScript.src).href, root=new URL('../',document.currentScript.src).href;
 var C=null,P=null,M=null,loading=null,T={};
 window.__hubSearch=T;
+T.projectStem=projectStem; T.collisionToken=collisionToken; T.score=score; T.search=search; T.row=row;
+T._set=function(c,p){ C=c; P=p||[]; };
 function norm(s){return (s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
 function slugOf(r){return r.toLowerCase().replace('/','--').replace(/[._]/g,'-');}
+var PROJECT_SUFFIXES=['.js','.mjs','.cjs','.jsx','.ts','.tsx','.py','.rb','.go','.php','.rs'];
+var GLUED_SUFFIXES=['js','py'];
+function projectStem(token){
+  var i,s,stem;
+  for(i=0;i<PROJECT_SUFFIXES.length;i++){ s=PROJECT_SUFFIXES[i];
+    if(token.length>s.length && token.slice(-s.length)===s){ stem=token.slice(0,-s.length);
+      if(stem.length>=2 && stem.indexOf('.')<0 && stem.indexOf('/')<0) return stem; } }
+  for(i=0;i<GLUED_SUFFIXES.length;i++){ s=GLUED_SUFFIXES[i];
+    if(token.length<=s.length+2) continue;
+    if(token.slice(-s.length)===s){ stem=token.slice(0,-s.length);
+      if(/^[a-z0-9]+$/.test(stem)) return stem; } }
+  return '';
+}
+function collisionToken(q,o){
+  if(!o||o.t!=='c') return '';
+  var terms=norm(q).split(/\s+/).filter(Boolean), slug=norm(o.slug);
+  var bag=norm((o.repos||[]).join(' ')+' '+(o.use||''));
+  for(var i=0;i<terms.length;i++){ var t=terms[i];
+    if(t===slug) continue;
+    if(bag && bag.indexOf(t)>=0) continue;
+    if(projectStem(t)===slug) return t; }
+  return '';
+}
 function load(){
   if(loading) return loading;
   var t0=performance.now();
@@ -143,6 +188,7 @@ function score(o,terms){
     for(var n=0;n<o.k.length;n++){ x=sc(t,o.k[n]); if(x>b) b=x; if(b===100) break; }
     if(o.w&&b<35){ for(n=0;n<o.w.length;n++){ x=o.w[n]===t?35:(t.length>=2&&o.w[n].lastIndexOf(t,0)===0?25:0); if(x>b) b=x; } }
     if(o.u&&b<12&&t.length>=3){ for(n=0;n<o.u.length;n++) if(o.u[n].lastIndexOf(t,0)===0){ b=12; break; } }
+    if(!b && o.t==='c'){ var stem=projectStem(t); if(stem && stem===norm(o.slug)) b=40; }
     if(!b) return 0;
     tot+=b;
   }
@@ -167,8 +213,12 @@ function row(o,q,id){
   var h,title,sub,meta='';
   if(o.t==='c'){
     h=root+'corpus/'+encodeURIComponent(o.slug); title=hl(o.slug,q);
-    var r=o.repos.filter(function(x){return slugOf(x)!==o.slug;});
-    sub=esc((r.length?r[0]+(o.repos.length>1?' +'+(o.repos.length-1):''):(o.repos.length>1?o.repos.length+' repos':o.repos[0]||'')));
+    var repos=o.repos||[];
+    var r=repos.filter(function(x){return slugOf(x)!==o.slug;});
+    var who=r.length?r[0]+(o.repos.length>1?' +'+(o.repos.length-1):''):(o.repos.length>1?o.repos.length+' repos':o.repos[0]||'');
+    var note=collisionToken(q,o);
+    if(note) sub='not '+esc(note)+' · '+esc(who||o.slug)+(o.use?' · '+esc(o.use):'');
+    else sub=esc(who)+(o.use?(who?' · ':'')+esc(o.use):'');
     var s=ST[o.st]===undefined?o.st:ST[o.st]; if(s) meta+='<span class="hs-st">'+esc(s)+'</span>';
   } else {
     h=root+'contributors/'+encodeURIComponent(o.login); title=o.name?hl(o.name,q)+' <i>@'+hl(o.login,q)+'</i>':hl(o.login,q);
@@ -247,9 +297,9 @@ a.hs-row:hover,a.hs-row.on,a.hs-all.on{background:var(--z-faint)}
 .hs-av.hs-c{width:46px;height:auto;border-radius:0;background:none;border:1px solid var(--z-line);box-sizing:border-box;
 font:600 9px/18px var(--font-data);letter-spacing:.06em;text-align:center;color:var(--z-mute);padding:0 3px}
 .hs-txt{display:flex;flex-direction:column;min-width:0;flex:1}
-.hs-t,.hs-s{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hs-t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hs-t{font-weight:600}.hs-t b{color:var(--z-accent)}.hs-t i{font-style:normal;font-weight:400;color:var(--z-mute)}
-.hs-s{color:var(--z-mute);font-size:12px}
+.hs-s{color:var(--z-mute);font-size:12px;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .hs-m{flex:none;display:flex;gap:.5em;align-items:center;color:var(--z-mute);font-size:12px}
 .hs-st{border:1px solid var(--z-line);padding:0 .4em;font-size:11px}
 a.hs-all{display:block;padding:.6em .8em;border-top:1px solid var(--z-faint);color:var(--z-accent);text-decoration:none;
