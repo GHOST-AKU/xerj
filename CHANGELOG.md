@@ -40,6 +40,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   not a new setting. Files over 64 MiB are still not read; the skip now
   says so.
 
+- Opening an index whose snapshot names a segment file that is already
+  gone drops that segment instead of failing every later `_search` with
+  `Segment … not found`. A sibling segment that is still on disk stays
+  readable, and sequence numbers from the missing segment are not reused.
+  Object-store mode is unchanged: a catalogue whose bundle is missing
+  still refuses to open. This is what let `xerj brain --fresh` finish
+  its catalog read-back after a data directory was only partly removed.
+
 - A best-effort helper thread that cannot be created no longer aborts the
   process. On Unix those threads are started with `pthread_create` and do not
   map an alternate signal stack, so the allocation failure that used to panic
