@@ -16,6 +16,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Neural `xerj autoindex` prints an estimated embedding time before ingest,
+  from a probe measured when the neural model loads and the bytes of files
+  that feed a `semantic_text` dataset. The line names no duration when the
+  probe did not run, and it points at the faster lexical default.
+  `--embed-mode` help and the startup warning state that the mode is fixed
+  per index at ingest and that changing it requires a re-index. Creating or
+  updating a mapping warns when `inference_id`, `model_id`, or
+  `inference_endpoint` names a different embedder than the server is running;
+  those keys do not switch the embedder
+  ([#1612](https://github.com/xerj-org/xerj/issues/1612)).
+
 - A `semantic` query on a `semantic_text` field returns `highlight` fragments
   when the request asks for them (#1947). The fragments are the field's
   best-scoring chunks for the query embedding, in score order, limited by
