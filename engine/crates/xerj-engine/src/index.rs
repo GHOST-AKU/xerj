@@ -6014,6 +6014,41 @@ mod merge_publication_transaction_tests {
         );
     }
 
+    /// Drive the paused clock past one debounce, and give the merge pool a
+    /// real turn so an encode can finish.
+    ///
+    /// #2234 runs that encode on the merge pool, off this runtime. A paused
+    /// `sleep` auto-advances while the pass is still awaiting the pool, so
+    /// the scheduler never looks idle and a later segment change is only a
+    /// bumped epoch on the in-flight pass — the evaluation counter does not
+    /// move until the encode returns. `std::thread::sleep` does not advance
+    /// the paused clock, so it cannot itself schedule a merge check.
+    async fn settle_merge_scheduler(index: &Index) {
+        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
+        loop {
+            let before = index.merge_evaluation_count();
+            std::thread::sleep(std::time::Duration::from_millis(15));
+            tokio::task::yield_now().await;
+            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+            tokio::task::yield_now().await;
+            let after = index.merge_evaluation_count();
+            if after == before && !index.is_merge_in_progress() {
+                // A second window with no real sleep: a still-armed debounce
+                // is the only thing that can move the counter.
+                tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+                if index.merge_evaluation_count() == after && !index.is_merge_in_progress() {
+                    return;
+                }
+            }
+            assert!(
+                std::time::Instant::now() < deadline,
+                "background merges did not quiesce (evaluations {}, in progress {})",
+                index.merge_evaluation_count(),
+                index.is_merge_in_progress()
+            );
+        }
+    }
+
     /// #871 — merge scheduling must be event-driven: after an index's merge
     /// work settles, ZERO further merge-policy evaluations may run until the
     /// segment set changes again.
@@ -6042,10 +6077,9 @@ mod merge_publication_transaction_tests {
         }
         // Let the scheduled checks and their cascading merges run to
         // quiescence (min/max_merge_count = 2 collapses two at a time).
-        for _ in 0..8 {
-            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
-            tokio::task::yield_now().await;
-        }
+        // The encode is on the merge pool (#2234); paused sleeps do not
+        // wait for it.
+        settle_merge_scheduler(&index).await;
         let settled = index.merge_evaluation_count();
         assert!(
             settled >= 1,
@@ -6067,14 +6101,19 @@ mod merge_publication_transaction_tests {
             .await
             .unwrap();
         index.flush().await.unwrap();
-        for _ in 0..8 {
-            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+        let wake_deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+        loop {
+            std::thread::sleep(std::time::Duration::from_millis(15));
             tokio::task::yield_now().await;
+            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+            if index.merge_evaluation_count() > settled {
+                break;
+            }
+            assert!(
+                std::time::Instant::now() < wake_deadline,
+                "a published segment no longer schedules a merge check"
+            );
         }
-        assert!(
-            index.merge_evaluation_count() > settled,
-            "a published segment no longer schedules a merge check"
-        );
     }
 
     #[tokio::test]
