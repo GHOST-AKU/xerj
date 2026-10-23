@@ -660,6 +660,7 @@ padding:.1em .5em;color:var(--z-mute)}
 section.detail h2{font-family:var(--font-display);font-weight:700;font-size:var(--fs-32);
 line-height:.95;border-bottom:1px solid var(--z-line);padding-bottom:var(--sp-2);margin:var(--sp-10) 0 var(--sp-4)}
 table{border-collapse:collapse;width:100%;font-size:var(--fs-13);font-family:var(--font-prose)}
+@media (max-width:600px){.detail table{display:block;overflow-x:auto}}
 th,td{text-align:left;padding:.45em .6em;border-bottom:1px solid var(--z-line);vertical-align:top}
 th{color:var(--z-mute);font-weight:600;font-family:var(--font-data);font-size:var(--fs-11);
 text-transform:uppercase;letter-spacing:var(--track-label)}
