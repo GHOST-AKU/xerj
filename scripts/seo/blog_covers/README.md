@@ -81,6 +81,7 @@ ink, yellow and ochre (`landing/brand.html`), copied into `TOKENS` in `covers.py
 | `scars` | eval-scars-from-agent-memory | six scratch marks, one per pattern |
 | `network` | the-exploit-hub | PoC documents linked to the three CVEs of the eval |
 | `route` | corpus-hub-v2 | 251 packs, the 14 catalogue corpora, a question routed to lz4 |
+| `span` | rc99-102-days | 102 days from the rc.1 tag date to the rc.99 release day, six rows of 17 |
 
 Inks: yellow fill (with ochre for its labels and hairlines) for the one
 result the post is about, grey-blue (day `--z-cmp`) for the comparison series

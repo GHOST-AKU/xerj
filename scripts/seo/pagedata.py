@@ -221,6 +221,17 @@ PAGES: dict[str, dict[str, str]] = {
     # 2026-10-20 refresh before publishing: repo stars/forks/contributors, hub
     # stars (/api/hub-stars) and the Releases pack count (245 -> 251) re-read;
     # contributor totals and the top-ten table re-checked, unchanged.
+    # rc.99 launch post, 2026-10-23. Day span is the v1.0.0-rc.1 tagger
+    # date (2026-07-13) to this release day: 102 days. Tag census and the
+    # rc.98 pull-request count are from git, recorded in the post.
+    "blog/rc99-102-days.html": dict(
+        label="Release candidate 99", kind="article",
+        title="Release candidate 99, 102 days from the first tag",
+        description="v1.0.0-rc.99 is the public launch, 102 days after the 2026-07-13 tag. Cluster replication advanced with #1170 still open. The missed rc notes are here.",
+        published="2026-10-23", updated="2026-10-23",
+        og_image="og/blog-rc99-102-days.png",
+        og_image_alt="Cover: “Release candidate 99” in display type beside the post’s square-matrix art, labelled 102 days. The art: 102 small squares in six rows of seventeen, the first ink and the last yellow",
+    ),
     "blog/corpus-hub-v2.html": dict(
         label="Corpus Hub v2", kind="article",
         title="Corpus Hub v2: ask a question, get the one pack that answers",
@@ -232,8 +243,8 @@ PAGES: dict[str, dict[str, str]] = {
     "blog/index.html": dict(
         label="Blog", kind="collection",
         title="XERJ.ai — Blog: the engineering log",
-        description="Measured results with the losses left in: Corpus Hub v2 and xerj ask, the exploit hub tested on three fresh CVEs, guest eval scars from a production agent-memory system, the Corpus Hub launch, the rc.80 gates post, the Jev decisions study, the JEV rerank verdict, the storage formats that cut the index 28%, and the signed rust-vulns corpus pack.",
-        updated="2026-10-19",
+        description="The rc.99 launch post: 102 days from the first tag, what shipped, and the rc.97 and rc.98 notes. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.",
+        updated="2026-10-23",
     ),
     "demo/index.html": dict(
         label="Real-data demo", kind="software",

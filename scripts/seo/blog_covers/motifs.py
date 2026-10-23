@@ -488,6 +488,38 @@ def m_route(w: float, h: float, rng: random.Random) -> str:
     return "".join(out)
 
 
+def m_span(w: float, h: float, rng: random.Random) -> str:
+    """rc99-102-days: one square per day from the v1.0.0-rc.1 tagger date
+    (2026-07-13) to the rc.99 release day this post uses (2026-10-23).
+    6 × 17 = 102. The first cell is the tag day (ink). The last cell is the
+    release day (yellow). The grid is days, so the missing rc.79 tag is not
+    a hole in it. rng is unused; the layout is fixed."""
+    del rng
+    days, cols = 102, 17
+    rows = days // cols
+    top = 4
+    label_h = 28 if LABELS else 4
+    gap = 5
+    avail_w = w
+    avail_h = h - top - label_h
+    s = min((avail_w - gap * (cols - 1)) / cols,
+            (avail_h - gap * (rows - 1)) / rows)
+    grid_w = cols * s + (cols - 1) * gap
+    grid_h = rows * s + (rows - 1) * gap
+    x0 = (w - grid_w) / 2
+    y0 = top + max(0, (avail_h - grid_h) / 2)
+    out = []
+    for k in range(days):
+        r, c = divmod(k, cols)
+        x = x0 + c * (s + gap)
+        y = y0 + r * (s + gap)
+        ink = "w" if k == 0 else "y" if k == days - 1 else "m"
+        out.append(dot(x + s / 2, y + s / 2, s / 1.78, ink))
+    out.append(label(0, h - 2, "102 DAYS", "num w"))
+    out.append(label(w, h - 2, "RC.1  2026-07-13   →   RC.99  2026-10-23", "lab y", "end"))
+    return "".join(out)
+
+
 MOTIFS: dict[str, Callable[[float, float, random.Random], str]] = {
     "index28": m_index28,
     "jevbars": m_jevbars,
@@ -498,4 +530,5 @@ MOTIFS: dict[str, Callable[[float, float, random.Random], str]] = {
     "network": m_network,
     "scars": m_scars,
     "route": m_route,
+    "span": m_span,
 }
