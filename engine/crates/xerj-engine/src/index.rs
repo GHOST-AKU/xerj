@@ -37555,6 +37555,15 @@ fn stored_chunk_vectors(source: &Value, vector_field: &str) -> Vec<Vec<f32>> {
 }
 
 fn json_f32_vector(value: &Value) -> Option<Vec<f32>> {
+    // #1940 stores each chunk as a `xerj:f32:` string. A number array is
+    // still valid for segments written before that. Non-finite components
+    // in a number array keep the previous `as_f64() as f32` read.
+    if value
+        .as_str()
+        .is_some_and(xerj_common::packed_f32::is_packed_f32)
+    {
+        return xerj_common::packed_f32::unpack_f32_vector(value.as_str()?);
+    }
     let row = value.as_array()?;
     let mut vector = Vec::with_capacity(row.len());
     for component in row {
