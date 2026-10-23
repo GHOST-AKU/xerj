@@ -14699,9 +14699,11 @@ impl Index {
         // (see the load gate in `Index::open`), so a live graph always has
         // a pinned dense_vector field and takes the fast path above.)
         let has_candidate = obj.values().any(|v| {
-            v.as_array()
-                .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
-                .unwrap_or(false)
+            v.as_str()
+                .is_some_and(xerj_common::packed_f32::is_packed_f32)
+                || v.as_array()
+                    .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
+                    .unwrap_or(false)
         });
         if !has_candidate {
             return;
@@ -17840,8 +17842,20 @@ impl Index {
                 1 => chunk_vecs[0].clone(),
                 _ => mean_pool_normalize(&chunk_vecs),
             };
-            let arr: Vec<Value> = pooled.into_iter().map(|f| Value::from(f as f64)).collect();
-            obj.insert(job.target.clone(), Value::Array(arr));
+            // #1940: a 384-d `Vec<Value>` is tens of KB of retained heap per
+            // record (two memtables plus any later stored-source parse) for
+            // ~1.5 KB of f32s. Keep the packed string in the source; readers
+            // unpack it, and response paths expand it back to a number array.
+            match xerj_common::packed_f32::pack_f32_vector(&pooled) {
+                Some(packed) => {
+                    obj.insert(job.target.clone(), Value::String(packed));
+                }
+                None => {
+                    let arr: Vec<Value> =
+                        pooled.into_iter().map(|f| Value::from(f as f64)).collect();
+                    obj.insert(job.target.clone(), Value::Array(arr));
+                }
+            }
             // Compact, durable passage provenance. Text is deliberately NOT
             // duplicated: the response reconstructs only the winning page
             // slice from the original semantic field using these UTF-8 byte
@@ -17869,9 +17883,30 @@ impl Index {
             if chunk_vecs.len() > 1 {
                 let chunks_json: Vec<Value> = chunk_vecs
                     .iter()
-                    .map(|cv| Value::Array(cv.iter().map(|f| Value::from(*f as f64)).collect()))
+                    .map(|cv| match xerj_common::packed_f32::pack_f32_vector(cv) {
+                        Some(packed) => Value::String(packed),
+                        None => Value::Array(cv.iter().map(|f| Value::from(*f as f64)).collect()),
+                    })
                     .collect();
                 obj.insert(format!("{}_chunks", job.target), Value::Array(chunks_json));
+            }
+        }
+
+        // Caller-supplied vectors skip the job loop above and would otherwise
+        // stay as number arrays — the same retained-heap shape. Pack those
+        // too, field by field, after every generated vector is in place.
+        for source in sources.iter_mut() {
+            let Some(obj) = source.as_object_mut() else {
+                continue;
+            };
+            for (_, target, _) in &specs {
+                if let Some(value) = obj.get_mut(target) {
+                    xerj_common::packed_f32::compact_vector_value(value);
+                }
+                let chunks_name = format!("{target}_chunks");
+                if let Some(value) = obj.get_mut(&chunks_name) {
+                    xerj_common::packed_f32::compact_vector_value(value);
+                }
             }
         }
 
@@ -19081,6 +19116,9 @@ impl Index {
         };
         if let Ok(Some(source)) = &mut res {
             strip_internal_passage_metadata(source);
+            // The stored source keeps embeddings packed (#1940). GET returns
+            // the number array callers already see.
+            xerj_common::packed_f32::expand_packed_f32_values(source);
         }
         match &res {
             Ok(Some(_)) => {
@@ -26064,6 +26102,17 @@ impl Index {
         self.memtable.size_bytes()
     }
 
+    /// Retained JSON-heap estimate of every live memtable source. Test-only
+    /// so a regression can bound #1940 without sampling process RSS.
+    #[cfg(test)]
+    pub(crate) fn memtable_source_heaps_for_test(&self) -> Vec<usize> {
+        self.memtable
+            .all_docs_with_sources_arc()
+            .into_iter()
+            .map(|(_, source)| crate::ingest_memory::estimated_json_heap(&source))
+            .collect()
+    }
+
     /// #948 — entries currently resident in the STORAGE memtable
     /// (`IndexStore::memtable_shards`).  Diagnostic twin of
     /// [`Self::memtable_bytes`]: the FTS memtable drains on every flush,
@@ -27494,6 +27543,14 @@ fn build_doc_value_columns<'a>(
                     col.push(Some(v));
                 }
                 Value::String(s) => {
+                    // A packed embedding is not a keyword term. Filing it
+                    // would put one multi-kilobyte dictionary entry per
+                    // document into the `.dv` sidecar (#1940). Absence of a
+                    // column is the same outcome the number-array form
+                    // already had: arrays are multi-valued and ship no column.
+                    if xerj_common::packed_f32::is_packed_f32(s) {
+                        continue;
+                    }
                     if !keyword.contains_key(field) {
                         keyword.insert(field.clone(), Vec::new());
                     }
@@ -35195,8 +35252,20 @@ fn apply_source_filter_measured(
             );
         }
         // The caller explicitly asked for the whole document — MORE than the
-        // default projection, not less. Nothing was withheld.
-        SourceFilter::Enabled(true) => return (hits, None),
+        // default projection, not less. Nothing was withheld. Expand packed
+        // embeddings here, on the page only, so the wire form stays a number
+        // array (#1940).
+        SourceFilter::Enabled(true) => {
+            return (
+                hits.into_iter()
+                    .map(|mut hit| {
+                        xerj_common::packed_f32::expand_packed_f32_values(&mut hit.source);
+                        hit
+                    })
+                    .collect(),
+                None,
+            );
+        }
         // `_source: false`: keep the raw source so the response layer can
         // still resolve `fields` / `_ignored` / `highlight` against it —
         // `_source` emission is suppressed in es_compat.rs.
@@ -35232,6 +35301,10 @@ fn apply_source_filter_measured(
                     .then(|| default_projection_len(&h.source, generated_companion_fields, mode));
                 let sentinels = take_collapse_sentinels(&h.source);
                 h.source = filter_object(&h.source, fields, &[]);
+                // Expand before the savings measurement so a caller who asked
+                // for the companion is billed for the number array on the wire,
+                // not the packed string it was stored as.
+                xerj_common::packed_f32::expand_packed_f32_values(&mut h.source);
                 if let Some(baseline) = baseline {
                     // Saturating: a caller who explicitly projects a generated
                     // companion gets MORE than the default, and more is not a
@@ -35249,6 +35322,7 @@ fn apply_source_filter_measured(
                     .then(|| default_projection_len(&h.source, generated_companion_fields, mode));
                 let sentinels = take_collapse_sentinels(&h.source);
                 h.source = filter_object(&h.source, includes, excludes);
+                xerj_common::packed_f32::expand_packed_f32_values(&mut h.source);
                 if let Some(baseline) = baseline {
                     acc.record(&h.id, baseline.saturating_sub(json_len(&h.source, mode)));
                 }
@@ -41647,14 +41721,20 @@ fn push_field_root_keys(field: &str, out: &mut Vec<String>) -> bool {
 /// Returns `None` when the field is absent, not an array, empty, or holds
 /// any non-number element.
 fn extract_numeric_vector(source: &Value, field: &str) -> Option<Vec<f32>> {
-    match get_field_value(source, field) {
-        Some(Value::Array(arr)) if !arr.is_empty() && arr.iter().all(|v| v.is_number()) => Some(
-            arr.iter()
-                .filter_map(|v| v.as_f64().map(|f| f as f32))
-                .collect(),
-        ),
-        _ => None,
+    let value = get_field_value(source, field)?;
+    // Packed strings are the retained form (#1940). Number arrays remain
+    // valid for segments written before that, and for a caller that raced
+    // a vector in before compaction.
+    if value
+        .as_str()
+        .is_some_and(xerj_common::packed_f32::is_packed_f32)
+        || value
+            .as_array()
+            .is_some_and(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
+    {
+        return xerj_common::packed_f32::json_to_f32_vector(&value);
     }
+    None
 }
 
 /// Collect every dense_vector-mapped field in schema order (dotted paths
@@ -61590,6 +61670,29 @@ mod exact_scan_hydration_tests {
         assert!(
             drained.load(std::sync::atomic::Ordering::SeqCst),
             "on_drained must fire on the empty-shard fast path"
+        );
+    }
+}
+
+#[cfg(test)]
+mod packed_vector_doc_values_tests {
+    use super::build_doc_value_columns;
+    use serde_json::json;
+
+    #[test]
+    fn packed_embedding_is_not_filed_as_a_keyword() {
+        let src = json!({
+            "msg": "hello",
+            "msg_vector": xerj_common::packed_f32::pack_f32_vector(&[1.0, 0.0, -1.0]).unwrap(),
+        });
+        let cols = build_doc_value_columns(
+            std::iter::once(Some(&src)),
+            &std::collections::HashSet::new(),
+        );
+        assert!(cols.contains_key("msg"));
+        assert!(
+            !cols.contains_key("msg_vector"),
+            "a packed embedding must not become a per-doc keyword term"
         );
     }
 }
