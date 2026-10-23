@@ -2059,6 +2059,104 @@ mod flush_publication_recovery_tests {
         assert_eq!(result.hits[0].id, "survivor");
     }
 
+    /// Issue #2254. `page_Id` is a portable literal under filename layout v2,
+    /// so on NTFS it is the same file as `page_id`. The flush must publish
+    /// layout v3, keep both fields searchable, and still open after restart.
+    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
+    async fn mixed_case_field_flush_publishes_v3_and_restarts_searchable() {
+        let _fault_test = FLUSH_FAULT_TEST_LOCK.lock().await;
+        let dir = tempfile::tempdir().unwrap();
+        let mut config = Config::default();
+        config.server.data_dir = dir.path().to_string_lossy().into_owned();
+        let engine = crate::Engine::new(config.clone()).unwrap();
+        let mut schema = Schema::empty();
+        schema
+            .add_field(FieldConfig::new("page_Id", FieldType::Text))
+            .unwrap();
+        schema
+            .add_field(FieldConfig::new("page_id", FieldType::Text))
+            .unwrap();
+        schema
+            .add_field(FieldConfig::new("component", FieldType::Text))
+            .unwrap();
+        engine.create_index("case-field-publish", schema).unwrap();
+        let idx = engine.get_index("case-field-publish").unwrap();
+        idx.abort_background_tasks();
+        assert_eq!(data_dir_format_version(&idx), 1);
+        idx.index_document(
+            Some("jbar".into()),
+            json!({
+                "page_Id": "1212561321588641792",
+                "page_id": "other-page",
+                "component": "JBar3d"
+            }),
+        )
+        .await
+        .unwrap();
+        idx.index_document(
+            Some("jimg".into()),
+            json!({"component": "JImg", "page_id": "img-only"}),
+        )
+        .await
+        .unwrap();
+
+        idx.flush().await.unwrap();
+        assert_eq!(data_dir_format_version(&idx), 3);
+        assert_eq!(idx.memtable.doc_count(), 0);
+        let segment_names: Vec<String> = std::fs::read_dir(idx.data_dir.join("segments"))
+            .unwrap()
+            .flatten()
+            .map(|entry| entry.file_name().to_string_lossy().into_owned())
+            .collect();
+        assert!(
+            segment_names
+                .iter()
+                .any(|name| name.ends_with(".fts-layout-v3")),
+            "{segment_names:?}"
+        );
+        assert!(segment_names
+            .iter()
+            .all(|name| !name.ends_with(".fts-layout-v2")));
+        let mut case_keys = std::collections::HashSet::new();
+        for name in segment_names.iter().filter(|name| name.ends_with(".fst")) {
+            assert!(
+                case_keys.insert(name.to_ascii_lowercase()),
+                "case-folded FTS sidecar collision: {name}"
+            );
+        }
+
+        let request = xerj_query::parse_request(&json!({
+            "query": {"match": {"component": "JBar3d"}},
+            "size": 10,
+            "track_total_hits": true
+        }))
+        .unwrap();
+        let result = idx.search(&request).await.unwrap();
+        assert_eq!(result.total.value, 1);
+        assert_eq!(result.hits[0].id, "jbar");
+        let by_page = xerj_query::parse_request(&json!({
+            "query": {"match": {"page_Id": "1212561321588641792"}},
+            "size": 10
+        }))
+        .unwrap();
+        let result = idx.search(&by_page).await.unwrap();
+        assert_eq!(result.hits.len(), 1);
+        assert_eq!(result.hits[0].id, "jbar");
+        drop(idx);
+        drop(engine);
+
+        let restarted = crate::Engine::new(config).unwrap();
+        let idx = restarted.get_index("case-field-publish").unwrap();
+        idx.abort_background_tasks();
+        assert_eq!(data_dir_format_version(&idx), 3);
+        let result = idx.search(&request).await.unwrap();
+        assert_eq!(result.total.value, 1);
+        assert_eq!(result.hits[0].id, "jbar");
+        let result = idx.search(&by_page).await.unwrap();
+        assert_eq!(result.hits.len(), 1);
+        assert_eq!(result.hits[0].id, "jbar");
+    }
+
     /// Build a one-date-field index whose `ts` field carries `precision`.
     async fn date_index(
         engine: &crate::Engine,
@@ -11027,6 +11125,18 @@ impl Index {
         // Process-wide admission: disk flood-stage block (item 3) + parent
         // memory circuit breaker (item 1). Fires before any per-index work.
         self.governor_write_gate()?;
+        // Already-parsed bodies (PUT `/_doc/{id}` builds a `Value` in the
+        // extractor) still have to be refused before semantic embedding and
+        // `analyze_doc`. Bulk NDJSON is refused on the raw bytes earlier.
+        if let Some(seen) =
+            xerj_common::document_limit::json_value_exceeds_indexed_document_limit(&source)
+        {
+            return Err(EngineError::Common(
+                xerj_common::XerjError::invalid_document_json(
+                    xerj_common::document_limit::indexed_document_refusal_at_least(seen),
+                ),
+            ));
+        }
         let index_start = std::time::Instant::now();
         let doc_id = id.unwrap_or_else(|| Uuid::new_v4().to_string());
 
@@ -11657,17 +11767,21 @@ impl Index {
         }
 
         // Vector indexing is only meaningful when at least one document
-        // in the batch carries an array of numbers. Scan until the first
-        // candidate instead of inspecting only processed[0]: mixed batches
-        // may legitimately begin with an ordinary text/log document.
+        // in the batch carries a vector. Scan until the first candidate
+        // instead of inspecting only processed[0]: mixed batches may
+        // legitimately begin with an ordinary text/log document. A packed
+        // `xerj:f32:` string is that vector (#1940); treating only number
+        // arrays as candidates skipped HNSW for every semantic bulk batch.
         if processed.iter().any(|r| {
             r.source
                 .as_object()
                 .map(|obj| {
                     obj.values().any(|v| {
-                        v.as_array()
-                            .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
-                            .unwrap_or(false)
+                        v.as_str()
+                            .is_some_and(xerj_common::packed_f32::is_packed_f32)
+                            || v.as_array()
+                                .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
+                                .unwrap_or(false)
                     })
                 })
                 .unwrap_or(false)
@@ -14072,7 +14186,26 @@ impl Index {
                                         fts_writer.add_documents_parallel(&fts_input)
                                     }
                                 }
-                                if fts_writer.uses_encoded_field_filename_components() {
+                                if fts_writer
+                                    .uses_case_distinguished_field_filename_components()
+                                {
+                                    if let Err(e) = store_for_task
+                                        .ensure_fts_case_distinguished_field_component_format()
+                                    {
+                                        tracing::warn!(
+                                            "merge: case-distinguished FTS filename format preflight failed: {e:#}"
+                                        );
+                                        return Ok(());
+                                    }
+                                    if let Err(e) = fts_writer
+                                        .publish_case_distinguished_filename_layout()
+                                    {
+                                        tracing::warn!(
+                                            "merge: FTS filename-layout publication failed: {e:#}"
+                                        );
+                                        return Ok(());
+                                    }
+                                } else if fts_writer.uses_encoded_field_filename_components() {
                                     if let Err(e) = store_for_task
                                         .ensure_fts_encoded_field_component_format()
                                     {
@@ -14091,7 +14224,7 @@ impl Index {
                                     }
                                 }
                                 if let Err(e) = fts_writer.finish() {
-                                    tracing::warn!("merge: FTS build failed: {e}");
+                                    tracing::warn!("merge: FTS build failed: {e:#}");
                                 }
                                 Ok(())
                             });
@@ -15095,9 +15228,11 @@ impl Index {
         // (see the load gate in `Index::open`), so a live graph always has
         // a pinned dense_vector field and takes the fast path above.)
         let has_candidate = obj.values().any(|v| {
-            v.as_array()
-                .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
-                .unwrap_or(false)
+            v.as_str()
+                .is_some_and(xerj_common::packed_f32::is_packed_f32)
+                || v.as_array()
+                    .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
+                    .unwrap_or(false)
         });
         if !has_candidate {
             return;
@@ -16085,13 +16220,12 @@ impl Index {
             if get_field_value(&src, &chunk_field).is_some() {
                 return None;
             }
-            let doc_vec: Vec<f32> = match get_field_value(&src, field) {
-                Some(Value::Array(arr)) => arr
-                    .iter()
-                    .filter_map(|v| v.as_f64().map(|f| f as f32))
-                    .collect(),
-                _ => return None,
-            };
+            // Packed embeddings are the retained source form (#1940). A
+            // number array is still valid for segments written before that.
+            // `extract_numeric_vector` reads both. Any other shape, or a
+            // vector whose length is not the query's, is an extract anomaly:
+            // hand the whole request back to the exact scan.
+            let doc_vec = extract_numeric_vector(&src, field)?;
             if doc_vec.len() != query_vec.len() {
                 return None;
             }
@@ -17616,9 +17750,14 @@ impl Index {
     /// Early-exits on the first hit; only invoked on an empty nested-knn result.
     async fn index_has_any_nested_vector_at(&self, nested_path: &str, subfield: &str) -> bool {
         fn elem_has_vector(elem: &Value, subfield: &str) -> bool {
-            elem.get(subfield)
-                .and_then(Value::as_array)
-                .is_some_and(|a| !a.is_empty() && a.iter().all(Value::is_number))
+            match elem.get(subfield) {
+                Some(Value::String(text)) => xerj_common::packed_f32::unpack_f32_vector(text)
+                    .is_some_and(|values| !values.is_empty()),
+                Some(value) => value
+                    .as_array()
+                    .is_some_and(|a| !a.is_empty() && a.iter().all(Value::is_number)),
+                None => false,
+            }
         }
         fn doc_has(source: &Value, nested_path: &str, subfield: &str) -> bool {
             match get_field_value(source, nested_path) {
@@ -18284,8 +18423,20 @@ impl Index {
                 1 => chunk_vecs[0].clone(),
                 _ => mean_pool_normalize(&chunk_vecs),
             };
-            let arr: Vec<Value> = pooled.into_iter().map(|f| Value::from(f as f64)).collect();
-            obj.insert(job.target.clone(), Value::Array(arr));
+            // #1940: a 384-d `Vec<Value>` is tens of KB of retained heap per
+            // record (two memtables plus any later stored-source parse) for
+            // ~1.5 KB of f32s. Keep the packed string in the source; readers
+            // unpack it, and response paths expand it back to a number array.
+            match xerj_common::packed_f32::pack_f32_vector(&pooled) {
+                Some(packed) => {
+                    obj.insert(job.target.clone(), Value::String(packed));
+                }
+                None => {
+                    let arr: Vec<Value> =
+                        pooled.into_iter().map(|f| Value::from(f as f64)).collect();
+                    obj.insert(job.target.clone(), Value::Array(arr));
+                }
+            }
             // Compact, durable passage provenance. Text is deliberately NOT
             // duplicated: the response reconstructs only the winning page
             // slice from the original semantic field using these UTF-8 byte
@@ -18313,9 +18464,30 @@ impl Index {
             if chunk_vecs.len() > 1 {
                 let chunks_json: Vec<Value> = chunk_vecs
                     .iter()
-                    .map(|cv| Value::Array(cv.iter().map(|f| Value::from(*f as f64)).collect()))
+                    .map(|cv| match xerj_common::packed_f32::pack_f32_vector(cv) {
+                        Some(packed) => Value::String(packed),
+                        None => Value::Array(cv.iter().map(|f| Value::from(*f as f64)).collect()),
+                    })
                     .collect();
                 obj.insert(format!("{}_chunks", job.target), Value::Array(chunks_json));
+            }
+        }
+
+        // Caller-supplied vectors skip the job loop above and would otherwise
+        // stay as number arrays — the same retained-heap shape. Pack those
+        // too, field by field, after every generated vector is in place.
+        for source in sources.iter_mut() {
+            let Some(obj) = source.as_object_mut() else {
+                continue;
+            };
+            for (_, target, _) in &specs {
+                if let Some(value) = obj.get_mut(target) {
+                    xerj_common::packed_f32::compact_vector_value(value);
+                }
+                let chunks_name = format!("{target}_chunks");
+                if let Some(value) = obj.get_mut(&chunks_name) {
+                    xerj_common::packed_f32::compact_vector_value(value);
+                }
             }
         }
 
@@ -18920,6 +19092,9 @@ impl Index {
                         .iter()
                         .filter_map(|v| v.as_f64().map(|f| f as f32))
                         .collect(),
+                    Value::String(text) => {
+                        xerj_common::packed_f32::unpack_f32_vector(text).unwrap_or_default()
+                    }
                     _ => continue,
                 };
                 if doc_vec.len() != query_vec.len() {
@@ -19526,6 +19701,9 @@ impl Index {
         };
         if let Ok(Some(source)) = &mut res {
             strip_internal_passage_metadata(source);
+            // The stored source keeps embeddings packed (#1940). GET returns
+            // the number array callers already see.
+            xerj_common::packed_f32::expand_packed_f32_values(source);
         }
         match &res {
             Ok(Some(_)) => {
@@ -26563,6 +26741,17 @@ impl Index {
         self.memtable.size_bytes()
     }
 
+    /// Retained JSON-heap estimate of every live memtable source. Test-only
+    /// so a regression can bound #1940 without sampling process RSS.
+    #[cfg(test)]
+    pub(crate) fn memtable_source_heaps_for_test(&self) -> Vec<usize> {
+        self.memtable
+            .all_docs_with_sources_arc()
+            .into_iter()
+            .map(|(_, source)| crate::ingest_memory::estimated_json_heap(&source))
+            .collect()
+    }
+
     /// #948 — entries currently resident in the STORAGE memtable
     /// (`IndexStore::memtable_shards`).  Diagnostic twin of
     /// [`Self::memtable_bytes`]: the FTS memtable drains on every flush,
@@ -28015,6 +28204,14 @@ fn build_doc_value_columns<'a>(
                     col.push(Some(v));
                 }
                 Value::String(s) => {
+                    // A packed embedding is not a keyword term. Filing it
+                    // would put one multi-kilobyte dictionary entry per
+                    // document into the `.dv` sidecar (#1940). Absence of a
+                    // column is the same outcome the number-array form
+                    // already had: arrays are multi-valued and ship no column.
+                    if xerj_common::packed_f32::is_packed_f32(s) {
+                        continue;
+                    }
                     if !keyword.contains_key(field) {
                         keyword.insert(field.clone(), Vec::new());
                     }
@@ -34828,19 +35025,28 @@ async fn do_flush_shard(
                 fts_writer.add_documents_parallel(&drained_fts_for_build);
                 fts_add_us = t_add.elapsed().as_micros();
                 let t_fin = std::time::Instant::now();
-                if fts_writer.uses_encoded_field_filename_components() {
+                if fts_writer.uses_case_distinguished_field_filename_components() {
+                    store_for_warm.ensure_fts_case_distinguished_field_component_format()?;
+                    fts_writer
+                        .publish_case_distinguished_filename_layout()
+                        .map_err(|error| {
+                            xerj_storage::StorageError::Io(std::io::Error::other(format!(
+                                "FTS filename-layout publication failed: {error:#}"
+                            )))
+                        })?;
+                } else if fts_writer.uses_encoded_field_filename_components() {
                     store_for_warm.ensure_fts_encoded_field_component_format()?;
                     fts_writer
                         .publish_encoded_filename_layout()
                         .map_err(|error| {
                             xerj_storage::StorageError::Io(std::io::Error::other(format!(
-                                "FTS filename-layout publication failed: {error}"
+                                "FTS filename-layout publication failed: {error:#}"
                             )))
                         })?;
                 }
                 fts_writer.finish().map_err(|error| {
                     xerj_storage::StorageError::Io(std::io::Error::other(format!(
-                        "FTS side-car build failed: {error}"
+                        "FTS side-car build failed: {error:#}"
                     )))
                 })?;
                 fts_finish_us = t_fin.elapsed().as_micros();
@@ -35760,8 +35966,20 @@ fn apply_source_filter_measured(
             );
         }
         // The caller explicitly asked for the whole document — MORE than the
-        // default projection, not less. Nothing was withheld.
-        SourceFilter::Enabled(true) => return (hits, None),
+        // default projection, not less. Nothing was withheld. Expand packed
+        // embeddings here, on the page only, so the wire form stays a number
+        // array (#1940).
+        SourceFilter::Enabled(true) => {
+            return (
+                hits.into_iter()
+                    .map(|mut hit| {
+                        xerj_common::packed_f32::expand_packed_f32_values(&mut hit.source);
+                        hit
+                    })
+                    .collect(),
+                None,
+            );
+        }
         // `_source: false`: keep the raw source so the response layer can
         // still resolve `fields` / `_ignored` / `highlight` against it —
         // `_source` emission is suppressed in es_compat.rs.
@@ -35797,6 +36015,10 @@ fn apply_source_filter_measured(
                     .then(|| default_projection_len(&h.source, generated_companion_fields, mode));
                 let sentinels = take_collapse_sentinels(&h.source);
                 h.source = filter_object(&h.source, fields, &[]);
+                // Expand before the savings measurement so a caller who asked
+                // for the companion is billed for the number array on the wire,
+                // not the packed string it was stored as.
+                xerj_common::packed_f32::expand_packed_f32_values(&mut h.source);
                 if let Some(baseline) = baseline {
                     // Saturating: a caller who explicitly projects a generated
                     // companion gets MORE than the default, and more is not a
@@ -35814,6 +36036,7 @@ fn apply_source_filter_measured(
                     .then(|| default_projection_len(&h.source, generated_companion_fields, mode));
                 let sentinels = take_collapse_sentinels(&h.source);
                 h.source = filter_object(&h.source, includes, excludes);
+                xerj_common::packed_f32::expand_packed_f32_values(&mut h.source);
                 if let Some(baseline) = baseline {
                     acc.record(&h.id, baseline.saturating_sub(json_len(&h.source, mode)));
                 }
@@ -37976,6 +38199,15 @@ fn stored_chunk_vectors(source: &Value, vector_field: &str) -> Vec<Vec<f32>> {
 }
 
 fn json_f32_vector(value: &Value) -> Option<Vec<f32>> {
+    // #1940 stores each chunk as a `xerj:f32:` string. A number array is
+    // still valid for segments written before that. Non-finite components
+    // in a number array keep the previous `as_f64() as f32` read.
+    if value
+        .as_str()
+        .is_some_and(xerj_common::packed_f32::is_packed_f32)
+    {
+        return xerj_common::packed_f32::unpack_f32_vector(value.as_str()?);
+    }
     let row = value.as_array()?;
     let mut vector = Vec::with_capacity(row.len());
     for component in row {
@@ -42571,14 +42803,20 @@ fn push_field_root_keys(field: &str, out: &mut Vec<String>) -> bool {
 /// Returns `None` when the field is absent, not an array, empty, or holds
 /// any non-number element.
 fn extract_numeric_vector(source: &Value, field: &str) -> Option<Vec<f32>> {
-    match get_field_value(source, field) {
-        Some(Value::Array(arr)) if !arr.is_empty() && arr.iter().all(|v| v.is_number()) => Some(
-            arr.iter()
-                .filter_map(|v| v.as_f64().map(|f| f as f32))
-                .collect(),
-        ),
-        _ => None,
+    let value = get_field_value(source, field)?;
+    // Packed strings are the retained form (#1940). Number arrays remain
+    // valid for segments written before that, and for a caller that raced
+    // a vector in before compaction.
+    if value
+        .as_str()
+        .is_some_and(xerj_common::packed_f32::is_packed_f32)
+        || value
+            .as_array()
+            .is_some_and(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
+    {
+        return xerj_common::packed_f32::json_to_f32_vector(&value);
     }
+    None
 }
 
 /// Collect every dense_vector-mapped field in schema order (dotted paths
@@ -62574,6 +62812,29 @@ mod exact_scan_hydration_tests {
         assert!(
             drained.load(std::sync::atomic::Ordering::SeqCst),
             "on_drained must fire on the empty-shard fast path"
+        );
+    }
+}
+
+#[cfg(test)]
+mod packed_vector_doc_values_tests {
+    use super::build_doc_value_columns;
+    use serde_json::json;
+
+    #[test]
+    fn packed_embedding_is_not_filed_as_a_keyword() {
+        let src = json!({
+            "msg": "hello",
+            "msg_vector": xerj_common::packed_f32::pack_f32_vector(&[1.0, 0.0, -1.0]).unwrap(),
+        });
+        let cols = build_doc_value_columns(
+            std::iter::once(Some(&src)),
+            &std::collections::HashSet::new(),
+        );
+        assert!(cols.contains_key("msg"));
+        assert!(
+            !cols.contains_key("msg_vector"),
+            "a packed embedding must not become a per-doc keyword term"
         );
     }
 }
