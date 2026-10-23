@@ -12605,6 +12605,10 @@ async fn search_dispatch(
 }
 
 /// One shard's search, used by the cluster fan-out. Does not fan out again.
+///
+/// `Box::pin` keeps this future pointer-sized. `search_impl`'s state is
+/// enormous, and a fan-out that awaited it by value would embed a second
+/// copy inside the coordinator's already-boxed search future.
 pub(crate) async fn search_shard_local(
     state: AppState,
     index: String,
@@ -12612,7 +12616,14 @@ pub(crate) async fn search_shard_local(
     principal: crate::auth::Principal,
     body: EsSearchBody,
 ) -> Response {
-    search_impl(state, index, params, principal, EsSearchJson(Some(body))).await
+    Box::pin(search_impl(
+        state,
+        index,
+        params,
+        principal,
+        EsSearchJson(Some(body)),
+    ))
+    .await
 }
 
 async fn search_impl(
@@ -35535,6 +35546,9 @@ pub async fn cat_allocation(
             "host": "127.0.0.1",
             "ip": "127.0.0.1",
             "node": "xerj-node-1",
+            // #2284: memory writes name this directory when the flood-stage
+            // block fires. Not a cat column — the text table below is unchanged.
+            "path.data": state.config.server.data_dir,
         });
         // #2077: effective flood-stage gate, so autoindex can refuse before
         // it walks. Not cat columns — the text table below is unchanged.
