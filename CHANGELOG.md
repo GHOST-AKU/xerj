@@ -16,6 +16,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- An idle node whose resident set sits flat at or above the memory watermark
+  no longer drains every 2 seconds for the rest of the process. The breaker
+  releases once RSS has not fallen by more than 4 MiB for 2 seconds, and does
+  not re-arm inside that band (page-sized `ri_phys_footprint` noise is not a
+  new working set); a climb past it engages again. While the breaker stays
+  engaged, drain requests double their spacing up to 15 minutes when a drain
+  does not lower RSS by more than 4 MiB. `corpus index` / `autoindex` report
+  `eta_quality=stalled` when a phase with a known total completes nothing
+  (including 0/N), and when a phase with no total has been silent for 10
+  minutes (#1981).
+
 - A best-effort helper thread that cannot be created no longer aborts the
   process. On Unix those threads are started with `pthread_create` and do not
   map an alternate signal stack, so the allocation failure that used to panic

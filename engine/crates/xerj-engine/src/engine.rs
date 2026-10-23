@@ -4056,10 +4056,13 @@ impl Engine {
                 period_ms = crate::governor::SAMPLE_INTERVAL_MS,
                 "memory/disk sampler thread started (parent circuit breaker)"
             );
-            // #948 drain bookkeeping: None while the breaker is
-            // disengaged (so the next engage edge fires immediately),
-            // Some(last-drain) while engaged (rate-limited repeats).
-            let mut last_drain_at: Option<std::time::Instant> = None;
+            // #948 drain bookkeeping, with backoff when a drain does not
+            // lower RSS (#1981). The engage edge still fires immediately.
+            // Repeats start at MEMORY_DRAIN_MIN_INTERVAL and double up to
+            // the governor's cap while RSS does not fall, so a footprint
+            // the drain cannot shrink does not request a flush of every
+            // index every 2 s for the rest of the process.
+            let mut drains = crate::governor::MemoryDrainSchedule::new(MEMORY_DRAIN_MIN_INTERVAL);
             loop {
                 std::thread::sleep(period);
                 if weak_a.strong_count() == 0 {
@@ -4077,22 +4080,17 @@ impl Engine {
                 // memory-pinned workload finish: caches hold gigabytes
                 // of re-hydratable state and the memtable holds raw
                 // write payloads, and 429s free none of it. Request a
-                // drain on the engage edge and at most once per window
-                // while engaged. try_send never blocks, so Thread A's
-                // no-lock/no-block contract above still holds.
-                if governor.memory_breaker_engaged() {
-                    let fire = match last_drain_at {
-                        None => true,
-                        Some(at) => at.elapsed() >= MEMORY_DRAIN_MIN_INTERVAL,
-                    };
-                    if fire {
-                        last_drain_at = Some(std::time::Instant::now());
-                        if let Some(tx) = MEMORY_DRAIN_TX.get() {
-                            let _ = tx.try_send(());
-                        }
+                // drain on the engage edge and then on the schedule.
+                // try_send never blocks, so Thread A's no-lock/no-block
+                // contract above still holds.
+                if drains.observe(
+                    std::time::Instant::now(),
+                    rss,
+                    governor.memory_breaker_engaged(),
+                ) {
+                    if let Some(tx) = MEMORY_DRAIN_TX.get() {
+                        let _ = tx.try_send(());
                     }
-                } else {
-                    last_drain_at = None;
                 }
 
                 // Runtime disk flood-stage override, matching ES's
