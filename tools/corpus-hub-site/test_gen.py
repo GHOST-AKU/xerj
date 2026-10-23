@@ -14,7 +14,9 @@ Also covers Corpus Hub v2, plan section 9
 are the one line plus the `--def` form, nothing on the site clones, adds or
 indexes a corpus, and the catalogue link is on every page.
 """
+import collections
 import contextlib
+import html
 import io
 import json
 import os
@@ -28,6 +30,8 @@ import unittest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import gen  # noqa: E402
+import contributors  # noqa: E402
+import repo_pages  # noqa: E402
 
 
 class ParseGradedSuitesTest(unittest.TestCase):
@@ -313,6 +317,47 @@ class GeneratedSiteTest(unittest.TestCase):
         text = (self.out / "llms.txt").read_text(encoding="utf-8")
         head = text.split("## Live corpora")[0]
         self.assertTrue(all(len(line) <= 300 for line in head.splitlines()))
+
+class RepoPagesTest(unittest.TestCase):
+    """Titles, descriptions and the prompt for repo pages (repo_pages.py)."""
+
+    def test_title_keeps_the_name_and_fits(self):
+        t = repo_pages.title("JacobJoergensen/laravel-paper", "A flat-file Eloquent driver for modern Laravel")
+        self.assertEqual(t, "JacobJoergensen/laravel-paper: A flat-file Eloquent driver")
+        self.assertEqual(repo_pages.title("tomasuribe/switch-frame-tap", ""), "tomasuribe/switch-frame-tap | XERJ Hub")
+        t = repo_pages.title("humanlayer/12-factor-agents", "Reliability and design principles of production LLM agents")
+        self.assertEqual(t, "humanlayer/12-factor-agents: Reliability and design principles")
+
+    def test_clip_cuts_at_a_sentence_or_word_and_drops_dashes(self):
+        self.assertEqual(repo_pages.clip("One two three four five", 13), "One two three")
+        self.assertEqual(repo_pages.clip("One two three of four", 17), "One two three")
+        self.assertEqual(repo_pages.clean("Fast \u2014 small \u2013 safe :rocket: \U0001F680"), "Fast: small, safe")
+
+    def test_usecase_drops_the_agent_preamble(self):
+        self.assertEqual(repo_pages.usecase_text("an agent queries this for the exact semantic conventions"),
+                         "Exact semantic conventions")
+        self.assertTrue(repo_pages.usecase_text("How sled/fjall/redb do compaction").startswith("How sled"))
+
+    def test_description_fits_and_drops_facts_first(self):
+        d = repo_pages.description("x: " + "word " * 25, ["1,234 GitHub stars", "Rust", "MIT"], ["Copy the prompt to search it with AI."])
+        self.assertLessEqual(len(d), 160)
+        self.assertTrue(d.endswith("Copy the prompt to search it with AI."))
+
+    def test_clone_prompt_pins_the_commit(self):
+        p = repo_pages.clone_prompt("a/b", "https://github.com/a/b", "f" * 40, "https://hub.xerj.org/corpus/a--b", "MIT", "")
+        self.assertIn("git clone https://github.com/a/b b && git -C b checkout " + "f" * 40, p)
+        self.assertIn("xerj autoindex ./b --url http://127.0.0.1:9200 --prefix b", p)
+        self.assertIn("xerj autoindex map", p)
+
+    def test_candidates_reads_author_manifests(self):
+        with tempfile.TemporaryDirectory() as d:
+            (pathlib.Path(d) / "candidates" / "authors").mkdir(parents=True)
+            (pathlib.Path(d) / "candidates" / "authors" / "a--b.json").write_text(
+                json.dumps({"repos": [{"url": "https://github.com/a/b", "sha": "1" * 40}]}))
+            people = {"a": {"corpora": {"a--b": "author corpus"}, "work": {"x": {"corpora": ["a--b"]}}}}
+            c = contributors.candidates(people, set(), d)
+            self.assertEqual(c["a--b"]["repos"][0]["sha"], "1" * 40)
+
 
 class ContributorVolumeTest(unittest.TestCase):
     """Contributor pages aggregate on login across every corpus (PR #1782 follow-up)."""
@@ -864,7 +909,11 @@ class DiscoverabilityTest(unittest.TestCase):
         self.assertIn("User-agent: Google-Extended\nAllow: /", text)
         self.assertIn("User-agent: PerplexityBot\nAllow: /", text)
         self.assertIn("Sitemap: https://hub.xerj.org/sitemap.xml\n", text)
-        self.assertNotIn("Disallow", text)
+        # pages stay open; only sign-in and API endpoints are kept out, in every group
+        groups = text.count("User-agent: ")
+        self.assertEqual(text.count("Disallow: /auth/\n"), groups)
+        self.assertEqual(text.count("Disallow: /api/\n"), groups)
+        self.assertEqual(set(re.findall(r"Disallow: (\S+)", text)), {"/auth/", "/api/"})
 
     def test_og_card_is_the_light_wordmark_on_the_hub_background(self):
         import tempfile
@@ -886,13 +935,25 @@ class BuiltSiteDiscoverabilityTest(SiteLinksTest):
     and no internal link still asks for a .html URL."""
 
     def test_sitemap_matches_canonicals_and_skips_noindex(self):
-        sm = (self.out / "sitemap.xml").read_text()
-        self.assertTrue(sm.startswith('<?xml version="1.0" encoding="UTF-8"?>'))
-        self.assertNotIn("<lastmod>", sm)
-        self.assertNotIn("<priority>", sm)
-        self.assertNotIn("<changefreq>", sm)
-        locs = re.findall(r"<loc>([^<]+)</loc>", sm)
-        self.assertEqual(locs, sorted(locs))
+        idx = (self.out / "sitemap.xml").read_text()
+        self.assertTrue(idx.startswith('<?xml version="1.0" encoding="UTF-8"?>'))
+        self.assertIn("<sitemapindex ", idx)
+        children = re.findall(r"<loc>([^<]+)</loc>", idx)
+        self.assertEqual([c.rsplit("/", 1)[1] for c in children],
+                         [f"sitemap-{k}.xml" for k, _ in gen.SITEMAPS if (self.out / f"sitemap-{k}.xml").exists()])
+        locs = []
+        for c in children:
+            sm = (self.out / c.rsplit("/", 1)[1]).read_text()
+            self.assertTrue(sm.startswith('<?xml version="1.0" encoding="UTF-8"?>'))
+            self.assertNotIn("<priority>", sm)
+            self.assertNotIn("<changefreq>", sm)
+            mine = re.findall(r"<loc>([^<]+)</loc>", sm)
+            self.assertEqual(mine, sorted(mine))
+            for lm in re.findall(r"<lastmod>([^<]+)</lastmod>", sm):
+                self.assertRegex(lm, r"^\d{4}-\d{2}-\d{2}$")
+                self.assertLessEqual(lm, gen.dt.date.today().isoformat())
+            locs += mine
+        self.assertEqual(len(locs), len(set(locs)))
         self.assertGreater(len(locs), 500)
         seen = set()
         for f in self.out.rglob("*.html"):
@@ -919,6 +980,106 @@ class BuiltSiteDiscoverabilityTest(SiteLinksTest):
         self.assertIn("https://hub.xerj.org/", locs)
         self.assertIn("https://hub.xerj.org/whats-this/", locs)
         self.assertNotIn("https://hub.xerj.org/404", locs)
+
+    def _meta(self, rel):
+        h = (self.out / rel).read_text()
+        t = html.unescape(re.search(r"<title>(.*?)</title>", h).group(1))
+        d = html.unescape(re.search(r'<meta name="description" content="([^"]*)"', h).group(1))
+        return h, t, d
+
+    def test_titles_and_descriptions_fit_are_unique_and_have_no_dashes(self):
+        titles, descs = collections.Counter(), collections.Counter()
+        for f in self.out.rglob("*.html"):
+            rel = f.relative_to(self.out).as_posix()
+            h, t, d = self._meta(rel)
+            if 'name="robots"' in h.split("</head>", 1)[0] and "noindex" in h.split("</head>", 1)[0]:
+                continue
+            if rel.startswith(("corpus/", "contributors/")):
+                self.assertLessEqual(len(t), 62, rel)
+                self.assertLessEqual(len(d), 160, rel)
+                self.assertGreaterEqual(len(d), 40, rel)
+                self.assertFalse(d.lower().startswith("an agent"), rel)
+                self.assertNotIn("XERJ Corpus Hub\u201d", t)
+            for x in (t, d):
+                self.assertNotIn("\u2014", x, rel)
+                self.assertNotIn("\u2013", x, rel)
+            titles[t] += 1
+            descs[d] += 1
+        self.assertEqual([t for t, n in titles.items() if n > 1], [])
+        self.assertEqual([d for d, n in descs.items() if n > 1], [])
+
+    def test_every_json_ld_block_parses(self):
+        for f in self.out.rglob("*.html"):
+            for b in re.findall(r'<script type="application/ld\+json">\n(.*?)\n</script>', f.read_text(), re.S):
+                json.loads(b)
+
+    def test_repo_page_has_the_sections_the_prompt_and_structured_data(self):
+        rel = "corpus/jacobjoergensen--laravel-paper.html"
+        h, t, d = self._meta(rel)
+        self.assertTrue(t.startswith("JacobJoergensen/laravel-paper: "), t)
+        self.assertTrue(d.startswith("laravel-paper: "), d)
+        for s in ("What XERJ indexed", "Licence", "Selected work", "Example questions", "Related",
+                  "A new way for AI to search for data", ">Copy the prompt</button>", "View on GitHub",
+                  'aria-label="Breadcrumb"', 'href="../contributors/JacobJoergensen"'):
+            self.assertIn(s, h, s)
+        prompt = html.unescape(re.search(r'<pre class="rpprompt">(.*?)</pre>', h, re.S).group(1))
+        self.assertIn("git clone https://github.com/JacobJoergensen/laravel-paper laravel-paper", prompt)
+        self.assertRegex(prompt, r"git -C laravel-paper checkout [0-9a-f]{40}")
+        self.assertIn("xerj autoindex ./laravel-paper --url http://127.0.0.1:9200", prompt)
+        self.assertIn("ax_path", prompt)
+        types = set()
+        for b in re.findall(r'<script type="application/ld\+json">\n(.*?)\n</script>', h, re.S):
+            def walk(x):
+                if isinstance(x, dict):
+                    if "@type" in x:
+                        types.add(x["@type"])
+                    for v in x.values():
+                        walk(v)
+                elif isinstance(x, list):
+                    for v in x:
+                        walk(v)
+            walk(json.loads(b))
+        self.assertTrue({"Dataset", "SoftwareSourceCode", "BreadcrumbList", "Person"} <= types, types)
+
+    def test_no_repo_pages_for_the_exploit_poc_aggregates(self):
+        reg = {c["slug"]: c for c in gen.load_registry()}
+        pocs = {repo_pages.key(r["url"]) for s, c in reg.items() if s.startswith("exploit-pocs") for r in c["repos"]}
+        sm = (self.out / "sitemap-repos.xml").read_text()
+        for loc in re.findall(r"<loc>https://hub.xerj.org/corpus/([^<]+)</loc>", sm):
+            owner, _, repo = loc.partition("--")
+            h = (self.out / "corpus" / f"{loc}.html").read_text()
+            m = re.search(r'<a class="cta2" href="([^"]+)"', h)
+            if m:
+                self.assertNotIn(repo_pages.key(m.group(1)), pocs, loc)
+        self.assertIn("exploit-pocs-2024: ", self._meta("corpus/exploit-pocs-2024.html")[1])
+
+    def test_contributor_titles_keep_the_name_and_the_cta_copies_the_prompt(self):
+        people = contributors.load(gen.HUB, gen.load_registry())
+        kept = total = 0
+        for login, pp in people.items():
+            f = self.out / "contributors" / f"{login}.html"
+            if not pp.get("name") or pp["name"] == login or not f.exists():
+                continue
+            total += 1
+            kept += html.unescape(re.search(r"<title>(.*?)</title>", f.read_text()).group(1)).startswith(pp["name"])
+        self.assertGreater(total, 1000)
+        self.assertGreater(kept / total, 0.99, (kept, total))
+        h = (self.out / "contributors" / "JacobJoergensen.html").read_text()
+        self.assertIn(">Copy the prompt</button>", h)
+        self.assertIn("xerj autoindex", h)
+
+    def test_registry_page_title_names_the_repo_and_has_crumbs(self):
+        h, t, d = self._meta("corpus/12-factor-agents.html")
+        self.assertTrue(t.startswith("humanlayer/12-factor-agents: "), t)
+        self.assertTrue(d.startswith("12-factor-agents: "), d)
+        self.assertIn('aria-label="Breadcrumb"', h)
+        self.assertIn('"BreadcrumbList"', h)
+
+    def test_me_is_noindex_and_not_in_any_sitemap(self):
+        self.assertIn('<meta name="robots" content="noindex', (self.out / "me.html").read_text())
+        self.assertIn("/me\n  X-Robots-Tag: noindex", (self.out / "_headers").read_text())
+        for f in self.out.glob("sitemap-*.xml"):
+            self.assertNotIn("https://hub.xerj.org/me<", f.read_text())
 
     def test_home_description_ends_with_a_period_and_nothing_else_was_rewritten(self):
         html = (self.out / "index.html").read_text()

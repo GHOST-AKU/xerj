@@ -23,6 +23,7 @@ import contributors
 import search_index
 import os
 import private_data
+import repo_pages
 import struct
 import usage
 import html
@@ -959,60 +960,47 @@ def seo_block(title, desc, path, rel, kind="WebPage", image=None, noindex=False,
 
 # Allows every crawler, including the AI crawlers a managed robots.txt would
 # otherwise name. Content-Signal tokens are the three at contentsignals.org.
-ROBOTS = """# hub.xerj.org. Every crawler may fetch every page.
+ROBOTS = """# hub.xerj.org. Every crawler may fetch every page; sign-in and API
+# endpoints are not pages.
 # Agent index: https://hub.xerj.org/llms.txt
 
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
+Disallow: /auth/
+Disallow: /api/
 
-# Repeated so a crawler that only honours its own group still sees Allow.
+# Repeated so a crawler that only honours its own group still sees the rules.
 # These are the user-agents Cloudflare's managed robots.txt names, plus the
 # OpenAI and Perplexity crawlers.
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
-User-agent: meta-externalagent
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-Sitemap: https://hub.xerj.org/sitemap.xml
+""" + "".join(f"User-agent: {ua}\nAllow: /\nDisallow: /auth/\nDisallow: /api/\n\n" for ua in (
+    "GPTBot", "ChatGPT-User", "OAI-SearchBot", "Google-Extended", "Applebot-Extended", "ClaudeBot",
+    "CCBot", "Amazonbot", "Bytespider", "meta-externalagent", "PerplexityBot")) + """Sitemap: https://hub.xerj.org/sitemap.xml
 """
 
 
-def write_sitemap(out):
-    """One <loc> per indexable HTML page, identical to that page's canonical.
-    No lastmod: a generated tree has no per-file commit date that Google could
-    check, and a wrong lastmod is worse than none. No priority, no changefreq."""
+SITEMAPS = (("pages", "home, categories and guides"), ("corpora", "registry corpora"),
+            ("repos", "repo pages"), ("contributors", "contributor pages"))
+
+
+def sitemap_kind(rel, repo_pages_set=frozenset()):
+    if rel.startswith("corpus/"):
+        return "repos" if rel in repo_pages_set else "corpora"
+    if rel.startswith("contributors/"):
+        return "contributors"
+    return "pages"
+
+
+def write_sitemap(out, lastmod=None, repo_set=frozenset()):
+    """A sitemap index at /sitemap.xml and one sitemap per page type. One
+    <loc> per indexable HTML page, identical to that page's canonical.
+    <lastmod> only where the page has a real date (a consent, a clone or a
+    review date, or the day its GitHub stats were fetched); never the build
+    day. No priority, no changefreq."""
     import xml.sax.saxutils as saxutils
     out = pathlib.Path(out)
-    locs = []
+    lastmod = lastmod or {}
+    groups = {k: [] for k, _ in SITEMAPS}
     for f in sorted(out.rglob("*.html")):
         rel = f.relative_to(out).as_posix()
         if rel == "404.html":
@@ -1020,17 +1008,33 @@ def write_sitemap(out):
         head = f.read_text(encoding="utf-8").split("</head>", 1)[0]
         if 'name="robots"' in head and "noindex" in head:
             continue
-        locs.append(file_url(rel))
-    locs.sort()
-    lines = ['<?xml version="1.0" encoding="UTF-8"?>',
-             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for loc in locs:
-        lines.append("  <url>")
-        lines.append(f"    <loc>{saxutils.escape(loc)}</loc>")
-        lines.append("  </url>")
-    lines.append("</urlset>")
-    (out / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    return len(locs)
+        groups[sitemap_kind(rel, repo_set)].append((file_url(rel), lastmod.get(rel, "")))
+    index = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    total = 0
+    for k, _ in SITEMAPS:
+        rows = sorted(groups[k])
+        if not rows:
+            continue
+        total += len(rows)
+        lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+        for loc, lm in rows:
+            lines.append("  <url>")
+            lines.append(f"    <loc>{saxutils.escape(loc)}</loc>")
+            if lm:
+                lines.append(f"    <lastmod>{lm}</lastmod>")
+            lines.append("  </url>")
+        lines.append("</urlset>")
+        (out / f"sitemap-{k}.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+        newest = max((lm for _, lm in rows if lm), default="")
+        index += ["  <sitemap>", f"    <loc>{SITE}/sitemap-{k}.xml</loc>"]
+        if newest:
+            index.append(f"    <lastmod>{newest}</lastmod>")
+        index.append("  </sitemap>")
+    index.append("</sitemapindex>")
+    (out / "sitemap.xml").write_text("\n".join(index) + "\n", encoding="utf-8")
+    return total
 
 
 FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1077,6 +1081,7 @@ NAVCTA_JS = """<script>
 # Content hash of the stylesheet: appended as ?v= on every page's CSS link so a
 # changed stylesheet always busts the browser cache (assets carry a long max-age).
 STYLE += contributors.STYLE
+STYLE += repo_pages.STYLE
 STYLE += """
 /* What's this? (WHATS_THIS): short, readable measure */
 .whats .lead,.whats .detail{max-width:72ch}
@@ -1337,7 +1342,7 @@ def render_index(corpora, g7, graded, impact, prov, people=None):
         # pack has no hub pack to ask, so it is left out of the prompt.
         installable = [c for c in live_cs if corpus_stats(c)[1] > 0 and has_pack(c)]
         copy = (f'<button class="copy" data-copy="{esc(category_prompt(k, title, installable))}" '
-                f'title="Copy a prompt that tells an agent how to ask the {esc(k)} corpora with one line">COPY PROMPT</button>')
+                f'title="Copy a prompt that tells an agent how to ask the {esc(k)} corpora with one line">Copy the prompt</button>')
         tiles = "".join(tile(c) for c in live_cs)
         groups.append(f'''<div class="tgroup">
 <div class="thead"><a class="thword" href="category/{k}">{esc(k)}</a>
@@ -1395,7 +1400,112 @@ that loads one works like a domain expert.</p>
                 body, path="/", kind="CollectionPage")
 
 
-def detail_body(c, g7, graded, impact, prov, contrib=""):
+LASTMOD = {}            # out-relative html path -> YYYY-MM-DD, real dates only (write_sitemap)
+_TITLES = set()         # registry titles already used
+_FACTS = {}             # slug -> GitHub facts line for a single-repo registry corpus
+
+
+def _date(x):
+    x = (x or "")[:10]
+    return x if re.match(r"^\d{4}-\d{2}-\d{2}$", x) else ""
+
+
+def corpus_seo(c, gh, fetched, people, logins):
+    """Title, description, JSON-LD, breadcrumbs and lastmod for a registry corpus page."""
+    slug = c["slug"]
+    single = len(c["repos"]) == 1
+    r = c["repos"][0] if single else {}
+    st = gh.get(repo_pages.key(r.get("url"))) if single else None
+    st = st or {}
+    k = repo_pages.key(r.get("url"))
+    name = st.get("repo") or repo_pages.repo_name(r.get("url")) or slug
+    use = repo_pages.usecase_text(c["usecase"])
+    ghd = repo_pages.gh_text(st)
+    n = len(c["repos"])
+    count = f"{n:,} pinned GitHub repositories"
+    if n > 50:                          # the aggregates: the count says more than the blurb
+        title = repo_pages.title(slug, count)
+    else:
+        title = repo_pages.title(name, ghd or use)
+        if ":" not in title and n > 1:
+            title = repo_pages.title(name, count)
+    if title in _TITLES:                # two corpora pin the same repo: name the second by its slug
+        title = repo_pages.title(slug, ghd or use or count)
+    _TITLES.add(title)
+    head = f"{slug}: {ghd or use}" if (ghd or use) else f"{slug} corpus"
+    if ghd and use and len(ghd) < 60:
+        head += f". {use}"
+    spdx = (r.get("review") or {}).get("spdx") or r.get("licence") or st.get("licence") or ""
+    facts = [repo_pages.stars_txt(st.get("stars")), st.get("language", ""),
+             spdx if spdx and spdx not in ("?", "NOASSERTION") else ""]
+    if c.get("merged_into"):
+        tails = [f"Withdrawn: use {c['merged_into']}."]
+    elif has_pack(c):
+        tails = ["A live XERJ corpus. Copy the prompt to search it with AI.", "Copy the prompt to search it with AI."]
+    else:
+        lbl = STATUSES.get(c["status"], (c["status"], ""))[0]
+        tails = (["Live on XERJ Hub."] if c["status"] == "live" else
+                 [f"Status on XERJ Hub: {plain(lbl)}.", f"Status: {plain(lbl)}."])
+    desc = repo_pages.description(head, facts, tails)
+    cat = CATS.get(c["cat"], ("", ""))[0]
+    crumbs = [("Hub", SITE + "/")] + ([(cat, f"{SITE}/category/{c['cat']}")] if cat else []) + [(slug, f"{SITE}/corpus/{slug}")]
+    top = repo_pages.crumbs_html([("Hub", "../")] + ([(cat, f"../category/{c['cat']}")] if cat else []) + [(slug, "")], esc)
+    pp = people.get(logins[0]) if logins else None
+    person = ({"@type": "Person", "name": pp.get("name") or pp["login"], "alternateName": "@" + pp["login"],
+               "url": f"{SITE}/contributors/{pp['login']}", "sameAs": [f"https://github.com/{pp['login']}"]} if pp else None)
+    if single and k:
+        ld = repo_pages.repo_ld(slug, name, r["url"], ghd or use, [st["language"]] if st.get("language") else [], spdx,
+                                st.get("topics") or (c.get("tags") or {}).get("topics") or [], person, crumbs, r.get("sha") or "",
+                                credit=f"{name}, pinned by the XERJ Corpus Hub")
+        ld["mainEntity"]["name"] = f"{slug} corpus"
+        ld["mainEntity"]["description"] = repo_pages.clip(
+            f"{name} at commit {(r.get('sha') or '')[:10] or 'its pin'}, indexed so AI agents can search it. {use}.", 300)
+    else:
+        ds = {"@type": "Dataset", "@id": f"{SITE}/corpus/{slug}#dataset", "name": f"{slug} corpus",
+              "description": repo_pages.clip(f"{use or slug}. A corpus on the XERJ Corpus Hub that AI agents search.", 300),
+              "url": f"{SITE}/corpus/{slug}",
+              "includedInDataCatalog": {"@type": "DataCatalog", "name": "XERJ Corpus Hub", "url": SITE + "/"}}
+        lic = sorted({repo_pages.spdx_url((x.get("review") or {}).get("spdx") or "") for x in c["repos"]} - {""})
+        if lic:
+            ds["license"] = lic[0] if len(lic) == 1 else lic
+        if c["repos"] and len(c["repos"]) <= 50:
+            ds["isBasedOn"] = [x["url"] for x in c["repos"] if x.get("url")]
+        kw = (c.get("tags") or {}).get("topics") or []
+        if kw:
+            ds["keywords"] = kw
+        if person:
+            ds["contributor"] = person
+        ld = {"breadcrumb": repo_pages.crumbs_ld(crumbs), "mainEntity": ds}
+    if _date(c.get("added")):
+        ld["mainEntity"]["dateModified"] = _date(c.get("added"))
+    # the facts line for a single-repo corpus, only what GitHub returned
+    bits = []
+    if st:
+        if isinstance(st.get("stars"), int):
+            bits.append(f"{st['stars']:,} GitHub stars")
+        if isinstance(st.get("commits"), int):
+            bits.append(f"{st['commits']:,} commits on {esc(st.get('branch') or 'the default branch')}")
+        if st.get("language"):
+            bits.append(esc(st["language"]))
+        if st.get("pushed"):
+            bits.append(f"last push {esc(st['pushed'])}")
+        if isinstance(st.get("pin_behind"), int) and st["pin_behind"] > 0:
+            bits.append(f"{st['pin_behind']:,} commits since the pin")
+    _FACTS[slug] = ((f'<p class="lede">{esc(ghd)}</p>' if ghd else "")
+                    + (f'<p class="note rpfacts">{" · ".join(bits)} · <a href="{esc(r["url"])}">View on GitHub</a>'
+                       f'{f" · GitHub data fetched {esc(fetched)}" if fetched else ""}</p>' if bits else ""))
+    dates = [_date(c.get("added"))] + [_date((x.get("review") or {}).get("at")) for x in c["repos"][:50]]
+    if st and fetched:
+        dates.append(_date(fetched))
+    lm = max((x for x in dates if x), default="")
+    return title, desc, ld, top, lm
+
+
+def facts_html(c):
+    return _FACTS.get(c["slug"], "")
+
+
+def detail_body(c, g7, graded, impact, prov, contrib="", top=""):
     files, nbytes, licences = corpus_stats(c)
     st, stcls = STATUSES.get(c["status"], (c["status"], "mute"))
     cat_desc = CATS.get(c["cat"], ("", ""))
@@ -1448,7 +1558,7 @@ def detail_body(c, g7, graded, impact, prov, contrib=""):
     elif has_pack(c):
         s = esc(c["slug"])
         copybtn = (f' <button class="copy" data-copy="{esc(install_prompt(c))}" '
-                   f'title="Copy a prompt that asks this corpus with one line">COPY PROMPT</button>')
+                   f'title="Copy a prompt that asks this corpus with one line">Copy the prompt</button>')
         useit = (f'<div class="kbox"><b>Use it</b>{copybtn}<br>'
                  f'<code>xerj hub pull {s}</code><br>'
                  f'<code>xerj "your question" --corpus {s}</code><br>'
@@ -1470,10 +1580,11 @@ def detail_body(c, g7, graded, impact, prov, contrib=""):
                  f'<span class="note">This entry has no hub pack, so there is nothing to ask. '
                  f'<a href="../llms.txt">The catalogue</a> lists the corpora that can be asked.</span></div>')
     return f'''<main>
-<p><a class="backlink" href="../">&larr; all corpora</a></p>
+{top or '<p><a class="backlink" href="../">&larr; all corpora</a></p>'}
 <h1 class="slug">{esc(c['slug'])} <span class="dot {stcls}"></span></h1>
 {contributors.star_widget("corpus", c["slug"], esc, inline=True)}
 <p class="note">{esc(c['kind'])} · status <b>{st}</b> · domain <b>{esc(c['cat'])}</b> ({esc(cat_desc[0])}) · lane {esc(c['lane'])} · refresh {esc(c['refresh'])} · tags <b>{esc(tags_txt)}</b></p>
+{facts_html(c)}
 <section class="detail"><h2>What an agent uses it for</h2><p>{esc(c['usecase'] or 'n/a')}</p></section>
 {useit}
 <section class="detail"><h2>Sources and pins</h2><table>
@@ -1534,6 +1645,14 @@ That becomes the corpus's <b>agent score</b>, shown on its page apart from the h
 ''' + usage.PRIVACY + '''
 </main>'''
 
+# Cloudflare Pages _headers: the signed-in page is never indexed (the page
+# also carries <meta name="robots" content="noindex">).
+HEADERS = """/me
+  X-Robots-Tag: noindex
+/me.html
+  X-Robots-Tag: noindex
+"""
+
 # Cloudflare Pages _redirects: the old About URLs keep working.
 REDIRECTS = """/about /whats-this/ 301
 /about/ /whats-this/ 301
@@ -1570,7 +1689,7 @@ reference memory that any agent can search, so your domain knowledge makes every
 better, not just yours.</p>
 <section class="detail"><h2>Contribute a corpus</h2>
 <p class="note" style="margin-bottom:var(--sp-4)">Paste this into your coding agent. It explains itself.</p>
-<div class="promptbox"><div class="pbh"><button class="copy" data-copy="{prompt}" title="Copy this prompt">COPY PROMPT</button></div>
+<div class="promptbox"><div class="pbh"><button class="copy" data-copy="{prompt}" title="Copy this prompt">Copy the prompt</button></div>
 <pre class="prompt">{prompt}</pre></div>
 <p class="note">Full guide, templates and the review checklist:
 <a href="https://github.com/xerj-org/xerj/blob/corpus-hub/tools/xerj-code/hub/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
@@ -1595,12 +1714,17 @@ def main():
     # every corpus page credits its people: signed-up contributors, the upstream
     # owners of its pinned repositories, or the curator (contributors.credits)
     credit, upstream = contributors.credits(corpora, people)
+    gh_fetched, gh_stats = repo_pages.load_stats()
+    LASTMOD.clear()
     for c in corpora:
         cr = credit[c["slug"]]
         contrib = contributors.corpus_section(cr["contributors"], esc, people, cr["upstream"], cr["curator"], cr["aggregate"])
+        t, d, ld, top, lm = corpus_seo(c, gh_stats, gh_fetched, people, cr["contributors"])
+        if lm:
+            LASTMOD[f"corpus/{c['slug']}.html"] = lm
         (OUT / "corpus" / f"{c['slug']}.html").write_text(
-            page(f"{c['slug']}: XERJ Corpus Hub", c["usecase"][:150], detail_body(c, g7, graded, impact, prov, contrib), rel="../",
-                 path=f"/corpus/{c['slug']}"))
+            page(t, d, detail_body(c, g7, graded, impact, prov, contrib, top), rel="../",
+                 path=f"/corpus/{c['slug']}", ld_extra=ld))
     for k, (title, what) in CATS.items():
         cs = [c for c in corpora if c["cat"] == k]
         (OUT / "category" / f"{k}.html").write_text(
@@ -1612,7 +1736,8 @@ def main():
         WHATS_THIS.replace("{rel}", "../"), rel="../", path="/whats-this/"))
     (OUT / "about.html").unlink(missing_ok=True)   # replaced by whats-this/; _redirects keeps the old URL
     (OUT / "_redirects").write_text(REDIRECTS)
-    (OUT / "me.html").write_text(page("Your hub: XERJ Corpus Hub", "Your hub stars, after you sign in", ME_BODY + ME_JS, rel="", path="/me"))
+    (OUT / "_headers").write_text(HEADERS)
+    (OUT / "me.html").write_text(page("Your hub: XERJ Corpus Hub", "Your hub stars, after you sign in", ME_BODY + ME_JS, rel="", path="/me", noindex=True))
     # 404.html: Cloudflare Pages serves it, with status 404, for any path that
     # has no file. Without it Pages falls back to index.html with a 200, so a
     # mistyped corpus URL, a link checker or an agent probing /corpus/<slug>
@@ -1762,7 +1887,8 @@ def main():
               "  https://hub.xerj.org/search/index.json (names; field list inside) and",
               "  https://hub.xerj.org/search/more.json (languages, topics, use case; same row order)."]
     (OUT / "llms.txt").write_text("\n".join(lines) + "\n")
-    n_people = contributors.generate(OUT, HUB, page, esc, {c["slug"] for c in live}, corpora, people, upstream, cats=CATS)
+    n_people = contributors.generate(OUT, HUB, page, esc, {c["slug"] for c in live}, corpora, people, upstream, cats=CATS,
+                                     lastmod=LASTMOD)
     # search: static index + script (search_index.py); no Function, no Worker request
     live_slugs = {c["slug"] for c in live}
     cands = contributors.candidates(people, {c["slug"] for c in corpora}, HUB)
@@ -1771,7 +1897,8 @@ def main():
     (OUT / "assets" / "search.js").write_text(search_index.JS)
     (OUT / "search" / "index.html").write_text(page("Search: XERJ Corpus Hub", "Search corpora, repositories and contributors",
                                                     search_index.PAGE_BODY, rel="../", path="/search/", noindex=True))
-    n_urls = write_sitemap(OUT)
+    reg_slugs = {c["slug"] for c in corpora}
+    n_urls = write_sitemap(OUT, LASTMOD, {f"corpus/{s}.html" for s in cands if s not in reg_slugs})
     (OUT / "robots.txt").write_text(ROBOTS)
     # Signed-in details: bundled into the Pages Functions, never written to out/.
     if os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("HUB_FUNCTION_DATA") == "1":
