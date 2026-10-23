@@ -15696,9 +15696,7 @@ impl Index {
             // `extract_numeric_vector` reads both. Any other shape, or a
             // vector whose length is not the query's, is an extract anomaly:
             // hand the whole request back to the exact scan.
-            let Some(doc_vec) = extract_numeric_vector(&src, field) else {
-                return None;
-            };
+            let doc_vec = extract_numeric_vector(&src, field)?;
             if doc_vec.len() != query_vec.len() {
                 return None;
             }
