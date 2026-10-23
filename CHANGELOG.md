@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `xerj corpus index` killed mid-index resumes that build's journal instead of
+  starting a legacy index under a new prefix. When the journal still has a
+  generation in progress, indexing continues at the uncommitted operations and
+  files already applied are not hashed again. A resume that verifies records
+  that build. A resume that cannot verify is recorded as unverified, or left
+  unrecorded with the journal kept, instead of a ledger that names no build
+  ([#2239](https://github.com/xerj-org/xerj/issues/2239)).
+
 - A best-effort helper thread that cannot be created no longer aborts the
   process. On Unix those threads are started with `pthread_create` and do not
   map an alternate signal stack, so the allocation failure that used to panic
