@@ -1504,9 +1504,23 @@ pub async fn create_index(
         return refusal;
     }
 
+    // A matching index template contributes mappings and settings the request
+    // did not set. The request wins on a field or setting it names. Merged
+    // before validation and schema build so `semantic_text` is parsed by the
+    // same mapper as an explicit mapping, and `index.default_pipeline` is
+    // stored where `default_pipeline_for` and `GET /_settings` read it
+    // (#2281). A schema-only pass cannot: the stored mapping was the request
+    // body, so a template `semantic_text` was rendered back as `object`, and
+    // the template's settings were never copied.
+    let (mappings_val, merged_settings) = state.engine.merge_index_template(
+        &index,
+        body.get("mappings").cloned().unwrap_or(Value::Null),
+        body.get("settings").cloned().unwrap_or(Value::Null),
+    );
+    let settings_ref = (!merged_settings.is_null()).then_some(&merged_settings);
+
     // Validate mapping field types before creating — ES returns
     // mapper_parsing_exception for unsupported types.
-    let mappings_val = body.get("mappings").cloned().unwrap_or(Value::Null);
     if let Some(props) = mappings_val.get("properties").and_then(Value::as_object) {
         if let Some(refusal) = empty_field_name_refusal(props) {
             return refusal;
@@ -1557,8 +1571,7 @@ pub async fn create_index(
     // @timestamp heuristic. Mirror the field + order into the
     // `__xy_index_sort_*` internal keys so the search handler's
     // default-sort hook picks them up.
-    let explicit_sort_field: Option<String> = body
-        .get("settings")
+    let explicit_sort_field: Option<String> = settings_ref
         .and_then(|s| {
             s.pointer("/index/sort/field")
                 .or_else(|| s.pointer("/index/sort.field"))
@@ -1570,8 +1583,7 @@ pub async fn create_index(
             Value::Array(mut a) => a.first_mut().and_then(|x| x.as_str().map(String::from)),
             _ => None,
         });
-    let explicit_sort_order: String = body
-        .get("settings")
+    let explicit_sort_order: String = settings_ref
         .and_then(|s| {
             s.pointer("/index/sort/order")
                 .or_else(|| s.pointer("/index/sort.order"))
@@ -1585,14 +1597,17 @@ pub async fn create_index(
         })
         .unwrap_or_else(|| "asc".to_string());
 
-    // Thread the request's `settings` into the store config at create time
-    // (custom analysis config, and the per-index `index.xerj_ingest_shards` WAL
-    // shard override that `xerj autoindex` uses to keep each of its hundreds of
-    // indices at a single WAL file descriptor). create_index_with_settings
-    // applies index templates identically to create_index.
-    let create_settings = body.get("settings").cloned().unwrap_or(Value::Null);
+    // Thread the merged `settings` into the store config at create time
+    // (custom analysis config, the template's `index.default_pipeline`, and
+    // the per-index `index.xerj_ingest_shards` WAL shard override that
+    // `xerj autoindex` uses to keep each of its hundreds of indices at a
+    // single WAL file descriptor). create_index_with_settings applies index
+    // templates to the schema; the mapping blob and display settings below
+    // are the merged body, so a template field is not re-derived from the
+    // native type.
+    let create_settings = merged_settings;
     let display_settings = create_time_index_settings(
-        body.get("settings"),
+        (!create_settings.is_null()).then_some(&create_settings),
         &explicit_sort_field,
         &explicit_sort_order,
         declared_timestamp_date,
@@ -3828,6 +3843,12 @@ pub async fn index_doc_auto(
     Query(params): Query<IndexDocAutoParams>,
     body: bytes::Bytes,
 ) -> impl IntoResponse {
+    if xerj_common::document_limit::indexed_document_too_large(body.len()) {
+        return ApiError::new(xerj_common::XerjError::invalid_document_json(
+            xerj_common::document_limit::indexed_document_refusal(body.len()),
+        ))
+        .into_response();
+    }
     // Parse the raw body directly — avoids the axum Json extractor's extra
     // content-type enforcement and serde_json::from_str double-pass.
     let doc: Value = match serde_json::from_slice(&body) {
@@ -17023,6 +17044,11 @@ async fn search_impl(
                         } else {
                             raw
                         };
+                        // #1940 stores the embedding as one `xerj:f32:` string.
+                        // `fields` reports the vector the caller named, which
+                        // is the number array — including `"_source": false`,
+                        // where the engine keeps the packed source on purpose.
+                        let raw = raw.map(expand_packed_embedding_value);
                         let arr_raw: Vec<Value> = match raw {
                             Some(Value::Array(a)) => a,
                             Some(Value::Null) | None => continue,
@@ -17494,6 +17520,7 @@ async fn search_impl(
                             other => {
                                 if is_stored(other) {
                                     if let Some(raw) = get_source_value_by_path(&h.source, other) {
+                                        let raw = expand_packed_embedding_value(raw);
                                         let arr = match raw {
                                             Value::Array(a) => a,
                                             Value::Null => continue,
@@ -17540,6 +17567,7 @@ async fn search_impl(
                             .or_else(|| target_via_alias.and_then(|t| get_source_value_by_path(&h.source, t)))
                             .or_else(|| get_source_value_by_path(&h.source, &response_key));
                         if let Some(raw) = raw {
+                            let raw = expand_packed_embedding_value(raw);
                             let arr = match raw {
                                 Value::Array(a) => a,
                                 Value::Null => vec![],
@@ -42496,6 +42524,9 @@ pub(crate) fn build_docvalue_fields(
             let base = field_name.strip_suffix(".keyword")?;
             get_source_value_by_path(source, base)
         });
+        // Same packed-embedding expansion as `fields` (#1940). Doc values
+        // skip the string, so this path is the one that still sees it.
+        let raw = raw.map(expand_packed_embedding_value);
         let arr: Vec<Value> = match raw {
             Some(Value::Array(a)) => a,
             Some(Value::Null) | None => vec![],
@@ -42653,6 +42684,14 @@ pub(crate) fn get_field_value_via_walk(source: &Value, segs: &[&str]) -> Option<
         }
     }
     walk(source, segs)
+}
+
+/// Expand a packed embedding (`xerj:f32:` hex) into the number array
+/// `fields` and `docvalue_fields` have always returned. Leaves every other
+/// value unchanged, including a vector that is already a number array.
+fn expand_packed_embedding_value(mut value: Value) -> Value {
+    xerj_common::packed_f32::expand_packed_f32_values(&mut value);
+    value
 }
 
 pub(crate) fn get_source_value_by_path(source: &Value, path: &str) -> Option<Value> {
