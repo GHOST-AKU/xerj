@@ -2,7 +2,7 @@
  "corpus": "hardonian--settler",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
+ "shelf": "DB",
  "domain": "an agent working on audit-trail, fintech, ledger queries this for how Hardonian/Settler implements it: Reconciliation intelligence: payments, evidence, matching, financial workflow control (selected work: packages/web, crates/settler-verify-cli)",
  "repos": [
   {

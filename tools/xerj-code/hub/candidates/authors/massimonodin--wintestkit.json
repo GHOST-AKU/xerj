@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on Python queries this for how MassimoNodin/wintestkit implements it: MassimoNodin/wintestkit (Python) (selected work: vscode, scripts, python)",
+ "domain": "an agent working on TypeScript queries this for how MassimoNodin/wintestkit implements it: MassimoNodin/wintestkit (TypeScript) (selected work: vscode, scripts, python)",
  "repos": [
   {
    "repo": "wintestkit",

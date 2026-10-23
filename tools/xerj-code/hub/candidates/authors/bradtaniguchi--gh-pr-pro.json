@@ -1,0 +1,23 @@
+{
+ "corpus": "bradtaniguchi--gh-pr-pro",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on gh-extension queries this for how bradtaniguchi/gh-pr-pro implements it: Github CLI extension to provide extensive pull request metrics, extensive filtering, with built in caching, with csv/json/text output (selected work: pkg/metrics, pkg/cache, pkg/cmd)",
+ "repos": [
+  {
+   "repo": "gh-pr-pro",
+   "url": "https://github.com/bradtaniguchi/gh-pr-pro",
+   "sha": "10dfa6b37dc7c7e026f72899ad7ac3ab492a411e",
+   "licence": "MIT (LICENSE file at pin 10dfa6b37dc7, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T00:03Z",
+    "consent_receipt": "1fb8db6b8cb3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T00:03Z (receipt 1fb8db6b8cb3); selected commit 10dfa6b37dc7: \"feat(time): add ci pipeline turnaround subcommand and CI timing metri\u2026\". LICENSE file at pin 10dfa6b37dc7 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

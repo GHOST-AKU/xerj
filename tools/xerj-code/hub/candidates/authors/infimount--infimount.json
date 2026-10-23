@@ -1,0 +1,23 @@
+{
+ "corpus": "infimount--infimount",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on azure-blob-storage, cloud-storage, gcs queries this for how infimount/infimount implements it: Local-first desktop storage browser for local files, cloud storage, and explicit MCP agent access (selected work: apps/desktop)",
+ "repos": [
+  {
+   "repo": "infimount",
+   "url": "https://github.com/infimount/infimount",
+   "sha": "3ed53947fa9f3f07474d1f5c57cee0369e12e9f6",
+   "licence": "MIT (LICENSE file at pin 3ed53947fa9f, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T05:31Z",
+    "consent_receipt": "e5833d4e681e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T05:31Z (receipt e5833d4e681e); selected commit 3ed53947fa9f: \"feat(v0.8.2 A4): add opt-in Claude Code qualification build\". LICENSE file at pin 3ed53947fa9f detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

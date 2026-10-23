@@ -1,0 +1,23 @@
+{
+ "corpus": "3dgiordano--agent-plugins",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-plugins, ai-agents, coding-agents queries this for how 3dgiordano/agent-plugins implements it: Cognitive scaffolding for coding agents (selected work: bench, scripts)",
+ "repos": [
+  {
+   "repo": "agent-plugins",
+   "url": "https://github.com/3dgiordano/agent-plugins",
+   "sha": "32a9ff2d03b7a280257ba55953d1bb69a46d7ffb",
+   "licence": "Apache-2.0 (LICENSE file at pin 32a9ff2d03b7, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T16:03Z",
+    "consent_receipt": "bad255626d5c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T16:03Z (receipt bad255626d5c); selected commit 32a9ff2d03b7: \"Move Claude bench to 5.5 models; harden Nepal check\". LICENSE file at pin 32a9ff2d03b7 detected as Apache-2.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

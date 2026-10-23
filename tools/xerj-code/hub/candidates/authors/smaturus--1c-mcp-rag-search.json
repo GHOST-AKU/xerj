@@ -1,0 +1,23 @@
+{
+ "corpus": "smaturus--1c-mcp-rag-search",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how Smaturus/1c-mcp-rag-search implements it: Search for 1C (BSL code + configuration metadata) exposed to LLM agents via MCP: local e5/Chroma retrieval, global BM25 + RRF hybrid, option (selected work: data, tests, src/mcp_1c_homework)",
+ "repos": [
+  {
+   "repo": "1c-mcp-rag-search",
+   "url": "https://github.com/Smaturus/1c-mcp-rag-search",
+   "sha": "8dcd161309382e67ac472d3efadfba372e0514d9",
+   "licence": "MIT (LICENSE file at pin 8dcd16130938, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T18:47Z",
+    "consent_receipt": "57a3e57486bf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T18:47Z (receipt 57a3e57486bf); selected commit 8dcd16130938: \"fix(eval): collapse duplicate chunks before computing nDCG; update al\u2026\". LICENSE file at pin 8dcd16130938 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

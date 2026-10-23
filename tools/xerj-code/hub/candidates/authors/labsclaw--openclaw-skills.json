@@ -1,0 +1,23 @@
+{
+ "corpus": "labsclaw--openclaw-skills",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "LAW",
+ "domain": "an agent working on Python queries this for how labsclaw/openclaw-skills implements it: labsclaw/openclaw-skills (Python) (selected work: ultra-code-context-skill, catalog, scripts)",
+ "repos": [
+  {
+   "repo": "openclaw-skills",
+   "url": "https://github.com/labsclaw/openclaw-skills",
+   "sha": "d93515fffcf0dc4be9c4186dacbeca61c9ad93cb",
+   "licence": "Apache-2.0 (LICENSE file at pin d93515fffcf0, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T13:42Z",
+    "consent_receipt": "a686a8df7a7c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T13:42Z (receipt a686a8df7a7c); selected commit d93515fffcf0: \"feat: add bounded ultra code context skill\". LICENSE file at pin d93515fffcf0 detected as Apache-2.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

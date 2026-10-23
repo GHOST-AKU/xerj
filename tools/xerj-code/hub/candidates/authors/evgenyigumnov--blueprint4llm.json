@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on TypeScript queries this for how evgenyigumnov/blueprint4llm implements it: Converts Markdown documents with Mermaid, PlantUML, and Wiremark diagrams into HTML and PDF (selected work: src/renderers, tests, src/svg)",
+ "domain": "an agent working on TypeScript queries this for how evgenyigumnov/blueprint4llm implements it: Render Markdown plans as HTML or PDF, with diagrams, UI prototypes, live preview, charts, and SVG/PNG/JPEG export (selected work: src/renderers, tests, src/svg)",
  "repos": [
   {
    "repo": "blueprint4llm",

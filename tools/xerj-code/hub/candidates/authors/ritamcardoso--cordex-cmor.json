@@ -1,0 +1,23 @@
+{
+ "corpus": "ritamcardoso--cordex-cmor",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Fortran queries this for how ritamcardoso/CORDEX_Cmor implements it: ritamcardoso/CORDEX_Cmor (Fortran) (selected work: f90_src, header)",
+ "repos": [
+  {
+   "repo": "CORDEX_Cmor",
+   "url": "https://github.com/ritamcardoso/CORDEX_Cmor",
+   "sha": "373035adcf1f25a072d7235fc0efa8196c46f4f1",
+   "licence": "MIT (LICENSE file at pin 373035adcf1f, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T12:29Z",
+    "consent_receipt": "443dbbeaafd1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T12:29Z (receipt 443dbbeaafd1); selected commit 373035adcf1f: \"changed name of LU_INDEX file to lcvr in acordance to LUCAS protocol:\u2026\". LICENSE file at pin 373035adcf1f detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "hnagouda--autopost",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on film-photography, instagram, lightroom queries this for how HNagouda/autopost implements it: White borders for Instagram, done properly, on your Mac. Batch-pad photos to 4:5, 3:4 or any ratio, add text, preview on a phone, export sRG (selected work: Sources)",
+ "repos": [
+  {
+   "repo": "autopost",
+   "url": "https://github.com/HNagouda/autopost",
+   "sha": "42a61897ab42cbe62eccdcdbfb5da65238374bde",
+   "licence": "GPL-3.0 (LICENSE file at pin 42a61897ab42, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T09:12Z",
+    "consent_receipt": "9be7edcb649e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T09:12Z (receipt 9be7edcb649e); selected commit 42a61897ab42: \"Add undo, cropping, keyboard moves and navigation, the embedded phone\u2026\". LICENSE file at pin 42a61897ab42 detected as GPL-3.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

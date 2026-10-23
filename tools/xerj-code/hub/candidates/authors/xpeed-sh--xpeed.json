@@ -1,0 +1,23 @@
+{
+ "corpus": "xpeed-sh--xpeed",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how xpeed-sh/xpeed implements it: xpeed-sh/xpeed (Rust) (selected work: src, scripts, the project root)",
+ "repos": [
+  {
+   "repo": "xpeed",
+   "url": "https://github.com/xpeed-sh/xpeed",
+   "sha": "9872552cb72ec37654af34254a9d06dfaf070060",
+   "licence": "MIT (LICENSE file at pin 9872552cb72e, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T14:13Z",
+    "consent_receipt": "d56ab9da4de3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T14:13Z (receipt d56ab9da4de3); selected commit 9872552cb72e: \"vs0.10.8\". LICENSE file at pin 9872552cb72e detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

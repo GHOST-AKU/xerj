@@ -2,7 +2,7 @@
  "corpus": "vrihe--overlay-translator",
  "cloned_at": null,
  "status": "draft",
- "shelf": "AI",
+ "shelf": "WRITE",
  "domain": "an agent working on llm, overlay-tool, pyqt5 queries this for how Vrihe/Overlay-Translator implements it: Screen overlay translator: select any region (like Win+Shift+S) - OCR reads the text, an LLM translates it with context-aware prompts (games (selected work: translate, ui, tests)",
  "repos": [
   {

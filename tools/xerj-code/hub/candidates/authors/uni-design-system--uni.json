@@ -1,0 +1,23 @@
+{
+ "corpus": "uni-design-system--uni",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on angular-components, design-system, react-components queries this for how uni-design-system/uni implements it: Mono repo for core dependencies and ancillary component libraries (selected work: packages/angular, packages/core)",
+ "repos": [
+  {
+   "repo": "uni",
+   "url": "https://github.com/uni-design-system/uni",
+   "sha": "c5ba4750e0aa2107ed32db624d9957eaae72e0cb",
+   "licence": "MIT (LICENSE file at pin c5ba4750e0aa, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T17:51Z",
+    "consent_receipt": "82b0e1d25fc5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T17:51Z (receipt 82b0e1d25fc5); selected commit c5ba4750e0aa: \"Add `selected` and `interactive` states to `uni-card`, introduce `uni\u2026\". LICENSE file at pin c5ba4750e0aa detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

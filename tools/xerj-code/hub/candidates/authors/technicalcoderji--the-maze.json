@@ -1,0 +1,23 @@
+{
+ "corpus": "technicalcoderji--the-maze",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Python queries this for how TechnicalCoderji/The-Maze implements it: The Maze is an open-source Python project using Pygame to visualize maze generation and solving algorithms. Built as a mini-project for stud (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "The-Maze",
+   "url": "https://github.com/TechnicalCoderji/The-Maze",
+   "sha": "10a8b36f8656f6846f38debcc065ddbfd59db3fb",
+   "licence": "MIT (LICENSE file at pin 10a8b36f8656, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T15:04Z",
+    "consent_receipt": "148552473494",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T15:04Z (receipt 148552473494); selected commit 10a8b36f8656: \"Add pointer functionality for manual solving and add reset button\". LICENSE file at pin 10a8b36f8656 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

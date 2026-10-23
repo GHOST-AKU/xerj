@@ -1,0 +1,23 @@
+{
+ "corpus": "orkono--orag",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Rust queries this for how orkono/orag implements it: orkono/orag (Rust) (selected work: apps/desktop)",
+ "repos": [
+  {
+   "repo": "orag",
+   "url": "https://github.com/orkono/orag",
+   "sha": "14c9ac279b41c6db6d2f9eed86791e9a29db5654",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "909ce76e020e",
+    "note": "author consent by email 2026-10-22T13:10Z (receipt 909ce76e020e); selected commit 14c9ac279b41: \"fix: stop during a GPU probe, keep imports and retries off the GPU fa\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

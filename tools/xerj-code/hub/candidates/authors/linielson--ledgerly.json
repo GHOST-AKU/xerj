@@ -1,0 +1,23 @@
+{
+ "corpus": "linielson--ledgerly",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Ruby queries this for how linielson/ledgerly implements it: linielson/ledgerly (Ruby) (selected work: spec, app/models)",
+ "repos": [
+  {
+   "repo": "ledgerly",
+   "url": "https://github.com/linielson/ledgerly",
+   "sha": "805bb67885ef46878f1be7c0242ad9cc9c02480e",
+   "licence": "MIT (LICENSE file at pin 805bb67885ef, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T15:27Z",
+    "consent_receipt": "bf1f72946d28",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T15:27Z (receipt bf1f72946d28); selected commit 805bb67885ef: \"[T-106] Map Money to two columns with a money_attribute macro\". LICENSE file at pin 805bb67885ef detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

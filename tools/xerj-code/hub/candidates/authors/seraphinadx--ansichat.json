@@ -1,0 +1,23 @@
+{
+ "corpus": "seraphinadx--ansichat",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Go queries this for how SeraphinaDX/AnsiChat implements it: SeraphinaDX/AnsiChat (Go) (selected work: internal/sysinfo, cmd/copperline-gui, internal/version)",
+ "repos": [
+  {
+   "repo": "AnsiChat",
+   "url": "https://github.com/SeraphinaDX/AnsiChat",
+   "sha": "800d632c68c3c57e9b05ed2e99fb67b39149206a",
+   "licence": "GPL-3.0 (LICENSE file at pin 800d632c68c3, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-22T19:24Z",
+    "consent_receipt": "9d9f670ad71c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T19:24Z (receipt 9d9f670ad71c); selected commit 800d632c68c3: \"Add GPU information to /flex and omit load averages (0.2.30)\". LICENSE file at pin 800d632c68c3 detected as GPL-3.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

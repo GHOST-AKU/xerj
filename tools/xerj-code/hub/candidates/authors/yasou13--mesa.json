@@ -1,0 +1,23 @@
+{
+ "corpus": "yasou13--mesa",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on emr, llm, zero-trust queries this for how Yasou13/MESA implements it: An asynchronous memory engine for enterprise AI agents, statistically minimizing hallucinations via dual-LLM consensus (selected work: tests, mesa_storage, mesa_memory)",
+ "repos": [
+  {
+   "repo": "MESA",
+   "url": "https://github.com/Yasou13/MESA",
+   "sha": "c26d58c179b40d39ddc15b24eb31442304858841",
+   "licence": "MIT (LICENSE file at pin c26d58c179b4, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T18:13Z",
+    "consent_receipt": "0dee6ad247da",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T18:13Z (receipt 0dee6ad247da); selected commit c26d58c179b4: \"fix(query): close planner input and citation gaps\". LICENSE file at pin c26d58c179b4 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

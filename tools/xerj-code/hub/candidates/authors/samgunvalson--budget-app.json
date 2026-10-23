@@ -1,0 +1,23 @@
+{
+ "corpus": "samgunvalson--budget-app",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how SamGunvalson/budget-app implements it: A custom, mostly AI built budget app based around the Vertex42 Money Manager Excel sheets I used to use to manage my budgets. Built for myse (selected work: src/services, server, sql_scripts)",
+ "repos": [
+  {
+   "repo": "budget-app",
+   "url": "https://github.com/SamGunvalson/budget-app",
+   "sha": "1fe822fa02ef78c0361b2ce34f2e09078f9b4651",
+   "licence": "GPL-3.0 (LICENSE file at pin 1fe822fa02ef, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-22T19:20Z",
+    "consent_receipt": "65c2a6f98e0b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T19:20Z (receipt 65c2a6f98e0b); selected commit 1fe822fa02ef: \"Local database (#31)\". LICENSE file at pin 1fe822fa02ef detected as GPL-3.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

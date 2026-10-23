@@ -2,8 +2,8 @@
  "corpus": "davegallant--homelab",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on homelab, selfhosted queries this for how davegallant/homelab implements it: configuration for self-hosted services (selected work: ansible, scripts)",
+ "shelf": "OPS",
+ "domain": "an agent working on homelab, selfhosted, k8s-at-home queries this for how davegallant/homelab implements it: configuration for self-hosted services (selected work: ansible, scripts)",
  "repos": [
   {
    "repo": "homelab",

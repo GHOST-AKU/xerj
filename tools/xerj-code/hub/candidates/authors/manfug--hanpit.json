@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on TypeScript queries this for how ManfuG/HanPit implements it: Offline Chinese learning for Android and web: FSRS-6 flashcards, Mandarin audio, grammar, readings, progressive HSK tests and portable local (selected work: src, android, the project root)",
+ "domain": "an agent working on android, capacitor, chinese-learning queries this for how ManfuG/HanPit implements it: Offline Chinese learning for Android and web: FSRS-6 flashcards, Mandarin audio, grammar, readings, progressive HSK tests and portable local (selected work: src, android, the project root)",
  "repos": [
   {
    "repo": "HanPit",

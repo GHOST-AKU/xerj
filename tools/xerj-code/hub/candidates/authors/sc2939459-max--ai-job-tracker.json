@@ -1,0 +1,23 @@
+{
+ "corpus": "sc2939459-max--ai-job-tracker",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how sc2939459-max/ai-job-tracker implements it: AI-powered job search and application management platform for job discovery, resume matching, application tracking, interviews, and career i (selected work: backend, frontend)",
+ "repos": [
+  {
+   "repo": "ai-job-tracker",
+   "url": "https://github.com/sc2939459-max/ai-job-tracker",
+   "sha": "9ccec094b94ffb05e4577d37476c4ed06eddbcf9",
+   "licence": "MIT (LICENSE file at pin 9ccec094b94f, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T18:35Z",
+    "consent_receipt": "a42572e003f6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T18:35Z (receipt a42572e003f6); selected commit 9ccec094b94f: \"ai-job-tracker: Add notifications feature and update dashboard and jo\u2026\". LICENSE file at pin 9ccec094b94f detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

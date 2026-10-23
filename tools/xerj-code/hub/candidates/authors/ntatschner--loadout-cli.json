@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on agents, ai, claude-code queries this for how ntatschner/loadout-cli implements it: Launch AI coding agents with your instructions, memory and usage tracking in one central workspace \u2014 and nothing left behind in your reposit (selected work: tests, src/Loadout.Core, src/Loadout.Agents)",
+ "domain": "an agent working on agents, ai, claude-code queries this for how ntatschner/loadout-cli implements it: Your coding agents, kitted out and kept in check. A workbench for coding agents (selected work: tests, src/Loadout.Core, src/Loadout.Agents)",
  "repos": [
   {
    "repo": "loadout-cli",

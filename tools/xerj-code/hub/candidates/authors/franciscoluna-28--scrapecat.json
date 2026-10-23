@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on ai, assistant, documentation queries this for how franciscoluna-28/Scrapecat implements it: Allows developers and engineering teams to translate their work. Every VC or executive can know about the changes built by engineering (selected work: backend, frontend)",
+ "domain": "an agent working on ai, assistant, documentation queries this for how franciscoluna-28/Scrapecat implements it: Scrapecat communicates engineering work and progress for everyone. We treat Git as the single source of truth (selected work: backend, frontend)",
  "repos": [
   {
    "repo": "Scrapecat",

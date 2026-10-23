@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on Python queries this for how yanivbahalul/Riddick implements it: Deep Learning Based Low Light Image & Video Enhancement (selected work: riddick, scripts)",
+ "domain": "an agent working on computer-vision, deep-learning, image-enhancement queries this for how yanivbahalul/Riddick implements it: Deep Learning Based Low Light Image & Video Enhancement (selected work: riddick, scripts)",
  "repos": [
   {
    "repo": "Riddick",

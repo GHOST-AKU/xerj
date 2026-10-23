@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on audio, music, music-player queries this for how rootscripts/riff implements it: Your desktop music player (selected work: the project root)",
+ "domain": "an agent working on audio, music, music-player queries this for how rootscripts/riff implements it: Your best desktop music player (selected work: the project root)",
  "repos": [
   {
    "repo": "riff",

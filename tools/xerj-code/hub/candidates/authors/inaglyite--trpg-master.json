@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on Python queries this for how Inaglyite/TRPG-Master implements it: An AI-driven TRPG platform featuring tool-using agents, deterministic rule execution, persistent state, and character memory (selected work: tests, frontend, src/gameplay)",
+ "domain": "an agent working on Python queries this for how Inaglyite/TRPG-Master implements it: An AI-driven TRPG platform featuring tool-using agents, deterministic rule execution, persistent state, and character memory. \u4e00\u4e2a\u7531AI\u9a71\u52a8\u7684\u8dd1\u56e2Agen (selected work: tests, frontend, src/gameplay)",
  "repos": [
   {
    "repo": "TRPG-Master",

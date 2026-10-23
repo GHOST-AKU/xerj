@@ -1,0 +1,23 @@
+{
+ "corpus": "korokira--alcove",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on TypeScript queries this for how KoroKira/alcove implements it: Espace de travail visuel personnel \u2014 canvas Excalidraw, notes Markdown avec wikilinks, kanban, Gantt, LaTeX \u2014 avec assistant IA 100% local v (selected work: src/backend, src/frontend, scripts)",
+ "repos": [
+  {
+   "repo": "alcove",
+   "url": "https://github.com/KoroKira/alcove",
+   "sha": "94f60472ae402297e6ed1eeaee0430dbf823eee7",
+   "licence": "MIT (LICENSE file at pin 94f60472ae40, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T19:04Z",
+    "consent_receipt": "cbc348e7dc37",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T19:04Z (receipt cbc348e7dc37); selected commit 94f60472ae40: \"feat: consolidate versioned API and pad access security\". LICENSE file at pin 94f60472ae40 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

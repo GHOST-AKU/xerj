@@ -2,8 +2,8 @@
  "corpus": "asemqaffaf--rust-fetch",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on Rust queries this for how asemqaffaf/rust-fetch implements it: asemqaffaf/rust-fetch (Rust) (selected work: api, scripts, wasm-module)",
+ "shelf": "WEB",
+ "domain": "an agent working on axios-alternative, browser, fetch queries this for how asemqaffaf/rust-fetch implements it: Resilient HTTP client for JavaScript & TypeScript: fetch() with timeouts, retries, typed errors, interceptors, upload/download progress and  (selected work: api, scripts, wasm-module)",
  "repos": [
   {
    "repo": "rust-fetch",

@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on android, bootloader, magisk-detection queries this for how eltavine/Duck-Detector-Refactoring implements it: Android environment integrity inspection tool for root, hook, bootloader, SELinux, virtualization, and attestation signals (selected work: feature)",
+ "domain": "an agent working on android, bootloader, magisk-detection queries this for how eltavine/Duck-Detector-Refactoring implements it: Open-source Android device integrity and risk analysis framework with rootless diagnostics, evidence correlation, hardware-backed attestatio (selected work: feature)",
  "repos": [
   {
    "repo": "Duck-Detector-Refactoring",

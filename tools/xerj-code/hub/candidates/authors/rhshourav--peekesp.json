@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "OPS",
- "domain": "an agent working on dietpi, embedded-ui, esp32 queries this for how rhshourav/PeekESP implements it: PeekESP brings remote system metrics to Android, dedicated ESP32 displays, desktop hosts, Raspberry Pi displays, and Home Assistant. Monitor (selected work: android)",
+ "domain": "an agent working on dietpi, embedded-ui, esp32 queries this for how rhshourav/PeekESP implements it: Peek Essential Status Panel brings remote system metrics to Android, dedicated ESP32 displays, desktop hosts, Raspberry Pi displays, and Hom (selected work: android)",
  "repos": [
   {
    "repo": "PeekESP",

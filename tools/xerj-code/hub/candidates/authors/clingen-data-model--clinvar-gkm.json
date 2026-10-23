@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on Shell queries this for how clingen-data-model/clinvar-gkm implements it: dataform project with pipelines to transform clinvar to gks standards (selected work: src/scripts)",
+ "domain": "an agent working on Python queries this for how clingen-data-model/clinvar-gkm implements it: dataform project with pipelines to transform clinvar to gks standards (selected work: src/scripts)",
  "repos": [
   {
    "repo": "clinvar-gkm",

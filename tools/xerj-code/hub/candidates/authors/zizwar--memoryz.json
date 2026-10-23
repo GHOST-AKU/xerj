@@ -1,0 +1,23 @@
+{
+ "corpus": "zizwar--memoryz",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-memory, agent-skills, agentic-ai queries this for how Zizwar/memoryz implements it: Memoryz (selected work: src/services, src/routes, src/ui)",
+ "repos": [
+  {
+   "repo": "memoryz",
+   "url": "https://github.com/Zizwar/memoryz",
+   "sha": "c0642f97fd377dd43e54ad49743e008184fbcbb5",
+   "licence": "MIT (LICENSE file at pin c0642f97fd37, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T23:56Z",
+    "consent_receipt": "87b201c61fee",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T23:56Z (receipt 87b201c61fee); selected commit c0642f97fd37: \"fix(r2): dynamic credential resolution via Turso app_settings and vau\u2026\". LICENSE file at pin c0642f97fd37 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

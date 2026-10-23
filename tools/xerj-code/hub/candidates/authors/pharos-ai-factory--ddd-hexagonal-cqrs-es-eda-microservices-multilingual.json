@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on Python queries this for how pharos-ai-factory/ddd-hexagonal-cqrs-es-eda-microservices-multilingual implements it: Complete working example of using Domain Driven Design (DDD), Hexagonal Architecture, CQRS, Event Sourcing (ES), Event Driven Architecture ( (selected work: services, tests, contracts)",
+ "domain": "an agent working on TypeScript queries this for how pharos-ai-factory/ddd-hexagonal-cqrs-es-eda-microservices-multilingual implements it: Complete working example of using Domain Driven Design (DDD), Hexagonal Architecture, CQRS, Event Sourcing (ES), Event Driven Architecture ( (selected work: services, tests, contracts)",
  "repos": [
   {
    "repo": "ddd-hexagonal-cqrs-es-eda-microservices-multilingual",

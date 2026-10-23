@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on arm64, batch-rename, bulk-rename queries this for how morfredus/ant-renamer-qt implements it: C++/Qt 6 port of Ant Renamer 2.13: batch file renaming (replace, enumerate, case, regex, EXIF, MP3 tags) for Windows and Linux. Unofficial,  (selected work: app, core, tests)",
+ "domain": "an agent working on arm64, batch-rename, bulk-rename queries this for how morfredus/ant-renamer-qt implements it: Ant Renamer Qt: cross-platform batch file renamer in C++20/Qt 6 for Windows and Linux. Regular expressions, EXIF/IPTC/XMP and ID3 metadata,  (selected work: app, core, tests)",
  "repos": [
   {
    "repo": "ant-renamer-qt",

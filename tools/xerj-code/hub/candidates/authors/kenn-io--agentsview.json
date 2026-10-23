@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on Go queries this for how kenn-io/agentsview implements it: Local-first session search, analytics, insights, and token use statistics for coding agents, supporting Claude Code, Codex, and more than 20 (selected work: internal/parser, internal/sync, internal/rawderive)",
+ "domain": "an agent working on Go queries this for how kenn-io/agentsview implements it: Local-first session search, analytics, insights, and token use statistics for coding agents, supporting Claude Code, Codex, and more than 50 (selected work: internal/parser, internal/sync, internal/rawderive)",
  "repos": [
   {
    "repo": "agentsview",

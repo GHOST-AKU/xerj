@@ -1,0 +1,23 @@
+{
+ "corpus": "eobi--nemesis-analyst",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on deobfuscation, dfir, dynamic-analysis queries this for how eobi/Nemesis_analyst implements it: Static + dynamic malware analysis for Windows. Deep static triage (entropy map, multi-stage strings, code patterns, imports, capabilities),  (selected work: nanalyst, tests, the project root)",
+ "repos": [
+  {
+   "repo": "Nemesis_analyst",
+   "url": "https://github.com/eobi/Nemesis_analyst",
+   "sha": "8c32bd4f4cdc5e55ac2ca5421fb71d36cbf62e6e",
+   "licence": "MIT (LICENSE file at pin 8c32bd4f4cdc, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T13:32Z",
+    "consent_receipt": "e25b5ea00661",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T13:32Z (receipt e25b5ea00661); selected commit 8c32bd4f4cdc: \"v1.0: public release \u2014 MCP server, cleaner reports, docs\". LICENSE file at pin 8c32bd4f4cdc detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

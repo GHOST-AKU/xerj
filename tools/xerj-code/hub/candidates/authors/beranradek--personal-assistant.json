@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "SEC",
- "domain": "an agent working on TypeScript queries this for how beranradek/personal-assistant implements it: Personal AI assistant with secured sandbox, memory (markdowns and hybrid search), integrations - adapters, heartbeat proactivity and skills (selected work: src/tools, src/cron)",
+ "domain": "an agent working on TypeScript queries this for how beranradek/personal-assistant implements it: Personal AI assistant with secured sandbox, memory (markdowns and hybrid search, episodic memory), integrations - adapters, heartbeat proact (selected work: src/tools, src/cron)",
  "repos": [
   {
    "repo": "personal-assistant",

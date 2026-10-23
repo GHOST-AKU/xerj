@@ -2,8 +2,8 @@
  "corpus": "angvp--tango",
  "cloned_at": null,
  "status": "draft",
- "shelf": "WEB",
- "domain": "an agent working on Go queries this for how angvp/tango implements it: tanGO is a small, explicit web framework for Go, inspired by Django (selected work: internal/shellcore, internal/cli, shell)",
+ "shelf": "DB",
+ "domain": "an agent working on admin, framework, go queries this for how angvp/tango implements it: tanGO is a small, explicit web framework for Go, inspired by Django (selected work: internal/shellcore, internal/cli, shell)",
  "repos": [
   {
    "repo": "tango",

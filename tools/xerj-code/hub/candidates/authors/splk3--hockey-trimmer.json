@@ -1,0 +1,23 @@
+{
+ "corpus": "splk3--hockey-trimmer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how splk3/hockey_trimmer implements it: Python application to trim hockey videos down to a single game (selected work: tests, hockey_trimmer)",
+ "repos": [
+  {
+   "repo": "hockey_trimmer",
+   "url": "https://github.com/splk3/hockey_trimmer",
+   "sha": "7954d6ea7399c99fa3cfe3da23e440e624d622fe",
+   "licence": "MIT (LICENSE file at pin 7954d6ea7399, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T12:33Z",
+    "consent_receipt": "2a87fab1bc74",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T12:33Z (receipt 2a87fab1bc74); selected commit 7954d6ea7399: \"feat: add HEVC re-encoding option alongside H.264 in video trimmer\". LICENSE file at pin 7954d6ea7399 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

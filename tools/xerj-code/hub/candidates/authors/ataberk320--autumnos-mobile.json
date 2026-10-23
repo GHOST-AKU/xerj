@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on buildroot, c, cpp queries this for how ataberk320/autumnos-mobile implements it: AutumnOS: A locally developed, open-source Mobile Operating System for RISC-V. Powering embedded devices with Linux kernel (selected work: v0.1-alpha)",
+ "domain": "an agent working on buildroot, c, cpp queries this for how ataberk320/autumnos-mobile implements it: AutumnOS: A locally developed, open-source Mobile Operating System for mobile embedded systems. Powering embedded devices with Linux kernel (selected work: v0.1-alpha)",
  "repos": [
   {
    "repo": "autumnos-mobile",

@@ -1,0 +1,23 @@
+{
+ "corpus": "luozhuzhang--starship-anatomy",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on aerospace, anatomy, interactive queries this for how LuozhuZhang/starship-anatomy implements it: An interactive SVG explainer of SpaceX Starship's structure and systems, with exploded views, module selection, and zoom (selected work: work, outputs, src)",
+ "repos": [
+  {
+   "repo": "starship-anatomy",
+   "url": "https://github.com/LuozhuZhang/starship-anatomy",
+   "sha": "8faab66a50ec717f1ed2c1223e449e377359134f",
+   "licence": "MIT (LICENSE file at pin 8faab66a50ec, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T19:36Z",
+    "consent_receipt": "0658bd3f034c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T19:36Z (receipt 0658bd3f034c); selected commit 8faab66a50ec: \"Add interactive Starship atlas, screenshot gallery, and demo video\". LICENSE file at pin 8faab66a50ec detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}
