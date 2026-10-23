@@ -11345,17 +11345,21 @@ impl Index {
         }
 
         // Vector indexing is only meaningful when at least one document
-        // in the batch carries an array of numbers. Scan until the first
-        // candidate instead of inspecting only processed[0]: mixed batches
-        // may legitimately begin with an ordinary text/log document.
+        // in the batch carries a vector. Scan until the first candidate
+        // instead of inspecting only processed[0]: mixed batches may
+        // legitimately begin with an ordinary text/log document. A packed
+        // `xerj:f32:` string is that vector (#1940); treating only number
+        // arrays as candidates skipped HNSW for every semantic bulk batch.
         if processed.iter().any(|r| {
             r.source
                 .as_object()
                 .map(|obj| {
                     obj.values().any(|v| {
-                        v.as_array()
-                            .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
-                            .unwrap_or(false)
+                        v.as_str()
+                            .is_some_and(xerj_common::packed_f32::is_packed_f32)
+                            || v.as_array()
+                                .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
+                                .unwrap_or(false)
                     })
                 })
                 .unwrap_or(false)
@@ -15691,12 +15695,11 @@ impl Index {
             if get_field_value(&src, &chunk_field).is_some() {
                 return None;
             }
-            let doc_vec: Vec<f32> = match get_field_value(&src, field) {
-                Some(Value::Array(arr)) => arr
-                    .iter()
-                    .filter_map(|v| v.as_f64().map(|f| f as f32))
-                    .collect(),
-                _ => return None,
+            // `get_document_uncounted` keeps the #1940 packed string. A
+            // number-array-only match here abandons the whole ANN request
+            // and the caller scans every document.
+            let Some(doc_vec) = extract_numeric_vector(&src, field) else {
+                return None;
             };
             if doc_vec.len() != query_vec.len() {
                 return None;
@@ -17208,9 +17211,14 @@ impl Index {
     /// Early-exits on the first hit; only invoked on an empty nested-knn result.
     async fn index_has_any_nested_vector_at(&self, nested_path: &str, subfield: &str) -> bool {
         fn elem_has_vector(elem: &Value, subfield: &str) -> bool {
-            elem.get(subfield)
-                .and_then(Value::as_array)
-                .is_some_and(|a| !a.is_empty() && a.iter().all(Value::is_number))
+            match elem.get(subfield) {
+                Some(Value::String(text)) => xerj_common::packed_f32::unpack_f32_vector(text)
+                    .is_some_and(|values| !values.is_empty()),
+                Some(value) => value
+                    .as_array()
+                    .is_some_and(|a| !a.is_empty() && a.iter().all(Value::is_number)),
+                None => false,
+            }
         }
         fn doc_has(source: &Value, nested_path: &str, subfield: &str) -> bool {
             match get_field_value(source, nested_path) {
@@ -18510,6 +18518,9 @@ impl Index {
                         .iter()
                         .filter_map(|v| v.as_f64().map(|f| f as f32))
                         .collect(),
+                    Value::String(text) => {
+                        xerj_common::packed_f32::unpack_f32_vector(text).unwrap_or_default()
+                    }
                     _ => continue,
                 };
                 if doc_vec.len() != query_vec.len() {
