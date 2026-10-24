@@ -59,6 +59,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- A full process memtable budget now flushes instead of leaving `xerj autoindex`
+  on HTTP 429 until it gives up. The rejection requests a drain (largest
+  memtable first) rather than waiting for the next memory sample, and a
+  search issued while that breaker is engaged publishes those memtables
+  before it scans them. `xerj search` / `xerj def` saying `no indices named
+  …` names the prefixes on the node in that same line, including a prefix
+  recorded only on a catalog dataset document
+  ([#2321](https://github.com/xerj-org/xerj/issues/2321)).
+
 - Semantic `xerj autoindex` against `--embed-mode proxy` resumes after a
   mid-run failure and does not re-embed documents already indexed, when the
   backend, configured model, endpoint, and confirmed vector width are
