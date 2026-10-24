@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- With `[cluster] enabled = true`, a single-document index or delete is
+  acknowledged when a quorum of the shard's copies has confirmed, not only
+  when every placed replica has. Copies are the primary plus the replicas
+  named by `index.number_of_replicas` at create. A quorum is
+  `copies / 2 + 1`, and the primary already counts, so one replica out of
+  two is enough. The replica that did not confirm is removed from the
+  in-sync set through the Raft log and is not used for a later read. Nothing
+  replays the writes it missed, so it stays out. `number_of_replicas` 0 or 1
+  is unchanged: there is no replica to wait for, or that one replica must
+  confirm. Fewer confirmations than the quorum is still HTTP 503
+  `replica_not_acknowledged` — the primary has the write, and retrying the
+  index copies it to the replicas still in sync. There is still no
+  `wait_for_active_shards`, no replica promotion, and no snapshot catch-up
+  for a node that missed the log (part of
+  [#1170](https://github.com/xerj-org/xerj/issues/1170)). Single-node mode
+  does not take this path.
+
 - A DeepSeek Harness profile bundle in `dsh/` (`xerj-dsh`, Apache-2.0)
   inserts the README's `mcp-xerj` stdio row via
   `@deepseek-ai/dsh-mcp-client`. The row is still untested on DSH.
@@ -39,6 +56,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (including 0/N), and when a phase with no total has been silent for 10
   minutes (#1981).
 
+- An existing index's persisted `index.default_pipeline` runs again after a
+  clean restart. `GET /_settings` still reported the binding, and the
+  pipeline definition was still there, but an ordinary document write no
+  longer copied the field: the in-memory binding was filled on create and
+  on settings update, and opening the index from disk did not rebuild it.
+  Boot, a failed-index retry, and snapshot restore now copy `settings.json`
+  back into that map. Explicit `?pipeline=` was already unaffected
+  ([#2294](https://github.com/xerj-org/xerj/issues/2294)).
+
 - `xerj autoindex` no longer aborts the node on one large JSON file (#1122).
   A bulk whose analysis would cross the memory watermark is rejected with
   HTTP 429 before the documents are parsed, so several in-flight bulks cannot
@@ -62,6 +88,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (and the edges index) on its own, names the index it is waiting on, and
   does not retry a timed-out refresh
   ([#2234](https://github.com/xerj-org/xerj/issues/2234)).
+
+- Neural `xerj autoindex` prints an estimated embedding time before ingest,
+  from a probe measured when the neural model loads and the bytes of files
+  that feed a `semantic_text` dataset. The line names no duration when the
+  probe did not run, and it points at the faster lexical default.
+  `--embed-mode` help and the startup warning state that the mode is fixed
+  per index at ingest and that changing it requires a re-index. Creating or
+  updating a mapping warns when `inference_id`, `model_id`, or
+  `inference_endpoint` names a different embedder than the server is running;
+  those keys do not switch the embedder
+  ([#1612](https://github.com/xerj-org/xerj/issues/1612)).
 
 - A matching index template's `semantic_text` properties and
   `index.default_pipeline` are applied when an index is created, including
