@@ -195,17 +195,9 @@ mod tests {
             (0..64).into_par_iter().all(|_| {
                 // The safe spawner does not go through `Builder::name`, so
                 // `std::thread::current().name()` is empty. The OS comm is
-                // what the spawner sets, and it is how a panic on the thread
-                // is identified. 15 characters, so `xerj-scan-N` fits.
-                #[cfg(target_os = "linux")]
-                {
-                    os_thread_comm().starts_with("xerj-scan")
-                }
-                #[cfg(not(target_os = "linux"))]
-                {
-                    let _ = rayon::current_thread_index();
-                    true
-                }
+                // what the spawner sets. 15 characters, so `xerj-scan-N` fits.
+                xerj_common::thread_spawn::current_thread_name()
+                    .is_some_and(|name| name.starts_with("xerj-scan"))
             })
         });
         assert!(name_is_ours, "phase A must not run on the global pool");
@@ -291,13 +283,5 @@ mod tests {
             })
         });
         assert!(widths.iter().all(|&w| w == 2));
-    }
-
-    #[cfg(target_os = "linux")]
-    fn os_thread_comm() -> String {
-        // SAFETY: `SYS_gettid` takes no pointer. The tid is only interpolated
-        // into a `/proc` path this process can read.
-        let tid = unsafe { libc::syscall(libc::SYS_gettid) };
-        std::fs::read_to_string(format!("/proc/self/task/{tid}/comm")).unwrap_or_default()
     }
 }
