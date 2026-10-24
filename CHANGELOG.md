@@ -118,6 +118,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   looking like completed-with-junk
   ([#2336](https://github.com/xerj-org/xerj/issues/2336)).
 
+- `xerj autoindex` indexes `.sql` schema, migration, and routine files as
+  code. `CREATE TABLE` / `VIEW` / `FUNCTION` / `PROCEDURE` / `INDEX` /
+  `TRIGGER` / `TYPE` / `SCHEMA` / `SEQUENCE` become symbols, and the source
+  stays searchable. A comment, a quoted literal, a dollar-quoted body,
+  or an `INSERT`/`COPY` nested inside another statement is not a dump.
+  Those files used to be sniffed as an
+  empty SQL dump and skipped (`no records extracted`), which dropped
+  hand-written DDL such as a rule-engine script. A file with a top-level
+  `INSERT … VALUES` is still a row dump. A data-only `COPY … FROM stdin`
+  dump, which the row parser does not read, is skipped with that reason;
+  when the same file also contains schema statements, those statements are
+  indexed as code (#2337).
+
 - A full process memtable budget now flushes instead of leaving `xerj autoindex`
   on HTTP 429 until it gives up. The rejection requests a drain (largest
   memtable first) rather than waiting for the next memory sample, and a
@@ -126,6 +139,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   …` names the prefixes on the node in that same line, including a prefix
   recorded only on a catalog dataset document
   ([#2321](https://github.com/xerj-org/xerj/issues/2321)).
+
+- The default process memory cap on a host under 16 GiB is half of that
+  RAM, and segment merges follow it (#1122). An 8 GiB machine used to
+  take the 8 GiB step, so the budget was the whole machine; a merge
+  storm on Windows 10 stayed up only after
+  `XERJ_MAX_PROCESS_MEMORY_MB=4096`. That host now gets a 4 GiB cap.
+  A merge batch on a budget that cannot hold the historical 512 MiB
+  input (8× working set plus the 2 GiB memtable floor) is sized to
+  `budget / 64` (64 MiB at 4 GiB) and concurrent merges share a quarter
+  of the budget. A batch that would still cross the RSS watermark waits
+  for the next check; one batch still runs, because a merge is what
+  retires per-segment caches. Hosts at 16 GiB and above keep the 8 / 16 /
+  32 GiB steps, the 512 MiB batch, and the configured merge parallelism.
+  A single JSON document over 50 MiB is still refused at the 8 MiB
+  ceiling, before it is parsed, and the rest of the bulk is indexed.
 
 - A multi-term question no longer ranks a one-word symbol definition
   (`type Token`) above a hit that covers more of the question. `xerj search`,
