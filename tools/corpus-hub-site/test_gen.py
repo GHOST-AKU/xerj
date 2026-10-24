@@ -31,6 +31,7 @@ import unittest
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import gen  # noqa: E402
 import contributors  # noqa: E402
+import gh_stars  # noqa: E402
 import repo_pages  # noqa: E402
 import search_index  # noqa: E402
 
@@ -1310,6 +1311,42 @@ console.log('ok');
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
         self.assertIn("ok", proc.stdout)
 
+
+
+class GhStarsBadgeTest(unittest.TestCase):
+    """The nav GitHub stars badge (gh_stars.py): a real saved count, one per page,
+    refreshed straight from api.github.com so it never adds hub Worker requests."""
+
+    def test_compact(self):
+        for n, want in ((950, "950"), (1000, "1k"), (1249, "1.2k"), (1250, "1.3k"), (14225, "14.2k"), (15049, "15k")):
+            self.assertEqual(gh_stars.compact(n), want)
+
+    def test_badge_on_every_page_with_saved_count(self):
+        n = gh_stars.saved_count()
+        self.assertIsInstance(n, int)
+        self.assertGreater(n, 0)
+        out = gen.page("T", "D", "<main></main>")
+        self.assertEqual(out.count('class="navstars"'), 1)
+        self.assertIn('href="https://github.com/xerj-org/xerj"', out)
+        self.assertIn(f'data-gh-stars="{n}">\u2605 {gh_stars.compact(n)}</span>', out)
+        self.assertIn(gh_stars.JS, out)
+        self.assertNotRegex(gh_stars.badge() + gh_stars.JS, "[\u2013\u2014]")
+
+    def test_refresh_goes_to_github_not_the_worker(self):
+        urls = re.findall(r"fetch\('([^']+)'", gh_stars.JS)
+        self.assertEqual(urls, ["https://api.github.com/repos/xerj-org/xerj"])
+        self.assertIn("600000", gh_stars.JS)  # 10-minute localStorage cache
+
+    def test_missing_saved_count_still_renders_the_mark(self):
+        with tempfile.TemporaryDirectory() as d:
+            old = gh_stars.SAVED
+            gh_stars.SAVED = pathlib.Path(d) / "none.json"
+            try:
+                b = gh_stars.badge()
+            finally:
+                gh_stars.SAVED = old
+        self.assertIn('data-gh-stars="0"></span>', b)
+        self.assertIn("<svg", b)
 
 if __name__ == "__main__":
     unittest.main()
