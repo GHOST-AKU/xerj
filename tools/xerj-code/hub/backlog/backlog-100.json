@@ -13366,6 +13366,30 @@
      "planning"
     ]
    }
+  },
+  {
+   "cat": "AI",
+   "domain": "an agent building a multi-tier LLM orchestrator queries this for how atoma runs one plan/validate/execute/validate supervision loop across three agent ranks, keeps tools at the leaf rank only, learns and compiles skills from runs, isolates execution in network-none containers, and serves one role-tiered MCP over HTTP",
+   "lane": "A",
+   "refresh": "pinned",
+   "slug": "atoma-run--atoma",
+   "sources": [
+    {
+     "licence_hint": "AGPL-3.0-only \u2014 approach-only, per-repo review block in the manifest",
+     "url": "see hub/atoma-run--atoma.json"
+    }
+   ],
+   "status": "live",
+   "tags": {
+    "region": "GLOBAL",
+    "topics": [
+     "llm-agents",
+     "orchestration",
+     "mcp",
+     "skills",
+     "sandboxing"
+    ]
+   }
   }
  ],
  "lanes": [
