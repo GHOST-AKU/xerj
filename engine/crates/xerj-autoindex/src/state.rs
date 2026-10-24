@@ -1399,6 +1399,15 @@ impl Journal {
                                         .insert(file_key.to_string(), generation.to_string());
                                 }
                             }
+                            // #2314: a file that left the folder is not a
+                            // replacement. Drop its completion so a later
+                            // catalog write does not advertise it again.
+                            Some("file_removed") => {
+                                if let Some(file_key) = v.get("file_key").and_then(Value::as_str) {
+                                    done.remove(file_key);
+                                    pending_replacements.remove(file_key);
+                                }
+                            }
                             _ => {}
                         }
                     }
@@ -1785,6 +1794,23 @@ impl Journal {
     /// Durably invalidate an older completion before persisting a new plan or
     /// changing live visibility. Replaying this record schedules repair until
     /// a later durable file_done commits the generation.
+    /// A planned file left the folder and its documents were swept (#2314).
+    ///
+    /// Unlike [`Self::file_replace_start`], this does not schedule a
+    /// replacement: there is no current file to republish.
+    pub fn file_removed(&mut self, file_key: &str) -> Result<()> {
+        self.append_transaction(
+            &serde_json::json!({
+                "kind": "file_removed",
+                "file_key": file_key,
+            }),
+            "file_removed",
+        )?;
+        self.done.remove(file_key);
+        self.pending_replacements.remove(file_key);
+        Ok(())
+    }
+
     pub fn file_replace_start(&mut self, file_key: &str, generation: &str) -> Result<()> {
         self.append_transaction(
             &serde_json::json!({

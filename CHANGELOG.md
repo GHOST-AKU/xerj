@@ -45,6 +45,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Graph-mode `xerj autoindex` re-indexes a folder after files are added or
+  deleted. An added file that fits a frozen dataset is indexed on the rerun;
+  a file that needs a new dataset stays unindexed until `--fresh`. Documents,
+  catalog rows, and graph edges for a file that left the folder are removed,
+  including when `--fresh` rebuilds the plan. `xerj autoindex remove` deletes
+  that folder's resume journal (and `sync-snapshots`), and an explicit
+  `--state-dir` on `remove` deletes the journal there too. A file whose size
+  changes while a run is reading it is skipped with a warning instead of
+  aborting the run, on the graph path and on `--no-graph` snapshot sealing.
+  The catalog canonical/alias count refreshes and recounts before it aborts
+  a generation ([#2314](https://github.com/xerj-org/xerj/issues/2314)).
+
 - An existing index's persisted `index.default_pipeline` runs again after a
   clean restart. `GET /_settings` still reported the binding, and the
   pipeline definition was still there, but an ordinary document write no

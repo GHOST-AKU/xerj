@@ -2875,6 +2875,7 @@ async fn run_autoindex_remove(ctx: &Ctx, args: &Value) -> Value {
             root,
             yes: confirm,
             prompt: false,
+            state_dir: None,
         })
     })
     .await;
