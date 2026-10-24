@@ -1703,28 +1703,19 @@ mod tests {
         let named = map_in_fetch_pool(
             || super::fetch_pool(2),
             &items,
-            |&i| (i, fetch_worker_comm()),
+            |&i| {
+                (
+                    i,
+                    // Unix workers set the pthread comm, not the std name (#1122).
+                    xerj_common::thread_spawn::current_thread_name()
+                        .is_some_and(|name| name.starts_with("xerj-fetch")),
+                )
+            },
         );
         assert!(named
             .iter()
             .enumerate()
             .all(|(i, &(v, on_pool))| v == i as u64 && on_pool));
-    }
-
-    fn fetch_worker_comm() -> bool {
-        #[cfg(target_os = "linux")]
-        {
-            // SAFETY: `SYS_gettid` takes no pointer. The tid is only interpolated
-            // into a `/proc` path this process can read.
-            let tid = unsafe { libc::syscall(libc::SYS_gettid) };
-            std::fs::read_to_string(format!("/proc/self/task/{tid}/comm"))
-                .unwrap_or_default()
-                .starts_with("xerj-fetch")
-        }
-        #[cfg(not(target_os = "linux"))]
-        {
-            rayon::current_thread_index().is_some()
-        }
     }
 
     #[test]

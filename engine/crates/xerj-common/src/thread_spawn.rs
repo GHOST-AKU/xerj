@@ -871,6 +871,34 @@ fn set_os_name(bytes: &[u8; 16]) {
     }
 }
 
+/// The name of the calling thread, as the spawner set it.
+///
+/// On Linux and macOS this is the pthread comm. Unix spawn does not go
+/// through `Builder::name`, so `std::thread::current().name()` is empty
+/// there (#1122). The comm is at most 15 bytes (`xerj-scan-0` fits).
+/// Elsewhere this is the std thread name, which `Builder::name` did set.
+pub fn current_thread_name() -> Option<String> {
+    #[cfg(any(target_os = "linux", target_os = "macos"))]
+    {
+        let mut buf = [0u8; 16];
+        // SAFETY: `buf` is writable for `buf.len()` bytes. On success
+        // `pthread_getname_np` writes a NUL-terminated name into it and
+        // does not retain the pointer.
+        let rc = unsafe {
+            libc::pthread_getname_np(libc::pthread_self(), buf.as_mut_ptr().cast(), buf.len())
+        };
+        if rc != 0 {
+            return None;
+        }
+        let end = buf.iter().position(|byte| *byte == 0).unwrap_or(buf.len());
+        String::from_utf8(buf[..end].to_vec()).ok()
+    }
+    #[cfg(not(any(target_os = "linux", target_os = "macos")))]
+    {
+        std::thread::current().name().map(str::to_owned)
+    }
+}
+
 /// Same default std uses for a spawned thread (`2 MiB` on Tier-1). A larger
 /// stack would reserve more address space than the path this replaces,
 /// which is the opposite of what a memory-pressure spawn should do.
@@ -1094,7 +1122,7 @@ mod tests {
     fn a_successful_spawn_runs_the_job_once_on_the_named_thread() {
         let (tx, rx) = std::sync::mpsc::channel();
         let handle = try_spawn_with(&StdSpawn, true, "xerj-t1122", move || {
-            tx.send(helper_thread_name()).unwrap();
+            tx.send(current_thread_name()).unwrap();
         })
         .expect("spawn");
         handle.join().unwrap();
@@ -1444,26 +1472,5 @@ mod tests {
         // thread's alternate signal stack into `stack`.
         let rc = unsafe { libc::sigaltstack(std::ptr::null(), &mut stack) };
         (rc, stack.ss_flags)
-    }
-
-    fn helper_thread_name() -> Option<String> {
-        #[cfg(any(target_os = "linux", target_os = "macos"))]
-        {
-            let mut buf = [0u8; 64];
-            // SAFETY: `buf` is writable for `buf.len()` bytes and is
-            // NUL-terminated by pthread_getname_np on success.
-            let rc = unsafe {
-                libc::pthread_getname_np(libc::pthread_self(), buf.as_mut_ptr().cast(), buf.len())
-            };
-            if rc != 0 {
-                return None;
-            }
-            let end = buf.iter().position(|byte| *byte == 0).unwrap_or(buf.len());
-            String::from_utf8(buf[..end].to_vec()).ok()
-        }
-        #[cfg(not(any(target_os = "linux", target_os = "macos")))]
-        {
-            std::thread::current().name().map(str::to_owned)
-        }
     }
 }
