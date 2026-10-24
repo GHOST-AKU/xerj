@@ -1445,6 +1445,16 @@ const ALIAS_SWEEP_FAILED_REASON: &str = "catalog-alias-sweep-failed";
 /// the plan in place to include it. `--no-graph` reconciles both.
 const STALE_RESUME_PLAN_REASON: &str = "stale-resume-plan";
 
+/// `xerj-done` reason when a graph-path rerun removed documents for files
+/// that left the folder (#2314).
+///
+/// Exit 3, not 0: a removal used to look like a no-op resume while the
+/// documents stayed live, and exit 0 is what that bug printed. The index
+/// matches the folder afterwards — this is success, the same way junk is —
+/// and the next unchanged rerun is exit 0. Distinct from
+/// `completed-with-junk`: the files were usable, they are gone.
+const FILES_REMOVED_REASON: &str = "files-removed";
+
 /// Catalog / plan status for a file the frozen resume plan does not cover.
 const STALE_RESUME_PLAN_STATUS: &str = "stale-plan";
 
@@ -1550,6 +1560,7 @@ pub(crate) fn outcome_headline(
     junk_records: u64,
     alias_sweep_failed: bool,
     stale_plan_files: u64,
+    files_removed: u64,
 ) -> String {
     if code != 3 {
         return format!("ok: indexed and searchable (exit {code}, completed)");
@@ -1589,6 +1600,27 @@ pub(crate) fn outcome_headline(
              duplicate-alias cleanup could not run, so rerun the same command once the server \
              condition clears"
         );
+    }
+    if files_removed > 0 {
+        let files = estimate::count_phrase(files_removed, "file", "files");
+        let mut line = format!(
+            "ok: indexed and searchable — exit 3 ({FILES_REMOVED_REASON}) is SUCCESS, not an \
+             error: removed documents for {files} that no longer exist in the folder"
+        );
+        if junk_files > 0 || junk_records > 0 {
+            let mut recorded = Vec::new();
+            if junk_files > 0 {
+                recorded.push(estimate::count_phrase(junk_files, "file", "files"));
+            }
+            if junk_records > 0 {
+                recorded.push(estimate::count_phrase(junk_records, "record", "records"));
+            }
+            line.push_str(&format!(
+                ". Also recorded as junk: {}",
+                recorded.join(" and ")
+            ));
+        }
+        return line;
     }
     let mut recorded = Vec::new();
     if junk_files > 0 {
@@ -6343,6 +6375,7 @@ fn finish_generated_run(es: &Es, journal: &mut state::Journal, cfg: &IndexCfg) -
                 count("files_junk"),
                 count("junk_records_total"),
                 false,
+                0,
                 0,
             )
         );
@@ -11439,6 +11472,17 @@ fn run_index_report_inner(
     if skipped_appeared > 0 {
         run_doc["skipped_appeared"] = json!(skipped_appeared);
     }
+    // #2314: present only when this run deleted documents for files that left
+    // the folder. A later unchanged rerun does not set it, so exit 0 there is
+    // a real no-op and not another removal.
+    let files_removed = if swept_membership {
+        deleted_file_keys.len() as u64
+    } else {
+        0
+    };
+    if files_removed > 0 {
+        run_doc["files_removed"] = json!(files_removed);
+    }
     // #2056: the exit-3 headline stays one line. The paths themselves are a
     // separate list, capped, with the reason. Present only when something
     // was skipped, so a clean run document is unchanged.
@@ -11526,21 +11570,23 @@ fn run_index_report_inner(
 
     // ── summary ──────────────────────────────────────────────────────────
     let junk_total_records = junk_records.load(Ordering::Relaxed);
-    // Exit 3 means "completed, some input was unusable". Backend rejections
-    // are not consulted and must not be: a rejected item aborts the run with
-    // an error long before this line, so `rejected_records` is provably 0
-    // here. Splitting them out of `junk_total_records` therefore changes no
-    // exit code.
+    // Exit 3 means "completed, and something about this run is recorded
+    // rather than fatal" (`cli.rs` EXIT CODES). Junk is the everyday case.
+    // Backend rejections are not consulted and must not be: a rejected item
+    // aborts the run with an error long before this line, so
+    // `rejected_records` is provably 0 here. Splitting them out of
+    // `junk_total_records` therefore changes no exit code.
     //
-    // A failed alias sweep lands here too, and on 3 rather than on a code of
-    // its own: 3 already means "completed, and something about this run is
-    // recorded rather than fatal" (`cli.rs` EXIT CODES), and inventing a fourth
-    // success code would break every caller that already branches on 0/3. The
-    // `reason` is what tells the two apart.
+    // A failed alias sweep and a swept deletion land here too, on 3 rather
+    // than on a code of their own: inventing another success code would break
+    // every caller that already branches on 0/3. The `reason` is what tells
+    // them apart. A removal is not exit 0: that is what the run printed when
+    // the documents stayed live (#2314).
     let code = if junk_total_records > 0
         || junk_file_count > 0
         || alias_sweep_error.is_some()
         || skipped_appeared > 0
+        || files_removed > 0
     {
         3
     } else {
@@ -11557,6 +11603,7 @@ fn run_index_report_inner(
                 junk_total_records,
                 alias_sweep_error.is_some(),
                 skipped_appeared as u64,
+                files_removed,
             )
         );
         for line in &skip_lines {
@@ -11702,6 +11749,9 @@ fn run_index_report_inner(
     if skipped_appeared > 0 {
         done_fields.push(("skipped_appeared", skipped_appeared as u64));
     }
+    if files_removed > 0 {
+        done_fields.push(("files_removed", files_removed));
+    }
     if dataless_skipped > 0 {
         done_fields.push(("skipped_dataless", dataless_skipped));
     }
@@ -11716,6 +11766,8 @@ fn run_index_report_inner(
             STALE_RESUME_PLAN_REASON
         } else if alias_sweep_error.is_some() {
             ALIAS_SWEEP_FAILED_REASON
+        } else if files_removed > 0 {
+            FILES_REMOVED_REASON
         } else if code == 3 {
             "completed-with-junk"
         } else {
@@ -13730,11 +13782,11 @@ mod generation_contract_identity_tests {
     /// what was recorded instead of hiding it.
     #[test]
     fn a_finished_run_leads_with_an_ok_line_that_spells_out_exit_3() {
-        let clean = outcome_headline(0, 0, 0, false, 0);
+        let clean = outcome_headline(0, 0, 0, false, 0, 0);
         assert!(clean.starts_with("ok: indexed and searchable"), "{clean}");
         assert!(clean.contains("exit 0"), "{clean}");
 
-        let junk = outcome_headline(3, 1, 0, false, 0);
+        let junk = outcome_headline(3, 1, 0, false, 0, 0);
         assert!(junk.starts_with("ok: indexed and searchable"), "{junk}");
         assert!(
             junk.contains("exit 3 (completed-with-junk) is SUCCESS, not an error"),
@@ -13744,10 +13796,30 @@ mod generation_contract_identity_tests {
         assert!(junk.contains("xerj autoindex"), "{junk}");
         assert!(!junk.contains('\n'), "one line: {junk}");
 
-        let both = outcome_headline(3, 2, 5, false, 0);
+        let both = outcome_headline(3, 2, 5, false, 0, 0);
         assert!(both.contains("2 files and 5 records"), "{both}");
 
-        let stale = outcome_headline(3, 0, 0, false, 2);
+        let removed = outcome_headline(3, 0, 0, false, 0, 1);
+        assert!(
+            removed.contains("exit 3 (files-removed) is SUCCESS, not an error"),
+            "{removed}"
+        );
+        assert!(
+            removed.contains("no longer exist in the folder"),
+            "{removed}"
+        );
+        assert!(
+            !removed.contains("recorded as junk"),
+            "a removal is not junk: {removed}"
+        );
+        assert!(!removed.contains('\n'), "one line: {removed}");
+        let removed_and_junk = outcome_headline(3, 1, 0, false, 0, 2);
+        assert!(
+            removed_and_junk.contains("Also recorded as junk: 1 file"),
+            "{removed_and_junk}"
+        );
+
+        let stale = outcome_headline(3, 0, 0, false, 2, 0);
         assert!(stale.contains("exit 3 (stale-resume-plan)"), "{stale}");
         assert!(
             stale.contains("2 files skipped because the resumed plan is stale"),
@@ -13759,13 +13831,13 @@ mod generation_contract_identity_tests {
             "a stale plan is not junk: {stale}"
         );
         assert!(!stale.contains('\n'), "one line: {stale}");
-        let stale_and_junk = outcome_headline(3, 1, 0, false, 2);
+        let stale_and_junk = outcome_headline(3, 1, 0, false, 2, 0);
         assert!(
             stale_and_junk.contains("Also recorded as junk: 1 file"),
             "{stale_and_junk}"
         );
 
-        let sweep = outcome_headline(3, 4, 0, true, 0);
+        let sweep = outcome_headline(3, 4, 0, true, 0, 0);
         assert!(sweep.starts_with("ok: indexed and searchable"), "{sweep}");
         assert!(sweep.contains(ALIAS_SWEEP_FAILED_REASON), "{sweep}");
         assert!(sweep.contains("rerun the same command"), "{sweep}");

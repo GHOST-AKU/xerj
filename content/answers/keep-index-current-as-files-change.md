@@ -127,9 +127,11 @@ than a formality:
   generation: added, changed, renamed and deleted files are all handled.
 * On the default graph path, a run resumes a *frozen* plan. A file whose content
   changed **is** reconciled there (measured on 2026-09-19: 3.07 s, `files=1`,
-  the new text searchable). A deleted file is swept, and an added file that fits
-  a frozen dataset is indexed on the rerun. A file that needs a new dataset is
-  not: the run exits 3 with `reason=stale-resume-plan` and names `--fresh`.
+  the new text searchable). A deleted file is swept (exit 3,
+  `reason=files-removed`; the next unchanged rerun is exit 0), and an added
+  file that fits a frozen dataset is indexed on the rerun. A file that needs a
+  new dataset is not: the run exits 3 with `reason=stale-resume-plan` and names
+  `--fresh`.
   Before that reconcile, the same 2026-09-19 capture recorded a deletion
   aborting in 0.24 s and leaving its documents live. Those timings were not
   re-measured here.

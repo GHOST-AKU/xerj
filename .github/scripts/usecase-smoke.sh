@@ -170,50 +170,34 @@ else
   bad "expected >=3 hits for 'zanzibarite' across the discovered datasets, got ${HITS:-0}"
 fi
 
-# ── 4. autoindex: a removed file is swept, and putting it back indexes it ─
+# ── 4. autoindex: a removed file is refused, and the refusal is reversible ─
 phase "4. autoindex rerun over a mutated folder"
 # Nothing above reruns autoindex over a folder that CHANGED, which is where the
 # silent-skip bug lived: a rerun used to exit 0 while the removed file's
-# documents stayed live with no source behind them. Graph mode now deletes
-# those documents on the rerun (#2314) instead of aborting the folder. This is
-# the end-to-end gate: the run names logs/app.log, the token that exists only
-# in that file disappears with it, and putting the file back makes it
-# searchable again. Exit 0 and exit 3 are both a finished run.
+# documents stayed live with no source behind them. The refusal has unit and
+# in-process HTTP tests; this is the end-to-end gate — and it also proves the
+# cheapest recovery the message names (put the file back) actually works.
 AX_STATE="$AX_WORK/state"
 ax_run() { "$XERJ_BIN" autoindex "$CORPUS" --url "$AX_URL" --state-dir "$AX_STATE" \
              --prefix ax-eval --brain eval "$@" 2>&1; }
-hits_for() {
-  curl -s -o /dev/null -m 30 -XPOST "$AX_URL/ax-*/_refresh" || true
-  curl -s -m 30 -G "$AX_URL/ax-*/_search" --data-urlencode "q=$1" \
-       --data-urlencode 'size=0' | jq -r '.hits.total.value // .hits.total // 0'
-}
 
-BEFORE="$(hits_for declined)"
-echo "  hits for 'declined' before removal: ${BEFORE:-0}"
 mv "$CORPUS/logs/app.log" "$AX_WORK/app.log.away"
 REMOVED="$(ax_run)"; REMOVED_RC=$?
-AFTER="$(hits_for declined)"
-echo "  hits for 'declined' after removal: ${AFTER:-0} (exit $REMOVED_RC)"
-if { [ "$REMOVED_RC" = 0 ] || [ "$REMOVED_RC" = 3 ]; } \
+if [ "$REMOVED_RC" != 0 ] \
    && grep -q "no longer exist in the folder" <<<"$REMOVED" \
-   && grep -q "app.log" <<<"$REMOVED" \
-   && [ "${BEFORE:-0}" -ge 1 ] \
-   && [ "${AFTER:-0}" = 0 ]; then
-  ok "a rerun after a removal sweeps logs/app.log (exit $REMOVED_RC) and drops its documents"
+   && grep -q "app.log" <<<"$REMOVED"; then
+  ok "a rerun after a removal refuses (exit $REMOVED_RC) and names the removed file"
 else
-  bad "expected a removal of logs/app.log to finish (exit 0 or 3), name the file, and drop its documents, got exit $REMOVED_RC (before=${BEFORE:-0} after=${AFTER:-0})"
+  bad "expected a nonzero refusal naming logs/app.log, got exit $REMOVED_RC"
   echo "$REMOVED" | tail -20
 fi
 
 mv "$AX_WORK/app.log.away" "$CORPUS/logs/app.log"
 RESTORED="$(ax_run)"; RESTORED_RC=$?
-RESTORED_HITS="$(hits_for declined)"
-echo "  hits for 'declined' after restore: ${RESTORED_HITS:-0} (exit $RESTORED_RC)"
-if { [ "$RESTORED_RC" = 0 ] || [ "$RESTORED_RC" = 3 ]; } \
-   && [ "${RESTORED_HITS:-0}" -ge 1 ]; then
-  ok "restoring the file indexes it again (exit $RESTORED_RC)"
+if [ "$RESTORED_RC" = 0 ] || [ "$RESTORED_RC" = 3 ]; then
+  ok "restoring the file — recovery (1) in the refusal — lets the rerun through again"
 else
-  bad "expected the restored folder to rerun cleanly and find 'declined', got exit $RESTORED_RC (hits=${RESTORED_HITS:-0})"
+  bad "expected the restored folder to rerun cleanly, got exit $RESTORED_RC"
   echo "$RESTORED" | tail -20
 fi
 

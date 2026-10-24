@@ -1700,7 +1700,7 @@ fn completed_plan_sweeps_a_vanished_content_group() {
     assert_eq!(run_index(config.clone()).unwrap(), 0);
 
     fs::remove_file(corpus.path().join("second.csv")).unwrap();
-    assert_eq!(run_index(config).unwrap(), 0);
+    assert_eq!(run_index(config).unwrap(), 3);
     let locked = endpoint.state.lock().unwrap();
     let live: std::collections::HashSet<&str> = locked
         .docs
@@ -1738,7 +1738,7 @@ fn completed_plan_sweeps_deletions_and_indexes_same_schema_additions() {
     fs::remove_file(corpus.path().join("a-old.csv")).unwrap();
     fs::write(corpus.path().join("z-new.csv"), "id,value\n3,z\n").unwrap();
     fs::write(corpus.path().join("m-new.csv"), "id,value\n4,m\n").unwrap();
-    assert_eq!(run_index(config).unwrap(), 0);
+    assert_eq!(run_index(config).unwrap(), 3);
     let locked = endpoint.state.lock().unwrap();
     let live: std::collections::HashSet<&str> = locked
         .docs
@@ -2125,7 +2125,7 @@ fn fresh_sweeps_a_deleted_file_and_indexes_the_addition() {
     fs::remove_file(corpus.path().join("old.csv")).unwrap();
     fs::write(corpus.path().join("new.csv"), "id,value\n2,new\n").unwrap();
     config.fresh = true;
-    assert_eq!(run_index(config).unwrap(), 0);
+    assert_eq!(run_index(config).unwrap(), 3);
     let locked = endpoint.state.lock().unwrap();
     let live: std::collections::HashSet<&str> = locked
         .docs
@@ -2348,7 +2348,7 @@ fn deleted_planned_junk_is_swept_rather_than_refused() {
 
     // Deleting the indexed file sweeps its documents too (#2314).
     fs::remove_file(corpus.path().join("rows.csv")).unwrap();
-    assert_eq!(run_index(config).unwrap(), 0);
+    assert_eq!(run_index(config).unwrap(), 3);
     let locked = endpoint.state.lock().unwrap();
     assert!(locked
         .docs
@@ -2379,7 +2379,7 @@ fn emptying_the_folder_sweeps_the_indexed_file_including_fresh() {
     assert_eq!(run_index(config.clone()).unwrap(), 0);
 
     fs::remove_file(corpus.path().join("only.csv")).unwrap();
-    assert_eq!(run_index(config.clone()).unwrap(), 0);
+    assert_eq!(run_index(config.clone()).unwrap(), 3);
     assert!(endpoint
         .state
         .lock()
@@ -2655,8 +2655,10 @@ fn deleted_path_documents_are_swept_and_bytes_follow_the_survivor() {
 
     fs::remove_file(&removed).unwrap();
     let retained_bytes = fs::metadata(&retained).unwrap().len();
-    for _ in 0..2 {
-        assert_eq!(run_index(config.clone()).unwrap(), 0);
+    // The sweep is exit 3 (files-removed). The next rerun of the settled
+    // folder is exit 0: nothing left to remove.
+    for expected in [3, 0] {
+        assert_eq!(run_index(config.clone()).unwrap(), expected);
         let locked = endpoint.state.lock().unwrap();
         let rows = data_rows(&locked);
         assert_eq!(rows.len(), 2, "the removed file's rows are gone");
@@ -3438,9 +3440,10 @@ fn an_added_then_deleted_file_leaves_no_immortal_catalog_entry() {
         id.clone()
     };
 
-    // Delete it: the catalog entry goes with it, and the run is clean again.
+    // Delete it: the catalog entry goes with it. Exit 3 names the removal;
+    // the following rerun of the settled folder is exit 0.
     fs::remove_file(corpus.path().join("added.csv")).unwrap();
-    assert_eq!(run_index(config.clone()).unwrap(), 0);
+    assert_eq!(run_index(config.clone()).unwrap(), 3);
     {
         let locked = endpoint.state.lock().unwrap();
         assert!(
@@ -3498,8 +3501,8 @@ fn deleting_an_entire_duplicate_group_strands_no_pending_replacement() {
     // journaled, which would be re-appended forever without ever committing.
     fs::remove_file(corpus.path().join("dup-a.csv")).unwrap();
     fs::remove_file(corpus.path().join("dup-b.csv")).unwrap();
-    for _ in 0..2 {
-        assert_eq!(run_index(config.clone()).unwrap(), 0);
+    for expected in [3, 0] {
+        assert_eq!(run_index(config.clone()).unwrap(), expected);
         assert_eq!(
             event_count(state_dir.path(), "file_replace_start"),
             starts,

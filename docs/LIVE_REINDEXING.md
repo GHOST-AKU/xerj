@@ -23,11 +23,12 @@ is worth stating exactly what it means:
   `reconcile_plan::reconcile_plan`).
 * On the **default graph path**, a re-run resumes a frozen plan. A file whose
   content changed is indexed. A deleted file is swept: its documents, catalog
-  rows and graph edges are removed, including under `--fresh`. An added file
-  that fits a frozen dataset is indexed on the rerun. A file that needs a new
-  dataset is not: the run exits 3 with `reason=stale-resume-plan` and names
-  `--fresh`. The table below is the 2026-09-19 capture, from before that
-  reconcile, on a 10,000-file tree
+  rows and graph edges are removed, including under `--fresh`, and that run
+  finishes exit 3 with `reason=files-removed` (the next unchanged rerun is
+  exit 0). An added file that fits a frozen dataset is indexed on the rerun.
+  A file that needs a new dataset is not: the run exits 3 with
+  `reason=stale-resume-plan` and names `--fresh`. The table below is the
+  2026-09-19 capture, from before that reconcile, on a 10,000-file tree
   (`docs/measurements/autoindex-watch-2026-09-19.md`, section 4). Those
   timings were not re-measured for the reconcile.
 

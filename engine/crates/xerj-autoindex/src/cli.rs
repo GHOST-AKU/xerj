@@ -414,12 +414,13 @@ pub fn help_text_with(feedback: bool) -> String {
          \x20\x20\x20\x20--no-graph           skip relationship detection (wikilinks, local links,\n\
          \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20section order, directory chains) — no edges are written\n\
          \x20\x20\x20\x20--watch              index once, then stay resident and reindex what changes.\n\
-         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Needs --no-graph: the graph route refuses an ADDED file\n\
-         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20(exit 3, skipped until --fresh) and ABORTS on a deletion\n\
-         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20(exit 1, and every later re-run aborts too). It does\n\
-         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20reindex a MODIFIED file. One OS watch per indexed\n\
-         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20directory, no polling; respects the same ignore rules as\n\
-         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20a re-run. docs/LIVE_REINDEXING.md has the measurements.\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Needs --no-graph. A graph-path rerun sweeps a deleted\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20file (exit 3, files-removed) and indexes an added file\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20that fits a frozen dataset. A file that needs a new\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dataset still stops (exit 3, stale-resume-plan) until\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20--fresh. One OS watch per indexed directory, no polling;\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20respects the same ignore rules as a re-run.\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20docs/LIVE_REINDEXING.md has the measurements.\n\
          \x20\x20\x20\x20--debounce <MS>      --watch quiet period before a pass (default 400, max\n\
          \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x2060000). One editor save is several filesystem events.\n\
          \x20\x20\x20\x20--max-minutes <N>    stop and ask before indexing if phase A's MEASURED estimate\n\
@@ -784,6 +785,11 @@ pub fn help_text_with(feedback: bool) -> String {
          \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20`skipped_appeared` names them. Re-run with --fresh to\n\
          \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20rebuild the plan in place and include them. Read `reason`\n\
          \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20to tell this apart from completed-with-junk;\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20or files-removed — a graph-path rerun deleted documents,\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20catalog rows and edges for files that left the folder.\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20The index matches the folder; the next unchanged rerun is\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20exit 0. Read `reason` to tell this apart from\n\
+         \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20completed-with-junk;\n\
          \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x204 NEEDS A DECISION — the estimate exceeded --max-minutes, the\n\
          \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20estimated index does not fit the disk budget, a reduced\n\
          \x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20plan would delete files that are already indexed, or a\n\
@@ -2531,14 +2537,12 @@ mod tests {
         parse(args.iter().map(|s| s.to_string()).collect()).expect_err("must be refused")
     }
 
-    /// The `--watch` refusal must name the limitation it actually has. Measured
-    /// on the graph route against a 10,000-file corpus
-    /// (`docs/measurements/autoindex-watch-2026-09-19.md`, section 4): a re-run
-    /// after a file's CONTENT changed indexes it (3.07 s, `files=1`, searchable),
-    /// a re-run after an ADDITION skips the file with exit 3, and a re-run after a
-    /// DELETION aborts with exit 1 and keeps aborting. The message used to claim
-    /// the opposite about a changed file, which came from a measurement whose
-    /// shell append had created a new file rather than modifying one.
+    /// The `--watch` refusal must name the limitation it actually has.
+    /// The watcher is the generated route. On the default graph path a deleted
+    /// file is swept and an added file that fits a frozen dataset is indexed;
+    /// a file that needs a new dataset still waits for `--fresh`. The message
+    /// used to claim a content change was lost, which came from a measurement
+    /// whose shell append had created a new file rather than modifying one.
     #[test]
     fn the_watch_refusal_names_additions_and_deletions_not_content_changes() {
         let text = err(&["data", "--watch"]);
@@ -2547,12 +2551,16 @@ mod tests {
             "the message must name the flag that makes it work: {text}"
         );
         assert!(
-            text.contains("ADDED") && text.contains("DELETED"),
-            "the message must say which changes the graph route cannot reconcile: {text}"
+            text.contains("sweeps a deleted") && text.contains("fits a frozen dataset"),
+            "the message must say what the graph path does with a deletion and an addition: {text}"
         );
         assert!(
-            text.contains("CONTENT changed is reconciled"),
-            "the message must not leave the operator thinking an edit is lost too: {text}"
+            text.contains("stale-resume-plan"),
+            "a new dataset still waits for --fresh: {text}"
+        );
+        assert!(
+            !text.contains("ABORTS the run"),
+            "a deletion is swept, not aborted: {text}"
         );
         assert!(
             !text.contains("a file whose content changed is reported"),
@@ -3125,9 +3133,9 @@ mod tests {
         }
     }
 
-    /// The graph route DOES reindex a modified file; what it cannot do is an
-    /// add or a delete. The help asserted the retracted version for as long as
-    /// the docs did, and pointed at a help section that does not exist.
+    /// The graph route sweeps a deletion and indexes an addition that fits a
+    /// frozen dataset. The help used to say a deletion aborts, and pointed at
+    /// a help section that does not exist.
     #[test]
     fn the_watch_help_does_not_repeat_the_retracted_graph_claim() {
         let help = super::help_text();
@@ -3135,7 +3143,11 @@ mod tests {
             !help.contains("only that route reindexes"),
             "the --watch help repeats the retracted claim about the graph route"
         );
-        for expected in ["refuses an ADDED file", "ABORTS on a deletion"] {
+        assert!(
+            !help.contains("ABORTS on a deletion"),
+            "the --watch help still says a deletion aborts"
+        );
+        for expected in ["sweeps a deleted", "files-removed", "stale-resume-plan"] {
             assert!(
                 help.contains(expected),
                 "--watch help is missing {expected:?}"

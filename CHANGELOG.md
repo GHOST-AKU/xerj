@@ -70,7 +70,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   changes while a run is reading it is skipped with a warning instead of
   aborting the run, on the graph path and on `--no-graph` snapshot sealing.
   The catalog canonical/alias count refreshes and recounts before it aborts
-  a generation ([#2314](https://github.com/xerj-org/xerj/issues/2314)).
+  a generation. A rerun that removes documents for files that left the folder
+  finishes exit 3 (`reason=files-removed`); the next unchanged rerun is exit 0
+  ([#2314](https://github.com/xerj-org/xerj/issues/2314)).
 
 - Semantic `xerj autoindex` against `--embed-mode proxy` resumes after a
   mid-run failure and does not re-embed documents already indexed, when the
