@@ -85,6 +85,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- A multi-term question no longer ranks a one-word symbol definition
+  (`type Token`) above a hit that covers more of the question. `xerj search`,
+  `xerj def`, `xerj code`, and the plain-string `xerj_search` tool add a
+  coverage score when the question has three or more content tokens, and
+  drop a one-term `name`+`kind` hit behind those results. A one-token
+  lookup (`xerj def Token`) is unchanged. A nested test callback larger
+  than a passage is no longer returned whole: the line-snapped window is
+  kept, with its line. An archived path (`archive/`, `archived/`, or
+  `keep_archived`) is marked on the `xerj code` header and on `xerj search`
+  (#2327).
+
 - Graph-mode `xerj autoindex` re-indexes a folder after files are added or
   deleted. An added file that fits a frozen dataset is indexed on the rerun;
   a file that needs a new dataset stays unindexed until `--fresh`. Documents,
