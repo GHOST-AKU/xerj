@@ -1,0 +1,23 @@
+{
+ "corpus": "realwaan--ytdlp-workstation",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Realwaan/ytdlp-workstation implements it: Realwaan/ytdlp-workstation (Python) (selected work: ytdlp_workstation, tests)",
+ "repos": [
+  {
+   "repo": "ytdlp-workstation",
+   "url": "https://github.com/Realwaan/ytdlp-workstation",
+   "sha": "6676d631727629e800f14e7abbe7bd9e0fc42891",
+   "licence": "MIT (LICENSE file at pin 6676d6317276, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T01:38Z",
+    "consent_receipt": "b99fbbe9b93c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T01:38Z (receipt b99fbbe9b93c); selected commit 6676d6317276: \"feat: add CLI command dispatcher, REPL UI, subprocess download engine\u2026\". LICENSE file at pin 6676d6317276 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

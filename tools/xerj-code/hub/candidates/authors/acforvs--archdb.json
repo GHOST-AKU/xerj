@@ -1,0 +1,23 @@
+{
+ "corpus": "acforvs--archdb",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how acforvs/archdb implements it: A collection of open sourced pretraining recipes (selected work: web, exports, data)",
+ "repos": [
+  {
+   "repo": "archdb",
+   "url": "https://github.com/acforvs/archdb",
+   "sha": "1c9a6908571f690a942c0e1333cf4bc47c658b9c",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "a43a41d338d4",
+    "note": "author consent by email 2026-10-23T21:28Z (receipt a43a41d338d4); selected commit 1c9a6908571f: \"Make model specs and sources easier to browse\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

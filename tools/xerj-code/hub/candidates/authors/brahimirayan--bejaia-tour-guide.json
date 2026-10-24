@@ -1,0 +1,23 @@
+{
+ "corpus": "brahimirayan--bejaia-tour-guide",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on css3, firestore, js queries this for how BrahimiRayan/Bejaia-Tour-Guide implements it: Un guide toristique et historique de la ville de bejaia (selected work: src/components)",
+ "repos": [
+  {
+   "repo": "Bejaia-Tour-Guide",
+   "url": "https://github.com/BrahimiRayan/Bejaia-Tour-Guide",
+   "sha": "aa1560ec325f0485a2c25c5d4f33d97bda79f36a",
+   "licence": "MIT (LICENSE file at pin aa1560ec325f, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T22:19Z",
+    "consent_receipt": "391d4bc05fd9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T22:19Z (receipt 391d4bc05fd9); selected commit aa1560ec325f: \"V2.1 : new design + small devise version improved in -components\". LICENSE file at pin aa1560ec325f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

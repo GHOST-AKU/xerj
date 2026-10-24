@@ -1,0 +1,23 @@
+{
+ "corpus": "aleixenandros--rustty",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ssh, ssh-agent, ssh-client queries this for how Aleixenandros/Rustty implements it: Cliente SSH multiplataforma en Rust (selected work: src-tauri, the project root)",
+ "repos": [
+  {
+   "repo": "Rustty",
+   "url": "https://github.com/Aleixenandros/Rustty",
+   "sha": "8f804a91dc944255e2431837411b560caf3afdab",
+   "licence": "Apache-2.0 (LICENSE file at pin 8f804a91dc94, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:53Z",
+    "consent_receipt": "b21f0d2e5246",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:53Z (receipt b21f0d2e5246); selected commit 8f804a91dc94: \"Opciones de host key para scripts en la CLI, contrase\u00f1a del perfil en\u2026\". LICENSE file at pin 8f804a91dc94 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

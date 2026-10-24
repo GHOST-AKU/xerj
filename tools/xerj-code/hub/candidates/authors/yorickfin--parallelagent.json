@@ -1,0 +1,23 @@
+{
+ "corpus": "yorickfin--parallelagent",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how YorickFin/ParallelAgent implements it: Parallel multi-agent development pattern: arbiter session + track sessions + file-mailbox coordination, orchestrated via CDP (selected work: adapters)",
+ "repos": [
+  {
+   "repo": "ParallelAgent",
+   "url": "https://github.com/YorickFin/ParallelAgent",
+   "sha": "35aec4bf042aa69f9a7f01771e030ebeaec2c10e",
+   "licence": "Apache-2.0 (LICENSE file at pin 35aec4bf042a, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:56Z",
+    "consent_receipt": "bad80a274a7e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:56Z (receipt bad80a274a7e); selected commit 35aec4bf042a: \"feat(v1.1.0): \u5c31\u7eea\u63e1\u624b + \u7248\u672c\u5316\u4fe1\u7bb1 + HTTP \u4f18\u5148\u542f\u52a8\". LICENSE file at pin 35aec4bf042a detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

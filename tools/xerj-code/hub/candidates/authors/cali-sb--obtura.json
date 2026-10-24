@@ -1,0 +1,23 @@
+{
+ "corpus": "cali-sb--obtura",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how cali-sb/obtura implements it: cali-sb/obtura (Python) (selected work: facecam, the project root)",
+ "repos": [
+  {
+   "repo": "obtura",
+   "url": "https://github.com/CarlosArraiza/obtura",
+   "sha": "84029ea00c73e648f84785398776f5f566023947",
+   "licence": "hint only: GPL-3.0 (LICENSE at pin: not checked yet)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "6f42ac4f2a40",
+    "note": "author consent by email 2026-10-23T19:31Z (receipt 6f42ac4f2a40); selected commit 84029ea00c73: \"facecam-linux v0.2.0: facecam-gui\"; LICENSE at pin: not checked yet vs repository GPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

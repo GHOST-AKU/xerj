@@ -1,0 +1,23 @@
+{
+ "corpus": "midhun-m-git--bulk-certificate-generator",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on celery, docker, fastapi queries this for how Midhun-M-git/bulk-certificate-generator implements it: High-throughput bulk certificate generation engine and REST API built with FastAPI, Celery, and Docker (selected work: app/static, the project root, tests)",
+ "repos": [
+  {
+   "repo": "bulk-certificate-generator",
+   "url": "https://github.com/Midhun-M-git/bulk-certificate-generator",
+   "sha": "88135ca7f4cb648363a2796e0e0b2e077f15d681",
+   "licence": "MIT (LICENSE file at pin 88135ca7f4cb, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T02:31Z",
+    "consent_receipt": "08ad1e185091",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T02:31Z (receipt 08ad1e185091); selected commit 88135ca7f4cb: \"feat: add Dockerfile, docker-compose, and CSV upload endpoint (closes\u2026\". LICENSE file at pin 88135ca7f4cb detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

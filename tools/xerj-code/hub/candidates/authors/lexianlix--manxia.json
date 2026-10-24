@@ -1,0 +1,23 @@
+{
+ "corpus": "lexianlix--manxia",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Dart queries this for how LexianLix/manxia implements it: \u6f2b\u5323\uff1a\u4ee5\u5b9e\u4f53\u4e66\u8d28\u611f\u4e3a\u6838\u5fc3\u7684 Flutter \u6f2b\u753b\u9605\u8bfb\u5668\uff0c\u9ed8\u8ba4\u52a8\u6f2b\u5c4b\u3002 (selected work: lib/ui, test, lib/data)",
+ "repos": [
+  {
+   "repo": "manxia",
+   "url": "https://github.com/LexianLix/manxia",
+   "sha": "192e15922085503e16e2117faef35e3bfa4e29a1",
+   "licence": "MIT (LICENSE file at pin 192e15922085, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T02:10Z",
+    "consent_receipt": "8c5f73034121",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T02:10Z (receipt 8c5f73034121); selected commit 192e15922085: \"Restore original detail covers and recover manga chapter catalogs\". LICENSE file at pin 192e15922085 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

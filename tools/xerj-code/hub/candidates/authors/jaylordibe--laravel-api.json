@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on PHP queries this for how jaylordibe/laravel-api implements it: jaylordibe/laravel-api (PHP) (selected work: tests, config, the project root)",
+ "domain": "an agent working on PHP queries this for how jaylordibe/laravel-api implements it: Production-ready Laravel API template with secure authentication, modular architecture, automated testing, and deployment best practices (selected work: tests, config, the project root)",
  "repos": [
   {
    "repo": "laravel-api",

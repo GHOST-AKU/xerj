@@ -1,0 +1,23 @@
+{
+ "corpus": "rehmanayounis--greenray-aio",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on certification, dgx, exam-prep queries this for how RehmanaYounis/greenray-aio implements it: Hands-on lab simulator and mock exam for the NVIDIA NCP-AIO certification. Simulated DGX H100 cluster, Slurm, Kubernetes, BCM. No GPU needed (selected work: src/greenray, the project root, tests)",
+ "repos": [
+  {
+   "repo": "greenray-aio",
+   "url": "https://github.com/RehmanaYounis/greenray-aio",
+   "sha": "b5dd3d381d3a09e3ac3e3358edcb73fd15891554",
+   "licence": "Apache-2.0 (LICENSE file at pin b5dd3d381d3a, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:34Z",
+    "consent_receipt": "aad92ef50459",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:34Z (receipt aad92ef50459); selected commit b5dd3d381d3a: \"Split the container tools and cmsh into packages and share one comman\u2026\". LICENSE file at pin b5dd3d381d3a detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

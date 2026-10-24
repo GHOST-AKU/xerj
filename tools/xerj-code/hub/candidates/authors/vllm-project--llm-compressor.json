@@ -1,0 +1,23 @@
+{
+ "corpus": "vllm-project--llm-compressor",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on compression, quantization queries this for how vllm-project/llm-compressor implements it: State-of-the-art LLM compression, built for production inference with vLLM (selected work: tests, src/llmcompressor)",
+ "repos": [
+  {
+   "repo": "llm-compressor",
+   "url": "https://github.com/vllm-project/llm-compressor",
+   "sha": "269a4518241db8af3fd4e19c717abf713a176a72",
+   "licence": "Apache-2.0 (LICENSE file at pin 269a4518241d, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T16:25Z",
+    "consent_receipt": "653424b172a5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T16:25Z (receipt 653424b172a5); selected commit 269a4518241d: \"Refactor basic calibration to use the sequential pipeline (#3336)\". LICENSE file at pin 269a4518241d detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "parth2412--attest",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-governance, ai-provenance, code-provenance queries this for how Parth2412/attest implements it: Signed, tamper-evident provenance for AI-assisted code changes, built with in-toto, DSSE, Sigstore, and GitHub Actions (selected work: action, packages/attest-store, scripts)",
+ "repos": [
+  {
+   "repo": "attest",
+   "url": "https://github.com/Parth2412/attest",
+   "sha": "e693e6b60afdf9c667a913faa4f9652bfd6dc050",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "97558cb78b71",
+    "note": "author consent by email 2026-10-23T18:17Z (receipt 97558cb78b71); selected commit e693e6b60afd: \"Prepare the v0.1.6 Action security release\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

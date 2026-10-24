@@ -1,0 +1,23 @@
+{
+ "corpus": "inkwall-dev--inkwall",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on Go queries this for how inkwall-dev/inkwall implements it: Kubernetes-native WAF operator: one policy, every ingress and gateway. Go, OWASP Coraza + CRS, built for low latency (selected work: hack, the project root)",
+ "repos": [
+  {
+   "repo": "inkwall",
+   "url": "https://github.com/inkwall-dev/inkwall",
+   "sha": "755487092166d4a9643ba6cb04cb5a4a9a1c636e",
+   "licence": "Apache-2.0 (LICENSE file at pin 755487092166, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:11Z",
+    "consent_receipt": "49bc45ea2db0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:11Z (receipt 49bc45ea2db0); selected commit 755487092166: \"test(traefik): run the engine as a forward-auth sidecar in traefik on\u2026\". LICENSE file at pin 755487092166 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

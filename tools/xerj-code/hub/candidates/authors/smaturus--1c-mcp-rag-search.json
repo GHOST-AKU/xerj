@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on Python queries this for how Smaturus/1c-mcp-rag-search implements it: Search for 1C (BSL code + configuration metadata) exposed to LLM agents via MCP: local e5/Chroma retrieval, global BM25 + RRF hybrid, option (selected work: data, tests, src/mcp_1c_homework)",
+ "domain": "an agent working on 1c, 1c-enterprise, bm25 queries this for how Smaturus/1c-mcp-rag-search implements it: Search for 1C (BSL code + configuration metadata) exposed to LLM agents via MCP: local e5/Chroma retrieval, global BM25 + RRF hybrid, option (selected work: data, tests, src/mcp_1c_homework)",
  "repos": [
   {
    "repo": "1c-mcp-rag-search",

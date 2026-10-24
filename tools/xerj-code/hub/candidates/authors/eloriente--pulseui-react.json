@@ -1,0 +1,23 @@
+{
+ "corpus": "eloriente--pulseui-react",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on frontend, react, component-library queries this for how eloriente/pulseui-react implements it: An open-source React component library built with TypeScript and CSS Modules. Designed to be used as-is, forked, or extended to match your o (selected work: src/components, src/mcp, src)",
+ "repos": [
+  {
+   "repo": "pulseui-react",
+   "url": "https://github.com/eloriente/pulseui-react",
+   "sha": "d766b7d93c726470230ec6d5c85b1cdb4c070a1d",
+   "licence": "MIT (LICENSE file at pin d766b7d93c72, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:12Z",
+    "consent_receipt": "f297cd2921ee",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:12Z (receipt f297cd2921ee); selected commit d766b7d93c72: \"feat: add FieldGroup component for label/control/error wiring\". LICENSE file at pin d766b7d93c72 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

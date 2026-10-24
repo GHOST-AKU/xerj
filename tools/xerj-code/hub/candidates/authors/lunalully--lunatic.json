@@ -1,0 +1,23 @@
+{
+ "corpus": "lunalully--lunatic",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on bug-bounty, bugbounty, cybersecurity queries this for how lunalully/lunatic implements it: Reconhecimento passivo de subdominios em Go: consulta apenas fontes OSINT de terceiros, nunca toca no alvo (selected work: internal/banner, internal/cli, internal/output)",
+ "repos": [
+  {
+   "repo": "lunatic",
+   "url": "https://github.com/lunalully/lunatic",
+   "sha": "7fd51a4cdee18128bdcff5bc4b09b031df89a86f",
+   "licence": "MIT (LICENSE file at pin 7fd51a4cdee1, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:08Z",
+    "consent_receipt": "faba01d99b31",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:08Z (receipt faba01d99b31); selected commit 7fd51a4cdee1: \"Novo banner e sa\u00edda limpa sem nomes de fontes\". LICENSE file at pin 7fd51a4cdee1 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

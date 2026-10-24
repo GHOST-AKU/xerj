@@ -1,0 +1,23 @@
+{
+ "corpus": "duelion--homebox-companion",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on docker, fastapi, homebox queries this for how Duelion/homebox-companion implements it: AI-powered companion for Homebox. Snap photos and let AI auto-identify and catalog items into your inventory, then use the AI Chat to organi (selected work: frontend, tests, src/homebox_companion)",
+ "repos": [
+  {
+   "repo": "homebox-companion",
+   "url": "https://github.com/Duelion/homebox-companion",
+   "sha": "6f52d1cace7bc21fb6b7825ef99c314ac8c0c1d7",
+   "licence": "GPL-3.0 (LICENSE file at pin 6f52d1cace7b, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T21:27Z",
+    "consent_receipt": "a5b2d9f841c5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:27Z (receipt a5b2d9f841c5); selected commit 6f52d1cace7b: \"Make browser AI request timeouts configurable (#182)\". LICENSE file at pin 6f52d1cace7b detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "raakkuu--officeoffice",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how raakkuu/officeoffice implements it: Local first multi agent coding orchestrator for terminal Ai agents (selected work: src, web, test)",
+ "repos": [
+  {
+   "repo": "officeoffice",
+   "url": "https://github.com/raakkuu/officeoffice",
+   "sha": "737fc99fb64debb15fc89047bac4719e29f6d725",
+   "licence": "MIT (LICENSE file at pin 737fc99fb64d, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:44Z",
+    "consent_receipt": "49fe6037ed37",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:44Z (receipt 49fe6037ed37); selected commit 737fc99fb64d: \"feat: add local agent collaboration\". LICENSE file at pin 737fc99fb64d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

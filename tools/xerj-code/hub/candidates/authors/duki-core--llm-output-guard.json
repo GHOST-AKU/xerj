@@ -1,0 +1,23 @@
+{
+ "corpus": "duki-core--llm-output-guard",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-safety, llm-security, python queries this for how duki-core/llm-output-guard implements it: Lightweight, vendor-agnostic library for detecting system prompt leaks and gating unauthorized action markers in LLM output (selected work: tests, llm_output_guard, examples)",
+ "repos": [
+  {
+   "repo": "llm-output-guard",
+   "url": "https://github.com/duki-core/llm-output-guard",
+   "sha": "63dcb657a71d7ca8b86fbcb17a4469b111153428",
+   "licence": "MIT (LICENSE file at pin 63dcb657a71d, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T18:56Z",
+    "consent_receipt": "b0c61007acf6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T18:56Z (receipt b0c61007acf6); selected commit 63dcb657a71d: \"Add StreamGuard: chunk-safe marker filtering for streamed output\". LICENSE file at pin 63dcb657a71d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

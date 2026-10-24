@@ -1,0 +1,23 @@
+{
+ "corpus": "ivall--viralflow",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on editor, rust, video queries this for how ivall/viralflow implements it: Free alternative to CapCut (selected work: crates/vf-core, crates/vf-audio, app/src)",
+ "repos": [
+  {
+   "repo": "viralflow",
+   "url": "https://github.com/ivall/viralflow",
+   "sha": "c7839ebac217f1a9c4bb418e29cfc2f186f7d511",
+   "licence": "GPL-3.0 (LICENSE file at pin c7839ebac217, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T21:21Z",
+    "consent_receipt": "0fcc2d27dcc4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:21Z (receipt 0fcc2d27dcc4); selected commit c7839ebac217: \"add beat detection\". LICENSE file at pin c7839ebac217 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

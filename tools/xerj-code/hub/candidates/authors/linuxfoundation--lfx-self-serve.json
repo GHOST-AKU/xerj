@@ -1,0 +1,23 @@
+{
+ "corpus": "linuxfoundation--lfx-self-serve",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how linuxfoundation/lfx-self-serve implements it: LFX Self Serve UI (selected work: apps/lfx-one, packages/shared)",
+ "repos": [
+  {
+   "repo": "lfx-self-serve",
+   "url": "https://github.com/linuxfoundation/lfx-self-serve",
+   "sha": "80613a5107561957565a04fd9ece531e09131c55",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "390f4f1a9163",
+    "note": "author consent by email 2026-10-23T20:51Z (receipt 390f4f1a9163); selected commit 80613a510756: \"fix(meetings): match restricted-meeting registrants by the user's ver\u2026\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

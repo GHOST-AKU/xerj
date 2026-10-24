@@ -1,0 +1,23 @@
+{
+ "corpus": "snrboi--sky-watch-dashboard",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how Snrboi/sky-watch-dashboard implements it: Snrboi/sky-watch-dashboard (TypeScript) (selected work: frontend, backend, the project root)",
+ "repos": [
+  {
+   "repo": "sky-watch-dashboard",
+   "url": "https://github.com/Snrboi/sky-watch-dashboard",
+   "sha": "13e6f8cb03489a61ee13d7f45c4590ca3ae93d8f",
+   "licence": "MIT (LICENSE file at pin 13e6f8cb0348, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:01Z",
+    "consent_receipt": "97021d599c8f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:01Z (receipt 97021d599c8f); selected commit 13e6f8cb0348: \"Update dashboard and resolve pre-deploy checks\". LICENSE file at pin 13e6f8cb0348 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

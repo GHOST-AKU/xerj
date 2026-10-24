@@ -1,0 +1,23 @@
+{
+ "corpus": "nek0pi--celestine-md",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how nek0pi/celestine-md implements it: Obsidian Inspired Vault Reader. Heavy on the shortcuts, Light on your Computer. Written in Rust (selected work: crates/celestine-theme, crates/celestine-app)",
+ "repos": [
+  {
+   "repo": "celestine-md",
+   "url": "https://github.com/nek0pi/celestine-md",
+   "sha": "b37128b8b59e373e9ab58c8a59abbdbe17688f2e",
+   "licence": "MIT (LICENSE file at pin b37128b8b59e, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:25Z",
+    "consent_receipt": "45dd61680fbe",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:25Z (receipt 45dd61680fbe); selected commit b37128b8b59e: \"add proper omarchy theme support\". LICENSE file at pin b37128b8b59e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

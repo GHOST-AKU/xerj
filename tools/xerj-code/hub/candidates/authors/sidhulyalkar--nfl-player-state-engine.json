@@ -1,0 +1,23 @@
+{
+ "corpus": "sidhulyalkar--nfl-player-state-engine",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how sidhulyalkar/nfl-player-state-engine implements it: A leakage-safe, probabilistic NFL projection system for weekly player states, fantasy outcomes, paper-market evaluation, and correlated Mont (selected work: apps/gemini-fantasy-console, src/player_state_engine, tests)",
+ "repos": [
+  {
+   "repo": "nfl-player-state-engine",
+   "url": "https://github.com/sidhulyalkar/nfl-player-state-engine",
+   "sha": "c90bacfd3197f27ebe18838f41eef67bc463c84b",
+   "licence": "MIT (LICENSE file at pin c90bacfd3197, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:48Z",
+    "consent_receipt": "ca887b67ae72",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:48Z (receipt ca887b67ae72); selected commit c90bacfd3197: \"Integrate WebGL2 Play Lab onto merged RedZone and historical tracking\u2026\". LICENSE file at pin c90bacfd3197 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

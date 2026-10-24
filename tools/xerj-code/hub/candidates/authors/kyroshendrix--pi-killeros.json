@@ -2,8 +2,8 @@
  "corpus": "kyroshendrix--pi-killeros",
  "cloned_at": null,
  "status": "draft",
- "shelf": "WEB",
- "domain": "an agent working on TypeScript queries this for how KyrosHendrix/pi-KillerOS implements it: TUI, goals, and workflow automation for the Pi coding agent (selected work: test, killeros, the project root)",
+ "shelf": "AI",
+ "domain": "an agent working on ai-coding, coding-agent, context-management queries this for how KyrosHendrix/pi-KillerOS implements it: A Windows terminal UI for the Pi coding agent with session handoff, configurable auto-compaction, OpenAI fast mode, and persistent goals (selected work: test, killeros, the project root)",
  "repos": [
   {
    "repo": "pi-KillerOS",

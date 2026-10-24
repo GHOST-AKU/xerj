@@ -1,0 +1,23 @@
+{
+ "corpus": "azammarchi--blipdeck",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on audio, audio-recorder, browser-app queries this for how azammarchi/blipdeck implements it: A soundboard that runs in your browser: record sounds, trim them, play them with a key (selected work: tests, the project root, public)",
+ "repos": [
+  {
+   "repo": "blipdeck",
+   "url": "https://github.com/azammarchi/blipdeck",
+   "sha": "8e6fc2e4f2ed937bd6f295a589fa17eeec30f453",
+   "licence": "MIT (LICENSE file at pin 8e6fc2e4f2ed, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T01:04Z",
+    "consent_receipt": "a211273a0823",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T01:04Z (receipt a211273a0823); selected commit 8e6fc2e4f2ed: \"test(e2e): add a Playwright suite for WebKit and Chromium\". LICENSE file at pin 8e6fc2e4f2ed detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

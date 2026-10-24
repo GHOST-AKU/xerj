@@ -1,0 +1,23 @@
+{
+ "corpus": "dorely--imagegencli",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how Dorely/ImageGenCli implements it: Cli commands for agents to use to interface with image gen models without fiddling with APIs or auth themselves (selected work: packages/providers-codex, packages/core, apps/cli)",
+ "repos": [
+  {
+   "repo": "ImageGenCli",
+   "url": "https://github.com/Dorely/ImageGenCli",
+   "sha": "075e8d14e0d763b38464f7a4744e51e4c6274fbd",
+   "licence": "MIT (LICENSE file at pin 075e8d14e0d7, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:09Z",
+    "consent_receipt": "8c85a3c3338b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:09Z (receipt 8c85a3c3338b); selected commit 075e8d14e0d7: \"Call Codex image endpoints directly instead of the Responses API\". LICENSE file at pin 075e8d14e0d7 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "projectdiscovery--fastdialer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on lib queries this for how projectdiscovery/fastdialer implements it: Dialer with DNS Cache + Dial History (selected work: fastdialer)",
+ "repos": [
+  {
+   "repo": "fastdialer",
+   "url": "https://github.com/projectdiscovery/fastdialer",
+   "sha": "7d930e9e353be43451d74d865afb36edb7adc9b1",
+   "licence": "MIT (LICENSE file at pin 7d930e9e353b, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:26Z",
+    "consent_receipt": "7b7305f7bd32",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:26Z (receipt 7b7305f7bd32); selected commit 7d930e9e353b: \"feat(tls): add configurable modern TLS, custom ALPN, and min version \u2026\". LICENSE file at pin 7d930e9e353b detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

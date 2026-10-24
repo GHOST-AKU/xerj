@@ -1,0 +1,23 @@
+{
+ "corpus": "norjms--openprinthq",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Svelte queries this for how norjms/openprinthq implements it: OpenPrintHQ - multi-brand 3D print farm management (website + control-plane). AGPL-3.0 (selected work: control-plane)",
+ "repos": [
+  {
+   "repo": "openprinthq",
+   "url": "https://github.com/norjms/openprinthq",
+   "sha": "3a393dba7966ccd8da2d9ba7a8a7ea5eceedde1f",
+   "licence": "AGPL-3.0 (LICENSE file at pin 3a393dba7966, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T21:37Z",
+    "consent_receipt": "31ef009e153d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:37Z (receipt 31ef009e153d); selected commit 3a393dba7966: \"feat(api): scoped API keys for integrations\". LICENSE file at pin 3a393dba7966 detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "satwik-kumar--weave",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how satwik-kumar/WEAVE implements it: Graph-powered engineering company knowledge assistant (selected work: frontend, the project root, backend)",
+ "repos": [
+  {
+   "repo": "WEAVE",
+   "url": "https://github.com/satwik-kumar/WEAVE",
+   "sha": "385a819214e33551bedbc65203f871afebd80bdb",
+   "licence": "MIT (LICENSE file at pin 385a819214e3, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T17:47Z",
+    "consent_receipt": "dae347916eb9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T17:47Z (receipt dae347916eb9); selected commit 385a819214e3: \"feat(frontend,deploy): integrate React Flow UI, stores, themes, CI, a\u2026\". LICENSE file at pin 385a819214e3 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "jaacmusic--gufo-win",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how jaacMusic/gufo-win implements it: jaacMusic/gufo-win (C++) (selected work: src/models)",
+ "repos": [
+  {
+   "repo": "gufo-win",
+   "url": "https://github.com/jaacMusic/gufo-win",
+   "sha": "c6a2b56520da286ab77cd97f0b848e7092d050c9",
+   "licence": "MIT (LICENSE file at pin c6a2b56520da, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:33Z",
+    "consent_receipt": "6c7ee7f78cd2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:33Z (receipt 6c7ee7f78cd2); selected commit c6a2b56520da: \"perf(qwen): keep only predictor KV when a Flash-Next catch-up needs n\u2026\". LICENSE file at pin c6a2b56520da detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

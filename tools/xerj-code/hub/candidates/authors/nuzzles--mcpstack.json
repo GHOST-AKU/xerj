@@ -1,0 +1,23 @@
+{
+ "corpus": "nuzzles--mcpstack",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Rust queries this for how nuzzles/mcpstack implements it: A Rust CLI for humans and agents to install multiple MCP servers, version-control stacks, and share setups across teams (selected work: tests, src, src/integrations)",
+ "repos": [
+  {
+   "repo": "mcpstack",
+   "url": "https://github.com/nuzzles/mcpstack",
+   "sha": "d4f7a22e60e125eed1cd767416bc5c16f5a3ba8f",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "7335c94dc222",
+    "note": "author consent by email 2026-10-23T21:25Z (receipt 7335c94dc222); selected commit d4f7a22e60e1: \"feat: load stacks from HTTP and HTTPS URLs (#46)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

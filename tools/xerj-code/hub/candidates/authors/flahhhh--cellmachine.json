@@ -1,0 +1,23 @@
+{
+ "corpus": "flahhhh--cellmachine",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "HEALTH",
+ "domain": "an agent working on biological-simulations, cell-automation, evolution queries this for how Flahhhh/CellMachine implements it: This repository contains C# biological cell evolution simulator. There are used Pointer genome algorithm for cell decision process (selected work: Utils, Config, Services)",
+ "repos": [
+  {
+   "repo": "CellMachine",
+   "url": "https://github.com/Flahhhh/CellMachine",
+   "sha": "6e9bf26473a16bcfda98c5d88e5805cb2dce8856",
+   "licence": "MIT (LICENSE file at pin 6e9bf26473a1, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:29Z",
+    "consent_receipt": "4b0434e54ad5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:29Z (receipt 4b0434e54ad5); selected commit 6e9bf26473a1: \"Added README\". LICENSE file at pin 6e9bf26473a1 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head 6e9bf26473a1 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

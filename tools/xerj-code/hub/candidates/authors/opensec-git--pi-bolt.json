@@ -1,0 +1,23 @@
+{
+ "corpus": "opensec-git--pi-bolt",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ahead-of-time, bun, coding-agent queries this for how opensec-git/Pi-Bolt implements it: \u26a1 Pi, the coding agent, compiled ahead of time to one native executable. 10\u00d7 faster to start, 7\u00d7 less CPU and 4.5\u00d7 less memory than Pi on No (selected work: packages/coding-agent)",
+ "repos": [
+  {
+   "repo": "Pi-Bolt",
+   "url": "https://github.com/opensec-git/Pi-Bolt",
+   "sha": "219f6ee9013cd137fc908e410b13c4d92dc6e3e5",
+   "licence": "MIT (LICENSE file at pin 219f6ee9013c, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:15Z",
+    "consent_receipt": "4f3d233c394c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:15Z (receipt 4f3d233c394c); selected commit 219f6ee9013c: \"feat(coding-agent): add /usage command\". LICENSE file at pin 219f6ee9013c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

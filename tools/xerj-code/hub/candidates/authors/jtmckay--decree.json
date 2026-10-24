@@ -1,0 +1,23 @@
+{
+ "corpus": "jtmckay--decree",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Rust queries this for how jtmckay/decree implements it: Durable state-machine (AI) workflows from plain files (selected work: tests, src, src/commands)",
+ "repos": [
+  {
+   "repo": "decree",
+   "url": "https://github.com/jtmckay/decree",
+   "sha": "234930108263dbc6d7d37caa299ab00c06c6a703",
+   "licence": "MIT (LICENSE file at pin 234930108263, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T02:52Z",
+    "consent_receipt": "88532046c72e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T02:52Z (receipt 88532046c72e); selected commit 234930108263: \"A06: `max_depth` defaults to 10 and can be changed (A06-max-depth-set\u2026\". LICENSE file at pin 234930108263 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "otarampinelli--gargoyle",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-skills, agentic-ai, agents queries this for how otarampinelli/gargoyle implements it: Automated code reviews that watch your back before you push (selected work: crates/gargoyle-core, schemas, crates/gargoyle-cli)",
+ "repos": [
+  {
+   "repo": "gargoyle",
+   "url": "https://github.com/otarampinelli/gargoyle",
+   "sha": "4d71d71e3321f9a6a2f197fcba703613439de648",
+   "licence": "MIT (LICENSE file at pin 4d71d71e3321, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:32Z",
+    "consent_receipt": "c931e8ef3810",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:32Z (receipt c931e8ef3810); selected commit 4d71d71e3321: \"feat: added grouped review tasks\". LICENSE file at pin 4d71d71e3321 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

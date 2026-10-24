@@ -1,0 +1,23 @@
+{
+ "corpus": "eliahhango--elitechwiz-v4",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how Eliahhango/EliTechWiz-V4 implements it: Ready to contribute or want to learn more? Explore the EliTechWiz-V4 repository and join our growing community! \ud83c\udf89 (selected work: commandes, framework, lib)",
+ "repos": [
+  {
+   "repo": "EliTechWiz-V4",
+   "url": "https://github.com/Eliahhango/EliTechWiz-V4",
+   "sha": "5c022f9113b9cdf17826ae6d436ec5659cbc8e50",
+   "licence": "MIT (LICENSE file at pin 5c022f9113b9, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T20:22Z",
+    "consent_receipt": "3d5a77aa7167",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T20:22Z (receipt 3d5a77aa7167); selected commit 5c022f9113b9: \"feat(commandes): make every registered command actually dispatchable\". LICENSE file at pin 5c022f9113b9 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

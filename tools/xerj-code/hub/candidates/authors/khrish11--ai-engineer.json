@@ -1,0 +1,23 @@
+{
+ "corpus": "khrish11--ai-engineer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how khrish11/AI-ENGINEER implements it: khrish11/AI-ENGINEER (TypeScript) (selected work: src/app, the project root, src/mcp)",
+ "repos": [
+  {
+   "repo": "AI-ENGINEER",
+   "url": "https://github.com/khrish11/AI-ENGINEER",
+   "sha": "cbc205e22e57c121c1135330634b474313bba7c3",
+   "licence": "MIT (LICENSE file at pin cbc205e22e57, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T02:23Z",
+    "consent_receipt": "ae60c2fcd679",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T02:23Z (receipt ae60c2fcd679); selected commit cbc205e22e57: \"Add remote MCP HTTP endpoint with security and protocol fixes\". LICENSE file at pin cbc205e22e57 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

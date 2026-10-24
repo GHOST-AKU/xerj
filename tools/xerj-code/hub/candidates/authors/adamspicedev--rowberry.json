@@ -1,0 +1,23 @@
+{
+ "corpus": "adamspicedev--rowberry",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how adamspicedev/rowberry implements it: adamspicedev/rowberry (TypeScript) (selected work: apps/web, the project root)",
+ "repos": [
+  {
+   "repo": "rowberry",
+   "url": "https://github.com/adamspicedev/rowberry",
+   "sha": "91df5671b0a31d865c14b942f8a3fc9162510fea",
+   "licence": "GPL-3.0 (LICENSE file at pin 91df5671b0a3, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T20:59Z",
+    "consent_receipt": "52ca3b4d5cc8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T20:59Z (receipt 52ca3b4d5cc8); selected commit 91df5671b0a3: \"feat: add Rowberry marketing website and documentation wiki\". LICENSE file at pin 91df5671b0a3 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

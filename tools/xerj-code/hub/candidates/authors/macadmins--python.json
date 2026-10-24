@@ -1,0 +1,23 @@
+{
+ "corpus": "macadmins--python",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Shell queries this for how macadmins/python implements it: Framework files for use with popular python macadmin toolsets (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "python",
+   "url": "https://github.com/macadmins/python",
+   "sha": "69b38db4089954214b0c09463f34edcf84663c9f",
+   "licence": "Apache-2.0 (LICENSE file at pin 69b38db40899, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:47Z",
+    "consent_receipt": "9a2b04f1c4a4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:47Z (receipt 9a2b04f1c4a4); selected commit 69b38db40899: \"Remove compromised emSign trust from framework and pip bootstrap (#95)\". LICENSE file at pin 69b38db40899 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

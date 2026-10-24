@@ -1,0 +1,23 @@
+{
+ "corpus": "swotboysandy--groovix",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on android, equalizer, flac queries this for how Swotboysandy/groovix implements it: Groovix \u2014 free, ad-free music streaming app for Android: lossless playback, synced lyrics with translation, endless AutoPlay radio and Liste (selected work: src/context, src/screens, src/services)",
+ "repos": [
+  {
+   "repo": "groovix",
+   "url": "https://github.com/Swotboysandy/groovix",
+   "sha": "4aa4b1c36fc5ac39dafbea2e66a63dc669080f27",
+   "licence": "GPL-3.0 (LICENSE file at pin 4aa4b1c36fc5, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T21:28Z",
+    "consent_receipt": "e76ddf2f39ab",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:28Z (receipt e76ddf2f39ab); selected commit 4aa4b1c36fc5: \"1.0.31: Home and related songs straight from YouTube Music, matched o\u2026\". LICENSE file at pin 4aa4b1c36fc5 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}
