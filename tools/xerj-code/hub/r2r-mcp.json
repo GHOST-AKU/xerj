@@ -1,0 +1,21 @@
+{
+ "corpus": "r2r-mcp",
+ "cloned_at": "2026-10-24T03:42:00Z",
+ "repos": [
+  {
+   "repo": "r2r-jev",
+   "url": "https://github.com/Thneoly/r2r-jev",
+   "licence": "Apache-2.0",
+   "sha": "244ac9520db91c822a26f385a6b3bc6d4fa426a0",
+   "files": 44,
+   "bytes": 219887,
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "@Thneoly",
+    "at": "2026-10-24",
+    "note": "Author confirmed Apache-2.0 with attribution in xerj-org/xerj#2310 and asked to bind commit 244ac95. LICENSE at 244ac9520db9 is the Apache License 2.0. git ls-files at that pin: 44 files, 219887 bytes. The commit adds the r2r-mcp stdio prototype."
+   }
+  }
+ ]
+}

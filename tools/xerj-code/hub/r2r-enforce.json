@@ -1,0 +1,21 @@
+{
+ "corpus": "r2r-enforce",
+ "cloned_at": "2026-10-24T03:42:00Z",
+ "repos": [
+  {
+   "repo": "r2r-jev",
+   "url": "https://github.com/Thneoly/r2r-jev",
+   "licence": "Apache-2.0",
+   "sha": "10c2f8ff2fe0e180227428a8f5b45ba7847d8d84",
+   "files": 52,
+   "bytes": 287264,
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "@Thneoly",
+    "at": "2026-10-24",
+    "note": "Sibling the author asked to include in xerj-org/xerj#2310, same Apache-2.0 attribution. LICENSE at 10c2f8ff2fe0 is the Apache License 2.0. git ls-files at that pin: 52 files, 287264 bytes. The commit adds the r2r-enforce reference enforcement adapter CLI."
+   }
+  }
+ ]
+}
