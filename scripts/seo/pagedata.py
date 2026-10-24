@@ -232,7 +232,7 @@ PAGES: dict[str, dict[str, str]] = {
     "blog/rc99-smart-autoindex-harness-tools.html": dict(
         label="rc.99", kind="article",
         title="rc.99: smart, resource-aware autoindex and more harness tools",
-        description="v1.0.0-rc.99 keeps a laptop usable while it indexes, returns cited evidence in one batch, and restores the cluster plan after a restart. Two hard limits stay open.",
+        description="rc.99 is yours: 116 merged changes and the 20 people behind them. A laptop stays usable, questions come back cited, and two hard limits stay open.",
         published="2026-10-24", updated="2026-10-24",
         og_image="og/blog-rc99-smart-autoindex-harness-tools.png",
         og_image_alt="Cover: “rc.99” in display type beside the post’s square-matrix art, labelled 8 GiB and 2 GiB. The art: eight large squares for the 8 GiB tier, the first two yellow for the 2 GiB memtable budget, beside eight small squares for the 8 MiB document ceiling and one outlined square for JSON streamed past 64 MiB",

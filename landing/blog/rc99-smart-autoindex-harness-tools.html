@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>rc.99: smart, resource-aware autoindex and more harness tools</title>
-<meta name="description" content="v1.0.0-rc.99 keeps a laptop usable while it indexes, returns cited evidence in one batch, and restores the cluster plan after a restart. Two hard limits stay open.">
+<meta name="description" content="rc.99 is yours: 116 merged changes and the 20 people behind them. A laptop stays usable, questions come back cited, and two hard limits stay open.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
 <meta property="og:site_name" content="XERJ.ai">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rc.99: smart, resource-aware autoindex and more harness tools">
-<meta property="og:description" content="v1.0.0-rc.99 keeps a laptop usable while it indexes, returns cited evidence in one batch, and restores the cluster plan after a restart. Two hard limits stay open.">
+<meta property="og:description" content="rc.99 is yours: 116 merged changes and the 20 people behind them. A laptop stays usable, questions come back cited, and two hard limits stay open.">
 <meta property="og:url" content="https://xerj.org/blog/rc99-smart-autoindex-harness-tools">
 <meta property="og:image" content="https://xerj.org/og/blog-rc99-smart-autoindex-harness-tools.png">
 <meta property="og:image:width" content="1200">
@@ -36,7 +36,7 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="rc.99: smart, resource-aware autoindex and more harness tools">
-<meta name="twitter:description" content="v1.0.0-rc.99 keeps a laptop usable while it indexes, returns cited evidence in one batch, and restores the cluster plan after a restart. Two hard limits stay open.">
+<meta name="twitter:description" content="rc.99 is yours: 116 merged changes and the 20 people behind them. A laptop stays usable, questions come back cited, and two hard limits stay open.">
 <meta name="twitter:image" content="https://xerj.org/og/blog-rc99-smart-autoindex-harness-tools.png">
 <script type="application/ld+json">
 {
@@ -72,7 +72,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "rc.99: smart, resource-aware autoindex and more harness tools",
-  "description": "v1.0.0-rc.99 keeps a laptop usable while it indexes, returns cited evidence in one batch, and restores the cluster plan after a restart. Two hard limits stay open.",
+  "description": "rc.99 is yours: 116 merged changes and the 20 people behind them. A laptop stays usable, questions come back cited, and two hard limits stay open.",
   "url": "https://xerj.org/blog/rc99-smart-autoindex-harness-tools",
   "image": "https://xerj.org/og/blog-rc99-smart-autoindex-harness-tools.png",
   "inLanguage": "en",
@@ -149,38 +149,47 @@
   <h1>RC.99: SMART, RESOURCE-AWARE AUTOINDEX<br><span class="accent">AND MORE HARNESS TOOLS.</span></h1>
   <p class="blog-byline">XERJ ENGINEERING · PUBLISHED 2026-10-24</p>
 
-  <p class="lede"><strong>v1.0.0-rc.99</strong> is the public launch, and it is the <strong>98th</strong> tagged release in this series. <strong>97</strong> tags exist through rc.98, because rc.79 was never tagged. It lands just over 100 days since rc.1. The window since rc.98 is <strong>116</strong> merged pull requests.</p>
+  <p class="lede"><strong>rc.99 is yours:</strong> 116 merged changes, and the <strong>20 people</strong> behind them. We wrote this for you. If you run XERJ on your own machine, if you told us when something broke, or if you are new here, this release is for you.</p>
 
-  <p class="lede">What changes for a person is plain. A laptop is no longer asked to hand the whole machine to the index. A search issued while the write budget is full publishes those writes first, so that search does not stall. An agent can ask up to 50 questions in one call and get cited evidence, a clear empty result, or its own error for each one. A cluster can restart and still know which node owns a document. Two hard limits stay open: a machine that has truly run out of memory, and clustering.</p>
+  <p class="lede">It is the <strong>98th</strong> tagged release. <strong>97</strong> tags exist through rc.98, because rc.79 was never tagged. It lands just over 100 days since rc.1. The window since rc.98 is those <strong>116</strong> merged pull requests. The maintaining team landed the rest of them. The 20 are the community contributors and reporters named below. A laptop stays usable while it indexes, questions come back with the evidence, and a restarted cluster still knows who owns a document. Two hard limits stay open: a machine that has truly run out of memory, and clustering.</p>
 </div>
 
 <section class="scene-section">
   <div class="kicker">01 · THANK YOU</div>
-  <h2 class="scene">The people in this cut</h2>
+  <h2 class="scene">The 20 people behind it</h2>
 
-  <p>Thank you. The names below are the people outside the maintaining team whose merged work, or whose report, is in this window. Each line is the value that work created. Maintainers and agent-authored pulls are not in the list.</p>
+  <p>These are the 20. We grouped them the way the work arrived. 5 built something you can use in this release. 12 spoke up, in a report, a field report, or a translation. 3 signed on with us, and the packs, the listing, and the fixes they brought are not in this release. The maintaining team is not in this count.</p>
 
+  <p><strong>People who built it.</strong> These 5 wrote code that is in rc.99.</p>
   <ul>
-    <li><a href="https://github.com/Jarvis636431" rel="external">Jarvis</a>. Agents can look up a definition, search one project's index by its prefix, and ask up to 50 questions in one call. Each item comes back with cited evidence, a clear &ldquo;nothing matched&rdquo;, or its own error. A token limit no longer drops a real hit just because it shared a line with another, and a neighboring definition is no longer treated as a duplicate. He also wrote down what he measured while building the batch call.</li>
-    <li><a href="https://github.com/Tong-bit-art" rel="external">ordinary being</a>. An alias created the usual way now keeps its filter and routing, so a filtered view shows the documents it was meant to show. A count can require a minimum score. Asking whether a query is valid now reads the field types, the same way a search does. The document count in the catalog matches the documents you can actually search.</li>
-    <li><a href="https://github.com/samuelmbabhazi" rel="external">samuel mbabhazi</a>. Day or Night follows you from page to page. When an index build fails, the message includes the operating-system error underneath, instead of one vague line. A watched folder no longer starts a new pass because an ignored file changed.</li>
-    <li><a href="https://github.com/WYSTAF" rel="external">Nikan Wystaf</a>. Wrote up three autoindex crashes on a 16 GB Windows machine with no pagefile. That report is why Windows now keeps a second memory ceiling, taken from the commit space the process can still reach, rather than from the RAM sticker alone.</li>
-    <li><a href="https://github.com/elewashy" rel="external">Mohamed Al-Aweshi</a>. Pointing the single-file index command at a folder used to create an empty index and then crash. It now stops before it writes anything, and it points you at autoindex, the command that indexes a folder.</li>
-    <li><a href="https://github.com/mariomarcolongo" rel="external">Mario Marcolongo</a>. The homepage now tells an agent where the agent guide, the API description, and the endpoint docs are, through ordinary link headers.</li>
-    <li><a href="https://github.com/pallidev" rel="external">jongin</a>. Wrote the Korean README, so install and agent setup can be read in Korean.</li>
-    <li><a href="https://github.com/redwolf2019" rel="external">redwolf2019</a>. Brought the Simplified Chinese README back in line with the English one, including a recipes link that had started returning &ldquo;not found&rdquo;, and corrected the agent guide, which had been listing thirteen tools while the server then offered twenty.</li>
-    <li><a href="https://github.com/wschmitza" rel="external">Wolf Schmitz</a>. Reported that macOS 27 was throwing away every PDF, because the worker that reads them was not allowed to start. The worker starts anyway. If it truly cannot, the run says so, instead of looking like a folder of junk files. The same courtesy applies to the spreadsheet reader.</li>
-    <li><a href="https://github.com/athoune" rel="external">Mathieu Lecarme</a>. Reported that the single-file index command, pointed at a folder, created an empty index and then crashed. That report is what the refusal above answers.</li>
-    <li><a href="https://github.com/2204Zero" rel="external">lakshya goyal (zero)</a>. Reported that choosing Night snapped back to Day on the next page. That report is why the choice now sticks.</li>
-    <li><a href="https://github.com/camen-collab" rel="external">camen-collab</a>. Reported an autoindex run that stalled partway and left the node unable to answer searches. A refresh now has a bound, so it cannot wait forever and take searches down with it.</li>
-    <li><a href="https://github.com/gpstash" rel="external">Gilang Pratama</a>. Reported a final check that sat at zero while another corpus build was publishing. That check now gets a turn between writes, and a page that timed out is not counted as empty.</li>
-    <li><a href="https://github.com/sailong" rel="external">Simon</a>. Reported that editing a file in a very wide dataset made the next update drop that file. Those edits stay in the index.</li>
-    <li><a href="https://github.com/jerry78424" rel="external">Highlander</a>. Reported that a proxy embedding of the wrong width failed a bulk as a temporary server error, so a client would retry a mistake that could not succeed. That item is now a clear client error, and the rest of the batch still indexes.</li>
-    <li><a href="https://github.com/Vinz2168" rel="external">Vincenzo Lombardo</a>. Reported a query that a validity check accepted and a search rejected: text in a field that holds integers. The validity check now reads the mapping and agrees with search.</li>
-    <li><a href="https://github.com/kamwoh" rel="external">Ng Kam Woh</a>. Prepared a plan-and-act reference corpus and wrote down the path: the installer checked its checksum, the pin recorded the licence and the files, and the manifest check needs the engine toolchain, so a contributor without Rust depends on CI. That pack is not part of this release.</li>
-    <li><a href="https://github.com/mgtf" rel="external">Matthieu Foillard</a>. Signed the contributor agreement for an Atoma reference corpus prepared for Corpus Hub. That pack is not part of this release.</li>
-    <li><a href="https://github.com/ArkNill" rel="external">MJ Hwang</a>. Signed the contributor agreement and set the terms for attributing their MIT-licensed llm-relay project, under that name, if Corpus Hub lists it.</li>
-    <li><a href="https://github.com/Jun516" rel="external">Qiu</a>. Signed the contributor agreement. Three fixes they opened, for null JSON payloads, trailing-slash checks, and the installer test fixtures, are still open and are not in this release.</li>
+    <li>Because of <a href="https://github.com/Jarvis636431" rel="external">Jarvis</a>, you can now look up a definition, search one project's index by its prefix, and ask up to 50 questions in one call, each with cited evidence, a clear miss, or its own error, with a real hit kept even when it shares a line, a neighboring definition kept as its own hit, and with what he measured while building that call written down.</li>
+    <li>Because of <a href="https://github.com/Tong-bit-art" rel="external">ordinary being</a>, a filtered view now shows the documents it was meant to show, a count can require a minimum score, asking whether a query is valid reads the field types the way a search does, and the catalog count matches the documents you can actually search.</li>
+    <li>Because of <a href="https://github.com/samuelmbabhazi" rel="external">samuel mbabhazi</a>, Day or Night follows you from page to page, a failed build names the operating-system error underneath, and a watched folder no longer starts a new pass because an ignored file changed.</li>
+    <li>Because of <a href="https://github.com/elewashy" rel="external">Mohamed Al-Aweshi</a>, the single-file index command stops before writing when you point it at a folder and points you at autoindex, instead of creating an empty index and crashing.</li>
+    <li>Because of <a href="https://github.com/mariomarcolongo" rel="external">Mario Marcolongo</a>, the homepage now points an agent to the agent guide, the API description, and the endpoint docs.</li>
+  </ul>
+
+  <p><strong>People who spoke up.</strong> These 12 told us what broke, wrote a field report, or translated a page.</p>
+  <ul>
+    <li><a href="https://github.com/WYSTAF" rel="external">Nikan Wystaf</a> noticed three autoindex crashes on a 16 GB Windows machine with no pagefile and told us, and now Windows keeps a second memory ceiling, taken from the commit space the process can still reach, rather than from the RAM sticker alone.</li>
+    <li>Because of <a href="https://github.com/pallidev" rel="external">jongin</a>, you can read the install and the agent setup in Korean.</li>
+    <li><a href="https://github.com/redwolf2019" rel="external">redwolf2019</a> brought the Simplified Chinese README back in line with the English one, repaired a recipes link that had started saying not found, and corrected an agent guide that listed thirteen tools while the server then offered twenty.</li>
+    <li><a href="https://github.com/wschmitza" rel="external">Wolf Schmitz</a> noticed that macOS 27 was throwing away every PDF because the reader was not allowed to start, and told us, and now that reader starts, the run says so when it truly cannot, and the spreadsheet reader is treated the same way.</li>
+    <li><a href="https://github.com/athoune" rel="external">Mathieu Lecarme</a> noticed that the single-file index command, pointed at a folder, created an empty index and then crashed, and told us, and Mohamed's fix above is the answer.</li>
+    <li><a href="https://github.com/2204Zero" rel="external">lakshya goyal (zero)</a> noticed that choosing Night snapped back to Day on the next page and told us, and now the choice sticks.</li>
+    <li><a href="https://github.com/camen-collab" rel="external">camen-collab</a> noticed an autoindex run that stalled partway and left the node unable to answer searches, and told us, and now a refresh has a bound so it cannot wait forever and take searches down with it.</li>
+    <li><a href="https://github.com/gpstash" rel="external">Gilang Pratama</a> noticed a final check that sat at zero while another corpus was publishing, and told us, and now that check gets a turn between writes, and a page that timed out is not counted as empty.</li>
+    <li><a href="https://github.com/sailong" rel="external">Simon</a> noticed that editing a file in a very wide dataset made the next update drop that file, and told us, and now those edits stay.</li>
+    <li><a href="https://github.com/jerry78424" rel="external">Highlander</a> noticed that an embedding of the wrong width, sent through a proxy, failed the whole batch as a temporary server error, and told us, and now that item is a clear client error and the rest of the batch still indexes.</li>
+    <li><a href="https://github.com/Vinz2168" rel="external">Vincenzo Lombardo</a> noticed a query that a validity check accepted and a search rejected, text in a field that holds integers, and told us, and now the check reads the field types and agrees with search.</li>
+    <li><a href="https://github.com/kamwoh" rel="external">Ng Kam Woh</a> prepared a plan-and-act reference corpus and wrote the path down for the next person, including that the installer checked its checksum, that the pin recorded the licence and the files, and that the manifest check needs Rust, and that pack is not part of this release.</li>
+  </ul>
+
+  <p><strong>People newly welcomed.</strong> These 3 signed the contributor agreement. What they brought besides that signature is not in this release, and we are glad they are here.</p>
+  <ul>
+    <li><a href="https://github.com/mgtf" rel="external">Matthieu Foillard</a> signed on for an Atoma reference corpus prepared for Corpus Hub, and that pack is not part of this release.</li>
+    <li><a href="https://github.com/ArkNill" rel="external">MJ Hwang</a> signed on and set the terms for attributing their MIT-licensed llm-relay project, under the name MJ Hwang, if Corpus Hub lists it.</li>
+    <li><a href="https://github.com/Jun516" rel="external">Qiu</a> signed on, and three fixes they opened, for null JSON payloads, trailing-slash checks, and the installer test fixtures, are still open and are not in this release.</li>
   </ul>
 </section>
 
@@ -188,7 +197,7 @@
   <div class="kicker">02 · THE MACHINE</div>
   <h2 class="scene">A laptop that stays usable while it indexes</h2>
 
-  <p>A laptop and a large server do not get the same budget. From 16 GiB of memory up to 64 GiB, the automatic cap is <strong>8 GiB</strong>. Larger hosts step to 16 GiB and 32 GiB. On the 8 GiB step, recent writes share a <strong>2 GiB</strong> budget. Under 16 GiB the cap is half of RAM. An 8 GiB machine used to be given 8 GiB, which is the whole machine. It now gets 4 GiB. A merge on that smaller budget takes smaller bites, and one merge still runs, because merging is what frees memory.</p>
+  <p>A laptop and a large server do not get the same budget. From 16 GiB of memory up to 64 GiB, the automatic cap is <strong>8 GiB</strong>. Larger hosts step to 16 GiB and 32 GiB. On the 8 GiB step, recent writes share a <strong>2 GiB</strong> budget. Under 16 GiB the cap is half of RAM. An 8 GiB machine used to be given 8 GiB, which is the whole machine. It now gets 4 GiB. A merge on that smaller budget takes smaller bites, and one merge still runs, because merging is what frees memory. On Windows, <a href="https://github.com/WYSTAF" rel="external">Nikan Wystaf</a>'s write-up of three crashes on a 16 GB machine with no pagefile is why there is a second ceiling, taken from the commit space the process can still reach, rather than from the RAM sticker alone.</p>
 
   <div class="stat-band">
     <div class="stat"><div class="v">8 GiB</div><div class="k">step from 16 GiB to 64 GiB</div><div class="s">Hosts at 16 GiB and above. Under 16 GiB the cap is half of RAM.</div></div>
@@ -203,9 +212,9 @@
 
   <p>One oversized JSON document is skipped, and the file is named. A bulk that would exhaust the process is refused before it is parsed. Embeddings are stored packed, so a long JSONL corpus does not keep a tree of numbers in memory until the next flush. You still read them back as a normal array. The default embedder is lexical feature-hashing. Neural embeddings run only if the node was started that way, and when the server has timed a probe, autoindex prints how long the neural part should take before the run starts. Changing that mode later does not rewrite documents already stored.</p>
 
-  <p>A killed corpus index finds its journal and resumes, instead of starting over under a new name. A pipeline bound to an index still runs after a restart. A refresh at the end of a run no longer waits behind one slow merge. A disk that is nearly full says so in one sentence, with the path and what to do.</p>
+  <p>A killed corpus index finds its journal and resumes, instead of starting over under a new name. A pipeline bound to an index still runs after a restart. A refresh at the end of a run no longer waits behind one slow merge. Because <a href="https://github.com/camen-collab" rel="external">camen-collab</a> told us about a run that stalled and left searches unanswered, a refresh now has a bound, so it cannot wait forever and take searches down with it. A disk that is nearly full says so in one sentence, with the path and what to do.</p>
 
-  <p>The awkward files are indexed too. PDF and spreadsheet workers start on macOS 27, where the old memory cap on the worker was refused by the operating system. Hand-written SQL schema is indexed as code, so the table and routine definitions are searchable. A file that is a dump of rows is still treated as rows. Graph mode picks up files you added, when they fit a dataset that already exists, and removes files you deleted, naming them. A file that needs a brand-new dataset stays out until you rebuild with <code class="inline">--fresh</code>. A semantic run that embeds through a proxy resumes after a failure and does not re-embed documents already written, when the model, the endpoint, and the vector width are unchanged.</p>
+  <p>The awkward files are indexed too. <a href="https://github.com/wschmitza" rel="external">Wolf Schmitz</a> is why PDF and spreadsheet workers start on macOS 27, where the old memory cap on the worker was refused by the operating system. Hand-written SQL schema is indexed as code, so the table and routine definitions are searchable. A file that is a dump of rows is still treated as rows. Graph mode picks up files you added, when they fit a dataset that already exists, and removes files you deleted, naming them. A file that needs a brand-new dataset stays out until you rebuild with <code class="inline">--fresh</code>. A semantic run that embeds through a proxy resumes after a failure and does not re-embed documents already written, when the model, the endpoint, and the vector width are unchanged.</p>
 
   <p>If the operating system refuses a worker thread, or a body is too large to parse, the process stays up. The job that could not start is an error. The hard problem is still open: a machine that is actually out of memory, including a WSL2 virtual machine that dies under that pressure, is not solved here.</p>
 </section>
@@ -214,9 +223,9 @@
   <div class="kicker">03 · THE HARNESS</div>
   <h2 class="scene">Cited evidence, in one call</h2>
 
-  <p>An agent can hand over a file of up to 50 identifiers or questions and get them back in that order, from one search. Each item is cited evidence, an explicit empty result, or an error of its own. Exact identifiers need a keyword field. A token budget, if you set one, keeps the outcome and at least one citation for each hit, or it refuses in the open. This is retrieval. It does not write an answer, and it does not claim a confidence score.</p>
+  <p>Because of <a href="https://github.com/Jarvis636431" rel="external">Jarvis</a>, an agent can hand over a file of up to 50 identifiers or questions and get them back in that order, from one search. Each item is cited evidence, an explicit empty result, or an error of its own. Exact identifiers need a keyword field. A token budget, if you set one, keeps the outcome and at least one citation for each hit, or it refuses in the open. This is retrieval. It does not write an answer, and it does not claim a confidence score.</p>
 
-  <p>Definition lookup takes a symbol and, if you want, a project prefix, a kind, and a language. No match is an empty list, which is a success. Search accepts the same kind of prefix: a project name searches that project's indices. With neither a prefix nor an index, both still search the default autoindex set. A hit can name the line that matched, not only the start of the passage, so a citation can point at the line.</p>
+  <p>The same work looks up a definition from a symbol and, if you want, a project prefix, a kind, and a language. No match is an empty list, which is a success. Search accepts the same kind of prefix: a project name searches that project's indices. With neither a prefix nor an index, both still search the default autoindex set. A hit can name the line that matched, not only the start of the passage, so a citation can point at the line.</p>
 
   <p>A question with several words now ranks a passage that covers the question above a one-word symbol that matches a single token. A one-word lookup is unchanged. You can mark a corpus as your own code. An unidentified licence is still named on each hit. A licence the detector actually recognized still carries its warning.</p>
 
@@ -227,7 +236,7 @@
   <div class="kicker">04 · A CLUSTER THAT CAN RESTART</div>
   <h2 class="scene">The owner of a document survives a reboot</h2>
 
-  <p>A single node is unchanged. With clustering turned on, creating an index agrees the plan through the log, and a document write goes to the node that owns that shard. A copy is placed on the replicas chosen at create, and you are answered when a majority of those copies have confirmed. The primary counts. If a replica misses the acknowledgement, it leaves the in-sync set before you are answered. The primary alone, when two replicas were placed, is still a failure: the write is on the primary, and the caller is told the copies did not confirm.</p>
+  <p>A single node is unchanged. The maintaining team built the restart behavior in this section. With clustering turned on, creating an index agrees the plan through the log, and a document write goes to the node that owns that shard. A copy is placed on the replicas chosen at create, and you are answered when a majority of those copies have confirmed. The primary counts. If a replica misses the acknowledgement, it leaves the in-sync set before you are answered. The primary alone, when two replicas were placed, is still a failure: the write is on the primary, and the caller is told the copies did not confirm.</p>
 
   <p>Restart used to forget the plan. The node now keeps a log on disk and replays it before it serves, so the next write finds the owner again. A member that joins late copies that log. A member that has fallen too far behind receives the compacted command history, then the live documents, including documents inserted, updated, or deleted while it was down, and then rejoins the in-sync set. Bulk writes, single-document updates, and update-by-query run on the owner. A bulk is split by owner. A script runs where the current document is. If you cap how many documents an update-by-query may touch, that cap is for the whole index, spent across owners, not granted again on every shard.</p>
 
@@ -240,7 +249,7 @@
   <div class="kicker">05 · THE COUNT</div>
   <h2 class="scene">The 98th tagged release</h2>
 
-  <p>The version number and the tag list are different counts. There is no <code class="inline">v1.0.0-rc.79</code> tag. Tags from rc.1 through rc.98 number <strong>97</strong>. rc.99 is the next cut, the <strong>98th</strong> tagged release. It lands just over 100 days since rc.1. The changelog is dated 2026-10-24. The window since rc.98 is 116 merged pull requests.</p>
+  <p>The version number and the tag list are different counts. There is no <code class="inline">v1.0.0-rc.79</code> tag. Tags from rc.1 through rc.98 number <strong>97</strong>. rc.99 is the next cut, the <strong>98th</strong> tagged release. It lands just over 100 days since rc.1. The changelog is dated 2026-10-24. The window since rc.98 is 116 merged pull requests. The 20 people named above are the community in that window. The maintaining team landed the rest.</p>
 </section>
 
 <section class="scene-section">
@@ -288,6 +297,22 @@
   <pre class="code"><span class="prompt">&gt;</span> $env:XERJ_VERSION='v1.0.0-rc.99'; irm https://xerj.org/get.ps1 | iex</pre>
 
   <p>Re-run the installer you used last time. The two do not share a directory. <code class="inline">xerj --version</code> should print <code class="inline">v1.0.0-rc.99</code>. The longer matrix, the manual checksum block, and the musl-versus-gnu choice are on <a href="/docs/install">the install page</a>.</p>
+</section>
+
+<section class="scene-section">
+  <div class="kicker">09 · COME IN</div>
+  <h2 class="scene">There is room for you</h2>
+
+  <p>If this release helped you, or if it got in your way, tell us in your own words. A short field report is how you join: what you pointed XERJ at, what you used it for, and your honest verdict. A report that says where it frustrated you is the one we learn from. You can also send a fix, open an issue, or come say hello where we already are.</p>
+
+  <ul>
+    <li><a href="https://github.com/xerj-org/xerj#join-the-community" rel="external">Join the community</a>, the field report</li>
+    <li><a href="https://github.com/xerj-org/xerj/blob/main/CONTRIBUTING.md" rel="external">Contributing</a></li>
+    <li><a href="https://github.com/xerj-org/xerj/issues" rel="external">Issues</a></li>
+    <li><a href="https://discord.com/invite/yetXFusXfs" rel="external">Discord</a></li>
+    <li><a href="https://github.com/xerj-org/xerj" rel="external">GitHub</a></li>
+    <li><a href="https://x.com/xerj_org" rel="external">X</a></li>
+  </ul>
 </section>
 </main>
 
