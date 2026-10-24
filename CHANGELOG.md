@@ -9,6 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- With `[cluster] enabled = true`, a replica that does not have the
+  primary's live documents copies them and then rejoins the in-sync set.
+  That covers a member that starts after the writes (the create entry
+  opens an empty replica store) and a replica removed from the in-sync
+  set because it missed an acknowledgement. The primary sends the live
+  documents, drops ids the replica still has that the primary no longer
+  does, and publishes the enlarged in-sync set through the Raft log. The
+  primary holds that shard's replica lock across the copy, so a write
+  that arrives during the copy is replicated to the new set when the
+  lock is released. A later single-document index or delete is copied to
+  that replica with the others. A write still needs the primary. Changing
+  membership does not move copies. `[cluster] enabled = false` does not
+  do this (part of
+  [#1170](https://github.com/xerj-org/xerj/issues/1170)).
+
 - With `[cluster] enabled = true`, a member compacts its Raft log once
   64 metadata entries have been applied since the previous snapshot.
   The compacted prefix is stored in `{data_dir}/_raft/snapshot.meta` and
@@ -17,9 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   same index metadata an AppendEntries catch-up would have. The snapshot
   is that command prefix, not a smaller folded image and not the
   documents. A history that does not fit in 8 MiB stays in the log.
-  Restart replays the snapshot and then the entries after it. A node
-  that never stored a document still does not receive it, and a replica
-  removed from the in-sync set stays out (part of
+  Restart replays the snapshot and then the entries after it. Copying
+  the documents themselves is the replica backfill entry above (part of
   [#1170](https://github.com/xerj-org/xerj/issues/1170)).
 
 - With `[cluster] enabled = true`, a single-document index or delete is
@@ -35,8 +49,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `replica_not_acknowledged` — the primary has the write, and retrying the
   index copies it to the replicas still in sync. There is still no
   `wait_for_active_shards` and no replica promotion. A restarted member
-  reloads metadata from the on-disk Raft log; document backfill is still
-  open (part of
+  reloads metadata from the on-disk Raft log. A replica that missed the
+  write is filled by the backfill entry above (part of
   [#1170](https://github.com/xerj-org/xerj/issues/1170)). Single-node mode
   does not take this path.
 
@@ -46,8 +60,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   later document write is routed to the primary again. A member that
   starts with an empty log copies the leader's log and applies it, which
   installs index metadata (and an empty replica store when this node is
-  a replica). It does not copy documents written before it joined. A
-  replica removed from the in-sync set is not filled in. Term and vote are
+  a replica). Documents written before it joined are copied by the
+  backfill entry above. Term and vote are
   stored with the log, so a restarted node does not grant a second vote in the same
   term. `[cluster] enabled = false` does not open the log (part of
   [#1170](https://github.com/xerj-org/xerj/issues/1170)).
@@ -81,6 +95,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   kept, with its line. An archived path (`archive/`, `archived/`, or
   `keep_archived`) is marked on the `xerj code` header and on `xerj search`
   (#2327).
+
+- Scoped autoindex threads and `POST /{index}/_update/{id}` no longer abort
+  the process when a thread stack or a large body cannot be allocated
+  (#1122). Indexing workers, sync replay, object-watch fetches, and mailbox
+  parsers start with `pthread_create` and do not map an alternate signal
+  stack. A spawn the OS refuses is an error: the job does not run, workers
+  that already started keep going, and the caller runs the work on the
+  calling thread or records the failure. An update body over two 8 MiB
+  documents plus 256 KiB of envelope is refused before `serde_json`, and
+  the existing document is left as it was.
 
 - An idle node whose resident set sits flat at or above the memory watermark
   no longer drains every 2 seconds for the rest of the process. The breaker
