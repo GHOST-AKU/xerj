@@ -10052,6 +10052,11 @@ pub struct Index {
     /// paying the old O(text) cost shows it here and nowhere else.
     /// `Arc` because the merge encode runs on the merge pool, off the caller.
     merge_fts_reanalysed_docs: Arc<AtomicU64>,
+    /// Set for the pass that just finished when at least one selected
+    /// batch was left unmerged because its estimated working set would
+    /// cross the memory watermark (#1122). The debounced check retries;
+    /// a pass that merges everything leaves this false.
+    merge_batches_deferred: std::sync::atomic::AtomicBool,
 }
 
 /// Counts one `Index::refresh` that got past the test hold, on every exit.
@@ -10484,6 +10489,7 @@ impl Index {
             merge_scheduling_stopped: std::sync::atomic::AtomicBool::new(false),
             merge_evaluations: AtomicU64::new(0),
             merge_fts_reanalysed_docs: Arc::new(AtomicU64::new(0)),
+            merge_batches_deferred: std::sync::atomic::AtomicBool::new(false),
             schema_persist_failures: AtomicU64::new(0),
         });
         // #871 — event-driven merge scheduling: the store fires this hook on
@@ -10944,6 +10950,7 @@ impl Index {
             merge_scheduling_stopped: std::sync::atomic::AtomicBool::new(false),
             merge_evaluations: AtomicU64::new(0),
             merge_fts_reanalysed_docs: Arc::new(AtomicU64::new(0)),
+            merge_batches_deferred: std::sync::atomic::AtomicBool::new(false),
             schema_persist_failures: AtomicU64::new(0),
         });
         // #871 — event-driven merge scheduling (see `Index::create` and
@@ -13252,6 +13259,18 @@ impl Index {
             let n = self.merge_pass_locked(Some(target)).await?;
             total += n;
             let seg_count = self.store.snapshot().segments.len();
+            // A small budget deferred every remaining batch. Waiting is
+            // not "already at `target`": the inputs are still there.
+            // The request timeout bounds the wait.
+            if n == 0
+                && seg_count > target
+                && self
+                    .merge_batches_deferred
+                    .load(std::sync::atomic::Ordering::Relaxed)
+            {
+                tokio::time::sleep(std::time::Duration::from_secs(1)).await;
+                continue;
+            }
             if n == 0 || seg_count <= target {
                 break;
             }
@@ -13268,6 +13287,26 @@ impl Index {
         Ok(total)
     }
 
+    /// Process-memory budget the merge scheduler plans against, in bytes.
+    ///
+    /// A positive numeric `XERJ_MAX_PROCESS_MEMORY_MB` wins. Otherwise the
+    /// installed governor's resolved cap. `0` when neither is present
+    /// (engine unit tests that never call `Engine::new`): planning then
+    /// keeps the historical 512 MiB batch.
+    fn merge_process_budget_bytes() -> u64 {
+        const MB: u64 = 1024 * 1024;
+        if let Some(limit_mb) = std::env::var("XERJ_MAX_PROCESS_MEMORY_MB")
+            .ok()
+            .and_then(|raw| raw.trim().parse::<u64>().ok())
+            .filter(|mb| *mb > 0)
+        {
+            return limit_mb.saturating_mul(MB);
+        }
+        crate::governor::global()
+            .map(|governor| governor.process_memory_limit_bytes())
+            .unwrap_or(0)
+    }
+
     /// Upper bound on the total INPUT bytes of one merge batch.  Issue #948.
     ///
     /// The merge executor materialises decoded and re-encoded copies of
@@ -13282,17 +13321,19 @@ impl Index {
     /// `LogMergePolicy` filters candidates by size before batching
     /// (`max_docs_before_merge`, `src/indexer/log_merge_policy.rs:22,94`).
     ///
-    /// Derived: `clamp(process cap / 64, 32 MiB, 512 MiB)` — at #948's
-    /// 16 GiB auto-cap that is a 256 MiB batch, i.e. a worst-case merge
-    /// working set of ~1.5-2.4 GiB at the measured multipliers.
+    /// An explicit numeric `XERJ_MAX_PROCESS_MEMORY_MB` keeps
+    /// `clamp(cap / 64, 32 MiB, 512 MiB)` — at a 16 GiB cap that is a
+    /// 256 MiB batch. `auto`, `off`, and an unset variable read the
+    /// governor's resolved budget ([`crate::merge_budget`]). A budget
+    /// that still covers the historical 512 MiB batch keeps it, so a
+    /// 16 GiB host does not merge in smaller pieces. A 4 GiB budget
+    /// (the AUTO cap on an 8 GiB host) is 64 MiB.
     /// `XERJ_MERGE_BATCH_MAX_INPUT_MB` overrides (0 disables the bound).
-    /// A non-numeric cap (`auto`, `off`) falls back to the 512 MiB
-    /// default.
     fn merge_batch_cap_bytes() -> u64 {
         const MB: u64 = 1024 * 1024;
         if let Ok(raw) = std::env::var("XERJ_MERGE_BATCH_MAX_INPUT_MB") {
             if let Ok(mb) = raw.trim().parse::<u64>() {
-                return mb * MB;
+                return mb.saturating_mul(MB);
             }
         }
         match std::env::var("XERJ_MAX_PROCESS_MEMORY_MB")
@@ -13300,7 +13341,9 @@ impl Index {
             .and_then(|raw| raw.trim().parse::<u64>().ok())
         {
             Some(limit_mb) if limit_mb > 0 => (limit_mb / 64).clamp(32, 512) * MB,
-            _ => 512 * MB,
+            _ => {
+                crate::merge_budget::merge_batch_input_cap_bytes(Self::merge_process_budget_bytes())
+            }
         }
     }
 
@@ -13324,6 +13367,8 @@ impl Index {
         // so it is exactly what the counter measures. Background debounced
         // checks, hand-driven `run_merge_once`, and `_forcemerge` all count.
         self.merge_evaluations.fetch_add(1, AtomicOrdering::Relaxed);
+        self.merge_batches_deferred
+            .store(false, AtomicOrdering::Relaxed);
 
         // V4 M4.5 — larger merge batches so a bursty-ingest index with
         // thousands of small segments converges in far fewer passes.
@@ -13466,10 +13511,21 @@ impl Index {
         // each give ~2.4 GB peak and let the index converge in
         // predictable time without swapping.  Override via env var
         // for machines with more RAM.
-        let merge_parallelism: usize = std::env::var("XERJ_MERGE_PARALLELISM")
+        let configured_parallelism: usize = std::env::var("XERJ_MERGE_PARALLELISM")
             .ok()
             .and_then(|s| s.parse().ok())
             .unwrap_or(1);
+        let merge_parallelism = crate::merge_budget::merge_parallelism_under_budget(
+            configured_parallelism,
+            Self::merge_process_budget_bytes(),
+        );
+        if merge_parallelism < configured_parallelism.max(1) {
+            tracing::debug!(
+                configured = configured_parallelism.max(1),
+                running = merge_parallelism,
+                "merge parallelism reduced to stay inside the process memory budget"
+            );
+        }
         use tokio::task::JoinHandle;
         type MergeOutput = (
             Vec<xerj_storage::segment::SegmentId>,
@@ -13502,6 +13558,50 @@ impl Index {
             if metas.len() == batch.len() {
                 launch_queue.push((batch, metas));
             }
+        }
+
+        // #1122 — on a small process budget, leave batches whose estimated
+        // working set would cross the watermark. The first batch still
+        // runs: merge is what retires per-segment caches. A budget that
+        // still uses the 512 MiB batch starts every batch, which is the
+        // path a 16 GiB host and larger already took.
+        let budget_bytes = Self::merge_process_budget_bytes();
+        let (rss_bytes, watermark_bytes) = match crate::governor::global() {
+            Some(governor) => (
+                governor.observed_rss_bytes(),
+                governor.memory_watermark_bytes(),
+            ),
+            None => (0, 0),
+        };
+        let input_bytes: Vec<u64> = launch_queue
+            .iter()
+            .map(|(_, metas)| metas.iter().map(|meta| meta.size_bytes).sum())
+            .collect();
+        let plan = crate::merge_budget::throttle_merge_batches(
+            &input_bytes,
+            budget_bytes,
+            rss_bytes,
+            watermark_bytes,
+        );
+        let mut deferred = 0usize;
+        let mut kept = Vec::with_capacity(launch_queue.len());
+        for (item, start) in launch_queue.into_iter().zip(plan) {
+            if start {
+                kept.push(item);
+            } else {
+                deferred += 1;
+            }
+        }
+        let launch_queue = kept;
+        if deferred > 0 {
+            self.merge_batches_deferred
+                .store(true, AtomicOrdering::Relaxed);
+            tracing::info!(
+                deferred,
+                rss_mb = rss_bytes / (1024 * 1024),
+                watermark_mb = watermark_bytes / (1024 * 1024),
+                "merge batches deferred: estimated working set would cross the memory watermark; inputs kept"
+            );
         }
 
         // Derived once from the schema, then moved into each merge task: a
@@ -14963,7 +15063,12 @@ impl Index {
                         if *n > 0 {
                             tracing::debug!(batches = n, "merge pass ran");
                         }
-                        false
+                        // Batches left behind under a small budget need
+                        // another check after the debounce sleep. A pass
+                        // that merged something already bumps
+                        // `merge_events`; this covers the pass that
+                        // started nothing because every extra batch waited.
+                        idx.merge_batches_deferred.load(AtomicOrdering::Relaxed)
                     }
                 };
                 if retry || idx.merge_events.load(AtomicOrdering::SeqCst) != seen {
@@ -19756,6 +19861,14 @@ impl Index {
             "_index" => Some(Value::String(self.name.as_str().to_string())),
             _ => None,
         }
+    }
+
+    /// Live document ids, sorted by id.
+    ///
+    /// A tombstone is not included. The id is present once the index call
+    /// has returned, including before refresh.
+    pub fn live_document_ids(&self) -> Vec<String> {
+        self.store.version_map.live_ids()
     }
 
     /// Retrieve a document by its string ID.
@@ -27196,7 +27309,13 @@ impl Index {
         if let Some(g) = crate::governor::global() {
             g.check_disk_block(self.name.as_str())
                 .map_err(EngineError::Common)?;
-            g.check_ingest_admission().map_err(EngineError::Common)?;
+            if let Err(error) = g.check_ingest_admission() {
+                // The rejection does not free the memtable or the RSS that
+                // tripped it. Request the drain on this 429, not only on the
+                // sampler's next tick (#2321, #948).
+                crate::engine::request_memory_pressure_drain();
+                return Err(EngineError::Common(error));
+            }
         }
         Ok(())
     }
@@ -59473,6 +59592,77 @@ mod lexical_passage_tests {
             "ordinal = line index of window start"
         );
         assert!(passage.ordinal > 0, "window must not hug the file head");
+    }
+
+    /// #2327: a nested test callback under the 16 KiB AST cap used to be
+    /// returned whole. The passage stays inside the lexical window and keeps
+    /// the line ordinal of that window.
+    #[test]
+    fn nested_test_callback_passage_stays_inside_the_lexical_window() {
+        let mut callback = String::from("() => {\n  const CALLBACK_START_SENTINEL = 1;\n");
+        for i in 0..70 {
+            callback.push_str(&format!(
+                "  const pad_{i:03} = \"session-token-handler-pad\";\n"
+            ));
+        }
+        callback.push_str("  const refreshMarker = sessionTokenHandler();\n}\n");
+        assert!(callback.len() > LEXICAL_PASSAGE_MAX_BYTES);
+        assert!(callback.len() < crate::code_blocks::DEFAULT_MAX_BLOCK_BYTES);
+        let body = format!(
+            "{}\ndescribe(\"session token\", () => {{\n  it(\"refreshes the handler\", {callback});\n}});\n",
+            "// preamble\n".repeat(8)
+        );
+        let query = QueryNode::MultiMatch {
+            fields: vec!["body".into()],
+            query: "refreshMarker sessionTokenHandler".into(),
+            match_type: Default::default(),
+            operator: None,
+            analyzer: None,
+            boost: None,
+            slop: 0,
+            max_expansions: 50,
+            lenient: false,
+        };
+        let hit = Hit {
+            id: "doc-1".into(),
+            score: 1.0,
+            source: json!({
+                "body": body,
+                "language": "typescript",
+                "symbol_count": 2
+            }),
+            seq_no: None,
+            version: None,
+            sort: Vec::new(),
+            explain: None,
+            highlight: None,
+            matched_queries: Vec::new(),
+            passage: None,
+        };
+        let out = apply_lexical_passages(vec![hit], &query);
+        let passage = out[0].passage.as_ref().expect("lexical passage filled");
+        assert!(
+            passage.text.contains("refreshMarker"),
+            "the window must contain the match: {}",
+            passage.text
+        );
+        assert!(
+            passage.text.len() <= LEXICAL_PASSAGE_MAX_BYTES,
+            "a nested callback must not be returned whole ({} bytes)",
+            passage.text.len()
+        );
+        assert!(
+            !passage.text.contains("CALLBACK_START_SENTINEL"),
+            "the callback head is outside the window: {}",
+            passage.text
+        );
+        let start = passage.start_offset as usize;
+        assert_eq!(
+            passage.ordinal as usize,
+            body[..start].matches('\n').count(),
+            "ordinal is the file line of the bounded window"
+        );
+        assert!(passage.ordinal > 0, "the preamble keeps a real line");
     }
 
     /// A short symbol-list field must not capture the passage from the body:

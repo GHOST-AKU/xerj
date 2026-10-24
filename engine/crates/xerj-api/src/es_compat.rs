@@ -4501,6 +4501,126 @@ mod oversized_single_doc {
     }
 }
 
+#[cfg(test)]
+mod oversized_update {
+    use super::*;
+    use axum::body::{to_bytes, Body};
+    use axum::http::Request;
+    use tower::ServiceExt;
+    use xerj_common::config::{Config, WalSync};
+    use xerj_common::document_limit::MAX_UPDATE_BODY_BYTES;
+    use xerj_common::metrics::Metrics;
+    use xerj_engine::Engine;
+
+    fn test_state() -> AppState {
+        let dir = tempfile::tempdir().expect("tempdir").keep();
+        let mut config = Config::default();
+        config.server.data_dir = dir.to_string_lossy().into_owned();
+        config.storage.wal_sync = WalSync::Async;
+        let metrics = Metrics::new().expect("metrics");
+        let engine = Engine::new(config.clone()).expect("engine");
+        AppState::new(config, engine, metrics)
+    }
+
+    #[test]
+    fn an_oversized_update_body_is_refused_before_it_is_parsed() {
+        let body = vec![b'x'; MAX_UPDATE_BODY_BYTES + 1];
+        let err = parse_update_body(&body).unwrap_err();
+        let text = err.to_string();
+        assert!(text.contains(&MAX_UPDATE_BODY_BYTES.to_string()), "{text}");
+        assert!(text.contains("not parsed"), "{text}");
+        assert!(text.contains("not changed"), "{text}");
+        assert!(
+            !text.contains("invalid JSON"),
+            "the size check must run before parse: {text}"
+        );
+        let small = parse_update_body(br#"{"doc":{"name":"ada"}}"#).unwrap();
+        assert_eq!(small.doc.unwrap()["name"], "ada");
+    }
+
+    #[tokio::test]
+    async fn post_update_refuses_an_oversized_body_and_a_small_update_applies() {
+        let app = crate::router::build_es_compat_router(test_state());
+        let created = app
+            .clone()
+            .oneshot(
+                Request::put("/upd/_doc/1")
+                    .header("content-type", "application/json")
+                    .body(Body::from(r#"{"name":"ada","n":1}"#))
+                    .unwrap(),
+            )
+            .await
+            .unwrap();
+        assert_eq!(created.status(), StatusCode::CREATED);
+
+        // Valid JSON, over the envelope. A parse-first path would accept
+        // the syntax and answer with the document ceiling (or index it).
+        // The size refusal names the update limit and does not say the
+        // body was invalid JSON.
+        let mut big = Vec::new();
+        big.extend_from_slice(br#"{"doc":{"blob":""#);
+        big.extend(std::iter::repeat_n(b'a', MAX_UPDATE_BODY_BYTES));
+        big.extend_from_slice(br#""}}"#);
+        let refused = app
+            .clone()
+            .oneshot(
+                Request::post("/upd/_update/1")
+                    .header("content-type", "application/json")
+                    .body(Body::from(big))
+                    .unwrap(),
+            )
+            .await
+            .unwrap();
+        assert_eq!(refused.status(), StatusCode::BAD_REQUEST);
+        let bytes = to_bytes(refused.into_body(), usize::MAX).await.unwrap();
+        let text = String::from_utf8(bytes.to_vec()).unwrap();
+        assert!(text.contains(&MAX_UPDATE_BODY_BYTES.to_string()), "{text}");
+        assert!(text.contains("not parsed"), "{text}");
+        assert!(text.contains("not changed"), "{text}");
+        assert!(
+            !text.contains("invalid JSON"),
+            "parsed before the size check: {text}"
+        );
+
+        let fetched = app
+            .clone()
+            .oneshot(Request::get("/upd/_doc/1").body(Body::empty()).unwrap())
+            .await
+            .unwrap();
+        assert_eq!(fetched.status(), StatusCode::OK);
+        let bytes = to_bytes(fetched.into_body(), usize::MAX).await.unwrap();
+        let doc: Value = serde_json::from_slice(&bytes).unwrap();
+        assert_eq!(doc["_source"]["name"], json!("ada"));
+        assert_eq!(doc["_source"]["n"], json!(1));
+
+        let updated = app
+            .clone()
+            .oneshot(
+                Request::post("/upd/_update/1")
+                    .header("content-type", "application/json")
+                    .body(Body::from(r#"{"doc":{"name":"ada2"}}"#))
+                    .unwrap(),
+            )
+            .await
+            .unwrap();
+        assert_eq!(updated.status(), StatusCode::OK);
+
+        let fetched = app
+            .oneshot(Request::get("/upd/_doc/1").body(Body::empty()).unwrap())
+            .await
+            .unwrap();
+        assert_eq!(fetched.status(), StatusCode::OK);
+        let bytes = to_bytes(fetched.into_body(), usize::MAX).await.unwrap();
+        let doc: Value = serde_json::from_slice(&bytes).unwrap();
+        assert_eq!(doc["_source"]["name"], json!("ada2"));
+        assert_eq!(
+            doc["_source"]["n"],
+            json!(1),
+            "fields the update did not name stay"
+        );
+    }
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // GET /{index}/_doc/{id}?_source_includes=f1,f2&_source_excludes=f3
 // ─────────────────────────────────────────────────────────────────────────────
@@ -12968,6 +13088,35 @@ pub(crate) async fn search_shard_local(
     .await
 }
 
+/// Heap-allocate the publish future before it is polled.
+///
+/// `publish_memtables_if_budget_engaged` awaits `Index::flush`. That future
+/// is large enough that building it inside `search_impl` overflows the worker
+/// stack (#2321). A sync function creates it here, on the task that is about
+/// to poll it, and only the box escapes.
+#[inline(never)]
+fn boxed_memtable_publish(
+    engine: std::sync::Arc<xerj_engine::Engine>,
+) -> std::pin::Pin<Box<dyn std::future::Future<Output = usize> + Send>> {
+    Box::pin(async move { engine.publish_memtables_if_budget_engaged().await })
+}
+
+/// Publish memtables that are holding the process budget, on a fresh task.
+///
+/// A no-op — and no spawn — when the memtable breaker is off, so an ordinary
+/// search does not flush. The spawn keeps `Index::flush`'s frame off
+/// `search_impl`'s stack.
+async fn publish_engaged_memtables(engine: std::sync::Arc<xerj_engine::Engine>) {
+    if !xerj_engine::governor::global().is_some_and(|governor| governor.memtable_breaker_engaged())
+    {
+        return;
+    }
+    let _ = tokio::spawn(async move {
+        let _published = boxed_memtable_publish(engine).await;
+    })
+    .await;
+}
+
 async fn search_impl(
     state: AppState,
     index: String,
@@ -12979,6 +13128,10 @@ async fn search_impl(
     // Read once, before the first `.await`: what the in-process hub caller asked
     // of this search. A request off the wire gets the default and is unaffected.
     let in_process = in_process_search();
+    // #2321: a memtable sitting on the process budget is what a `{prefix}-*`
+    // search scans. Publish it before this request walks it. No-op unless
+    // that breaker is engaged. Read `in_process` first — it is task-local.
+    publish_engaged_memtables(std::sync::Arc::clone(&state.engine)).await;
     // Closed-index handling is deferred to after index resolution below so
     // `ignore_unavailable` / `expand_wildcards` are honored per ES semantics.
 
@@ -20296,9 +20449,19 @@ async fn process_bulk_body(
         )
     });
 
-    let result =
-        xerj_engine::bulk::process_bulk_with_opts(&state.engine, default_index, text_ref, opts)
-            .await;
+    // Cluster mode routes each action to its shard primary and copies the
+    // stored document. No cluster handle: the local bulk pipeline, unchanged.
+    // `wire` is the primary's `_version` / `_seq_no`. The accepting node does
+    // not have the document, so the lookup below would report a fresh id.
+    let (result, wire) = if state.engine.has_cluster() {
+        crate::cluster_shard::bulk_on_primaries(state, default_index, text_ref, opts).await
+    } else {
+        (
+            xerj_engine::bulk::process_bulk_with_opts(&state.engine, default_index, text_ref, opts)
+                .await,
+            Vec::new(),
+        )
+    };
     let took_ms = result.took_ms;
     let errors = result.errors;
 
@@ -20323,7 +20486,7 @@ async fn process_bulk_body(
     let mut audited_index_names: std::collections::BTreeSet<String> =
         std::collections::BTreeSet::new();
     let mut items: Vec<EsBulkItem> = Vec::with_capacity(result.items.len());
-    for item in result.items {
+    for (ordinal, item) in result.items.into_iter().enumerate() {
         let failed = item.error.is_some() || !(200..300).contains(&item.status);
         if failed {
             failed_items += 1;
@@ -20345,6 +20508,13 @@ async fn process_bulk_body(
         // `status: 400` reads as "this write landed".
         let (version, seq_no, primary_term, shards) = if failed {
             (None, None, None, None)
+        } else if let Some((version, seq_no)) = wire.get(ordinal).copied().flatten() {
+            (
+                Some(version),
+                Some(seq_no),
+                Some(1),
+                Some(crate::responses::EsShards::single_success()),
+            )
         } else {
             let (version, seq_no) = state
                 .engine
@@ -22903,7 +23073,7 @@ fn format_date(dt: chrono::DateTime<chrono::Utc>, fmt: &str) -> String {
 // POST /{index}/_update/{id}
 // ─────────────────────────────────────────────────────────────────────────────
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct EsUpdateBody {
     /// Partial document fields to merge into existing source.
     pub doc: Option<Value>,
@@ -22923,7 +23093,7 @@ pub struct EsUpdateBody {
 }
 
 /// Query parameters for the `_update` endpoint.
-#[derive(Debug, Default, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct UpdateDocParams {
     /// `refresh=true|wait_for` — accepted without error; memtable is always visible.
     pub refresh: Option<String>,
@@ -22984,15 +23154,80 @@ async fn build_update_get_field(
     }
 }
 
+/// Parse an `_update` body from raw bytes.
+///
+/// The size check runs before `serde_json`. The route used to take
+/// `Json<EsUpdateBody>`, so axum built the DOM before the handler. A body
+/// between this envelope and `limits.max_body_bytes` (100 MiB) was parsed
+/// even when it could not be applied, and that parse is an infallible
+/// allocation (`panic = "abort"`, #1122). Bytes that are not JSON and are
+/// also over the limit report the size refusal, not a parse error.
+pub(crate) fn parse_update_body(body: &[u8]) -> Result<EsUpdateBody, xerj_common::XerjError> {
+    if xerj_common::document_limit::update_body_too_large(body.len()) {
+        let len = body.len();
+        tracing::warn!(
+            bytes = len,
+            limit = xerj_common::document_limit::MAX_UPDATE_BODY_BYTES,
+            "update body refused before parse; the existing document was not changed (#1122)"
+        );
+        return Err(xerj_common::XerjError::invalid_document_json(
+            xerj_common::document_limit::update_body_refusal(len),
+        ));
+    }
+    serde_json::from_slice(body).map_err(|e| {
+        xerj_common::XerjError::invalid_document_json(format!("invalid JSON body: {e}"))
+    })
+}
+
+pub(crate) struct LocalUpdate {
+    pub response: axum::response::Response,
+    /// The primary stored a new source. A cluster caller copies it. A noop,
+    /// a miss, and every error leave this false.
+    pub replicate: bool,
+}
+
 pub async fn update_doc(
     State(state): State<AppState>,
     Path((index, id)): Path<(String, String)>,
     Query(query_params): Query<UpdateDocParams>,
-    Json(body): Json<EsUpdateBody>,
+    body: bytes::Bytes,
 ) -> impl IntoResponse {
-    let idx = match state.engine.get_or_create_index(&index) {
+    // Before `get_or_create_index`, so a refused body does not create an
+    // index and does not read or write the document.
+    let body = match parse_update_body(&body) {
+        Ok(body) => body,
+        Err(e) => return ApiError::new(e).into_response(),
+    };
+    if state.engine.has_cluster() {
+        match crate::cluster_shard::dispatch_update(&state, &index, &id, &body, &query_params).await
+        {
+            crate::cluster_shard::Dispatch::Done(response) => return response,
+            crate::cluster_shard::Dispatch::Local => {}
+        }
+    }
+    apply_local_update(&state, &index, &id, body, &query_params)
+        .await
+        .response
+}
+
+pub(crate) async fn apply_local_update(
+    state: &AppState,
+    index: &str,
+    id: &str,
+    body: EsUpdateBody,
+    query_params: &UpdateDocParams,
+) -> LocalUpdate {
+    fn settled(response: impl IntoResponse, replicate: bool) -> LocalUpdate {
+        LocalUpdate {
+            response: response.into_response(),
+            replicate,
+        }
+    }
+    let idx = match state.engine.get_or_create_index(index) {
         Ok(i) => i,
-        Err(e) => return ApiError::new(xerj_common::XerjError::from(e)).into_response(),
+        Err(e) => {
+            return settled(ApiError::new(xerj_common::XerjError::from(e)), false);
+        }
     };
 
     // ── Scripted update path ────────────────────────────────────────────────
@@ -23002,7 +23237,10 @@ pub async fn update_doc(
     if let Some(script_val) = body.script.as_ref() {
         let (src, params) = extract_update_script(script_val);
         if src.is_empty() {
-            return update_script_bad_request("script source is required".to_string());
+            return settled(
+                update_script_bad_request("script source is required".to_string()),
+                false,
+            );
         }
         let upsert_body = body.upsert.clone().or_else(|| {
             if body.doc_as_upsert {
@@ -23018,7 +23256,7 @@ pub async fn update_doc(
         let (transformed, fault) = xerj_engine::painless::with_script_fault_capture(
             xerj_engine::painless::with_script_deadline(
                 deadline,
-                idx.transform_document_serialized(&id, upsert_body, move |mut current| {
+                idx.transform_document_serialized(id, upsert_body, move |mut current| {
                     apply_painless_update(&mut current, &src, &params)?;
                     Ok::<_, String>(current)
                 }),
@@ -23026,65 +23264,66 @@ pub async fn update_doc(
         )
         .await;
         if let Some(reason) = fault {
-            return script_limit_response(&reason);
+            return settled(script_limit_response(&reason), false);
         }
         match transformed {
             Ok(Ok(Some(outcome))) => {
-                state.metrics.record_doc_indexed(&index);
+                state.metrics.record_doc_indexed(index);
                 let resp = outcome.response;
                 let mut er = if outcome.created {
                     crate::responses::EsDocResponse::created(
-                        &index,
+                        index,
                         &resp.id,
                         resp.version,
                         resp.seq_no.saturating_sub(1),
                     )
                 } else {
                     crate::responses::EsDocResponse::updated(
-                        &index,
+                        index,
                         &resp.id,
                         resp.version,
                         resp.seq_no.saturating_sub(1),
                     )
                 };
-                if update_wants_get(&query_params) {
-                    er.get = Some(build_update_get_field(&idx, &resp.id, &query_params).await);
+                if update_wants_get(query_params) {
+                    er.get = Some(build_update_get_field(&idx, &resp.id, query_params).await);
                 }
-                return Json(er).into_response();
+                return settled(Json(er), true);
             }
             Ok(Ok(None)) => {
-                let e = xerj_common::XerjError::document_not_found(&id, &index);
-                return ApiError::new(e).into_response();
+                let e = xerj_common::XerjError::document_not_found(id, index);
+                return settled(ApiError::new(e), false);
             }
-            Ok(Err(error)) => return update_script_bad_request(error),
+            Ok(Err(error)) => return settled(update_script_bad_request(error), false),
             Err(error) => {
-                return ApiError::new(xerj_common::XerjError::from(error)).into_response();
+                return settled(ApiError::new(xerj_common::XerjError::from(error)), false);
             }
         }
     }
 
     match idx
-        .update_document_with_upsert(&id, body.doc, body.upsert, body.doc_as_upsert)
+        .update_document_with_upsert(id, body.doc, body.upsert, body.doc_as_upsert)
         .await
     {
         Ok(Some(resp)) => {
-            state.metrics.record_doc_indexed(&index);
+            let replicate = resp.result != "noop";
+            state.metrics.record_doc_indexed(index);
             let mut er = crate::responses::EsDocResponse::updated(
-                &index,
+                index,
                 &resp.id,
                 resp.version,
                 resp.seq_no.saturating_sub(1),
             );
-            if update_wants_get(&query_params) {
-                er.get = Some(build_update_get_field(&idx, &resp.id, &query_params).await);
+            if update_wants_get(query_params) {
+                er.get = Some(build_update_get_field(&idx, &resp.id, query_params).await);
             }
-            Json(er).into_response()
+            settled(Json(er), replicate)
         }
         Ok(None) => {
-            let e = xerj_common::XerjError::document_not_found(&id, &index);
-            ApiError::new(e).into_response()
+            let e = xerj_common::XerjError::document_not_found(id, index);
+            settled(ApiError::new(e), false)
         }
-        Err(e) => ApiError::new(xerj_common::XerjError::from(e)).into_response(),
+        Err(e) => settled(ApiError::new(xerj_common::XerjError::from(e)), false),
     }
 }
 
@@ -32383,13 +32622,10 @@ mod scripted_update_publication_tests {
                     State(state),
                     Path(("script-counter".to_string(), "counter".to_string())),
                     Query(UpdateDocParams::default()),
-                    Json(EsUpdateBody {
-                        doc: None,
-                        doc_as_upsert: false,
-                        upsert: None,
-                        script: Some(json!("ctx._source.n += 1")),
-                        detect_noop: None,
-                    }),
+                    bytes::Bytes::from(
+                        serde_json::to_vec(&json!({"script": "ctx._source.n += 1"}))
+                            .expect("script update body"),
+                    ),
                 )
                 .await
                 .into_response()

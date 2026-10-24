@@ -3,6 +3,7 @@
 //! from the others because it is stored on the shard owner. A ring that is
 //! not running refuses the create instead of applying it locally.
 
+use std::collections::BTreeMap;
 use std::time::{Duration, Instant};
 
 use axum::body::Body;
@@ -108,6 +109,17 @@ async fn post_json(app: &Router, path: &str, body: Value) -> (StatusCode, Value)
         app,
         Request::post(path)
             .header("content-type", "application/json")
+            .body(Body::from(body.to_string()))
+            .expect("request"),
+    )
+    .await
+}
+
+async fn post_ndjson(app: &Router, path: &str, body: &str) -> (StatusCode, Value) {
+    send(
+        app,
+        Request::post(path)
+            .header("content-type", "application/x-ndjson")
             .body(Body::from(body.to_string()))
             .expect("request"),
     )
@@ -354,6 +366,44 @@ async fn cluster_disabled_create_stays_on_the_node_that_received_it() {
         Some(1),
         "single-node search stays one document: {body}"
     );
+
+    let (status, body) = post_ndjson(
+        &a,
+        "/local/_bulk",
+        "{\"index\":{\"_id\":\"b1\"}}\n{\"title\":\"bulk\"}\n",
+    )
+    .await;
+    assert!(status.is_success(), "single-node bulk: {status} {body}");
+    assert_eq!(
+        body.pointer("/errors").and_then(|v| v.as_bool()),
+        Some(false),
+        "{body}"
+    );
+    let (status, got) = get(&a, "/local/_doc/b1").await;
+    assert_eq!(status, StatusCode::OK, "{got}");
+    let (status, _) = get(&b, "/local/_doc/b1").await;
+    assert_eq!(status, StatusCode::NOT_FOUND);
+    let (status, body) = post_json(
+        &a,
+        "/local/_update/b1",
+        json!({ "doc": { "title": "patched" } }),
+    )
+    .await;
+    assert!(status.is_success(), "single-node update: {status} {body}");
+    let (status, got) = get(&a, "/local/_doc/b1").await;
+    assert_eq!(status, StatusCode::OK, "{got}");
+    assert_eq!(
+        got.pointer("/_source/title").and_then(|v| v.as_str()),
+        Some("patched")
+    );
+    let (status, _) = get(&b, "/local/_doc/b1").await;
+    assert_eq!(status, StatusCode::NOT_FOUND);
+    let (status, _) = get(&a, "/.xerj_replica_local_0/_doc/b1").await;
+    assert_eq!(
+        status,
+        StatusCode::NOT_FOUND,
+        "single-node bulk and update do not open a replica store"
+    );
 }
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 4)]
@@ -519,6 +569,9 @@ async fn an_acknowledged_write_is_on_the_replica_and_readable_after_the_primary_
 }
 
 async fn wait_in_sync(members: &[Member], shard: u32, want: &[String]) {
+    let mut want = want.to_vec();
+    want.sort();
+    want.dedup();
     let deadline = Instant::now() + Duration::from_secs(5);
     loop {
         let ready = members.iter().all(|member| {
@@ -663,6 +716,10 @@ async fn a_quorum_of_copies_acks_when_one_of_two_replicas_does_not() {
         Some("copied"),
         "the replica that confirmed has the write: {on_live:?}"
     );
+    // The handler on this replica stays cleared. Restoring it would let
+    // document backfill copy the write and put the replica back in the
+    // in-sync set. That path is covered by
+    // `a_replica_dropped_from_the_in_sync_set_copies_the_missed_write_and_rejoins`.
     let on_stale = members[replica_a]
         .engine
         .get_index(&store)
@@ -861,6 +918,28 @@ async fn a_document_is_stored_on_its_shard_owner_and_search_sees_it_from_any_mem
     for member in &members {
         let _ = member.shutdown.send(true);
     }
+}
+
+/// Stop one member and release its data directory.
+///
+/// The shard handler is cleared first, so a document write during shutdown
+/// cannot land on this replica. The runner is joined before the engine is
+/// dropped: the engine holds `node.lock`, and a later `Engine::new` on the
+/// same directory refuses to open while that lock is held.
+async fn shutdown_member(mut member: Member) -> tempfile::TempDir {
+    member.handle.clear_shard_handler();
+    let _ = member.shutdown.send(true);
+    if let Some(task) = member.runner.take() {
+        match tokio::time::timeout(Duration::from_secs(5), task).await {
+            Ok(Ok(())) => {}
+            other => panic!("cluster runner did not stop: {other:?}"),
+        }
+    }
+    drop(member.app);
+    drop(member.state);
+    drop(member.engine);
+    drop(member.handle);
+    member._dir
 }
 
 async fn shutdown_and_keep(members: Vec<Member>) -> Vec<tempfile::TempDir> {
@@ -1164,6 +1243,1054 @@ async fn a_late_member_installs_a_compacted_create_and_routes_a_later_write() {
             member.handle.node_id()
         );
     }
+
+    for member in &members {
+        let _ = member.shutdown.send(true);
+    }
+}
+
+async fn replica_title(member: &Member, shard: u32, id: &str) -> Option<String> {
+    let store = xerj_cluster::replica_index_name("orders", shard)?;
+    let Ok(idx) = member.engine.get_index(&store) else {
+        return None;
+    };
+    idx.get_document(id)
+        .await
+        .expect("replica get")
+        .and_then(|doc| {
+            doc.get("title")
+                .and_then(|value| value.as_str())
+                .map(str::to_string)
+        })
+}
+
+async fn wait_replica_title(member: &Member, shard: u32, id: &str, want: Option<&str>) {
+    let deadline = Instant::now() + Duration::from_secs(10);
+    loop {
+        let got = replica_title(member, shard, id).await;
+        if got.as_deref() == want {
+            return;
+        }
+        if Instant::now() > deadline {
+            panic!("replica title of {id} on shard {shard} stayed {got:?}, wanted {want:?}");
+        }
+        tokio::time::sleep(Duration::from_millis(20)).await;
+    }
+}
+
+/// n3 is in the configured membership and is not started until after the
+/// documents exist. Its replica store is created empty by the create entry.
+/// Backfill then copies the primary's live set, including a delete that
+/// landed before n3 started, and publishes n3 into the in-sync set.
+#[tokio::test(flavor = "multi_thread", worker_threads = 4)]
+async fn a_late_member_copies_documents_written_before_it_joined() {
+    let ids = ["n1", "n2", "n3"];
+    let bus = InMemoryBus::new();
+    let mut members = Vec::new();
+    for id in ["n1", "n2"] {
+        let dir = tempfile::tempdir().expect("tempdir");
+        members.push(open_durable_member(id, &ids, &bus, dir, 64).await);
+    }
+    let _leader = wait_leader(&members, &[false, false]).await;
+
+    let (status, body) = put_json(
+        &members[0].app,
+        "/orders",
+        json!({
+            "settings": { "index": { "number_of_replicas": 2 } },
+            "mappings": { "properties": { "title": { "type": "text" } } }
+        }),
+    )
+    .await;
+    assert!(status.is_success(), "create: {status} {body}");
+    for member in &members {
+        wait_status(&member.app, "/orders", StatusCode::OK).await;
+    }
+
+    let mut keep: Option<(String, u32, String, Vec<String>)> = None;
+    let mut gone_id = None;
+    for n in 0..256 {
+        let id = format!("b{n}");
+        let Some((shard, owner)) = members[0].engine.primary_of("orders", &id) else {
+            continue;
+        };
+        if owner == "n3" {
+            continue;
+        }
+        let replicas = members[0].engine.placed_replica_nodes("orders", shard);
+        if !replicas.iter().any(|replica| replica == "n3") {
+            continue;
+        }
+        if keep.is_none() {
+            keep = Some((id, shard, owner, replicas));
+            continue;
+        }
+        if keep
+            .as_ref()
+            .is_some_and(|(_, shard0, _, _)| *shard0 == shard)
+        {
+            gone_id = Some(id);
+            break;
+        }
+    }
+    let (keep_id, shard, owner, replicas) = keep.expect("a shard whose replica list includes n3");
+    let gone_id = gone_id.expect("a second id on that shard");
+    let live: Vec<String> = replicas.into_iter().filter(|id| id != "n3").collect();
+    assert_eq!(live.len(), 1, "one replica is up while n3 is stopped");
+
+    let (status, body) = put_json(
+        &members[0].app,
+        &format!("/orders/_doc/{keep_id}"),
+        json!({ "title": "kept" }),
+    )
+    .await;
+    assert!(status.is_success(), "write kept: {status} {body}");
+    let (status, body) = put_json(
+        &members[0].app,
+        &format!("/orders/_doc/{gone_id}"),
+        json!({ "title": "gone" }),
+    )
+    .await;
+    assert!(status.is_success(), "write gone: {status} {body}");
+    let (status, body) = delete(&members[0].app, &format!("/orders/_doc/{gone_id}")).await;
+    assert!(status.is_success(), "delete gone: {status} {body}");
+    wait_in_sync(&members, shard, &live).await;
+
+    let live_member = members
+        .iter()
+        .find(|member| member.handle.node_id() == live[0])
+        .expect("live replica");
+    assert_eq!(
+        replica_title(live_member, shard, &keep_id).await.as_deref(),
+        Some("kept"),
+        "the replica that acked the write has the document before n3 starts"
+    );
+
+    let dir = tempfile::tempdir().expect("tempdir");
+    members.push(open_durable_member("n3", &ids, &bus, dir, 64).await);
+    let late = members.len() - 1;
+    wait_replica_title(&members[late], shard, &keep_id, Some("kept")).await;
+    let gone = replica_title(&members[late], shard, &gone_id).await;
+    assert!(
+        gone.is_none(),
+        "a document deleted before n3 joined is not copied: {gone:?}"
+    );
+    let on_user = members[late]
+        .engine
+        .get_index("orders")
+        .expect("user index")
+        .get_document(&keep_id)
+        .await
+        .expect("user get");
+    assert!(
+        on_user.is_none(),
+        "the backfill writes the replica store, not the user index: {on_user:?}"
+    );
+    let mut want = live.clone();
+    want.push("n3".to_string());
+    wait_in_sync(&members, shard, &want).await;
+
+    let primary_at = members
+        .iter()
+        .position(|member| member.handle.node_id() == owner)
+        .expect("primary");
+    let live_at = members
+        .iter()
+        .position(|member| member.handle.node_id() == live[0])
+        .expect("live replica");
+    members[primary_at].handle.clear_shard_handler();
+    members[live_at].handle.clear_shard_handler();
+    let (status, body) = get(&members[late].app, &format!("/orders/_doc/{keep_id}")).await;
+    assert!(
+        status.is_success(),
+        "GET uses the copy backfill put on n3: {status} {body}"
+    );
+    assert_eq!(
+        body.pointer("/_source/title")
+            .and_then(|value| value.as_str()),
+        Some("kept"),
+        "{body}"
+    );
+
+    members[primary_at]
+        .handle
+        .set_shard_handler(std::sync::Arc::new(ApiShardHandler::new(
+            members[primary_at].state.clone(),
+        )));
+    members[live_at]
+        .handle
+        .set_shard_handler(std::sync::Arc::new(ApiShardHandler::new(
+            members[live_at].state.clone(),
+        )));
+    let _leader = wait_leader(&members, &[false, false, false]).await;
+    let (status, body) = put_json(
+        &members[late].app,
+        &format!("/orders/_doc/{keep_id}"),
+        json!({ "title": "after" }),
+    )
+    .await;
+    assert!(
+        status.is_success(),
+        "write after n3 is in sync: {status} {body}"
+    );
+    assert_eq!(
+        replica_title(&members[late], shard, &keep_id)
+            .await
+            .as_deref(),
+        Some("after"),
+        "the in-sync replica receives the next write"
+    );
+    assert!(
+        members[primary_at]
+            .engine
+            .replica_nodes("orders", shard)
+            .iter()
+            .any(|id| id == "n3"),
+        "the write did not drop n3 from the in-sync set"
+    );
+
+    for member in &members {
+        let _ = member.shutdown.send(true);
+    }
+}
+
+/// A replica that missed an acknowledged write is out of the in-sync set.
+/// When it answers again it copies the primary's live document and rejoins.
+#[tokio::test(flavor = "multi_thread", worker_threads = 4)]
+async fn a_replica_dropped_from_the_in_sync_set_copies_the_missed_write_and_rejoins() {
+    let members = ring(true).await;
+    let _leader = wait_leader(&members, &[false, false, false]).await;
+
+    let (status, body) = put_json(
+        &members[0].app,
+        "/orders",
+        json!({ "settings": { "index": { "number_of_replicas": 2 } } }),
+    )
+    .await;
+    assert!(status.is_success(), "create: {status} {body}");
+    for member in &members {
+        wait_status(&member.app, "/orders", StatusCode::OK).await;
+    }
+
+    let mut placed = None;
+    for n in 0..64 {
+        let id = format!("f{n}");
+        let Some(primary) = members
+            .iter()
+            .position(|member| member.engine.owns_shard("orders", &id))
+        else {
+            continue;
+        };
+        let (shard, _) = members[primary]
+            .engine
+            .primary_of("orders", &id)
+            .expect("placement");
+        let replicas = members[primary]
+            .engine
+            .placed_replica_nodes("orders", shard);
+        if replicas.len() != 2 {
+            continue;
+        }
+        let at = |node: &str| {
+            members
+                .iter()
+                .position(|member| member.handle.node_id() == node)
+                .expect("replica is a member")
+        };
+        placed = Some((id, primary, at(&replicas[0]), at(&replicas[1]), shard));
+        break;
+    }
+    let (id, primary, replica_a, replica_b, shard) = placed.expect("a shard with two replicas");
+
+    let (status, body) = put_json(
+        &members[primary].app,
+        &format!("/orders/_doc/{id}"),
+        json!({ "title": "first" }),
+    )
+    .await;
+    assert!(status.is_success(), "first write: {status} {body}");
+    assert_eq!(
+        replica_title(&members[replica_a], shard, &id)
+            .await
+            .as_deref(),
+        Some("first")
+    );
+    assert_eq!(
+        replica_title(&members[replica_b], shard, &id)
+            .await
+            .as_deref(),
+        Some("first")
+    );
+
+    members[replica_a].handle.clear_shard_handler();
+    let (status, body) = put_json(
+        &members[primary].app,
+        &format!("/orders/_doc/{id}"),
+        json!({ "title": "second" }),
+    )
+    .await;
+    assert!(
+        status.is_success(),
+        "primary plus the live replica is a quorum: {status} {body}"
+    );
+    assert_eq!(
+        replica_title(&members[replica_a], shard, &id)
+            .await
+            .as_deref(),
+        Some("first"),
+        "the replica that missed the write still has the previous copy"
+    );
+    let live_id = members[replica_b].handle.node_id().to_string();
+    wait_in_sync(&members, shard, std::slice::from_ref(&live_id)).await;
+
+    members[replica_a]
+        .handle
+        .set_shard_handler(std::sync::Arc::new(ApiShardHandler::new(
+            members[replica_a].state.clone(),
+        )));
+    wait_replica_title(&members[replica_a], shard, &id, Some("second")).await;
+    let mut want = vec![live_id, members[replica_a].handle.node_id().to_string()];
+    wait_in_sync(&members, shard, &want).await;
+    want.sort();
+    assert_eq!(
+        {
+            let mut got = members[primary].engine.replica_nodes("orders", shard);
+            got.sort();
+            got
+        },
+        want
+    );
+
+    for member in &members {
+        let _ = member.shutdown.send(true);
+    }
+}
+
+fn position_of(members: &[Member], id: &str) -> usize {
+    members
+        .iter()
+        .position(|member| member.handle.node_id() == id)
+        .unwrap_or_else(|| panic!("member {id} is not in this ring"))
+}
+
+async fn index_sources(member: &Member, index: &str) -> BTreeMap<String, Value> {
+    let Ok(idx) = member.engine.get_index(index) else {
+        return BTreeMap::new();
+    };
+    let mut out = BTreeMap::new();
+    for id in idx.live_document_ids() {
+        match idx.get_document(&id).await {
+            Ok(Some(doc)) => {
+                out.insert(id, doc);
+            }
+            Ok(None) => {}
+            Err(err) => panic!("get {index}/{id}: {err}"),
+        }
+    }
+    out
+}
+
+/// Live documents on the primary for one shard, keyed by id.
+async fn primary_shard_sources(primary: &Member, shard: u32) -> BTreeMap<String, Value> {
+    let mut out = index_sources(primary, "orders").await;
+    out.retain(|id, _| {
+        primary
+            .engine
+            .primary_of("orders", id)
+            .is_some_and(|(doc_shard, _)| doc_shard == shard)
+    });
+    out
+}
+
+async fn replica_sources(replica: &Member, shard: u32) -> BTreeMap<String, Value> {
+    let Some(store) = xerj_cluster::replica_index_name("orders", shard) else {
+        return BTreeMap::new();
+    };
+    index_sources(replica, &store).await
+}
+
+/// Wait until `replica_id` holds the primary's live documents for `shard`
+/// and the in-sync set includes it.
+///
+/// The in-sync bit is read before the stores. Publishing the replica while
+/// its copy still differs fails this wait instead of being papered over by
+/// a later copy.
+async fn wait_refilled(primary: &Member, replica: &Member, shard: u32, replica_id: &str) {
+    let deadline = Instant::now() + Duration::from_secs(15);
+    loop {
+        let in_sync = primary
+            .engine
+            .replica_nodes("orders", shard)
+            .iter()
+            .any(|id| id == replica_id);
+        let want = primary_shard_sources(primary, shard).await;
+        let got = replica_sources(replica, shard).await;
+        if in_sync && got != want {
+            panic!(
+                "replica {replica_id} is in the in-sync set for shard {shard} before its documents match the primary\n primary={want:?}\n replica={got:?}"
+            );
+        }
+        if in_sync && got == want {
+            assert!(
+                !want.is_empty(),
+                "refill compared two empty stores on shard {shard}"
+            );
+            return;
+        }
+        if Instant::now() > deadline {
+            panic!(
+                "replica {replica_id} shard {shard} was not refilled and published\n in_sync={in_sync}\n primary={want:?}\n replica={got:?}"
+            );
+        }
+        tokio::time::sleep(Duration::from_millis(20)).await;
+    }
+}
+
+struct ShardCase {
+    primary_id: String,
+    replica_a: String,
+    replica_b: String,
+    shard: u32,
+    keep: String,
+    change: String,
+    drop_id: String,
+    fresh: String,
+}
+
+/// Four document ids on one shard that has two replicas. Nothing is written.
+fn shard_case(members: &[Member]) -> ShardCase {
+    let mut found: Option<(String, u32)> = None;
+    let mut ids = Vec::new();
+    for n in 0..512 {
+        let id = format!("r{n}");
+        let Some((shard, owner)) = members[0].engine.primary_of("orders", &id) else {
+            continue;
+        };
+        let replicas = members[0].engine.placed_replica_nodes("orders", shard);
+        if replicas.len() != 2 {
+            continue;
+        }
+        match &found {
+            None => {
+                found = Some((owner, shard));
+                ids.push((id, replicas));
+            }
+            Some((owner0, shard0)) if owner == *owner0 && shard == *shard0 => {
+                ids.push((id, replicas));
+            }
+            _ => continue,
+        }
+        if ids.len() == 4 {
+            break;
+        }
+    }
+    assert_eq!(ids.len(), 4, "need four ids on one replicated shard");
+    let replicas = ids[0].1.clone();
+    let (primary_id, shard) = found.expect("shard");
+    ShardCase {
+        primary_id,
+        replica_a: replicas[0].clone(),
+        replica_b: replicas[1].clone(),
+        shard,
+        keep: ids[0].0.clone(),
+        change: ids[1].0.clone(),
+        drop_id: ids[2].0.clone(),
+        fresh: ids[3].0.clone(),
+    }
+}
+
+async fn create_replicated_orders(members: &[Member]) {
+    let (status, body) = put_json(
+        &members[0].app,
+        "/orders",
+        json!({
+            "settings": { "index": { "number_of_replicas": 2 } },
+            "mappings": { "properties": { "title": { "type": "text" } } }
+        }),
+    )
+    .await;
+    assert!(status.is_success(), "create: {status} {body}");
+    for member in members {
+        wait_status(&member.app, "/orders", StatusCode::OK).await;
+    }
+}
+
+async fn put_title(app: &Router, id: &str, title: &str) {
+    let (status, body) = put_json(
+        app,
+        &format!("/orders/_doc/{id}"),
+        json!({ "title": title }),
+    )
+    .await;
+    assert!(status.is_success(), "write {id}: {status} {body}");
+}
+
+fn restore_handler(member: &Member) {
+    member
+        .handle
+        .set_shard_handler(std::sync::Arc::new(ApiShardHandler::new(
+            member.state.clone(),
+        )));
+}
+
+/// The replica misses an insert, an update, and a delete. When it can answer
+/// again its store matches the primary, and only then is it in the in-sync set.
+///
+/// `bus` set drops the replica process and opens the same data directory
+/// after the missed writes. `None` clears the shard handler and puts it
+/// back, the in-process stand-in for a member that stopped answering.
+async fn refill_after_missed_writes(mut members: Vec<Member>, bus: Option<&InMemoryBus>) {
+    let case = shard_case(&members);
+    put_title(&members[0].app, &case.keep, "kept").await;
+    put_title(&members[0].app, &case.change, "v1").await;
+    put_title(&members[0].app, &case.drop_id, "gone").await;
+
+    let replica_a_at = position_of(&members, &case.replica_a);
+    let replica_b_at = position_of(&members, &case.replica_b);
+    for (id, title) in [
+        (case.keep.as_str(), "kept"),
+        (case.change.as_str(), "v1"),
+        (case.drop_id.as_str(), "gone"),
+    ] {
+        assert_eq!(
+            replica_title(&members[replica_a_at], case.shard, id)
+                .await
+                .as_deref(),
+            Some(title),
+            "{id} should be on the replica before it drops out"
+        );
+        assert_eq!(
+            replica_title(&members[replica_b_at], case.shard, id)
+                .await
+                .as_deref(),
+            Some(title)
+        );
+    }
+
+    let held = if let Some(bus) = bus {
+        let dir = shutdown_member(members.remove(replica_a_at)).await;
+        let _leader = wait_leader(&members, &[false, false]).await;
+        Some((bus, dir))
+    } else {
+        members[replica_a_at].handle.clear_shard_handler();
+        None
+    };
+
+    put_title(&members[0].app, &case.change, "v2").await;
+    let (status, body) = delete(&members[0].app, &format!("/orders/_doc/{}", case.drop_id)).await;
+    assert!(status.is_success(), "delete: {status} {body}");
+    put_title(&members[0].app, &case.fresh, "new").await;
+
+    let replica_b_at = position_of(&members, &case.replica_b);
+    wait_in_sync(&members, case.shard, std::slice::from_ref(&case.replica_b)).await;
+    assert_eq!(
+        replica_title(&members[replica_b_at], case.shard, &case.change)
+            .await
+            .as_deref(),
+        Some("v2"),
+        "the replica that stayed up has the update"
+    );
+    assert!(
+        replica_title(&members[replica_b_at], case.shard, &case.drop_id)
+            .await
+            .is_none(),
+        "the replica that stayed up dropped the deleted document"
+    );
+    assert_eq!(
+        replica_title(&members[replica_b_at], case.shard, &case.fresh)
+            .await
+            .as_deref(),
+        Some("new")
+    );
+    if held.is_none() {
+        let stale = position_of(&members, &case.replica_a);
+        assert_eq!(
+            replica_title(&members[stale], case.shard, &case.change)
+                .await
+                .as_deref(),
+            Some("v1"),
+            "the replica that missed the write still has the previous copy"
+        );
+        assert_eq!(
+            replica_title(&members[stale], case.shard, &case.drop_id)
+                .await
+                .as_deref(),
+            Some("gone"),
+            "the deleted document is still on the replica that missed it"
+        );
+        assert!(
+            replica_title(&members[stale], case.shard, &case.fresh)
+                .await
+                .is_none(),
+            "the inserted document is not on the replica that missed it"
+        );
+    }
+
+    if let Some((bus, dir)) = held {
+        // The aborted backfill task drops its engine Arc at the next await.
+        // Opening the same directory before that releases `node.lock` fails.
+        tokio::time::sleep(Duration::from_millis(200)).await;
+        members.push(open_durable_member(&case.replica_a, &["n1", "n2", "n3"], bus, dir, 64).await);
+    } else {
+        restore_handler(&members[position_of(&members, &case.replica_a)]);
+    }
+
+    let primary_at = position_of(&members, &case.primary_id);
+    let replica_a_at = position_of(&members, &case.replica_a);
+    wait_refilled(
+        &members[primary_at],
+        &members[replica_a_at],
+        case.shard,
+        &case.replica_a,
+    )
+    .await;
+    let on_user = members[replica_a_at]
+        .engine
+        .get_index("orders")
+        .expect("user index")
+        .get_document(&case.fresh)
+        .await
+        .expect("user get");
+    assert!(
+        on_user.is_none(),
+        "refill writes the replica store, not the user index: {on_user:?}"
+    );
+
+    members[primary_at].handle.clear_shard_handler();
+    let replica_b_at = position_of(&members, &case.replica_b);
+    members[replica_b_at].handle.clear_shard_handler();
+    for (id, title) in [
+        (case.keep.as_str(), "kept"),
+        (case.change.as_str(), "v2"),
+        (case.fresh.as_str(), "new"),
+    ] {
+        let (status, body) = get(&members[replica_a_at].app, &format!("/orders/_doc/{id}")).await;
+        assert!(
+            status.is_success(),
+            "GET {id} uses the refilled replica: {status} {body}"
+        );
+        assert_eq!(
+            body.pointer("/_source/title")
+                .and_then(|value| value.as_str()),
+            Some(title),
+            "{body}"
+        );
+    }
+    let (status, body) = get(
+        &members[replica_a_at].app,
+        &format!("/orders/_doc/{}", case.drop_id),
+    )
+    .await;
+    assert_eq!(
+        status,
+        StatusCode::NOT_FOUND,
+        "the document deleted while the replica was out is not served from it: {body}"
+    );
+
+    restore_handler(&members[primary_at]);
+    restore_handler(&members[replica_b_at]);
+    let dead = vec![false; members.len()];
+    let _leader = wait_leader(&members, &dead).await;
+    put_title(&members[replica_a_at].app, &case.change, "v3").await;
+    assert_eq!(
+        replica_title(&members[replica_a_at], case.shard, &case.change)
+            .await
+            .as_deref(),
+        Some("v3"),
+        "once the replica is in sync it receives the next write"
+    );
+    assert!(
+        members[primary_at]
+            .engine
+            .replica_nodes("orders", case.shard)
+            .iter()
+            .any(|id| id == &case.replica_a),
+        "the write did not drop the refilled replica from the in-sync set"
+    );
+
+    for member in &members {
+        let _ = member.shutdown.send(true);
+    }
+}
+
+#[tokio::test(flavor = "multi_thread", worker_threads = 4)]
+async fn a_dropped_replica_is_refilled_to_the_primary_live_set_before_it_rejoins() {
+    let members = ring(true).await;
+    let _leader = wait_leader(&members, &[false, false, false]).await;
+    create_replicated_orders(&members).await;
+    refill_after_missed_writes(members, None).await;
+}
+
+#[tokio::test(flavor = "multi_thread", worker_threads = 4)]
+async fn a_restarted_replica_is_refilled_to_the_primary_live_set_before_it_rejoins() {
+    let ids = ["n1", "n2", "n3"];
+    let bus = InMemoryBus::new();
+    let mut members = Vec::new();
+    for id in ids {
+        let dir = tempfile::tempdir().expect("tempdir");
+        members.push(open_durable_member(id, &ids, &bus, dir, 64).await);
+    }
+    let _leader = wait_leader(&members, &[false, false, false]).await;
+    create_replicated_orders(&members).await;
+    refill_after_missed_writes(members, Some(&bus)).await;
+}
+
+fn bulk_item(body: &Value, at: usize) -> &Value {
+    let item = body
+        .pointer(&format!("/items/{at}"))
+        .unwrap_or_else(|| panic!("bulk response has no item {at}: {body}"));
+    item.as_object()
+        .and_then(|obj| obj.values().next())
+        .unwrap_or_else(|| panic!("bulk item {at} has no action: {item}"))
+}
+
+async fn user_source(member: &Member, id: &str) -> Option<Value> {
+    member
+        .engine
+        .get_index("orders")
+        .expect("orders is open")
+        .get_document(id)
+        .await
+        .expect("get")
+}
+
+async fn replica_source(member: &Member, shard: u32, id: &str) -> Option<Value> {
+    let store = xerj_cluster::replica_index_name("orders", shard).expect("store name");
+    member
+        .engine
+        .get_index(&store)
+        .unwrap_or_else(|_| panic!("replica store {store} is not open"))
+        .get_document(id)
+        .await
+        .expect("replica get")
+}
+
+/// `_bulk` and `_update` accepted by a node that does not own the id are
+/// applied on the primary and copied onto the in-sync replica. The receiving
+/// node's user index does not keep them.
+#[tokio::test(flavor = "multi_thread", worker_threads = 4)]
+async fn bulk_and_update_from_a_non_owner_write_the_primary_and_the_replica() {
+    let members = ring(true).await;
+    let _leader = wait_leader(&members, &[false, false, false]).await;
+
+    let (status, body) = put_json(
+        &members[0].app,
+        "/orders",
+        json!({
+            "settings": { "index": { "number_of_replicas": 1 } },
+            "mappings": { "properties": { "title": { "type": "text" } } }
+        }),
+    )
+    .await;
+    assert!(status.is_success(), "create: {status} {body}");
+    for member in &members {
+        wait_status(&member.app, "/orders", StatusCode::OK).await;
+    }
+
+    let mut placed: Vec<(String, usize, usize, u32)> = Vec::new();
+    for n in 0..128 {
+        let id = format!("b{n}");
+        let Some(primary) = members
+            .iter()
+            .position(|member| member.engine.owns_shard("orders", &id))
+        else {
+            continue;
+        };
+        let (shard, _) = members[primary]
+            .engine
+            .primary_of("orders", &id)
+            .expect("placement");
+        let replicas = members[primary].engine.replica_nodes("orders", shard);
+        if replicas.len() != 1 {
+            continue;
+        }
+        let Some(replica) = members
+            .iter()
+            .position(|member| member.handle.node_id() == replicas[0])
+        else {
+            continue;
+        };
+        if placed.iter().any(|(_, owner, _, _)| *owner == primary) {
+            continue;
+        }
+        placed.push((id, primary, replica, shard));
+        if placed.len() == 2 {
+            break;
+        }
+    }
+    assert_eq!(placed.len(), 2, "two primaries: {placed:?}");
+    let (id_a, primary_a, replica_a, shard_a) = placed[0].clone();
+    let (id_b, primary_b, replica_b, shard_b) = placed[1].clone();
+    assert_ne!(primary_a, primary_b);
+    let writer = (0..3)
+        .find(|n| *n != primary_a && *n != primary_b)
+        .expect("a node that owns neither id");
+
+    let bulk = format!(
+        "{{\"index\":{{\"_index\":\"orders\",\"_id\":\"{id_a}\"}}}}\n\
+         {{\"title\":\"bulk\",\"n\":1}}\n\
+         {{\"create\":{{\"_index\":\"orders\",\"_id\":\"{id_b}\"}}}}\n\
+         {{\"title\":\"other\"}}\n\
+         {{\"update\":{{\"_index\":\"orders\",\"_id\":\"{id_a}\"}}}}\n\
+         {{\"doc\":{{\"via\":\"bulk-update\"}}}}\n\
+         {{\"index\":{{\"_index\":\"orders\"}}}}\n\
+         {{\"title\":\"auto\"}}\n"
+    );
+    let (status, body) = post_ndjson(&members[writer].app, "/_bulk", &bulk).await;
+    assert!(status.is_success(), "bulk from non-owner: {status} {body}");
+    assert_eq!(
+        body.pointer("/errors").and_then(|v| v.as_bool()),
+        Some(false),
+        "{body}"
+    );
+    assert_eq!(
+        bulk_item(&body, 0).get("result").and_then(|v| v.as_str()),
+        Some("created"),
+        "{body}"
+    );
+    assert_eq!(
+        bulk_item(&body, 1).get("result").and_then(|v| v.as_str()),
+        Some("created"),
+        "{body}"
+    );
+    assert_eq!(
+        bulk_item(&body, 2).get("result").and_then(|v| v.as_str()),
+        Some("updated"),
+        "bulk update merged on the primary: {body}"
+    );
+    let auto_id = bulk_item(&body, 3)
+        .get("_id")
+        .and_then(|v| v.as_str())
+        .unwrap_or_else(|| panic!("auto id: {body}"))
+        .to_string();
+    assert!(!auto_id.is_empty());
+
+    let on_primary = user_source(&members[primary_a], &id_a).await;
+    assert_eq!(
+        on_primary
+            .as_ref()
+            .and_then(|doc| doc.get("via"))
+            .and_then(|v| v.as_str()),
+        Some("bulk-update"),
+        "primary has the bulk update: {on_primary:?}"
+    );
+    let on_replica = replica_source(&members[replica_a], shard_a, &id_a).await;
+    assert_eq!(
+        on_replica
+            .as_ref()
+            .and_then(|doc| doc.get("title"))
+            .and_then(|v| v.as_str()),
+        Some("bulk"),
+        "replica copied the bulk update: {on_replica:?}"
+    );
+    assert_eq!(
+        on_replica
+            .as_ref()
+            .and_then(|doc| doc.get("via"))
+            .and_then(|v| v.as_str()),
+        Some("bulk-update")
+    );
+    for (at, member) in members.iter().enumerate() {
+        if at == primary_a {
+            continue;
+        }
+        assert!(
+            user_source(member, &id_a).await.is_none(),
+            "node {at} user index stored {id_a}"
+        );
+    }
+    let on_b = replica_source(&members[replica_b], shard_b, &id_b).await;
+    assert_eq!(
+        on_b.as_ref()
+            .and_then(|doc| doc.get("title"))
+            .and_then(|v| v.as_str()),
+        Some("other"),
+        "create in the same bulk reached the other primary's replica: {on_b:?}"
+    );
+    assert!(
+        user_source(&members[writer], &id_b).await.is_none(),
+        "the receiver stored {id_b}"
+    );
+
+    let mut holders = Vec::new();
+    for (at, member) in members.iter().enumerate() {
+        if user_source(member, &auto_id).await.is_some() {
+            holders.push(at);
+        }
+    }
+    assert_eq!(
+        holders,
+        vec![members
+            .iter()
+            .position(|member| member.engine.owns_shard("orders", &auto_id))
+            .expect("auto-id has a primary")],
+        "an id assigned before routing has one user-index copy"
+    );
+    let auto_primary = holders[0];
+    let (auto_shard, _) = members[auto_primary]
+        .engine
+        .primary_of("orders", &auto_id)
+        .expect("auto placement");
+    let auto_replicas = members[auto_primary]
+        .engine
+        .replica_nodes("orders", auto_shard);
+    assert_eq!(auto_replicas.len(), 1);
+    let auto_replica = members
+        .iter()
+        .position(|member| member.handle.node_id() == auto_replicas[0])
+        .expect("auto replica");
+    let auto_copy = replica_source(&members[auto_replica], auto_shard, &auto_id).await;
+    assert_eq!(
+        auto_copy
+            .as_ref()
+            .and_then(|doc| doc.get("title"))
+            .and_then(|v| v.as_str()),
+        Some("auto"),
+        "{auto_copy:?}"
+    );
+
+    let overwrite = format!(
+        "{{\"index\":{{\"_index\":\"orders\",\"_id\":\"{id_a}\"}}}}\n\
+         {{\"title\":\"from-primary\",\"n\":1}}\n"
+    );
+    let (status, body) = post_ndjson(&members[primary_a].app, "/orders/_bulk", &overwrite).await;
+    assert!(status.is_success(), "bulk on the primary: {status} {body}");
+    assert_eq!(
+        body.pointer("/errors").and_then(|v| v.as_bool()),
+        Some(false),
+        "{body}"
+    );
+    let on_replica = replica_source(&members[replica_a], shard_a, &id_a).await;
+    assert_eq!(
+        on_replica
+            .as_ref()
+            .and_then(|doc| doc.get("title"))
+            .and_then(|v| v.as_str()),
+        Some("from-primary"),
+        "a bulk the primary itself accepts is still copied: {on_replica:?}"
+    );
+
+    let (status, body) = post_json(
+        &members[writer].app,
+        &format!("/orders/_update/{id_a}"),
+        json!({ "doc": { "extra": "yes", "n": 2 } }),
+    )
+    .await;
+    assert!(
+        status.is_success(),
+        "update from non-owner: {status} {body}"
+    );
+    assert_eq!(
+        body.get("result").and_then(|v| v.as_str()),
+        Some("updated"),
+        "{body}"
+    );
+    let on_primary = user_source(&members[primary_a], &id_a)
+        .await
+        .expect("primary");
+    assert_eq!(
+        on_primary.get("extra").and_then(|v| v.as_str()),
+        Some("yes"),
+        "{on_primary}"
+    );
+    assert_eq!(on_primary.get("n").and_then(|v| v.as_u64()), Some(2));
+    let on_replica = replica_source(&members[replica_a], shard_a, &id_a)
+        .await
+        .expect("replica");
+    assert_eq!(
+        on_replica.get("extra").and_then(|v| v.as_str()),
+        Some("yes")
+    );
+    assert_eq!(
+        on_replica.get("title").and_then(|v| v.as_str()),
+        Some("from-primary")
+    );
+    assert!(user_source(&members[writer], &id_a).await.is_none());
+
+    let (status, body) = post_json(
+        &members[writer].app,
+        &format!("/orders/_update/{id_a}"),
+        json!({ "script": { "source": "ctx._source.title = 'scripted'" } }),
+    )
+    .await;
+    assert!(
+        status.is_success(),
+        "scripted update from non-owner: {status} {body}"
+    );
+    let on_primary = user_source(&members[primary_a], &id_a)
+        .await
+        .expect("primary");
+    assert_eq!(
+        on_primary.get("title").and_then(|v| v.as_str()),
+        Some("scripted"),
+        "the script ran where the document is: {on_primary}"
+    );
+    assert_eq!(
+        on_primary.get("extra").and_then(|v| v.as_str()),
+        Some("yes")
+    );
+    let on_replica = replica_source(&members[replica_a], shard_a, &id_a)
+        .await
+        .expect("replica");
+    assert_eq!(
+        on_replica.get("title").and_then(|v| v.as_str()),
+        Some("scripted"),
+        "{on_replica}"
+    );
+
+    let deletion = format!("{{\"delete\":{{\"_index\":\"orders\",\"_id\":\"{id_b}\"}}}}\n");
+    let (status, body) = post_ndjson(&members[writer].app, "/_bulk", &deletion).await;
+    assert!(status.is_success(), "bulk delete: {status} {body}");
+    assert_eq!(
+        body.pointer("/errors").and_then(|v| v.as_bool()),
+        Some(false),
+        "{body}"
+    );
+    assert!(user_source(&members[primary_b], &id_b).await.is_none());
+    assert!(
+        replica_source(&members[replica_b], shard_b, &id_b)
+            .await
+            .is_none(),
+        "the replica still has the deleted document"
+    );
+    let (status, body) = get(&members[writer].app, &format!("/orders/_doc/{id_b}")).await;
+    assert_eq!(status, StatusCode::NOT_FOUND, "{body}");
+
+    members[primary_a].handle.clear_shard_handler();
+    let (status, body) = get(&members[writer].app, &format!("/orders/_doc/{id_a}")).await;
+    assert!(
+        status.is_success(),
+        "GET after the primary stops reads the copy: {status} {body}"
+    );
+    assert_eq!(
+        body.pointer("/_source/title").and_then(|v| v.as_str()),
+        Some("scripted"),
+        "{body}"
+    );
+    let again = format!(
+        "{{\"index\":{{\"_index\":\"orders\",\"_id\":\"{id_a}\"}}}}\n\
+         {{\"title\":\"no-primary\"}}\n"
+    );
+    let (status, body) = post_ndjson(&members[writer].app, "/_bulk", &again).await;
+    assert!(status.is_success(), "bulk HTTP status: {status} {body}");
+    assert_eq!(
+        body.pointer("/errors").and_then(|v| v.as_bool()),
+        Some(true),
+        "{body}"
+    );
+    assert_eq!(
+        bulk_item(&body, 0).get("status").and_then(|v| v.as_u64()),
+        Some(503),
+        "a bulk write still needs the primary: {body}"
+    );
+    let on_replica = replica_source(&members[replica_a], shard_a, &id_a)
+        .await
+        .expect("replica");
+    assert_eq!(
+        on_replica.get("title").and_then(|v| v.as_str()),
+        Some("scripted"),
+        "the refused bulk did not change the copy: {on_replica}"
+    );
 
     for member in &members {
         let _ = member.shutdown.send(true);
