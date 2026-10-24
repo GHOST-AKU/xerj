@@ -73,6 +73,10 @@ pub struct RenderOpts<'a> {
     /// line, and their passage ordinal counts lines of the re-flowed SECTION,
     /// not of the file; with the checkout the line is found in the file itself.
     pub checkout: Option<&'a std::path::Path>,
+    /// Corpus marked first-party (#2339). An unidentified licence stays in
+    /// the header and loses the do-not-copy banner. A named restricted
+    /// licence still warns and still honours `strict_licence`.
+    pub own: bool,
 }
 
 /// The longest non-empty string field of a source object (excluding `ax_*`
@@ -555,7 +559,10 @@ fn render_hit(
         .get(locator_repo(&loc))
         .cloned()
         .unwrap_or_default();
-    let restricted = !lic.is_empty() && licence::is_restricted(&lic);
+    // The header still names `lic` (including UNKNOWN / NONE-FOUND). The
+    // banner and the strict withhold follow the copy-warning rule, which
+    // drops only an unidentified licence on an own corpus.
+    let restricted = licence::copy_warning_applies(&lic, opts.own);
 
     if opts.meatl {
         let shown = if opts.rrf_scores {
@@ -719,6 +726,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: Some(3),
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -752,6 +760,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -763,6 +772,62 @@ mod tests {
             .expect("warning");
         assert!(warn_at > passage_at, "the warning sits UNDER the passage");
         assert!(text.contains("(score 9.01, AGPL)"), "{text}");
+    }
+
+    /// #2339: an own corpus keeps UNKNOWN / NONE-FOUND in the header and drops
+    /// the do-not-copy banner. A named restricted licence still warns, and
+    /// strict mode still withholds that named licence's passage. Strict mode
+    /// does not withhold the owner's unidentified passage.
+    #[test]
+    fn own_corpus_omits_the_banner_for_an_unidentified_licence_only() {
+        let unknown = hit(
+            json!({ "ax_path": "mine/src/lib.rs", "line": 4 }),
+            "fn mine() {}\n",
+            json!(null),
+            3.5,
+        );
+        let map = HashMap::from([("mine".to_string(), "NONE-FOUND".to_string())]);
+        let mut opts = RenderOpts {
+            corpus: "mine",
+            query: "fn mine",
+            full: 800,
+            no_symbol: true,
+            meatl: false,
+            rrf_scores: false,
+            age_days: None,
+            strict_licence: false,
+            own: true,
+            lexical_lines: false,
+            checkout: None,
+        };
+        let text = render(std::slice::from_ref(&unknown), &map, &opts, None);
+        assert!(text.contains("(score 3.50, NONE-FOUND)"), "{text}");
+        assert!(text.contains("fn mine()"), "{text}");
+        assert!(!text.contains("!!"), "{text}");
+        assert!(!text.contains("do not copy"), "{text}");
+
+        opts.own = false;
+        let warned = render(std::slice::from_ref(&unknown), &map, &opts, None);
+        assert!(warned.contains("(score 3.50, NONE-FOUND)"), "{warned}");
+        assert!(
+            warned.contains("!! NONE-FOUND: adapt the APPROACH, do not copy the code"),
+            "{warned}"
+        );
+
+        opts.own = true;
+        opts.strict_licence = true;
+        let strict_own = render(std::slice::from_ref(&unknown), &map, &opts, None);
+        assert!(strict_own.contains("fn mine()"), "{strict_own}");
+        assert!(!strict_own.contains("!!"), "{strict_own}");
+
+        opts.strict_licence = true;
+        let strict_agpl = render(&[agpl_hit()], &licences(), &opts, None);
+        assert!(!strict_agpl.contains("void start()"), "{strict_agpl}");
+        assert!(
+            strict_agpl.contains("!! AGPL: adapt the APPROACH, do not copy the code"),
+            "{strict_agpl}"
+        );
+        assert!(strict_agpl.contains("(score 9.01, AGPL)"), "{strict_agpl}");
     }
 
     /// #1158: a raw-JSON record has neither `body` nor `text` — its content
@@ -793,6 +858,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -828,6 +894,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -869,6 +936,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -909,6 +977,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -951,6 +1020,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -977,6 +1047,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: true,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -1004,6 +1075,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: true,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -1026,6 +1098,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -1056,6 +1129,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: Some(2),
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -1095,6 +1169,7 @@ mod tests {
                 rrf_scores: true,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -1147,6 +1222,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: true,
                 checkout: None,
             },
@@ -1381,6 +1457,7 @@ mod tests {
             rrf_scores: rrf,
             age_days: None,
             strict_licence: false,
+            own: false,
             lexical_lines: false,
             checkout: None,
         }
@@ -1519,6 +1596,7 @@ mod tests {
                 rrf_scores: false,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
@@ -1579,6 +1657,7 @@ mod tests {
                 rrf_scores: true,
                 age_days: None,
                 strict_licence: false,
+                own: false,
                 lexical_lines: false,
                 checkout: None,
             },
