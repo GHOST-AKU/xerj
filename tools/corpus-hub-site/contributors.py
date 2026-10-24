@@ -19,6 +19,7 @@ live), so the pages show no retrieval figure at all rather than a placeholder.
 """
 import datetime, html, json, pathlib, re, urllib.parse, collections
 import treemap
+import repo_pages
 
 LOGIN_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$")   # GitHub's login alphabet: safe as a file name
 SITE = "https://hub.xerj.org"
@@ -106,6 +107,16 @@ border:1px solid var(--z-ink);background:#fff;padding:.5em 1em;cursor:pointer;ma
 COPY_BADGE_JS = """<script>
 document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
   navigator.clipboard.writeText(document.getElementById(b.dataset.copy).innerText).then(function(){var t=b.innerText;b.innerText='COPIED';setTimeout(function(){b.innerText=t},1400)})})});
+</script>"""
+
+
+REPO_JS = """<script>
+document.querySelectorAll('button.copy').forEach(function(b){b.addEventListener('click',function(){
+  var t=b.getAttribute('data-copy')||'',o=b.textContent;
+  function done(){b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){})}
+  else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(_){}document.body.removeChild(a)}
+})});
 </script>"""
 
 
@@ -471,17 +482,23 @@ def plain_cap(s):
 
 
 def seo_title(f):
-    who, short, login = f["who"], f["short"], f["login"]
+    """Keeps the person's name: drops "corpus for AI agents" and the suffix first."""
+    who, short, login, name = f["who"], f["short"], f["login"], f["name"]
     opts = [f"{who}: {short} corpus for AI agents | XERJ Hub",
-            f"{who}: {short} corpus for AI agents",
-            f"@{login}: {short} corpus for AI agents | XERJ Hub",
-            f"@{login}: {short} corpus for AI agents",
             f"{who}: {short} corpus | XERJ Hub",
-            f"@{login}: {short} corpus"]
+            f"{who}: {short} | XERJ Hub",
+            f"{name}: {short} corpus | XERJ Hub",
+            f"{name}: {short} | XERJ Hub",
+            f"{who}: {short}",
+            f"{name}: {short}",
+            f"{name} (@{login}) | XERJ Hub",
+            f"{name} | XERJ Hub",
+            f"@{login}: {short} | XERJ Hub",
+            f"@{login} | XERJ Hub"]
     for o in opts:
         if len(o) <= 62:
             return o
-    return opts[-1]
+    return opts[-1][:62]
 
 
 def seo_desc(f):
@@ -490,7 +507,7 @@ def seo_desc(f):
     tp = f" for {', '.join(f['topics'][:2])}" if f["topics"] else ""
     tails = [f" A {lang}corpus AI agents search{tp}, with work by {f['name']}.",
              f" A {lang}corpus AI agents search, with work by {f['name']}.",
-             f" A {lang}corpus for AI agents.", " For AI agents."]
+             f" Work by {f['name']}.", f" A {lang}corpus for AI agents.", " For AI agents."]
     for t in tails:
         if len(head + t) <= 160:
             d = head + t
@@ -507,9 +524,16 @@ def agent_section(f, esc, pages):
         return ""
     login, slug, short = f["login"], f["slug"], f["short"]
     q = f["qs"][0] if f["qs"] else f"How does {short} work?"
-    cmd = f'xerj ask --corpus {slug} "{q}"' if slug else f'xerj "{q}"'
-    when = ("An agent asks:" if f["live"] else
-            "When the licence review passes and the corpus is live, an agent asks:")
+    if f["live"]:
+        cmd = f'xerj ask --corpus {slug} "{q}"'
+        when = "Paste it into your AI agent:"
+    else:
+        # not live yet: clone at the pinned commit and index it locally
+        w = f["w"]
+        cmd = repo_pages.clone_prompt(w["repo"], w["repo_url"], w.get("pin") or w.get("commit") or "",
+                                      f"{SITE}/corpus/{slug}" if slug in pages else f"{SITE}/contributors/{login}",
+                                      w.get("spdx") or "", w.get("suggested_use") or "")
+        when = "Paste it into your AI agent. It clones the repo at the pinned commit and indexes it on your machine."
     desc = (f'<p class="rdesc"><a href="{esc(f["w"]["repo_url"])}">{esc(f["w"]["repo"])}</a>: {esc(f["desc"])}</p>'
             if f["desc"] else "")
     uses = "".join(f"<li>{esc(u)}</li>" for u in f["uses"])
@@ -519,15 +543,15 @@ def agent_section(f, esc, pages):
         links.append(f'<a href="../corpus/{esc(slug)}">corpus {esc(slug)}</a>' if slug in pages else f"corpus {esc(slug)}")
     if f["shelf"] and f["domain"]:
         links.append(f'<a href="../category/{esc(f["shelf"])}">{esc(f["domain"])}</a>')
-    rel = ", ".join(f'<a href="../corpus/{esc(c["slug"])}" title="{esc(c.get("usecase") or "")}">{esc(c["slug"])}</a>' for c in f["rel"])
+    rel = ", ".join(f'<a href="../corpus/{esc(c["slug"])}">{esc(c.get("label") or c["slug"])}</a>' for c in f["rel"])
     x = XERJ_LINKS.get(f["shelf"])
     more = f'<a href="{x[0]}">{esc(x[1])}</a> · ' if x else ""
     return f"""<section class="agentuse"><h2>What an agent can do with the {esc(short)} corpus</h2>{desc}
 <ul>{uses}</ul>
 {f'<b>Example questions</b><ul>{qs}</ul>' if qs else ''}
-<div class="askhead"><span class="note">{esc(when)}</span><button data-copy="ask-{esc(login)}">Copy</button></div>
+<div class="askhead"><span class="note">{esc(when)}</span><button data-copy="ask-{esc(login)}">{repo_pages.CTA}</button></div>
 <pre id="ask-{esc(login)}">{esc(cmd)}</pre>
-<p class="note">{" · ".join(links)}{f'<br>Related live corpora in this domain: {rel}' if rel else ''}<br>{more}<a href="{REFCODE[0]}">{esc(REFCODE[1])}</a></p>
+<p class="note">{" · ".join(links)}{f'<br>Related corpora: {rel}' if rel else ''}<br>{more}<a href="{REFCODE[0]}">{esc(REFCODE[1])}</a></p>
 </section>"""
 
 
@@ -1161,8 +1185,10 @@ def candidates(people, registry_slugs, hub_dir):
                 e = out.setdefault(slug, {"kind": pp["corpora"].get(slug, "candidate corpus"), "works": [], "repos": []})
                 e["works"].append((login, w))
     for slug, e in out.items():
-        m = pathlib.Path(hub_dir) / "candidates" / f"{slug}.json"
-        if m.exists():
+        # author corpora live in candidates/authors/, themed ones in candidates/
+        hub = pathlib.Path(hub_dir) / "candidates"
+        m = next((p for p in (hub / "authors" / f"{slug}.json", hub / f"{slug}.json") if p.exists()), None)
+        if m:
             try:
                 e["repos"] = json.loads(m.read_text()).get("repos") or []
             except ValueError:
@@ -1190,7 +1216,7 @@ def candidate_body(slug, e, esc, people):
             f'{"".join(rows)}</table></section>{pins}{corpus_section(logins, esc, people)}</main>')
 
 
-def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, upstream=None, cats=None):
+def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, upstream=None, cats=None, lastmod=None):
     if people is None:
         people = load(hub_dir, registry)
     if not people:
@@ -1208,12 +1234,30 @@ def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, up
         if c["slug"] in live_slugs and c.get("cat"):
             by_cat[c["cat"]].append(c)
     stats = collections.Counter()
+    lastmod = {} if lastmod is None else lastmod
+    fetched, gh = repo_pages.load_stats()
+    # repo pages: one repository per candidate corpus (exploit-pocs aggregates are registry pages, never here)
+    pocs = {repo_pages.key(r.get("url")) for c in registry or [] if c["slug"].startswith("exploit-pocs")
+            for r in c.get("repos") or []}
+    rfacts = {slug: repo_pages.repo_facts(slug, e, gh, descs) for slug, e in cands.items()
+              if len({w["repo_url"].lower() for _, w in e["works"]}) == 1 and len(e.get("repos") or []) <= 1
+              and repo_pages.key(e["works"][0][1]["repo_url"]) not in pocs}
+    stats["skipped: in an exploit-pocs collection"] = sum(
+        1 for e in cands.values() if repo_pages.key(e["works"][0][1]["repo_url"]) in pocs)
+    related = repo_pages.Related([c for c in registry or [] if c["slug"] in live_slugs],
+                                 {s: (f["repo"], f["lang"], f["topics"]) for s, f in rfacts.items()}, gh)
     xp = pathlib.Path(__file__).resolve().parent / "data" / "x_posts.json"
     xposts = json.loads(xp.read_text(encoding="utf-8")) if xp.exists() else {}
     for login, pp in people.items():
         name = pp["name"] or login
         first = sorted(pp["work"].values(), key=lambda w: -(w.get("repo_stars") or 0))[0]
         f = seo_facts(pp, live_slugs, reg, descs, cats, by_cat)
+        # related corpora: same language and topic first, live corpora and repo pages
+        st = gh.get(repo_pages.key(f["w"]["repo_url"])) or {}
+        lv, rp = related.pick(login, repo_pages.lang_of(st, f["w"]), set(f["w"]["topics"]) | set(st.get("topics") or []),
+                              exclude=set(f["w"]["corpora"]), n_live=2, n_repo=2)
+        if lv or rp:
+            f["rel"] = [{"slug": x[0], "label": x[1]} for x in lv + rp]
         title, desc = seo_title(f), seo_desc(f)
         posts = xposts.get(login, [])
         stats["x posts"] += len(posts)
@@ -1222,6 +1266,9 @@ def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, up
                     kind="ProfilePage", noindex=f["thin"], ld_extra=seo_ld(f, posts))
         stats["indexable" if not f["thin"] else "thin"] += 1
         (d / f"{login}.html").write_text(html)
+        dates = [x[:10] for x in pp.get("agreed") or [] if re.match(r"^\d{4}-\d{2}-\d{2}", x or "")]
+        if dates:
+            lastmod[f"contributors/{login}.html"] = max(dates)
         (d / login).mkdir(exist_ok=True)
         (d / login / "badge.svg").write_text(badge_svg())
     # upstream owners and the curator: attribution pages, kept out of search indexes
@@ -1235,9 +1282,29 @@ def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, up
                     image=f"https://github.com/{u['login']}.png?size=400")
         (d / f"{u['login']}.html").write_text(html)
     # candidate corpora: one page each, so every contributor's corpus chip links somewhere
+    # a repo that is also a single-repo registry corpus: keep this page distinct from the curated one
+    reg_of = {repo_pages.key(c["repos"][0].get("url")): c["slug"] for c in (registry or [])
+              if len(c.get("repos") or []) == 1 and repo_pages.key(c["repos"][0].get("url"))}
+    descs_out = {s: repo_pages.repo_description(f, dup=repo_pages.key(f["url"]) in reg_of) for s, f in rfacts.items()}
+    dup = {d for d, n in collections.Counter(descs_out.values()).items() if n > 1}
     for slug, e in cands.items():
-        html = page(f"{slug}: candidate corpus, XERJ Corpus Hub", f"Candidate corpus {slug}: selected work in licence review",
-                    candidate_body(slug, e, esc, people), rel="../", path=f"/corpus/{slug}")
+        f = rfacts.get(slug)
+        if f is None:
+            html = page(repo_pages.title(slug, "candidate corpus"), f"Candidate corpus {slug}: selected work in licence review.",
+                        candidate_body(slug, e, esc, people), rel="../", path=f"/corpus/{slug}")
+        else:
+            lv, rp = related.pick(slug, f["lang"], f["topics"], exclude={slug})
+            body, ld = repo_pages.repo_body(f, esc, people, cats, (lv, rp), fetched)
+            dsc = descs_out[slug] if descs_out[slug] not in dup else repo_pages.repo_description(f, dup=True)
+            rs = reg_of.get(repo_pages.key(f["url"]))
+            ttl = repo_pages.title(f["repo"], f"the repository behind the {rs} corpus") if rs else repo_pages.repo_title(f)
+            html = page(ttl, dsc, body + REPO_JS, rel="../", path=f"/corpus/{slug}",
+                        ld_extra=ld, og_title=f"{f['repo']} on XERJ Hub")
+            stats["repo pages"] += 1
+            stats["repo pages with GitHub stats"] += bool(f["st"])
+            dates = [x for x in [(f["w"].get("agreed") or "")[:10], fetched if f["st"] else ""] if re.match(r"^\d{4}-\d{2}-\d{2}$", x)]
+            if dates:
+                lastmod[f"corpus/{slug}.html"] = max(dates)
         (pathlib.Path(out) / "corpus" / f"{slug}.html").write_text(html)
     (d / "stars-targets.json").write_text(json.dumps(stars_targets(people, registry), separators=(",", ":")))
     html = page("Contributors: XERJ Corpus Hub", "The developers whose work AI agents retrieve from the XERJ Corpus Hub",
@@ -1251,10 +1318,14 @@ def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, up
             continue
         what = "Contributors" if stem.startswith("list.") else "Repositories"
         n = stem.split(".")[1]
-        html = page(f"{what}, page {n}: XERJ Corpus Hub", "The developers whose work AI agents retrieve from the XERJ Corpus Hub", body, rel="../",
+        html = page(f"{what}, page {n}: XERJ Corpus Hub",
+                    f"{what} on the XERJ Corpus Hub, page {n}: the developers whose work AI agents retrieve, "
+                    f"{'by name' if what == 'Contributors' else 'by repository'}.", body, rel="../",
                     path=f"/contributors/{stem}", kind="CollectionPage",
                     og_title=f"{what}, page {n}: XERJ Corpus Hub",
                     og_desc="Developers who agreed to let AI agents learn from their work")
         (d / f"{stem}.html").write_text(html)
-    print(f"contributors: {stats['indexable']} indexable, {stats['thin']} thin (noindex), {stats['x posts']} X posts")
+    print(f"contributors: {stats['indexable']} indexable, {stats['thin']} thin (noindex), {stats['x posts']} X posts; "
+          f"repo pages: {stats['repo pages']}, {stats['repo pages with GitHub stats']} with GitHub stats, "
+          f"{stats['skipped: in an exploit-pocs collection']} skipped (in an exploit-pocs collection)")
     return len(people)
