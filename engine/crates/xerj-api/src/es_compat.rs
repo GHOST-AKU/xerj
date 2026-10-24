@@ -12589,6 +12589,24 @@ impl SkippedIndices {
     }
 }
 
+/// #2305: reason text when `err` is the per-index refusal of a `semantic`
+/// query whose field is not `semantic_text` on that index (#530).
+///
+/// The engine raises this inside one index. A search that resolved more than
+/// one index treats it as a shard failure and keeps searching; a single named
+/// index still returns the 400. Other errors are not this case — a `knn`
+/// against a missing field stays a request failure (#498).
+fn semantic_field_unavailable(err: &xerj_engine::EngineError) -> Option<String> {
+    match err {
+        xerj_engine::EngineError::Common(xerj_common::XerjError::InvalidQuery { reason })
+            if reason.contains("it is not a `semantic_text` field") =>
+        {
+            Some(reason.clone())
+        }
+        _ => None,
+    }
+}
+
 async fn search_dispatch(
     state: AppState,
     index: String,
@@ -14991,8 +15009,14 @@ async fn search_impl(
     // and excess searches queue on that semaphore deadline-aware exactly as
     // they did when this loop issued them one at a time.
     let mut spawned_searches = Vec::with_capacity(index_names.len());
-    // Only used when an in-process caller asked to have failing indices skipped.
+    // In-process callers skip every failed index. A multi-index `semantic`
+    // query also skips an index with no `semantic_text` field for the queried
+    // name (#2305). Either way, if every index that was tried fails, the first
+    // failure is still the response.
     let mut skipped = SkippedIndices::default();
+    // Shard notes for indices skipped by #2305. Empty on a single-index search
+    // and when every index could run the query.
+    let mut semantic_shard_failures: Vec<Value> = Vec::new();
     for idx_name in &index_names {
         let idx = match state.engine.get_index(idx_name) {
             Ok(i) => i,
@@ -15135,6 +15159,36 @@ async fn search_impl(
                         error = ?e.to_string().chars().take(300).collect::<String>(),
                         "in-process search: index search failed, skipping it"
                     );
+                    skipped.skip(|| ApiError::new(xerj_common::XerjError::from(e)).into_response());
+                    shards_failed_count += 1;
+                    continue;
+                }
+                // #2305: autoindex puts several datasets behind one prefix.
+                // Only some elect `semantic_text`. An index that cannot run
+                // this query contributes nothing and is named in
+                // `_shards.failures`; the indices that can still return hits.
+                // One explicitly named index keeps the 400 (#530). When every
+                // searched index fails, `skipped.all_failed` below returns
+                // that same 400 rather than an empty 200.
+                let skipped_reason = if index_names.len() > 1 {
+                    semantic_field_unavailable(&e)
+                } else {
+                    None
+                };
+                if let Some(reason) = skipped_reason {
+                    tracing::warn!(
+                        index = %idx_name,
+                        "semantic query: index has no semantic_text field for the queried name; skipping it"
+                    );
+                    semantic_shard_failures.push(json!({
+                        "shard": 0,
+                        "index": *idx_name,
+                        "node": state.engine.node_id.as_str(),
+                        "reason": {
+                            "type": "search_phase_execution_exception",
+                            "reason": reason,
+                        }
+                    }));
                     skipped.skip(|| ApiError::new(xerj_common::XerjError::from(e)).into_response());
                     shards_failed_count += 1;
                     continue;
@@ -18404,6 +18458,17 @@ async fn search_impl(
     // already adjusted via `shards_failed_count` above).
     if let Some(failure) = hdr_shard_failure.take() {
         response_body["_shards"]["failures"] = json!([failure]);
+    }
+    // #2305: name each index a multi-index semantic query skipped because it
+    // has no `semantic_text` field for the queried name. Counts were already
+    // folded into `_shards.failed` above.
+    if !semantic_shard_failures.is_empty() {
+        match response_body["_shards"].get_mut("failures") {
+            Some(Value::Array(existing)) => existing.extend(semantic_shard_failures),
+            _ => {
+                response_body["_shards"]["failures"] = Value::Array(semantic_shard_failures);
+            }
+        }
     }
 
     // (script_fields are evaluated per hit against the hit's source in the

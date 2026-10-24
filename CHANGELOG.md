@@ -28,6 +28,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- A `semantic` query against a wildcard or other multi-index pattern no longer
+  fails the whole request when some matched indices have no `semantic_text`
+  field for the queried name. Those indices are skipped and named in
+  `_shards.failures`; hits come from the indices that have the field. A single
+  named index without the field still returns HTTP 400, and so does a pattern
+  where every resolved index lacks the field
+  ([#2305](https://github.com/xerj-org/xerj/issues/2305)).
+
 - `POST /{index}/_refresh` makes recent writes searchable without waiting for
   a background segment merge to finish, and a multi-index or wildcard refresh
   is not serialized behind one busy index. The route used to call the
