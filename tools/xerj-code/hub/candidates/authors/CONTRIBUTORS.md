@@ -1,6 +1,6 @@
 # Contributor-permission corpora — authors (generated)
 
-Generated 2026-10-24 16:11 UTC by the outreach pipeline (`hub_publish.py`); do not edit by hand, the next run rewrites it.
+Generated 2026-10-24 16:20 UTC by the outreach pipeline (`hub_publish.py`); do not edit by hand, the next run rewrites it.
 Each row is one author who replied to the Corpus Hub outreach email agreeing to inclusion of the selected work, with attribution, under the repository's licence. Email addresses and reply texts are not published; the maintainers keep the original emails.
 Every manifest here is a **candidate** (`review.use: UNREVIEWED`): it goes live only after G4 (licence at the pin) and G7.
 
@@ -3014,7 +3014,7 @@ Every manifest here is a **candidate** (`review.use: UNREVIEWED`): it goes live 
 | [daijro/camoufox](https://github.com/daijro/camoufox) | [@JWriter20](https://github.com/JWriter20) Jake Writer | 2026-10-14T22:59Z | [d9fa53e96b](https://github.com/daijro/camoufox/commit/d9fa53e96bac055c0b8b4a09d8b2eb7bcc22a359) fix: ensuring documentation matches behavior for pinning | MPL-2.0 | 12760 |
 | [niedev/RTranslator](https://github.com/niedev/RTranslator) | [@niedev](https://github.com/niedev) (owner) | 2026-10-18T10:47Z | [808d8c77ad](https://github.com/niedev/RTranslator/commit/808d8c77adea946ab42d5667bf233d6229655914) Implemented new architecture for message sending. Now the va | Apache-2.0 | 10535 |
 | [hackjutsu/Lepton](https://github.com/hackjutsu/Lepton) | [@hackjutsu](https://github.com/hackjutsu) CosmoX (owner) | 2026-10-13T01:34Z | [209f2724b2](https://github.com/hackjutsu/Lepton/commit/209f2724b2f500ad5001402b2a4735f7de35f6bb) Add Shift-enabled multi-tag filtering (#679) | MIT | 10342 |
-| [bherbruck/solidcraft](https://github.com/bherbruck/solidcraft) | [@bherbruck](https://github.com/bherbruck) | 2026-10-17T17:10Z | [229de1484c](https://github.com/bherbruck/solidcraft/commit/229de1484ce7c4df3c28df5e5c111078ca9e53a3) Hide and show joints in the browser, like other items (#1168 | Apache-2.0 | 9932 |
+| [tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft) | [@bherbruck](https://github.com/bherbruck) | 2026-10-17T17:10Z | [229de1484c](https://github.com/tangency-labs/solidcraft/commit/229de1484ce7c4df3c28df5e5c111078ca9e53a3) Hide and show joints in the browser, like other items (#1168 | Apache-2.0 | 9932 |
 | [tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft) | [@onembyte](https://github.com/onembyte) franco michetti | 2026-10-17T14:10Z | [b7eac9220b](https://github.com/tangency-labs/solidcraft/commit/b7eac9220b3d85f9ddce2bd917a5cd522f0b1871) inspect.silhouette: the outline of bodies seen from a view,  | Apache-2.0 | 9932 |
 | [apify/crawlee-python](https://github.com/apify/crawlee-python) | [@Mantisus](https://github.com/Mantisus) Max Bohomolov | 2026-10-15T13:07Z | [a14f745880](https://github.com/apify/crawlee-python/commit/a14f745880205f654bf4c30ad999173a07b830ea) perf: Replace `tldextract` with a built-in Public Suffix Lis | Apache-2.0 | 9620 |
 | [crmne/spotifast](https://github.com/crmne/spotifast) | [@colsontabbert](https://github.com/colsontabbert) Colson Tabbert | 2026-10-14T16:30Z | [6ddcceb7ea](https://github.com/crmne/spotifast/commit/6ddcceb7eaa8dd49636a8a5fc763cc53a08a7294) Check that a Cast device is genuine before signing it in (#8 | MIT | 9092 |
