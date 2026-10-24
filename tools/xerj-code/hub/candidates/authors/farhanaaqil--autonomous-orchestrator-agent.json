@@ -9,14 +9,14 @@
    "repo": "Autonomous-Orchestrator-Agent",
    "url": "https://github.com/FarhanAaqil/Autonomous-Orchestrator-Agent",
    "sha": "d2db95c5ad81f0f6e7848a26221907c84fde1cc7",
-   "licence": "MIT (LICENSE file at pin d2db95c5ad81, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin d2db95c5ad81, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T02:54Z",
     "consent_receipt": "27ff55ee4e1b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T02:54Z (receipt 27ff55ee4e1b); selected commit d2db95c5ad81: \"add disaster recovery backup tooling, concurrency soak tests, daily b\u2026\". LICENSE file at pin d2db95c5ad81 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T02:54Z (receipt 27ff55ee4e1b); selected commit d2db95c5ad81: \"add disaster recovery backup tooling, concurrency soak tests, daily b\u2026\". LICENSE file at pin d2db95c5ad81 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

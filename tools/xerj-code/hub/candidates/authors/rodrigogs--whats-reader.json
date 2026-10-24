@@ -9,14 +9,14 @@
    "repo": "whats-reader",
    "url": "https://github.com/rodrigogs/whats-reader",
    "sha": "f30be133118b1ee0f2ebb592a729a590b4cbfefc",
-   "licence": "AGPL-3.0 (LICENSE file at pin f30be133118b, GitHub licence API 2026-10-21)",
+   "licence": "AGPL-3.0 (LICENSE file at pin f30be133118b, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-11T14:40Z",
     "consent_receipt": "fec910ef74f5",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T14:40Z (receipt fec910ef74f5); selected commit f30be133118b: \"feat(chat): open chat images and stickers in the media lightbox (GH-9\u2026\". LICENSE file at pin f30be133118b detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T14:40Z (receipt fec910ef74f5); selected commit f30be133118b: \"feat(chat): open chat images and stickers in the media lightbox (GH-9\u2026\". LICENSE file at pin f30be133118b detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

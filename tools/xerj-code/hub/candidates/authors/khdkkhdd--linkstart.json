@@ -9,14 +9,14 @@
    "repo": "linkstart",
    "url": "https://github.com/khdkkhdd/linkstart",
    "sha": "6726fc43456d265e5537a661894accfee3c1bc60",
-   "licence": "MIT (LICENSE file at pin 6726fc43456d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 6726fc43456d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T03:40Z",
     "consent_receipt": "358b03224035",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T03:40Z (receipt 358b03224035); selected commit 6726fc43456d: \"feat: add remote recording viewer and run --serve\". LICENSE file at pin 6726fc43456d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T03:40Z (receipt 358b03224035); selected commit 6726fc43456d: \"feat: add remote recording viewer and run --serve\". LICENSE file at pin 6726fc43456d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

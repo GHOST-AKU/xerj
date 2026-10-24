@@ -9,14 +9,14 @@
    "repo": "dice",
    "url": "https://github.com/yipe/dice",
    "sha": "6ac2d9c4a0cf94bc342f62b8ac41771edafa4b0a",
-   "licence": "MIT (LICENSE file at pin 6ac2d9c4a0cf, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 6ac2d9c4a0cf, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T17:11Z",
     "consent_receipt": "d9302733a563",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T17:11Z (receipt d9302733a563); selected commit 6ac2d9c4a0cf: \"Tags, one-name `of`, and save() for a fluent whole turn\". LICENSE file at pin 6ac2d9c4a0cf detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T17:11Z (receipt d9302733a563); selected commit 6ac2d9c4a0cf: \"Tags, one-name `of`, and save() for a fluent whole turn\". LICENSE file at pin 6ac2d9c4a0cf detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

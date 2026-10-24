@@ -9,14 +9,14 @@
    "repo": "M5Stack-Touch-Control-Deck",
    "url": "https://github.com/lepczynski-cloud/M5Stack-Touch-Control-Deck",
    "sha": "36092420b49c5e21c13eee3ab4ffc5f5ddb71000",
-   "licence": "MIT (LICENSE file at pin 36092420b49c, GitHub licence API 2026-10-23)",
+   "licence": "MIT (LICENSE file at pin 36092420b49c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-23T06:20Z",
     "consent_receipt": "233fadb8342b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-23T06:20Z (receipt 233fadb8342b); selected commit 36092420b49c: \"build_web_firmware\". LICENSE file at pin 36092420b49c detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T06:20Z (receipt 233fadb8342b); selected commit 36092420b49c: \"build_web_firmware\". LICENSE file at pin 36092420b49c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

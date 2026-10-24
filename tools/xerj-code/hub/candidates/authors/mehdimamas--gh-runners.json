@@ -9,14 +9,14 @@
    "repo": "gh-runners",
    "url": "https://github.com/MehdiMamas/gh-runners",
    "sha": "dbbc58fa3a71b57b5ace817b75d4a5fc428b2f51",
-   "licence": "MIT (LICENSE file at pin dbbc58fa3a71, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin dbbc58fa3a71, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T20:06Z",
     "consent_receipt": "b261fb8bfad1",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T20:06Z (receipt b261fb8bfad1); selected commit dbbc58fa3a71: \"Allow several runners for one repo on a machine\". LICENSE file at pin dbbc58fa3a71 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T20:06Z (receipt b261fb8bfad1); selected commit dbbc58fa3a71: \"Allow several runners for one repo on a machine\". LICENSE file at pin dbbc58fa3a71 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

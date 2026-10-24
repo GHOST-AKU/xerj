@@ -9,14 +9,14 @@
    "repo": "Dlib-Transformer-extensions",
    "url": "https://github.com/Cydral/Dlib-Transformer-extensions",
    "sha": "5aeba9a91df9be79d91482d9bbb3297f6314835e",
-   "licence": "BSL-1.0 (LICENSE file at pin 5aeba9a91df9, GitHub licence API 2026-10-21)",
+   "licence": "BSL-1.0 (LICENSE file at pin 5aeba9a91df9, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "BSL-1.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T19:22Z",
     "consent_receipt": "3e007d955ccd",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T19:22Z (receipt 3e007d955ccd); selected commit 5aeba9a91df9: \"Make attention causality a switch, causal by default, and write one l\u2026\". LICENSE file at pin 5aeba9a91df9 detected as BSL-1.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T19:22Z (receipt 3e007d955ccd); selected commit 5aeba9a91df9: \"Make attention causality a switch, causal by default, and write one l\u2026\". LICENSE file at pin 5aeba9a91df9 detected as BSL-1.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

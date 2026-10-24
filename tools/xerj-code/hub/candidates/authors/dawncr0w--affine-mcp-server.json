@@ -9,14 +9,14 @@
    "repo": "affine-mcp-server",
    "url": "https://github.com/DAWNCR0W/affine-mcp-server",
    "sha": "4215ea28c202646d6f772279d67873bd401cab93",
-   "licence": "MIT (LICENSE file at pin 4215ea28c202, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 4215ea28c202, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T04:44Z",
     "consent_receipt": "49c0e9c8ca50",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T04:44Z (receipt 49c0e9c8ca50); selected commit 4215ea28c202: \"feat: convert LaTeX math in Markdown import and export\". LICENSE file at pin 4215ea28c202 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T04:44Z (receipt 49c0e9c8ca50); selected commit 4215ea28c202: \"feat: convert LaTeX math in Markdown import and export\". LICENSE file at pin 4215ea28c202 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

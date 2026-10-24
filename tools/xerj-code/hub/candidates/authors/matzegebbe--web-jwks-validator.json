@@ -9,14 +9,14 @@
    "repo": "web-jwks-validator",
    "url": "https://github.com/matzegebbe/web-jwks-validator",
    "sha": "b4d2863d79402b5c8fb170f225780d7d259e7174",
-   "licence": "Apache-2.0 (LICENSE file at pin b4d2863d7940, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin b4d2863d7940, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T03:38Z",
     "consent_receipt": "995f991e35c1",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T03:38Z (receipt 995f991e35c1); selected commit b4d2863d7940: \"feat: modern go 1.27 (#110)\". LICENSE file at pin b4d2863d7940 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T03:38Z (receipt 995f991e35c1); selected commit b4d2863d7940: \"feat: modern go 1.27 (#110)\". LICENSE file at pin b4d2863d7940 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

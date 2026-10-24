@@ -9,14 +9,14 @@
    "repo": "transmission-control",
    "url": "https://github.com/mveinot/transmission-control",
    "sha": "c9542439a6051680a0422b57fd677e22ae886800",
-   "licence": "GPL-3.0 (LICENSE file at pin c9542439a605, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin c9542439a605, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-19T10:19Z",
     "consent_receipt": "d3f73d7ac7e3",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T10:19Z (receipt d3f73d7ac7e3); selected commit c9542439a605: \"Add Windows LLVM-MinGW installer packaging and application icons\". LICENSE file at pin c9542439a605 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T10:19Z (receipt d3f73d7ac7e3); selected commit c9542439a605: \"Add Windows LLVM-MinGW installer packaging and application icons\". LICENSE file at pin c9542439a605 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

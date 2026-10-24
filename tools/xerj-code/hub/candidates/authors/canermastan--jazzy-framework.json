@@ -9,14 +9,14 @@
    "repo": "jazzy-framework",
    "url": "https://github.com/canermastan/jazzy-framework",
    "sha": "d45d49d07a6d130b56c1070f723cf668094e276b",
-   "licence": "MIT (LICENSE file at pin d45d49d07a6d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin d45d49d07a6d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T16:28Z",
     "consent_receipt": "91a5fd5f2392",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T16:28Z (receipt 91a5fd5f2392); selected commit d45d49d07a6d: \"feat(cli): add generated AI agent guide\". LICENSE file at pin d45d49d07a6d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T16:28Z (receipt 91a5fd5f2392); selected commit d45d49d07a6d: \"feat(cli): add generated AI agent guide\". LICENSE file at pin d45d49d07a6d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

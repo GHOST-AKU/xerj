@@ -1,0 +1,23 @@
+{
+ "corpus": "incidentflow-io--incidentflow-mcp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on argocd, fastapi, grafana queries this for how IncidentFlow-io/incidentflow-mcp implements it: MCP server for read-only incident investigation across Kubernetes, Grafana, Prometheus, Slack, and Argo CD (selected work: src/incidentflow_mcp, tests)",
+ "repos": [
+  {
+   "repo": "incidentflow-mcp",
+   "url": "https://github.com/IncidentFlow-io/incidentflow-mcp",
+   "sha": "d331d65200184101d2174e97f831160743f45f88",
+   "licence": "MIT (LICENSE file at pin d331d6520018, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T07:27Z",
+    "consent_receipt": "d48e67168d81",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T07:27Z (receipt d48e67168d81); selected commit d331d6520018: \"Analytics\". LICENSE file at pin d331d6520018 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

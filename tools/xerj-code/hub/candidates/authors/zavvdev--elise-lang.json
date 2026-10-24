@@ -9,14 +9,14 @@
    "repo": "elise-lang",
    "url": "https://github.com/zavvdev/elise-lang",
    "sha": "9de5625c200bf440f34d5a8f893f1ed521af1278",
-   "licence": "MIT (LICENSE file at pin 9de5625c200b, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 9de5625c200b, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T13:05Z",
     "consent_receipt": "f293e55c22fe",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T13:05Z (receipt f293e55c22fe); selected commit 9de5625c200b: \"added semantic analysis for dicts\". LICENSE file at pin 9de5625c200b detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T13:05Z (receipt f293e55c22fe); selected commit 9de5625c200b: \"added semantic analysis for dicts\". LICENSE file at pin 9de5625c200b detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

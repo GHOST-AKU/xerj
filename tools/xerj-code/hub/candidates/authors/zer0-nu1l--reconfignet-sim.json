@@ -9,14 +9,14 @@
    "repo": "ReconfigNet-Sim",
    "url": "https://github.com/ZER0-Nu1L/ReconfigNet-Sim",
    "sha": "a5e8c2555f3bae24cae118633b4b14e4f58ec9fe",
-   "licence": "MIT (LICENSE file at pin a5e8c2555f3b, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin a5e8c2555f3b, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T06:26Z",
     "consent_receipt": "09381b73c563",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:26Z (receipt 09381b73c563); selected commit a5e8c2555f3b: \"Add bilingual research blog and Pages deployment (#24)\". LICENSE file at pin a5e8c2555f3b detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:26Z (receipt 09381b73c563); selected commit a5e8c2555f3b: \"Add bilingual research blog and Pages deployment (#24)\". LICENSE file at pin a5e8c2555f3b detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

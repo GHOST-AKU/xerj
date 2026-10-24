@@ -9,14 +9,14 @@
    "repo": "CvInspect",
    "url": "https://github.com/cmir79/CvInspect",
    "sha": "0fe93c4386bfd02e3fcca7a9a2163a2f718f2476",
-   "licence": "Apache-2.0 (LICENSE file at pin 0fe93c4386bf, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 0fe93c4386bf, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T05:38Z",
     "consent_receipt": "e0bb0e72adcb",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T05:38Z (receipt e0bb0e72adcb); selected commit 0fe93c4386bf: \"\ud3b8\uc9d1 \uc0ac\uac01\uc5d0 \uba74 \ud578\ub4e4 \u2014 \uba74 \uac00\uc6b4\ub370\ub97c \uc7a1\uc544 \uadf8 \ubc29\ud5a5\ub9cc \ub298\ub9b0\ub2e4(\ud68c\uc804 \uc0ac\uac01\ub3c4)\". LICENSE file at pin 0fe93c4386bf detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T05:38Z (receipt e0bb0e72adcb); selected commit 0fe93c4386bf: \"\ud3b8\uc9d1 \uc0ac\uac01\uc5d0 \uba74 \ud578\ub4e4 \u2014 \uba74 \uac00\uc6b4\ub370\ub97c \uc7a1\uc544 \uadf8 \ubc29\ud5a5\ub9cc \ub298\ub9b0\ub2e4(\ud68c\uc804 \uc0ac\uac01\ub3c4)\". LICENSE file at pin 0fe93c4386bf detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

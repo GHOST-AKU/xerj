@@ -9,14 +9,14 @@
    "repo": "quant-foundry",
    "url": "https://github.com/Li2Wh1te/quant-foundry",
    "sha": "98ca1d23fa73961e23615972fa06dee99e145eec",
-   "licence": "Apache-2.0 (LICENSE file at pin 98ca1d23fa73, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 98ca1d23fa73, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T09:49Z",
     "consent_receipt": "4a3ee2af5ea7",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T09:49Z (receipt 4a3ee2af5ea7); selected commit 98ca1d23fa73: \"fix(s3-d03): close timer activation and bounded result boundaries\". LICENSE file at pin 98ca1d23fa73 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T09:49Z (receipt 4a3ee2af5ea7); selected commit 98ca1d23fa73: \"fix(s3-d03): close timer activation and bounded result boundaries\". LICENSE file at pin 98ca1d23fa73 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

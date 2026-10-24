@@ -9,14 +9,14 @@
    "repo": "blue-falcon",
    "url": "https://github.com/Reedyuk/blue-falcon",
    "sha": "fe160afbd0dd8781f8bb8841b197a4a64a40b5c6",
-   "licence": "Apache-2.0 (LICENSE file at pin fe160afbd0dd, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin fe160afbd0dd, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T13:03Z",
     "consent_receipt": "e21709c0996c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T13:03Z (receipt e21709c0996c); selected commit fe160afbd0dd: \"fix(rpi): connect again after a link ended (#310)\". LICENSE file at pin fe160afbd0dd detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T13:03Z (receipt e21709c0996c); selected commit fe160afbd0dd: \"fix(rpi): connect again after a link ended (#310)\". LICENSE file at pin fe160afbd0dd detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

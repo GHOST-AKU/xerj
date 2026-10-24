@@ -9,14 +9,14 @@
    "repo": "more_math",
    "url": "https://github.com/mcDandy/more_math",
    "sha": "32e7557facaaaddab71d29da9ad6beed047bfe6e",
-   "licence": "GPL-3.0 (LICENSE file at pin 32e7557facaa, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 32e7557facaa, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-18T12:45Z",
     "consent_receipt": "af1eb2f94dff",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T12:45Z (receipt af1eb2f94dff); selected commit 32e7557facaa: \"AI: audit 2\". LICENSE file at pin 32e7557facaa detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T12:45Z (receipt af1eb2f94dff); selected commit 32e7557facaa: \"AI: audit 2\". LICENSE file at pin 32e7557facaa detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

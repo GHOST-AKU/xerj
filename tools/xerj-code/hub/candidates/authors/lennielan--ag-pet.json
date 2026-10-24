@@ -9,14 +9,14 @@
    "repo": "AG_Pet",
    "url": "https://github.com/lennielan/AG_Pet",
    "sha": "a45a817fd5390d8112126fd6f7e005e1ea7d9e38",
-   "licence": "MIT (LICENSE file at pin a45a817fd539, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin a45a817fd539, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T23:18Z",
     "consent_receipt": "a54ffc14c59c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T23:18Z (receipt a54ffc14c59c); selected commit a45a817fd539: \"feat: enhance running state with laptop typing animation, thought bub\u2026\". LICENSE file at pin a45a817fd539 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T23:18Z (receipt a54ffc14c59c); selected commit a45a817fd539: \"feat: enhance running state with laptop typing animation, thought bub\u2026\". LICENSE file at pin a45a817fd539 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

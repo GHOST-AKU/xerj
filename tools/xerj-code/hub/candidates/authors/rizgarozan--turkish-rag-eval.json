@@ -9,14 +9,14 @@
    "repo": "turkish-rag-eval",
    "url": "https://github.com/RizgarOzan/turkish-rag-eval",
    "sha": "833b48ddd4bca370a1c4122615ef49ae7aaa33d4",
-   "licence": "MIT (LICENSE file at pin 833b48ddd4bc, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 833b48ddd4bc, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T16:11Z",
     "consent_receipt": "b6c384aa1a62",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T16:11Z (receipt b6c384aa1a62); selected commit 833b48ddd4bc: \"Add a stress test and a query normaliser\". LICENSE file at pin 833b48ddd4bc detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T16:11Z (receipt b6c384aa1a62); selected commit 833b48ddd4bc: \"Add a stress test and a query normaliser\". LICENSE file at pin 833b48ddd4bc detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

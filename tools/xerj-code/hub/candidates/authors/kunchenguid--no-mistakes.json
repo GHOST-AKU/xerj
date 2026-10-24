@@ -9,14 +9,14 @@
    "repo": "no-mistakes",
    "url": "https://github.com/kunchenguid/no-mistakes",
    "sha": "ec80c6a83fbf672f3245b52d76626644ac098c31",
-   "licence": "MIT (LICENSE file at pin ec80c6a83fbf, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ec80c6a83fbf, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T17:23Z",
     "consent_receipt": "1722a61d7c78",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T17:23Z (receipt 1722a61d7c78); selected commit ec80c6a83fbf: \"fix(scm): bind GitLab CI evidence to the delivered commit (#1401)\". LICENSE file at pin ec80c6a83fbf detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T17:23Z (receipt 1722a61d7c78); selected commit ec80c6a83fbf: \"fix(scm): bind GitLab CI evidence to the delivered commit (#1401)\". LICENSE file at pin ec80c6a83fbf detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

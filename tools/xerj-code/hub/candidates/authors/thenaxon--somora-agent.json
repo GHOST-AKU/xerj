@@ -9,14 +9,14 @@
    "repo": "somora_agent",
    "url": "https://github.com/thenaxon/somora_agent",
    "sha": "0c4144aa498811b145aa9e8d649e61f88d688032",
-   "licence": "MIT (LICENSE file at pin 0c4144aa4988, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 0c4144aa4988, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-08T12:44Z",
     "consent_receipt": "a61242932100",
-    "note": "Inclusion consented by the commit author by email at 2026-10-08T12:44Z (receipt a61242932100); selected commit 0c4144aa4988: \"compact by hand: /compact [what to keep] in the TUI and web chat, \"Co\u2026\". LICENSE file at pin 0c4144aa4988 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-08T12:44Z (receipt a61242932100); selected commit 0c4144aa4988: \"compact by hand: /compact [what to keep] in the TUI and web chat, \"Co\u2026\". LICENSE file at pin 0c4144aa4988 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

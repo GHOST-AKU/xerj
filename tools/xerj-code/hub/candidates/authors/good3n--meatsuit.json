@@ -9,14 +9,14 @@
    "repo": "meatsuit",
    "url": "https://github.com/good3n/meatsuit",
    "sha": "c2657e1ea4edffa521da53283784880d84d34f4e",
-   "licence": "MIT (LICENSE file at pin c2657e1ea4ed, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin c2657e1ea4ed, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T07:41Z",
     "consent_receipt": "49befd9fcc4d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T07:41Z (receipt 49befd9fcc4d); selected commit c2657e1ea4ed: \"Ship the detector with the skill and forbid invented scores\". LICENSE file at pin c2657e1ea4ed detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T07:41Z (receipt 49befd9fcc4d); selected commit c2657e1ea4ed: \"Ship the detector with the skill and forbid invented scores\". LICENSE file at pin c2657e1ea4ed detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "appflow-profiler",
    "url": "https://github.com/BaghdasaryanNarek/appflow-profiler",
    "sha": "28cfb3ddcb9dacf4a5bee674f4f12dd03864846f",
-   "licence": "MIT (LICENSE file at pin 28cfb3ddcb9d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 28cfb3ddcb9d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T06:11Z",
     "consent_receipt": "b3fb32d3ebe3",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T06:11Z (receipt b3fb32d3ebe3); selected commit 28cfb3ddcb9d: \"feat(web): add realtime client with resync, backoff and batching\". LICENSE file at pin 28cfb3ddcb9d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T06:11Z (receipt b3fb32d3ebe3); selected commit 28cfb3ddcb9d: \"feat(web): add realtime client with resync, backoff and batching\". LICENSE file at pin 28cfb3ddcb9d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

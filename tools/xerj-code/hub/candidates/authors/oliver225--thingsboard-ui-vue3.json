@@ -9,14 +9,14 @@
    "repo": "thingsboard-ui-vue3",
    "url": "https://github.com/oliver225/thingsboard-ui-vue3",
    "sha": "f831b8b2561916787bded8b12b14ad5fe312cc3e",
-   "licence": "GPL-3.0 (LICENSE file at pin f831b8b25619, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin f831b8b25619, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-12T00:29Z",
     "consent_receipt": "c789d1e78c4a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T00:29Z (receipt c789d1e78c4a); selected commit f831b8b25619: \"feat(thingsboard-ui): \u6dfb\u52a0\u8bbe\u5907\u534f\u8bae API \u9875\u7b7e\u5e76\u6574\u7406\u5c55\u793a\u903b\u8f91\". LICENSE file at pin f831b8b25619 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T00:29Z (receipt c789d1e78c4a); selected commit f831b8b25619: \"feat(thingsboard-ui): \u6dfb\u52a0\u8bbe\u5907\u534f\u8bae API \u9875\u7b7e\u5e76\u6574\u7406\u5c55\u793a\u903b\u8f91\". LICENSE file at pin f831b8b25619 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

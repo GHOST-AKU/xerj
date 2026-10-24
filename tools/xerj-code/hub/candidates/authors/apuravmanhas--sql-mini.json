@@ -1,0 +1,23 @@
+{
+ "corpus": "apuravmanhas--sql-mini",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on database-engineering, double-entry-ledger, fraud-detection queries this for how apuravmanhas/SQL-mini implements it: VerityTick \u2014 PostgreSQL 18 transactional limit order book, double-entry financial ledger, SHA-256 tamper-evident audit chain, recursive CTE  (selected work: db, tests, tools)",
+ "repos": [
+  {
+   "repo": "SQL-mini",
+   "url": "https://github.com/apuravmanhas/SQL-mini",
+   "sha": "a47b34b0b6a392e3bac605d85e17a56819c676dd",
+   "licence": "MIT (LICENSE file at pin a47b34b0b6a3, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T08:25Z",
+    "consent_receipt": "54364fa4cdb3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T08:25Z (receipt 54364fa4cdb3); selected commit a47b34b0b6a3: \"feat(core): implement audit chain, fraud analytics, market data, RLS,\u2026\". LICENSE file at pin a47b34b0b6a3 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

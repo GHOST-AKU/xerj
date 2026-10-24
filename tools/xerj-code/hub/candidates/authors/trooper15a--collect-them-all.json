@@ -9,14 +9,14 @@
    "repo": "collect_them_all",
    "url": "https://github.com/Trooper15a/collect_them_all",
    "sha": "69d2810069eaddeb57ed1932f93d236adf83bc5f",
-   "licence": "MIT (LICENSE file at pin 69d2810069ea, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 69d2810069ea, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T19:49Z",
     "consent_receipt": "677b0317bd1c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T19:49Z (receipt 677b0317bd1c); selected commit 69d2810069ea: \"Fix scanner capture, guide alignment, and scan recovery\". LICENSE file at pin 69d2810069ea detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T19:49Z (receipt 677b0317bd1c); selected commit 69d2810069ea: \"Fix scanner capture, guide alignment, and scan recovery\". LICENSE file at pin 69d2810069ea detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

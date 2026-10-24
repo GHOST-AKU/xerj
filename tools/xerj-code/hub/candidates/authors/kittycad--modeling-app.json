@@ -9,14 +9,14 @@
    "repo": "modeling-app",
    "url": "https://github.com/KittyCAD/modeling-app",
    "sha": "e898ec43b4cf4173891a6c7e795587d97e3268d9",
-   "licence": "MIT (LICENSE file at pin e898ec43b4cf, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin e898ec43b4cf, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T13:50Z",
     "consent_receipt": "ce19e47ca9aa",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T13:50Z (receipt ce19e47ca9aa); selected commit e898ec43b4cf: \"KCL: Move cache out of static, into owned struct (#14540)\". LICENSE file at pin e898ec43b4cf detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T13:50Z (receipt ce19e47ca9aa); selected commit e898ec43b4cf: \"KCL: Move cache out of static, into owned struct (#14540)\". LICENSE file at pin e898ec43b4cf detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

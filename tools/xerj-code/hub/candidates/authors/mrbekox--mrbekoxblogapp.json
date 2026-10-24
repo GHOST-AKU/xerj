@@ -9,14 +9,14 @@
    "repo": "MrBekoXBlogApp",
    "url": "https://github.com/MrBekoX/MrBekoXBlogApp",
    "sha": "1f1153d2f5fe16d999048ebe66df05cc2ca4efbd",
-   "licence": "MIT (LICENSE file at pin 1f1153d2f5fe, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 1f1153d2f5fe, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T06:43Z",
     "consent_receipt": "4cefecd36ce5",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T06:43Z (receipt 4cefecd36ce5); selected commit 1f1153d2f5fe: \"feat(agent): token streaming ve ger\u00e7ek ortam entegrasyonlari\". LICENSE file at pin 1f1153d2f5fe detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T06:43Z (receipt 4cefecd36ce5); selected commit 1f1153d2f5fe: \"feat(agent): token streaming ve ger\u00e7ek ortam entegrasyonlari\". LICENSE file at pin 1f1153d2f5fe detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

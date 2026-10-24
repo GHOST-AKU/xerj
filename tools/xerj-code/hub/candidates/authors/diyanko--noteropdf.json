@@ -9,14 +9,14 @@
    "repo": "NoteroPDF",
    "url": "https://github.com/diyanko/NoteroPDF",
    "sha": "f8ffb000c2419927f465f2c743394db715f114c7",
-   "licence": "MIT (LICENSE file at pin f8ffb000c241, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin f8ffb000c241, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T22:46Z",
     "consent_receipt": "12d769129903",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T22:46Z (receipt 12d769129903); selected commit f8ffb000c241: \"Keep diagnostics private and require visible connection setup\". LICENSE file at pin f8ffb000c241 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T22:46Z (receipt 12d769129903); selected commit f8ffb000c241: \"Keep diagnostics private and require visible connection setup\". LICENSE file at pin f8ffb000c241 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "YzPzCode",
    "url": "https://github.com/wolfenazz/YzPzCode",
    "sha": "9a1955c104f251dd8894cd62ce87146c47a89f6c",
-   "licence": "Apache-2.0 (LICENSE file at pin 9a1955c104f2, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 9a1955c104f2, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T05:11Z",
     "consent_receipt": "2e8ed749e1c6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T05:11Z (receipt 2e8ed749e1c6); selected commit 9a1955c104f2: \"feat: JCode agent support, terminal lifecycle fixes and theme improve\u2026\". LICENSE file at pin 9a1955c104f2 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T05:11Z (receipt 2e8ed749e1c6); selected commit 9a1955c104f2: \"feat: JCode agent support, terminal lifecycle fixes and theme improve\u2026\". LICENSE file at pin 9a1955c104f2 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

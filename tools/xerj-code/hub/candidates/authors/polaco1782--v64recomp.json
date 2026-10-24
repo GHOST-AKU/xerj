@@ -9,14 +9,14 @@
    "repo": "v64recomp",
    "url": "https://github.com/polaco1782/v64recomp",
    "sha": "8d2fa3f431e71da1e32145992271980170323ddf",
-   "licence": "GPL-2.0 (LICENSE file at pin 8d2fa3f431e7, GitHub licence API 2026-10-22)",
+   "licence": "GPL-2.0 (LICENSE file at pin 8d2fa3f431e7, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-2.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-17T01:22Z",
     "consent_receipt": "399085a526a7",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T01:22Z (receipt 399085a526a7); selected commit 8d2fa3f431e7: \"Rice/GL64 texture import support\". LICENSE file at pin 8d2fa3f431e7 detected as GPL-2.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T01:22Z (receipt 399085a526a7); selected commit 8d2fa3f431e7: \"Rice/GL64 texture import support\". LICENSE file at pin 8d2fa3f431e7 detected as GPL-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

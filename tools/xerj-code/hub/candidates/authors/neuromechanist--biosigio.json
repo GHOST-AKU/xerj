@@ -9,14 +9,14 @@
    "repo": "biosigio",
    "url": "https://github.com/neuromechanist/biosigio",
    "sha": "f39ae4295d037325deefd27c77b8df0ab30e8666",
-   "licence": "BSD-3-Clause (LICENSE file at pin f39ae4295d03, GitHub licence API 2026-10-21)",
+   "licence": "BSD-3-Clause (LICENSE file at pin f39ae4295d03, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "BSD-3-Clause",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T04:21Z",
     "consent_receipt": "914b3acb9db3",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T04:21Z (receipt 914b3acb9db3); selected commit f39ae4295d03: \"Harden exclude_subject_info removal\". LICENSE file at pin f39ae4295d03 detected as BSD-3-Clause by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T04:21Z (receipt 914b3acb9db3); selected commit f39ae4295d03: \"Harden exclude_subject_info removal\". LICENSE file at pin f39ae4295d03 detected as BSD-3-Clause by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

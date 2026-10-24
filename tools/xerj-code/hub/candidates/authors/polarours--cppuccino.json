@@ -1,0 +1,23 @@
+{
+ "corpus": "polarours--cppuccino",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how polarours/Cppuccino implements it: Cppuccino is a compact C++ tutorial and reference repository covering modern C++ features, value categories, references, and move semantics. (selected work: cpp-mastery-roadmap)",
+ "repos": [
+  {
+   "repo": "Cppuccino",
+   "url": "https://github.com/polarours/Cppuccino",
+   "sha": "8a8f339a683f85b169ffd554a1a49ac437cb433f",
+   "licence": "MIT (LICENSE file at pin 8a8f339a683f, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T13:30Z",
+    "consent_receipt": "5a499fd582c2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T13:30Z (receipt 5a499fd582c2); selected commit 8a8f339a683f: \"feat: add final 10 projects reaching the 150-project target\". LICENSE file at pin 8a8f339a683f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

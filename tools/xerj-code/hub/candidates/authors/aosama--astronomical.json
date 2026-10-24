@@ -9,14 +9,14 @@
    "repo": "astronomical",
    "url": "https://github.com/aosama/astronomical",
    "sha": "56626fe26ec6ac97492b21d6535970c2abb38387",
-   "licence": "Apache-2.0 (LICENSE file at pin 56626fe26ec6, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 56626fe26ec6, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T00:17Z",
     "consent_receipt": "b7f809a30d30",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T00:17Z (receipt b7f809a30d30); selected commit 56626fe26ec6: \"Fix the learned activation reserve, harden serving evidence lanes\". LICENSE file at pin 56626fe26ec6 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T00:17Z (receipt b7f809a30d30); selected commit 56626fe26ec6: \"Fix the learned activation reserve, harden serving evidence lanes\". LICENSE file at pin 56626fe26ec6 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

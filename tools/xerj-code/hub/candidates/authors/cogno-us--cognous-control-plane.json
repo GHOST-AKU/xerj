@@ -9,14 +9,14 @@
    "repo": "cognous-control-plane",
    "url": "https://github.com/cogno-us/cognous-control-plane",
    "sha": "e66e5f163c5d5c112ff345a2f332b4c3893ee183",
-   "licence": "Apache-2.0 (LICENSE file at pin e66e5f163c5d, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin e66e5f163c5d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T23:26Z",
     "consent_receipt": "494143266a97",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T23:26Z (receipt 494143266a97); selected commit e66e5f163c5d: \"W1: enforce tenant-bound authorization effect 0.2 (#18)\". LICENSE file at pin e66e5f163c5d detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T23:26Z (receipt 494143266a97); selected commit e66e5f163c5d: \"W1: enforce tenant-bound authorization effect 0.2 (#18)\". LICENSE file at pin e66e5f163c5d detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

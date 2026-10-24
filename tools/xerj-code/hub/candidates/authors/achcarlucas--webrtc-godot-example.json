@@ -9,14 +9,14 @@
    "repo": "WebRTC-Godot-Example",
    "url": "https://github.com/AchcarLucas/WebRTC-Godot-Example",
    "sha": "3a05dab31b5ce8d864978d75a0eaced85e3bcea2",
-   "licence": "MIT (LICENSE file at pin 3a05dab31b5c, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 3a05dab31b5c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T21:47Z",
     "consent_receipt": "bac16d2739f0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T21:47Z (receipt bac16d2739f0); selected commit 3a05dab31b5c: \" - Project to understand the WebRTC protocol\". LICENSE file at pin 3a05dab31b5c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T21:47Z (receipt bac16d2739f0); selected commit 3a05dab31b5c: \" - Project to understand the WebRTC protocol\". LICENSE file at pin 3a05dab31b5c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

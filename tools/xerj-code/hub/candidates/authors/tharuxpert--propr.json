@@ -1,0 +1,23 @@
+{
+ "corpus": "tharuxpert--propr",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, macos, menubar-app queries this for how tharuxpert/propr implements it: Native macOS menu bar app for AI text refinement and quick lookup anywhere. Double-tap \u2318 to refine, tap Fn to look up (selected work: Sources, Tests, Propr.xcodeproj)",
+ "repos": [
+  {
+   "repo": "propr",
+   "url": "https://github.com/tharuxpert/propr",
+   "sha": "e87d8c917beec3e21fbb9aff0381ac59831441fa",
+   "licence": "MIT (LICENSE file at pin e87d8c917bee, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T08:58Z",
+    "consent_receipt": "0dbc49f46cb6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T08:58Z (receipt 0dbc49f46cb6); selected commit e87d8c917bee: \"feat(settings): pick models from the provider's catalog\". LICENSE file at pin e87d8c917bee detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

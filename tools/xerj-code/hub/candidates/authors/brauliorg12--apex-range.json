@@ -1,0 +1,23 @@
+{
+ "corpus": "brauliorg12--apex-range",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how brauliorg12/apex-range implements it: Bot de Discord para listar amigos jugadores de Apex Leyends (selected work: src/helpers, src/commands, src/utils)",
+ "repos": [
+  {
+   "repo": "apex-range",
+   "url": "https://github.com/brauliorg12/apex-range",
+   "sha": "33a9c06350a00ceca81367978a0460476d127b85",
+   "licence": "MIT (LICENSE file at pin 33a9c06350a0, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T06:06Z",
+    "consent_receipt": "294a1c11a340",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T06:06Z (receipt 294a1c11a340); selected commit 33a9c06350a0: \"feat(apex-status): harden panel recovery, cleanup and admin alerts\". LICENSE file at pin 33a9c06350a0 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,14 +9,14 @@
    "repo": "comfyui-anima-toolkit",
    "url": "https://github.com/Ararararararaki/comfyui-anima-toolkit",
    "sha": "05d1b7efc21d0a5bbc80463e9a79ed793cca9dca",
-   "licence": "MIT (LICENSE file at pin 05d1b7efc21d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 05d1b7efc21d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T20:26Z",
     "consent_receipt": "603782b9a7ca",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T20:26Z (receipt 603782b9a7ca); selected commit 05d1b7efc21d: \"feat: integrate reviewed Pixiv rankings and gallery source memory (2.\u2026\". LICENSE file at pin 05d1b7efc21d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T20:26Z (receipt 603782b9a7ca); selected commit 05d1b7efc21d: \"feat: integrate reviewed Pixiv rankings and gallery source memory (2.\u2026\". LICENSE file at pin 05d1b7efc21d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

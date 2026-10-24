@@ -9,14 +9,14 @@
    "repo": "sci-form",
    "url": "https://github.com/jigonzalez930209/sci-form",
    "sha": "f50f5f24208ac087a4ac21ad7b00c32bda2fcc94",
-   "licence": "MIT (LICENSE file at pin f50f5f24208a, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin f50f5f24208a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T14:24Z",
     "consent_receipt": "1be632b8edc7",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T14:24Z (receipt 1be632b8edc7); selected commit f50f5f24208a: \"feat: Validate ReaxFF vs LAMMPS and add the ffield pair table.\". LICENSE file at pin f50f5f24208a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T14:24Z (receipt 1be632b8edc7); selected commit f50f5f24208a: \"feat: Validate ReaxFF vs LAMMPS and add the ffield pair table.\". LICENSE file at pin f50f5f24208a detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

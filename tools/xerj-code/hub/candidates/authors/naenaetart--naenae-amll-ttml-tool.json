@@ -9,14 +9,14 @@
    "repo": "NaeNae-AMLL-TTML-TOOL",
    "url": "https://github.com/NaeNaeTart/NaeNae-AMLL-TTML-TOOL",
    "sha": "5d26b49cb812514bbb8aa556e25e4b1e1dfd0442",
-   "licence": "AGPL-3.0 (LICENSE file at pin 5d26b49cb812, GitHub licence API 2026-10-21)",
+   "licence": "AGPL-3.0 (LICENSE file at pin 5d26b49cb812, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-10T17:17Z",
     "consent_receipt": "516965036bdd",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T17:17Z (receipt 516965036bdd); selected commit 5d26b49cb812: \"feat(projects): add linked projects that keep files in place\". LICENSE file at pin 5d26b49cb812 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T17:17Z (receipt 516965036bdd); selected commit 5d26b49cb812: \"feat(projects): add linked projects that keep files in place\". LICENSE file at pin 5d26b49cb812 detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

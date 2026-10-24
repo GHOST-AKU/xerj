@@ -9,14 +9,14 @@
    "repo": "lazy-balancer-v2",
    "url": "https://github.com/v55448330/lazy-balancer-v2",
    "sha": "49c0b93f9fd051284401295c7f352ed202f2c324",
-   "licence": "Apache-2.0 (LICENSE file at pin 49c0b93f9fd0, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 49c0b93f9fd0, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T18:15Z",
     "consent_receipt": "af91a94416a2",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T18:15Z (receipt af91a94416a2); selected commit 49c0b93f9fd0: \"\u5730\u57df\u62e6\u622a\u722c\u866b\u8c41\u514d\uff08\u65b9\u6848 B\uff1aUA+PTR \u53cc\u8df3\u9a8c\u8bc1\uff0cAI \u722c\u866b\u5f15\u64ce\u6269\u5c55\uff09\". LICENSE file at pin 49c0b93f9fd0 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T18:15Z (receipt af91a94416a2); selected commit 49c0b93f9fd0: \"\u5730\u57df\u62e6\u622a\u722c\u866b\u8c41\u514d\uff08\u65b9\u6848 B\uff1aUA+PTR \u53cc\u8df3\u9a8c\u8bc1\uff0cAI \u722c\u866b\u5f15\u64ce\u6269\u5c55\uff09\". LICENSE file at pin 49c0b93f9fd0 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

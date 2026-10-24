@@ -9,14 +9,14 @@
    "repo": "DhwaniControl",
    "url": "https://github.com/RajnishKMehta/DhwaniControl",
    "sha": "ebf4c5b59f3a1a77bbeaea1fdb1224a3bb97eb80",
-   "licence": "Apache-2.0 (LICENSE file at pin ebf4c5b59f3a, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin ebf4c5b59f3a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T15:48Z",
     "consent_receipt": "d47df90dc148",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T15:48Z (receipt d47df90dc148); selected commit ebf4c5b59f3a: \"fix: address floating button and edge swipe audit findings\". LICENSE file at pin ebf4c5b59f3a detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T15:48Z (receipt d47df90dc148); selected commit ebf4c5b59f3a: \"fix: address floating button and edge swipe audit findings\". LICENSE file at pin ebf4c5b59f3a detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "stepcode-plugins",
    "url": "https://github.com/Neriah-Ado/stepcode-plugins",
    "sha": "d0eb3eb8b93d2e31fce425b7be22ac6d26114d21",
-   "licence": "hint only: AGPL-3.0 (LICENSE at pin: not checked yet)",
+   "licence": "AGPL-3.0 (LICENSE file at pin d0eb3eb8b93d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T00:34Z",
     "consent_receipt": "8e7a9d3fee83",
-    "note": "author consent by email 2026-10-24T00:34Z (receipt 8e7a9d3fee83); selected commit d0eb3eb8b93d: \"fix(security): db-insight \u8fde\u63a5\u4e32\u6539 PG* \u73af\u5883\u53d8\u91cf\u4e0e\u8868\u540d\u6807\u8bc6\u7b26\u767d\u540d\u5355 (DI-131-1, DI-131-2)\"; LICENSE at pin: not checked yet vs repository AGPL-3.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T00:34Z (receipt 8e7a9d3fee83); selected commit d0eb3eb8b93d: \"fix(security): db-insight \u8fde\u63a5\u4e32\u6539 PG* \u73af\u5883\u53d8\u91cf\u4e0e\u8868\u540d\u6807\u8bc6\u7b26\u767d\u540d\u5355 (DI-131-1, DI-131-2)\". LICENSE file at pin d0eb3eb8b93d detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

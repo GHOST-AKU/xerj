@@ -9,14 +9,14 @@
    "repo": "odai",
    "url": "https://github.com/orziz/odai",
    "sha": "ffe6b3409300bfe646477eecbc9146828207ca9e",
-   "licence": "MIT (LICENSE file at pin ffe6b3409300, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ffe6b3409300, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T07:11Z",
     "consent_receipt": "ad32e7b404ff",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T07:11Z (receipt ad32e7b404ff); selected commit ffe6b3409300: \"fix(dsh): migrate agent bundles and open host compatibility\". LICENSE file at pin ffe6b3409300 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T07:11Z (receipt ad32e7b404ff); selected commit ffe6b3409300: \"fix(dsh): migrate agent bundles and open host compatibility\". LICENSE file at pin ffe6b3409300 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

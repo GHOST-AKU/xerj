@@ -1,0 +1,23 @@
+{
+ "corpus": "camponggogo--suay",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on HTML queries this for how camponggogo/suay implements it: Distributed AI compute for local networks. Pool idle CPU/GPU resources, share LLM inference workloads, and centrally manage native AI servic (selected work: landing-pasadhi, deploy, scripts)",
+ "repos": [
+  {
+   "repo": "suay",
+   "url": "https://github.com/camponggogo/suay",
+   "sha": "c7f97c6e8258d80634e564f79ed2e0c73846966f",
+   "licence": "MIT (LICENSE file at pin c7f97c6e8258, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T04:43Z",
+    "consent_receipt": "c052258fce66",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T04:43Z (receipt c052258fce66); selected commit c7f97c6e8258: \"publish-pasadhi-pitch-theme-downloads-and-open-font-papers\". LICENSE file at pin c7f97c6e8258 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

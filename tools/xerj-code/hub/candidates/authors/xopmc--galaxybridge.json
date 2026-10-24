@@ -9,14 +9,14 @@
    "repo": "GalaxyBridge",
    "url": "https://github.com/XopMC/GalaxyBridge",
    "sha": "f151afb0306c0428154fdf23c432baecf151bde6",
-   "licence": "MIT (LICENSE file at pin f151afb0306c, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin f151afb0306c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T23:21Z",
     "consent_receipt": "d86ba7d60371",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T23:21Z (receipt d86ba7d60371); selected commit f151afb0306c: \"Relay scoped display-state leases with recoverable cancellation [skip\u2026\". LICENSE file at pin f151afb0306c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T23:21Z (receipt d86ba7d60371); selected commit f151afb0306c: \"Relay scoped display-state leases with recoverable cancellation [skip\u2026\". LICENSE file at pin f151afb0306c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

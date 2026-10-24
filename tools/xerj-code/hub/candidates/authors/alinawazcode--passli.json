@@ -9,14 +9,14 @@
    "repo": "passli",
    "url": "https://github.com/alinawazcode/passli",
    "sha": "05ed94651f121271301a5012373c49963f38a7c4",
-   "licence": "MIT (LICENSE file at pin 05ed94651f12, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 05ed94651f12, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T10:13Z",
     "consent_receipt": "9db6a2e350fa",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T10:13Z (receipt 9db6a2e350fa); selected commit 05ed94651f12: \"fix(security): resolve audit findings PASS-002 through PASS-008 and h\u2026\". LICENSE file at pin 05ed94651f12 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T10:13Z (receipt 9db6a2e350fa); selected commit 05ed94651f12: \"fix(security): resolve audit findings PASS-002 through PASS-008 and h\u2026\". LICENSE file at pin 05ed94651f12 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "hedos",
    "url": "https://github.com/theiskaa/hedos",
    "sha": "47f88e6b5ed6928b6ad478b595247f6729114e2d",
-   "licence": "MIT (LICENSE file at pin 47f88e6b5ed6, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 47f88e6b5ed6, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-09T15:29Z",
     "consent_receipt": "17741a73d3c6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T15:29Z (receipt 17741a73d3c6); selected commit 47f88e6b5ed6: \"feat(cli): draw the shelf on the terminal's own ground with the gatew\u2026\". LICENSE file at pin 47f88e6b5ed6 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T15:29Z (receipt 17741a73d3c6); selected commit 47f88e6b5ed6: \"feat(cli): draw the shelf on the terminal's own ground with the gatew\u2026\". LICENSE file at pin 47f88e6b5ed6 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

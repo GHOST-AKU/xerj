@@ -9,14 +9,14 @@
    "repo": "trading-analysis-platform",
    "url": "https://github.com/ramazangirgin/trading-analysis-platform",
    "sha": "ef468c653bcb300e4d85840996e75e86a00b65a5",
-   "licence": "Apache-2.0 (LICENSE file at pin ef468c653bcb, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin ef468c653bcb, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T20:28Z",
     "consent_receipt": "dd88988f213c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T20:28Z (receipt dd88988f213c); selected commit ef468c653bcb: \"Address R3-1: Move endpoint permissions to delegate methods\". LICENSE file at pin ef468c653bcb detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T20:28Z (receipt dd88988f213c); selected commit ef468c653bcb: \"Address R3-1: Move endpoint permissions to delegate methods\". LICENSE file at pin ef468c653bcb detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

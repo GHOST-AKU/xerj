@@ -9,14 +9,14 @@
    "repo": "trAIde",
    "url": "https://github.com/abozaralizadeh/trAIde",
    "sha": "446c75e17532a1d97a7013722ef2e120e9ecb169",
-   "licence": "MIT (LICENSE file at pin 446c75e17532, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 446c75e17532, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T22:54Z",
     "consent_receipt": "9a4b3d6668d1",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T22:54Z (receipt 9a4b3d6668d1); selected commit 446c75e17532: \"Redact Telegram secrets from logs\". LICENSE file at pin 446c75e17532 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T22:54Z (receipt 9a4b3d6668d1); selected commit 446c75e17532: \"Redact Telegram secrets from logs\". LICENSE file at pin 446c75e17532 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "wb",
    "url": "https://github.com/neoxr/wb",
    "sha": "99ac74481f80c9ee6c675b92b98b12422b1a7ff4",
-   "licence": "MIT (LICENSE file at pin 99ac74481f80, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 99ac74481f80, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T07:54Z",
     "consent_receipt": "e0f20d2380bb",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T07:54Z (receipt e0f20d2380bb); selected commit 99ac74481f80: \"perf: optimation\". LICENSE file at pin 99ac74481f80 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T07:54Z (receipt e0f20d2380bb); selected commit 99ac74481f80: \"perf: optimation\". LICENSE file at pin 99ac74481f80 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "mssql-performance-skills",
    "url": "https://github.com/vanterx/mssql-performance-skills",
    "sha": "86bfc4e80d12c3e00dd8c148f3031f5e1106a6f1",
-   "licence": "MIT (LICENSE file at pin 86bfc4e80d12, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 86bfc4e80d12, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T01:33Z",
     "consent_receipt": "58af44970d93",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T01:33Z (receipt 58af44970d93); selected commit 86bfc4e80d12: \"feat: add sqlperfmon-review \u2014 Windows Perfmon counter analysis (PM1\u2013P\u2026\". LICENSE file at pin 86bfc4e80d12 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T01:33Z (receipt 58af44970d93); selected commit 86bfc4e80d12: \"feat: add sqlperfmon-review \u2014 Windows Perfmon counter analysis (PM1\u2013P\u2026\". LICENSE file at pin 86bfc4e80d12 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "BlazeDB",
    "url": "https://github.com/Mikedan37/BlazeDB",
    "sha": "29c48ddf4f6574741b10cc1f419d3b8ea653dcd8",
-   "licence": "MIT (LICENSE file at pin 29c48ddf4f65, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 29c48ddf4f65, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T04:35Z",
     "consent_receipt": "8870624edc51",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T04:35Z (receipt 8870624edc51); selected commit 29c48ddf4f65: \"fix(storage): fail closed when legacy WAL CRC fails mid-log (#516)\". LICENSE file at pin 29c48ddf4f65 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T04:35Z (receipt 8870624edc51); selected commit 29c48ddf4f65: \"fix(storage): fail closed when legacy WAL CRC fails mid-log (#516)\". LICENSE file at pin 29c48ddf4f65 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

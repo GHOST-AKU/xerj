@@ -9,14 +9,14 @@
    "repo": "InTeam",
    "url": "https://github.com/FengLi-AI/InTeam",
    "sha": "ac63fe02d995b24e8c4e77d5815b125b57d219e6",
-   "licence": "MIT (LICENSE file at pin ac63fe02d995, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ac63fe02d995, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T06:18Z",
     "consent_receipt": "5b09a49e4b65",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T06:18Z (receipt 5b09a49e4b65); selected commit ac63fe02d995: \"feat: add bounded task preparation agent and repair Dify retrieval\". LICENSE file at pin ac63fe02d995 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T06:18Z (receipt 5b09a49e4b65); selected commit ac63fe02d995: \"feat: add bounded task preparation agent and repair Dify retrieval\". LICENSE file at pin ac63fe02d995 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

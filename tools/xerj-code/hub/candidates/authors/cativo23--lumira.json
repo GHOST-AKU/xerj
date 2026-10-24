@@ -9,14 +9,14 @@
    "repo": "lumira",
    "url": "https://github.com/cativo23/lumira",
    "sha": "73a05aedcf3e602d212ab550b3ec5753c6e3ee1e",
-   "licence": "MIT (LICENSE file at pin 73a05aedcf3e, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 73a05aedcf3e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T14:58Z",
     "consent_receipt": "6547a7301d19",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T14:58Z (receipt 6547a7301d19); selected commit 73a05aedcf3e: \"feat(prompt-cache): badge for cache expiry, cold state and misses (#204)\". LICENSE file at pin 73a05aedcf3e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T14:58Z (receipt 6547a7301d19); selected commit 73a05aedcf3e: \"feat(prompt-cache): badge for cache expiry, cold state and misses (#204)\". LICENSE file at pin 73a05aedcf3e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

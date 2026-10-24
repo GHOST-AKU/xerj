@@ -9,14 +9,14 @@
    "repo": "slipway",
    "url": "https://github.com/Discodave-Glitch/slipway",
    "sha": "3988dd3a9cd2a52f7c690f01a5c3ff3ef13439f9",
-   "licence": "MIT (LICENSE file at pin 3988dd3a9cd2, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 3988dd3a9cd2, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T08:40Z",
     "consent_receipt": "5363e563b46b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:40Z (receipt 5363e563b46b); selected commit 3988dd3a9cd2: \"Mac fixes from real-Mac test; V16 note; Android web app\". LICENSE file at pin 3988dd3a9cd2 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:40Z (receipt 5363e563b46b); selected commit 3988dd3a9cd2: \"Mac fixes from real-Mac test; V16 note; Android web app\". LICENSE file at pin 3988dd3a9cd2 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

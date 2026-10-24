@@ -9,14 +9,14 @@
    "repo": "ClaudeCodeExtension",
    "url": "https://github.com/dliedke/ClaudeCodeExtension",
    "sha": "03b6f8f7f622a62f7236e450650851ecf358bf53",
-   "licence": "MIT (LICENSE file at pin 03b6f8f7f622, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 03b6f8f7f622, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-09T17:56Z",
     "consent_receipt": "fca2244e18e1",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T17:56Z (receipt fca2244e18e1); selected commit 03b6f8f7f622: \"v233.0: Install latest OpenPets from Settings \u2192 Automation\". LICENSE file at pin 03b6f8f7f622 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T17:56Z (receipt fca2244e18e1); selected commit 03b6f8f7f622: \"v233.0: Install latest OpenPets from Settings \u2192 Automation\". LICENSE file at pin 03b6f8f7f622 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

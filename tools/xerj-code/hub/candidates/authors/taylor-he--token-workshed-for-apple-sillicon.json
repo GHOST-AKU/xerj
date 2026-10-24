@@ -1,0 +1,23 @@
+{
+ "corpus": "taylor-he--token-workshed-for-apple-sillicon",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how Taylor-He/token-workshed-for-Apple-Sillicon implements it: Token Workshed: desktop UI + local model manager built on vllm, with Hugging Face community search and one-click deploy. Aimed to build a us (selected work: native-ui, scripts)",
+ "repos": [
+  {
+   "repo": "token-workshed-for-Apple-Sillicon",
+   "url": "https://github.com/Taylor-He/token-workshed-for-Apple-Sillicon",
+   "sha": "0b2f486cf08b0e7313e1299cee76cb3d5fd59662",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "13878ba56f34",
+    "note": "author consent by email 2026-10-24T05:26Z (receipt 13878ba56f34); selected commit 0b2f486cf08b: \"Fix model management and desktop layout\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

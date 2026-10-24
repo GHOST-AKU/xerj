@@ -9,14 +9,14 @@
    "repo": "zyrln",
    "url": "https://github.com/ajavadinezhad/zyrln",
    "sha": "d55efdf08dc25ef90cb8ba8d5e55bf282f57e378",
-   "licence": "MIT (LICENSE file at pin d55efdf08dc2, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin d55efdf08dc2, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T02:33Z",
     "consent_receipt": "2d5ec67fc344",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T02:33Z (receipt 2d5ec67fc344); selected commit d55efdf08dc2: \"Improve Android and desktop reliability, UI, and test coverage\". LICENSE file at pin d55efdf08dc2 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T02:33Z (receipt 2d5ec67fc344); selected commit d55efdf08dc2: \"Improve Android and desktop reliability, UI, and test coverage\". LICENSE file at pin d55efdf08dc2 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

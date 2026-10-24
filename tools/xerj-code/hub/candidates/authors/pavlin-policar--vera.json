@@ -9,14 +9,14 @@
    "repo": "vera",
    "url": "https://github.com/pavlin-policar/vera",
    "sha": "a2349f061e92408a3f8ce15ca1f522ac12ad28b6",
-   "licence": "BSD-3-Clause (LICENSE file at pin a2349f061e92, GitHub licence API 2026-10-21)",
+   "licence": "BSD-3-Clause (LICENSE file at pin a2349f061e92, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "BSD-3-Clause",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T12:58Z",
     "consent_receipt": "65fd81307af8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T12:58Z (receipt 65fd81307af8); selected commit a2349f061e92: \"Let labels take the shape of their lines in label placement\". LICENSE file at pin a2349f061e92 detected as BSD-3-Clause by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T12:58Z (receipt 65fd81307af8); selected commit a2349f061e92: \"Let labels take the shape of their lines in label placement\". LICENSE file at pin a2349f061e92 detected as BSD-3-Clause by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

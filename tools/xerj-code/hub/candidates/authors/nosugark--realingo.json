@@ -9,14 +9,14 @@
    "repo": "ReaLingo",
    "url": "https://github.com/noSugarK/ReaLingo",
    "sha": "1f8d3c1404d96a46e24b430557a661d2f05d0c51",
-   "licence": "MIT (LICENSE file at pin 1f8d3c1404d9, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 1f8d3c1404d9, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-09T00:50Z",
     "consent_receipt": "aedb72f8d757",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T00:50Z (receipt aedb72f8d757); selected commit 1f8d3c1404d9: \"feat: \u6717\u8bfb\u8bd1\u6587\uff0c\u5f55\u7cfb\u7edf\u58f0\u97f3\u65f6\u6392\u9664\u81ea\u8eab\". LICENSE file at pin 1f8d3c1404d9 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T00:50Z (receipt aedb72f8d757); selected commit 1f8d3c1404d9: \"feat: \u6717\u8bfb\u8bd1\u6587\uff0c\u5f55\u7cfb\u7edf\u58f0\u97f3\u65f6\u6392\u9664\u81ea\u8eab\". LICENSE file at pin 1f8d3c1404d9 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

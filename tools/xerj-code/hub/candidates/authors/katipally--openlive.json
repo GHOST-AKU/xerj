@@ -9,14 +9,14 @@
    "repo": "openlive",
    "url": "https://github.com/katipally/openlive",
    "sha": "9776159ef2a58b18810dee0e00d3a820971d62ea",
-   "licence": "Apache-2.0 (LICENSE file at pin 9776159ef2a5, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 9776159ef2a5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T12:11Z",
     "consent_receipt": "3a51395f7e62",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T12:11Z (receipt 3a51395f7e62); selected commit 9776159ef2a5: \"feat(web): Flow and Dictate show their keys as three steps, Dictate's\u2026\". LICENSE file at pin 9776159ef2a5 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T12:11Z (receipt 3a51395f7e62); selected commit 9776159ef2a5: \"feat(web): Flow and Dictate show their keys as three steps, Dictate's\u2026\". LICENSE file at pin 9776159ef2a5 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

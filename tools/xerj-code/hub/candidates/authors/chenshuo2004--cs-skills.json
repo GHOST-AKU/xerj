@@ -9,14 +9,14 @@
    "repo": "cs-skills",
    "url": "https://github.com/ChenShuo2004/cs-skills",
    "sha": "c2a8989a58d15d8335346b54246d00fe2d0d0e8f",
-   "licence": "MIT (LICENSE file at pin c2a8989a58d1, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin c2a8989a58d1, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T11:43Z",
     "consent_receipt": "7dec8cde0d82",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T11:43Z (receipt 7dec8cde0d82); selected commit c2a8989a58d1: \"feat: release unified CS Skills v0.7.0\". LICENSE file at pin c2a8989a58d1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T11:43Z (receipt 7dec8cde0d82); selected commit c2a8989a58d1: \"feat: release unified CS Skills v0.7.0\". LICENSE file at pin c2a8989a58d1 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

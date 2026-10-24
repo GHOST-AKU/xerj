@@ -9,14 +9,14 @@
    "repo": "AHTML",
    "url": "https://github.com/DibbayajyotiRoy/AHTML",
    "sha": "2f5eb1bf302324269bb4fcd09ba4ccee99532df4",
-   "licence": "MIT (LICENSE file at pin 2f5eb1bf3023, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 2f5eb1bf3023, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T19:15Z",
     "consent_receipt": "7331a9d95593",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T19:15Z (receipt 7331a9d95593); selected commit 2f5eb1bf3023: \"feat: semantic diffing, A2A/MCP bridge, usage analytics, push-to-main\u2026\". LICENSE file at pin 2f5eb1bf3023 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T19:15Z (receipt 7331a9d95593); selected commit 2f5eb1bf3023: \"feat: semantic diffing, A2A/MCP bridge, usage analytics, push-to-main\u2026\". LICENSE file at pin 2f5eb1bf3023 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

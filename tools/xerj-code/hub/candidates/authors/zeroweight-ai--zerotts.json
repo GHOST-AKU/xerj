@@ -9,14 +9,14 @@
    "repo": "ZeroTTS",
    "url": "https://github.com/zeroweight-ai/ZeroTTS",
    "sha": "3d7feb0b74e559d630096661cb7184f2f6ece494",
-   "licence": "MIT (LICENSE file at pin 3d7feb0b74e5, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 3d7feb0b74e5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T16:26Z",
     "consent_receipt": "d9de1f46c1d0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T16:26Z (receipt d9de1f46c1d0); selected commit 3d7feb0b74e5: \"add voice clone\". LICENSE file at pin 3d7feb0b74e5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T16:26Z (receipt d9de1f46c1d0); selected commit 3d7feb0b74e5: \"add voice clone\". LICENSE file at pin 3d7feb0b74e5 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

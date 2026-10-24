@@ -9,14 +9,14 @@
    "repo": "cellar",
    "url": "https://github.com/MRL-00/cellar",
    "sha": "f2f221284b39bb175fa160dae51869ec7d710e41",
-   "licence": "MIT (LICENSE file at pin f2f221284b39, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin f2f221284b39, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T20:04Z",
     "consent_receipt": "b99181f4e09a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:04Z (receipt b99181f4e09a); selected commit f2f221284b39: \"feat: distribute Cellar database workspace as a Codex plugin\". LICENSE file at pin f2f221284b39 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:04Z (receipt b99181f4e09a); selected commit f2f221284b39: \"feat: distribute Cellar database workspace as a Codex plugin\". LICENSE file at pin f2f221284b39 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

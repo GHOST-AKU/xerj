@@ -9,14 +9,14 @@
    "repo": "bookwright",
    "url": "https://github.com/dantro86/bookwright",
    "sha": "af0f540d2af1985fc421492a3e76474178cb15ee",
-   "licence": "MIT (LICENSE file at pin af0f540d2af1, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin af0f540d2af1, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T21:02Z",
     "consent_receipt": "39137371507d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T21:02Z (receipt 39137371507d); selected commit af0f540d2af1: \"Decentralize fixture construction\". LICENSE file at pin af0f540d2af1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T21:02Z (receipt 39137371507d); selected commit af0f540d2af1: \"Decentralize fixture construction\". LICENSE file at pin af0f540d2af1 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

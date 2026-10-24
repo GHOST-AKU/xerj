@@ -9,14 +9,14 @@
    "repo": "Mycelian",
    "url": "https://github.com/mushroomsuprise/Mycelian",
    "sha": "fb8d8e4424cc8bd272ed54b3b933bcea09610bef",
-   "licence": "MIT (LICENSE file at pin fb8d8e4424cc, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin fb8d8e4424cc, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T23:42Z",
     "consent_receipt": "a9521d676f71",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T23:42Z (receipt a9521d676f71); selected commit fb8d8e4424cc: \"added chatbot polls\". LICENSE file at pin fb8d8e4424cc detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T23:42Z (receipt a9521d676f71); selected commit fb8d8e4424cc: \"added chatbot polls\". LICENSE file at pin fb8d8e4424cc detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "TDrive",
    "url": "https://github.com/jeetrex17/TDrive",
    "sha": "0e8ef55620db8f62d9b5e85e7f78cec8bfe72dd0",
-   "licence": "MIT (LICENSE file at pin 0e8ef55620db, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 0e8ef55620db, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T17:42Z",
     "consent_receipt": "d6e1a27e96c3",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T17:42Z (receipt d6e1a27e96c3); selected commit 0e8ef55620db: \"Prepare TDrive for Microsoft Store distribution (#146)\". LICENSE file at pin 0e8ef55620db detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T17:42Z (receipt d6e1a27e96c3); selected commit 0e8ef55620db: \"Prepare TDrive for Microsoft Store distribution (#146)\". LICENSE file at pin 0e8ef55620db detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

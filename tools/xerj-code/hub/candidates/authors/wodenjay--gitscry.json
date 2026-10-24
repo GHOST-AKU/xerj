@@ -9,14 +9,14 @@
    "repo": "GitScry",
    "url": "https://github.com/WodenJay/GitScry",
    "sha": "15471f880d4ff1f5a357fe689033fbdac472a9d6",
-   "licence": "MIT (LICENSE file at pin 15471f880d4f, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 15471f880d4f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T11:58Z",
     "consent_receipt": "a33d9c2a8cd7",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T11:58Z (receipt a33d9c2a8cd7); selected commit 15471f880d4f: \"refactor(analysis): localize failure lead data\". LICENSE file at pin 15471f880d4f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T11:58Z (receipt a33d9c2a8cd7); selected commit 15471f880d4f: \"refactor(analysis): localize failure lead data\". LICENSE file at pin 15471f880d4f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

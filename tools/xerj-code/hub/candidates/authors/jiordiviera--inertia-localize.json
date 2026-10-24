@@ -9,14 +9,14 @@
    "repo": "inertia-localize",
    "url": "https://github.com/jiordiviera/inertia-localize",
    "sha": "aad0d318e13fce384f22bd574933a83c7d294405",
-   "licence": "MIT (LICENSE file at pin aad0d318e13f, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin aad0d318e13f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T08:08Z",
     "consent_receipt": "dc41f82c7d82",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:08Z (receipt dc41f82c7d82); selected commit aad0d318e13f: \"feat(core,react,vue): add pluralization via translateChoice() (#36)\". LICENSE file at pin aad0d318e13f detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:08Z (receipt dc41f82c7d82); selected commit aad0d318e13f: \"feat(core,react,vue): add pluralization via translateChoice() (#36)\". LICENSE file at pin aad0d318e13f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

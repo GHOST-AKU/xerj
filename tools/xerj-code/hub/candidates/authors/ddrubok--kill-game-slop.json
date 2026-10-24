@@ -9,14 +9,14 @@
    "repo": "kill-game-slop",
    "url": "https://github.com/Ddrubok/kill-game-slop",
    "sha": "7baafa084f09686d02a01d2669f4557fee1db05d",
-   "licence": "MIT (LICENSE file at pin 7baafa084f09, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 7baafa084f09, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T02:38Z",
     "consent_receipt": "def1025f33b2",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T02:38Z (receipt def1025f33b2); selected commit 7baafa084f09: \"Strengthen game review decisions and add evaluation evidence\". LICENSE file at pin 7baafa084f09 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T02:38Z (receipt def1025f33b2); selected commit 7baafa084f09: \"Strengthen game review decisions and add evaluation evidence\". LICENSE file at pin 7baafa084f09 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

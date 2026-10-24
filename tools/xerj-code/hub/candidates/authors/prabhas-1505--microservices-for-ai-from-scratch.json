@@ -9,14 +9,14 @@
    "repo": "microservices-for-ai-from-scratch",
    "url": "https://github.com/Prabhas-1505/microservices-for-ai-from-scratch",
    "sha": "aa1824b4f31ab2f37beb00e04497b0ea998f737c",
-   "licence": "MIT (LICENSE file at pin aa1824b4f31a, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin aa1824b4f31a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T07:39Z",
     "consent_receipt": "9db00e986046",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T07:39Z (receipt 9db00e986046); selected commit aa1824b4f31a: \"Deepen lessons 00-08 with verified demos, fix two real bugs found alo\u2026\". LICENSE file at pin aa1824b4f31a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T07:39Z (receipt 9db00e986046); selected commit aa1824b4f31a: \"Deepen lessons 00-08 with verified demos, fix two real bugs found alo\u2026\". LICENSE file at pin aa1824b4f31a detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

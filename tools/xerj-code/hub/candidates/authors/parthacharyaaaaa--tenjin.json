@@ -1,0 +1,23 @@
+{
+ "corpus": "parthacharyaaaaa--tenjin",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on microservices, postgresql, python queries this for how parthacharyaaaaa/Tenjin implements it: Event-driven REST architecture with OAuth2.0-inspired JWT server, custom Redis caching implementation, and more built in FastAPI (selected work: auth_server)",
+ "repos": [
+  {
+   "repo": "Tenjin",
+   "url": "https://github.com/parthacharyaaaaa/Tenjin",
+   "sha": "1c8e0e261c2788ae28d325197170fa9469d0e407",
+   "licence": "MIT (LICENSE file at pin 1c8e0e261c27, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T05:30Z",
+    "consent_receipt": "6f1d84550623",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T05:30Z (receipt 6f1d84550623); selected commit 1c8e0e261c27: \"Updates keydata DTO\". LICENSE file at pin 1c8e0e261c27 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,14 +9,14 @@
    "repo": "go-githubauth",
    "url": "https://github.com/jferrl/go-githubauth",
    "sha": "bf40e4ff2b0cea99e9287913c217b7ba4704d587",
-   "licence": "MIT (LICENSE file at pin bf40e4ff2b0c, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin bf40e4ff2b0c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T15:56Z",
     "consent_receipt": "f3d5e9bd4906",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T15:56Z (receipt f3d5e9bd4906); selected commit bf40e4ff2b0c: \"feat: distinguish failures by exit code and add --exec to the CLI\". LICENSE file at pin bf40e4ff2b0c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T15:56Z (receipt f3d5e9bd4906); selected commit bf40e4ff2b0c: \"feat: distinguish failures by exit code and add --exec to the CLI\". LICENSE file at pin bf40e4ff2b0c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

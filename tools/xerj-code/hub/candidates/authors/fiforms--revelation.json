@@ -9,14 +9,14 @@
    "repo": "revelation",
    "url": "https://github.com/fiforms/revelation",
    "sha": "05285d7a2c39fa24b3677bc8c5e5db33753fa861",
-   "licence": "MIT (LICENSE file at pin 05285d7a2c39, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 05285d7a2c39, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T14:36Z",
     "consent_receipt": "d78ccf938e05",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T14:36Z (receipt d78ccf938e05); selected commit 05285d7a2c39: \"Bundle theme fonts locally so themes work fully offline\". LICENSE file at pin 05285d7a2c39 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T14:36Z (receipt d78ccf938e05); selected commit 05285d7a2c39: \"Bundle theme fonts locally so themes work fully offline\". LICENSE file at pin 05285d7a2c39 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

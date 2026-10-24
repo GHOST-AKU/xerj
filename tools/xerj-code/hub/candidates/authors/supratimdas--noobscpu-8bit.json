@@ -9,14 +9,14 @@
    "repo": "NoobsCpu-8bit",
    "url": "https://github.com/supratimdas/NoobsCpu-8bit",
    "sha": "20e9bd5b794d32ef830e7e881dded119151b315b",
-   "licence": "Apache-2.0 (LICENSE file at pin 20e9bd5b794d, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 20e9bd5b794d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T08:02Z",
     "consent_receipt": "7a31e61fa194",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T08:02Z (receipt 7a31e61fa194); selected commit 20e9bd5b794d: \"Added a subset C compiler written in python with the help of claude.\". LICENSE file at pin 20e9bd5b794d detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T08:02Z (receipt 7a31e61fa194); selected commit 20e9bd5b794d: \"Added a subset C compiler written in python with the help of claude.\". LICENSE file at pin 20e9bd5b794d detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

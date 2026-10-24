@@ -9,14 +9,14 @@
    "repo": "shipproof",
    "url": "https://github.com/kingggg5/shipproof",
    "sha": "c9ff33ddcb7ae46b3c313e6c20f47c2f7358ed0c",
-   "licence": "MIT (LICENSE file at pin c9ff33ddcb7a, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin c9ff33ddcb7a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T06:27Z",
     "consent_receipt": "c2ecb2eb20c6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:27Z (receipt c2ecb2eb20c6); selected commit c9ff33ddcb7a: \"feat: prepare 0.12.0 with polyglot precision and PHP2Shell advisories\". LICENSE file at pin c9ff33ddcb7a detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:27Z (receipt c2ecb2eb20c6); selected commit c9ff33ddcb7a: \"feat: prepare 0.12.0 with polyglot precision and PHP2Shell advisories\". LICENSE file at pin c9ff33ddcb7a detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "carnage725--fyro",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Carnage725/fyro implements it: Carnage725/fyro (Python) (selected work: tests, src/fyro)",
+ "repos": [
+  {
+   "repo": "fyro",
+   "url": "https://github.com/Carnage725/fyro",
+   "sha": "378c1ccfa995cfa0a74b6f7e67e43453cb30866e",
+   "licence": "MIT (LICENSE file at pin 378c1ccfa995, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T03:49Z",
+    "consent_receipt": "23917c1677b4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T03:49Z (receipt 23917c1677b4); selected commit 378c1ccfa995: \"fix: answer 422, never 500, for input the database cannot store\". LICENSE file at pin 378c1ccfa995 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

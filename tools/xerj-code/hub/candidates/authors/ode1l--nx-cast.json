@@ -9,14 +9,14 @@
    "repo": "NX-Cast",
    "url": "https://github.com/Ode1l/NX-Cast",
    "sha": "d74d21779630e32cf8caaa0922d45e8b7765fb96",
-   "licence": "GPL-3.0 (LICENSE file at pin d74d21779630, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin d74d21779630, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-10T09:40Z",
     "consent_receipt": "f4e8a1b13f1b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T09:40Z (receipt f4e8a1b13f1b); selected commit d74d21779630: \"build: unify cross-platform developer tasks and release publishing\". LICENSE file at pin d74d21779630 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T09:40Z (receipt f4e8a1b13f1b); selected commit d74d21779630: \"build: unify cross-platform developer tasks and release publishing\". LICENSE file at pin d74d21779630 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

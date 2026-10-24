@@ -9,14 +9,14 @@
    "repo": "enso",
    "url": "https://github.com/clockworksoul/enso",
    "sha": "6ce82f0e8376e5d7f8e47fa2828a6932356d7fad",
-   "licence": "Apache-2.0 (LICENSE file at pin 6ce82f0e8376, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 6ce82f0e8376, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T21:17Z",
     "consent_receipt": "33af2f0329ad",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T21:17Z (receipt 33af2f0329ad); selected commit 6ce82f0e8376: \"host/openclaw: derive the RECALL-DEF \"used\" signal from llm_output (W\u2026\". LICENSE file at pin 6ce82f0e8376 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T21:17Z (receipt 33af2f0329ad); selected commit 6ce82f0e8376: \"host/openclaw: derive the RECALL-DEF \"used\" signal from llm_output (W\u2026\". LICENSE file at pin 6ce82f0e8376 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

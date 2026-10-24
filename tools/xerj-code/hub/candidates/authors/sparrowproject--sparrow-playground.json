@@ -9,14 +9,14 @@
    "repo": "sparrow-playground",
    "url": "https://github.com/sparrowproject/sparrow-playground",
    "sha": "6fa8ca4b8913e1d4e4cda384a37fae7084526570",
-   "licence": "MIT (LICENSE file at pin 6fa8ca4b8913, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 6fa8ca4b8913, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T15:11Z",
     "consent_receipt": "b263a7713ade",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T15:11Z (receipt b263a7713ade); selected commit 6fa8ca4b8913: \"simplify and improve tab system animations\". LICENSE file at pin 6fa8ca4b8913 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T15:11Z (receipt b263a7713ade); selected commit 6fa8ca4b8913: \"simplify and improve tab system animations\". LICENSE file at pin 6fa8ca4b8913 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

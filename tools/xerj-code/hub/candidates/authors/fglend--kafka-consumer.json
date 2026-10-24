@@ -9,14 +9,14 @@
    "repo": "kafka-consumer",
    "url": "https://github.com/fglend/kafka-consumer",
    "sha": "92861e0bc617a97bd878f34e386a0e9585e21bba",
-   "licence": "MIT (LICENSE file at pin 92861e0bc617, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 92861e0bc617, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T02:16Z",
     "consent_receipt": "1220d206b628",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T02:16Z (receipt 1220d206b628); selected commit 92861e0bc617: \"feat: Support dot notation for nested payload mapping\". LICENSE file at pin 92861e0bc617 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T02:16Z (receipt 1220d206b628); selected commit 92861e0bc617: \"feat: Support dot notation for nested payload mapping\". LICENSE file at pin 92861e0bc617 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "FanControl.LianLiWireless",
    "url": "https://github.com/MarcusSanchez/FanControl.LianLiWireless",
    "sha": "ed55d840f6a17ce7d3d854e409f1b8a300a16cd4",
-   "licence": "MIT (LICENSE file at pin ed55d840f6a1, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ed55d840f6a1, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T22:39Z",
     "consent_receipt": "3c14cf38f706",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T22:39Z (receipt 3c14cf38f706); selected commit ed55d840f6a1: \"Remember every group seen and name the master of a foreign one\". LICENSE file at pin ed55d840f6a1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T22:39Z (receipt 3c14cf38f706); selected commit ed55d840f6a1: \"Remember every group seen and name the master of a foreign one\". LICENSE file at pin ed55d840f6a1 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "helloyhcby163--filesynctool",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cross-platform, customtkinter, file-sync queries this for how helloyhcby163/FileSyncTool implements it: Cross-platform file sync tool with U disk write-life protection. Supports Windows, macOS, and Linux (selected work: gui, backend, the project root)",
+ "repos": [
+  {
+   "repo": "FileSyncTool",
+   "url": "https://github.com/helloyhcby163/FileSyncTool",
+   "sha": "b14635945de208fe05ad4b0fe2bc718d7dd3b7b5",
+   "licence": "MIT (LICENSE file at pin b14635945de2, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T04:43Z",
+    "consent_receipt": "db1295d8be4a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T04:43Z (receipt db1295d8be4a); selected commit b14635945de2: \"v7.6 \u5de5\u5177\u5305\u9875\u9762\u3001\u5916\u6302\u8bed\u8a00\u76ee\u5f55\u3001\u81ea\u52a8\u5316\u3001\u5e2e\u52a9\u6587\u6863\u3001\u56fe\u6807\". LICENSE file at pin b14635945de2 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

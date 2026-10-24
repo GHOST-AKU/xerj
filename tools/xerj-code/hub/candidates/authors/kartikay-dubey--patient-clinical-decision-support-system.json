@@ -9,14 +9,14 @@
    "repo": "patient-clinical-decision-support-system",
    "url": "https://github.com/Kartikay-Dubey/patient-clinical-decision-support-system",
    "sha": "422c908615287e7f22df9015f4efc7ab8aadff50",
-   "licence": "MIT (LICENSE file at pin 422c90861528, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 422c90861528, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T03:29Z",
     "consent_receipt": "12a4f1f5856e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T03:29Z (receipt 12a4f1f5856e); selected commit 422c90861528: \"feat(ux): add 3-persona clinical flows and AI symptom normalizer\". LICENSE file at pin 422c90861528 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T03:29Z (receipt 12a4f1f5856e); selected commit 422c90861528: \"feat(ux): add 3-persona clinical flows and AI symptom normalizer\". LICENSE file at pin 422c90861528 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "Druta",
    "url": "https://github.com/Thermetery-Technology-Co-Limited/Druta",
    "sha": "df57a9a5ede9cb32c28435b5ba1c59f0e28ded05",
-   "licence": "GPL-3.0 (LICENSE file at pin df57a9a5ede9, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin df57a9a5ede9, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-13T09:01Z",
     "consent_receipt": "78a3a27d4542",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T09:01Z (receipt 78a3a27d4542); selected commit df57a9a5ede9: \"Fix and validate Kingpin iCX controls for Druta 1.8.0\". LICENSE file at pin df57a9a5ede9 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T09:01Z (receipt 78a3a27d4542); selected commit df57a9a5ede9: \"Fix and validate Kingpin iCX controls for Druta 1.8.0\". LICENSE file at pin df57a9a5ede9 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

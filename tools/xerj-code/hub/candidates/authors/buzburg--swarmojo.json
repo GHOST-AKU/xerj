@@ -9,14 +9,14 @@
    "repo": "Swarmojo",
    "url": "https://github.com/Buzburg/Swarmojo",
    "sha": "9b1b05362148c1e36d8e0bc34911e698d63dcbb9",
-   "licence": "Apache-2.0 (LICENSE file at pin 9b1b05362148, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 9b1b05362148, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T18:44Z",
     "consent_receipt": "2f780997e8b9",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T18:44Z (receipt 2f780997e8b9); selected commit 9b1b05362148: \"feat: ship project desktop with portable teams and searchable memory\". LICENSE file at pin 9b1b05362148 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T18:44Z (receipt 2f780997e8b9); selected commit 9b1b05362148: \"feat: ship project desktop with portable teams and searchable memory\". LICENSE file at pin 9b1b05362148 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "bank-statement-converter",
    "url": "https://github.com/Batatatab/bank-statement-converter",
    "sha": "91affb511e8e23eed0af5fb026be7514743628e7",
-   "licence": "MIT (LICENSE file at pin 91affb511e8e, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 91affb511e8e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T18:52Z",
     "consent_receipt": "668d9a2cdfa5",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T18:52Z (receipt 668d9a2cdfa5); selected commit 91affb511e8e: \"Add files via upload\". LICENSE file at pin 91affb511e8e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head 91affb511e8e (contains the selected commit): the LICENSE at the selected commit was NONE."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T18:52Z (receipt 668d9a2cdfa5); selected commit 91affb511e8e: \"Add files via upload\". LICENSE file at pin 91affb511e8e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head 91affb511e8e (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

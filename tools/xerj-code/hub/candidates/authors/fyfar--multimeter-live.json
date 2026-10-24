@@ -9,14 +9,14 @@
    "repo": "multimeter-live",
    "url": "https://github.com/Fyfar/multimeter-live",
    "sha": "0869a0e345105bf6ddcb001aa6358de289f2342c",
-   "licence": "MIT (LICENSE file at pin 0869a0e34510, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 0869a0e34510, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T09:54Z",
     "consent_receipt": "1bb64661845e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:54Z (receipt 1bb64661845e); selected commit 0869a0e34510: \"Refactor/extract capture engine (#10)\". LICENSE file at pin 0869a0e34510 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:54Z (receipt 1bb64661845e); selected commit 0869a0e34510: \"Refactor/extract capture engine (#10)\". LICENSE file at pin 0869a0e34510 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

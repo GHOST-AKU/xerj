@@ -9,14 +9,14 @@
    "repo": "mocaco",
    "url": "https://github.com/emalvarol/mocaco",
    "sha": "cc68ba9161b835a57b5039260a94cedf9fd24aa3",
-   "licence": "LGPL-3.0 (LICENSE file at pin cc68ba9161b8, GitHub licence API 2026-10-21)",
+   "licence": "LGPL-3.0 (LICENSE file at pin cc68ba9161b8, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "LGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-15T11:22Z",
     "consent_receipt": "56885ced61f0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T11:22Z (receipt 56885ced61f0); selected commit cc68ba9161b8: \"added group_cols and grouped results\". LICENSE file at pin cc68ba9161b8 detected as LGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T11:22Z (receipt 56885ced61f0); selected commit cc68ba9161b8: \"added group_cols and grouped results\". LICENSE file at pin cc68ba9161b8 detected as LGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

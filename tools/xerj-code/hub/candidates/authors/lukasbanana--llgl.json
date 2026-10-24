@@ -9,14 +9,14 @@
    "repo": "LLGL",
    "url": "https://github.com/LukasBanana/LLGL",
    "sha": "aa6fb0a85e36e33431f85a6db3f0cbe96c0d9e58",
-   "licence": "BSD-3-Clause (LICENSE file at pin aa6fb0a85e36, GitHub licence API 2026-10-21)",
+   "licence": "BSD-3-Clause (LICENSE file at pin aa6fb0a85e36, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "BSD-3-Clause",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T02:15Z",
     "consent_receipt": "9eec403aa102",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T02:15Z (receipt 9eec403aa102); selected commit aa6fb0a85e36: \"[Examples] Fixed transparent preview brick and added submit form popu\u2026\". LICENSE file at pin aa6fb0a85e36 detected as BSD-3-Clause by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T02:15Z (receipt 9eec403aa102); selected commit aa6fb0a85e36: \"[Examples] Fixed transparent preview brick and added submit form popu\u2026\". LICENSE file at pin aa6fb0a85e36 detected as BSD-3-Clause by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

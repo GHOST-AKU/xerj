@@ -9,14 +9,14 @@
    "repo": "docling-pipelines",
    "url": "https://github.com/docling-project/docling-pipelines",
    "sha": "50fce561c823622482a49dfec79dbc8451388141",
-   "licence": "MIT (LICENSE file at pin 50fce561c823, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 50fce561c823, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T06:13Z",
     "consent_receipt": "5ebb6ea2ee00",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T06:13Z (receipt 5ebb6ea2ee00); selected commit 50fce561c823: \"feat: add Docker Compose deployment for Docling Pipelines with Kafka \u2026\". LICENSE file at pin 50fce561c823 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T06:13Z (receipt 5ebb6ea2ee00); selected commit 50fce561c823: \"feat: add Docker Compose deployment for Docling Pipelines with Kafka \u2026\". LICENSE file at pin 50fce561c823 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

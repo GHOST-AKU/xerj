@@ -9,14 +9,14 @@
    "repo": "pdfx",
    "url": "https://github.com/siddharthvkutty/pdfx",
    "sha": "b8aee82d1842f437810286059ac50ca0fab652fd",
-   "licence": "MIT (LICENSE file at pin b8aee82d1842, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin b8aee82d1842, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T07:44Z",
     "consent_receipt": "ddbb9e3dcf19",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:44Z (receipt ddbb9e3dcf19); selected commit b8aee82d1842: \"Added image to PDF functionality\". LICENSE file at pin b8aee82d1842 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:44Z (receipt ddbb9e3dcf19); selected commit b8aee82d1842: \"Added image to PDF functionality\". LICENSE file at pin b8aee82d1842 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

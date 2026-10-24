@@ -9,14 +9,14 @@
    "repo": "android-emu-agent",
    "url": "https://github.com/alehkot/android-emu-agent",
    "sha": "ae5e77155b8e90a786329e4ec9a7916f755b949a",
-   "licence": "MIT (LICENSE file at pin ae5e77155b8e, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ae5e77155b8e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T00:31Z",
     "consent_receipt": "59ac84eef316",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T00:31Z (receipt 59ac84eef316); selected commit ae5e77155b8e: \"fix: preserve trace archives on failed export\". LICENSE file at pin ae5e77155b8e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T00:31Z (receipt 59ac84eef316); selected commit ae5e77155b8e: \"fix: preserve trace archives on failed export\". LICENSE file at pin ae5e77155b8e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

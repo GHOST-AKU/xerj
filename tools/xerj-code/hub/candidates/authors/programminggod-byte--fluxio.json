@@ -9,14 +9,14 @@
    "repo": "FluxIO",
    "url": "https://github.com/programmingGod-byte/FluxIO",
    "sha": "0537e41ab82e12a2ce2d5d567c71bc657558d3f0",
-   "licence": "MIT (LICENSE file at pin 0537e41ab82e, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 0537e41ab82e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T03:23Z",
     "consent_receipt": "1e0f99249bc0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T03:23Z (receipt 1e0f99249bc0); selected commit 0537e41ab82e: \"Address code hygiene, benchmarking methodology, and docs update\". LICENSE file at pin 0537e41ab82e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T03:23Z (receipt 1e0f99249bc0); selected commit 0537e41ab82e: \"Address code hygiene, benchmarking methodology, and docs update\". LICENSE file at pin 0537e41ab82e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "thinkrail",
    "url": "https://github.com/JetBrains/thinkrail",
    "sha": "3f7e0d495e6a969264b521c882f2c2ef01d73157",
-   "licence": "Apache-2.0 (LICENSE file at pin 3f7e0d495e6a, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 3f7e0d495e6a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-09T15:14Z",
     "consent_receipt": "6625ffc34b7d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T15:14Z (receipt 6625ffc34b7d); selected commit 3f7e0d495e6a: \"Analytics logging for todo list feature (#539)\". LICENSE file at pin 3f7e0d495e6a detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T15:14Z (receipt 6625ffc34b7d); selected commit 3f7e0d495e6a: \"Analytics logging for todo list feature (#539)\". LICENSE file at pin 3f7e0d495e6a detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

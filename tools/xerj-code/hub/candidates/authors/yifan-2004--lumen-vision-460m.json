@@ -9,14 +9,14 @@
    "repo": "Lumen-Vision-460M",
    "url": "https://github.com/yifan-2004/Lumen-Vision-460M",
    "sha": "40b4c3810f61345886b394fad361feb96df3b087",
-   "licence": "Apache-2.0 (LICENSE file at pin 40b4c3810f61, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 40b4c3810f61, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T07:34Z",
     "consent_receipt": "63f2362b5ce7",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T07:34Z (receipt 63f2362b5ce7); selected commit 40b4c3810f61: \"Add offline folder inference reports and fix processor and embedding \u2026\". LICENSE file at pin 40b4c3810f61 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T07:34Z (receipt 63f2362b5ce7); selected commit 40b4c3810f61: \"Add offline folder inference reports and fix processor and embedding \u2026\". LICENSE file at pin 40b4c3810f61 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

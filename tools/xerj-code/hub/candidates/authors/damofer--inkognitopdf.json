@@ -9,14 +9,14 @@
    "repo": "inkognitopdf",
    "url": "https://github.com/damofer/inkognitopdf",
    "sha": "d7e23d44e9eb6f010dc7e8470442048c7d8dfe2a",
-   "licence": "Apache-2.0 (LICENSE file at pin d7e23d44e9eb, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin d7e23d44e9eb, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T00:53Z",
     "consent_receipt": "9ed2c258fc0d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T00:53Z (receipt 9ed2c258fc0d); selected commit d7e23d44e9eb: \"Build the PDF in a Web Worker so the page stays responsive while saving\". LICENSE file at pin d7e23d44e9eb detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T00:53Z (receipt 9ed2c258fc0d); selected commit d7e23d44e9eb: \"Build the PDF in a Web Worker so the page stays responsive while saving\". LICENSE file at pin d7e23d44e9eb detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

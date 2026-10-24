@@ -9,14 +9,14 @@
    "repo": "KeepmarkApp",
    "url": "https://github.com/Keepmark/KeepmarkApp",
    "sha": "46145877f2c01ec899447f0342e3dfd2c7ee8f40",
-   "licence": "GPL-3.0 (LICENSE file at pin 46145877f2c0, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 46145877f2c0, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-18T06:44Z",
     "consent_receipt": "b6c08e95f40c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T06:44Z (receipt b6c08e95f40c); selected commit 46145877f2c0: \"feat: redesign the QR connect card, service picker and status actions\". LICENSE file at pin 46145877f2c0 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T06:44Z (receipt b6c08e95f40c); selected commit 46145877f2c0: \"feat: redesign the QR connect card, service picker and status actions\". LICENSE file at pin 46145877f2c0 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

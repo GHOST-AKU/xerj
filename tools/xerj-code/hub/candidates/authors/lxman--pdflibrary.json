@@ -9,14 +9,14 @@
    "repo": "PdfLibrary",
    "url": "https://github.com/lxman/PdfLibrary",
    "sha": "14729293b3481fdbc0fd51d2fbc4d59495941db1",
-   "licence": "MIT (LICENSE file at pin 14729293b348, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 14729293b348, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T23:25Z",
     "consent_receipt": "666d07377618",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T23:25Z (receipt 666d07377618); selected commit 14729293b348: \"fix(ec3): implement ISO 32000-2 Errata Collection 3 (EC-3) fixes and \u2026\". LICENSE file at pin 14729293b348 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T23:25Z (receipt 666d07377618); selected commit 14729293b348: \"fix(ec3): implement ISO 32000-2 Errata Collection 3 (EC-3) fixes and \u2026\". LICENSE file at pin 14729293b348 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "Kabuk",
    "url": "https://github.com/egemenagustos/Kabuk",
    "sha": "2aef169fce68f3969b88bb545d0d4bccfdb54242",
-   "licence": "MIT (LICENSE file at pin 2aef169fce68, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 2aef169fce68, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T06:16Z",
     "consent_receipt": "a8f708643ab8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:16Z (receipt a8f708643ab8); selected commit 2aef169fce68: \"List each agent's skills and type one at its prompt\". LICENSE file at pin 2aef169fce68 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:16Z (receipt a8f708643ab8); selected commit 2aef169fce68: \"List each agent's skills and type one at its prompt\". LICENSE file at pin 2aef169fce68 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

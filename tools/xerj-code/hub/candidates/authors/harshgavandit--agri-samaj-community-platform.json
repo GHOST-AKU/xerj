@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "DB",
- "domain": "an agent working on accessibility, business-directory, community-platform queries this for how harshgavandit/agri-samaj-community-platform implements it: An open-source Marathi-English platform for the Agri Samaj community to discover local businesses, support entrepreneurs, share publications (selected work: src/components, tests, src/lib)",
+ "domain": "an agent working on accessibility, business-directory, community-platform queries this for how harshgavandit/agri-samaj-community-platform implements it: Community-led Marathi-English business directory and registration platform with private review workflows, PostgreSQL, and bilingual AI assis (selected work: src/components, tests, src/lib)",
  "repos": [
   {
    "repo": "agri-samaj-community-platform",

@@ -9,14 +9,14 @@
    "repo": "anon",
    "url": "https://github.com/egnake/anon",
    "sha": "9f4ac627c298e2b6c9dcfb5d656f8780865dc83b",
-   "licence": "MIT (LICENSE file at pin 9f4ac627c298, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 9f4ac627c298, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T00:42Z",
     "consent_receipt": "91a6eff8a403",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T00:42Z (receipt 91a6eff8a403); selected commit 9f4ac627c298: \"refactor: add strict error handling to all scripts\". LICENSE file at pin 9f4ac627c298 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T00:42Z (receipt 91a6eff8a403); selected commit 9f4ac627c298: \"refactor: add strict error handling to all scripts\". LICENSE file at pin 9f4ac627c298 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

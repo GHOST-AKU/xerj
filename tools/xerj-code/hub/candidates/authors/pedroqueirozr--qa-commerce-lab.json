@@ -9,14 +9,14 @@
    "repo": "qa-commerce-lab",
    "url": "https://github.com/pedroqueirozr/qa-commerce-lab",
    "sha": "3666f42572e650830b1e6e7d0b0609dc581e1644",
-   "licence": "MIT (LICENSE file at pin 3666f42572e6, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 3666f42572e6, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T10:23Z",
     "consent_receipt": "6a8b408e7cae",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T10:23Z (receipt 6a8b408e7cae); selected commit 3666f42572e6: \"refactor: separate product routes and controllers\". LICENSE file at pin 3666f42572e6 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T10:23Z (receipt 6a8b408e7cae); selected commit 3666f42572e6: \"refactor: separate product routes and controllers\". LICENSE file at pin 3666f42572e6 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

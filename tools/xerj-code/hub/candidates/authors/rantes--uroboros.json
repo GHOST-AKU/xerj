@@ -9,14 +9,14 @@
    "repo": "uroboros",
    "url": "https://github.com/rantes/uroboros",
    "sha": "14a16c5fb870c529dc173c9282416bdf9ec85e16",
-   "licence": "GPL-3.0 (LICENSE file at pin 14a16c5fb870, GitHub licence API 2026-10-22)",
+   "licence": "GPL-3.0 (LICENSE file at pin 14a16c5fb870, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-21T19:58Z",
     "consent_receipt": "479dec35721e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-21T19:58Z (receipt 479dec35721e); selected commit 14a16c5fb870: \"Correcciones para la gesti\u00f3n de PUT\". LICENSE file at pin 14a16c5fb870 detected as GPL-3.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T19:58Z (receipt 479dec35721e); selected commit 14a16c5fb870: \"Correcciones para la gesti\u00f3n de PUT\". LICENSE file at pin 14a16c5fb870 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

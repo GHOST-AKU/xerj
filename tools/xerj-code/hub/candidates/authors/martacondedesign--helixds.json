@@ -9,14 +9,14 @@
    "repo": "helixds",
    "url": "https://github.com/MartaCondeDesign/helixds",
    "sha": "aa3432a5546eb300e6a1669a86322e407ed21120",
-   "licence": "MIT (LICENSE file at pin aa3432a5546e, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin aa3432a5546e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T10:37Z",
     "consent_receipt": "c852e785692b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T10:37Z (receipt c852e785692b); selected commit aa3432a5546e: \"@helixds/mcp runs from npm (npx @helixds/mcp) (#16)\". LICENSE file at pin aa3432a5546e detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T10:37Z (receipt c852e785692b); selected commit aa3432a5546e: \"@helixds/mcp runs from npm (npx @helixds/mcp) (#16)\". LICENSE file at pin aa3432a5546e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

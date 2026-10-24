@@ -9,14 +9,14 @@
    "repo": "flowd",
    "url": "https://github.com/harshitsaini17/flowd",
    "sha": "e2f0be70e3f1f19f299a8869edbdae59ce290a4b",
-   "licence": "MIT (LICENSE file at pin e2f0be70e3f1, GitHub licence API 2026-10-23)",
+   "licence": "MIT (LICENSE file at pin e2f0be70e3f1, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T16:34Z",
     "consent_receipt": "671e7ffaa682",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T16:34Z (receipt 671e7ffaa682); selected commit e2f0be70e3f1: \"feat(stt): opt-in Nemotron streaming preview\". LICENSE file at pin e2f0be70e3f1 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T16:34Z (receipt 671e7ffaa682); selected commit e2f0be70e3f1: \"feat(stt): opt-in Nemotron streaming preview\". LICENSE file at pin e2f0be70e3f1 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

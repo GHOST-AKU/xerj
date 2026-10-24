@@ -9,14 +9,14 @@
    "repo": "a-memory",
    "url": "https://github.com/Cipher208/a-memory",
    "sha": "b18877a7cdf110bb4bddc72b43b34abbee43e842",
-   "licence": "MIT (LICENSE file at pin b18877a7cdf1, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin b18877a7cdf1, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T18:40Z",
     "consent_receipt": "b35c9445dac9",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T18:40Z (receipt b35c9445dac9); selected commit b18877a7cdf1: \"fix(maintenance): one writer per base, and a migration that writes no\u2026\". LICENSE file at pin b18877a7cdf1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T18:40Z (receipt b35c9445dac9); selected commit b18877a7cdf1: \"fix(maintenance): one writer per base, and a migration that writes no\u2026\". LICENSE file at pin b18877a7cdf1 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

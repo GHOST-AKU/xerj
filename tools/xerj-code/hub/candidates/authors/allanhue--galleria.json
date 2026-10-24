@@ -9,14 +9,14 @@
    "repo": "Galleria",
    "url": "https://github.com/allanhue/Galleria",
    "sha": "65a4e231f215a8af02a5f913b68e47dc3a822fb0",
-   "licence": "MIT (LICENSE file at pin 65a4e231f215, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 65a4e231f215, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T18:57Z",
     "consent_receipt": "386755f65c85",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T18:57Z (receipt 386755f65c85); selected commit 65a4e231f215: \"fix season features , ticketing subcribe , addons payments\". LICENSE file at pin 65a4e231f215 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T18:57Z (receipt 386755f65c85); selected commit 65a4e231f215: \"fix season features , ticketing subcribe , addons payments\". LICENSE file at pin 65a4e231f215 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

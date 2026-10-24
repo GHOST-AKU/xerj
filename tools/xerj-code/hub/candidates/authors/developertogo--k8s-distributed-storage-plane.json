@@ -9,14 +9,14 @@
    "repo": "k8s-distributed-storage-plane",
    "url": "https://github.com/developertogo/k8s-distributed-storage-plane",
    "sha": "3cb0645221701d9b0eedb9b571d048ee12d49831",
-   "licence": "Apache-2.0 (LICENSE file at pin 3cb064522170, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 3cb064522170, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T19:08Z",
     "consent_receipt": "19a1886ddd1c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T19:08Z (receipt 19a1886ddd1c); selected commit 3cb064522170: \"fix(ui): improve accessibility, dark badges, tooltips, and drawer nav\u2026\". LICENSE file at pin 3cb064522170 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T19:08Z (receipt 19a1886ddd1c); selected commit 3cb064522170: \"fix(ui): improve accessibility, dark badges, tooltips, and drawer nav\u2026\". LICENSE file at pin 3cb064522170 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

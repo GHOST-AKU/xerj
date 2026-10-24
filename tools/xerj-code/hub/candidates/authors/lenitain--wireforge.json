@@ -9,14 +9,14 @@
    "repo": "wireforge",
    "url": "https://github.com/lenitain/wireforge",
    "sha": "c616de73b1f2a2ed45b79479bd7fea1e2451cbf9",
-   "licence": "MIT (LICENSE file at pin c616de73b1f2, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin c616de73b1f2, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T11:32Z",
     "consent_receipt": "6d6e614a4a19",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T11:32Z (receipt 6d6e614a4a19); selected commit c616de73b1f2: \"Reuse incident-edge tables and grid cells in check pipeline\". LICENSE file at pin c616de73b1f2 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T11:32Z (receipt 6d6e614a4a19); selected commit c616de73b1f2: \"Reuse incident-edge tables and grid cells in check pipeline\". LICENSE file at pin c616de73b1f2 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

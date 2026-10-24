@@ -9,14 +9,14 @@
    "repo": "Reviewberry",
    "url": "https://github.com/senu-io/Reviewberry",
    "sha": "36afdb9a8d0c2484198e05f8d6890208408d716b",
-   "licence": "MIT (LICENSE file at pin 36afdb9a8d0c, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 36afdb9a8d0c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T13:02Z",
     "consent_receipt": "de93929e557a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T13:02Z (receipt de93929e557a); selected commit 36afdb9a8d0c: \"feat(studio): add resolution studio for customer apologies and staff \u2026\". LICENSE file at pin 36afdb9a8d0c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T13:02Z (receipt de93929e557a); selected commit 36afdb9a8d0c: \"feat(studio): add resolution studio for customer apologies and staff \u2026\". LICENSE file at pin 36afdb9a8d0c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

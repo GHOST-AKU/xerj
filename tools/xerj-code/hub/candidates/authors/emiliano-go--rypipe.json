@@ -9,14 +9,14 @@
    "repo": "rypipe",
    "url": "https://github.com/emiliano-go/rypipe",
    "sha": "52a8f171f33f321885a692e68e3fb557fde11872",
-   "licence": "MIT (LICENSE file at pin 52a8f171f33f, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 52a8f171f33f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-09T14:42Z",
     "consent_receipt": "09a33682c643",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T14:42Z (receipt 09a33682c643); selected commit 52a8f171f33f: \"core: stage profiler for execution reads\". LICENSE file at pin 52a8f171f33f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T14:42Z (receipt 09a33682c643); selected commit 52a8f171f33f: \"core: stage profiler for execution reads\". LICENSE file at pin 52a8f171f33f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

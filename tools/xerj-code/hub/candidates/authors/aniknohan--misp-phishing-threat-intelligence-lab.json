@@ -9,14 +9,14 @@
    "repo": "misp-phishing-threat-intelligence-lab",
    "url": "https://github.com/aniknohan/misp-phishing-threat-intelligence-lab",
    "sha": "89c9373c262d2e60502d7ab351a69bcd44effd80",
-   "licence": "MIT (LICENSE file at pin 89c9373c262d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 89c9373c262d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T23:52Z",
     "consent_receipt": "29e6c4495f99",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T23:52Z (receipt 29e6c4495f99); selected commit 89c9373c262d: \"Add MISP lookup script, Sigma/Splunk/Suricata detections, IOC file an\u2026\". LICENSE file at pin 89c9373c262d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T23:52Z (receipt 29e6c4495f99); selected commit 89c9373c262d: \"Add MISP lookup script, Sigma/Splunk/Suricata detections, IOC file an\u2026\". LICENSE file at pin 89c9373c262d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

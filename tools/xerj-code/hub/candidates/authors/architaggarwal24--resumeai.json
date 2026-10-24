@@ -1,0 +1,23 @@
+{
+ "corpus": "architaggarwal24--resumeai",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how architaggarwal24/ResumeAI implements it: Full-stack AI career platform leveraging LLMs for ATS analysis, resume enhancement, cover letter generation, and job application optimizatio (selected work: src/app, src/lib, src/components)",
+ "repos": [
+  {
+   "repo": "ResumeAI",
+   "url": "https://github.com/architaggarwal24/ResumeAI",
+   "sha": "c72c5a28f50e174a3a577d706d8b02f8c2f9834f",
+   "licence": "MIT (LICENSE file at pin c72c5a28f50e, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T09:37Z",
+    "consent_receipt": "5e041781fbf6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T09:37Z (receipt 5e041781fbf6); selected commit c72c5a28f50e: \"update\". LICENSE file at pin c72c5a28f50e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

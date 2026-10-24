@@ -9,14 +9,14 @@
    "repo": "screen-x",
    "url": "https://github.com/gtxPrime/screen-x",
    "sha": "9d19cbb23512e2589a019887b5d0052cd1f4927c",
-   "licence": "MIT (LICENSE file at pin 9d19cbb23512, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 9d19cbb23512, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T12:34Z",
     "consent_receipt": "5a515da7d7d6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T12:34Z (receipt 5a515da7d7d6); selected commit 9d19cbb23512: \"feat(updates): add GitHub releases update checker with native ScreenX\u2026\". LICENSE file at pin 9d19cbb23512 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T12:34Z (receipt 5a515da7d7d6); selected commit 9d19cbb23512: \"feat(updates): add GitHub releases update checker with native ScreenX\u2026\". LICENSE file at pin 9d19cbb23512 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

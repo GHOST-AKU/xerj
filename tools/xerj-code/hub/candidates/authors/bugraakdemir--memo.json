@@ -9,14 +9,14 @@
    "repo": "memo",
    "url": "https://github.com/BugraAkdemir/memo",
    "sha": "edf81e2e6b6e81f015a91e9f6d5ae87e2edbaafb",
-   "licence": "AGPL-3.0 (LICENSE file at pin edf81e2e6b6e, GitHub licence API 2026-10-21)",
+   "licence": "AGPL-3.0 (LICENSE file at pin edf81e2e6b6e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-10T21:29Z",
     "consent_receipt": "d61611f70e47",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T21:29Z (receipt d61611f70e47); selected commit edf81e2e6b6e: \"fix(subscriptions): a sign-in can be finished from another machine\". LICENSE file at pin edf81e2e6b6e detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T21:29Z (receipt d61611f70e47); selected commit edf81e2e6b6e: \"fix(subscriptions): a sign-in can be finished from another machine\". LICENSE file at pin edf81e2e6b6e detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "soundhub",
    "url": "https://github.com/chriscreativecode/soundhub",
    "sha": "69f5353a9a84b5f95c7d31461695e296fda1aafc",
-   "licence": "MIT (LICENSE file at pin 69f5353a9a84, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 69f5353a9a84, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T17:09Z",
     "consent_receipt": "70849c2a934e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T17:09Z (receipt 70849c2a934e); selected commit 69f5353a9a84: \"Add a Svelte 5 example with a soundState function built on runes\". LICENSE file at pin 69f5353a9a84 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T17:09Z (receipt 70849c2a934e); selected commit 69f5353a9a84: \"Add a Svelte 5 example with a soundState function built on runes\". LICENSE file at pin 69f5353a9a84 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

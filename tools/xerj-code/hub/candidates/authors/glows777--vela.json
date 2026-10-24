@@ -9,14 +9,14 @@
    "repo": "Vela",
    "url": "https://github.com/glows777/Vela",
    "sha": "2866487f41fcf76617c7bd458ba08de521ae59c3",
-   "licence": "MIT (LICENSE file at pin 2866487f41fc, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 2866487f41fc, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-21T06:30Z",
     "consent_receipt": "98f1197f1550",
-    "note": "Inclusion consented by the commit author by email at 2026-10-21T06:30Z (receipt 98f1197f1550); selected commit 2866487f41fc: \"Add Feishu channel task dispatch and scoped prompts\". LICENSE file at pin 2866487f41fc detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T06:30Z (receipt 98f1197f1550); selected commit 2866487f41fc: \"Add Feishu channel task dispatch and scoped prompts\". LICENSE file at pin 2866487f41fc detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

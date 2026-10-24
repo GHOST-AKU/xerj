@@ -9,14 +9,14 @@
    "repo": "shoga-speaks",
    "url": "https://github.com/Mir-Zairan/shoga-speaks",
    "sha": "b8cd16d60b07ae4a6dfe52659f860502327ccfbb",
-   "licence": "MIT (LICENSE file at pin b8cd16d60b07, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin b8cd16d60b07, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T20:06Z",
     "consent_receipt": "3faf7c22ef8d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T20:06Z (receipt 3faf7c22ef8d); selected commit b8cd16d60b07: \"Fixes from an adversarial test pass: term lines, cards, markers, comm\u2026\". LICENSE file at pin b8cd16d60b07 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T20:06Z (receipt 3faf7c22ef8d); selected commit b8cd16d60b07: \"Fixes from an adversarial test pass: term lines, cards, markers, comm\u2026\". LICENSE file at pin b8cd16d60b07 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

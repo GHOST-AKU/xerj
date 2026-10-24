@@ -9,14 +9,14 @@
    "repo": "OpenNotchi",
    "url": "https://github.com/nannndev/OpenNotchi",
    "sha": "dc5da7b322988c4972784037300d7a458669c800",
-   "licence": "MIT (LICENSE file at pin dc5da7b32298, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin dc5da7b32298, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T04:58Z",
     "consent_receipt": "c2d3ba39dbd8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T04:58Z (receipt c2d3ba39dbd8); selected commit dc5da7b32298: \"feat: 3D spatial animations, smarthome control hub, and multi-display\u2026\". LICENSE file at pin dc5da7b32298 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T04:58Z (receipt c2d3ba39dbd8); selected commit dc5da7b32298: \"feat: 3D spatial animations, smarthome control hub, and multi-display\u2026\". LICENSE file at pin dc5da7b32298 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

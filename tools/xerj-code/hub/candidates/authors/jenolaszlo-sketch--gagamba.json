@@ -9,14 +9,14 @@
    "repo": "gagamba",
    "url": "https://github.com/jenolaszlo-sketch/gagamba",
    "sha": "03f5b4da88e4ed590fcc68035fa5a70f309a0f07",
-   "licence": "Apache-2.0 (LICENSE file at pin 03f5b4da88e4, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 03f5b4da88e4, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T23:32Z",
     "consent_receipt": "d60fc744b4e3",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T23:32Z (receipt d60fc744b4e3); selected commit 03f5b4da88e4: \"GP-3 Amendment 2: WaitForCompletionAsync domain completion (0.1.0-pre\u2026\". LICENSE file at pin 03f5b4da88e4 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T23:32Z (receipt d60fc744b4e3); selected commit 03f5b4da88e4: \"GP-3 Amendment 2: WaitForCompletionAsync domain completion (0.1.0-pre\u2026\". LICENSE file at pin 03f5b4da88e4 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

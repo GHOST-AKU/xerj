@@ -9,14 +9,14 @@
    "repo": "EmbodiChain",
    "url": "https://github.com/DexForce/EmbodiChain",
    "sha": "7a9c2675d49c6aee7a33082a5585a9932f5b945b",
-   "licence": "Apache-2.0 (LICENSE file at pin 7a9c2675d49c, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 7a9c2675d49c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T13:57Z",
     "consent_receipt": "1c485d6d413d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T13:57Z (receipt 1c485d6d413d); selected commit 7a9c2675d49c: \"feat(benchmark): add configurable rendering benchmark sweep (#731)\". LICENSE file at pin 7a9c2675d49c detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T13:57Z (receipt 1c485d6d413d); selected commit 7a9c2675d49c: \"feat(benchmark): add configurable rendering benchmark sweep (#731)\". LICENSE file at pin 7a9c2675d49c detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

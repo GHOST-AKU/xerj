@@ -9,14 +9,14 @@
    "repo": "cosmic-lens",
    "url": "https://github.com/garyv/cosmic-lens",
    "sha": "28c5ca7eb24f194d0f93d00460a67f960bf76e73",
-   "licence": "MIT (LICENSE file at pin 28c5ca7eb24f, GitHub licence API 2026-10-23)",
+   "licence": "MIT (LICENSE file at pin 28c5ca7eb24f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T15:18Z",
     "consent_receipt": "cb164781fff8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T15:18Z (receipt cb164781fff8); selected commit 28c5ca7eb24f: \"upgrade tests, fix bugs, reprocess photos\". LICENSE file at pin 28c5ca7eb24f detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T15:18Z (receipt cb164781fff8); selected commit 28c5ca7eb24f: \"upgrade tests, fix bugs, reprocess photos\". LICENSE file at pin 28c5ca7eb24f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

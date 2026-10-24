@@ -9,14 +9,14 @@
    "repo": "socialseed-tasker",
    "url": "https://github.com/daironpf/socialseed-tasker",
    "sha": "b2bcfefd48b4ced483d676a4150984a2c40a4dc4",
-   "licence": "Apache-2.0 (LICENSE file at pin b2bcfefd48b4, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin b2bcfefd48b4, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T15:37Z",
     "consent_receipt": "420b1d91ea42",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T15:37Z (receipt 420b1d91ea42); selected commit b2bcfefd48b4: \"feat(workflows): biblioteca de definiciones en postgres con importaci\u2026\". LICENSE file at pin b2bcfefd48b4 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T15:37Z (receipt 420b1d91ea42); selected commit b2bcfefd48b4: \"feat(workflows): biblioteca de definiciones en postgres con importaci\u2026\". LICENSE file at pin b2bcfefd48b4 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

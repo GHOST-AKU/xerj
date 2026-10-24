@@ -9,14 +9,14 @@
    "repo": "markdown_preview_editor",
    "url": "https://github.com/ovasendin/markdown_preview_editor",
    "sha": "1c7548a764d29a8650e7b2ba8b51ac44102654c4",
-   "licence": "MIT (LICENSE file at pin 1c7548a764d2, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 1c7548a764d2, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T14:47Z",
     "consent_receipt": "2b7b6173b9ec",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T14:47Z (receipt 2b7b6173b9ec); selected commit 1c7548a764d2: \"Accessibility: WCAG 2.2 AA fixes (tabs pattern, resizer ARIA, contras\u2026\". LICENSE file at pin 1c7548a764d2 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T14:47Z (receipt 2b7b6173b9ec); selected commit 1c7548a764d2: \"Accessibility: WCAG 2.2 AA fixes (tabs pattern, resizer ARIA, contras\u2026\". LICENSE file at pin 1c7548a764d2 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

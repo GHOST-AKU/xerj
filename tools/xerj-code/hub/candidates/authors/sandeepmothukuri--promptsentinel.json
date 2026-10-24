@@ -9,14 +9,14 @@
    "repo": "PromptSentinel",
    "url": "https://github.com/sandeepmothukuri/PromptSentinel",
    "sha": "a492d2da65a77c0f6f180530edbdbfb8062320b9",
-   "licence": "MIT (LICENSE file at pin a492d2da65a7, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin a492d2da65a7, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T20:08Z",
     "consent_receipt": "5c15c31e0eba",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:08Z (receipt 5c15c31e0eba); selected commit a492d2da65a7: \"feat(api): add interactive Security Operations Console Web Dashboard \u2026\". LICENSE file at pin a492d2da65a7 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:08Z (receipt 5c15c31e0eba); selected commit a492d2da65a7: \"feat(api): add interactive Security Operations Console Web Dashboard \u2026\". LICENSE file at pin a492d2da65a7 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

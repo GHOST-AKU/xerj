@@ -9,14 +9,14 @@
    "repo": "claude-referee",
    "url": "https://github.com/ismaildasci/claude-referee",
    "sha": "3bdce9f300503abe9115e444bc0805eae5538a67",
-   "licence": "MIT (LICENSE file at pin 3bdce9f30050, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 3bdce9f30050, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-06T08:29Z",
     "consent_receipt": "bbea9f41189d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-06T08:29Z (receipt bbea9f41189d); selected commit 3bdce9f30050: \"feat: mix test, ctest, rubocop parsers\". LICENSE file at pin 3bdce9f30050 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T08:29Z (receipt bbea9f41189d); selected commit 3bdce9f30050: \"feat: mix test, ctest, rubocop parsers\". LICENSE file at pin 3bdce9f30050 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

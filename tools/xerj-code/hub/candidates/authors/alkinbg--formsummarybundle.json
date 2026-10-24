@@ -9,14 +9,14 @@
    "repo": "FormSummaryBundle",
    "url": "https://github.com/alkinbg/FormSummaryBundle",
    "sha": "8e4dd6791000edff32c8695de567518f4f72de35",
-   "licence": "MIT (LICENSE file at pin 8e4dd6791000, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 8e4dd6791000, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T06:03Z",
     "consent_receipt": "c0da419cc96c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:03Z (receipt c0da419cc96c); selected commit 8e4dd6791000: \"Verify production archives and lowest supported dependencies\". LICENSE file at pin 8e4dd6791000 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:03Z (receipt c0da419cc96c); selected commit 8e4dd6791000: \"Verify production archives and lowest supported dependencies\". LICENSE file at pin 8e4dd6791000 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

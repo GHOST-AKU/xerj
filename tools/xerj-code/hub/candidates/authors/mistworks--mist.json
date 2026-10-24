@@ -9,14 +9,14 @@
    "repo": "Mist",
    "url": "https://github.com/MistWorks/Mist",
    "sha": "a085746840738a8ec1662fc0540bc84030755f86",
-   "licence": "MIT (LICENSE file at pin a08574684073, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin a08574684073, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T22:10Z",
     "consent_receipt": "22149c5950f1",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T22:10Z (receipt 22149c5950f1); selected commit a08574684073: \"Mistic became saparated project. Fixed headers umbrella dependency\". LICENSE file at pin a08574684073 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T22:10Z (receipt 22149c5950f1); selected commit a08574684073: \"Mistic became saparated project. Fixed headers umbrella dependency\". LICENSE file at pin a08574684073 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

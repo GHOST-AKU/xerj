@@ -9,14 +9,14 @@
    "repo": "astro-recommender",
    "url": "https://github.com/dkorunic/astro-recommender",
    "sha": "0054f0bd14920243c9c5ecdfb77537d17196d705",
-   "licence": "MIT (LICENSE file at pin 0054f0bd1492, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 0054f0bd1492, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T19:37Z",
     "consent_receipt": "25eb648e1ead",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T19:37Z (receipt 25eb648e1ead); selected commit 0054f0bd1492: \"Seeing: calibrate Dewan's Cn\u00b2 against the ESO DIMM archives\". LICENSE file at pin 0054f0bd1492 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T19:37Z (receipt 25eb648e1ead); selected commit 0054f0bd1492: \"Seeing: calibrate Dewan's Cn\u00b2 against the ESO DIMM archives\". LICENSE file at pin 0054f0bd1492 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

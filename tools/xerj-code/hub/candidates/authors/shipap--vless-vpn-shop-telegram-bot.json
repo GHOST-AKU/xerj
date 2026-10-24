@@ -9,14 +9,14 @@
    "repo": "vless-vpn-shop-telegram-bot",
    "url": "https://github.com/shipap/vless-vpn-shop-telegram-bot",
    "sha": "70200ae7c791b523c2ad651f705b2863209d916e",
-   "licence": "AGPL-3.0 (LICENSE file at pin 70200ae7c791, GitHub licence API 2026-10-21)",
+   "licence": "AGPL-3.0 (LICENSE file at pin 70200ae7c791, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-16T18:25Z",
     "consent_receipt": "d98e43ff21be",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T18:25Z (receipt d98e43ff21be); selected commit 70200ae7c791: \"Fix subscription refresh and delivery review; update payment onboarding\". LICENSE file at pin 70200ae7c791 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T18:25Z (receipt d98e43ff21be); selected commit 70200ae7c791: \"Fix subscription refresh and delivery review; update payment onboarding\". LICENSE file at pin 70200ae7c791 detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

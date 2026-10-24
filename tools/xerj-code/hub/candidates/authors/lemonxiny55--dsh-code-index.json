@@ -9,14 +9,14 @@
    "repo": "dsh-code-index",
    "url": "https://github.com/lemonxiny55/dsh-code-index",
    "sha": "1158f541ff07db052fbd1c221022b8c8816b389d",
-   "licence": "MIT (LICENSE file at pin 1158f541ff07, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 1158f541ff07, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T02:33Z",
     "consent_receipt": "7f6b1cf2c785",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T02:33Z (receipt 7f6b1cf2c785); selected commit 1158f541ff07: \"feat: add pinned ArkTS parsing and reliable code context\". LICENSE file at pin 1158f541ff07 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T02:33Z (receipt 7f6b1cf2c785); selected commit 1158f541ff07: \"feat: add pinned ArkTS parsing and reliable code context\". LICENSE file at pin 1158f541ff07 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

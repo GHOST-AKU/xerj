@@ -9,14 +9,14 @@
    "repo": "effect",
    "url": "https://github.com/phunkie/effect",
    "sha": "eb338925fcb60e170a74fa783931fdc2808ea8ea",
-   "licence": "MIT (LICENSE file at pin eb338925fcb6, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin eb338925fcb6, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T17:48Z",
     "consent_receipt": "0c85b6c4d820",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T17:48Z (receipt 0c85b6c4d820); selected commit eb338925fcb6: \"Add Resource, bracketCase, bracketE, sequence, traverse, productR, de\u2026\". LICENSE file at pin eb338925fcb6 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T17:48Z (receipt 0c85b6c4d820); selected commit eb338925fcb6: \"Add Resource, bracketCase, bracketE, sequence, traverse, productR, de\u2026\". LICENSE file at pin eb338925fcb6 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

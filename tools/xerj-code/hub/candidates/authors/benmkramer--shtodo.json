@@ -1,0 +1,23 @@
+{
+ "corpus": "benmkramer--shtodo",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how benmkramer/shtodo implements it: A deliberately small, keyboard-first terminal todo list (selected work: tests, src)",
+ "repos": [
+  {
+   "repo": "shtodo",
+   "url": "https://github.com/benmkramer/shtodo",
+   "sha": "1f2421c073a615623b60de1bda840ee07367430c",
+   "licence": "MIT (LICENSE file at pin 1f2421c073a6, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T14:22Z",
+    "consent_receipt": "132ce4a1b1c6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T14:22Z (receipt 132ce4a1b1c6); selected commit 1f2421c073a6: \"feat: add JSON output for shell task commands (#16)\". LICENSE file at pin 1f2421c073a6 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

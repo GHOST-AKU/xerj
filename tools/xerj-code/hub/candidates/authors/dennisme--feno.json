@@ -9,14 +9,14 @@
    "repo": "feno",
    "url": "https://github.com/dennisme/feno",
    "sha": "c173d18370a5d82800e2fce7355b634a8686b15b",
-   "licence": "Apache-2.0 (LICENSE file at pin c173d18370a5, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin c173d18370a5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T07:01Z",
     "consent_receipt": "56ad0bf86cec",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T07:01Z (receipt 56ad0bf86cec); selected commit c173d18370a5: \"feat: waiver\". LICENSE file at pin c173d18370a5 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T07:01Z (receipt 56ad0bf86cec); selected commit c173d18370a5: \"feat: waiver\". LICENSE file at pin c173d18370a5 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

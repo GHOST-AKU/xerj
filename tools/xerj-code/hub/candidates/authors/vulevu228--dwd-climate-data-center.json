@@ -9,14 +9,14 @@
    "repo": "DWD-Climate-Data-Center",
    "url": "https://github.com/vulevu228/DWD-Climate-Data-Center",
    "sha": "8eed1f251cca5bf9177c673af5e73b8b4926ee29",
-   "licence": "MIT (LICENSE file at pin 8eed1f251cca, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 8eed1f251cca, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T18:19Z",
     "consent_receipt": "bdcea0dcc821",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T18:19Z (receipt bdcea0dcc821); selected commit 8eed1f251cca: \"Add second Power BI report: soil temperature network (491 stations)\". LICENSE file at pin 8eed1f251cca detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T18:19Z (receipt bdcea0dcc821); selected commit 8eed1f251cca: \"Add second Power BI report: soil temperature network (491 stations)\". LICENSE file at pin 8eed1f251cca detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

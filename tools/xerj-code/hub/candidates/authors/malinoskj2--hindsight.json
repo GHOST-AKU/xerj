@@ -9,14 +9,14 @@
    "repo": "hindsight",
    "url": "https://github.com/malinoskj2/hindsight",
    "sha": "4198ef92e6010e877925238007f82a32768bab45",
-   "licence": "BSD-2-Clause (LICENSE file at pin 4198ef92e601, GitHub licence API 2026-10-21)",
+   "licence": "BSD-2-Clause (LICENSE file at pin 4198ef92e601, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "BSD-2-Clause",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T16:27Z",
     "consent_receipt": "3acf8c5e9ef5",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T16:27Z (receipt 3acf8c5e9ef5); selected commit 4198ef92e601: \"Keep full-screen mode recording after an app it cannot capture\". LICENSE file at pin 4198ef92e601 detected as BSD-2-Clause by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T16:27Z (receipt 3acf8c5e9ef5); selected commit 4198ef92e601: \"Keep full-screen mode recording after an app it cannot capture\". LICENSE file at pin 4198ef92e601 detected as BSD-2-Clause by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

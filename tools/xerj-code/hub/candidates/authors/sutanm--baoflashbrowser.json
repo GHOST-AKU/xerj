@@ -1,0 +1,23 @@
+{
+ "corpus": "sutanm--baoflashbrowser",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on browser, electron, flash queries this for how Sutanm/BaoFlashBrowser implements it: I want to play flash on linux (selected work: tools, src/renderer, tests)",
+ "repos": [
+  {
+   "repo": "BaoFlashBrowser",
+   "url": "https://github.com/Sutanm/BaoFlashBrowser",
+   "sha": "00bc677148677216dcc84e6a6755fc4585478fbd",
+   "licence": "MIT (LICENSE file at pin 00bc67714867, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T05:15Z",
+    "consent_receipt": "17107a13bb43",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T05:15Z (receipt 17107a13bb43); selected commit 00bc67714867: \"fix: preserve settings and failed migration source data\". LICENSE file at pin 00bc67714867 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,14 +9,14 @@
    "repo": "bend-math",
    "url": "https://github.com/victormeloasm/bend-math",
    "sha": "109775be451e94e7cfecd71bfcad0458eb349f60",
-   "licence": "MIT (LICENSE file at pin 109775be451e, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 109775be451e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T06:41Z",
     "consent_receipt": "6015411a2b23",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:41Z (receipt 6015411a2b23); selected commit 109775be451e: \"feat: add comprehensive Bend F32 math library\". LICENSE file at pin 109775be451e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:41Z (receipt 6015411a2b23); selected commit 109775be451e: \"feat: add comprehensive Bend F32 math library\". LICENSE file at pin 109775be451e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

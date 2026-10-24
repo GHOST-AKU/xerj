@@ -9,14 +9,14 @@
    "repo": "kitsune-tales-qwen",
    "url": "https://github.com/whoashish115/kitsune-tales-qwen",
    "sha": "1eb8ee9436fab44fc83a89604b12c513773e1c78",
-   "licence": "Apache-2.0 (LICENSE file at pin 1eb8ee9436fa, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 1eb8ee9436fa, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T22:02Z",
     "consent_receipt": "c963be66123e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T22:02Z (receipt c963be66123e); selected commit 1eb8ee9436fa: \"update: slides follow a research talk structure\". LICENSE file at pin 1eb8ee9436fa detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T22:02Z (receipt c963be66123e); selected commit 1eb8ee9436fa: \"update: slides follow a research talk structure\". LICENSE file at pin 1eb8ee9436fa detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

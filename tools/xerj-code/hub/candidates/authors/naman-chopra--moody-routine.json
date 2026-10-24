@@ -9,14 +9,14 @@
    "repo": "moody-routine",
    "url": "https://github.com/naman-chopra/moody-routine",
    "sha": "52aa2ea43b420cace44a477412f0567d12c8c0d1",
-   "licence": "GPL-3.0 (LICENSE file at pin 52aa2ea43b42, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 52aa2ea43b42, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-11T19:14Z",
     "consent_receipt": "be7d6ce9e943",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T19:14Z (receipt be7d6ce9e943); selected commit 52aa2ea43b42: \"feat: add foss and gms product flavors with AOSP LocationManager for \u2026\". LICENSE file at pin 52aa2ea43b42 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T19:14Z (receipt be7d6ce9e943); selected commit 52aa2ea43b42: \"feat: add foss and gms product flavors with AOSP LocationManager for \u2026\". LICENSE file at pin 52aa2ea43b42 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

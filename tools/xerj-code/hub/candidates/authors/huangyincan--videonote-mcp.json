@@ -9,14 +9,14 @@
    "repo": "VideoNote-MCP",
    "url": "https://github.com/HuangYincan/VideoNote-MCP",
    "sha": "c5559a4eb90db7ad5d73e54d0d063c6f9b08f3e3",
-   "licence": "MIT (LICENSE file at pin c5559a4eb90d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin c5559a4eb90d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T20:47Z",
     "consent_receipt": "a7261c0c45b3",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T20:47Z (receipt a7261c0c45b3); selected commit c5559a4eb90d: \"feat(#63): \u72ec\u7acb\u5e73\u53f0\u767b\u5f55\u914d\u7f6e\u5e76\u53d1\u5e03 v0.2.3\". LICENSE file at pin c5559a4eb90d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T20:47Z (receipt a7261c0c45b3); selected commit c5559a4eb90d: \"feat(#63): \u72ec\u7acb\u5e73\u53f0\u767b\u5f55\u914d\u7f6e\u5e76\u53d1\u5e03 v0.2.3\". LICENSE file at pin c5559a4eb90d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

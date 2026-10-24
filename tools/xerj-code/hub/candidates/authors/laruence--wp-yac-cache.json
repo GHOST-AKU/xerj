@@ -9,14 +9,14 @@
    "repo": "wp-yac-cache",
    "url": "https://github.com/laruence/wp-yac-cache",
    "sha": "8cd8b24efb2b33143cdf4376025431aa7be2a4a6",
-   "licence": "GPL-2.0 (LICENSE file at pin 8cd8b24efb2b, GitHub licence API 2026-10-21)",
+   "licence": "GPL-2.0 (LICENSE file at pin 8cd8b24efb2b, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-2.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-15T03:44Z",
     "consent_receipt": "c602172810d0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T03:44Z (receipt c602172810d0); selected commit 8cd8b24efb2b: \"Isolate multisite blogs by per-blog Yac namespace\". LICENSE file at pin 8cd8b24efb2b detected as GPL-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T03:44Z (receipt c602172810d0); selected commit 8cd8b24efb2b: \"Isolate multisite blogs by per-blog Yac namespace\". LICENSE file at pin 8cd8b24efb2b detected as GPL-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

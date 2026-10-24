@@ -1,0 +1,23 @@
+{
+ "corpus": "trixmas--blightedmc",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on java, minecraft, minecraft-plugin queries this for how Trixmas/BlightedMC implements it: Advanced SMP Plugin with custom mobs, items, crafting, forging system and more to make Minecraft Vanilla Challenging. Open source (selected work: bedrock)",
+ "repos": [
+  {
+   "repo": "BlightedMC",
+   "url": "https://github.com/Trixmas/BlightedMC",
+   "sha": "cf6d935037049f1724d65c59f440a015e044aad7",
+   "licence": "MIT (LICENSE file at pin cf6d93503704, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T09:00Z",
+    "consent_receipt": "ce7a7972299d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T09:00Z (receipt ce7a7972299d); selected commit cf6d93503704: \"feat(bossbar): implement Bossbar service and related classes for mana\u2026\". LICENSE file at pin cf6d93503704 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

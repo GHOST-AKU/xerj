@@ -9,14 +9,14 @@
    "repo": "ovrcr",
    "url": "https://github.com/xlyk/ovrcr",
    "sha": "156aee812e8efc4aee2675e336f5298508677936",
-   "licence": "MIT (LICENSE file at pin 156aee812e8e, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 156aee812e8e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-21T20:31Z",
     "consent_receipt": "92e05eb10bb4",
-    "note": "Inclusion consented by the commit author by email at 2026-10-21T20:31Z (receipt 92e05eb10bb4); selected commit 156aee812e8e: \"feat(pi): add owned read-only research assignments (#338)\". LICENSE file at pin 156aee812e8e detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T20:31Z (receipt 92e05eb10bb4); selected commit 156aee812e8e: \"feat(pi): add owned read-only research assignments (#338)\". LICENSE file at pin 156aee812e8e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "paste-perfect",
    "url": "https://github.com/paste-perfect/paste-perfect",
    "sha": "98dbda825300cbbc4995118260fb41f0b1dd14c2",
-   "licence": "MIT (LICENSE file at pin 98dbda825300, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 98dbda825300, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T08:47Z",
     "consent_receipt": "45ff8a545fca",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T08:47Z (receipt 45ff8a545fca); selected commit 98dbda825300: \"feat: migrate to Angular 22 and Optimus UI (#1114)\". LICENSE file at pin 98dbda825300 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T08:47Z (receipt 45ff8a545fca); selected commit 98dbda825300: \"feat: migrate to Angular 22 and Optimus UI (#1114)\". LICENSE file at pin 98dbda825300 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

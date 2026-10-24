@@ -1,0 +1,23 @@
+{
+ "corpus": "nnmciak--stronghold-protocol-mod-zhajingmode",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on JavaScript queries this for how nnmciak/stronghold-protocol-mod-zhajingmode implements it: \u536b\u620d\u534f\u8bae\uff1a\u76df\u7ea6 \u70b8\u60ca\u6a21\u62df\u5206\u652f\uff080.3.1-mod\uff09\u2014 \u4e0d\u542b\u6e38\u620f\u7d20\u6750 (selected work: server, public, data)",
+ "repos": [
+  {
+   "repo": "stronghold-protocol-mod-zhajingmode",
+   "url": "https://github.com/nnmciak/stronghold-protocol-mod-zhajingmode",
+   "sha": "5875c571781018c33eaf34a6eb70057f06bf1cae",
+   "licence": "GPL-3.0 (LICENSE file at pin 5875c5717810, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T04:57Z",
+    "consent_receipt": "a31cac445881",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T04:57Z (receipt a31cac445881); selected commit 5875c5717810: \"0.3.1-mod.2\uff1a\u4fee\u590d\u5305\u90ae / \u864e\u72fc\u4e38 / \u859b\u5b9a\u8c14\u7684\u732b / \u52a0\u5165\u5927\u7fa4\uff0c\u8865\u9f50\u536b\u620d\u7279\u8d28\". LICENSE file at pin 5875c5717810 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

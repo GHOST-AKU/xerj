@@ -1,0 +1,23 @@
+{
+ "corpus": "anand34577--whittle",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on 3d-modeling, 3d-printing, cad queries this for how anand34577/whittle implements it: Open-source parametric 3D CAD built on OpenCascade: sketch, extrude, fillet and export STEP. Runs as a desktop app, a self-hosted server, or (selected work: apps/web, packages/core, apps/server)",
+ "repos": [
+  {
+   "repo": "whittle",
+   "url": "https://github.com/anand34577/whittle",
+   "sha": "51b4c708b7540936e10d446d61d52f6cccaa1505",
+   "licence": "hint only: MPL-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MPL-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "12f5bcae6912",
+    "note": "author consent by email 2026-10-24T07:28Z (receipt 12f5bcae6912); selected commit 51b4c708b754: \"Audit: fix bugs, harden error handling, polish dialogs\"; LICENSE at pin: NOASSERTION vs repository MPL-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

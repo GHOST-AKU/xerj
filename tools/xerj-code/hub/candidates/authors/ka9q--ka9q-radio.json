@@ -9,14 +9,14 @@
    "repo": "ka9q-radio",
    "url": "https://github.com/ka9q/ka9q-radio",
    "sha": "d034c051413c8bc5db93f149babd3affccecdcec",
-   "licence": "GPL-3.0 (LICENSE file at pin d034c051413c, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin d034c051413c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-17T22:34Z",
     "consent_receipt": "4c75f4ade85b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T22:34Z (receipt 4c75f4ade85b); selected commit d034c051413c: \"clean up misc.[ch], split some contents\". LICENSE file at pin d034c051413c detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T22:34Z (receipt 4c75f4ade85b); selected commit d034c051413c: \"clean up misc.[ch], split some contents\". LICENSE file at pin d034c051413c detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

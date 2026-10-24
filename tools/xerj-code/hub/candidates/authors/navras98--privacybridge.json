@@ -9,14 +9,14 @@
    "repo": "PrivacyBridge",
    "url": "https://github.com/Navras98/PrivacyBridge",
    "sha": "95bd1cca742fbb3b5b1b80fe194959f83c76498f",
-   "licence": "MIT (LICENSE file at pin 95bd1cca742f, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 95bd1cca742f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T08:30Z",
     "consent_receipt": "16d4b7d88db2",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T08:30Z (receipt 16d4b7d88db2); selected commit 95bd1cca742f: \"Migliora PrivacyBridge: vault cifrato at-rest, modularizzazione motor\u2026\". LICENSE file at pin 95bd1cca742f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T08:30Z (receipt 16d4b7d88db2); selected commit 95bd1cca742f: \"Migliora PrivacyBridge: vault cifrato at-rest, modularizzazione motor\u2026\". LICENSE file at pin 95bd1cca742f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

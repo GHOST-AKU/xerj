@@ -9,14 +9,14 @@
    "repo": "semaforo_electrico",
    "url": "https://github.com/Pacoaldev/semaforo_electrico",
    "sha": "92d5bded880c28a5c67e23509d90493ab35b603c",
-   "licence": "GPL-3.0 (LICENSE file at pin 92d5bded880c, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 92d5bded880c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-15T11:44Z",
     "consent_receipt": "d7f3cdec7e75",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T11:44Z (receipt d7f3cdec7e75); selected commit 92d5bded880c: \"Redise\u00f1a grafico de precios, arregla formularios y cache PWA\". LICENSE file at pin 92d5bded880c detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T11:44Z (receipt d7f3cdec7e75); selected commit 92d5bded880c: \"Redise\u00f1a grafico de precios, arregla formularios y cache PWA\". LICENSE file at pin 92d5bded880c detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

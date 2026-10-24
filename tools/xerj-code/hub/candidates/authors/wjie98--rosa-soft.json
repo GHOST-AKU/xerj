@@ -9,14 +9,14 @@
    "repo": "rosa_soft",
    "url": "https://github.com/wjie98/rosa_soft",
    "sha": "efa60f0888ae1b167aa10e2710e005e3a942361b",
-   "licence": "MIT (LICENSE file at pin efa60f0888ae, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin efa60f0888ae, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T04:05Z",
     "consent_receipt": "078f9d400183",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T04:05Z (receipt 078f9d400183); selected commit efa60f0888ae: \"Add configurable head chunks to bitflip backward\". LICENSE file at pin efa60f0888ae detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T04:05Z (receipt 078f9d400183); selected commit efa60f0888ae: \"Add configurable head chunks to bitflip backward\". LICENSE file at pin efa60f0888ae detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

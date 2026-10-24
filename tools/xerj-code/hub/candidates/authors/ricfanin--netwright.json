@@ -9,14 +9,14 @@
    "repo": "netwright",
    "url": "https://github.com/ricfanin/netwright",
    "sha": "f31f6118f1eb775af48117fbc20ef1ea0bce6d19",
-   "licence": "MIT (LICENSE file at pin f31f6118f1eb, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin f31f6118f1eb, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T16:10Z",
     "consent_receipt": "ee32383f5682",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T16:10Z (receipt ee32383f5682); selected commit f31f6118f1eb: \"feat: background actions run in-process and launched apps run hidden\". LICENSE file at pin f31f6118f1eb detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T16:10Z (receipt ee32383f5682); selected commit f31f6118f1eb: \"feat: background actions run in-process and launched apps run hidden\". LICENSE file at pin f31f6118f1eb detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

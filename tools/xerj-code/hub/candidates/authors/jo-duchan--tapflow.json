@@ -9,14 +9,14 @@
    "repo": "tapflow",
    "url": "https://github.com/jo-duchan/tapflow",
    "sha": "4fc0e29c994277b8450f8cdb50fe5805cd1a263a",
-   "licence": "MIT (LICENSE file at pin 4fc0e29c9942, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 4fc0e29c9942, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T17:32Z",
     "consent_receipt": "f25e209094b8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T17:32Z (receipt f25e209094b8); selected commit 4fc0e29c9942: \"fix(mcp-server,flow-runner): settle in-flight boot on session rebound\u2026\". LICENSE file at pin 4fc0e29c9942 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T17:32Z (receipt f25e209094b8); selected commit 4fc0e29c9942: \"fix(mcp-server,flow-runner): settle in-flight boot on session rebound\u2026\". LICENSE file at pin 4fc0e29c9942 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

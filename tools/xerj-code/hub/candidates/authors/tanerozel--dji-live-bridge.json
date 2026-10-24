@@ -9,14 +9,14 @@
    "repo": "dji-live-bridge",
    "url": "https://github.com/tanerozel/dji-live-bridge",
    "sha": "ff2bab349e8ab5c70de5069308b9a3a77e4e36c4",
-   "licence": "MIT (LICENSE file at pin ff2bab349e8a, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ff2bab349e8a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T07:53Z",
     "consent_receipt": "55d9054ed39a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T07:53Z (receipt 55d9054ed39a); selected commit ff2bab349e8a: \"Add Instagram integration tests and update privacy policy\". LICENSE file at pin ff2bab349e8a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T07:53Z (receipt 55d9054ed39a); selected commit ff2bab349e8a: \"Add Instagram integration tests and update privacy policy\". LICENSE file at pin ff2bab349e8a detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

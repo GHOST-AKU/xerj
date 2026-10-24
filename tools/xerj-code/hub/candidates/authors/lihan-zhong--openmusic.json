@@ -9,14 +9,14 @@
    "repo": "OpenMusic",
    "url": "https://github.com/Lihan-Zhong/OpenMusic",
    "sha": "7c1eb955908e28d93436417bba1002bed768658a",
-   "licence": "AGPL-3.0 (LICENSE file at pin 7c1eb955908e, GitHub licence API 2026-10-23)",
+   "licence": "AGPL-3.0 (LICENSE file at pin 7c1eb955908e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-22T14:26Z",
     "consent_receipt": "11f7989dd599",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T14:26Z (receipt 11f7989dd599); selected commit 7c1eb955908e: \"Choose the Guitar Pro audio track when downloading; built on the spot\u2026\". LICENSE file at pin 7c1eb955908e detected as AGPL-3.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T14:26Z (receipt 11f7989dd599); selected commit 7c1eb955908e: \"Choose the Guitar Pro audio track when downloading; built on the spot\u2026\". LICENSE file at pin 7c1eb955908e detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

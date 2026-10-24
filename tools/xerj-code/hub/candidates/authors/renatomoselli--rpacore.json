@@ -9,14 +9,14 @@
    "repo": "rpacore",
    "url": "https://github.com/renatomoselli/rpacore",
    "sha": "d4999ff53463bb6e0d09ca134aa84f588b626470",
-   "licence": "Apache-2.0 (LICENSE file at pin d4999ff53463, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin d4999ff53463, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T22:56Z",
     "consent_receipt": "ab8fe807c5e6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T22:56Z (receipt ab8fe807c5e6); selected commit d4999ff53463: \"fix(report): restrict HTML screenshot links to unambiguous local paths\". LICENSE file at pin d4999ff53463 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T22:56Z (receipt ab8fe807c5e6); selected commit d4999ff53463: \"fix(report): restrict HTML screenshot links to unambiguous local paths\". LICENSE file at pin d4999ff53463 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

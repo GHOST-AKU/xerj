@@ -9,14 +9,14 @@
    "repo": "oxmq",
    "url": "https://github.com/gaurav10610/oxmq",
    "sha": "48630e181ce05f92a747dfbf3e02762e0df83ef5",
-   "licence": "Apache-2.0 (LICENSE file at pin 48630e181ce0, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 48630e181ce0, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T04:46Z",
     "consent_receipt": "693a99cc7ab9",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T04:46Z (receipt 693a99cc7ab9); selected commit 48630e181ce0: \"feat: support Java 17+ baseline, annotation-driven Spring Boot starte\u2026\". LICENSE file at pin 48630e181ce0 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T04:46Z (receipt 693a99cc7ab9); selected commit 48630e181ce0: \"feat: support Java 17+ baseline, annotation-driven Spring Boot starte\u2026\". LICENSE file at pin 48630e181ce0 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

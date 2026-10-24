@@ -9,14 +9,14 @@
    "repo": "storyroom",
    "url": "https://github.com/Humza1423/storyroom",
    "sha": "6af86f40cfcbe864f378394e77b5f88f849cf70f",
-   "licence": "MIT (LICENSE file at pin 6af86f40cfcb, GitHub licence API 2026-10-23)",
+   "licence": "MIT (LICENSE file at pin 6af86f40cfcb, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T15:57Z",
     "consent_receipt": "dc6d2513fd44",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T15:57Z (receipt dc6d2513fd44); selected commit 6af86f40cfcb: \"Add adaptive temporal indexing and trim-aware preview\". LICENSE file at pin 6af86f40cfcb detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T15:57Z (receipt dc6d2513fd44); selected commit 6af86f40cfcb: \"Add adaptive temporal indexing and trim-aware preview\". LICENSE file at pin 6af86f40cfcb detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

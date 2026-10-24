@@ -9,14 +9,14 @@
    "repo": "thunc",
    "url": "https://github.com/Eltarras/thunc",
    "sha": "da733160057b2942589c7b39134354fe8f775b4c",
-   "licence": "MIT (LICENSE file at pin da733160057b, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin da733160057b, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T09:06Z",
     "consent_receipt": "59cf8d7dabca",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T09:06Z (receipt 59cf8d7dabca); selected commit da733160057b: \"Recordings survive a thunc upgrade\". LICENSE file at pin da733160057b detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T09:06Z (receipt 59cf8d7dabca); selected commit da733160057b: \"Recordings survive a thunc upgrade\". LICENSE file at pin da733160057b detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

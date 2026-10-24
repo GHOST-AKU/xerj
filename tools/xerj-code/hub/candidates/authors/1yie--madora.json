@@ -9,14 +9,14 @@
    "repo": "madora",
    "url": "https://github.com/1Yie/madora",
    "sha": "a1f9f5d459764634ae2b550cc2d9feb15e741d8b",
-   "licence": "GPL-3.0 (LICENSE file at pin a1f9f5d45976, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin a1f9f5d45976, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-14T01:33Z",
     "consent_receipt": "bc1b393ea955",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T01:33Z (receipt bc1b393ea955); selected commit a1f9f5d45976: \"refactor(ai): one API-key path, and drop the service -> command depen\u2026\". LICENSE file at pin a1f9f5d45976 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T01:33Z (receipt bc1b393ea955); selected commit a1f9f5d45976: \"refactor(ai): one API-key path, and drop the service -> command depen\u2026\". LICENSE file at pin a1f9f5d45976 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "DOCKYARD",
    "url": "https://github.com/bauerpawel/DOCKYARD",
    "sha": "2df1e10aca3fdcc9ff70d14c37488bab930d51e8",
-   "licence": "MIT (LICENSE file at pin 2df1e10aca3f, GitHub licence API 2026-10-23)",
+   "licence": "MIT (LICENSE file at pin 2df1e10aca3f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T13:59Z",
     "consent_receipt": "40968b67f0c0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T13:59Z (receipt 40968b67f0c0); selected commit 2df1e10aca3f: \"Harden deployment and expand the app catalog\". LICENSE file at pin 2df1e10aca3f detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T13:59Z (receipt 40968b67f0c0); selected commit 2df1e10aca3f: \"Harden deployment and expand the app catalog\". LICENSE file at pin 2df1e10aca3f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

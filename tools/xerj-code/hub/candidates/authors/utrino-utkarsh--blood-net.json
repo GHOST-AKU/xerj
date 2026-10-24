@@ -9,14 +9,14 @@
    "repo": "Blood.Net",
    "url": "https://github.com/UTRINO-UTKARSH/Blood.Net",
    "sha": "216173ce65c545e6eb972af17955a00049e0f75a",
-   "licence": "MIT (LICENSE file at pin 216173ce65c5, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 216173ce65c5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T20:29Z",
     "consent_receipt": "dc9a6333118b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T20:29Z (receipt dc9a6333118b); selected commit 216173ce65c5: \"Profile form complete now preview remains\". LICENSE file at pin 216173ce65c5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T20:29Z (receipt dc9a6333118b); selected commit 216173ce65c5: \"Profile form complete now preview remains\". LICENSE file at pin 216173ce65c5 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

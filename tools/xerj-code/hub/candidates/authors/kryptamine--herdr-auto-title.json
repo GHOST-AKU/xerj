@@ -9,14 +9,14 @@
    "repo": "herdr-auto-title",
    "url": "https://github.com/kryptamine/herdr-auto-title",
    "sha": "d3ba3c61147d8683cb298d04d858856c83390ec7",
-   "licence": "MIT (LICENSE file at pin d3ba3c61147d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin d3ba3c61147d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T09:34Z",
     "consent_receipt": "f8d93a6d35de",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T09:34Z (receipt f8d93a6d35de); selected commit d3ba3c61147d: \"fix(reads): retry a process read that failed within the poll\". LICENSE file at pin d3ba3c61147d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T09:34Z (receipt f8d93a6d35de); selected commit d3ba3c61147d: \"fix(reads): retry a process read that failed within the poll\". LICENSE file at pin d3ba3c61147d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

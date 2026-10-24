@@ -9,14 +9,14 @@
    "repo": "GLM_proxy",
    "url": "https://github.com/eequaled/GLM_proxy",
    "sha": "71bf1a2450918b17a8a14d80747e8ab8fca58421",
-   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
+   "licence": "MIT (LICENSE file at pin 71bf1a245091, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T21:44Z",
     "consent_receipt": "70cfe028eaf6",
-    "note": "author consent by email 2026-10-11T21:44Z (receipt 70cfe028eaf6); selected commit 71bf1a245091: \"delete the local desktop-agent fallback and retry a capacity throttle\u2026\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T21:44Z (receipt 70cfe028eaf6); selected commit 71bf1a245091: \"delete the local desktop-agent fallback and retry a capacity throttle\u2026\". LICENSE file at pin 71bf1a245091 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

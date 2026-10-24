@@ -9,14 +9,14 @@
    "repo": "tabalyst",
    "url": "https://github.com/loribel-labs/tabalyst",
    "sha": "043ba73fd130bce4eb9851cafc717704ed2c0df9",
-   "licence": "MPL-2.0 (LICENSE file at pin 043ba73fd130, GitHub licence API 2026-10-21)",
+   "licence": "MPL-2.0 (LICENSE file at pin 043ba73fd130, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MPL-2.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-19T04:46Z",
     "consent_receipt": "19585262792e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T04:46Z (receipt 19585262792e); selected commit 043ba73fd130: \"fix(report): libell\u00e9s des findings et des signaux, th\u00e8me, d\u00e9mos r\u00e9g\u00e9n\u2026\". LICENSE file at pin 043ba73fd130 detected as MPL-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T04:46Z (receipt 19585262792e); selected commit 043ba73fd130: \"fix(report): libell\u00e9s des findings et des signaux, th\u00e8me, d\u00e9mos r\u00e9g\u00e9n\u2026\". LICENSE file at pin 043ba73fd130 detected as MPL-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

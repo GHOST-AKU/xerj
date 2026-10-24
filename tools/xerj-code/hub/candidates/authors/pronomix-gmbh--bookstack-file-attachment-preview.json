@@ -9,14 +9,14 @@
    "repo": "bookstack_file_attachment_preview",
    "url": "https://github.com/pronomix-gmbh/bookstack_file_attachment_preview",
    "sha": "241e098b8d2b1143473d9c2c034bf5cc53a12f82",
-   "licence": "MIT (LICENSE file at pin 241e098b8d2b, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 241e098b8d2b, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-21T10:15Z",
     "consent_receipt": "abdce842b9bf",
-    "note": "Inclusion consented by the commit author by email at 2026-10-21T10:15Z (receipt abdce842b9bf); selected commit 241e098b8d2b: \"feat: add Composer installer v1.3.0\". LICENSE file at pin 241e098b8d2b detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T10:15Z (receipt abdce842b9bf); selected commit 241e098b8d2b: \"feat: add Composer installer v1.3.0\". LICENSE file at pin 241e098b8d2b detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

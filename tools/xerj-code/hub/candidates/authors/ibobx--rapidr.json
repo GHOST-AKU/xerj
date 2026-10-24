@@ -9,14 +9,14 @@
    "repo": "RapidR",
    "url": "https://github.com/iBobX/RapidR",
    "sha": "963fa345512da9f821442ec4616e5fad238c0c63",
-   "licence": "MIT (LICENSE file at pin 963fa345512d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 963fa345512d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T13:35Z",
     "consent_receipt": "623f45e7e87b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T13:35Z (receipt 623f45e7e87b); selected commit 963fa345512d: \"The chat's card links (Open, Undo, Review) are reachable by Tab: a ma\u2026\". LICENSE file at pin 963fa345512d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T13:35Z (receipt 623f45e7e87b); selected commit 963fa345512d: \"The chat's card links (Open, Undo, Review) are reachable by Tab: a ma\u2026\". LICENSE file at pin 963fa345512d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

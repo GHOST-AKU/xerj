@@ -9,14 +9,14 @@
    "repo": "stille-messenger-core",
    "url": "https://github.com/Puxxalwl/stille-messenger-core",
    "sha": "83ea91e1d49888d5655beb451a5961edbb483d43",
-   "licence": "MIT (LICENSE file at pin 83ea91e1d498, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 83ea91e1d498, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T12:01Z",
     "consent_receipt": "d609592cf79b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T12:01Z (receipt d609592cf79b); selected commit 83ea91e1d498: \"zig: crypto: hybrid post-quantum handshake (ML-KEM-768)\". LICENSE file at pin 83ea91e1d498 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T12:01Z (receipt d609592cf79b); selected commit 83ea91e1d498: \"zig: crypto: hybrid post-quantum handshake (ML-KEM-768)\". LICENSE file at pin 83ea91e1d498 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

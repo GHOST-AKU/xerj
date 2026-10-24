@@ -9,14 +9,14 @@
    "repo": "switcher",
    "url": "https://github.com/Youkamii/switcher",
    "sha": "91be041254bb36355f73321a67c436c4334877f4",
-   "licence": "MIT (LICENSE file at pin 91be041254bb, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 91be041254bb, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-06T04:04Z",
     "consent_receipt": "97c6f2a43004",
-    "note": "Inclusion consented by the commit author by email at 2026-10-06T04:04Z (receipt 97c6f2a43004); selected commit 91be041254bb: \"feat: \ud074\ub85c\ub4dc \uc2b9\uc778 \uc790\ub3d9 \ub85c\uadf8\uc778\u00b7\ud65c\uc131 \uacc4\uc815 \uc790\ub3d9 \ub4f1\ub85d\u00b7\ud504\ub85c\ud544 \uc774\ub984 \ubc14\uafb8\uae30 \ubc31\uc5d4\ub4dc + \ucf54\ub371\uc2a4 \uc804\ud658 \uc815\uc801 \ud14c\uc2a4\ud2b8 (#167,\u2026\". LICENSE file at pin 91be041254bb detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T04:04Z (receipt 97c6f2a43004); selected commit 91be041254bb: \"feat: \ud074\ub85c\ub4dc \uc2b9\uc778 \uc790\ub3d9 \ub85c\uadf8\uc778\u00b7\ud65c\uc131 \uacc4\uc815 \uc790\ub3d9 \ub4f1\ub85d\u00b7\ud504\ub85c\ud544 \uc774\ub984 \ubc14\uafb8\uae30 \ubc31\uc5d4\ub4dc + \ucf54\ub371\uc2a4 \uc804\ud658 \uc815\uc801 \ud14c\uc2a4\ud2b8 (#167,\u2026\". LICENSE file at pin 91be041254bb detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

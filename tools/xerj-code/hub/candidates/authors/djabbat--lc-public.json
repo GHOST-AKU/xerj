@@ -9,14 +9,14 @@
    "repo": "LC-public",
    "url": "https://github.com/djabbat/LC-public",
    "sha": "fac04e283c9c3a4d364db53550b0a139bcd32b87",
-   "licence": "MIT (LICENSE file at pin fac04e283c9c, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin fac04e283c9c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T05:58Z",
     "consent_receipt": "db98f908e216",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T05:58Z (receipt db98f908e216); selected commit fac04e283c9c: \"CEDAR: data-driven policies \u2014 typed StatusTransition + PolicyConfig (\u2026\". LICENSE file at pin fac04e283c9c detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T05:58Z (receipt db98f908e216); selected commit fac04e283c9c: \"CEDAR: data-driven policies \u2014 typed StatusTransition + PolicyConfig (\u2026\". LICENSE file at pin fac04e283c9c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "grove",
    "url": "https://github.com/alcxyz/grove",
    "sha": "77a2f95211519252e69b903de5873b35bf2ca902",
-   "licence": "MIT (LICENSE file at pin 77a2f9521151, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 77a2f9521151, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T07:50Z",
     "consent_receipt": "2e04620d010b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:50Z (receipt 2e04620d010b); selected commit 77a2f9521151: \"feat: identify development builds by revision\". LICENSE file at pin 77a2f9521151 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:50Z (receipt 2e04620d010b); selected commit 77a2f9521151: \"feat: identify development builds by revision\". LICENSE file at pin 77a2f9521151 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

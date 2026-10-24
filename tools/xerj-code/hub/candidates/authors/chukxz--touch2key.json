@@ -1,0 +1,23 @@
+{
+ "corpus": "chukxz--touch2key",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Python queries this for how Chukxz/Touch2Key implements it: Android Touch Input to Windows/Linux Keyboard/Mouse Output Game Mapper (selected work: src/modules)",
+ "repos": [
+  {
+   "repo": "Touch2Key",
+   "url": "https://github.com/Chukxz/Touch2Key",
+   "sha": "58d3f9beff31762af6d7f8b9a18bb03269b60c4d",
+   "licence": "MIT (LICENSE file at pin 58d3f9beff31, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T12:36Z",
+    "consent_receipt": "5323b78be61c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T12:36Z (receipt 5323b78be61c); selected commit 58d3f9beff31: \"done.\". LICENSE file at pin 58d3f9beff31 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

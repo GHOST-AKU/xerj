@@ -2,21 +2,21 @@
  "corpus": "anstosa--ferry-fyi",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how anstosa/ferry.fyi implements it: A Smarter Tracker for the Washington State Ferry System (selected work: tests, client, shared)",
+ "shelf": "AI",
+ "domain": "an agent working on aws, computer-vision, ferry queries this for how anstosa/ferry.fyi implements it: Production ferry planning platform combining real-time data, capacity forecasting, computer vision, and full-stack product engineering (selected work: tests, client, shared)",
  "repos": [
   {
    "repo": "ferry.fyi",
    "url": "https://github.com/anstosa/ferry.fyi",
    "sha": "5c3cdfe949640a57ac71631f17aa37d9e41bb78b",
-   "licence": "GPL-3.0 (LICENSE file at pin 5c3cdfe94964, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 5c3cdfe94964, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-15T18:02Z",
     "consent_receipt": "3330f24da73c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T18:02Z (receipt 3330f24da73c); selected commit 5c3cdfe94964: \"Keep refreshed ferry alerts consistent across planning views\". LICENSE file at pin 5c3cdfe94964 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T18:02Z (receipt 3330f24da73c); selected commit 5c3cdfe94964: \"Keep refreshed ferry alerts consistent across planning views\". LICENSE file at pin 5c3cdfe94964 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

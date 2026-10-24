@@ -9,14 +9,14 @@
    "repo": "anti_phishing_extension",
    "url": "https://github.com/Kidus-yahun/anti_phishing_extension",
    "sha": "b3322f254c1da971778e4380a6d2c0c1a334c1b9",
-   "licence": "AGPL-3.0 (LICENSE file at pin b3322f254c1d, GitHub licence API 2026-10-21)",
+   "licence": "AGPL-3.0 (LICENSE file at pin b3322f254c1d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-16T17:53Z",
     "consent_receipt": "803509099990",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T17:53Z (receipt 803509099990); selected commit b3322f254c1d: \"feat(ui): redesign extension UI with frosted glassmorphism and Shadow\u2026\". LICENSE file at pin b3322f254c1d detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T17:53Z (receipt 803509099990); selected commit b3322f254c1d: \"feat(ui): redesign extension UI with frosted glassmorphism and Shadow\u2026\". LICENSE file at pin b3322f254c1d detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

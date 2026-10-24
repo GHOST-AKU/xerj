@@ -9,14 +9,14 @@
    "repo": "Ping",
    "url": "https://github.com/Yash-Awasthi/Ping",
    "sha": "080df78545a592e79dd6a763627c55427e2f330f",
-   "licence": "MIT (LICENSE file at pin 080df78545a5, GitHub licence API 2026-10-23)",
+   "licence": "MIT (LICENSE file at pin 080df78545a5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T18:36Z",
     "consent_receipt": "defabdb03fc4",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T18:36Z (receipt defabdb03fc4); selected commit 080df78545a5: \"Translate the gesture guide and use plurals for counts\". LICENSE file at pin 080df78545a5 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T18:36Z (receipt defabdb03fc4); selected commit 080df78545a5: \"Translate the gesture guide and use plurals for counts\". LICENSE file at pin 080df78545a5 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

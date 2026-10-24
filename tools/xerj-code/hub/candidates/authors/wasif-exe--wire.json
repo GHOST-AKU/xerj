@@ -9,14 +9,14 @@
    "repo": "wire",
    "url": "https://github.com/wasif-exe/wire",
    "sha": "ef3ba2678358d87fd335f0a28c74fc50f5fc77f7",
-   "licence": "MIT (LICENSE file at pin ef3ba2678358, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ef3ba2678358, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T23:12Z",
     "consent_receipt": "cbfda4bdfc76",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T23:12Z (receipt cbfda4bdfc76); selected commit ef3ba2678358: \"feat(v6): Wire v6 \u2014 Asynchronous Smart-Node Infrastructure Appliance\". LICENSE file at pin ef3ba2678358 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T23:12Z (receipt cbfda4bdfc76); selected commit ef3ba2678358: \"feat(v6): Wire v6 \u2014 Asynchronous Smart-Node Infrastructure Appliance\". LICENSE file at pin ef3ba2678358 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

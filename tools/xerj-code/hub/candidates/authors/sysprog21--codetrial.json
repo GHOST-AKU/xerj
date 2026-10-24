@@ -9,14 +9,14 @@
    "repo": "codetrial",
    "url": "https://github.com/sysprog21/codetrial",
    "sha": "db85e87dec3700a2299fe04dd9e7364c58502f57",
-   "licence": "MIT (LICENSE file at pin db85e87dec37, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin db85e87dec37, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T19:55Z",
     "consent_receipt": "44b7a224e47d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T19:55Z (receipt 44b7a224e47d); selected commit db85e87dec37: \"Walk a whiteboard report through the board\". LICENSE file at pin db85e87dec37 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T19:55Z (receipt 44b7a224e47d); selected commit db85e87dec37: \"Walk a whiteboard report through the board\". LICENSE file at pin db85e87dec37 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

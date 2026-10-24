@@ -9,14 +9,14 @@
    "repo": "quick-commerce-mcp",
    "url": "https://github.com/Hardik500/quick-commerce-mcp",
    "sha": "1340dabf948663d00d104122e2eb005c62dd6556",
-   "licence": "MIT (LICENSE file at pin 1340dabf9486, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 1340dabf9486, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T09:52Z",
     "consent_receipt": "731c7248b9cb",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T09:52Z (receipt 731c7248b9cb); selected commit 1340dabf9486: \"Fix BigBasket blocked-browser recovery for npm users\". LICENSE file at pin 1340dabf9486 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T09:52Z (receipt 731c7248b9cb); selected commit 1340dabf9486: \"Fix BigBasket blocked-browser recovery for npm users\". LICENSE file at pin 1340dabf9486 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

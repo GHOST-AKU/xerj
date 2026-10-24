@@ -9,14 +9,14 @@
    "repo": "Rux",
    "url": "https://github.com/rux-lang/Rux",
    "sha": "8fced5eaffcdbb9ec68f27ca3f1c220440fe1fdd",
-   "licence": "MIT (LICENSE file at pin 8fced5eaffcd, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 8fced5eaffcd, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T10:37Z",
     "consent_receipt": "5b87a1690b34",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T10:37Z (receipt 5b87a1690b34); selected commit 8fced5eaffcd: \"Add two-lane float64 vector instructions\". LICENSE file at pin 8fced5eaffcd detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T10:37Z (receipt 5b87a1690b34); selected commit 8fced5eaffcd: \"Add two-lane float64 vector instructions\". LICENSE file at pin 8fced5eaffcd detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

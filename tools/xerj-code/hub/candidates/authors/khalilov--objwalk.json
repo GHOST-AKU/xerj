@@ -9,14 +9,14 @@
    "repo": "objwalk",
    "url": "https://github.com/khalilov/objwalk",
    "sha": "0f9fe94652dac4ebdc216e267dfcd283edf73c5a",
-   "licence": "ISC (LICENSE file at pin 0f9fe94652da, GitHub licence API 2026-10-21)",
+   "licence": "ISC (LICENSE file at pin 0f9fe94652da, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "ISC",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T17:53Z",
     "consent_receipt": "ea0b711ea67e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T17:53Z (receipt ea0b711ea67e); selected commit 0f9fe94652da: \"Added parse/stringify helpers; Added skill for agents\". LICENSE file at pin 0f9fe94652da detected as ISC by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T17:53Z (receipt ea0b711ea67e); selected commit 0f9fe94652da: \"Added parse/stringify helpers; Added skill for agents\". LICENSE file at pin 0f9fe94652da detected as ISC by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

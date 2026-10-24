@@ -9,14 +9,14 @@
    "repo": "TopicForge",
    "url": "https://github.com/yaniswav/TopicForge",
    "sha": "b6acd96e7a073556f84a217542e5f862d4124d10",
-   "licence": "MIT (LICENSE file at pin b6acd96e7a07, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin b6acd96e7a07, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-21T08:56Z",
     "consent_receipt": "ed913c2bdcbc",
-    "note": "Inclusion consented by the commit author by email at 2026-10-21T08:56Z (receipt ed913c2bdcbc); selected commit b6acd96e7a07: \"feat(tools): shrink tools/list by a third and add restarts_by_name, s\u2026\". LICENSE file at pin b6acd96e7a07 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T08:56Z (receipt ed913c2bdcbc); selected commit b6acd96e7a07: \"feat(tools): shrink tools/list by a third and add restarts_by_name, s\u2026\". LICENSE file at pin b6acd96e7a07 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]
