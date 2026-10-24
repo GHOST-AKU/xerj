@@ -1543,16 +1543,14 @@ pub fn parse(args: Vec<String>) -> Result<Cmd, String> {
         if !no_graph {
             return Err(
                 "--watch needs --no-graph today, and that is a real limitation rather than a \
-                 formality: reconciling an ADDED or DELETED file exists only on the --no-graph \
-                 (generated) route. On the default graph path a re-run resumes a frozen plan, \
-                 so a file created after that plan was frozen is reported as 'appeared after \
-                 the resume plan was frozen' and is NOT indexed until the corpus is rebuilt \
-                 with --fresh, and a file deleted from the folder ABORTS the run — and every \
-                 re-run after it — because its documents are still live in the destination. \
-                 (A file whose CONTENT changed is reconciled there; additions and deletions \
-                 are what a watcher on that route could not keep current.) Re-run as `xerj \
-                 autoindex <folder> --watch --no-graph` (relationship detection off), or keep \
-                 rebuilding a graph corpus with `xerj autoindex <folder> --fresh`"
+                 formality: the watcher re-runs the generated route, which reconciles added, \
+                 changed, renamed and deleted files against a committed generation, including \
+                 a file that would be a new dataset. The default graph path sweeps a deleted \
+                 file and indexes an added file that fits a frozen dataset, but a file that \
+                 needs a new dataset still stops with reason=stale-resume-plan until --fresh, \
+                 and this watcher is not built on that route. Re-run as `xerj autoindex \
+                 <folder> --watch --no-graph` (relationship detection off), or keep rebuilding \
+                 a graph corpus with `xerj autoindex <folder> --fresh`"
                     .into(),
             );
         }
