@@ -990,6 +990,45 @@ class DiscoverabilityTest(unittest.TestCase):
             self.assertEqual(tuple(mid[(_w // 2) * 4:(_w // 2) * 4 + 4]), (255, 255, 255, 255))
 
 
+class AgentIndexFilesTest(unittest.TestCase):
+    """llms.txt carries a build date, and its two companion indexes and the
+    IndexNow key file are produced from the registry on every build."""
+
+    def test_stamp_is_a_date(self):
+        self.assertRegex(gen.STAMP, r"^\d{4}-\d{2}-\d{2}$")
+
+    def test_hub_stamp_env_wins(self):
+        old = os.environ.get("HUB_STAMP")
+        os.environ["HUB_STAMP"] = "2030-01-02"
+        try:
+            self.assertEqual(gen.build_stamp(), "2030-01-02")
+        finally:
+            if old is None:
+                os.environ.pop("HUB_STAMP")
+            else:
+                os.environ["HUB_STAMP"] = old
+
+    def test_llms_repos_one_line_per_pin(self):
+        live = [{"slug": "b-corpus", "repos": [{"url": "https://github.com/o/b", "sha": "a" * 40,
+                                                 "review": {"spdx": "MIT"}}]},
+                {"slug": "a-corpus", "repos": [{"url": "https://github.com/o/a", "sha": "",
+                                                 "licence": "Apache-2.0"},
+                                                {"url": "https://github.com/o/a", "sha": ""}]}]
+        out = gen.llms_repos(live)
+        rows = [x for x in out.splitlines() if x.startswith("- ")]
+        self.assertEqual(len(rows), 2)
+        self.assertIn("corpus a-corpus: https://hub.xerj.org/corpus/a-corpus", rows[0])
+        self.assertIn("@ aaaaaaaaaaaa · MIT", rows[1])
+        self.assertIn("2 repository pins across 2 live corpora", out)
+        self.assertNotRegex(out, "[\u2013\u2014]")
+
+    def test_llms_contributors_counts_live_corpora(self):
+        people = {"zed": {"name": "Zed", "work": {"x": {"commit": "c1", "repo_url": "https://github.com/z/z"}},
+                          "corpora": {"live-one", "cand"}, "agreed": ["2026-10-01"]}}
+        out = gen.llms_contributors(people, {"live-one"})
+        self.assertIn("- Zed (@zed): https://hub.xerj.org/contributors/zed · 1 selected commit · 1 live corpus: live-one", out)
+
+
 class BuiltSiteDiscoverabilityTest(SiteLinksTest):
     """The real registry build: every indexable canonical is in the sitemap,
     and no internal link still asks for a .html URL."""
