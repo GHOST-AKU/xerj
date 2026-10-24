@@ -9,14 +9,14 @@
    "repo": "klyx",
    "url": "https://github.com/klyx-dev/klyx",
    "sha": "42de6a21c0616d983a761b6ee3e2b00d8fed0f4c",
-   "licence": "GPL-3.0 (LICENSE file at pin 42de6a21c061, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 42de6a21c061, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-18T17:39Z",
     "consent_receipt": "6fb7e03c6338",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T17:39Z (receipt 6fb7e03c6338); selected commit 42de6a21c061: \"feat: add customizable rounded UI corners\". LICENSE file at pin 42de6a21c061 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T17:39Z (receipt 6fb7e03c6338); selected commit 42de6a21c061: \"feat: add customizable rounded UI corners\". LICENSE file at pin 42de6a21c061 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

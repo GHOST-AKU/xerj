@@ -9,14 +9,14 @@
    "repo": "MayaTok-BPE",
    "url": "https://github.com/AlgoBrother/MayaTok-BPE",
    "sha": "20af61b11ebf6f3a84db17946f9682ee21a8929e",
-   "licence": "Apache-2.0 (LICENSE file at pin 20af61b11ebf, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 20af61b11ebf, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T10:00Z",
     "consent_receipt": "3e7d2353312f",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T10:00Z (receipt 3e7d2353312f); selected commit 20af61b11ebf: \"unicode fixes for math text\". LICENSE file at pin 20af61b11ebf detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T10:00Z (receipt 3e7d2353312f); selected commit 20af61b11ebf: \"unicode fixes for math text\". LICENSE file at pin 20af61b11ebf detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

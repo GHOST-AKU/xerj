@@ -9,14 +9,14 @@
    "repo": "ChartNagari",
    "url": "https://github.com/Ju571nK/ChartNagari",
    "sha": "aefb53721ef0b0b081f46d6cd7772e7dbf4a82e0",
-   "licence": "MIT (LICENSE file at pin aefb53721ef0, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin aefb53721ef0, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T04:34Z",
     "consent_receipt": "63319188bd2b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T04:34Z (receipt 63319188bd2b); selected commit aefb53721ef0: \"feat: add Forex alert profiles and per-symbol Telegram notes (v2.15.0.0)\". LICENSE file at pin aefb53721ef0 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T04:34Z (receipt 63319188bd2b); selected commit aefb53721ef0: \"feat: add Forex alert profiles and per-symbol Telegram notes (v2.15.0.0)\". LICENSE file at pin aefb53721ef0 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

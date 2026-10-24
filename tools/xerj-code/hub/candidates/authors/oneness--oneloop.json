@@ -9,14 +9,14 @@
    "repo": "OneLoop",
    "url": "https://github.com/oneness/OneLoop",
    "sha": "27e6533c088095af74fd8ad2e0b96c7b543da134",
-   "licence": "MIT (LICENSE file at pin 27e6533c0880, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 27e6533c0880, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T18:52Z",
     "consent_receipt": "d7c462bebebd",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T18:52Z (receipt d7c462bebebd); selected commit 27e6533c0880: \"Added Antigravity support Claude Code style\". LICENSE file at pin 27e6533c0880 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T18:52Z (receipt d7c462bebebd); selected commit 27e6533c0880: \"Added Antigravity support Claude Code style\". LICENSE file at pin 27e6533c0880 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

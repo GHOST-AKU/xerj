@@ -9,14 +9,14 @@
    "repo": "pi-KillerOS",
    "url": "https://github.com/KyrosHendrix/pi-KillerOS",
    "sha": "fab0bf2667b903396e874c1d5147b9c1f7ce44ea",
-   "licence": "MIT (LICENSE file at pin fab0bf2667b9, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin fab0bf2667b9, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T07:53Z",
     "consent_receipt": "b76e2847452a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T07:53Z (receipt b76e2847452a); selected commit fab0bf2667b9: \"Adopt Pi 1.3.0 and finish Windows-only support\". LICENSE file at pin fab0bf2667b9 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T07:53Z (receipt b76e2847452a); selected commit fab0bf2667b9: \"Adopt Pi 1.3.0 and finish Windows-only support\". LICENSE file at pin fab0bf2667b9 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

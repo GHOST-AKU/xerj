@@ -9,14 +9,14 @@
    "repo": "one",
    "url": "https://github.com/noxgle/one",
    "sha": "a04f14603920b1413162d26b39d1ced81b7babee",
-   "licence": "MIT (LICENSE file at pin a04f14603920, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin a04f14603920, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T14:05Z",
     "consent_receipt": "c136fdec93ed",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T14:05Z (receipt c136fdec93ed); selected commit a04f14603920: \"feat(context): use endpoint maximum budgets by default\". LICENSE file at pin a04f14603920 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T14:05Z (receipt c136fdec93ed); selected commit a04f14603920: \"feat(context): use endpoint maximum budgets by default\". LICENSE file at pin a04f14603920 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "langchain-ai--openevals",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how langchain-ai/openevals implements it: Readymade evaluators for your LLM apps (selected work: js, python)",
+ "repos": [
+  {
+   "repo": "openevals",
+   "url": "https://github.com/langchain-ai/openevals",
+   "sha": "9292ad6e9e523e14af32fcccf7f1fe22ccdad33e",
+   "licence": "MIT (LICENSE file at pin 9292ad6e9e52, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T06:35Z",
+    "consent_receipt": "08762b3b0e3c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T06:35Z (receipt 08762b3b0e3c); selected commit 9292ad6e9e52: \"fix(py,js): preserve reordered records in same_elements JSON matching\u2026\". LICENSE file at pin 9292ad6e9e52 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

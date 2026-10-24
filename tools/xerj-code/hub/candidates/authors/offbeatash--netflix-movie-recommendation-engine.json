@@ -9,14 +9,14 @@
    "repo": "Netflix-movie-recommendation-engine",
    "url": "https://github.com/offbeatash/Netflix-movie-recommendation-engine",
    "sha": "434800fc3e06a97ce0369c362dc67a96d508b194",
-   "licence": "MIT (LICENSE file at pin 434800fc3e06, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 434800fc3e06, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T07:35Z",
     "consent_receipt": "2f3a58462f08",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T07:35Z (receipt 2f3a58462f08); selected commit 434800fc3e06: \"feat: add isolated Hugging Face deployment for Netflix recommender\". LICENSE file at pin 434800fc3e06 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T07:35Z (receipt 2f3a58462f08); selected commit 434800fc3e06: \"feat: add isolated Hugging Face deployment for Netflix recommender\". LICENSE file at pin 434800fc3e06 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

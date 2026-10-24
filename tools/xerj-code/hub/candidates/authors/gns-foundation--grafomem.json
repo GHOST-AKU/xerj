@@ -9,14 +9,14 @@
    "repo": "grafomem",
    "url": "https://github.com/GNS-Foundation/grafomem",
    "sha": "02e95546d647ee67b08b49ac53049b64596e009f",
-   "licence": "MIT (LICENSE file at pin 02e95546d647, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 02e95546d647, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T07:08Z",
     "consent_receipt": "ec9b1262ffa9",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T07:08Z (receipt ec9b1262ffa9); selected commit 02e95546d647: \"fix(server): scope store audit to tenant\". LICENSE file at pin 02e95546d647 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T07:08Z (receipt ec9b1262ffa9); selected commit 02e95546d647: \"fix(server): scope store audit to tenant\". LICENSE file at pin 02e95546d647 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

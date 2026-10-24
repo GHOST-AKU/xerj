@@ -9,14 +9,14 @@
    "repo": "nix-config",
    "url": "https://github.com/jakob1379/nix-config",
    "sha": "693a693c4921053db48a5d362c267c380f93c09e",
-   "licence": "Apache-2.0 (LICENSE file at pin 693a693c4921, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 693a693c4921, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T18:16Z",
     "consent_receipt": "bca27febe851",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T18:16Z (receipt bca27febe851); selected commit 693a693c4921: \"fix(gui): gate GUI programs on gui.enable (#139)\". LICENSE file at pin 693a693c4921 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T18:16Z (receipt bca27febe851); selected commit 693a693c4921: \"fix(gui): gate GUI programs on gui.enable (#139)\". LICENSE file at pin 693a693c4921 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

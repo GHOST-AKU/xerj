@@ -1,0 +1,23 @@
+{
+ "corpus": "revanapriyandi--zcode-gateway",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on TypeScript queries this for how revanapriyandi/zcode-gateway implements it: OAuth multi-account ZCode gateway with OpenAI Chat Completions, Responses, Anthropic Messages and tool calling (selected work: src, test, scripts)",
+ "repos": [
+  {
+   "repo": "zcode-gateway",
+   "url": "https://github.com/revanapriyandi/zcode-gateway",
+   "sha": "5859453adc23b5bd820def7ae3836259c83e804e",
+   "licence": "MIT (LICENSE file at pin 5859453adc23, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T14:33Z",
+    "consent_receipt": "8db12fbcea28",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T14:33Z (receipt 8db12fbcea28); selected commit 5859453adc23: \"Add provider quotas, per-account plan routes and live model checks\". LICENSE file at pin 5859453adc23 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

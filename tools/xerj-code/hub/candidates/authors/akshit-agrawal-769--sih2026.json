@@ -9,14 +9,14 @@
    "repo": "SIH2026",
    "url": "https://github.com/Akshit-Agrawal-769/SIH2026",
    "sha": "8cdaf4b9f35ff44b46333574660143fc813cfebd",
-   "licence": "MIT (LICENSE file at pin 8cdaf4b9f35f, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 8cdaf4b9f35f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T18:36Z",
     "consent_receipt": "191c66e40c6c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T18:36Z (receipt 191c66e40c6c); selected commit 8cdaf4b9f35f: \"feat(hazards): Disaster Early Warning layers - monthly MHW index, war\u2026\". LICENSE file at pin 8cdaf4b9f35f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T18:36Z (receipt 191c66e40c6c); selected commit 8cdaf4b9f35f: \"feat(hazards): Disaster Early Warning layers - monthly MHW index, war\u2026\". LICENSE file at pin 8cdaf4b9f35f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

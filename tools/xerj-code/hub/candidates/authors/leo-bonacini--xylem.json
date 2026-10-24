@@ -9,14 +9,14 @@
    "repo": "xylem",
    "url": "https://github.com/leo-bonacini/xylem",
    "sha": "ec40bf4d6613c3ebd18398d3ddf4adcc390158aa",
-   "licence": "MIT (LICENSE file at pin ec40bf4d6613, GitHub licence API 2026-10-23)",
+   "licence": "MIT (LICENSE file at pin ec40bf4d6613, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T20:00Z",
     "consent_receipt": "26fd0548c85f",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T20:00Z (receipt 26fd0548c85f); selected commit ec40bf4d6613: \"Add keyboard, screen reader and touch support\". LICENSE file at pin ec40bf4d6613 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T20:00Z (receipt 26fd0548c85f); selected commit ec40bf4d6613: \"Add keyboard, screen reader and touch support\". LICENSE file at pin ec40bf4d6613 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "hpc-math-core",
    "url": "https://github.com/vdeviatkov/hpc-math-core",
    "sha": "7a9adcee60bf0639410936b3d6ff17c9d65099e5",
-   "licence": "MIT (LICENSE file at pin 7a9adcee60bf, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 7a9adcee60bf, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T03:18Z",
     "consent_receipt": "cb2ad2f53a69",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T03:18Z (receipt cb2ad2f53a69); selected commit 7a9adcee60bf: \"Add SIMD/CUDA studies and retune GEMM kernels\". LICENSE file at pin 7a9adcee60bf detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T03:18Z (receipt cb2ad2f53a69); selected commit 7a9adcee60bf: \"Add SIMD/CUDA studies and retune GEMM kernels\". LICENSE file at pin 7a9adcee60bf detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

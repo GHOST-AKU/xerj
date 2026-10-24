@@ -9,14 +9,14 @@
    "repo": "codeforces-vcon",
    "url": "https://github.com/Agam-Patel-del/codeforces-vcon",
    "sha": "b4c2542d311aa4d7a81bdf4e00d4db6c4aea2a80",
-   "licence": "MIT (LICENSE file at pin b4c2542d311a, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin b4c2542d311a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T17:12Z",
     "consent_receipt": "7cab123560c8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T17:12Z (receipt 7cab123560c8); selected commit b4c2542d311a: \"Implement the username display feature to replace the default enter s\u2026\". LICENSE file at pin b4c2542d311a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T17:12Z (receipt 7cab123560c8); selected commit b4c2542d311a: \"Implement the username display feature to replace the default enter s\u2026\". LICENSE file at pin b4c2542d311a detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

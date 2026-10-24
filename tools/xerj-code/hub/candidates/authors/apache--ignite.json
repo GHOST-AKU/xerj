@@ -3,20 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "DB",
- "domain": "an agent working on distributed-sql-database, iot, osgi queries this for how apache/ignite implements it: Apache Ignite (selected work: modules/binary, modules/core)",
+ "domain": "an agent working on distributed-sql-database, iot, osgi queries this for how apache/ignite implements it: Apache Ignite (selected work: modules/core, modules/control-utility, modules/wire-compatibility-check)",
  "repos": [
   {
    "repo": "ignite",
    "url": "https://github.com/apache/ignite",
-   "sha": "6ffb8718571d0a470eb6b018e441d4925e572ffd",
-   "licence": "Apache-2.0 (LICENSE file at pin 6ffb8718571d, GitHub licence API 2026-10-21)",
+   "sha": "b1e0e790e9f4d6467591281c0be7250aebf2375d",
+   "licence": "Apache-2.0 (LICENSE file at pin b1e0e790e9f4, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
-    "at": "2026-10-07T13:10Z",
-    "consent_receipt": "7df61f266819",
-    "note": "Inclusion consented by the commit author by email at 2026-10-07T13:10Z (receipt 7df61f266819); selected commit 6ffb8718571d: \"IGNITE-25090 Get rid of local BinaryWriterEx methods (#13614)\". LICENSE file at pin 6ffb8718571d detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "at": "2026-10-24T10:33Z",
+    "consent_receipt": "f1b4b1ef3aca",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T10:33Z (receipt f1b4b1ef3aca); selected commit b1e0e790e9f4: \"IGNITE-29050 Introduce snapshot deletion command (#13577)\". LICENSE file at pin b1e0e790e9f4 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "pi-workflow",
    "url": "https://github.com/AgwaB/pi-workflow",
    "sha": "ba49da963eef82ec6c1d3fc15e81e9a5e62a1864",
-   "licence": "MIT (LICENSE file at pin ba49da963eef, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ba49da963eef, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T21:03Z",
     "consent_receipt": "3180ae52e6ab",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T21:03Z (receipt 3180ae52e6ab); selected commit ba49da963eef: \"feat: add opt-in OpenAI fast mode\". LICENSE file at pin ba49da963eef detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T21:03Z (receipt 3180ae52e6ab); selected commit ba49da963eef: \"feat: add opt-in OpenAI fast mode\". LICENSE file at pin ba49da963eef detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

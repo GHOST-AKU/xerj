@@ -9,14 +9,14 @@
    "repo": "AIRegistry",
    "url": "https://github.com/MUdevelops/AIRegistry",
    "sha": "c1f271241d44b7ec352a41d4a4d3b1cec55be158",
-   "licence": "MIT (LICENSE file at pin c1f271241d44, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin c1f271241d44, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T12:44Z",
     "consent_receipt": "433e89ecee27",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T12:44Z (receipt 433e89ecee27); selected commit c1f271241d44: \"Polish AIRegistry for public launch\". LICENSE file at pin c1f271241d44 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T12:44Z (receipt 433e89ecee27); selected commit c1f271241d44: \"Polish AIRegistry for public launch\". LICENSE file at pin c1f271241d44 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

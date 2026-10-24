@@ -9,14 +9,14 @@
    "repo": "SDR_Town",
    "url": "https://github.com/blkph0x/SDR_Town",
    "sha": "5d720166d840abf309a69a8c022fa43e097d004f",
-   "licence": "MIT (LICENSE file at pin 5d720166d840, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 5d720166d840, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T21:06Z",
     "consent_receipt": "9ce959c9deb9",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T21:06Z (receipt 9ce959c9deb9); selected commit 5d720166d840: \"feat(satcom): add receive-range workspace and validated presets (DEC-\u2026\". LICENSE file at pin 5d720166d840 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T21:06Z (receipt 9ce959c9deb9); selected commit 5d720166d840: \"feat(satcom): add receive-range workspace and validated presets (DEC-\u2026\". LICENSE file at pin 5d720166d840 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

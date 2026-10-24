@@ -9,14 +9,14 @@
    "repo": "website-build-kit",
    "url": "https://github.com/nurkamol/website-build-kit",
    "sha": "5dc688f485060fb9058b5bde7f4f036051b69259",
-   "licence": "MIT (LICENSE file at pin 5dc688f48506, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 5dc688f48506, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T05:15Z",
     "consent_receipt": "179707653e89",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T05:15Z (receipt 179707653e89); selected commit 5dc688f48506: \"Read alt text as text\". LICENSE file at pin 5dc688f48506 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T05:15Z (receipt 179707653e89); selected commit 5dc688f48506: \"Read alt text as text\". LICENSE file at pin 5dc688f48506 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

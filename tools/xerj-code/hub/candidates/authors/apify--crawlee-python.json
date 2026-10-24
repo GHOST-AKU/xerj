@@ -9,14 +9,14 @@
    "repo": "crawlee-python",
    "url": "https://github.com/apify/crawlee-python",
    "sha": "a14f745880205f654bf4c30ad999173a07b830ea",
-   "licence": "Apache-2.0 (LICENSE file at pin a14f74588020, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin a14f74588020, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T13:07Z",
     "consent_receipt": "da649b9dc3aa",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T13:07Z (receipt da649b9dc3aa); selected commit a14f74588020: \"perf: Replace `tldextract` with a built-in Public Suffix List lookup \u2026\". LICENSE file at pin a14f74588020 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T13:07Z (receipt da649b9dc3aa); selected commit a14f74588020: \"perf: Replace `tldextract` with a built-in Public Suffix List lookup \u2026\". LICENSE file at pin a14f74588020 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "naw103--foremerge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, cli, coding-agents queries this for how naw103/foremerge implements it: Catch intent conflicts before code conflicts. The open-source coordination protocol for coding agents, built above Git (selected work: src, tests)",
+ "repos": [
+  {
+   "repo": "foremerge",
+   "url": "https://github.com/naw103/foremerge",
+   "sha": "3971c9cf2aac9774470d9e4237db626389bb9f70",
+   "licence": "Apache-2.0 (LICENSE file at pin 3971c9cf2aac, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T05:19Z",
+    "consent_receipt": "102627d53140",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T05:19Z (receipt 102627d53140); selected commit 3971c9cf2aac: \"Fix the Cursor review findings on operator-gated migration\". LICENSE file at pin 3971c9cf2aac detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

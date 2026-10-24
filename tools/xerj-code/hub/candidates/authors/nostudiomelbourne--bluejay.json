@@ -9,14 +9,14 @@
    "repo": "bluejay",
    "url": "https://github.com/nostudioMelbourne/bluejay",
    "sha": "73ab5519c169a15bbe568ce2f628a01ed50ef678",
-   "licence": "MIT (LICENSE file at pin 73ab5519c169, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 73ab5519c169, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T01:05Z",
     "consent_receipt": "85a936b8398c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T01:05Z (receipt 85a936b8398c); selected commit 73ab5519c169: \"refactor: extract scan option parsing\". LICENSE file at pin 73ab5519c169 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T01:05Z (receipt 85a936b8398c); selected commit 73ab5519c169: \"refactor: extract scan option parsing\". LICENSE file at pin 73ab5519c169 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

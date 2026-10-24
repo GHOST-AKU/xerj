@@ -9,14 +9,14 @@
    "repo": "ravyn",
    "url": "https://github.com/dymmond/ravyn",
    "sha": "77c3ada0d13f7adce43667235eeffdb0575f5f10",
-   "licence": "BSD-3-Clause (LICENSE file at pin 77c3ada0d13f, GitHub licence API 2026-10-21)",
+   "licence": "BSD-3-Clause (LICENSE file at pin 77c3ada0d13f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "BSD-3-Clause",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T08:41Z",
     "consent_receipt": "31d7bff1c268",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T08:41Z (receipt 31d7bff1c268); selected commit 77c3ada0d13f: \"fix: validate JWT audiences and preserve legacy async tests (#741)\". LICENSE file at pin 77c3ada0d13f detected as BSD-3-Clause by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T08:41Z (receipt 31d7bff1c268); selected commit 77c3ada0d13f: \"fix: validate JWT audiences and preserve legacy async tests (#741)\". LICENSE file at pin 77c3ada0d13f detected as BSD-3-Clause by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

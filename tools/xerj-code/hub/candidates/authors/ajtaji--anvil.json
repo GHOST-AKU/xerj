@@ -9,14 +9,14 @@
    "repo": "Anvil",
    "url": "https://github.com/ajtaji/Anvil",
    "sha": "6540e4358169b333741ec0c8eba06796e7529cd1",
-   "licence": "MIT (LICENSE file at pin 6540e4358169, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 6540e4358169, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T18:35Z",
     "consent_receipt": "84ac906dd547",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T18:35Z (receipt 84ac906dd547); selected commit 6540e4358169: \"TLS reaches P-384/P-521 and SHA-384/SHA-512 chains: sha512.pbi, ecp.p\u2026\". LICENSE file at pin 6540e4358169 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T18:35Z (receipt 84ac906dd547); selected commit 6540e4358169: \"TLS reaches P-384/P-521 and SHA-384/SHA-512 chains: sha512.pbi, ecp.p\u2026\". LICENSE file at pin 6540e4358169 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

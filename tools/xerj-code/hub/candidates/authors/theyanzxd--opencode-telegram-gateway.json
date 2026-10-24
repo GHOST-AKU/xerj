@@ -9,14 +9,14 @@
    "repo": "opencode-telegram-gateway",
    "url": "https://github.com/TheyanzXD/opencode-telegram-gateway",
    "sha": "a588fbe93a3431eb9572ba576288ff3ca738a860",
-   "licence": "MIT (LICENSE file at pin a588fbe93a34, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin a588fbe93a34, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T09:31Z",
     "consent_receipt": "93a68343a7d0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:31Z (receipt 93a68343a7d0); selected commit a588fbe93a34: \"Upload via uploadprogit 2026-10-02 14:21:13 UTC\". LICENSE file at pin a588fbe93a34 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:31Z (receipt 93a68343a7d0); selected commit a588fbe93a34: \"Upload via uploadprogit 2026-10-02 14:21:13 UTC\". LICENSE file at pin a588fbe93a34 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

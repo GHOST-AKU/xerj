@@ -1,0 +1,23 @@
+{
+ "corpus": "zhoorta--ferrite",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on docker, file-manager, file-sharing queries this for how zhoorta/ferrite implements it: Ferrite by StackCare: a small self-hosted file server. Resumable uploads, share links, S3/SFTP disks, 13 themes. Laravel + Livewire (selected work: tests, app/Http, database)",
+ "repos": [
+  {
+   "repo": "ferrite",
+   "url": "https://github.com/zhoorta/ferrite",
+   "sha": "8156aab402993ba0243d75a13c486d7943e2b8f6",
+   "licence": "AGPL-3.0 (LICENSE file at pin 8156aab40299, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T13:05Z",
+    "consent_receipt": "56f12ec602ef",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T13:05Z (receipt 56f12ec602ef); selected commit 8156aab40299: \"Add chunked uploads for write tokens that never replace or rename\". LICENSE file at pin 8156aab40299 detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

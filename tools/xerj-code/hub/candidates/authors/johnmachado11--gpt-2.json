@@ -9,14 +9,14 @@
    "repo": "GPT-2",
    "url": "https://github.com/JohnMachado11/GPT-2",
    "sha": "69ccfce6fdd54e66bc5e85283cc6a8c0a71176e4",
-   "licence": "MIT (LICENSE file at pin 69ccfce6fdd5, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 69ccfce6fdd5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T21:57Z",
     "consent_receipt": "f396620f4b81",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T21:57Z (receipt f396620f4b81); selected commit 69ccfce6fdd5: \"Save each run to its own folder, and resume an interrupted run\". LICENSE file at pin 69ccfce6fdd5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T21:57Z (receipt f396620f4b81); selected commit 69ccfce6fdd5: \"Save each run to its own folder, and resume an interrupted run\". LICENSE file at pin 69ccfce6fdd5 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

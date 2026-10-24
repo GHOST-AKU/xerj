@@ -9,14 +9,14 @@
    "repo": "tegaki",
    "url": "https://github.com/gkurt/tegaki",
    "sha": "02d7500d2296da4500e3908047f743a660d06325",
-   "licence": "MIT (LICENSE file at pin 02d7500d2296, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 02d7500d2296, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T12:14Z",
     "consent_receipt": "abab3d24c62e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T12:14Z (receipt abab3d24c62e); selected commit 02d7500d2296: \"feat(examples): score the launch video\". LICENSE file at pin 02d7500d2296 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T12:14Z (receipt abab3d24c62e); selected commit 02d7500d2296: \"feat(examples): score the launch video\". LICENSE file at pin 02d7500d2296 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

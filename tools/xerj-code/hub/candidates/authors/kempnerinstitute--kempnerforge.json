@@ -9,14 +9,14 @@
    "repo": "KempnerForge",
    "url": "https://github.com/KempnerInstitute/KempnerForge",
    "sha": "55206f217aad8de0656c86e81d3844670a1ca37a",
-   "licence": "MIT (LICENSE file at pin 55206f217aad, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 55206f217aad, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-09T21:10Z",
     "consent_receipt": "2ed7d18a9d02",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T21:10Z (receipt 2ed7d18a9d02); selected commit 55206f217aad: \"Add adapter.pre_norm: optional norm ahead of the mlp_2layer projection\". LICENSE file at pin 55206f217aad detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T21:10Z (receipt 2ed7d18a9d02); selected commit 55206f217aad: \"Add adapter.pre_norm: optional norm ahead of the mlp_2layer projection\". LICENSE file at pin 55206f217aad detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

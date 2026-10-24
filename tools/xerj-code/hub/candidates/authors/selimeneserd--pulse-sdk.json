@@ -1,0 +1,23 @@
+{
+ "corpus": "selimeneserd--pulse-sdk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on analytics, mcp, observability queries this for how selimeneserd/pulse-sdk implements it: MIT TypeScript SDK for content-free MCP analytics and monitoring. / \u0130\u00e7erik toplamayan MCP analiti\u011fi ve izleme i\u00e7in MIT TypeScript SDK (selected work: packages/core, contracts, tests)",
+ "repos": [
+  {
+   "repo": "pulse-sdk",
+   "url": "https://github.com/selimeneserd/pulse-sdk",
+   "sha": "3684011d71e93021a29e86d500aa428afcfb5ae2",
+   "licence": "MIT (LICENSE file at pin 3684011d71e9, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T08:58Z",
+    "consent_receipt": "5535c2a04989",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T08:58Z (receipt 5535c2a04989); selected commit 3684011d71e9: \"feat: record explicit model token usage independently\". LICENSE file at pin 3684011d71e9 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

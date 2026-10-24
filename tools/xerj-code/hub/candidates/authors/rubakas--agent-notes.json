@@ -9,14 +9,14 @@
    "repo": "agent-notes",
    "url": "https://github.com/rubakas/agent-notes",
    "sha": "f990b3a1b08eb48fb3bc22e9ae84cc4426123c6a",
-   "licence": "MIT (LICENSE file at pin f990b3a1b08e, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin f990b3a1b08e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T12:07Z",
     "consent_receipt": "806188360ff6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T12:07Z (receipt 806188360ff6); selected commit f990b3a1b08e: \"feat(install): reinstall renders fresh, counts removals, names the fix\". LICENSE file at pin f990b3a1b08e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T12:07Z (receipt 806188360ff6); selected commit f990b3a1b08e: \"feat(install): reinstall renders fresh, counts removals, names the fix\". LICENSE file at pin f990b3a1b08e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

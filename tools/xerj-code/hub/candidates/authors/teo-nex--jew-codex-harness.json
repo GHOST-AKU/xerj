@@ -9,14 +9,14 @@
    "repo": "jew-codex-harness",
    "url": "https://github.com/teo-nex/jew-codex-harness",
    "sha": "4c52c296c31ed5f2caf9fc9b15151c1b47271d3f",
-   "licence": "MIT (LICENSE file at pin 4c52c296c31e, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 4c52c296c31e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T00:05Z",
     "consent_receipt": "9022417e6d07",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T00:05Z (receipt 9022417e6d07); selected commit 4c52c296c31e: \"feat: enable guarded Jev coding workers on all platforms (#6)\". LICENSE file at pin 4c52c296c31e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T00:05Z (receipt 9022417e6d07); selected commit 4c52c296c31e: \"feat: enable guarded Jev coding workers on all platforms (#6)\". LICENSE file at pin 4c52c296c31e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

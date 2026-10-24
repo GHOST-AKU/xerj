@@ -9,14 +9,14 @@
    "repo": "CQUT-Helper",
    "url": "https://github.com/lhgr/CQUT-Helper",
    "sha": "eb12edb04949d88ada38a1f0dae1b842318f7a57",
-   "licence": "Apache-2.0 (LICENSE file at pin eb12edb04949, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin eb12edb04949, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T18:12Z",
     "consent_receipt": "ee5b89ade77d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T18:12Z (receipt ee5b89ade77d); selected commit eb12edb04949: \"feat(notification): \u5b8c\u5584\u8bfe\u7a0b\u63d0\u9192\u8bbe\u7f6e\u4e0e\u4e0a\u8bfe\u52ff\u6270\u9759\u97f3\u529f\u80fd\". LICENSE file at pin eb12edb04949 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T18:12Z (receipt ee5b89ade77d); selected commit eb12edb04949: \"feat(notification): \u5b8c\u5584\u8bfe\u7a0b\u63d0\u9192\u8bbe\u7f6e\u4e0e\u4e0a\u8bfe\u52ff\u6270\u9759\u97f3\u529f\u80fd\". LICENSE file at pin eb12edb04949 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

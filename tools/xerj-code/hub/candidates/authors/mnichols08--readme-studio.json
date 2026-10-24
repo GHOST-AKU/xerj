@@ -9,14 +9,14 @@
    "repo": "readme-studio",
    "url": "https://github.com/mnichols08/readme-studio",
    "sha": "17f163f2835af8b320088d0fb82fbf1ad395bd23",
-   "licence": "MIT (LICENSE file at pin 17f163f2835a, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 17f163f2835a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T06:32Z",
     "consent_receipt": "08a4301319cf",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:32Z (receipt 08a4301319cf); selected commit 17f163f2835a: \"fix: address review findings for v1.6.0\". LICENSE file at pin 17f163f2835a detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:32Z (receipt 08a4301319cf); selected commit 17f163f2835a: \"fix: address review findings for v1.6.0\". LICENSE file at pin 17f163f2835a detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

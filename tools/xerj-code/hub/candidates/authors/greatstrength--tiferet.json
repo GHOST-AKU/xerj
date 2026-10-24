@@ -9,14 +9,14 @@
    "repo": "tiferet",
    "url": "https://github.com/greatstrength/tiferet",
    "sha": "3fa3c58254dd7d4fc6b02cba4f74ddb56d7ce6c5",
-   "licence": "BSD-3-Clause (LICENSE file at pin 3fa3c58254dd, GitHub licence API 2026-10-21)",
+   "licence": "BSD-3-Clause (LICENSE file at pin 3fa3c58254dd, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "BSD-3-Clause",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T20:33Z",
     "consent_receipt": "66cc2c1759d3",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:33Z (receipt 66cc2c1759d3); selected commit 3fa3c58254dd: \"Super-TRD - Admin Catalogs (#1188) (#1227)\". LICENSE file at pin 3fa3c58254dd detected as BSD-3-Clause by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:33Z (receipt 66cc2c1759d3); selected commit 3fa3c58254dd: \"Super-TRD - Admin Catalogs (#1188) (#1227)\". LICENSE file at pin 3fa3c58254dd detected as BSD-3-Clause by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

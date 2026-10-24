@@ -9,14 +9,14 @@
    "repo": "PastePoint",
    "url": "https://github.com/SloMR/PastePoint",
    "sha": "44035906bb8b69ec93f8ff6975c324e6c9a75a81",
-   "licence": "GPL-3.0 (LICENSE file at pin 44035906bb8b, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 44035906bb8b, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-12T21:43Z",
     "consent_receipt": "08eaf650e943",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T21:43Z (receipt 08eaf650e943); selected commit 44035906bb8b: \"iOS: Split FileTransferService file\". LICENSE file at pin 44035906bb8b detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T21:43Z (receipt 08eaf650e943); selected commit 44035906bb8b: \"iOS: Split FileTransferService file\". LICENSE file at pin 44035906bb8b detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

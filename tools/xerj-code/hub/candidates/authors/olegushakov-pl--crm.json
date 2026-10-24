@@ -9,14 +9,14 @@
    "repo": "CRM",
    "url": "https://github.com/OlegUshakov-pl/CRM",
    "sha": "037df4eca603552235991c3cc7b3b404c2c62b55",
-   "licence": "MIT (LICENSE file at pin 037df4eca603, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 037df4eca603, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T04:50Z",
     "consent_receipt": "f0a7159e7ded",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T04:50Z (receipt f0a7159e7ded); selected commit 037df4eca603: \"Fix authenticated SSRF and file:// read in URL import; guard URL fetches\". LICENSE file at pin 037df4eca603 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T04:50Z (receipt f0a7159e7ded); selected commit 037df4eca603: \"Fix authenticated SSRF and file:// read in URL import; guard URL fetches\". LICENSE file at pin 037df4eca603 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

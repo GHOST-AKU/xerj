@@ -9,14 +9,14 @@
    "repo": "frontend_skill_up",
    "url": "https://github.com/prajwalbhatia/frontend_skill_up",
    "sha": "99a08c04c2d7a969061cb4f913705f079aaa9414",
-   "licence": "MIT (LICENSE file at pin 99a08c04c2d7, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 99a08c04c2d7, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T04:59Z",
     "consent_receipt": "65a563c2b274",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T04:59Z (receipt 65a563c2b274); selected commit 99a08c04c2d7: \"Add product details exercise with TTL cache\". LICENSE file at pin 99a08c04c2d7 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T04:59Z (receipt 65a563c2b274); selected commit 99a08c04c2d7: \"Add product details exercise with TTL cache\". LICENSE file at pin 99a08c04c2d7 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

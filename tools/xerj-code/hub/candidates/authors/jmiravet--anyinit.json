@@ -9,14 +9,14 @@
    "repo": "AnyInit",
    "url": "https://github.com/jmiravet/AnyInit",
    "sha": "d42b20ef172afee589cb086166bc5f04f55dfabb",
-   "licence": "MIT (LICENSE file at pin d42b20ef172a, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin d42b20ef172a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T03:51Z",
     "consent_receipt": "bacf303f9db6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T03:51Z (receipt bacf303f9db6); selected commit d42b20ef172a: \"Tied embeddings (#1)\". LICENSE file at pin d42b20ef172a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T03:51Z (receipt bacf303f9db6); selected commit d42b20ef172a: \"Tied embeddings (#1)\". LICENSE file at pin d42b20ef172a detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

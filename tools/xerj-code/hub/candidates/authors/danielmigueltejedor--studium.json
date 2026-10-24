@@ -9,14 +9,14 @@
    "repo": "studium",
    "url": "https://github.com/danielmigueltejedor/studium",
    "sha": "8cc9b00718a1903f56fcf75bf09262a65548596b",
-   "licence": "Apache-2.0 (LICENSE file at pin 8cc9b00718a1, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 8cc9b00718a1, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T20:42Z",
     "consent_receipt": "05ca2904806c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T20:42Z (receipt 05ca2904806c); selected commit 8cc9b00718a1: \"feat(computer-science): preserve literals and add scoped program veri\u2026\". LICENSE file at pin 8cc9b00718a1 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T20:42Z (receipt 05ca2904806c); selected commit 8cc9b00718a1: \"feat(computer-science): preserve literals and add scoped program veri\u2026\". LICENSE file at pin 8cc9b00718a1 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

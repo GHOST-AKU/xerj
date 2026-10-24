@@ -9,14 +9,14 @@
    "repo": "openTPU",
    "url": "https://github.com/FeSens/openTPU",
    "sha": "987ebe8de55e56be08cf2d5f976b7bc76ef8dea7",
-   "licence": "Apache-2.0 (LICENSE file at pin 987ebe8de55e, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 987ebe8de55e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T20:41Z",
     "consent_receipt": "5e6bd65a6a9b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T20:41Z (receipt 5e6bd65a6a9b); selected commit 987ebe8de55e: \"Expert pools get a key, <pool>.key (moe.pool_key: the quantizer's cod\u2026\". LICENSE file at pin 987ebe8de55e detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T20:41Z (receipt 5e6bd65a6a9b); selected commit 987ebe8de55e: \"Expert pools get a key, <pool>.key (moe.pool_key: the quantizer's cod\u2026\". LICENSE file at pin 987ebe8de55e detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

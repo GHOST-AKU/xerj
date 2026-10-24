@@ -9,14 +9,14 @@
    "repo": "BuildIt",
    "url": "https://github.com/nagoloumdaniel/BuildIt",
    "sha": "8b0993baf8ae20f5e43fb94da8bf6ec14c13c5f9",
-   "licence": "MIT (LICENSE file at pin 8b0993baf8ae, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 8b0993baf8ae, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T07:34Z",
     "consent_receipt": "c2fbd7c068bb",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:34Z (receipt c2fbd7c068bb); selected commit 8b0993baf8ae: \"fix(web): mise a niveau qualite (popup clavier, hosting cumulatif, co\u2026\". LICENSE file at pin 8b0993baf8ae detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:34Z (receipt c2fbd7c068bb); selected commit 8b0993baf8ae: \"fix(web): mise a niveau qualite (popup clavier, hosting cumulatif, co\u2026\". LICENSE file at pin 8b0993baf8ae detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

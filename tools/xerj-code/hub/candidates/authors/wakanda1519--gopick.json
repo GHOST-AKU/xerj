@@ -9,14 +9,14 @@
    "repo": "GoPick",
    "url": "https://github.com/Wakanda1519/GoPick",
    "sha": "320378c90bb45624091a69ca5fca59226d36d32e",
-   "licence": "MIT (LICENSE file at pin 320378c90bb4, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 320378c90bb4, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-21T17:37Z",
     "consent_receipt": "9a687b15a7d3",
-    "note": "Inclusion consented by the commit author by email at 2026-10-21T17:37Z (receipt 9a687b15a7d3); selected commit 320378c90bb4: \"Add files via upload\". LICENSE file at pin 320378c90bb4 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T17:37Z (receipt 9a687b15a7d3); selected commit 320378c90bb4: \"Add files via upload\". LICENSE file at pin 320378c90bb4 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

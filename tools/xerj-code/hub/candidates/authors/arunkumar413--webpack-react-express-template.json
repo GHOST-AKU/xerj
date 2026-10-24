@@ -9,14 +9,14 @@
    "repo": "webpack-react-express-template",
    "url": "https://github.com/arunkumar413/webpack-react-express-template",
    "sha": "ac28c1b97e4205c897caf0df3e49506dff7fb7ad",
-   "licence": "MIT (LICENSE file at pin ac28c1b97e42, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ac28c1b97e42, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T07:56Z",
     "consent_receipt": "9e10b39acc31",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:56Z (receipt 9e10b39acc31); selected commit ac28c1b97e42: \"Add package-lock.json, update package.json scripts, and enhance READM\u2026\". LICENSE file at pin ac28c1b97e42 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:56Z (receipt 9e10b39acc31); selected commit ac28c1b97e42: \"Add package-lock.json, update package.json scripts, and enhance READM\u2026\". LICENSE file at pin ac28c1b97e42 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

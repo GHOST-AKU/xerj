@@ -9,14 +9,14 @@
    "repo": "vibewatt",
    "url": "https://github.com/MMALI3287/vibewatt",
    "sha": "ee4ce7171aa68ad8fd68b85b13278c630d65eb06",
-   "licence": "MIT (LICENSE file at pin ee4ce7171aa6, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ee4ce7171aa6, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T09:56Z",
     "consent_receipt": "16a687ddec1a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:56Z (receipt 16a687ddec1a); selected commit ee4ce7171aa6: \"fix(cli): handle closed stdout pipes quietly (#136)\". LICENSE file at pin ee4ce7171aa6 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:56Z (receipt 16a687ddec1a); selected commit ee4ce7171aa6: \"fix(cli): handle closed stdout pipes quietly (#136)\". LICENSE file at pin ee4ce7171aa6 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

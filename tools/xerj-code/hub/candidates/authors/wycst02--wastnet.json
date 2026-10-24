@@ -9,14 +9,14 @@
    "repo": "wastnet",
    "url": "https://github.com/wycst02/wastnet",
    "sha": "b0eadac7b7d55ed83c247626aad31a78aeb13cfb",
-   "licence": "Apache-2.0 (LICENSE file at pin b0eadac7b7d5, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin b0eadac7b7d5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T11:00Z",
     "consent_receipt": "dca71f3d5fb4",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T11:00Z (receipt dca71f3d5fb4); selected commit b0eadac7b7d5: \"refactor(mvc): \u62c6\u5206 wastnet-mvc \u6a21\u5757\u5e76\u589e\u5f3a\u7ed3\u679c\u5904\u7406\". LICENSE file at pin b0eadac7b7d5 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T11:00Z (receipt dca71f3d5fb4); selected commit b0eadac7b7d5: \"refactor(mvc): \u62c6\u5206 wastnet-mvc \u6a21\u5757\u5e76\u589e\u5f3a\u7ed3\u679c\u5904\u7406\". LICENSE file at pin b0eadac7b7d5 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

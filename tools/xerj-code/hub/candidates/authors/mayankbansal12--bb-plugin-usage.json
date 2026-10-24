@@ -9,14 +9,14 @@
    "repo": "bb-plugin-usage",
    "url": "https://github.com/MayankBansal12/bb-plugin-usage",
    "sha": "2e30fb62bd4a618a13ae8fa24e7b08ffb76ea885",
-   "licence": "MIT (LICENSE file at pin 2e30fb62bd4a, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 2e30fb62bd4a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T05:09Z",
     "consent_receipt": "f6ddf216d30a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T05:09Z (receipt f6ddf216d30a); selected commit 2e30fb62bd4a: \"fix: collect usage on Windows and bump to 0.3.21 (#91)\". LICENSE file at pin 2e30fb62bd4a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T05:09Z (receipt f6ddf216d30a); selected commit 2e30fb62bd4a: \"fix: collect usage on Windows and bump to 0.3.21 (#91)\". LICENSE file at pin 2e30fb62bd4a detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

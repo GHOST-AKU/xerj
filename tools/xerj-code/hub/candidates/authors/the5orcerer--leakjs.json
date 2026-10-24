@@ -9,14 +9,14 @@
    "repo": "LeakJS",
    "url": "https://github.com/the5orcerer/LeakJS",
    "sha": "77ef8cf950827d448f6921dbe65ee425cfbb0ced",
-   "licence": "GPL-3.0 (LICENSE file at pin 77ef8cf95082, GitHub licence API 2026-10-22)",
+   "licence": "GPL-3.0 (LICENSE file at pin 77ef8cf95082, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-21T21:01Z",
     "consent_receipt": "699c3000f4ef",
-    "note": "Inclusion consented by the commit author by email at 2026-10-21T21:01Z (receipt 699c3000f4ef); selected commit 77ef8cf95082: \"feat: New features introduced in newer version\". LICENSE file at pin 77ef8cf95082 detected as GPL-3.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T21:01Z (receipt 699c3000f4ef); selected commit 77ef8cf95082: \"feat: New features introduced in newer version\". LICENSE file at pin 77ef8cf95082 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

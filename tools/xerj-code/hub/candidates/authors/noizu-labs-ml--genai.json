@@ -9,14 +9,14 @@
    "repo": "genai",
    "url": "https://github.com/noizu-labs-ml/genai",
    "sha": "19873b07fd0ffedc928e9b6d8ce741f430770493",
-   "licence": "MIT (LICENSE file at pin 19873b07fd0f, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 19873b07fd0f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T17:53Z",
     "consent_receipt": "0dd36a127de8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T17:53Z (receipt 0dd36a127de8); selected commit 19873b07fd0f: \"feat(caching): Anthropic cache_control support and cache-usage parsin\u2026\". LICENSE file at pin 19873b07fd0f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T17:53Z (receipt 0dd36a127de8); selected commit 19873b07fd0f: \"feat(caching): Anthropic cache_control support and cache-usage parsin\u2026\". LICENSE file at pin 19873b07fd0f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

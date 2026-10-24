@@ -9,14 +9,14 @@
    "repo": "pooled",
    "url": "https://github.com/Nehanth/pooled",
    "sha": "2b39a861cbaf12c43eba7cf10914b3297ed6447d",
-   "licence": "MIT (LICENSE file at pin 2b39a861cbaf, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 2b39a861cbaf, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T23:01Z",
     "consent_receipt": "766754185234",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T23:01Z (receipt 766754185234); selected commit 2b39a861cbaf: \"Make model-loader configuration and draft pacing explicit (#329)\". LICENSE file at pin 2b39a861cbaf detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T23:01Z (receipt 766754185234); selected commit 2b39a861cbaf: \"Make model-loader configuration and draft pacing explicit (#329)\". LICENSE file at pin 2b39a861cbaf detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

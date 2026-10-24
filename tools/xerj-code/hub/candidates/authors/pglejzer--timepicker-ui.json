@@ -9,14 +9,14 @@
    "repo": "timepicker-ui",
    "url": "https://github.com/pglejzer/timepicker-ui",
    "sha": "b4d0b82a21d29fa93153b5fbed316e1dbaa4a862",
-   "licence": "MIT (LICENSE file at pin b4d0b82a21d2, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin b4d0b82a21d2, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T20:14Z",
     "consent_receipt": "16ae37141772",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:14Z (receipt 16ae37141772); selected commit b4d0b82a21d2: \"upgrade to 4.5.0 - docs site demo mcp\". LICENSE file at pin b4d0b82a21d2 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:14Z (receipt 16ae37141772); selected commit b4d0b82a21d2: \"upgrade to 4.5.0 - docs site demo mcp\". LICENSE file at pin b4d0b82a21d2 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

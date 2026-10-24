@@ -9,14 +9,14 @@
    "repo": "reaction-field",
    "url": "https://github.com/9947447-alt/reaction-field",
    "sha": "0956f19aefdab9819be0dc35dacaaa21de87a641",
-   "licence": "Apache-2.0 (LICENSE file at pin 0956f19aefda, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 0956f19aefda, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-04T06:11Z",
     "consent_receipt": "3c656fb40068",
-    "note": "Inclusion consented by the commit author by email at 2026-10-04T06:11Z (receipt 3c656fb40068); selected commit 0956f19aefda: \"feat(b2r1): complete redox whitelist sections 3.8-3.9 (#72)\". LICENSE file at pin 0956f19aefda detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-04T06:11Z (receipt 3c656fb40068); selected commit 0956f19aefda: \"feat(b2r1): complete redox whitelist sections 3.8-3.9 (#72)\". LICENSE file at pin 0956f19aefda detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

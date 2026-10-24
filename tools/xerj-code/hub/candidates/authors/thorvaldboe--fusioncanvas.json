@@ -9,14 +9,14 @@
    "repo": "FusionCanvas",
    "url": "https://github.com/ThorvaldBoe/FusionCanvas",
    "sha": "6fbba409518cda47d32ac97bb8f9e6a3c09be88a",
-   "licence": "MIT (LICENSE file at pin 6fbba409518c, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 6fbba409518c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T06:30Z",
     "consent_receipt": "efff83e421c3",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:30Z (receipt efff83e421c3); selected commit 6fbba409518c: \"Add release tracks and provenance verification\". LICENSE file at pin 6fbba409518c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:30Z (receipt efff83e421c3); selected commit 6fbba409518c: \"Add release tracks and provenance verification\". LICENSE file at pin 6fbba409518c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "UNSeQueL",
    "url": "https://github.com/absterjr/UNSeQueL",
    "sha": "6849fb141f87019211c0c792408772a044f64b37",
-   "licence": "MIT (LICENSE file at pin 6849fb141f87, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 6849fb141f87, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T07:10Z",
     "consent_receipt": "c24d7d9fc9a0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T07:10Z (receipt c24d7d9fc9a0); selected commit 6849fb141f87: \"feat(python): in-memory execution of canonical .unsequel programs, pa\u2026\". LICENSE file at pin 6849fb141f87 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T07:10Z (receipt c24d7d9fc9a0); selected commit 6849fb141f87: \"feat(python): in-memory execution of canonical .unsequel programs, pa\u2026\". LICENSE file at pin 6849fb141f87 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

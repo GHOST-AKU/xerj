@@ -9,14 +9,14 @@
    "repo": "RepoGraph-AI",
    "url": "https://github.com/Kaushalendra-Marcus/RepoGraph-AI",
    "sha": "606d8d4991d498acc7b3085f5d0c64ec708793a7",
-   "licence": "MIT (LICENSE file at pin 606d8d4991d4, GitHub licence API 2026-10-23)",
+   "licence": "MIT (LICENSE file at pin 606d8d4991d4, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T11:46Z",
     "consent_receipt": "c430d6b8feef",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T11:46Z (receipt c430d6b8feef); selected commit 606d8d4991d4: \"update: llm model chat section fixed\". LICENSE file at pin 606d8d4991d4 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T11:46Z (receipt c430d6b8feef); selected commit 606d8d4991d4: \"update: llm model chat section fixed\". LICENSE file at pin 606d8d4991d4 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

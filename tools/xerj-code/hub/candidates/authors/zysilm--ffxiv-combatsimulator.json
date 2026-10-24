@@ -1,0 +1,23 @@
+{
+ "corpus": "zysilm--ffxiv-combatsimulator",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on dalamud-plugin, final-fantasy-xiv, ragdoll queries this for how zysilm/FFXIV-CombatSimulator implements it: All in one virtual battle plugin for FFXIV, including ragdoll physics (selected work: CombatSimulator, Tests)",
+ "repos": [
+  {
+   "repo": "FFXIV-CombatSimulator",
+   "url": "https://github.com/zysilm/FFXIV-CombatSimulator",
+   "sha": "748a59db5fec1040c29a79315e323d2bf54b22fa",
+   "licence": "MPL-2.0 (LICENSE file at pin 748a59db5fec, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T07:28Z",
+    "consent_receipt": "4c3c38b02951",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T07:28Z (receipt 4c3c38b02951); selected commit 748a59db5fec: \"Fix virtual enemy names using explicit appearance mappings\". LICENSE file at pin 748a59db5fec detected as MPL-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

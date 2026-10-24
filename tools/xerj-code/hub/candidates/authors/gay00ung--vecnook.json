@@ -9,14 +9,14 @@
    "repo": "vecnook",
    "url": "https://github.com/gay00ung/vecnook",
    "sha": "7d031b504a1d4a71814334caa0e09df4f01b508f",
-   "licence": "MIT (LICENSE file at pin 7d031b504a1d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 7d031b504a1d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T02:38Z",
     "consent_receipt": "2935a68fac38",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T02:38Z (receipt 2935a68fac38); selected commit 7d031b504a1d: \"feat: \ud558\uc774\ube0c\ub9ac\ub4dc \ubb38\uc11c \uac80\uc0c9\uacfc 1.1 \ucd9c\uc2dc \ud6c4\ubcf4 \ucd94\uac00 \u2728\". LICENSE file at pin 7d031b504a1d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T02:38Z (receipt 2935a68fac38); selected commit 7d031b504a1d: \"feat: \ud558\uc774\ube0c\ub9ac\ub4dc \ubb38\uc11c \uac80\uc0c9\uacfc 1.1 \ucd9c\uc2dc \ud6c4\ubcf4 \ucd94\uac00 \u2728\". LICENSE file at pin 7d031b504a1d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

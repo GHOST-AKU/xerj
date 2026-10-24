@@ -9,14 +9,14 @@
    "repo": "openwar3",
    "url": "https://github.com/elevchyt/openwar3",
    "sha": "ef16230004f7068dd6653857729bfe0b0a01e53c",
-   "licence": "MIT (LICENSE file at pin ef16230004f7, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ef16230004f7, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T20:19Z",
     "consent_receipt": "e39b8eeda1d8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T20:19Z (receipt e39b8eeda1d8); selected commit ef16230004f7: \"A builder that stops short is sent again, and a beaten Easy army come\u2026\". LICENSE file at pin ef16230004f7 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T20:19Z (receipt e39b8eeda1d8); selected commit ef16230004f7: \"A builder that stops short is sent again, and a beaten Easy army come\u2026\". LICENSE file at pin ef16230004f7 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

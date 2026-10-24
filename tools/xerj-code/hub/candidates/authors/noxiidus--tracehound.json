@@ -9,14 +9,14 @@
    "repo": "tracehound",
    "url": "https://github.com/Noxiidus/tracehound",
    "sha": "ed2afaae7a027af594392ec2f95c850e3b39d6d7",
-   "licence": "MIT (LICENSE file at pin ed2afaae7a02, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin ed2afaae7a02, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T05:56Z",
     "consent_receipt": "2c5d4ee52c45",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T05:56Z (receipt 2c5d4ee52c45); selected commit ed2afaae7a02: \"Add incremental scanning (0.9.2)\". LICENSE file at pin ed2afaae7a02 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T05:56Z (receipt 2c5d4ee52c45); selected commit ed2afaae7a02: \"Add incremental scanning (0.9.2)\". LICENSE file at pin ed2afaae7a02 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

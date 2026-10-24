@@ -9,14 +9,14 @@
    "repo": "Yandex-Music-Ajazz-Plugin",
    "url": "https://github.com/whxtelxs/Yandex-Music-Ajazz-Plugin",
    "sha": "de6f8153efb4532106d496c2c9565175807747dd",
-   "licence": "ISC (LICENSE file at pin de6f8153efb4, GitHub licence API 2026-10-21)",
+   "licence": "ISC (LICENSE file at pin de6f8153efb4, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "ISC",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T06:46Z",
     "consent_receipt": "924b5f5342e5",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T06:46Z (receipt 924b5f5342e5); selected commit de6f8153efb4: \"update v2.1.0\". LICENSE file at pin de6f8153efb4 detected as ISC by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T06:46Z (receipt 924b5f5342e5); selected commit de6f8153efb4: \"update v2.1.0\". LICENSE file at pin de6f8153efb4 detected as ISC by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

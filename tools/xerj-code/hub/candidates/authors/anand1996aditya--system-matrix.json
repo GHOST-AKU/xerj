@@ -1,0 +1,23 @@
+{
+ "corpus": "anand1996aditya--system-matrix",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on Shell queries this for how anand1996aditya/system-matrix implements it: A powerful macOS monitoring dashboard with real-time metrics, smart alerts, and automated maintenance (selected work: scripts, tests, the project root)",
+ "repos": [
+  {
+   "repo": "system-matrix",
+   "url": "https://github.com/anand1996aditya/system-matrix",
+   "sha": "3fedbf7bce6887b7a4cf4709b21c06e09a0ec6fa",
+   "licence": "MIT (LICENSE file at pin 3fedbf7bce68, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T07:40Z",
+    "consent_receipt": "603d2232e1c4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T07:40Z (receipt 603d2232e1c4); selected commit 3fedbf7bce68: \"Harden dashboard auth, file paths and network exposure\". LICENSE file at pin 3fedbf7bce68 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

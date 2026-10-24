@@ -9,14 +9,14 @@
    "repo": "decima",
    "url": "https://github.com/amyrmahdy/decima",
    "sha": "efaefe2a3069d0085eeb73b95717efec5d92be94",
-   "licence": "Apache-2.0 (LICENSE file at pin efaefe2a3069, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin efaefe2a3069, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T08:55Z",
     "consent_receipt": "bb8863c1f2e4",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T08:55Z (receipt bb8863c1f2e4); selected commit efaefe2a3069: \"2.2.0: decima command, Router and presets, MCP / LangChain / Docker, \u2026\". LICENSE file at pin efaefe2a3069 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T08:55Z (receipt bb8863c1f2e4); selected commit efaefe2a3069: \"2.2.0: decima command, Router and presets, MCP / LangChain / Docker, \u2026\". LICENSE file at pin efaefe2a3069 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

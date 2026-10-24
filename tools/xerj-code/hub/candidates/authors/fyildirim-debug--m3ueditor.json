@@ -9,14 +9,14 @@
    "repo": "M3uEditor",
    "url": "https://github.com/fyildirim-debug/M3uEditor",
    "sha": "00174e8c4c7f7a41b89090f65ac0c2631060ec9a",
-   "licence": "MIT (LICENSE file at pin 00174e8c4c7f, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 00174e8c4c7f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T04:36Z",
     "consent_receipt": "d1ee2dddea16",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T04:36Z (receipt d1ee2dddea16); selected commit 00174e8c4c7f: \"fix: harden sharing, backups, sessions and scheduled tasks\". LICENSE file at pin 00174e8c4c7f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T04:36Z (receipt d1ee2dddea16); selected commit 00174e8c4c7f: \"fix: harden sharing, backups, sessions and scheduled tasks\". LICENSE file at pin 00174e8c4c7f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

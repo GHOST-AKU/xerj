@@ -9,14 +9,14 @@
    "repo": "Coralite-Mod",
    "url": "https://github.com/CoraIite/Coralite-Mod",
    "sha": "78c1877f142b706366cc1668a66a61ace7a17824",
-   "licence": "GPL-3.0 (LICENSE file at pin 78c1877f142b, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 78c1877f142b, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-07T15:13Z",
     "consent_receipt": "2659d95108b9",
-    "note": "Inclusion consented by the commit author by email at 2026-10-07T15:13Z (receipt 2659d95108b9); selected commit 78c1877f142b: \"\u5e38\u89c4\u540c\u6b65\". LICENSE file at pin 78c1877f142b detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-07T15:13Z (receipt 2659d95108b9); selected commit 78c1877f142b: \"\u5e38\u89c4\u540c\u6b65\". LICENSE file at pin 78c1877f142b detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

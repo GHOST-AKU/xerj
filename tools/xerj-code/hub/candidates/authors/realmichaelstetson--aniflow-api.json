@@ -9,14 +9,14 @@
    "repo": "AniFlow-API",
    "url": "https://github.com/realmichaelstetson/AniFlow-API",
    "sha": "4bd7031ad42fffeb8688d1b2950d633cbbc56ed8",
-   "licence": "MIT (LICENSE file at pin 4bd7031ad42f, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 4bd7031ad42f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T21:15Z",
     "consent_receipt": "8a3670ba5a9b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T21:15Z (receipt 8a3670ba5a9b); selected commit 4bd7031ad42f: \"Add direct M3U8 stream routes\". LICENSE file at pin 4bd7031ad42f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T21:15Z (receipt 8a3670ba5a9b); selected commit 4bd7031ad42f: \"Add direct M3U8 stream routes\". LICENSE file at pin 4bd7031ad42f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

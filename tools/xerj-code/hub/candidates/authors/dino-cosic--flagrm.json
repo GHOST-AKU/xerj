@@ -9,14 +9,14 @@
    "repo": "flagrm",
    "url": "https://github.com/dino-cosic/flagrm",
    "sha": "eb3419168ba9d5b2ec8220dba5e678915c104886",
-   "licence": "Apache-2.0 (LICENSE file at pin eb3419168ba9, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin eb3419168ba9, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T20:47Z",
     "consent_receipt": "dff8f7864d03",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T20:47Z (receipt dff8f7864d03); selected commit eb3419168ba9: \"feat(verify): warn about declarations the removal left without refere\u2026\". LICENSE file at pin eb3419168ba9 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T20:47Z (receipt dff8f7864d03); selected commit eb3419168ba9: \"feat(verify): warn about declarations the removal left without refere\u2026\". LICENSE file at pin eb3419168ba9 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

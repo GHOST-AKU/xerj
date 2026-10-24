@@ -9,14 +9,14 @@
    "repo": "flagtide",
    "url": "https://github.com/adiyy2001/flagtide",
    "sha": "c77cd26c401e9e69b069bb325f2a80946071d96a",
-   "licence": "MIT (LICENSE file at pin c77cd26c401e, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin c77cd26c401e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T06:01Z",
     "consent_receipt": "ce182544a22e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T06:01Z (receipt ce182544a22e); selected commit c77cd26c401e: \"feat: add an OpenFeature web provider package\". LICENSE file at pin c77cd26c401e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T06:01Z (receipt ce182544a22e); selected commit c77cd26c401e: \"feat: add an OpenFeature web provider package\". LICENSE file at pin c77cd26c401e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

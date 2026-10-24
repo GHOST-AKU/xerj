@@ -9,14 +9,14 @@
    "repo": "my-first-agent",
    "url": "https://github.com/Eternal-Qaing/my-first-agent",
    "sha": "1173fbe3286dd702977a4953bfb6c5e04508a6aa",
-   "licence": "MulanPSL-2.0 (LICENSE file at pin 1173fbe3286d, GitHub licence API 2026-10-21)",
+   "licence": "MulanPSL-2.0 (LICENSE file at pin 1173fbe3286d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MulanPSL-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T15:25Z",
     "consent_receipt": "6f00db8438bc",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T15:25Z (receipt 6f00db8438bc); selected commit 1173fbe3286d: \"\u5168\u5c40\u5f02\u5e38\u5904\u7406\uff0c\u8bb0\u5fc6\u6301\u4e45\u5316\u5230redis\". LICENSE file at pin 1173fbe3286d detected as MulanPSL-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head 1173fbe3286d (contains the selected commit): the LICENSE at the selected commit was NONE."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T15:25Z (receipt 6f00db8438bc); selected commit 1173fbe3286d: \"\u5168\u5c40\u5f02\u5e38\u5904\u7406\uff0c\u8bb0\u5fc6\u6301\u4e45\u5316\u5230redis\". LICENSE file at pin 1173fbe3286d detected as MulanPSL-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head 1173fbe3286d (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

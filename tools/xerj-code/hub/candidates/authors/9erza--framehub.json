@@ -9,14 +9,14 @@
    "repo": "FrameHub",
    "url": "https://github.com/9Erza/FrameHub",
    "sha": "3002df5451924d4c819dcfb809dfd928eca62a1e",
-   "licence": "MIT (LICENSE file at pin 3002df545192, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 3002df545192, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T11:06Z",
     "consent_receipt": "cf3085ad3f50",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T11:06Z (receipt cf3085ad3f50); selected commit 3002df545192: \"feat(games): harden CS2 configuration workflow, backups and validation\". LICENSE file at pin 3002df545192 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T11:06Z (receipt cf3085ad3f50); selected commit 3002df545192: \"feat(games): harden CS2 configuration workflow, backups and validation\". LICENSE file at pin 3002df545192 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

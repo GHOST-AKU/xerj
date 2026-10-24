@@ -1,0 +1,23 @@
+{
+ "corpus": "sean-zhixin-li--spacecraft-ai-controller",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on aerospace-engineering, astrodynamics, control-systems queries this for how Sean-ZhiXin-Li/spacecraft-ai-controller implements it: Physics-grounded spacecraft orbit-insertion simulator comparing PPO, explicit controllers, and optimal-control baselines (selected work: development_results, scripts, Tests)",
+ "repos": [
+  {
+   "repo": "spacecraft-ai-controller",
+   "url": "https://github.com/Sean-ZhiXin-Li/spacecraft-ai-controller",
+   "sha": "ff4d06229016511d38bba2c432b990e0c38be001",
+   "licence": "MIT (LICENSE file at pin ff4d06229016, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T07:34Z",
+    "consent_receipt": "debb814c9f01",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T07:34Z (receipt debb814c9f01); selected commit ff4d06229016: \"feat: enable bidirectional fuel-constrained orbital transfer\". LICENSE file at pin ff4d06229016 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

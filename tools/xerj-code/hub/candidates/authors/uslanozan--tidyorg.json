@@ -9,14 +9,14 @@
    "repo": "Tidyorg",
    "url": "https://github.com/uslanozan/Tidyorg",
    "sha": "65aa1f7123b264b4464817ed7e3bb2fc0e061736",
-   "licence": "MIT (LICENSE file at pin 65aa1f7123b2, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 65aa1f7123b2, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T18:42Z",
     "consent_receipt": "9f7ec028f781",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T18:42Z (receipt 9f7ec028f781); selected commit 65aa1f7123b2: \"fix: align dashboard access with branch protection\". LICENSE file at pin 65aa1f7123b2 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T18:42Z (receipt 9f7ec028f781); selected commit 65aa1f7123b2: \"fix: align dashboard access with branch protection\". LICENSE file at pin 65aa1f7123b2 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

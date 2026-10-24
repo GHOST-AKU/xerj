@@ -9,14 +9,14 @@
    "repo": "blitz-proxy",
    "url": "https://github.com/jenil0528/blitz-proxy",
    "sha": "b2318c5610c15bfa06ff9cabf0db35af0e13d181",
-   "licence": "MIT (LICENSE file at pin b2318c5610c1, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin b2318c5610c1, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T14:53Z",
     "consent_receipt": "a1a5a405c9a7",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T14:53Z (receipt a1a5a405c9a7); selected commit b2318c5610c1: \"Agent-attributed usage, request inspector, dashboard integration, for\u2026\". LICENSE file at pin b2318c5610c1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T14:53Z (receipt a1a5a405c9a7); selected commit b2318c5610c1: \"Agent-attributed usage, request inspector, dashboard integration, for\u2026\". LICENSE file at pin b2318c5610c1 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

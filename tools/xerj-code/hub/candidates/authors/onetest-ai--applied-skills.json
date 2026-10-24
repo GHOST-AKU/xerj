@@ -9,14 +9,14 @@
    "repo": "applied_skills",
    "url": "https://github.com/onetest-ai/applied_skills",
    "sha": "30c3c97935b44238c52267f2c748e5f69a0976e9",
-   "licence": "MIT (LICENSE file at pin 30c3c97935b4, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 30c3c97935b4, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T07:44Z",
     "consent_receipt": "232bddf032e0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:44Z (receipt 232bddf032e0); selected commit 30c3c97935b4: \"feat: document read tools, metric history, workbook caveats + kb:ask \u2026\". LICENSE file at pin 30c3c97935b4 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:44Z (receipt 232bddf032e0); selected commit 30c3c97935b4: \"feat: document read tools, metric history, workbook caveats + kb:ask \u2026\". LICENSE file at pin 30c3c97935b4 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

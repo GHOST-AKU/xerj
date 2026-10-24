@@ -1,0 +1,23 @@
+{
+ "corpus": "yeshimin--yeah-boot",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how yeshimin/yeah-boot implements it: Java / Spring Boot \u5feb\u901f\u5f00\u53d1\u6846\u67b6 (selected work: yeah-framework, yeah-biz-module, yeah-admin)",
+ "repos": [
+  {
+   "repo": "yeah-boot",
+   "url": "https://github.com/yeshimin/yeah-boot",
+   "sha": "b47303ee8993536eb1561636a93fe4eda71973dd",
+   "licence": "Apache-2.0 (LICENSE file at pin b47303ee8993, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T09:59Z",
+    "consent_receipt": "411fae86abea",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T09:59Z (receipt 411fae86abea); selected commit b47303ee8993: \"feat: complete security baseline capabilities\". LICENSE file at pin b47303ee8993 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

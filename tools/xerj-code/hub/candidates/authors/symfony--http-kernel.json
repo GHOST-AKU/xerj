@@ -9,14 +9,14 @@
    "repo": "http-kernel",
    "url": "https://github.com/symfony/http-kernel",
    "sha": "8ebc27b84eb38859c80b8cc2ea2858bd3df2cff1",
-   "licence": "MIT (LICENSE file at pin 8ebc27b84eb3, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 8ebc27b84eb3, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T21:08Z",
     "consent_receipt": "3b545446b60b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T21:08Z (receipt 3b545446b60b); selected commit 8ebc27b84eb3: \"[FrameworkBundle][HttpKernel] Add `RateLimitValueResolver` to inject \u2026\". LICENSE file at pin 8ebc27b84eb3 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T21:08Z (receipt 3b545446b60b); selected commit 8ebc27b84eb3: \"[FrameworkBundle][HttpKernel] Add `RateLimitValueResolver` to inject \u2026\". LICENSE file at pin 8ebc27b84eb3 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

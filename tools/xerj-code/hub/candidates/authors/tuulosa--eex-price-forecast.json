@@ -9,14 +9,14 @@
    "repo": "eex-price-forecast",
    "url": "https://github.com/tuulosA/eex-price-forecast",
    "sha": "21183d57d5c559a60653e7ba40c9d0d6c6f44095",
-   "licence": "MIT (LICENSE file at pin 21183d57d5c5, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 21183d57d5c5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T07:51Z",
     "consent_receipt": "f5126e723099",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T07:51Z (receipt f5126e723099); selected commit 21183d57d5c5: \"feat(price): add frozen neural model experiments\". LICENSE file at pin 21183d57d5c5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T07:51Z (receipt f5126e723099); selected commit 21183d57d5c5: \"feat(price): add frozen neural model experiments\". LICENSE file at pin 21183d57d5c5 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

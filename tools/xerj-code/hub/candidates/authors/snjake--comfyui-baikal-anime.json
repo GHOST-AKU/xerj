@@ -9,14 +9,14 @@
    "repo": "ComfyUI-Baikal-Anime",
    "url": "https://github.com/SnJake/ComfyUI-Baikal-Anime",
    "sha": "81997818ad02322592f978a6708cc894434bf24d",
-   "licence": "MIT (LICENSE file at pin 81997818ad02, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 81997818ad02, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T03:32Z",
     "consent_receipt": "9e884f27ad05",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T03:32Z (receipt 9e884f27ad05); selected commit 81997818ad02: \"Add Baikal LoopSR v2 x2 and refresh training examples\". LICENSE file at pin 81997818ad02 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T03:32Z (receipt 9e884f27ad05); selected commit 81997818ad02: \"Add Baikal LoopSR v2 x2 and refresh training examples\". LICENSE file at pin 81997818ad02 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

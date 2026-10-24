@@ -9,14 +9,14 @@
    "repo": "OpenPlagiarismChecker",
    "url": "https://github.com/Raflyf/OpenPlagiarismChecker",
    "sha": "aa926772f02f8f32645bbde890dd7f18d101cf36",
-   "licence": "MIT (LICENSE file at pin aa926772f02f, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin aa926772f02f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T02:15Z",
     "consent_receipt": "b15f92564c0b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T02:15Z (receipt b15f92564c0b); selected commit aa926772f02f: \"feat(validation): full live-scraping validation \u2014 11 docs, 2 groups, \u2026\". LICENSE file at pin aa926772f02f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T02:15Z (receipt b15f92564c0b); selected commit aa926772f02f: \"feat(validation): full live-scraping validation \u2014 11 docs, 2 groups, \u2026\". LICENSE file at pin aa926772f02f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

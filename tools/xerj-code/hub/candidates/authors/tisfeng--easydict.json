@@ -9,14 +9,14 @@
    "repo": "Easydict",
    "url": "https://github.com/tisfeng/Easydict",
    "sha": "966fa5805c59751d919e12c0b905ea1fab04f1a8",
-   "licence": "GPL-3.0 (LICENSE file at pin 966fa5805c59, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 966fa5805c59, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-13T01:58Z",
     "consent_receipt": "4201955d4259",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T01:58Z (receipt 4201955d4259); selected commit 966fa5805c59: \"feat(deepl): \u52a8\u6001\u83b7\u53d6 DeepL Web App \u7248\u672c (#1341)\". LICENSE file at pin 966fa5805c59 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T01:58Z (receipt 4201955d4259); selected commit 966fa5805c59: \"feat(deepl): \u52a8\u6001\u83b7\u53d6 DeepL Web App \u7248\u672c (#1341)\". LICENSE file at pin 966fa5805c59 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

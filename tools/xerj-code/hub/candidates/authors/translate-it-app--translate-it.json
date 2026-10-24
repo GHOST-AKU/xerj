@@ -9,14 +9,14 @@
    "repo": "Translate-It",
    "url": "https://github.com/Translate-It-App/Translate-It",
    "sha": "dde34c30aabe2f0e48184cdd07aa84539c0d082d",
-   "licence": "Apache-2.0 (LICENSE file at pin dde34c30aabe, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin dde34c30aabe, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T19:11Z",
     "consent_receipt": "3e42f0393675",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T19:11Z (receipt 3e42f0393675); selected commit dde34c30aabe: \"feat(windows): improve translation window editing, history, and relia\u2026\". LICENSE file at pin dde34c30aabe detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T19:11Z (receipt 3e42f0393675); selected commit dde34c30aabe: \"feat(windows): improve translation window editing, history, and relia\u2026\". LICENSE file at pin dde34c30aabe detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

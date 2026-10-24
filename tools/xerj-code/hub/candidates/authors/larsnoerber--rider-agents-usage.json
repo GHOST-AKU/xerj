@@ -1,0 +1,23 @@
+{
+ "corpus": "larsnoerber--rider-agents-usage",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on C# queries this for how larsnoerber/Rider_Agents_Usage implements it: Monitor Codex, JetBrains AI, and GitHub Copilot usage directly in IntelliJ Platform IDEs and Rider (selected work: src/main, tools, the project root)",
+ "repos": [
+  {
+   "repo": "Rider_Agents_Usage",
+   "url": "https://github.com/larsnoerber/Rider_Agents_Usage",
+   "sha": "71296e1bb21105a9cc2c82be7b32bde2872503bc",
+   "licence": "MIT (LICENSE file at pin 71296e1bb211, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T13:50Z",
+    "consent_receipt": "100408bc6272",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T13:50Z (receipt 100408bc6272); selected commit 71296e1bb211: \"Improve JetBrains refresh reliability and prepare 1.2.0 store media\". LICENSE file at pin 71296e1bb211 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

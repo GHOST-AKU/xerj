@@ -9,14 +9,14 @@
    "repo": "entra-scim-mcp",
    "url": "https://github.com/darrenjrobinson/entra-scim-mcp",
    "sha": "bb11a6ae0f3052cd2505b9401a4882cb0698469e",
-   "licence": "MIT (LICENSE file at pin bb11a6ae0f30, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin bb11a6ae0f30, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T23:24Z",
     "consent_receipt": "d79bb2f32499",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T23:24Z (receipt d79bb2f32499); selected commit bb11a6ae0f30: \"Record the live probe of the new create and filter behaviour\". LICENSE file at pin bb11a6ae0f30 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T23:24Z (receipt d79bb2f32499); selected commit bb11a6ae0f30: \"Record the live probe of the new create and filter behaviour\". LICENSE file at pin bb11a6ae0f30 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

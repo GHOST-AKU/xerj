@@ -9,14 +9,14 @@
    "repo": "opentab",
    "url": "https://github.com/hamidi-dev/opentab",
    "sha": "52eca89e10c2456fa8195d0efd52d1119de2fbbe",
-   "licence": "MIT (LICENSE file at pin 52eca89e10c2, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 52eca89e10c2, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T06:57Z",
     "consent_receipt": "a1e8fe300a3d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T06:57Z (receipt a1e8fe300a3d); selected commit 52eca89e10c2: \"fix: address audit findings across pricing, readers, storage and web\". LICENSE file at pin 52eca89e10c2 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T06:57Z (receipt a1e8fe300a3d); selected commit 52eca89e10c2: \"fix: address audit findings across pricing, readers, storage and web\". LICENSE file at pin 52eca89e10c2 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

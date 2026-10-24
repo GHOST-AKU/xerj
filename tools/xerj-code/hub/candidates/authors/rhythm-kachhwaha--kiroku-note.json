@@ -9,14 +9,14 @@
    "repo": "kiroku-note",
    "url": "https://github.com/Rhythm-Kachhwaha/kiroku-note",
    "sha": "c02c3569edd09cb2b284b7c0523d770554e15c94",
-   "licence": "MIT (LICENSE file at pin c02c3569edd0, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin c02c3569edd0, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T11:38Z",
     "consent_receipt": "262f3abe2c44",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T11:38Z (receipt 262f3abe2c44); selected commit c02c3569edd0: \"feat: add cloud queue backend and worker system with postgresql and m\u2026\". LICENSE file at pin c02c3569edd0 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T11:38Z (receipt 262f3abe2c44); selected commit c02c3569edd0: \"feat: add cloud queue backend and worker system with postgresql and m\u2026\". LICENSE file at pin c02c3569edd0 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

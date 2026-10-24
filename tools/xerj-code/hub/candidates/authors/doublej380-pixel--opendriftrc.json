@@ -9,14 +9,14 @@
    "repo": "OpenDriftRC",
    "url": "https://github.com/doublej380-pixel/OpenDriftRC",
    "sha": "42bce24965dd867b0002a840038027bbaa29885b",
-   "licence": "GPL-3.0 (LICENSE file at pin 42bce24965dd, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 42bce24965dd, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-09T17:07Z",
     "consent_receipt": "c89f8673c41c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T17:07Z (receipt c89f8673c41c); selected commit 42bce24965dd: \"feat(experimental): port Matrix firmware to S3-Zero with MPU6050\". LICENSE file at pin 42bce24965dd detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T17:07Z (receipt c89f8673c41c); selected commit 42bce24965dd: \"feat(experimental): port Matrix firmware to S3-Zero with MPU6050\". LICENSE file at pin 42bce24965dd detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

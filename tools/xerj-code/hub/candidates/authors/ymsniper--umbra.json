@@ -9,14 +9,14 @@
    "repo": "umbra",
    "url": "https://github.com/Ymsniper/umbra",
    "sha": "837e280d2bb153c3a2e2a6b238a3738677a5cd5a",
-   "licence": "GPL-2.0 (LICENSE file at pin 837e280d2bb1, GitHub licence API 2026-10-21)",
+   "licence": "GPL-2.0 (LICENSE file at pin 837e280d2bb1, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-2.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-19T22:16Z",
     "consent_receipt": "ad3ffd9a1e3c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T22:16Z (receipt ad3ffd9a1e3c); selected commit 837e280d2bb1: \"Run the game's own instructions to reach the object array, and bump t\u2026\". LICENSE file at pin 837e280d2bb1 detected as GPL-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T22:16Z (receipt ad3ffd9a1e3c); selected commit 837e280d2bb1: \"Run the game's own instructions to reach the object array, and bump t\u2026\". LICENSE file at pin 837e280d2bb1 detected as GPL-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

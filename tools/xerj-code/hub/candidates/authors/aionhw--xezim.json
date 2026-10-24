@@ -9,14 +9,14 @@
    "repo": "xezim",
    "url": "https://github.com/aionhw/xezim",
    "sha": "5e142d30ea88307b72df22e51f360164063b8001",
-   "licence": "Apache-2.0 (LICENSE file at pin 5e142d30ea88, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 5e142d30ea88, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T08:21Z",
     "consent_receipt": "83530540a90c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T08:21Z (receipt 83530540a90c); selected commit 5e142d30ea88: \"Deliver callback clocking events within their slot (\u00a714.4)\". LICENSE file at pin 5e142d30ea88 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T08:21Z (receipt 83530540a90c); selected commit 5e142d30ea88: \"Deliver callback clocking events within their slot (\u00a714.4)\". LICENSE file at pin 5e142d30ea88 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

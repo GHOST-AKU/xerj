@@ -9,14 +9,14 @@
    "repo": "GigaCppConnect",
    "url": "https://github.com/M0nteCarl0/GigaCppConnect",
    "sha": "07a2708800b53d63c27528c009ebf19f838f8eb4",
-   "licence": "MIT (LICENSE file at pin 07a2708800b5, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 07a2708800b5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T08:32Z",
     "consent_receipt": "05be19712b40",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T08:32Z (receipt 05be19712b40); selected commit 07a2708800b5: \"feat(tools): add function calling, Jetson & Windows tools, dynamic pl\u2026\". LICENSE file at pin 07a2708800b5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T08:32Z (receipt 05be19712b40); selected commit 07a2708800b5: \"feat(tools): add function calling, Jetson & Windows tools, dynamic pl\u2026\". LICENSE file at pin 07a2708800b5 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

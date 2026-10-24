@@ -9,14 +9,14 @@
    "repo": "grafloria",
    "url": "https://github.com/grafloria/grafloria",
    "sha": "c3c1fac195e180e86971daafd77e3af8ccc486de",
-   "licence": "MIT (LICENSE file at pin c3c1fac195e1, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin c3c1fac195e1, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T20:03Z",
     "consent_receipt": "f5d884766109",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T20:03Z (receipt f5d884766109); selected commit c3c1fac195e1: \"feat(demos): the robot cell programmer leads Featured; a landing stage\". LICENSE file at pin c3c1fac195e1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T20:03Z (receipt f5d884766109); selected commit c3c1fac195e1: \"feat(demos): the robot cell programmer leads Featured; a landing stage\". LICENSE file at pin c3c1fac195e1 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

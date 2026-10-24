@@ -9,14 +9,14 @@
    "repo": "kubepattern",
    "url": "https://github.com/kubepattern/kubepattern",
    "sha": "3c4f0a5fc333f3fbd15382779741f03eeee16f63",
-   "licence": "Apache-2.0 (LICENSE file at pin 3c4f0a5fc333, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 3c4f0a5fc333, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T13:36Z",
     "consent_receipt": "df66c560c138",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T13:36Z (receipt df66c560c138); selected commit 3c4f0a5fc333: \"Port the engine changes from dev\". LICENSE file at pin 3c4f0a5fc333 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T13:36Z (receipt df66c560c138); selected commit 3c4f0a5fc333: \"Port the engine changes from dev\". LICENSE file at pin 3c4f0a5fc333 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

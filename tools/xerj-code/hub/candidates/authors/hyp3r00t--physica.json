@@ -9,14 +9,14 @@
    "repo": "Physica",
    "url": "https://github.com/HYP3R00T/Physica",
    "sha": "f9fadba495525bc983641a74994a79f9e66e5dff",
-   "licence": "MIT (LICENSE file at pin f9fadba49552, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin f9fadba49552, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T10:02Z",
     "consent_receipt": "711c55fff551",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T10:02Z (receipt 711c55fff551); selected commit f9fadba49552: \"feat: improve equation references and reading layouts\". LICENSE file at pin f9fadba49552 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T10:02Z (receipt 711c55fff551); selected commit f9fadba49552: \"feat: improve equation references and reading layouts\". LICENSE file at pin f9fadba49552 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

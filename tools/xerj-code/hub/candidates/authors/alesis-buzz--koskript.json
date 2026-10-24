@@ -9,14 +9,14 @@
    "repo": "koskript",
    "url": "https://github.com/alesis-buzz/koskript",
    "sha": "79630200ada6f1781a88e54b2f1ba2177bb3b523",
-   "licence": "MPL-2.0 (LICENSE file at pin 79630200ada6, GitHub licence API 2026-10-21)",
+   "licence": "MPL-2.0 (LICENSE file at pin 79630200ada6, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MPL-2.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-10T10:32Z",
     "consent_receipt": "201691dae64f",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T10:32Z (receipt 201691dae64f); selected commit 79630200ada6: \"fix: a postfix operator at line start ends the statement\". LICENSE file at pin 79630200ada6 detected as MPL-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T10:32Z (receipt 201691dae64f); selected commit 79630200ada6: \"fix: a postfix operator at line start ends the statement\". LICENSE file at pin 79630200ada6 detected as MPL-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

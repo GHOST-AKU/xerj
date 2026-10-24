@@ -9,14 +9,14 @@
    "repo": "FOC-Sensorless-EKF-STM32G474",
    "url": "https://github.com/lxcy-tiger/FOC-Sensorless-EKF-STM32G474",
    "sha": "5a17053062a1d925c912f5a4f85794e8dc89f523",
-   "licence": "MIT (LICENSE file at pin 5a17053062a1, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 5a17053062a1, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T03:03Z",
     "consent_receipt": "969f99f663b4",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T03:03Z (receipt 969f99f663b4); selected commit 5a17053062a1: \"\u6539\u56de\u5355ADC\u91c7\u6837\uff0c\u9632\u6b62\u4e2d\u65ad\u89e6\u53d1\u9519\u8bef\". LICENSE file at pin 5a17053062a1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T03:03Z (receipt 969f99f663b4); selected commit 5a17053062a1: \"\u6539\u56de\u5355ADC\u91c7\u6837\uff0c\u9632\u6b62\u4e2d\u65ad\u89e6\u53d1\u9519\u8bef\". LICENSE file at pin 5a17053062a1 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

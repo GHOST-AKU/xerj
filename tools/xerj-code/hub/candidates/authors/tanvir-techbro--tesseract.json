@@ -9,14 +9,14 @@
    "repo": "tesseract",
    "url": "https://github.com/tanvir-techbro/tesseract",
    "sha": "b768fd5449edeee0dce4015e4c88296630440963",
-   "licence": "MIT (LICENSE file at pin b768fd5449ed, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin b768fd5449ed, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T02:56Z",
     "consent_receipt": "ede512da98c8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T02:56Z (receipt ede512da98c8); selected commit b768fd5449ed: \"feat(RenderKit): Refractor/split renderkit, render PRE tag\". LICENSE file at pin b768fd5449ed detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T02:56Z (receipt ede512da98c8); selected commit b768fd5449ed: \"feat(RenderKit): Refractor/split renderkit, render PRE tag\". LICENSE file at pin b768fd5449ed detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

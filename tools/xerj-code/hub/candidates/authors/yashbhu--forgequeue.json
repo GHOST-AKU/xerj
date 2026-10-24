@@ -9,14 +9,14 @@
    "repo": "FORGEqueue",
    "url": "https://github.com/Yashbhu/FORGEqueue",
    "sha": "b91ecb5ce84503e814a627c26e268e892589a341",
-   "licence": "Apache-2.0 (LICENSE file at pin b91ecb5ce845, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin b91ecb5ce845, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T14:31Z",
     "consent_receipt": "b041080ef99b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T14:31Z (receipt b041080ef99b); selected commit b91ecb5ce845: \"v1.0-hardening: durable redis+postgres journal, gRPC auth, hardened i\u2026\". LICENSE file at pin b91ecb5ce845 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T14:31Z (receipt b041080ef99b); selected commit b91ecb5ce845: \"v1.0-hardening: durable redis+postgres journal, gRPC auth, hardened i\u2026\". LICENSE file at pin b91ecb5ce845 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

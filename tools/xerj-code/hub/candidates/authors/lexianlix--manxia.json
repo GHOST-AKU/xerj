@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on Dart queries this for how LexianLix/manxia implements it: \u6f2b\u5323\uff1a\u4ee5\u5b9e\u4f53\u4e66\u8d28\u611f\u4e3a\u6838\u5fc3\u7684 Flutter \u6f2b\u753b\u9605\u8bfb\u5668\uff0c\u9ed8\u8ba4\u52a8\u6f2b\u5c4b\u3002 (selected work: lib/ui, test, lib/data)",
+ "domain": "an agent working on android, android-app, comic-reader queries this for how LexianLix/manxia implements it: \u6f2b\u5323\uff1a\u4ee5\u5b9e\u4f53\u4e66\u8d28\u611f\u4e3a\u6838\u5fc3\u7684 Flutter \u6f2b\u753b\u9605\u8bfb\u5668\uff0c\u9ed8\u8ba4\u52a8\u6f2b\u5c4b\u3002 (selected work: lib/ui, test, lib/data)",
  "repos": [
   {
    "repo": "manxia",

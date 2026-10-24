@@ -9,14 +9,14 @@
    "repo": "kbridge",
    "url": "https://github.com/why-xn/kbridge",
    "sha": "5fd802ecf8f36c73012982e5aee2d483ee09a643",
-   "licence": "Apache-2.0 (LICENSE file at pin 5fd802ecf8f3, GitHub licence API 2026-10-23)",
+   "licence": "Apache-2.0 (LICENSE file at pin 5fd802ecf8f3, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T19:32Z",
     "consent_receipt": "b6ed937252fb",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T19:32Z (receipt b6ed937252fb); selected commit 5fd802ecf8f3: \"fix: make in-cluster agents reliable across restarts, files, stdin an\u2026\". LICENSE file at pin 5fd802ecf8f3 detected as Apache-2.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T19:32Z (receipt b6ed937252fb); selected commit 5fd802ecf8f3: \"fix: make in-cluster agents reliable across restarts, files, stdin an\u2026\". LICENSE file at pin 5fd802ecf8f3 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

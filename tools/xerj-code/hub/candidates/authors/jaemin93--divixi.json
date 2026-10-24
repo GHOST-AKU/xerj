@@ -9,14 +9,14 @@
    "repo": "DIVIXI",
    "url": "https://github.com/jaemin93/DIVIXI",
    "sha": "5e69aa80f0367318c23dbc9ce6b2a883f816e007",
-   "licence": "Apache-2.0 (LICENSE file at pin 5e69aa80f036, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 5e69aa80f036, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T09:22Z",
     "consent_receipt": "4b5629f7f540",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T09:22Z (receipt 4b5629f7f540); selected commit 5e69aa80f036: \"Check for a newer release every time the app starts (#79)\". LICENSE file at pin 5e69aa80f036 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T09:22Z (receipt 4b5629f7f540); selected commit 5e69aa80f036: \"Check for a newer release every time the app starts (#79)\". LICENSE file at pin 5e69aa80f036 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

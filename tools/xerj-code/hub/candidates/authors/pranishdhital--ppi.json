@@ -1,0 +1,23 @@
+{
+ "corpus": "pranishdhital--ppi",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how PranishDhital/PPI implements it: PPI is a small C++ prototype for a simple .pd language. It started as a lexer and grew into a tiny parser/interpreter that can read a file,  (selected work: examples, the project root, interpreter)",
+ "repos": [
+  {
+   "repo": "PPI",
+   "url": "https://github.com/PranishDhital/PPI",
+   "sha": "3001bbdb67bc24e92e40cc48c405a36a01dd3f48",
+   "licence": "Apache-2.0 (LICENSE file at pin 3001bbdb67bc, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T13:31Z",
+    "consent_receipt": "f5bf2cf96208",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T13:31Z (receipt f5bf2cf96208); selected commit 3001bbdb67bc: \"Let keyword\". LICENSE file at pin 3001bbdb67bc detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

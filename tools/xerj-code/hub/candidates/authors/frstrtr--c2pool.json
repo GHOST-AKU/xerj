@@ -9,14 +9,14 @@
    "repo": "c2pool",
    "url": "https://github.com/frstrtr/c2pool",
    "sha": "41b9f033419f5d5449620f428ce052f9c614bf0e",
-   "licence": "AGPL-3.0 (LICENSE file at pin 41b9f033419f, GitHub licence API 2026-10-21)",
+   "licence": "AGPL-3.0 (LICENSE file at pin 41b9f033419f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-19T16:24Z",
     "consent_receipt": "284f0e8356aa",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T16:24Z (receipt 284f0e8356aa); selected commit 41b9f033419f: \"fix(dash/p2p): count self-connections per host, ban the 4th in 600 s \u2026\". LICENSE file at pin 41b9f033419f detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T16:24Z (receipt 284f0e8356aa); selected commit 41b9f033419f: \"fix(dash/p2p): count self-connections per host, ban the 4th in 600 s \u2026\". LICENSE file at pin 41b9f033419f detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

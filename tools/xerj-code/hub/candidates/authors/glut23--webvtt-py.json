@@ -9,14 +9,14 @@
    "repo": "webvtt-py",
    "url": "https://github.com/glut23/webvtt-py",
    "sha": "d77ab843ac43e04c7f7ca9d9d0385a32ff679919",
-   "licence": "MIT (LICENSE file at pin d77ab843ac43, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin d77ab843ac43, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T21:13Z",
     "consent_receipt": "3e98ee4db296",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T21:13Z (receipt 3e98ee4db296); selected commit d77ab843ac43: \"Accept non-padded timestamps in WebVTT cue timings (#99)\". LICENSE file at pin d77ab843ac43 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T21:13Z (receipt 3e98ee4db296); selected commit d77ab843ac43: \"Accept non-padded timestamps in WebVTT cue timings (#99)\". LICENSE file at pin d77ab843ac43 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

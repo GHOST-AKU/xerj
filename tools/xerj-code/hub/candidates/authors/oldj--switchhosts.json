@@ -9,14 +9,14 @@
    "repo": "SwitchHosts",
    "url": "https://github.com/oldj/SwitchHosts",
    "sha": "7a2cba255293996e0d6eab4c5c7c4a05dd5ee27f",
-   "licence": "Apache-2.0 (LICENSE file at pin 7a2cba255293, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 7a2cba255293, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T03:43Z",
     "consent_receipt": "8b898969d50f",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T03:43Z (receipt 8b898969d50f); selected commit 7a2cba255293: \"fix: \u5f15\u5165nspanel\u4fee\u590d macos \u6258\u76d8\u5f39\u7a97\u95ee\u9898\". LICENSE file at pin 7a2cba255293 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T03:43Z (receipt 8b898969d50f); selected commit 7a2cba255293: \"fix: \u5f15\u5165nspanel\u4fee\u590d macos \u6258\u76d8\u5f39\u7a97\u95ee\u9898\". LICENSE file at pin 7a2cba255293 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "ibmbobproject",
    "url": "https://github.com/Zrald1/ibmbobproject",
    "sha": "40545f9e243cdedaad7e8d3550b4b3264472cc2c",
-   "licence": "MIT (LICENSE file at pin 40545f9e243c, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 40545f9e243c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T23:48Z",
     "consent_receipt": "32bdca8259f5",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T23:48Z (receipt 32bdca8259f5); selected commit 40545f9e243c: \"feat(argos-desktop): multi-agent IDE orchestration, MCP bridge, nativ\u2026\". LICENSE file at pin 40545f9e243c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T23:48Z (receipt 32bdca8259f5); selected commit 40545f9e243c: \"feat(argos-desktop): multi-agent IDE orchestration, MCP bridge, nativ\u2026\". LICENSE file at pin 40545f9e243c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

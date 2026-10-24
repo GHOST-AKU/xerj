@@ -9,14 +9,14 @@
    "repo": "FreeRideV3",
    "url": "https://github.com/Shaivpidadi/FreeRideV3",
    "sha": "3811c8e29ef41d96eea2fe37d0219c1790e530b1",
-   "licence": "MIT (LICENSE file at pin 3811c8e29ef4, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 3811c8e29ef4, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T20:16Z",
     "consent_receipt": "1bbbecd44bcc",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T20:16Z (receipt 1bbbecd44bcc); selected commit 3811c8e29ef4: \"0.4.0a25: per-provider telemetry split; single-row totals on the worker\". LICENSE file at pin 3811c8e29ef4 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T20:16Z (receipt 1bbbecd44bcc); selected commit 3811c8e29ef4: \"0.4.0a25: per-provider telemetry split; single-row totals on the worker\". LICENSE file at pin 3811c8e29ef4 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

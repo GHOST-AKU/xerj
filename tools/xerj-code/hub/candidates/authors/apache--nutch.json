@@ -9,14 +9,14 @@
    "repo": "nutch",
    "url": "https://github.com/apache/nutch",
    "sha": "d877b42aa75ae27f180c68999fc11dab89952f41",
-   "licence": "Apache-2.0 (LICENSE file at pin d877b42aa75a, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin d877b42aa75a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T02:48Z",
     "consent_receipt": "d707a35a9dda",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T02:48Z (receipt d707a35a9dda); selected commit d877b42aa75a: \"NUTCH-3215 Remove trailing whitespace reported by Yetus blanks on mas\u2026\". LICENSE file at pin d877b42aa75a detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T02:48Z (receipt d707a35a9dda); selected commit d877b42aa75a: \"NUTCH-3215 Remove trailing whitespace reported by Yetus blanks on mas\u2026\". LICENSE file at pin d877b42aa75a detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

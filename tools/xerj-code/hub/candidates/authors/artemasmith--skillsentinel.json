@@ -9,14 +9,14 @@
    "repo": "skillsentinel",
    "url": "https://github.com/artemasmith/skillsentinel",
    "sha": "64e9ab9bf1b4bd1df86ecabb207f13aa75bc9ba9",
-   "licence": "MIT (LICENSE file at pin 64e9ab9bf1b4, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 64e9ab9bf1b4, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T06:57Z",
     "consent_receipt": "c5fed8f75b77",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T06:57Z (receipt c5fed8f75b77); selected commit 64e9ab9bf1b4: \"verifier: a payload must not cancel its own detection (C2/t_207de2de)\". LICENSE file at pin 64e9ab9bf1b4 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T06:57Z (receipt c5fed8f75b77); selected commit 64e9ab9bf1b4: \"verifier: a payload must not cancel its own detection (C2/t_207de2de)\". LICENSE file at pin 64e9ab9bf1b4 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

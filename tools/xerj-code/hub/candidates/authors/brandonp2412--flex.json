@@ -1,0 +1,23 @@
+{
+ "corpus": "brandonp2412--flex",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on gym, workout-tracker, android queries this for how brandonp2412/Flex implements it: Offline-first workout tracker for strength and cardio, with progress graphs, rest timers, and custom themes. Built with Flutter (selected work: drift_schemas, lib/database, test)",
+ "repos": [
+  {
+   "repo": "Flexify",
+   "url": "https://github.com/brandonp2412/Flexify",
+   "sha": "069ade802ebdcfece3fb352bcd8d2adb72127f11",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "154a513b31cd",
+    "note": "author consent by email 2026-10-04T21:21Z (receipt 154a513b31cd); selected commit 069ade802ebd: \"fix: harden database restructure\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

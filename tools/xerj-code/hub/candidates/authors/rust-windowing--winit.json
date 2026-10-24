@@ -9,14 +9,14 @@
    "repo": "winit",
    "url": "https://github.com/rust-windowing/winit",
    "sha": "d559b0567d85404bc8d949089aa8e60ed46b5dcf",
-   "licence": "Apache-2.0 (LICENSE file at pin d559b0567d85, GitHub licence API 2026-10-23)",
+   "licence": "Apache-2.0 (LICENSE file at pin d559b0567d85, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T18:17Z",
     "consent_receipt": "a728ddeb34c6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T18:17Z (receipt a728ddeb34c6); selected commit d559b0567d85: \"winit-win32: fix UTF-16 IME cursor offsets around surrogate pairs\". LICENSE file at pin d559b0567d85 detected as Apache-2.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T18:17Z (receipt a728ddeb34c6); selected commit d559b0567d85: \"winit-win32: fix UTF-16 IME cursor offsets around surrogate pairs\". LICENSE file at pin d559b0567d85 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

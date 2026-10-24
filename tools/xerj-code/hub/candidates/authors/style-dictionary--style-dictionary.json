@@ -9,14 +9,14 @@
    "repo": "style-dictionary",
    "url": "https://github.com/style-dictionary/style-dictionary",
    "sha": "2f0b0ff22c8121ac260e59e63e0ac64ff79f6587",
-   "licence": "Apache-2.0 (LICENSE file at pin 2f0b0ff22c81, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 2f0b0ff22c81, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T21:57Z",
     "consent_receipt": "f6a37d9a272c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T21:57Z (receipt f6a37d9a272c); selected commit 2f0b0ff22c81: \"feat: support DTCG duration token values in time and transition trans\u2026\". LICENSE file at pin 2f0b0ff22c81 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T21:57Z (receipt f6a37d9a272c); selected commit 2f0b0ff22c81: \"feat: support DTCG duration token values in time and transition trans\u2026\". LICENSE file at pin 2f0b0ff22c81 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

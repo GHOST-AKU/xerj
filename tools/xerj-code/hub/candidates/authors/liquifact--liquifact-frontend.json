@@ -9,14 +9,14 @@
    "repo": "Liquifact-frontend",
    "url": "https://github.com/Liquifact/Liquifact-frontend",
    "sha": "b27f6a1eac408cd724d8f66433df5e72d8cd2539",
-   "licence": "MIT (LICENSE file at pin b27f6a1eac40, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin b27f6a1eac40, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T18:55Z",
     "consent_receipt": "6fabf9e52331",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T18:55Z (receipt 6fabf9e52331); selected commit b27f6a1eac40: \"fix: harden copy dictionary against shared mutation\". LICENSE file at pin b27f6a1eac40 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T18:55Z (receipt 6fabf9e52331); selected commit b27f6a1eac40: \"fix: harden copy dictionary against shared mutation\". LICENSE file at pin b27f6a1eac40 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

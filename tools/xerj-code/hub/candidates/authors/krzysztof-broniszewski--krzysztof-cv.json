@@ -9,14 +9,14 @@
    "repo": "krzysztof-cv",
    "url": "https://github.com/Krzysztof-Broniszewski/krzysztof-cv",
    "sha": "7a695bbc744b48f6dcc8dea861c120dece7b5be2",
-   "licence": "MIT (LICENSE file at pin 7a695bbc744b, GitHub licence API 2026-10-23)",
+   "licence": "MIT (LICENSE file at pin 7a695bbc744b, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-23T08:01Z",
     "consent_receipt": "3385886e8f2d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-23T08:01Z (receipt 3385886e8f2d); selected commit 7a695bbc744b: \"Updated CV 4 categories\". LICENSE file at pin 7a695bbc744b detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T08:01Z (receipt 3385886e8f2d); selected commit 7a695bbc744b: \"Updated CV 4 categories\". LICENSE file at pin 7a695bbc744b detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "diy-jev",
    "url": "https://github.com/javicrg/diy-jev",
    "sha": "fefc8483e30dfc77857786efa945d9651b7accd9",
-   "licence": "MIT (LICENSE file at pin fefc8483e30d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin fefc8483e30d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T23:32Z",
     "consent_receipt": "0c52d876c02a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T23:32Z (receipt 0c52d876c02a); selected commit fefc8483e30d: \"refactor(pipeline): centralize ML workflow\". LICENSE file at pin fefc8483e30d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head fefc8483e30d (contains the selected commit): the LICENSE at the selected commit was NONE."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T23:32Z (receipt 0c52d876c02a); selected commit fefc8483e30d: \"refactor(pipeline): centralize ML workflow\". LICENSE file at pin fefc8483e30d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head fefc8483e30d (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

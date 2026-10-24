@@ -9,14 +9,14 @@
    "repo": "Tavoos",
    "url": "https://github.com/AmirHosseinCH/Tavoos",
    "sha": "b66e2523beac1cc3c30c3f026b3bf53a5ed29568",
-   "licence": "LGPL-3.0 (LICENSE file at pin b66e2523beac, GitHub licence API 2026-10-21)",
+   "licence": "LGPL-3.0 (LICENSE file at pin b66e2523beac, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "LGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-07T16:03Z",
     "consent_receipt": "15a344fa92b9",
-    "note": "Inclusion consented by the commit author by email at 2026-10-07T16:03Z (receipt 15a344fa92b9); selected commit b66e2523beac: \"Add ScrollAreaWidget with ScrollAreaStyle, Theme::scrollArea and TB::\u2026\". LICENSE file at pin b66e2523beac detected as LGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-07T16:03Z (receipt 15a344fa92b9); selected commit b66e2523beac: \"Add ScrollAreaWidget with ScrollAreaStyle, Theme::scrollArea and TB::\u2026\". LICENSE file at pin b66e2523beac detected as LGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

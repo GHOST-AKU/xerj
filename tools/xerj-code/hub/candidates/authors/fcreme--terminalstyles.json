@@ -9,14 +9,14 @@
    "repo": "TerminalStyles",
    "url": "https://github.com/fcreme/TerminalStyles",
    "sha": "d67726d83c437806314bfa6a8246ca5bc506190d",
-   "licence": "MIT (LICENSE file at pin d67726d83c43, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin d67726d83c43, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T04:18Z",
     "consent_receipt": "174bfec476e5",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T04:18Z (receipt 174bfec476e5); selected commit d67726d83c43: \"Make the VS Code writer's messages and comments true on every path\". LICENSE file at pin d67726d83c43 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T04:18Z (receipt 174bfec476e5); selected commit d67726d83c43: \"Make the VS Code writer's messages and comments true on every path\". LICENSE file at pin d67726d83c43 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

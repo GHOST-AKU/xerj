@@ -9,14 +9,14 @@
    "repo": "Chronos-Scheduler",
    "url": "https://github.com/Pricesswg/Chronos-Scheduler",
    "sha": "d7f102cf666cd3ceb429b9cace9ca843113ed25e",
-   "licence": "MIT (LICENSE file at pin d7f102cf666c, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin d7f102cf666c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T07:28Z",
     "consent_receipt": "f8edf4df1771",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:28Z (receipt f8edf4df1771); selected commit d7f102cf666c: \"One notification per skipped block, mode-aware conflicts, a way to sw\u2026\". LICENSE file at pin d7f102cf666c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:28Z (receipt f8edf4df1771); selected commit d7f102cf666c: \"One notification per skipped block, mode-aware conflicts, a way to sw\u2026\". LICENSE file at pin d7f102cf666c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

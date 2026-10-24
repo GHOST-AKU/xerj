@@ -9,14 +9,14 @@
    "repo": "mcp-memory-service",
    "url": "https://github.com/doobidoo/mcp-memory-service",
    "sha": "ca46032e5844c49310e20f8fb89dc13d8b22026f",
-   "licence": "Apache-2.0 (LICENSE file at pin ca46032e5844, GitHub licence API 2026-10-23)",
+   "licence": "Apache-2.0 (LICENSE file at pin ca46032e5844, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T23:00Z",
     "consent_receipt": "6e678df20aec",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T23:00Z (receipt 6e678df20aec); selected commit ca46032e5844: \"fix: propagate Cloudflare tombstones during hybrid sync (#1534)\". LICENSE file at pin ca46032e5844 detected as Apache-2.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T23:00Z (receipt 6e678df20aec); selected commit ca46032e5844: \"fix: propagate Cloudflare tombstones during hybrid sync (#1534)\". LICENSE file at pin ca46032e5844 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

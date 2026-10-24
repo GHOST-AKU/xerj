@@ -9,14 +9,14 @@
    "repo": "mail-mcp",
    "url": "https://github.com/1amSheldon/mail-mcp",
    "sha": "9444860f19f504ba32edb06ec4bdae95c65eb7b9",
-   "licence": "MIT (LICENSE file at pin 9444860f19f5, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 9444860f19f5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T03:09Z",
     "consent_receipt": "6a1b10e86481",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T03:09Z (receipt 6a1b10e86481); selected commit 9444860f19f5: \"fix(zimbra): address filter, credential cleanup and journal review fi\u2026\". LICENSE file at pin 9444860f19f5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T03:09Z (receipt 6a1b10e86481); selected commit 9444860f19f5: \"fix(zimbra): address filter, credential cleanup and journal review fi\u2026\". LICENSE file at pin 9444860f19f5 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

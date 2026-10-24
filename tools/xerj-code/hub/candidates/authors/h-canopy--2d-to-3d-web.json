@@ -1,0 +1,23 @@
+{
+ "corpus": "h-canopy--2d-to-3d-web",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on HTML queries this for how H-Canopy/2d-to-3d-web implements it: \u628a\u4f60\u7684 2D \u7d20\u6750\uff0c\u505a\u6210\u6709\u7eb5\u6df1\u7684 3D \u4ea4\u4e92\u7f51\u9875\u3002An open-source skill for image-based interactive web scenes (selected work: assets, the project root, tests)",
+ "repos": [
+  {
+   "repo": "2d-to-3d-web",
+   "url": "https://github.com/H-Canopy/2d-to-3d-web",
+   "sha": "5cafd000b841ffc84a5ca99ba302545202455b69",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "fe9701e78046",
+    "note": "author consent by email 2026-10-24T03:45Z (receipt fe9701e78046); selected commit 5cafd000b841: \"Publish v1.1 skill workflow, lightweight packaging and interactive ex\u2026\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

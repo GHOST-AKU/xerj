@@ -1,0 +1,23 @@
+{
+ "corpus": "xiong356--shooting-game",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on browser-game, fps, fps-game queries this for how xiong356/shooting-game implements it: Three.js \u6d4f\u89c8\u5668\u7b2c\u4e00\u4eba\u79f0 PvE \u5c04\u51fb\uff1a\u738b\u8005\u5ce1\u8c37 7 \u5173\u7ebf\u6027\u95ef\u5173 + \u4e09\u9636\u6bb5 Boss\u300c\u4e3b\u5bb0\u300d\u3002\u7ea2/\u84dd\u77f3\u50cf\u00b7\u8fc5\u6377\u87f9\u00b7\u7cbe\u82f1\u602a\u8ffd\u730e\uff0cS/A/B/F \u8bc4\u7ea7\uff0c\u96f6\u6784\u5efa\u7eaf HTML/CSS/JS\uff0c\u672c\u5730\u4e00\u952e\u5f00\u73a9\u3002 (selected work: tools, js)",
+ "repos": [
+  {
+   "repo": "shooting-game",
+   "url": "https://github.com/xiong356/shooting-game",
+   "sha": "a8d184ffb8041bd0b461ce70a28772822b9537f8",
+   "licence": "MIT (LICENSE file at pin a8d184ffb804, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T07:22Z",
+    "consent_receipt": "b60cf1ec6b88",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T07:22Z (receipt b60cf1ec6b88); selected commit a8d184ffb804: \"feat: M6 A \u6bb5\u2014\u2014L7 \u6570\u503c\u5899\u5904\u7f6e\uff08\u4e0b\u8c03\u5305\uff09+ \u6807\u5b9a\u94fe\u8def\u6536\u53e3 + \u6807\u5b9a\u62a5\u544a\u5de5\u5177\". LICENSE file at pin a8d184ffb804 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head a8d184ffb804 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

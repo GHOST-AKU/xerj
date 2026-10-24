@@ -9,14 +9,14 @@
    "repo": "pi-herdr-skills",
    "url": "https://github.com/abhishek944/pi-herdr-skills",
    "sha": "8d387d3ccd9358a1de74243a7b29c81c51a1f31f",
-   "licence": "MIT (LICENSE file at pin 8d387d3ccd93, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 8d387d3ccd93, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T20:04Z",
     "consent_receipt": "513d91c433da",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T20:04Z (receipt 513d91c433da); selected commit 8d387d3ccd93: \"feat: add multi-select interviews and UI/UX testing skill\". LICENSE file at pin 8d387d3ccd93 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T20:04Z (receipt 513d91c433da); selected commit 8d387d3ccd93: \"feat: add multi-select interviews and UI/UX testing skill\". LICENSE file at pin 8d387d3ccd93 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

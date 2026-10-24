@@ -9,14 +9,14 @@
    "repo": "Zimacs",
    "url": "https://github.com/IWhitebird/Zimacs",
    "sha": "bef77ac24d2452c0d26360a357efc3dc997da57b",
-   "licence": "MIT (LICENSE file at pin bef77ac24d24, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin bef77ac24d24, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T06:39Z",
     "consent_receipt": "165f5f4fceb1",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:39Z (receipt 165f5f4fceb1); selected commit bef77ac24d24: \"Add a new-tab button and a tab menu, and mark MCP as beta\". LICENSE file at pin bef77ac24d24 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:39Z (receipt 165f5f4fceb1); selected commit bef77ac24d24: \"Add a new-tab button and a tab menu, and mark MCP as beta\". LICENSE file at pin bef77ac24d24 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

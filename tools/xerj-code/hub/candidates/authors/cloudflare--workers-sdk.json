@@ -1,0 +1,23 @@
+{
+ "corpus": "cloudflare--workers-sdk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on serverless, cli, javascript queries this for how cloudflare/workers-sdk implements it: \u26c5\ufe0f Home to Wrangler, the CLI for Cloudflare Workers\u00ae (selected work: packages/workflows-shared, packages/vite-plugin-cloudflare, packages/miniflare)",
+ "repos": [
+  {
+   "repo": "workers-sdk",
+   "url": "https://github.com/cloudflare/workers-sdk",
+   "sha": "940c6925b887faa4f43eccc957766385f6cc2d47",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "0024e0b4722f",
+    "note": "author consent by email 2026-10-24T05:02Z (receipt 0024e0b4722f); selected commit 940c6925b887: \"[workflows-shared] Emulate deterministic-ID uniqueness in the local W\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

@@ -9,14 +9,14 @@
    "repo": "CoreFramework",
    "url": "https://github.com/xresch/CoreFramework",
    "sha": "e30c1e6cfc0155aa8348ab766f97df424cbe979e",
-   "licence": "MIT (LICENSE file at pin e30c1e6cfc01, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin e30c1e6cfc01, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T08:57Z",
     "consent_receipt": "70d036bb6fc2",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T08:57Z (receipt 70d036bb6fc2); selected commit e30c1e6cfc01: \"Mailing: Enhancing code to support the registration of multiple mail \u2026\". LICENSE file at pin e30c1e6cfc01 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T08:57Z (receipt 70d036bb6fc2); selected commit e30c1e6cfc01: \"Mailing: Enhancing code to support the registration of multiple mail \u2026\". LICENSE file at pin e30c1e6cfc01 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

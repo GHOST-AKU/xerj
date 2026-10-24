@@ -9,14 +9,14 @@
    "repo": "better-portal",
    "url": "https://github.com/wchwawa/better-portal",
    "sha": "67cd7aa6d11e898aa92656dd67684548fc90c467",
-   "licence": "MIT (LICENSE file at pin 67cd7aa6d11e, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 67cd7aa6d11e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T00:00Z",
     "consent_receipt": "393d0e21b0bc",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T00:00Z (receipt 393d0e21b0bc); selected commit 67cd7aa6d11e: \"fix: select the Windows LAN adapter and expose setup failures\". LICENSE file at pin 67cd7aa6d11e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T00:00Z (receipt 393d0e21b0bc); selected commit 67cd7aa6d11e: \"fix: select the Windows LAN adapter and expose setup failures\". LICENSE file at pin 67cd7aa6d11e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

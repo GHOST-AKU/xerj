@@ -9,14 +9,14 @@
    "repo": "rust-k8s-demo",
    "url": "https://github.com/caulagi/rust-k8s-demo",
    "sha": "0dbcd438fe13686d8f7efd2b883ed55ee1bf56ed",
-   "licence": "MIT (LICENSE file at pin 0dbcd438fe13, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 0dbcd438fe13, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T14:30Z",
     "consent_receipt": "40a70bf168c1",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T14:30Z (receipt 40a70bf168c1); selected commit 0dbcd438fe13: \"Authenticate to Postgres with TLS client certificates instead of a pa\u2026\". LICENSE file at pin 0dbcd438fe13 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T14:30Z (receipt 40a70bf168c1); selected commit 0dbcd438fe13: \"Authenticate to Postgres with TLS client certificates instead of a pa\u2026\". LICENSE file at pin 0dbcd438fe13 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

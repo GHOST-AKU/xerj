@@ -9,14 +9,14 @@
    "repo": "tincture",
    "url": "https://github.com/thatsme/tincture",
    "sha": "fed8a34f47b85baeb76f7fd3a3a86d749157c7ae",
-   "licence": "MIT (LICENSE file at pin fed8a34f47b8, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin fed8a34f47b8, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T07:33Z",
     "consent_receipt": "b2bc14e3097d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T07:33Z (receipt b2bc14e3097d); selected commit fed8a34f47b8: \"Document the public API that had no docs, and hide the internals that\u2026\". LICENSE file at pin fed8a34f47b8 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T07:33Z (receipt b2bc14e3097d); selected commit fed8a34f47b8: \"Document the public API that had no docs, and hide the internals that\u2026\". LICENSE file at pin fed8a34f47b8 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

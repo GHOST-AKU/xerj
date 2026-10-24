@@ -9,14 +9,14 @@
    "repo": "pi-session-inspector",
    "url": "https://github.com/twKrash/pi-session-inspector",
    "sha": "74761aa60523ccaae7053f9cbe2455e850356574",
-   "licence": "MIT (LICENSE file at pin 74761aa60523, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 74761aa60523, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T06:48Z",
     "consent_receipt": "1f0622f9f1d9",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T06:48Z (receipt 1f0622f9f1d9); selected commit 74761aa60523: \"fix(ui): reduce duplicate read-path work (#64)\". LICENSE file at pin 74761aa60523 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T06:48Z (receipt 1f0622f9f1d9); selected commit 74761aa60523: \"fix(ui): reduce duplicate read-path work (#64)\". LICENSE file at pin 74761aa60523 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

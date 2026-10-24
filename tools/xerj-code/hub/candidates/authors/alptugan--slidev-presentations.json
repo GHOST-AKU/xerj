@@ -1,0 +1,23 @@
+{
+ "corpus": "alptugan--slidev-presentations",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on algorithmic-art, creative-coding, interaction-design queries this for how alptugan/Slidev_Presentations implements it: Includes my course and workshop presentations built with slidev.js (selected work: Workshops)",
+ "repos": [
+  {
+   "repo": "Slidev_Presentations",
+   "url": "https://github.com/alptugan/Slidev_Presentations",
+   "sha": "e57c4b8cf72525563d27874ea32ec9f997aa0bfc",
+   "licence": "MIT (LICENSE file at pin e57c4b8cf725, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T09:26Z",
+    "consent_receipt": "25c1fe0ee26a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T09:26Z (receipt 25c1fe0ee26a); selected commit e57c4b8cf725: \"TAK - atolye\". LICENSE file at pin e57c4b8cf725 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

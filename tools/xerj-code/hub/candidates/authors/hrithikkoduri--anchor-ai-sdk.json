@@ -9,14 +9,14 @@
    "repo": "anchor-ai-sdk",
    "url": "https://github.com/hrithikkoduri/anchor-ai-sdk",
    "sha": "aaeca611bf3cb38477f061ebc234956f4a86246a",
-   "licence": "MIT (LICENSE file at pin aaeca611bf3c, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin aaeca611bf3c, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-20T03:35Z",
     "consent_receipt": "dc8f6b7342f7",
-    "note": "Inclusion consented by the commit author by email at 2026-10-20T03:35Z (receipt dc8f6b7342f7); selected commit aaeca611bf3c: \"sandbox/e2b: the E2B provider adapter\". LICENSE file at pin aaeca611bf3c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T03:35Z (receipt dc8f6b7342f7); selected commit aaeca611bf3c: \"sandbox/e2b: the E2B provider adapter\". LICENSE file at pin aaeca611bf3c detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

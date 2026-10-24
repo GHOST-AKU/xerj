@@ -9,14 +9,14 @@
    "repo": "FlexQL",
    "url": "https://github.com/schart/FlexQL",
    "sha": "a08491a6264a7c5807be93c5ed72dc9b78c15f62",
-   "licence": "GPL-3.0 (LICENSE file at pin a08491a6264a, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin a08491a6264a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-18T02:04Z",
     "consent_receipt": "f6c204302f6b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T02:04Z (receipt f6c204302f6b); selected commit a08491a6264a: \"prepare FlexQL for npm release\". LICENSE file at pin a08491a6264a detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T02:04Z (receipt f6c204302f6b); selected commit a08491a6264a: \"prepare FlexQL for npm release\". LICENSE file at pin a08491a6264a detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "contractor",
    "url": "https://github.com/izokina/contractor",
    "sha": "ff5f34f627669d4920953c4bc8c0fbac5e377823",
-   "licence": "GPL-3.0 (LICENSE file at pin ff5f34f62766, GitHub licence API 2026-10-23)",
+   "licence": "GPL-3.0 (LICENSE file at pin ff5f34f62766, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-22T14:26Z",
     "consent_receipt": "6c0dcb792452",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T14:26Z (receipt 6c0dcb792452); selected commit ff5f34f62766: \"Update to version 0.2.0\". LICENSE file at pin ff5f34f62766 detected as GPL-3.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T14:26Z (receipt 6c0dcb792452); selected commit ff5f34f62766: \"Update to version 0.2.0\". LICENSE file at pin ff5f34f62766 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

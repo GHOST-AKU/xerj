@@ -9,14 +9,14 @@
    "repo": "openkos",
    "url": "https://github.com/jasonssdev/openkos",
    "sha": "7f0a768969ced70df9c4c05faa28f6af51665620",
-   "licence": "Apache-2.0 (LICENSE file at pin 7f0a768969ce, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 7f0a768969ce, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-05T20:51Z",
     "consent_receipt": "5ec4531df0e5",
-    "note": "Inclusion consented by the commit author by email at 2026-10-05T20:51Z (receipt 5ec4531df0e5); selected commit 7f0a768969ce: \"feat(extract): pre-register the concept-extraction window-size screen\u2026\". LICENSE file at pin 7f0a768969ce detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-05T20:51Z (receipt 5ec4531df0e5); selected commit 7f0a768969ce: \"feat(extract): pre-register the concept-extraction window-size screen\u2026\". LICENSE file at pin 7f0a768969ce detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

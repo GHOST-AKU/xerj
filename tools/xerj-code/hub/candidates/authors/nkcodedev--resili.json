@@ -9,14 +9,14 @@
    "repo": "resili",
    "url": "https://github.com/nkcodedev/resili",
    "sha": "c51e4a5bebb39bd336c691c51e1c6729a3b6efba",
-   "licence": "MIT (LICENSE file at pin c51e4a5bebb3, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin c51e4a5bebb3, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T08:40Z",
     "consent_receipt": "24c4ebc89b7c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T08:40Z (receipt 24c4ebc89b7c); selected commit c51e4a5bebb3: \"fix(llm): normalize OpenAI SDK cancellation to ERR_ABORTED (#37)\". LICENSE file at pin c51e4a5bebb3 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T08:40Z (receipt 24c4ebc89b7c); selected commit c51e4a5bebb3: \"fix(llm): normalize OpenAI SDK cancellation to ERR_ABORTED (#37)\". LICENSE file at pin c51e4a5bebb3 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "sct",
    "url": "https://github.com/pacharanero/sct",
    "sha": "0f90bd4ae5b0f0329c3920ea563c948d877a4a89",
-   "licence": "AGPL-3.0 (LICENSE file at pin 0f90bd4ae5b0, GitHub licence API 2026-10-21)",
+   "licence": "AGPL-3.0 (LICENSE file at pin 0f90bd4ae5b0, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-09T13:53Z",
     "consent_receipt": "720816e9fb1f",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T13:53Z (receipt 720816e9fb1f); selected commit 0f90bd4ae5b0: \"feat(search): add `sct search lexical|semantic|fuzzy` as one front do\u2026\". LICENSE file at pin 0f90bd4ae5b0 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T13:53Z (receipt 720816e9fb1f); selected commit 0f90bd4ae5b0: \"feat(search): add `sct search lexical|semantic|fuzzy` as one front do\u2026\". LICENSE file at pin 0f90bd4ae5b0 detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

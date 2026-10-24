@@ -9,14 +9,14 @@
    "repo": "yolo-data",
    "url": "https://github.com/xiaour/yolo-data",
    "sha": "4da555cbeffc1144c09173709868f2a60f93f2fc",
-   "licence": "Apache-2.0 (LICENSE file at pin 4da555cbeffc, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 4da555cbeffc, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T01:53Z",
     "consent_receipt": "e1039ab8f649",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T01:53Z (receipt e1039ab8f649); selected commit 4da555cbeffc: \"fix: validate Skill uploads and activate uploaded phase guidance\". LICENSE file at pin 4da555cbeffc detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T01:53Z (receipt e1039ab8f649); selected commit 4da555cbeffc: \"fix: validate Skill uploads and activate uploaded phase guidance\". LICENSE file at pin 4da555cbeffc detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

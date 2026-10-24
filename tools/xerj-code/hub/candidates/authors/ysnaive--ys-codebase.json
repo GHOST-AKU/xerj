@@ -1,0 +1,23 @@
+{
+ "corpus": "ysnaive--ys-codebase",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how ysnaive/ys-codebase implements it: ysnaive/ys-codebase (Python) (selected work: ys_codebase, the project root)",
+ "repos": [
+  {
+   "repo": "ys-codebase",
+   "url": "https://github.com/ysnaive/ys-codebase",
+   "sha": "2e8509873f90bc49b61e97299e894fdfc79f0e38",
+   "licence": "MIT (LICENSE file at pin 2e8509873f90, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T03:37Z",
+    "consent_receipt": "80bb2c0935ad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T03:37Z (receipt 80bb2c0935ad); selected commit 2e8509873f90: \"feat(agents-workflow): add deterministic plan resume, shift-left phas\u2026\". LICENSE file at pin 2e8509873f90 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

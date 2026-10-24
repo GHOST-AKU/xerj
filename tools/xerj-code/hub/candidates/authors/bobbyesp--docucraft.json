@@ -9,14 +9,14 @@
    "repo": "Docucraft",
    "url": "https://github.com/BobbyESP/Docucraft",
    "sha": "e4e245fe544fff852175dfc9be0a88b6968ea5f9",
-   "licence": "GPL-3.0 (LICENSE file at pin e4e245fe544f, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin e4e245fe544f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-13T07:49Z",
     "consent_receipt": "57267c094fa5",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:49Z (receipt 57267c094fa5); selected commit e4e245fe544f: \"feat(widget): enhance recent documents widget and add scan widget views\". LICENSE file at pin e4e245fe544f detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:49Z (receipt 57267c094fa5); selected commit e4e245fe544f: \"feat(widget): enhance recent documents widget and add scan widget views\". LICENSE file at pin e4e245fe544f detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

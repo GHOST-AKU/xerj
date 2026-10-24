@@ -9,14 +9,14 @@
    "repo": "trend_analysis_bot",
    "url": "https://github.com/Daniyal-arch/trend_analysis_bot",
    "sha": "f2ef37a03536bbc26afe8449d24567ba1264efe4",
-   "licence": "MIT (LICENSE file at pin f2ef37a03536, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin f2ef37a03536, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T11:51Z",
     "consent_receipt": "b3f9fd6cefe3",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T11:51Z (receipt b3f9fd6cefe3); selected commit f2ef37a03536: \"Build cross-industry app and freelance research with PDF email digests\". LICENSE file at pin f2ef37a03536 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T11:51Z (receipt b3f9fd6cefe3); selected commit f2ef37a03536: \"Build cross-industry app and freelance research with PDF email digests\". LICENSE file at pin f2ef37a03536 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

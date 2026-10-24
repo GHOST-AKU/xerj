@@ -9,14 +9,14 @@
    "repo": "Texture-Toolkit",
    "url": "https://github.com/BadassBaboon/Texture-Toolkit",
    "sha": "8585972b58662c6a937e27719be1369ca83086fc",
-   "licence": "MIT (LICENSE file at pin 8585972b5866, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 8585972b5866, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T09:14Z",
     "consent_receipt": "44468a4d9d8e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T09:14Z (receipt 44468a4d9d8e); selected commit 8585972b5866: \"Tested against The Sims 4  and now hook CopySubresourceRegion1 and Up\u2026\". LICENSE file at pin 8585972b5866 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T09:14Z (receipt 44468a4d9d8e); selected commit 8585972b5866: \"Tested against The Sims 4  and now hook CopySubresourceRegion1 and Up\u2026\". LICENSE file at pin 8585972b5866 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "fitl",
    "url": "https://github.com/sellmerfud/fitl",
    "sha": "c4d0debf6b6248b904fd5d3a2bdee32b9be5f8d7",
-   "licence": "MIT (LICENSE file at pin c4d0debf6b62, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin c4d0debf6b62, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T11:44Z",
     "consent_receipt": "f2c7fe2fa100",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T11:44Z (receipt f2c7fe2fa100); selected commit c4d0debf6b62: \"refactor: Clean up Json object\". LICENSE file at pin c4d0debf6b62 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T11:44Z (receipt f2c7fe2fa100); selected commit c4d0debf6b62: \"refactor: Clean up Json object\". LICENSE file at pin c4d0debf6b62 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

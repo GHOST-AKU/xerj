@@ -9,14 +9,14 @@
    "repo": "ai-assistant-sdk",
    "url": "https://github.com/Hou-mingyuan/ai-assistant-sdk",
    "sha": "7269caef4161e3d1a585b17a9f0e805468dffdf7",
-   "licence": "MIT (LICENSE file at pin 7269caef4161, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 7269caef4161, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T03:33Z",
     "consent_receipt": "803e6f5e2c58",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T03:33Z (receipt 803e6f5e2c58); selected commit 7269caef4161: \"feat: add hmac tenant-token auth mode with derived tenant identity an\u2026\". LICENSE file at pin 7269caef4161 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T03:33Z (receipt 803e6f5e2c58); selected commit 7269caef4161: \"feat: add hmac tenant-token auth mode with derived tenant identity an\u2026\". LICENSE file at pin 7269caef4161 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

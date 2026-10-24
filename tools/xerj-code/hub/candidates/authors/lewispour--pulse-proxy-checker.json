@@ -9,14 +9,14 @@
    "repo": "pulse-proxy-checker",
    "url": "https://github.com/lewispour/pulse-proxy-checker",
    "sha": "40f5215fdfbe591de9c7683f2ed9864861332ea4",
-   "licence": "MIT (LICENSE file at pin 40f5215fdfbe, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 40f5215fdfbe, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T19:21Z",
     "consent_receipt": "d95b236f2aad",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T19:21Z (receipt d95b236f2aad); selected commit 40f5215fdfbe: \"Add launch-time update check with download banner (GitHub Releases)\". LICENSE file at pin 40f5215fdfbe detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T19:21Z (receipt d95b236f2aad); selected commit 40f5215fdfbe: \"Add launch-time update check with download banner (GitHub Releases)\". LICENSE file at pin 40f5215fdfbe detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

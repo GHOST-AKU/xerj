@@ -9,14 +9,14 @@
    "repo": "dsh-emacs",
    "url": "https://github.com/vritser/dsh-emacs",
    "sha": "763422aec340bcb0270d46c729ef3f51d5058da2",
-   "licence": "GPL-3.0 (LICENSE file at pin 763422aec340, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 763422aec340, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-19T06:16Z",
     "consent_receipt": "c3858c73e671",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:16Z (receipt c3858c73e671); selected commit 763422aec340: \"refactor: tighten protocol and render decoding\". LICENSE file at pin 763422aec340 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:16Z (receipt c3858c73e671); selected commit 763422aec340: \"refactor: tighten protocol and render decoding\". LICENSE file at pin 763422aec340 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

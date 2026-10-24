@@ -9,14 +9,14 @@
    "repo": "ClrKernel",
    "url": "https://github.com/ClrKernel/ClrKernel",
    "sha": "2483e4e2ad38f5958343b9b1f946134bf56c8851",
-   "licence": "Apache-2.0 (LICENSE file at pin 2483e4e2ad38, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 2483e4e2ad38, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T22:32Z",
     "consent_receipt": "05821575e7eb",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T22:32Z (receipt 05821575e7eb); selected commit 2483e4e2ad38: \"Feature/cell run keys (#45)\". LICENSE file at pin 2483e4e2ad38 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T22:32Z (receipt 05821575e7eb); selected commit 2483e4e2ad38: \"Feature/cell run keys (#45)\". LICENSE file at pin 2483e4e2ad38 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "insoulforge",
    "url": "https://github.com/DreamDonghao/insoulforge",
    "sha": "56120a8895f68d39662cd8c8b87a12690a81e551",
-   "licence": "AGPL-3.0 (LICENSE file at pin 56120a8895f6, GitHub licence API 2026-10-21)",
+   "licence": "AGPL-3.0 (LICENSE file at pin 56120a8895f6, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-10T11:25Z",
     "consent_receipt": "0113d832fc62",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T11:25Z (receipt 0113d832fc62); selected commit 56120a8895f6: \"refactor(startup): \u7edf\u4e00\u663e\u5f0f\u521d\u59cb\u5316\u4f9d\u8d56\u4e0e\u914d\u7f6e\u9519\u8bef\u5904\u7406\". LICENSE file at pin 56120a8895f6 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T11:25Z (receipt 0113d832fc62); selected commit 56120a8895f6: \"refactor(startup): \u7edf\u4e00\u663e\u5f0f\u521d\u59cb\u5316\u4f9d\u8d56\u4e0e\u914d\u7f6e\u9519\u8bef\u5904\u7406\". LICENSE file at pin 56120a8895f6 detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

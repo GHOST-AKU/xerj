@@ -9,14 +9,14 @@
    "repo": "messenger",
    "url": "https://github.com/EugenyiMikhalev/messenger",
    "sha": "9875fea4a8aa2edc106c5e74009a9f800006399e",
-   "licence": "Apache-2.0 (LICENSE file at pin 9875fea4a8aa, GitHub licence API 2026-10-23)",
+   "licence": "Apache-2.0 (LICENSE file at pin 9875fea4a8aa, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T20:04Z",
     "consent_receipt": "3b6bfe5490b1",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T20:04Z (receipt 3b6bfe5490b1); selected commit 9875fea4a8aa: \"feat(components): add RegForm, ButtonImg, Link components\". LICENSE file at pin 9875fea4a8aa detected as Apache-2.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T20:04Z (receipt 3b6bfe5490b1); selected commit 9875fea4a8aa: \"feat(components): add RegForm, ButtonImg, Link components\". LICENSE file at pin 9875fea4a8aa detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

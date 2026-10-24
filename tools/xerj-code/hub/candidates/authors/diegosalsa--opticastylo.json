@@ -9,14 +9,14 @@
    "repo": "OpticaStylo",
    "url": "https://github.com/DiegoSalsa/OpticaStylo",
    "sha": "53162f971bb5896932a13d488382b7383ddbc06b",
-   "licence": "MIT (LICENSE file at pin 53162f971bb5, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 53162f971bb5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T00:18Z",
     "consent_receipt": "f074458db749",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T00:18Z (receipt f074458db749); selected commit 53162f971bb5: \"test: preparar evaluaci\u00f3n con HTTP real y Playwright autenticado\". LICENSE file at pin 53162f971bb5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T00:18Z (receipt f074458db749); selected commit 53162f971bb5: \"test: preparar evaluaci\u00f3n con HTTP real y Playwright autenticado\". LICENSE file at pin 53162f971bb5 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

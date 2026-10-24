@@ -9,14 +9,14 @@
    "repo": "Quick-Panel-Background-Cropper",
    "url": "https://github.com/MehChow/Quick-Panel-Background-Cropper",
    "sha": "761716b7694804742c32afa5661fd2c6c548562d",
-   "licence": "MIT (LICENSE file at pin 761716b76948, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 761716b76948, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T08:26Z",
     "consent_receipt": "79db85e6f7f1",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T08:26Z (receipt 79db85e6f7f1); selected commit 761716b76948: \"done\". LICENSE file at pin 761716b76948 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T08:26Z (receipt 79db85e6f7f1); selected commit 761716b76948: \"done\". LICENSE file at pin 761716b76948 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "angelia",
    "url": "https://github.com/korengast/angelia",
    "sha": "18a1dc3741bca8acbf3706cf2ad69ad301876b08",
-   "licence": "MIT (LICENSE file at pin 18a1dc3741bc, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 18a1dc3741bc, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T04:01Z",
     "consent_receipt": "bf94f9f1839c",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T04:01Z (receipt bf94f9f1839c); selected commit 18a1dc3741bc: \"Angelia 0.3.19: a documented local API, for scripts and agents\". LICENSE file at pin 18a1dc3741bc detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T04:01Z (receipt bf94f9f1839c); selected commit 18a1dc3741bc: \"Angelia 0.3.19: a documented local API, for scripts and agents\". LICENSE file at pin 18a1dc3741bc detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

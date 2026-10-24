@@ -1,0 +1,23 @@
+{
+ "corpus": "mkrueger--icy-board",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how mkrueger/icy_board implements it: A modern PCBoard clone (selected work: crates/icy_board_engine, crates/ppl-lsp, crates/icy_board_ppl)",
+ "repos": [
+  {
+   "repo": "icy_board",
+   "url": "https://github.com/mkrueger/icy_board",
+   "sha": "d05cc33f1fba0d6bd46f18369ab3018bd9b93158",
+   "licence": "Apache-2.0 (LICENSE file at pin d05cc33f1fba, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-05T11:33Z",
+    "consent_receipt": "24908a09d214",
+    "note": "Inclusion consented by the commit author by email at 2026-10-05T11:33Z (receipt 24908a09d214); selected commit d05cc33f1fba: \"Add a PPL 400 archive reader based on unarc-rs\". LICENSE file at pin d05cc33f1fba detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

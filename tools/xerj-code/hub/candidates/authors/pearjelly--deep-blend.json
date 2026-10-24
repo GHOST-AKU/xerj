@@ -9,14 +9,14 @@
    "repo": "deep-blend",
    "url": "https://github.com/pearjelly/deep-blend",
    "sha": "d97bea7285019e010c1cf2995c073a018e1f2704",
-   "licence": "MIT (LICENSE file at pin d97bea728501, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin d97bea728501, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T02:53Z",
     "consent_receipt": "693b03d005e4",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T02:53Z (receipt 693b03d005e4); selected commit d97bea728501: \"Add source-bound local native surface sampling and real bai acceptance\". LICENSE file at pin d97bea728501 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T02:53Z (receipt 693b03d005e4); selected commit d97bea728501: \"Add source-bound local native surface sampling and real bai acceptance\". LICENSE file at pin d97bea728501 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "TinySoundFont4Delphi",
    "url": "https://github.com/LaMitaOne/TinySoundFont4Delphi",
    "sha": "1991e55ebb824c051bfc1142d4409ac1ab3dcff8",
-   "licence": "MIT (LICENSE file at pin 1991e55ebb82, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 1991e55ebb82, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T09:29Z",
     "consent_receipt": "75402d3d43a0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T09:29Z (receipt 75402d3d43a0); selected commit 1991e55ebb82: \"Piano update\". LICENSE file at pin 1991e55ebb82 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T09:29Z (receipt 75402d3d43a0); selected commit 1991e55ebb82: \"Piano update\". LICENSE file at pin 1991e55ebb82 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

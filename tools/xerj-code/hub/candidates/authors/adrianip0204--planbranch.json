@@ -9,14 +9,14 @@
    "repo": "PlanBranch",
    "url": "https://github.com/AdrianIp0204/PlanBranch",
    "sha": "293b80a537542f89210449c21031c8e5b5177760",
-   "licence": "MIT (LICENSE file at pin 293b80a53754, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 293b80a53754, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-14T07:43Z",
     "consent_receipt": "5028e53673e9",
-    "note": "Inclusion consented by the commit author by email at 2026-10-14T07:43Z (receipt 5028e53673e9); selected commit 293b80a53754: \"Keep coding budgets cumulative and tolerate transient Windows record \u2026\". LICENSE file at pin 293b80a53754 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T07:43Z (receipt 5028e53673e9); selected commit 293b80a53754: \"Keep coding budgets cumulative and tolerate transient Windows record \u2026\". LICENSE file at pin 293b80a53754 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

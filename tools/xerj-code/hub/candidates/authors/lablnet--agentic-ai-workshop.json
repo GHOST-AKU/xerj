@@ -9,14 +9,14 @@
    "repo": "agentic-ai-workshop",
    "url": "https://github.com/lablnet/agentic-ai-workshop",
    "sha": "f61fb95d5e2293dec04faa7753e84bbc486565d8",
-   "licence": "MIT (LICENSE file at pin f61fb95d5e22, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin f61fb95d5e22, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T03:30Z",
     "consent_receipt": "36084eb07bdc",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T03:30Z (receipt 36084eb07bdc); selected commit f61fb95d5e22: \"Added gaurdrail agent example\". LICENSE file at pin f61fb95d5e22 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T03:30Z (receipt 36084eb07bdc); selected commit f61fb95d5e22: \"Added gaurdrail agent example\". LICENSE file at pin f61fb95d5e22 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

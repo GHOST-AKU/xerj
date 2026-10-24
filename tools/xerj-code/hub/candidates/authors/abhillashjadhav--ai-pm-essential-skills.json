@@ -9,14 +9,14 @@
    "repo": "AI-PM-essential-skills",
    "url": "https://github.com/Abhillashjadhav/AI-PM-essential-skills",
    "sha": "6e46696a2dfeb47b049b718644dc51fa29a6ade7",
-   "licence": "MIT (LICENSE file at pin 6e46696a2dfe, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 6e46696a2dfe, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T07:55Z",
     "consent_receipt": "babd35e8b312",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T07:55Z (receipt babd35e8b312); selected commit 6e46696a2dfe: \"Port inactive Jev wording comparison\". LICENSE file at pin 6e46696a2dfe detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T07:55Z (receipt babd35e8b312); selected commit 6e46696a2dfe: \"Port inactive Jev wording comparison\". LICENSE file at pin 6e46696a2dfe detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

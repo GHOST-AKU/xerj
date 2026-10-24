@@ -9,14 +9,14 @@
    "repo": "murmur",
    "url": "https://github.com/piqusy/murmur",
    "sha": "9c393cb0271a58bbf11f1251b6b308a032ca3864",
-   "licence": "MIT (LICENSE file at pin 9c393cb0271a, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 9c393cb0271a, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T12:05Z",
     "consent_receipt": "1b832ef62d9d",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T12:05Z (receipt 1b832ef62d9d); selected commit 9c393cb0271a: \"feat(nvim): anchor murmurs to charwise visual selections\". LICENSE file at pin 9c393cb0271a detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T12:05Z (receipt 1b832ef62d9d); selected commit 9c393cb0271a: \"feat(nvim): anchor murmurs to charwise visual selections\". LICENSE file at pin 9c393cb0271a detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

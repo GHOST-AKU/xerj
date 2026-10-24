@@ -9,14 +9,14 @@
    "repo": "SOYUZ-BOT.MD",
    "url": "https://github.com/marcos-ce/SOYUZ-BOT.MD",
    "sha": "8a9cc798000bd4c64715e27dd61941ca33945a9f",
-   "licence": "GPL-3.0 (LICENSE file at pin 8a9cc798000b, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 8a9cc798000b, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-18T23:41Z",
     "consent_receipt": "d3135e9d5658",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T23:41Z (receipt d3135e9d5658); selected commit 8a9cc798000b: \"fix: restore core Baileys initialization, add Pairing Code support, f\u2026\". LICENSE file at pin 8a9cc798000b detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T23:41Z (receipt d3135e9d5658); selected commit 8a9cc798000b: \"fix: restore core Baileys initialization, add Pairing Code support, f\u2026\". LICENSE file at pin 8a9cc798000b detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

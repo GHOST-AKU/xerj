@@ -9,14 +9,14 @@
    "repo": "synapse-layer",
    "url": "https://github.com/SynapseLayer/synapse-layer",
    "sha": "b6c63d3120136cd8284a665f4846e0372538ad6e",
-   "licence": "Apache-2.0 (LICENSE file at pin b6c63d312013, GitHub licence API 2026-10-22)",
+   "licence": "Apache-2.0 (LICENSE file at pin b6c63d312013, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T08:00Z",
     "consent_receipt": "44be821372e4",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:00Z (receipt 44be821372e4); selected commit b6c63d312013: \"fix(claims): align public claims with the real cryptography (G7) (#42)\". LICENSE file at pin b6c63d312013 detected as Apache-2.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:00Z (receipt 44be821372e4); selected commit b6c63d312013: \"fix(claims): align public claims with the real cryptography (G7) (#42)\". LICENSE file at pin b6c63d312013 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

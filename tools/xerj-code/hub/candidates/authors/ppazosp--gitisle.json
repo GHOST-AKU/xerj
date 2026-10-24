@@ -9,14 +9,14 @@
    "repo": "gitisle",
    "url": "https://github.com/ppazosp/gitisle",
    "sha": "fb0d55d441b7e1c79dd983db2b04503611902c1b",
-   "licence": "MIT (LICENSE file at pin fb0d55d441b7, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin fb0d55d441b7, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T20:49Z",
     "consent_receipt": "8af300e6f660",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T20:49Z (receipt 8af300e6f660); selected commit fb0d55d441b7: \"fix: merging follows the merge queue, with its checks, a real start t\u2026\". LICENSE file at pin fb0d55d441b7 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T20:49Z (receipt 8af300e6f660); selected commit fb0d55d441b7: \"fix: merging follows the merge queue, with its checks, a real start t\u2026\". LICENSE file at pin fb0d55d441b7 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

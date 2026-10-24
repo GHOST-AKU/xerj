@@ -9,14 +9,14 @@
    "repo": "claude-code-profile",
    "url": "https://github.com/tmfadhlul/claude-code-profile",
    "sha": "fd79421d583944a96c5aa821a918eb44b1b8aa82",
-   "licence": "MIT (LICENSE file at pin fd79421d5839, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin fd79421d5839, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T20:50Z",
     "consent_receipt": "d85c23aa188e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:50Z (receipt d85c23aa188e); selected commit fd79421d5839: \"feat: automatic profile fallback and bundled statusline\". LICENSE file at pin fd79421d5839 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:50Z (receipt d85c23aa188e); selected commit fd79421d5839: \"feat: automatic profile fallback and bundled statusline\". LICENSE file at pin fd79421d5839 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

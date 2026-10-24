@@ -9,14 +9,14 @@
    "repo": "GravityGuard",
    "url": "https://github.com/halilogia/GravityGuard",
    "sha": "bb63ab837e27ac0d638ee074e958c17ad33f26b3",
-   "licence": "GPL-3.0 (LICENSE file at pin bb63ab837e27, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin bb63ab837e27, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-17T04:01Z",
     "consent_receipt": "79526c157a9b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T04:01Z (receipt 79526c157a9b); selected commit bb63ab837e27: \"feat: enhance obligation attribution, dismissal actions, and prominen\u2026\". LICENSE file at pin bb63ab837e27 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T04:01Z (receipt 79526c157a9b); selected commit bb63ab837e27: \"feat: enhance obligation attribution, dismissal actions, and prominen\u2026\". LICENSE file at pin bb63ab837e27 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

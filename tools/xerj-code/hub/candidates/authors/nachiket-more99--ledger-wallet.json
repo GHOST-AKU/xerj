@@ -1,0 +1,23 @@
+{
+ "corpus": "nachiket-more99--ledger-wallet",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on TypeScript queries this for how nachiket-more99/ledger-wallet implements it: nachiket-more99/ledger-wallet (TypeScript) (selected work: backend, frontend)",
+ "repos": [
+  {
+   "repo": "ledger-wallet",
+   "url": "https://github.com/nachiket-more99/ledger-wallet",
+   "sha": "055ee3cc74f3f12661e938bde0312cb5e1818d17",
+   "licence": "MIT (LICENSE file at pin 055ee3cc74f3, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T07:44Z",
+    "consent_receipt": "f131ee33c155",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T07:44Z (receipt f131ee33c155); selected commit 055ee3cc74f3: \"Add Elasticsearch transaction search and admin filters\". LICENSE file at pin 055ee3cc74f3 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,14 +9,14 @@
    "repo": "tango",
    "url": "https://github.com/angvp/tango",
    "sha": "8100d82a921106bf4929798081d2acff16ca5fb7",
-   "licence": "MIT (LICENSE file at pin 8100d82a9211, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 8100d82a9211, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-09T19:59Z",
     "consent_receipt": "65b8320da468",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T19:59Z (receipt 65b8320da468); selected commit 8100d82a9211: \"feat: shell Options.Helpers registers project functions as project.Name\". LICENSE file at pin 8100d82a9211 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T19:59Z (receipt 65b8320da468); selected commit 8100d82a9211: \"feat: shell Options.Helpers registers project functions as project.Name\". LICENSE file at pin 8100d82a9211 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

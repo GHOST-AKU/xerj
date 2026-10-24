@@ -9,14 +9,14 @@
    "repo": "InterstellarPilot-OpenFrontier",
    "url": "https://github.com/SolacianAllie/InterstellarPilot-OpenFrontier",
    "sha": "c44162e2f29d5ec20460360f800d1677e3904e5c",
-   "licence": "AGPL-3.0 (LICENSE file at pin c44162e2f29d, GitHub licence API 2026-10-21)",
+   "licence": "AGPL-3.0 (LICENSE file at pin c44162e2f29d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-18T22:08Z",
     "consent_receipt": "0517ab5bb182",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T22:08Z (receipt 0517ab5bb182); selected commit c44162e2f29d: \"Docking crossfades; everything else still cuts\". LICENSE file at pin c44162e2f29d detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T22:08Z (receipt 0517ab5bb182); selected commit c44162e2f29d: \"Docking crossfades; everything else still cuts\". LICENSE file at pin c44162e2f29d detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

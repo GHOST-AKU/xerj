@@ -9,14 +9,14 @@
    "repo": "NanaPlay",
    "url": "https://github.com/FahriAdison/NanaPlay",
    "sha": "175507f89d2da17427508b1690ec4fd59d820e38",
-   "licence": "MIT (LICENSE file at pin 175507f89d2d, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 175507f89d2d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-21T13:26Z",
     "consent_receipt": "08dfb39a9dd0",
-    "note": "Inclusion consented by the commit author by email at 2026-10-21T13:26Z (receipt 08dfb39a9dd0); selected commit 175507f89d2d: \"NanaPlay 1.0.77 (build 132) \u2014 Customizable Overlay Shortcut & About P\u2026\". LICENSE file at pin 175507f89d2d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T13:26Z (receipt 08dfb39a9dd0); selected commit 175507f89d2d: \"NanaPlay 1.0.77 (build 132) \u2014 Customizable Overlay Shortcut & About P\u2026\". LICENSE file at pin 175507f89d2d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

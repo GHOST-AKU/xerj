@@ -9,14 +9,14 @@
    "repo": "alfresco-node-vault",
    "url": "https://github.com/saidone75/alfresco-node-vault",
    "sha": "7491c4a962100b2b9c9e669a025548679e44819f",
-   "licence": "GPL-3.0 (LICENSE file at pin 7491c4a96210, GitHub licence API 2026-10-21)",
+   "licence": "GPL-3.0 (LICENSE file at pin 7491c4a96210, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-17T08:00Z",
     "consent_receipt": "1f53f10b4f18",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T08:00Z (receipt 1f53f10b4f18); selected commit 7491c4a96210: \"Secure temporary files with POSIX permissions and Windows ACLs\". LICENSE file at pin 7491c4a96210 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T08:00Z (receipt 1f53f10b4f18); selected commit 7491c4a96210: \"Secure temporary files with POSIX permissions and Windows ACLs\". LICENSE file at pin 7491c4a96210 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

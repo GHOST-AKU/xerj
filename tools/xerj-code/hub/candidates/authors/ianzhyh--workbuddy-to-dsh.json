@@ -9,14 +9,14 @@
    "repo": "workbuddy-to-dsh",
    "url": "https://github.com/Ianzhyh/workbuddy-to-dsh",
    "sha": "f63ee367c4ec7d18b6177ff16a078bf49936b54e",
-   "licence": "MIT (LICENSE file at pin f63ee367c4ec, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin f63ee367c4ec, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-08T15:40Z",
     "consent_receipt": "d1334ce4e7f9",
-    "note": "Inclusion consented by the commit author by email at 2026-10-08T15:40Z (receipt d1334ce4e7f9); selected commit f63ee367c4ec: \"fix(i18n): \u6e90\u7801\u4fa7\u626b\u6f0f\u7ffb \u2014\u2014 \u63d2\u4ef6 8 \u5904 + \u63a7\u5236\u53f0 17 \u5904\uff08v1.4.2\uff09\". LICENSE file at pin f63ee367c4ec detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-08T15:40Z (receipt d1334ce4e7f9); selected commit f63ee367c4ec: \"fix(i18n): \u6e90\u7801\u4fa7\u626b\u6f0f\u7ffb \u2014\u2014 \u63d2\u4ef6 8 \u5904 + \u63a7\u5236\u53f0 17 \u5904\uff08v1.4.2\uff09\". LICENSE file at pin f63ee367c4ec detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

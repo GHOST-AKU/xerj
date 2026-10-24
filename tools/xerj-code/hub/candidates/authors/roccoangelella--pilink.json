@@ -9,14 +9,14 @@
    "repo": "PiLink",
    "url": "https://github.com/roccoangelella/PiLink",
    "sha": "a10abe01bd1f9364af63798a77fdfeb8d8bf9408",
-   "licence": "MIT (LICENSE file at pin a10abe01bd1f, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin a10abe01bd1f, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T09:27Z",
     "consent_receipt": "533652a750a8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T09:27Z (receipt 533652a750a8); selected commit a10abe01bd1f: \"test: exercise Windows wake launcher and recovery paths\". LICENSE file at pin a10abe01bd1f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T09:27Z (receipt 533652a750a8); selected commit a10abe01bd1f: \"test: exercise Windows wake launcher and recovery paths\". LICENSE file at pin a10abe01bd1f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

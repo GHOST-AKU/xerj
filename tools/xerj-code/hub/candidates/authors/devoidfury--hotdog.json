@@ -9,14 +9,14 @@
    "repo": "hotdog",
    "url": "https://github.com/devoidfury/hotdog",
    "sha": "9125d0da2fa6fe2a6be5f3b34a38c7cd96a65487",
-   "licence": "MIT (LICENSE file at pin 9125d0da2fa6, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 9125d0da2fa6, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-09T00:29Z",
     "consent_receipt": "1d38e753ac80",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T00:29Z (receipt 1d38e753ac80); selected commit 9125d0da2fa6: \"kielbasa-2 - update special token sweep testing\". LICENSE file at pin 9125d0da2fa6 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T00:29Z (receipt 1d38e753ac80); selected commit 9125d0da2fa6: \"kielbasa-2 - update special token sweep testing\". LICENSE file at pin 9125d0da2fa6 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

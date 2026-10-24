@@ -9,14 +9,14 @@
    "repo": "plugin.video.jacktorr",
    "url": "https://github.com/Sam-Max/plugin.video.jacktorr",
    "sha": "775f9c116a62e3cb6bde5e293aa6b1c555a04eeb",
-   "licence": "MIT (LICENSE file at pin 775f9c116a62, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 775f9c116a62, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T10:00Z",
     "consent_receipt": "face0d1c9009",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T10:00Z (receipt face0d1c9009); selected commit 775f9c116a62: \"fix: configure Rutor and Torznab searches safely\". LICENSE file at pin 775f9c116a62 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T10:00Z (receipt face0d1c9009); selected commit 775f9c116a62: \"fix: configure Rutor and Torznab searches safely\". LICENSE file at pin 775f9c116a62 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

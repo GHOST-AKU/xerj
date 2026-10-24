@@ -9,14 +9,14 @@
    "repo": "elevon",
    "url": "https://github.com/hesychia-dev/elevon",
    "sha": "791b3048881d730adc50f4fb1789ebceee683092",
-   "licence": "Apache-2.0 (LICENSE file at pin 791b3048881d, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin 791b3048881d, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-19T06:31Z",
     "consent_receipt": "378daf0af017",
-    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:31Z (receipt 378daf0af017); selected commit 791b3048881d: \"test(deploy): add tests for agent deployments (#125)\". LICENSE file at pin 791b3048881d detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:31Z (receipt 378daf0af017); selected commit 791b3048881d: \"test(deploy): add tests for agent deployments (#125)\". LICENSE file at pin 791b3048881d detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

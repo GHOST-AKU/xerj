@@ -1,0 +1,23 @@
+{
+ "corpus": "eyotang--metra",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Rust queries this for how eyotang/Metra implements it: A lightweight cross-platform desktop bubble for checking Cursor, Codex, and Claude Code sign-in status, usage limits, reset times, token tot (selected work: integrations, scripts, src-tauri)",
+ "repos": [
+  {
+   "repo": "Metra",
+   "url": "https://github.com/eyotang/Metra",
+   "sha": "78d1a2a66eedba56ac08f84eab2e433b976170bc",
+   "licence": "MIT (LICENSE file at pin 78d1a2a66eed, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T08:23Z",
+    "consent_receipt": "95caa4f38bff",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T08:23Z (receipt 95caa4f38bff); selected commit 78d1a2a66eed: \"feat: add native Omarchy usage panel and release v0.2.2\". LICENSE file at pin 78d1a2a66eed detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

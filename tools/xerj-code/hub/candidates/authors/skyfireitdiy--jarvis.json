@@ -9,14 +9,14 @@
    "repo": "Jarvis",
    "url": "https://github.com/skyfireitdiy/Jarvis",
    "sha": "9b7b9db29fd47131cbe4404987d63a1af26ce1cb",
-   "licence": "MIT (LICENSE file at pin 9b7b9db29fd4, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 9b7b9db29fd4, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-06T09:35Z",
     "consent_receipt": "80d05ed37085",
-    "note": "Inclusion consented by the commit author by email at 2026-10-06T09:35Z (receipt 80d05ed37085); selected commit 9b7b9db29fd4: \"[Jarvis Code Agent\u63d0\u4ea4] feat(ci): \u65b0\u589e CI \u96c6\u6210\u6307\u5357\u4e0e SDK \u7f16\u6392 API\". LICENSE file at pin 9b7b9db29fd4 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T09:35Z (receipt 80d05ed37085); selected commit 9b7b9db29fd4: \"[Jarvis Code Agent\u63d0\u4ea4] feat(ci): \u65b0\u589e CI \u96c6\u6210\u6307\u5357\u4e0e SDK \u7f16\u6392 API\". LICENSE file at pin 9b7b9db29fd4 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

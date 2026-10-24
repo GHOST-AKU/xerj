@@ -9,14 +9,14 @@
    "repo": "SkillGreen",
    "url": "https://github.com/Jitin2102/SkillGreen",
    "sha": "0820d03927196b592c99df719c8faf97c08564ea",
-   "licence": "MIT (LICENSE file at pin 0820d0392719, GitHub licence API 2026-10-21)",
+   "licence": "MIT (LICENSE file at pin 0820d0392719, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T04:58Z",
     "consent_receipt": "dc98c1a80b8b",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T04:58Z (receipt dc98c1a80b8b); selected commit 0820d0392719: \"milestone 2 accomplished and  moving to milestone 3\". LICENSE file at pin 0820d0392719 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T04:58Z (receipt dc98c1a80b8b); selected commit 0820d0392719: \"milestone 2 accomplished and  moving to milestone 3\". LICENSE file at pin 0820d0392719 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

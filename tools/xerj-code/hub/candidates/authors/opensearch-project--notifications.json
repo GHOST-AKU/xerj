@@ -9,14 +9,14 @@
    "repo": "notifications",
    "url": "https://github.com/opensearch-project/notifications",
    "sha": "bde7d2edc73421382c30a45b4cca8cb7565ab3b1",
-   "licence": "Apache-2.0 (LICENSE file at pin bde7d2edc734, GitHub licence API 2026-10-21)",
+   "licence": "Apache-2.0 (LICENSE file at pin bde7d2edc734, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T20:14Z",
     "consent_receipt": "3d275eff3eab",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:14Z (receipt 3d275eff3eab); selected commit bde7d2edc734: \"Add a REST API to send a message to a notification channel (#1280)\". LICENSE file at pin bde7d2edc734 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T20:14Z (receipt 3d275eff3eab); selected commit bde7d2edc734: \"Add a REST API to send a message to a notification channel (#1280)\". LICENSE file at pin bde7d2edc734 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

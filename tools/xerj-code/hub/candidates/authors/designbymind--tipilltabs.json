@@ -9,14 +9,14 @@
    "repo": "TiPillTabs",
    "url": "https://github.com/designbymind/TiPillTabs",
    "sha": "7a3353f2b8b0a2787b512a30898f7fc375da2397",
-   "licence": "MIT (LICENSE file at pin 7a3353f2b8b0, GitHub licence API 2026-10-23)",
+   "licence": "MIT (LICENSE file at pin 7a3353f2b8b0, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T17:52Z",
     "consent_receipt": "3cb03914d941",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T17:52Z (receipt 3cb03914d941); selected commit 7a3353f2b8b0: \"Add rightPadding and bump TiPillTabs to 1.1.0\". LICENSE file at pin 7a3353f2b8b0 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T17:52Z (receipt 3cb03914d941); selected commit 7a3353f2b8b0: \"Add rightPadding and bump TiPillTabs to 1.1.0\". LICENSE file at pin 7a3353f2b8b0 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "connectors",
    "url": "https://github.com/amp-labs/connectors",
    "sha": "66e38bbdbfe5e9800388d6b8486997d66fe1ba52",
-   "licence": "MIT (LICENSE file at pin 66e38bbdbfe5, GitHub licence API 2026-10-22)",
+   "licence": "MIT (LICENSE file at pin 66e38bbdbfe5, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T06:59Z",
     "consent_receipt": "c514cf3e1433",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:59Z (receipt c514cf3e1433); selected commit 66e38bbdbfe5: \"[CON-3587] feat(webflow): add metadata connector (#3580)\". LICENSE file at pin 66e38bbdbfe5 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:59Z (receipt c514cf3e1433); selected commit 66e38bbdbfe5: \"[CON-3587] feat(webflow): add metadata connector (#3580)\". LICENSE file at pin 66e38bbdbfe5 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]
