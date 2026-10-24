@@ -17,7 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `aarch64-unknown-linux-musl` release builds of `xerj-server` failed
   to compile (release.yml run 40133568141). POSIX treats `pthread_t` as
   an opaque id that any thread may join or detach, and this handle still
-  has exactly one owner.
+  has exactly one owner
+  ([#2376](https://github.com/xerj-org/xerj/pull/2376)).
 
 ## [1.0.0-rc.99] - 2026-10-24
 
