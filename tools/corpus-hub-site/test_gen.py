@@ -449,6 +449,14 @@ class ContributorVolumeTest(unittest.TestCase):
         self.assertEqual(v["gh_stars"], 15)
         self.assertEqual(v["since"], "2026-10-05")
         self.assertEqual(contributors.volume(people["cat"])["commits"], 1)
+        # the ledger split under the 5 MB file limit (CONTRIBUTORS.jsonl + CONTRIBUTORS-2.jsonl) loads the same people
+        with tempfile.TemporaryDirectory() as d2:
+            hub = self._hub(d2); a = hub / "candidates" / "authors"
+            first, second = (a / "CONTRIBUTORS.jsonl").read_text().splitlines()
+            (a / "CONTRIBUTORS.jsonl").write_text(first + "\n"); (a / "CONTRIBUTORS-2.jsonl").write_text(second + "\n")
+            split = contributors.load(hub, reg)
+        self.assertEqual(sorted(split), sorted(people))
+        self.assertEqual(contributors.volume(split["Ann"], {"live-one"})["corpora"], 4)
         idx = contributors.by_corpus(people)
         self.assertEqual(idx["themed"], ["Ann", "cat"])
         self.assertEqual(idx["live-one"], ["Ann"])

@@ -76,9 +76,12 @@ def profile_links(u):
 
 def match(dump):
     logins = {}
-    for line in LEDGER.open(encoding="utf-8"):
-        lg = json.loads(line)["contributor"]["login"]
-        logins[lg.lower()] = lg
+    for part in sorted(LEDGER.parent.glob("CONTRIBUTORS*.jsonl"), key=lambda p: int(p.stem.partition("-")[2] or 1)):   # split under the 5 MB file limit
+        for line in part.open(encoding="utf-8"):
+            if not line.strip():
+                continue
+            lg = json.loads(line)["contributor"]["login"]
+            logins[lg.lower()] = lg
     out, skipped = {}, []
     for p in sorted(dump["posts"].values(), key=lambda p: p["created_at"]):
         u = dump["users"].get(p["author_id"], {})
