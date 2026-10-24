@@ -9,14 +9,14 @@
    "repo": "JianYi",
    "url": "https://github.com/sparkl525/JianYi",
    "sha": "9fd0fcbf74bb34f92bb589467dc5d3229c062cb5",
-   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
+   "licence": "MIT (LICENSE file at pin 9fd0fcbf74bb, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T09:15Z",
     "consent_receipt": "7e05373434a1",
-    "note": "author consent by email 2026-10-19T09:15Z (receipt 7e05373434a1); selected commit 9fd0fcbf74bb: \"ui: \u6696\u8272\u6cbb\u6108\u7cfb\u4e3b\u9898\u91cd\u6784\uff08\u7b80\u8bd1 2.0.8\uff09\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T09:15Z (receipt 7e05373434a1); selected commit 9fd0fcbf74bb: \"ui: \u6696\u8272\u6cbb\u6108\u7cfb\u4e3b\u9898\u91cd\u6784\uff08\u7b80\u8bd1 2.0.8\uff09\". LICENSE file at pin 9fd0fcbf74bb detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

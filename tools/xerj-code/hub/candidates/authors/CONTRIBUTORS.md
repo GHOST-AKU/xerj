@@ -1,6 +1,6 @@
 # Contributor-permission corpora — authors (generated)
 
-Generated 2026-10-24 16:10 UTC by the outreach pipeline (`hub_publish.py`); do not edit by hand, the next run rewrites it.
+Generated 2026-10-24 16:11 UTC by the outreach pipeline (`hub_publish.py`); do not edit by hand, the next run rewrites it.
 Each row is one author who replied to the Corpus Hub outreach email agreeing to inclusion of the selected work, with attribution, under the repository's licence. Email addresses and reply texts are not published; the maintainers keep the original emails.
 Every manifest here is a **candidate** (`review.use: UNREVIEWED`): it goes live only after G4 (licence at the pin) and G7.
 

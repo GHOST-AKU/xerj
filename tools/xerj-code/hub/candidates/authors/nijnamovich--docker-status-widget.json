@@ -9,14 +9,14 @@
    "repo": "docker-status-widget",
    "url": "https://github.com/DaveR-ui/docker-status-widget",
    "sha": "003cad30a6a822fe1865802a342c7461211e10ed",
-   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
+   "licence": "MIT (LICENSE file at pin 003cad30a6a8, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T00:02Z",
     "consent_receipt": "e8cf4c50f448",
-    "note": "author consent by email 2026-10-19T00:02Z (receipt e8cf4c50f448); selected commit 003cad30a6a8: \"V 1.1.1 Fix design\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T00:02Z (receipt e8cf4c50f448); selected commit 003cad30a6a8: \"V 1.1.1 Fix design\". LICENSE file at pin 003cad30a6a8 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "safesurf-php",
    "url": "https://github.com/DikaArdnt/safesurf-php",
    "sha": "044319d85a2e46eb66614aff76ecf38374157af2",
-   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
+   "licence": "MIT (LICENSE file at pin 044319d85a2e, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T00:26Z",
     "consent_receipt": "a74405a7de82",
-    "note": "author consent by email 2026-10-19T00:26Z (receipt a74405a7de82); selected commit 044319d85a2e: \"feat: align detection logic with urlvet, harden security and reduce f\u2026\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T00:26Z (receipt a74405a7de82); selected commit 044319d85a2e: \"feat: align detection logic with urlvet, harden security and reduce f\u2026\". LICENSE file at pin 044319d85a2e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]

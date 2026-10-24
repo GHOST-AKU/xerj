@@ -9,14 +9,14 @@
    "repo": "little_learner",
    "url": "https://github.com/publications-and-more/little_learner",
    "sha": "4db100446e4c08d31ae6a52cf28b2a7d3c81ef72",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: not checked yet)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
     "consent_receipt": "a3b2ec23f669",
-    "note": "author consent by email 2026-10-06T05:12Z (receipt a3b2ec23f669); selected commit 4db100446e4c: \"FEAT: src: Ne.app Little Learner. FOSS ML.\"; LICENSE at pin: not checked yet vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "author consent by email 2026-10-06T05:12Z (receipt a3b2ec23f669); selected commit 4db100446e4c: \"FEAT: src: Ne.app Little Learner. FOSS ML.\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]
