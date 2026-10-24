@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `SpawnedThread` is `Send` and `Sync` on musl. `libc::pthread_t` is
+  `*mut c_void` there and an integer on glibc, so the handle was `!Send`
+  only on musl. `MemoryShardRpc::call` holds it across `.await`, and
+  `xerj share` moves the cloudflared log-reader handles onto another
+  thread, so the `x86_64-unknown-linux-musl` and
+  `aarch64-unknown-linux-musl` release builds of `xerj-server` failed
+  to compile (release.yml run 40133568141). POSIX treats `pthread_t` as
+  an opaque id that any thread may join or detach, and this handle still
+  has exactly one owner.
+
 ## [1.0.0-rc.99] - 2026-10-24
 
 Window since v1.0.0-rc.98: 116 merged pull requests. x86_64 release binaries
