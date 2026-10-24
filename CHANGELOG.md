@@ -95,6 +95,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   back into that map. Explicit `?pipeline=` was already unaffected
   ([#2294](https://github.com/xerj-org/xerj/issues/2294)).
 
+- The node no longer aborts when a helper thread or a merge buffer cannot
+  be allocated (#1122). An in-process shard call starts its 8 MiB thread
+  with `pthread_create` and, if the OS refuses, returns
+  `could not start the shard call` without running the handler.
+  `PUT /{index}/_doc/{id}` and `PUT /{index}/_create/{id}` refuse a body
+  over the 8 MiB document ceiling before parsing it, the same way
+  `POST /{index}/_doc` already did. A merge that cannot reserve its output
+  buffer, document map, or the next survivor keeps the input segments and
+  stays up. PDF and `.xls` output readers, the autoindex progress ticker,
+  and the finalize-verify search use the same fallible spawn: a refusal
+  fails that file, skips the ticker, or runs the search on the calling
+  thread.
+
 - `xerj autoindex` no longer aborts the node on one large JSON file (#1122).
   A bulk whose analysis would cross the memory watermark is rejected with
   HTTP 429 before the documents are parsed, so several in-flight bulks cannot
@@ -155,6 +168,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   snippets at the same citation. Rendered text is deduped only when both its
   locator and displayed passage match an already-shown block; display labels,
   separators and match citations no longer stand in for source ranges.
+- `POST /_aliases` stores the alias metadata it is given: `filter`, routing,
+  `is_write_index` and `is_hidden`. Those fields were dropped by the action
+  parser, so a filtered alias created through the standard API exposed every
+  document while the same alias created with `PUT /{index}/_alias/{name}`
+  worked; `_cat/aliases` also printed `-` for the filter. Removing an alias (or
+  re-adding it without a filter) now clears the stored metadata, so a stale
+  filter cannot outlive its definition.
 
 - x86_64 release binaries no longer require AVX2. The build baseline is
   `x86-64-v2` (SSE4.2). The HNSW eight-accumulator dot product — the kernel

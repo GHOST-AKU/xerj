@@ -3941,6 +3941,34 @@ fn resolve_effective_pipeline(
     }
 }
 
+/// Parse one indexed document from raw bytes.
+///
+/// The size check runs before `serde_json`. `PUT /{index}/_doc/{id}` used
+/// to take `Json<Value>`, which builds the DOM inside axum before the
+/// handler runs. A body between the 8 MiB document ceiling and
+/// `limits.max_body_bytes` (100 MiB) was parsed, then refused, and the
+/// parse itself is what aborted the node under a memory cap (#1122).
+/// Bytes that are not valid JSON and are also over the ceiling report the
+/// size refusal, not a parse error — that is how a test can see the check
+/// ran first.
+pub(crate) fn parse_indexed_document_body(body: &[u8]) -> Result<Value, xerj_common::XerjError> {
+    if xerj_common::document_limit::indexed_document_too_large(body.len()) {
+        return Err(xerj_common::XerjError::invalid_document_json(
+            xerj_common::document_limit::indexed_document_refusal(body.len()),
+        ));
+    }
+    serde_json::from_slice(body)
+        .map_err(|e| xerj_common::XerjError::invalid_query(format!("invalid JSON body: {e}")))
+}
+
+/// Serialize a document the in-process callers already hold as a [`Value`]
+/// into the raw body [`index_doc`] parses. Those callers (brain edges,
+/// agent memory) are small; the HTTP routes pass the request bytes through
+/// unchanged.
+pub(crate) fn document_body(doc: &Value) -> bytes::Bytes {
+    bytes::Bytes::from(serde_json::to_vec(doc).unwrap_or_else(|_| Vec::from(&b"{}"[..])))
+}
+
 /// Fast path for `POST /{index}/_doc`: receives raw bytes to skip the axum
 /// JSON extractor's extra validation pass and parse directly with simd_json /
 /// serde_json.  No schema validation is performed here; the engine layer handles
@@ -3951,22 +3979,9 @@ pub async fn index_doc_auto(
     Query(params): Query<IndexDocAutoParams>,
     body: bytes::Bytes,
 ) -> impl IntoResponse {
-    if xerj_common::document_limit::indexed_document_too_large(body.len()) {
-        return ApiError::new(xerj_common::XerjError::invalid_document_json(
-            xerj_common::document_limit::indexed_document_refusal(body.len()),
-        ))
-        .into_response();
-    }
-    // Parse the raw body directly — avoids the axum Json extractor's extra
-    // content-type enforcement and serde_json::from_str double-pass.
-    let doc: Value = match serde_json::from_slice(&body) {
+    let doc = match parse_indexed_document_body(&body) {
         Ok(v) => v,
-        Err(e) => {
-            return ApiError::new(xerj_common::XerjError::invalid_query(format!(
-                "invalid JSON body: {e}"
-            )))
-            .into_response();
-        }
+        Err(e) => return ApiError::new(e).into_response(),
     };
 
     let doc = apply_ignore_malformed(&state, &index, doc);
@@ -4115,8 +4130,13 @@ pub async fn index_doc(
     State(state): State<AppState>,
     Path((index, id)): Path<(String, String)>,
     Query(params): Query<IndexDocParams>,
-    Json(doc): Json<Value>,
+    body: bytes::Bytes,
 ) -> impl IntoResponse {
+    // Size check before the DOM exists. See [`parse_indexed_document_body`].
+    let doc = match parse_indexed_document_body(&body) {
+        Ok(v) => v,
+        Err(e) => return ApiError::new(e).into_response(),
+    };
     // Apply ignore_malformed validation — remove malformed values and add
     // field names to _ignored[] per the index mapping. No-op when the index
     // has no mapping yet.
@@ -4321,8 +4341,12 @@ pub async fn create_doc(
     State(state): State<AppState>,
     Path((index, id)): Path<(String, String)>,
     Query(params): Query<CreateDocParams>,
-    Json(doc): Json<Value>,
+    body: bytes::Bytes,
 ) -> impl IntoResponse {
+    let doc = match parse_indexed_document_body(&body) {
+        Ok(v) => v,
+        Err(e) => return ApiError::new(e).into_response(),
+    };
     // Execute ingest pipeline if one is specified (explicit `?pipeline=`) or
     // resolved from the index's `index.default_pipeline` setting.
     let effective_pipeline = resolve_effective_pipeline(&state, &index, params.pipeline.as_deref());
@@ -4393,6 +4417,87 @@ pub async fn create_doc(
             (StatusCode::CREATED, Json(er)).into_response()
         }
         Err(e) => ApiError::new(xerj_common::XerjError::from(e)).into_response(),
+    }
+}
+
+#[cfg(test)]
+mod oversized_single_doc {
+    use super::*;
+    use axum::body::{to_bytes, Body};
+    use axum::http::Request;
+    use tower::ServiceExt;
+    use xerj_common::config::{Config, WalSync};
+    use xerj_common::document_limit::MAX_INDEXED_DOCUMENT_BYTES;
+    use xerj_common::metrics::Metrics;
+    use xerj_engine::Engine;
+
+    fn test_state() -> AppState {
+        let dir = tempfile::tempdir().expect("tempdir").keep();
+        let mut config = Config::default();
+        config.server.data_dir = dir.to_string_lossy().into_owned();
+        config.storage.wal_sync = WalSync::Async;
+        let metrics = Metrics::new().expect("metrics");
+        let engine = Engine::new(config.clone()).expect("engine");
+        AppState::new(config, engine, metrics)
+    }
+
+    #[test]
+    fn an_oversized_body_is_refused_before_it_is_parsed() {
+        let body = vec![b'x'; MAX_INDEXED_DOCUMENT_BYTES + 1];
+        let err = parse_indexed_document_body(&body).unwrap_err();
+        let text = err.to_string();
+        assert!(
+            text.contains(&MAX_INDEXED_DOCUMENT_BYTES.to_string()),
+            "{text}"
+        );
+        assert!(text.contains("not indexed"), "{text}");
+        assert!(
+            !text.contains("invalid JSON"),
+            "the size check must run before parse: {text}"
+        );
+        let small = parse_indexed_document_body(br#"{"name":"ada"}"#).unwrap();
+        assert_eq!(small["name"], "ada");
+    }
+
+    #[tokio::test]
+    async fn put_and_create_refuse_an_oversized_body_and_a_small_put_indexes() {
+        let app = crate::router::build_es_compat_router(test_state());
+        let body = vec![b'x'; MAX_INDEXED_DOCUMENT_BYTES + 1];
+        for path in ["/oversize/_doc/1", "/oversize/_create/1"] {
+            let response = app
+                .clone()
+                .oneshot(
+                    Request::put(path)
+                        .header("content-type", "application/json")
+                        .body(Body::from(body.clone()))
+                        .unwrap(),
+                )
+                .await
+                .unwrap();
+            assert_eq!(response.status(), StatusCode::BAD_REQUEST, "{path}");
+            let bytes = to_bytes(response.into_body(), usize::MAX).await.unwrap();
+            let text = String::from_utf8(bytes.to_vec()).unwrap();
+            assert!(
+                text.contains(&MAX_INDEXED_DOCUMENT_BYTES.to_string()),
+                "{path}: {text}"
+            );
+            assert!(text.contains("not indexed"), "{path}: {text}");
+            assert!(
+                !text.contains("invalid JSON"),
+                "{path} parsed before the size check: {text}"
+            );
+        }
+
+        let response = app
+            .oneshot(
+                Request::put("/oversize/_doc/ok")
+                    .header("content-type", "application/json")
+                    .body(Body::from(r#"{"name":"ada"}"#))
+                    .unwrap(),
+            )
+            .await
+            .unwrap();
+        assert_eq!(response.status(), StatusCode::CREATED);
     }
 }
 
@@ -25110,6 +25215,98 @@ pub struct AliasAction {
 pub struct AliasActionParams {
     pub index: String,
     pub alias: String,
+    /// `POST /_aliases` carries the same per-alias metadata `PUT
+    /// /{index}/_alias/{name}` does. These used to be missing from this struct,
+    /// so serde silently discarded them and a filtered alias created through
+    /// the standard action API exposed every document.
+    #[serde(default)]
+    pub filter: Option<Value>,
+    #[serde(default)]
+    pub routing: Option<Value>,
+    #[serde(default)]
+    pub index_routing: Option<Value>,
+    #[serde(default)]
+    pub search_routing: Option<Value>,
+    #[serde(default)]
+    pub is_write_index: Option<bool>,
+    #[serde(default)]
+    pub is_hidden: Option<bool>,
+}
+
+/// The metadata object `PUT /{index}/_alias/{name}` and `POST /_aliases` both
+/// persist for an alias. Empty means "no metadata" (and clears any stale
+/// entry on a re-add).
+fn alias_action_meta(add: &AliasActionParams) -> Value {
+    let mut obj = serde_json::Map::new();
+    if let Some(v) = &add.filter {
+        obj.insert("filter".to_string(), v.clone());
+    }
+    if let Some(v) = &add.routing {
+        obj.insert("routing".to_string(), v.clone());
+    }
+    if let Some(v) = &add.index_routing {
+        obj.insert("index_routing".to_string(), v.clone());
+    }
+    if let Some(v) = &add.search_routing {
+        obj.insert("search_routing".to_string(), v.clone());
+    }
+    if let Some(v) = add.is_write_index {
+        obj.insert("is_write_index".to_string(), Value::Bool(v));
+    }
+    if let Some(v) = add.is_hidden {
+        obj.insert("is_hidden".to_string(), Value::Bool(v));
+    }
+    Value::Object(obj)
+}
+
+/// Replace (or clear, for empty metadata) one alias's metadata on one index
+/// and persist it. Clearing matters: re-adding an alias without a filter must
+/// not leave the previous filter enforced.
+fn store_alias_meta(state: &AppState, index: &str, alias: &str, meta: &Value) {
+    let mut existing = state
+        .engine
+        .index_alias_metadata
+        .get(index)
+        .map(|v| v.clone())
+        .unwrap_or_else(|| json!({}));
+    if !existing.is_object() {
+        existing = json!({});
+    }
+    if let Some(obj) = existing.as_object_mut() {
+        if meta.as_object().map(|o| o.is_empty()).unwrap_or(true) {
+            obj.remove(alias);
+        } else {
+            obj.insert(alias.to_string(), meta.clone());
+        }
+    }
+    state
+        .engine
+        .index_alias_metadata
+        .insert(index.to_string(), existing);
+    state.engine.flush_alias_metadata();
+}
+
+/// Drop one alias's stored metadata after the alias itself was removed.
+fn clear_alias_meta(state: &AppState, index: &str, alias: &str) {
+    let Some(mut existing) = state
+        .engine
+        .index_alias_metadata
+        .get(index)
+        .map(|v| v.clone())
+    else {
+        return;
+    };
+    let Some(obj) = existing.as_object_mut() else {
+        return;
+    };
+    if obj.remove(alias).is_none() {
+        return;
+    }
+    state
+        .engine
+        .index_alias_metadata
+        .insert(index.to_string(), existing);
+    state.engine.flush_alias_metadata();
 }
 
 #[derive(Debug, Deserialize)]
@@ -25178,10 +25375,15 @@ pub async fn post_aliases(
     for step in &plan {
         match step {
             Resolved::Add(add, targets) => {
+                let meta = alias_action_meta(add);
+                if let Some(reason) = alias_value_type_error(&add.alias, &meta) {
+                    return es_bad_request("illegal_argument_exception", &reason, None);
+                }
                 for target in targets {
                     if let Err(error) = state.engine.add_alias(&add.alias, target) {
                         return ApiError::new(xerj_common::XerjError::from(error)).into_response();
                     }
+                    store_alias_meta(&state, target, &add.alias, &meta);
                 }
             }
             Resolved::Remove(remove, targets) => {
@@ -25189,6 +25391,7 @@ pub async fn post_aliases(
                     if let Err(error) = state.engine.remove_alias(&remove.alias, target) {
                         return ApiError::new(xerj_common::XerjError::from(error)).into_response();
                     }
+                    clear_alias_meta(&state, target, &remove.alias);
                 }
             }
         }
@@ -25478,24 +25681,9 @@ pub async fn put_alias(
 
     let attach = |idx_name: &str| -> xerj_engine::Result<()> {
         state.engine.add_alias(&alias, idx_name)?;
-        if !alias_meta.as_object().map(|o| o.is_empty()).unwrap_or(true) {
-            let mut existing = state
-                .engine
-                .index_alias_metadata
-                .get(idx_name)
-                .map(|v| v.clone())
-                .unwrap_or(json!({}));
-            if let Some(obj) = existing.as_object_mut() {
-                obj.insert(alias.clone(), alias_meta.clone());
-            } else {
-                existing = json!({ alias.clone(): alias_meta.clone() });
-            }
-            state
-                .engine
-                .index_alias_metadata
-                .insert(idx_name.to_string(), existing);
-            state.engine.flush_alias_metadata();
-        }
+        // Re-putting an alias replaces its definition: an empty body clears a
+        // previous filter instead of leaving it enforced.
+        store_alias_meta(&state, idx_name, &alias, &alias_meta);
         Ok(())
     };
 
@@ -25528,11 +25716,13 @@ pub async fn delete_alias(
         if let Err(error) = state.engine.remove_alias(&alias, &index) {
             return ApiError::new(xerj_common::XerjError::from(error)).into_response();
         }
+        clear_alias_meta(&state, &index, &alias);
     } else {
         for idx in &targets {
             if let Err(error) = state.engine.remove_alias(&alias, idx) {
                 return ApiError::new(xerj_common::XerjError::from(error)).into_response();
             }
+            clear_alias_meta(&state, idx, &alias);
         }
     }
     Json(json!({ "acknowledged": true })).into_response()
@@ -32417,17 +32607,44 @@ pub async fn cat_aliases(
         }
     }
 
+    // `_cat/aliases` used to print a literal `-` for every metadata column, so
+    // a filtered alias created by `POST /_aliases` (or PUT …/_alias/…) looked
+    // unfiltered here even after the read paths honoured the filter. `*` is
+    // ES's text/JSON rendering for "this alias has a filter".
+    let cat_cell = |meta: &Value, key: &str| -> String {
+        match meta.get(key) {
+            None | Some(Value::Null) => "-".to_string(),
+            Some(Value::String(s)) => s.clone(),
+            Some(other) => other.to_string(),
+        }
+    };
+    let render = |alias: &str, index: &str| -> (String, String, String, String) {
+        let meta = alias_meta_for(&state, index, alias);
+        let filter = if meta.get("filter").is_some() {
+            "*".to_string()
+        } else {
+            "-".to_string()
+        };
+        (
+            filter,
+            cat_cell(&meta, "index_routing"),
+            cat_cell(&meta, "search_routing"),
+            cat_cell(&meta, "is_write_index"),
+        )
+    };
+
     if params.format.as_deref() == Some("json") {
         let arr: Vec<Value> = rows
             .iter()
             .map(|(alias, index)| {
+                let (filter, ri, rs, iw) = render(alias, index);
                 json!({
                     "alias": alias,
                     "index": index,
-                    "filter": "-",
-                    "routing.index": "-",
-                    "routing.search": "-",
-                    "is_write_index": "-",
+                    "filter": filter,
+                    "routing.index": ri,
+                    "routing.search": rs,
+                    "is_write_index": iw,
                 })
             })
             .collect();
@@ -32436,7 +32653,10 @@ pub async fn cat_aliases(
 
     let lines: Vec<String> = rows
         .iter()
-        .map(|(alias, index)| format!("{alias} {index} - - - -"))
+        .map(|(alias, index)| {
+            let (filter, ri, rs, iw) = render(alias, index);
+            format!("{alias} {index} {filter} {ri} {rs} {iw}")
+        })
         .collect();
     let body = if lines.is_empty() {
         String::new()
