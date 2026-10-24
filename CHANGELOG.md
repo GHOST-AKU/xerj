@@ -71,6 +71,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Scoped autoindex threads and `POST /{index}/_update/{id}` no longer abort
+  the process when a thread stack or a large body cannot be allocated
+  (#1122). Indexing workers, sync replay, object-watch fetches, and mailbox
+  parsers start with `pthread_create` and do not map an alternate signal
+  stack. A spawn the OS refuses is an error: the job does not run, workers
+  that already started keep going, and the caller runs the work on the
+  calling thread or records the failure. An update body over two 8 MiB
+  documents plus 256 KiB of envelope is refused before `serde_json`, and
+  the existing document is left as it was.
+
 - Semantic `xerj autoindex` against `--embed-mode proxy` resumes after a
   mid-run failure and does not re-embed documents already indexed, when the
   backend, configured model, endpoint, and confirmed vector width are
