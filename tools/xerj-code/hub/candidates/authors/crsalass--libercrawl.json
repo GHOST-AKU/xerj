@@ -1,0 +1,23 @@
+{
+ "corpus": "crsalass--libercrawl",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on data-extraction, docker-compose, fastapi queries this for how crsalass/libercrawl implements it: A local-first, open-source web extraction studio. Scrape, crawl, map and archive websites with a refined dark interface and a self-hosted en (selected work: scripts, tests)",
+ "repos": [
+  {
+   "repo": "libercrawl",
+   "url": "https://github.com/crsalass/libercrawl",
+   "sha": "d45bd3cb2a638e64829e05dceaf45ff152729484",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "cf92e17a791f",
+    "note": "author consent by email 2026-10-23T19:50Z (receipt cf92e17a791f); selected commit d45bd3cb2a63: \"fix: stabilize RabbitMQ startup health checks\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

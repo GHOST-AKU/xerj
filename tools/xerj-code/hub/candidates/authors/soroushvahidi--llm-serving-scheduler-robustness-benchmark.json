@@ -1,0 +1,23 @@
+{
+ "corpus": "soroushvahidi--llm-serving-scheduler-robustness-benchmark",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on benchmarking, llm-serving, performance-evaluation queries this for how SoroushVahidi/llm-serving-scheduler-robustness-benchmark implements it: Benchmark for portability of LLM-serving scheduler rankings across workloads, operating regions, metrics, and SLO definitions (selected work: paper)",
+ "repos": [
+  {
+   "repo": "llm-serving-scheduler-robustness-benchmark",
+   "url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark",
+   "sha": "780108ea53a91bb829e270e7c42735de6419e723",
+   "licence": "MIT (LICENSE file at pin 780108ea53a9, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:32Z",
+    "consent_receipt": "dec70aaa009d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:32Z (receipt dec70aaa009d); selected commit 780108ea53a9: \"[skip ci] Explain M3 contract consequences with verified saved-record\u2026\". LICENSE file at pin 780108ea53a9 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

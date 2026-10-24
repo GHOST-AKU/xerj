@@ -1,0 +1,23 @@
+{
+ "corpus": "riaz37--remotion-ui",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on cli, components, monorepo queries this for how riaz37/remotion-ui implements it: Production-ready motion for Remotion. Source you own (selected work: packages/remotion-ui)",
+ "repos": [
+  {
+   "repo": "remotion-ui",
+   "url": "https://github.com/riaz37/remotion-ui",
+   "sha": "e16087cda2b08fd0977c923dadd8982895c4ed8a",
+   "licence": "MIT (LICENSE file at pin e16087cda2b0, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:24Z",
+    "consent_receipt": "d8e3cb787f4b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:24Z (receipt d8e3cb787f4b); selected commit e16087cda2b0: \"fix(cli): make update pull registry changes into unedited files\". LICENSE file at pin e16087cda2b0 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "6run0--docker-angie",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on angie, docker-compose, docker-container queries this for how 6RUN0/docker-angie implements it: Custom Docker images for the Angie web server with extra modules (Brotli, GeoIP2, ModSecurity, substitutions filter) and runtime configurati (selected work: test, rootfs, debian)",
+ "repos": [
+  {
+   "repo": "docker-angie",
+   "url": "https://github.com/6RUN0/docker-angie",
+   "sha": "d6e62047074e1cbe54102660e7f103fda41959f1",
+   "licence": "MIT (LICENSE file at pin d6e62047074e, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:12Z",
+    "consent_receipt": "8cfaa13309a1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:12Z (receipt 8cfaa13309a1); selected commit d6e62047074e: \"feat!: serve config from a writable /data over a read-only /etc/angie\". LICENSE file at pin d6e62047074e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

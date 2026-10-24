@@ -1,0 +1,23 @@
+{
+ "corpus": "neriah-ado--stepfun-code-plugins",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how Neriah-Ado/stepfun-code-plugins implements it: Step Code \u7b2c\u4e09\u65b9\u63d2\u4ef6\u96c6\u5408\uff1a\u63d0\u4ea4\u89c4\u8303\u3001\u6d4b\u8bd5\u5b88\u62a4\u3001\u5b89\u5168\u626b\u63cf\u3001\u6587\u6863\u751f\u6210\u7b49 13 \u4e2a\u58f0\u660e\u5f0f\u63d2\u4ef6 | Declarative plugin collection for Step Code (selected work: plugins, tests, the project root)",
+ "repos": [
+  {
+   "repo": "stepcode-plugins",
+   "url": "https://github.com/Neriah-Ado/stepcode-plugins",
+   "sha": "d0eb3eb8b93d2e31fce425b7be22ac6d26114d21",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: not checked yet)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "8e7a9d3fee83",
+    "note": "author consent by email 2026-10-24T00:34Z (receipt 8e7a9d3fee83); selected commit d0eb3eb8b93d: \"fix(security): db-insight \u8fde\u63a5\u4e32\u6539 PG* \u73af\u5883\u53d8\u91cf\u4e0e\u8868\u540d\u6807\u8bc6\u7b26\u767d\u540d\u5355 (DI-131-1, DI-131-2)\"; LICENSE at pin: not checked yet vs repository AGPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

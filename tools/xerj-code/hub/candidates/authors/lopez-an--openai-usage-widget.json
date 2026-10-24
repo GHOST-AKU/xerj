@@ -1,0 +1,23 @@
+{
+ "corpus": "lopez-an--openai-usage-widget",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on C# queries this for how Lopez-AN/openai_usage_widget implements it: Widget para windows que muestra cuanto uso de la cuota queda (selected work: the project root, installer, tests)",
+ "repos": [
+  {
+   "repo": "openai_usage_widget",
+   "url": "https://github.com/Lopez-AN/openai_usage_widget",
+   "sha": "c2bcc223c3252bef76d5ff7b8d82b892548e2b07",
+   "licence": "Apache-2.0 (LICENSE file at pin c2bcc223c325, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:31Z",
+    "consent_receipt": "31435ca67ead",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:31Z (receipt 31435ca67ead); selected commit c2bcc223c325: \"Agregado instalador\". LICENSE file at pin c2bcc223c325 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

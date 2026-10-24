@@ -1,0 +1,23 @@
+{
+ "corpus": "dominikx2002--watcalendars",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on design, github-actions, ics-calendar queries this for how dominikx2002/WATcalendars implements it: Program for manual scraping and converting academic schedules from WAT websites into .ics calendar files (selected work: tests, src/watcalendars, scripts)",
+ "repos": [
+  {
+   "repo": "WATcalendars",
+   "url": "https://github.com/dominikx2002/WATcalendars",
+   "sha": "e6da0ef1f9be9dad4a4365aa24205ae9509a0b4a",
+   "licence": "MIT (LICENSE file at pin e6da0ef1f9be, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:51Z",
+    "consent_receipt": "bb0dcb38e23f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:51Z (receipt bb0dcb38e23f); selected commit e6da0ef1f9be: \"WCY: slow sequential scraping with session, WAF probe in remote script\". LICENSE file at pin e6da0ef1f9be detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

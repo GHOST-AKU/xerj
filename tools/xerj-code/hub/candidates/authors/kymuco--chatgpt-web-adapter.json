@@ -1,0 +1,23 @@
+{
+ "corpus": "kymuco--chatgpt-web-adapter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on chatgpt, python, developer-tools queries this for how kymuco/chatgpt-web-adapter implements it: Local Python SDK and CLI for integrating consumer AI web products into apps and agents, with browser-backed sessions (selected work: src/chatgpt_web_adapter, tests)",
+ "repos": [
+  {
+   "repo": "chatgpt-web-adapter",
+   "url": "https://github.com/kymuco/chatgpt-web-adapter",
+   "sha": "e7f3cb804e2348bfee92a8f6e640232264fd8c59",
+   "licence": "MIT (LICENSE file at pin e7f3cb804e23, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T12:00Z",
+    "consent_receipt": "07eeac916782",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T12:00Z (receipt 07eeac916782); selected commit e7f3cb804e23: \"fix: close cross-format export index race and publish manifests exclu\u2026\". LICENSE file at pin e7f3cb804e23 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

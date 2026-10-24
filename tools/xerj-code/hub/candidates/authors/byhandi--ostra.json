@@ -1,0 +1,23 @@
+{
+ "corpus": "byhandi--ostra",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on caddy, custom-domains, docker-compose queries this for how ByHandi/ostra implements it: Self-hosted edge object storage built on Garage v2 and Caddy with automatic TLS and custom domains per bucket (selected work: web, control)",
+ "repos": [
+  {
+   "repo": "ostra",
+   "url": "https://github.com/ByHandi/ostra",
+   "sha": "c2f4118efb44fa06c27fbd875b6a8b9ad4012005",
+   "licence": "Apache-2.0 (LICENSE file at pin c2f4118efb44, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T22:10Z",
+    "consent_receipt": "c2d6470a8c0f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T22:10Z (receipt c2d6470a8c0f); selected commit c2f4118efb44: \"feat(storage): add per-bucket CORS management\". LICENSE file at pin c2f4118efb44 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "orcein-labs--palette",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Rust queries this for how Orcein-Labs/Palette implements it: Persistent working memory for models and a fully programmable Julia laboratory that functions as a Bash replacement. Similar to IPython in P (selected work: runtime, the project root)",
+ "repos": [
+  {
+   "repo": "Palette",
+   "url": "https://github.com/latentcollapse/Palette",
+   "sha": "48b717e7722b8c9d441d4e99ca529a1e3f8f92b0",
+   "licence": "AGPL-3.0 (LICENSE file at pin 48b717e7722b, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-17T12:40Z",
+    "consent_receipt": "291040eed331",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T12:40Z (receipt 291040eed331); selected commit 48b717e7722b: \"fix: project lineage, source transport, and primary depot\". LICENSE file at pin 48b717e7722b detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

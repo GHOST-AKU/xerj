@@ -1,0 +1,23 @@
+{
+ "corpus": "rmaksym1--eventhub",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how rmaksym1/eventhub implements it: Scalable booking and ticketing backend designed for high load, featuring event-driven architecture, distributed caching, concurrent booking  (selected work: event-service, eventhub-common, user-service)",
+ "repos": [
+  {
+   "repo": "eventhub",
+   "url": "https://github.com/rmaksym1/eventhub",
+   "sha": "6ea7876390c962aee1424a7b1f2e2928dd3b2c4d",
+   "licence": "MIT (LICENSE file at pin 6ea7876390c9, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T20:29Z",
+    "consent_receipt": "4bb055b84102",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T20:29Z (receipt 4bb055b84102); selected commit 6ea7876390c9: \"implement event dates validator, adjust security configs to response \u2026\". LICENSE file at pin 6ea7876390c9 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

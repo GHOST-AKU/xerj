@@ -1,0 +1,23 @@
+{
+ "corpus": "harshgavandit--agri-samaj-community-platform",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on accessibility, business-directory, community-platform queries this for how harshgavandit/agri-samaj-community-platform implements it: An open-source Marathi-English platform for the Agri Samaj community to discover local businesses, support entrepreneurs, share publications (selected work: src/components, tests, src/lib)",
+ "repos": [
+  {
+   "repo": "agri-samaj-community-platform",
+   "url": "https://github.com/harshgavandit/agri-samaj-community-platform",
+   "sha": "8e94c8ca8409c93d08534357181ef96fa6d7a2c5",
+   "licence": "MIT (LICENSE file at pin 8e94c8ca8409, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:53Z",
+    "consent_receipt": "ee5bf49a45ec",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:53Z (receipt ee5bf49a45ec); selected commit 8e94c8ca8409: \"feat: add bilingual AI chat and voice assistance\". LICENSE file at pin 8e94c8ca8409 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

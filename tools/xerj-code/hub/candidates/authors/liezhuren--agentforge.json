@@ -1,0 +1,23 @@
+{
+ "corpus": "liezhuren--agentforge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how liezhuren/agentforge implements it: liezhuren/agentforge (TypeScript) (selected work: packages/core, the project root, scripts)",
+ "repos": [
+  {
+   "repo": "agentforge",
+   "url": "https://github.com/liezhuren/agentforge",
+   "sha": "1f5dab0882f3ced1feda10801aa160a03bbd7492",
+   "licence": "MIT (LICENSE file at pin 1f5dab0882f3, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T18:42Z",
+    "consent_receipt": "245b5db357bc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T18:42Z (receipt 245b5db357bc); selected commit 1f5dab0882f3: \"feat(env): \u652f\u6301 .env\uff08\u96f6\u4f9d\u8d56\uff09\uff0c\u5e76\u628a\u7aef\u70b9\u5207\u5230\u652f\u6301\u4e25\u683c json_schema \u7684\u7f51\u5173\". LICENSE file at pin 1f5dab0882f3 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

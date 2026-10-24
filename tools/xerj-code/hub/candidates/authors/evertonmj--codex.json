@@ -1,0 +1,23 @@
+{
+ "corpus": "evertonmj--codex",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on Go queries this for how evertonmj/codex implements it: A fast, lightweight embedded key-value database for Go \u2014 encrypted, crash-safe, concurrent, and built for simple persistent storage (selected work: app/storage, app, app/integrity)",
+ "repos": [
+  {
+   "repo": "codex",
+   "url": "https://github.com/evertonmj/codex",
+   "sha": "44a4b93fb632f46fc88167716e7f471738bf5806",
+   "licence": "MPL-2.0 (LICENSE file at pin 44a4b93fb632, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T21:29Z",
+    "consent_receipt": "fe895132badb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:29Z (receipt fe895132badb); selected commit 44a4b93fb632: \"Refactor project structure: rename `codex/src` to `app`, update docum\u2026\". LICENSE file at pin 44a4b93fb632 detected as MPL-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

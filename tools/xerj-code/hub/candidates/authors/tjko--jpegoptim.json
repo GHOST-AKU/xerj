@@ -1,0 +1,23 @@
+{
+ "corpus": "tjko--jpegoptim",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on image-optimization, libjpeg, jpegoptim queries this for how tjko/jpegoptim implements it: jpegoptim - utility to optimize/compress JPEG files (selected work: the project root, test)",
+ "repos": [
+  {
+   "repo": "jpegoptim",
+   "url": "https://github.com/tjko/jpegoptim",
+   "sha": "4310d5497bf957b425ace94731dd3940de4da3f4",
+   "licence": "hint only: GPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "bcb88b478d7b",
+    "note": "author consent by email 2026-10-23T21:26Z (receipt bcb88b478d7b); selected commit 4310d5497bf9: \"Add --strip-ai option to remove AI generation metadata (#220)\"; LICENSE at pin: NOASSERTION vs repository GPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

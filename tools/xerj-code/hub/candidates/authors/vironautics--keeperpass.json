@@ -1,0 +1,23 @@
+{
+ "corpus": "vironautics--keeperpass",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on TypeScript queries this for how vironautics/keeperpass implements it: KeeperPass is a password manager with no server and no company database (selected work: welcome, web)",
+ "repos": [
+  {
+   "repo": "keeperpass",
+   "url": "https://github.com/vironautics/keeperpass",
+   "sha": "26263db0394cb456e995341382d20ad45600e928",
+   "licence": "AGPL-3.0 (LICENSE file at pin 26263db0394c, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T21:42Z",
+    "consent_receipt": "4b3f9179657d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:42Z (receipt 4b3f9179657d); selected commit 26263db0394c: \"update welcome page\". LICENSE file at pin 26263db0394c detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

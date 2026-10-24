@@ -1,0 +1,23 @@
+{
+ "corpus": "rezarashidi--antigravity-suite-manager",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on antigravity, multi-account, multi-instance queries this for how RezaRashidi/antigravity-suite-manager implements it: Complete management suite for Google Antigravity on Ubuntu Linux: multi-account isolation, 3-way shared chat history & brain artifacts, RTL  (selected work: bin, src/antigravity_suite, tests)",
+ "repos": [
+  {
+   "repo": "antigravity-suite-manager",
+   "url": "https://github.com/RezaRashidi/antigravity-suite-manager",
+   "sha": "0447508fe29e5bf0f97be172b691470b7aefb0c2",
+   "licence": "MIT (LICENSE file at pin 0447508fe29e, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T20:06Z",
+    "consent_receipt": "a6f4ce0c5f02",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T20:06Z (receipt a6f4ce0c5f02); selected commit 0447508fe29e: \"fix(suite): resolve keyring reboot prompt, isolate phantom account2, \u2026\". LICENSE file at pin 0447508fe29e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

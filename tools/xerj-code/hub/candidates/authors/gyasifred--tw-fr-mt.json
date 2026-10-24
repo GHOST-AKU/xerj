@@ -1,0 +1,23 @@
+{
+ "corpus": "gyasifred--tw-fr-mt",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on Jupyter Notebook queries this for how gyasifred/TW-FR-MT implements it: Twi-French Machine Translation (selected work: twfr_mt, tests, the project root)",
+ "repos": [
+  {
+   "repo": "TW-FR-MT",
+   "url": "https://github.com/gyasifred/TW-FR-MT",
+   "sha": "47292158ebef45a236e3a101ac2303ed21bae24d",
+   "licence": "MIT (LICENSE file at pin 47292158ebef, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T15:02Z",
+    "consent_receipt": "f56dd8d68f12",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T15:02Z (receipt f56dd8d68f12); selected commit 47292158ebef: \"Modernize translation training, Colab workflows, and Gradio serving\". LICENSE file at pin 47292158ebef detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

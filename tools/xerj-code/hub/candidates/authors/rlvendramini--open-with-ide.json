@@ -1,0 +1,23 @@
+{
+ "corpus": "rlvendramini--open-with-ide",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how rlvendramini/open-with-ide implements it: An extension for Ulauncher to search and open your project's folders with Cursor IDE (selected work: project_launcher, tests, the project root)",
+ "repos": [
+  {
+   "repo": "open-with-ide",
+   "url": "https://github.com/rlvendramini/open-with-ide",
+   "sha": "96f174649337c808787a56e26c2edbf365a754fd",
+   "licence": "MIT (LICENSE file at pin 96f174649337, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T23:08Z",
+    "consent_receipt": "907cba68312d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T23:08Z (receipt 907cba68312d); selected commit 96f174649337: \":sparkles: Unify IDE project launcher with blocked-installation picker\". LICENSE file at pin 96f174649337 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "smotlaq--lora",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on stm32, arm, embedded queries this for how SMotlaq/LoRa implements it: Ra-02 LoRa module (SX1278) library for STM32 (ARM processors) using HAL drivers \u26a1 (selected work: examples)",
+ "repos": [
+  {
+   "repo": "LoRa",
+   "url": "https://github.com/SMotlaq/LoRa",
+   "sha": "15e31d1048798bc8fef5d66458fd7fbcbe1d16a2",
+   "licence": "MIT (LICENSE file at pin 15e31d104879, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:15Z",
+    "consent_receipt": "1da3ba483219",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:15Z (receipt 1da3ba483219); selected commit 15e31d104879: \"added examples\". LICENSE file at pin 15e31d104879 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

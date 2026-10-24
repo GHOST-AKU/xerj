@@ -1,0 +1,23 @@
+{
+ "corpus": "shantanu-1607--raftra",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Go queries this for how shantanu-1607/Raftra implements it: shantanu-1607/Raftra (Go) (selected work: cmd/raftra-cli)",
+ "repos": [
+  {
+   "repo": "Raftra",
+   "url": "https://github.com/shantanu-1607/Raftra",
+   "sha": "eadd1121581ed7c8b42d4adba2b44b8222ee3533",
+   "licence": "MIT (LICENSE file at pin eadd1121581e, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:23Z",
+    "consent_receipt": "ca3d3382b444",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:23Z (receipt ca3d3382b444); selected commit eadd1121581e: \"refactor: extract UI components and rendering logic from main.go to u\u2026\". LICENSE file at pin eadd1121581e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

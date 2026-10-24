@@ -1,0 +1,23 @@
+{
+ "corpus": "felipesotero--opencode-hard-limit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, anthropic, budget queries this for how felipesotero/opencode-hard-limit implements it: Hard-stop OpenCode model calls before you burn your Claude/Codex quota. Configurable 5h or weekly threshold, fail-safe blocking, and a live  (selected work: bin, test, lib)",
+ "repos": [
+  {
+   "repo": "opencode-hard-limit",
+   "url": "https://github.com/felipesotero/opencode-hard-limit",
+   "sha": "5a341a9ceecb932cc07e5fab39bb4035af207079",
+   "licence": "MIT (LICENSE file at pin 5a341a9ceecb, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T16:36Z",
+    "consent_receipt": "c7e741c84c2a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T16:36Z (receipt c7e741c84c2a); selected commit 5a341a9ceecb: \"Validate warm flags and rewire warm commands to the new scheduler\". LICENSE file at pin 5a341a9ceecb detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

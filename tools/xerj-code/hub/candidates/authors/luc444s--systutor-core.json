@@ -1,0 +1,23 @@
+{
+ "corpus": "luc444s--systutor-core",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on Python queries this for how luc444s/systutor-core implements it: Kernel for SYSTUTOR: multi-tenant backend framework with auth, RBAC, audit, events/outbox, and a persistent plugin runtime. MIT licensed (selected work: plugins, tests, src/systutor)",
+ "repos": [
+  {
+   "repo": "systutor-core",
+   "url": "https://github.com/luc444s/systutor-core",
+   "sha": "dc52ce154aac78ef9abb4c0db23930ebb6ee0d54",
+   "licence": "MIT (LICENSE file at pin dc52ce154aac, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T01:41Z",
+    "consent_receipt": "fb477c583f29",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T01:41Z (receipt fb477c583f29); selected commit dc52ce154aac: \"feat: sync the kernel with spanel and replace is_superadmin with core\u2026\". LICENSE file at pin dc52ce154aac detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

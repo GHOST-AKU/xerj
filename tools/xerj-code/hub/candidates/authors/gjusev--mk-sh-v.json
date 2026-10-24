@@ -1,0 +1,23 @@
+{
+ "corpus": "gjusev--mk-sh-v",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on abstention, calibration, decision-model queries this for how Gjusev/mk-sh-v implements it: MK-SH-V: a 260M visual decision model. Calibrated probabilities, a choice, and a refusal below a validated gate, over document pages and scr (selected work: demo, assets, scripts)",
+ "repos": [
+  {
+   "repo": "mk-sh-v",
+   "url": "https://github.com/Gjusev/mk-sh-v",
+   "sha": "e48f63200d822276e06cb8687e9889dd79399b25",
+   "licence": "Apache-2.0 (LICENSE file at pin e48f63200d82, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T22:21Z",
+    "consent_receipt": "10e78dc795ae",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T22:21Z (receipt 10e78dc795ae); selected commit e48f63200d82: \"Demo case set: twelve verified train-split cases in two groups (eight\u2026\". LICENSE file at pin e48f63200d82 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

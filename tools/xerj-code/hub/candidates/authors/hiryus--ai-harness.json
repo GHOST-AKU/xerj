@@ -1,0 +1,23 @@
+{
+ "corpus": "hiryus--ai-harness",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how Hiryus/ai-harness implements it: My clkaude configuration (including agents, skills and scripts) (selected work: claude, scripts)",
+ "repos": [
+  {
+   "repo": "ai-harness",
+   "url": "https://github.com/Hiryus/ai-harness",
+   "sha": "0f3193c04bfc1a28e0505c5a4d3846bffe5ff9dc",
+   "licence": "MIT (LICENSE file at pin 0f3193c04bfc, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T17:53Z",
+    "consent_receipt": "7276e58b9d3a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T17:53Z (receipt 7276e58b9d3a); selected commit 0f3193c04bfc: \"rework the /mode command into a proper claude code mod\". LICENSE file at pin 0f3193c04bfc detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "antlr--grammars-v4",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on hacktoberfest queries this for how antlr/grammars-v4 implements it: Grammars written for ANTLR v4; expectation that the grammars are free of actions (selected work: cpp)",
+ "repos": [
+  {
+   "repo": "grammars-v4",
+   "url": "https://github.com/antlr/grammars-v4",
+   "sha": "04b362f71d357f581d191969c3ae0e56be296eaa",
+   "licence": "hint only: MIT (LICENSE at pin: NONE)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "c4a5d7084c35",
+    "note": "author consent by email 2026-10-23T19:02Z (receipt c4a5d7084c35); selected commit 04b362f71d35: \"Added C++23 grammar (#5075)\"; LICENSE at pin: NONE vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

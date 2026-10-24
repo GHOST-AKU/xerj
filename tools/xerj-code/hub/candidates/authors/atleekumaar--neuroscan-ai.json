@@ -1,0 +1,23 @@
+{
+ "corpus": "atleekumaar--neuroscan-ai",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Jupyter Notebook queries this for how atleekumaar/neuroscan-ai implements it: atleekumaar/neuroscan-ai (Jupyter Notebook) (selected work: backend, frontend, tests)",
+ "repos": [
+  {
+   "repo": "neuroscan-ai",
+   "url": "https://github.com/atleekumaar/neuroscan-ai",
+   "sha": "2567ba22c73235eb581d9844e8599b7a2759ee88",
+   "licence": "MIT (LICENSE file at pin 2567ba22c732, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:35Z",
+    "consent_receipt": "016c9c1372ee",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:35Z (receipt 016c9c1372ee); selected commit 2567ba22c732: \"feat(segmentation): integrate 6 genuine BraTS 2023 cases, 3D surface \u2026\". LICENSE file at pin 2567ba22c732 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

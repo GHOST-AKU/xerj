@@ -1,0 +1,23 @@
+{
+ "corpus": "smallmoss233--doctor-m-3",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how smallmoss233/DOCTOR-M-3 implements it: \u65b0\u4e00\u4ee3\u300a\u795e\u79d8\u535a\u58eb\u300b\u6a21\u7ec4\uff0c\u9002\u7528\u4e8e\u6700\u65b0\u7248\u672c\u7684\u6211\u7684\u4e16\u754c\uff0c\u76ee\u524d\u4e3a26.3-fabric (selected work: src/main, src/client, the project root)",
+ "repos": [
+  {
+   "repo": "DOCTOR-M-3",
+   "url": "https://github.com/smallmoss233/DOCTOR-M-3",
+   "sha": "ea1baf51bac99448216690b3d25ab0e9c19c3225",
+   "licence": "MIT (LICENSE file at pin ea1baf51bac9, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T23:53Z",
+    "consent_receipt": "3d629125baf9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T23:53Z (receipt 3d629125baf9); selected commit ea1baf51bac9: \"\u9ebb\u70e6DSH\u5e2e\u6211\u628a\u6574\u4e2a\u9879\u76ee\u6846\u67b6\u8fdb\u884c\u4f18\u5316\". LICENSE file at pin ea1baf51bac9 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

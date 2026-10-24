@@ -1,0 +1,23 @@
+{
+ "corpus": "sidnei-almeida--dead-space-2-texmod-linux",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on dead-space-2, dxvk, linux queries this for how sidnei-almeida/dead-space-2-texmod-linux implements it: Dead Space 2 TexMod for Linux: load .tpf texture packs (4K suits, HD textures) on Proton, DXVK, ReShade and Steam Deck. No TexMod or uMod ne (selected work: src, the project root)",
+ "repos": [
+  {
+   "repo": "dead-space-2-texmod-linux",
+   "url": "https://github.com/sidnei-almeida/dead-space-2-texmod-linux",
+   "sha": "87bfa51b3f35b7253f1f001daf8110263ffccbc3",
+   "licence": "MIT (LICENSE file at pin 87bfa51b3f35, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T20:09Z",
+    "consent_receipt": "1c00568cde37",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T20:09Z (receipt 1c00568cde37); selected commit 87bfa51b3f35: \"v1.4.0: Windows installer (DS2TexInject-Setup.exe)\". LICENSE file at pin 87bfa51b3f35 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

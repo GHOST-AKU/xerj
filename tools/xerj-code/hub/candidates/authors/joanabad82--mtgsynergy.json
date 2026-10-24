@@ -1,0 +1,23 @@
+{
+ "corpus": "joanabad82--mtgsynergy",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on card-analysis, magic-the-gathering, mtg queries this for how JoanAbad82/mtgsynergy implements it: Explainable Magic: The Gathering card synergy analysis using Oracle text and deterministic rules (selected work: src/engine)",
+ "repos": [
+  {
+   "repo": "mtgsynergy",
+   "url": "https://github.com/JoanAbad82/mtgsynergy",
+   "sha": "b0ec9a15326de2a39e6270d605ad4086f7ce91cf",
+   "licence": "Apache-2.0 (LICENSE file at pin b0ec9a15326d, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T22:34Z",
+    "consent_receipt": "4985981bf509",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T22:34Z (receipt 4985981bf509); selected commit b0ec9a15326d: \"fix(cards): resolve canonical first-face aliases across static indexes\". LICENSE file at pin b0ec9a15326d detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

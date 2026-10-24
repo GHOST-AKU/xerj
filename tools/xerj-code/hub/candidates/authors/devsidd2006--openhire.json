@@ -1,0 +1,23 @@
+{
+ "corpus": "devsidd2006--openhire",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how DevSidd2006/openhire implements it: URL (selected work: pages, tests, services)",
+ "repos": [
+  {
+   "repo": "openhire",
+   "url": "https://github.com/DevSidd2006/openhire",
+   "sha": "62d920c260c42d270d5fd21cfed14ab3608e43b7",
+   "licence": "MIT (LICENSE file at pin 62d920c260c4, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:26Z",
+    "consent_receipt": "c513268ca81f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:26Z (receipt c513268ca81f); selected commit 62d920c260c4: \"removed human blocking, improved UI, and pipeline\". LICENSE file at pin 62d920c260c4 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

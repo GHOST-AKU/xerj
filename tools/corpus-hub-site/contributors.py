@@ -159,8 +159,8 @@ def load(hub_dir, registry=None):
     """
     hub = pathlib.Path(hub_dir)
     people = {}
-    ledger = hub / "candidates" / "authors" / "CONTRIBUTORS.jsonl"
-    if ledger.exists():
+    # the ledger is split under the registry's 5 MB file limit: CONTRIBUTORS.jsonl, CONTRIBUTORS-2.jsonl, ...
+    for ledger in sorted((hub / "candidates" / "authors").glob("CONTRIBUTORS*.jsonl"), key=lambda p: int(p.stem.partition("-")[2] or 1)):
         for line in ledger.read_text().splitlines():
             if not line.strip():
                 continue

@@ -1,0 +1,23 @@
+{
+ "corpus": "rysopanha-lim-developer--the-look-fullstack",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how Rysopanha-Lim-developer/The-Look-fullstack implements it: This is a ecommerce website that sells clothing items for women, men, and kids (selected work: Backend, Frontend, the project root)",
+ "repos": [
+  {
+   "repo": "The-Look-fullstack",
+   "url": "https://github.com/Rysopanha-Lim-developer/The-Look-fullstack",
+   "sha": "9590da2201c0f44fe13c3825f739674898356a47",
+   "licence": "MIT (LICENSE file at pin 9590da2201c0, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T01:39Z",
+    "consent_receipt": "ee1d4cb9e15c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T01:39Z (receipt ee1d4cb9e15c); selected commit 9590da2201c0: \"fix redirect error after login and add new rull to userPersonalInfo t\u2026\". LICENSE file at pin 9590da2201c0 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

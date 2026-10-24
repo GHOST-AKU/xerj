@@ -1,0 +1,23 @@
+{
+ "corpus": "waxspin--mykey",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how waxspin/mykey implements it: A Rust implementation of MIKEY (Multimedia Internet KEYing, RFC 3830) for SRTP key exchange in AES67 and SMPTE ST 2110 environments (selected work: src, the project root)",
+ "repos": [
+  {
+   "repo": "mykey",
+   "url": "https://github.com/waxspin/mykey",
+   "sha": "59e7f40073cacec3c9a90d47dd219c66032524b8",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "06a3f9f50a31",
+    "note": "author consent by email 2026-10-23T21:32Z (receipt 06a3f9f50a31); selected commit 59e7f40073ca: \"Add OAKLEY MODP Diffie-Hellman groups (RFC 3830 \u00a74.2.7) (#27)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

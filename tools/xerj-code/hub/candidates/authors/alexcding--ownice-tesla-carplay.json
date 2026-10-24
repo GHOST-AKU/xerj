@@ -1,0 +1,23 @@
+{
+ "corpus": "alexcding--ownice-tesla-carplay",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Python queries this for how alexcding/ownice-tesla-carplay implements it: HD CarPlay in the Tesla browser for the Ownice T3 / zjinnova box: patch builder, notes and tools (selected work: tools)",
+ "repos": [
+  {
+   "repo": "ownice-tesla-carplay",
+   "url": "https://github.com/alexcding/ownice-tesla-carplay",
+   "sha": "2a40557e98c4a83a32bf8f261911f265cef260d3",
+   "licence": "MIT (LICENSE file at pin 2a40557e98c4, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T18:48Z",
+    "consent_receipt": "4448ca0a4c4b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T18:48Z (receipt 4448ca0a4c4b); selected commit 2a40557e98c4: \"feat: retain validated ChaCha20 NEON in native releases\". LICENSE file at pin 2a40557e98c4 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

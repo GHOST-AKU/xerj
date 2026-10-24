@@ -1,0 +1,23 @@
+{
+ "corpus": "siddarthb07--bumblebee-cec",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on abstention, machine-learning, nlp queries this for how Siddarthb07/bumblebee-cec implements it: Transformer-free closed-corpus correlator. Ask, cite, or refuse from a frozen pack. Not a chatbot LLM (selected work: src/bumblebee, tests, the project root)",
+ "repos": [
+  {
+   "repo": "bumblebee-cec",
+   "url": "https://github.com/Siddarthb07/bumblebee-cec",
+   "sha": "6471edb54b17600f27a63ce9c79d85b78e61478a",
+   "licence": "MIT (LICENSE file at pin 6471edb54b17, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:30Z",
+    "consent_receipt": "f232a8d2df2d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:30Z (receipt f232a8d2df2d); selected commit 6471edb54b17: \"Publish the dim-640 scoreboard and Hearth path.\". LICENSE file at pin 6471edb54b17 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

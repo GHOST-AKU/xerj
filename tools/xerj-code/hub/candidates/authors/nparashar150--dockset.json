@@ -1,0 +1,23 @@
+{
+ "corpus": "nparashar150--dockset",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on appkit, dock, macos queries this for how nparashar150/dockset implements it: A free, open-source shelf for the macOS Dock. Live widgets, app groups and folders in a strip beside your Dock. Inspired by Dockset (selected work: Sources)",
+ "repos": [
+  {
+   "repo": "dockset",
+   "url": "https://github.com/nparashar150/dockset",
+   "sha": "348f61df92feaa0231aef050b8a1aac39ac8dfeb",
+   "licence": "MIT (LICENSE file at pin 348f61df92fe, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T04:01Z",
+    "consent_receipt": "c3db8531b19f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T04:01Z (receipt c3db8531b19f); selected commit 348f61df92fe: \"fix: panels never open invisible, and agents read as what they are do\u2026\". LICENSE file at pin 348f61df92fe detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

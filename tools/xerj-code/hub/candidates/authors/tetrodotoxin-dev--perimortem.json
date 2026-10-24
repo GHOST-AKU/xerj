@@ -2,8 +2,8 @@
  "corpus": "tetrodotoxin-dev--perimortem",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on C++ queries this for how tetrodotoxin-dev/Perimortem implements it: tetrodotoxin-dev/Perimortem (C++) (selected work: source, validation, the project root)",
+ "shelf": "OPS",
+ "domain": "an agent working on C++ queries this for how tetrodotoxin-dev/Perimortem implements it: Compact C and C++ runtime infrastructure for Tetrodotoxin projects (selected work: source, validation, the project root)",
  "repos": [
   {
    "repo": "Perimortem",

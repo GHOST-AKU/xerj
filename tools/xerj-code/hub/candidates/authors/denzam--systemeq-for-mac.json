@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on audio, audio-equalizer, blackhole queries this for how denzam/SystemEQ-for-Mac implements it: System-wide parametric equalizer for macOS 13+ \u2014 free, open source, GPLv3 (selected work: Scripts, ProjectMHelper)",
+ "domain": "an agent working on audio, audio-equalizer, blackhole queries this for how denzam/SystemEQ-for-Mac implements it: System-wide parametric equalizer for macOS 13+ with AutoEQ, calibration and a visualizer. Free, open source (GPLv3). Developer ID signed, Ap (selected work: Scripts, ProjectMHelper)",
  "repos": [
   {
    "repo": "SystemEQ-for-Mac",

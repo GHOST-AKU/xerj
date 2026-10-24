@@ -1,0 +1,23 @@
+{
+ "corpus": "anderson-spider--spider-claude-mods",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how anderson-spider/spider-claude-mods implements it: Claude Code plugin marketplace by anderson-spider (selected work: plugins)",
+ "repos": [
+  {
+   "repo": "spider-claude-mods",
+   "url": "https://github.com/anderson-spider/spider-claude-mods",
+   "sha": "ec8d600ec2dd2edcaa938c848abd1f1d4529e75f",
+   "licence": "MIT (LICENSE file at pin ec8d600ec2dd, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T23:02Z",
+    "consent_receipt": "e768c58eca7d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T23:02Z (receipt e768c58eca7d); selected commit ec8d600ec2dd: \"feat(subagent-effort): cap read-only agents, read the brief's head an\u2026\". LICENSE file at pin ec8d600ec2dd detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

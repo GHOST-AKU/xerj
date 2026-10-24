@@ -1,0 +1,23 @@
+{
+ "corpus": "caffeinatedsoftwarellc--agora",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, ai-agents, ai-tools queries this for how CaffeinatedSoftwareLLC/agora implements it: Provider agnostic agent collaboration platform. Any agent. Any machine. From anywhere. Security measures have been put in place but remember (selected work: agora-ui, test, src/routes)",
+ "repos": [
+  {
+   "repo": "agora",
+   "url": "https://github.com/CaffeinatedSoftwareLLC/agora",
+   "sha": "73b431d743f0fb2efc81677dfef3e793d1c604d3",
+   "licence": "AGPL-3.0 (LICENSE file at pin 73b431d743f0, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T21:59Z",
+    "consent_receipt": "dc681938844f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:59Z (receipt dc681938844f); selected commit 73b431d743f0: \"fix(agents): replace bot detail fan-out with paginated channel listing\". LICENSE file at pin 73b431d743f0 detected as AGPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

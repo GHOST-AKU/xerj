@@ -1,0 +1,23 @@
+{
+ "corpus": "sirsyorrz--deadlockrigs",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Sirsyorrz/deadlockrigs implements it: Blender animation rigs for Deadlock heroes (selected work: tools, the project root)",
+ "repos": [
+  {
+   "repo": "deadlockrigs",
+   "url": "https://github.com/Sirsyorrz/deadlockrigs",
+   "sha": "199a70ba6a2c3dfd19c4b9577ace40756fb8b559",
+   "licence": "GPL-3.0 (LICENSE file at pin 199a70ba6a2c, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T21:34Z",
+    "consent_receipt": "ec33085a7ac0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:34Z (receipt ec33085a7ac0); selected commit 199a70ba6a2c: \"add grey talon's face rig by splitting his closed lips along their cr\u2026\". LICENSE file at pin 199a70ba6a2c detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

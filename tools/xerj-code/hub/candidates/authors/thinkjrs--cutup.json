@@ -1,0 +1,23 @@
+{
+ "corpus": "thinkjrs--cutup",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on allocation, distribution, finance queries this for how thinkjrs/cutup implements it: A Rust library for portfolio allocation strategies, providing implementations for a variety of algorithms (selected work: src, tests, examples)",
+ "repos": [
+  {
+   "repo": "cutup",
+   "url": "https://github.com/thinkjrs/cutup",
+   "sha": "7a802b89b89de332d8ed393ee8c788cd538e119f",
+   "licence": "MIT (LICENSE file at pin 7a802b89b89d, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:48Z",
+    "consent_receipt": "96b8876ff027",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:48Z (receipt 96b8876ff027); selected commit 7a802b89b89d: \"\u2728 Validate input with CutupError and return ordered Weights\". LICENSE file at pin 7a802b89b89d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

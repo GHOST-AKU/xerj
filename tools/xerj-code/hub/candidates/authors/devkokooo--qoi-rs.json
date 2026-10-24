@@ -1,0 +1,23 @@
+{
+ "corpus": "devkokooo--qoi-rs",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how devkokooo/qoi.rs implements it: Image codec better than PNG, implemented in Rust (selected work: src, the project root)",
+ "repos": [
+  {
+   "repo": "qoi.rs",
+   "url": "https://github.com/devkokooo/qoi.rs",
+   "sha": "d17f4965c6c344f2e6d74c2b28f8053a40ba2df2",
+   "licence": "MIT (LICENSE file at pin d17f4965c6c3, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T23:11Z",
+    "consent_receipt": "1ce2e783aa2c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T23:11Z (receipt 1ce2e783aa2c); selected commit d17f4965c6c3: \"prettify with clippy\". LICENSE file at pin d17f4965c6c3 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

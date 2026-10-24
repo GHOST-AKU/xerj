@@ -1,0 +1,23 @@
+{
+ "corpus": "nithin42--pii-radar",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "LAW",
+ "domain": "an agent working on azure-blob-storage, azure-event-hubs, compliance queries this for how nithin42/PII-Radar implements it: CLI tool to scan CSV, JSON and Parquet files for PII -> emails, phones, SSNs, credit cards and more (selected work: src/pii_radar, tests, the project root)",
+ "repos": [
+  {
+   "repo": "PII-Radar",
+   "url": "https://github.com/nithin42/PII-Radar",
+   "sha": "1d8bd9a8af4f81e2d6b9105becfe58064381c638",
+   "licence": "MIT (LICENSE file at pin 1d8bd9a8af4f, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:42Z",
+    "consent_receipt": "0d7c8fc45620",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:42Z (receipt 0d7c8fc45620); selected commit 1d8bd9a8af4f: \"feat(guard): add universal AgentGuard and enterprise secret leakage d\u2026\". LICENSE file at pin 1d8bd9a8af4f detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

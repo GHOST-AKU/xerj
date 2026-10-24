@@ -1,0 +1,23 @@
+{
+ "corpus": "hanah7511--finguard-llm-guardrails-gateway",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how Hanah7511/Finguard-LLM-Guardrails-Gateway implements it: Production-grade LLM safety middleware for financial AI \u2014 input/output guardrails with PII detection, prompt injection defense, NLI-based ha (selected work: scripts, data, src/core)",
+ "repos": [
+  {
+   "repo": "Finguard-LLM-Guardrails-Gateway",
+   "url": "https://github.com/Hanah7511/Finguard-LLM-Guardrails-Gateway",
+   "sha": "211281110c9d9498f828615f524eec9330815bdb",
+   "licence": "MIT (LICENSE file at pin 211281110c9d, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:19Z",
+    "consent_receipt": "d7c060eb8fae",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:19Z (receipt d7c060eb8fae); selected commit 211281110c9d: \"Add official sanctions lists (UN, UAE Local, OFAC) with identifiers a\u2026\". LICENSE file at pin 211281110c9d detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}
