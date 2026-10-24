@@ -100,7 +100,9 @@ So an exit 3 is still a finished run, but it is not always a small gap. Read `da
 
 Only a 400 is a refusal. A 401, 403, 404, 408, 429 or 5xx on the same request says nothing about that dataset, so it still exits 1.
 
-A 429 *on a bulk* is different, whether it is the whole request or some of its items marked `status: 429`. When the node's memory circuit breaker answers that way, the run re-sends the rejected items after a backoff and carries on; it exits 1 only after 600 seconds of re-sends the node never takes, with an error line that begins `the server kept rejecting`. The terminal line of a run that met back-pressure and finished carries `bulk_retries=N`. The [back-pressure page](/answers/autoindex-server-back-pressure-429) covers it.
+A 429 *on a bulk* is different, whether it is the whole request or some of its items marked `status: 429`. When the node's memory circuit breaker answers that way, the run re-sends the rejected items after a backoff and carries on. It exits 1 only after 600 seconds of re-sends the node never takes.
+
+The error line begins `the server kept rejecting`. The terminal line of a run that met back-pressure and finished carries `bulk_retries=N`. The [back-pressure page](/answers/autoindex-server-back-pressure-429) covers it.
 
 ## Exit 4 is a question, and nothing was written
 
@@ -142,13 +144,13 @@ xerj-done ok=false exit=1 reason=aborted wall=10336.0s
 error: prepared bulk contained 1 rejected items: {"type":"engine_exception","reason":"bulk request contains 102258 lines (~51129 actions); exceeds max_actions_per_bulk of 50000","status":413}
 ```
 
-Every `_bulk` body now goes out in windows of at most 10,000 actions. A request the node still refuses for its size is cut in two and sent again, and the terminal line carries `bulk_splits=N` when that happened. Against real nodes with `max_actions_per_bulk = 64` and with `max_body_bytes = 98304`, each run ended `ok=true exit=3 records=1663 bulk_splits=1`, the same records as a control run. Resuming that same generation with the change committed it:
+Every `_bulk` body now goes out in windows of at most 10,000 actions. A request the node still refuses for its size is cut in two and sent again, and the terminal line carries `bulk_splits=N` when that happened. Against real nodes with `max_actions_per_bulk = 64` and with `max_body_bytes = 98304`, each run ended `ok=true exit=3 records=1663 bulk_splits=1`, the same documents as a control run. Resuming that same generation with the change committed it:
 
 ```text
 xerj-done ok=true exit=3 reason=completed-with-junk wall=415.0s files=47444 records=821840 generation=1 code_files=34324 code_files_indexed=34324 code_files_junked=0
 ```
 
-One record that is larger than the node's `limits.max_body_bytes` cannot be cut, and it still ends the run with exit 1 and an error that names that setting.
+One document that is larger than the node's `limits.max_body_bytes` cannot be cut, and it still ends the run with exit 1 and an error that names that setting.
 
 ## Do not read the code alone
 
@@ -178,7 +180,11 @@ Pair this with the four-number reconciliation on the [completeness page](/answer
 
 The codes above were read from `xerj autoindex --help` on a built binary and cross-checked against the help string in `engine/crates/xerj-autoindex/src/cli.rs`. Both agree.
 
-One code was forced for this page: the exit 3 of a refused dataset, on a throwaway node, by pre-creating the dataset's index with a conflicting field type. That capture is committed under `benchmarks/autoindex-resilience/`, together with the full-corpus exit 1 in `finalize-catalog`, the exit 3 of the same generation resumed after issue #955 was fixed (`before-955.stderr.txt`, `after-955.full-corpus-resume.stderr.txt`), and a `reason=server-backpressure` exit 1 forced with a 64 MiB memory cap (`limits-real-node.txt`). The other codes were not forced, so there is no capture for them here and no timing. If you want the codes on your own build, `xerj autoindex --help` prints them in one screen.
+One code was forced for this page. It is the exit 3 of a refused dataset, on a throwaway node, by pre-creating the dataset's index with a conflicting field type. That capture is committed under `benchmarks/autoindex-resilience/`.
+
+The folder also holds the full-corpus exit 1 in `finalize-catalog`. It holds the exit 3 of the same generation resumed after issue #955 was fixed (`before-955.stderr.txt`, `after-955.full-corpus-resume.stderr.txt`). It holds a `reason=server-backpressure` exit 1 forced with a 64 MiB memory cap (`limits-real-node.txt`).
+
+The other codes were not forced, so there is no capture for them here and no timing. If you want the codes on your own build, `xerj autoindex --help` prints them in one screen.
 
 ## FAQ
 
