@@ -71,7 +71,32 @@ CATS = {
 STATUSES = {"live": ("live", "ok"), "candidate": ("candidate", "warn"), "planned": ("planned", "mute"),
             "deferred": ("deferred", "warn"), "killed": ("killed", "bad"), "withdrawn": ("withdrawn", "bad")}
 
-STAMP = "2026-10-13"
+def build_stamp():
+    """The date llms.txt and the search index say they were updated.
+
+    HUB_STAMP (YYYY-MM-DD) wins. Otherwise the UTC date of the newest commit
+    that touched the registry or this generator, so a rebuild of the same
+    commit prints the same date. Falls back to today (UTC) outside git."""
+    env = os.environ.get("HUB_STAMP", "")
+    if re.match(r"^\d{4}-\d{2}-\d{2}$", env):
+        return env
+    try:
+        import subprocess
+        ts = subprocess.run(["git", "-C", str(ROOT), "log", "-1", "--format=%ct", "--",
+                             "tools/xerj-code/hub", "tools/corpus-hub-site"],
+                            capture_output=True, text=True, timeout=30).stdout.strip()
+        if ts.isdigit():
+            return dt.datetime.fromtimestamp(int(ts), dt.timezone.utc).strftime("%Y-%m-%d")
+    except (OSError, ValueError):
+        pass
+    return dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+
+
+STAMP = build_stamp()
+
+# IndexNow ownership key (scripts/seo/indexnow_ping.py on main). Public by
+# design: IndexNow fetches https://hub.xerj.org/<key>.txt to check the host.
+INDEXNOW_KEY = "e94e889e7bee019e40a7617324e7a20a"
 
 
 def plain(s):
@@ -1519,7 +1544,7 @@ def corpus_seo(c, gh, fetched, people, logins):
             ds["contributor"] = person
         ld = {"breadcrumb": repo_pages.crumbs_ld(crumbs), "mainEntity": ds}
     if _date(c.get("added")):
-        ld["mainEntity"]["dateModified"] = _date(c.get("added"))
+        ld["mainEntity"]["datePublished"] = _date(c.get("added"))
     # the facts line for a single-repo corpus, only what GitHub returned
     bits = []
     if st:
@@ -1540,6 +1565,10 @@ def corpus_seo(c, gh, fetched, people, logins):
     if st and fetched:
         dates.append(_date(fetched))
     lm = max((x for x in dates if x), default="")
+    if lm:
+        # newest real date we hold for this corpus: added, a licence review, or the GitHub fetch
+        ld["mainEntity"]["dateModified"] = lm
+        ld["dateModified"] = lm
     return title, desc, ld, top, lm
 
 
@@ -1743,6 +1772,46 @@ better, not just yours.</p>
 </main>'''
 
 
+def llms_repos(live):
+    """llms-repos.txt: one line per repository pinned by a live corpus."""
+    seen, rows = set(), []
+    for c in sorted(live, key=lambda c: c["slug"]):
+        for r in c.get("repos") or []:
+            url = r.get("url") or ""
+            key = (url.lower(), c["slug"])
+            if not url or key in seen:
+                continue
+            seen.add(key)
+            spdx = (r.get("review") or {}).get("spdx") or r.get("licence") or "?"
+            sha = (r.get("sha") or "")[:12] or "unpinned"
+            rows.append(f"- {repo_pages.repo_name(url) or url} ({url}) @ {sha} · {spdx} · "
+                        f"corpus {c['slug']}: {SITE}/corpus/{c['slug']}")
+    head = ["# XERJ Corpus Hub: pinned repositories", "",
+            f"> {len(rows)} repository pins across {len(live)} live corpora, generated from the registry.",
+            "> Each line: repository, the commit the corpus was built from, its licence (SPDX or ?),",
+            "> and the corpus page. Ask a corpus with `xerj ask` (see https://hub.xerj.org/llms.txt).",
+            f"> Last updated: {STAMP}.", "", "## Repositories", ""]
+    return "\n".join(head + rows) + "\n"
+
+
+def llms_contributors(people, live_slugs):
+    """llms-contributors.txt: one line per signed-up contributor."""
+    rows = []
+    for login in sorted(people, key=str.lower):
+        pp = people[login]
+        v = contributors.volume(pp, live_slugs)
+        name = plain(pp.get("name") or login)
+        live = ", ".join(v["live"][:8]) + (" and more" if len(v["live"]) > 8 else "")
+        rows.append(f"- {name} (@{login}): {SITE}/contributors/{login} · {v['commits']} selected "
+                    f"commit{'s' if v['commits'] != 1 else ''} · {len(v['live'])} live "
+                    + ("corpus" if len(v['live']) == 1 else "corpora") + (f": {live}" if live else ""))
+    head = ["# XERJ Corpus Hub: contributors", "",
+            f"> {len(rows)} developers who agreed to let AI agents retrieve their work, generated from the registry.",
+            "> Each line: name, GitHub login, hub page, selected commits, and the live corpora that carry their work.",
+            f"> Last updated: {STAMP}.", "", "## Contributors", ""]
+    return "\n".join(head + rows) + "\n"
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     (OUT / "assets").mkdir(exist_ok=True)
@@ -1933,7 +2002,13 @@ def main():
               "- Every corpus, repository and contributor, as two static JSON files:",
               "  https://hub.xerj.org/search/index.json (names; field list inside) and",
               "  https://hub.xerj.org/search/more.json (languages, topics, use case; same row order)."]
+    lines += ["", "## More indexes", "",
+              "- https://hub.xerj.org/llms-repos.txt: every repository a live corpus pins, with commit and licence.",
+              "- https://hub.xerj.org/llms-contributors.txt: every contributor with a hub page."]
     (OUT / "llms.txt").write_text("\n".join(lines) + "\n")
+    (OUT / "llms-repos.txt").write_text(llms_repos(live))
+    (OUT / "llms-contributors.txt").write_text(llms_contributors(people, {c["slug"] for c in live}))
+    (OUT / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY)
     n_people = contributors.generate(OUT, HUB, page, esc, {c["slug"] for c in live}, corpora, people, upstream, cats=CATS,
                                      lastmod=LASTMOD)
     # search: static index + script (search_index.py); no Function, no Worker request

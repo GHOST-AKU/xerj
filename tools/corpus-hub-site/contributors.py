@@ -1261,12 +1261,15 @@ def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, up
         title, desc = seo_title(f), seo_desc(f)
         posts = xposts.get(login, [])
         stats["x posts"] += len(posts)
+        dates = [x[:10] for x in pp.get("agreed") or [] if re.match(r"^\d{4}-\d{2}-\d{2}", x or "")]
+        ld = seo_ld(f, posts)
+        if dates:
+            ld["dateModified"] = max(dates)
         html = page(title, desc, person_body(pp, esc, live_slugs, pages, agent_section(f, esc, pages), xposts_section(posts, esc)),
                     rel="../", path=f"/contributors/{login}", image=f"https://github.com/{login}.png?size=400",
-                    kind="ProfilePage", noindex=f["thin"], ld_extra=seo_ld(f, posts))
+                    kind="ProfilePage", noindex=f["thin"], ld_extra=ld)
         stats["indexable" if not f["thin"] else "thin"] += 1
         (d / f"{login}.html").write_text(html)
-        dates = [x[:10] for x in pp.get("agreed") or [] if re.match(r"^\d{4}-\d{2}-\d{2}", x or "")]
         if dates:
             lastmod[f"contributors/{login}.html"] = max(dates)
         (d / login).mkdir(exist_ok=True)
@@ -1295,6 +1298,11 @@ def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, up
         else:
             lv, rp = related.pick(slug, f["lang"], f["topics"], exclude={slug})
             body, ld = repo_pages.repo_body(f, esc, people, cats, (lv, rp), fetched)
+            dates = [x for x in [(f["w"].get("agreed") or "")[:10], fetched if f["st"] else ""] if re.match(r"^\d{4}-\d{2}-\d{2}$", x)]
+            if dates and isinstance(ld, dict):
+                ld["dateModified"] = max(dates)
+                if isinstance(ld.get("mainEntity"), dict):
+                    ld["mainEntity"]["dateModified"] = max(dates)
             dsc = descs_out[slug] if descs_out[slug] not in dup else repo_pages.repo_description(f, dup=True)
             rs = reg_of.get(repo_pages.key(f["url"]))
             ttl = repo_pages.title(f["repo"], f"the repository behind the {rs} corpus") if rs else repo_pages.repo_title(f)
