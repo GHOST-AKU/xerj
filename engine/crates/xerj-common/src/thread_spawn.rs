@@ -402,6 +402,43 @@ where
     }
 }
 
+/// Start `job` on a detached thread, for a pool worker that outlives the
+/// caller (#1122).
+///
+/// `Ok` means the thread is running and will be detached when the returned
+/// handle is dropped inside this function. `Err` means `job` did not run.
+/// This does not consult the watermark gate: a pool is built once, and a
+/// soft RSS watermark must not refuse its workers the way it refuses a
+/// drain-free thread. `stack_bytes` is the reservation the pool asked for;
+/// `None` uses the 2 MiB helper stack.
+pub fn spawn_detached(
+    name: &str,
+    stack_bytes: Option<usize>,
+    job: impl FnOnce() + Send + 'static,
+) -> io::Result<()> {
+    if let Some(stack_bytes) = stack_bytes {
+        spawn_detached_with(&StackSpawn { stack_bytes }, name, job)
+    } else {
+        spawn_detached_with(&StdSpawn, name, job)
+    }
+}
+
+/// [`spawn_detached`] with an explicit spawner. Tests pass one that fails
+/// the way an alternate-stack `ENOMEM` does.
+pub fn spawn_detached_with<S, F>(spawner: &S, name: &str, job: F) -> io::Result<()>
+where
+    S: Spawn + ?Sized,
+    F: FnOnce() + Send + 'static,
+{
+    match try_spawn_with(spawner, true, name, job) {
+        Ok(_detached) => Ok(()),
+        Err(failure) => {
+            drop(failure.job);
+            Err(failure.error)
+        }
+    }
+}
+
 /// [`try_spawn`] with an explicit spawner and gate verdict (for tests and
 /// callers that already sampled the gate).
 pub fn try_spawn_with<S, F>(
@@ -1006,6 +1043,22 @@ mod tests {
         // The caller can degrade by running the job inline.
         (failure.job.expect("job handed back"))();
         assert_eq!(ran.load(Ordering::SeqCst), 1);
+    }
+
+    #[test]
+    fn a_detached_worker_spawn_returns_enomem_and_does_not_run_the_job() {
+        let ran = Arc::new(AtomicUsize::new(0));
+        let job_ran = Arc::clone(&ran);
+        let error = spawn_detached_with(&SigaltstackEnomem, "xerj-rayon-0", move || {
+            job_ran.store(1, Ordering::SeqCst);
+        })
+        .expect_err("setup failure is an Err, not a panic");
+        assert_eq!(error.raw_os_error(), Some(12));
+        assert_eq!(
+            ran.load(Ordering::SeqCst),
+            0,
+            "a refused pool worker must not run, and must not abort"
+        );
     }
 
     #[test]
