@@ -59,6 +59,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   is still not detectable
   ([#2306](https://github.com/xerj-org/xerj/issues/2306)).
 
+- An existing index's persisted `index.default_pipeline` runs again after a
+  clean restart. `GET /_settings` still reported the binding, and the
+  pipeline definition was still there, but an ordinary document write no
+  longer copied the field: the in-memory binding was filled on create and
+  on settings update, and opening the index from disk did not rebuild it.
+  Boot, a failed-index retry, and snapshot restore now copy `settings.json`
+  back into that map. Explicit `?pipeline=` was already unaffected
+  ([#2294](https://github.com/xerj-org/xerj/issues/2294)).
+
 - `xerj autoindex` no longer aborts the node on one large JSON file (#1122).
   A bulk whose analysis would cross the memory watermark is rejected with
   HTTP 429 before the documents are parsed, so several in-flight bulks cannot
@@ -82,6 +91,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (and the edges index) on its own, names the index it is waiting on, and
   does not retry a timed-out refresh
   ([#2234](https://github.com/xerj-org/xerj/issues/2234)).
+
+- Neural `xerj autoindex` prints an estimated embedding time before ingest,
+  from a probe measured when the neural model loads and the bytes of files
+  that feed a `semantic_text` dataset. The line names no duration when the
+  probe did not run, and it points at the faster lexical default.
+  `--embed-mode` help and the startup warning state that the mode is fixed
+  per index at ingest and that changing it requires a re-index. Creating or
+  updating a mapping warns when `inference_id`, `model_id`, or
+  `inference_endpoint` names a different embedder than the server is running;
+  those keys do not switch the embedder
+  ([#1612](https://github.com/xerj-org/xerj/issues/1612)).
 
 - A matching index template's `semantic_text` properties and
   `index.default_pipeline` are applied when an index is created, including

@@ -1547,6 +1547,22 @@ impl LogsConfig {
 
 // ─────────────────────────────────────────────────────────────────────────────
 
+/// One measured neural-ingest sample. Advisory: it is not configuration,
+/// it is not serialized, and it is not part of the embedding identity.
+///
+/// Recorded once after the neural model loads. Autoindex turns it into a
+/// time estimate (`corpus bytes / (probe bytes / probe seconds)`). A missing
+/// probe means "not measured" — callers must not invent a rate.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct NeuralIngestProbe {
+    /// UTF-8 bytes of the timed passages.
+    pub bytes: u64,
+    /// Passages in the timed call.
+    pub passages: u32,
+    /// Wall time of that call, in milliseconds. Zero is not a measurement.
+    pub millis: u64,
+}
+
 /// Embedding backend settings.
 ///
 /// XERJ can embed `semantic_text` fields four ways, chosen by
@@ -1664,6 +1680,11 @@ pub struct EmbeddingConfig {
     /// config file.
     #[serde(skip)]
     pub runtime_proxy_width: std::sync::Arc<std::sync::RwLock<Option<ConfirmedProxyWidth>>>,
+    /// Neural ingest probe, shared by cloned configs (the server preloads
+    /// from a clone). `None` inside the cell means the probe ran and did not
+    /// produce a rate; an empty cell means it has not run. Not a setting.
+    #[serde(skip)]
+    pub neural_ingest_probe: std::sync::Arc<std::sync::OnceLock<Option<NeuralIngestProbe>>>,
 }
 
 /// Vector width a proxy embedder confirmed for one endpoint and model.
@@ -1711,6 +1732,7 @@ impl Default for EmbeddingConfig {
             onnx_max_inflight_input_bytes: 32 * 1024 * 1024,
             runtime_onnx_assets: std::sync::Arc::new(std::sync::OnceLock::new()),
             runtime_proxy_width: std::sync::Arc::new(std::sync::RwLock::new(None)),
+            neural_ingest_probe: std::sync::Arc::new(std::sync::OnceLock::new()),
         }
     }
 }
