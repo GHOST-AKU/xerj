@@ -67,6 +67,11 @@ the server refused — see [section 7](#7-one-dataset-the-server-refuses-does-no
 xerj autoindex map
 ```
 
+`xerj autoindex map` with no folder reads that catalog from the node. To
+preview a folder that has not been indexed yet, run
+`xerj autoindex map <folder>` (the same walk, sniff and plan as
+`xerj autoindex <folder> --dry-run`). That preview writes nothing to an index.
+
 The data map is a briefing rendered from the catalog: datasets, inferred
 per-field types with real example values, time ranges, ready-to-send
 queries, and the junk report. Excerpts from the real output:
@@ -502,9 +507,10 @@ writes `[locale]` is also applied to the literal directory of that name, so a
 Next.js route folder is not dropped because git reads the brackets as a
 character class; `*.[ch]` still matches `.c` and `.h`. `--no-ignore` turns
 the rules off; `--no-default-ignores` keeps your ignore files and drops only the
-built-in list. Both apply to an indexing run only — `autoindex map` and
-`autoindex status` never walk a folder and refuse them rather than accepting a
-flag that would do nothing. The folder you point at is never excluded: if it is
+built-in list. Both apply to an indexing run and to `autoindex map <folder>`
+(the read-only preview). A bare `autoindex map` and `autoindex status` never
+walk a folder and refuse them rather than accepting a flag that would do
+nothing. The folder you point at is never excluded: if it is
 itself ignored — say you run this on `~/proj/target` — it is indexed anyway and
 the run says which rule it would have matched.
 
