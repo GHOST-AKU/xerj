@@ -231,6 +231,30 @@ def corpus_stats(c):
     return files, nbytes, licences
 
 
+def upstream_ids(c):
+    """GitHub `owner/name` values this corpus actually pins, first-seen, at most four.
+
+    Read from the manifest URL (and a repo field that is already `owner/name`).
+    A bare repo name is not an owner and is left out.
+    """
+    ids = []
+    for r in c.get("repos") or []:
+        u = search_index.github_owner_repo(r.get("url", ""), r.get("repo", ""))
+        if u and u not in ids:
+            ids.append(u)
+    for s in c.get("sources") or []:
+        u = search_index.github_owner_repo(s.get("url", ""), s.get("repo", "") or s.get("slug", ""))
+        if u and u not in ids:
+            ids.append(u)
+        if len(ids) == 4:
+            break
+    return ids[:4]
+
+
+def upstream_label(c):
+    return ", ".join(upstream_ids(c))
+
+
 def region(c):
     return (c.get("tags") or {}).get("region", "")
 
@@ -277,8 +301,10 @@ def card(c, g7, graded, impact, rel=""):
     (a 404) before it existed."""
     files, nbytes, licences = corpus_stats(c)
     st, stcls = STATUSES.get(c["status"], (c["status"], "mute"))
+    up = upstream_label(c)
+    repo_line = f'\n  <p class="crepo">{esc(up)}</p>' if up else ""
     return f'''<a class="card" data-cat="{esc(c['cat'])}" data-region="{esc(region(c))}" data-slug="{esc(c['slug'].lower())}" href="{rel}corpus/{esc(c['slug'])}">
-  <div class="chead"><span class="cname">{esc(c['slug'])}</span><span class="dot {stcls}"></span></div>
+  <div class="chead"><span class="cname">{esc(c['slug'])}</span><span class="dot {stcls}"></span></div>{repo_line}
   <p class="cuse">{esc(plain(c['usecase'])[:180])}{'...' if len(c['usecase']) > 180 else ''}</p>
   {tag_line(c)}
   <div class="cmeta">{'<span>merged into ' + esc(c['merged_into']) + '</span>' if c.get('merged_into') else '<span>' + human_bytes(nbytes) + '</span><span>' + human_files(files) + '</span>'}<span>{st}</span></div>
@@ -386,9 +412,11 @@ def install_prompt(c):
     `--def` form, and what success looks like. No manifest, no clone, no index."""
     slug = c["slug"]
     use = plain(c.get("usecase") or "")[:200]
+    up = upstream_label(c)
     return (
         f'Use the "{slug}" reference corpus from the XERJ Corpus Hub '
         f"(https://hub.xerj.org/corpus/{slug}) for this task."
+        + (f" Upstream repo: {up}." if up else "")
         + (f" What it is for: {use}" if use else "") + "\n"
         "Run these in a shell, in order, and check each result before the next:\n"
         + CLI_STEP +
@@ -414,10 +442,11 @@ def category_prompt(k, title, live):
     """One paste-ready prompt PER DOMAIN. It lists the domain's corpora with
     their sizes for context; the agent does not have to pick one, because XERJ
     routes the question to the right corpus and names it in the answer."""
-    listing = "\n".join(
-        f"- {c['slug']} ({human_bytes(corpus_stats(c)[1])}): {plain(c.get('usecase') or '')[:110]}"
-        for c in live
-    )
+    def one(c):
+        up = upstream_label(c)
+        who = f"{up}, " if up else ""
+        return f"- {c['slug']} ({who}{human_bytes(corpus_stats(c)[1])}): {plain(c.get('usecase') or '')[:110]}"
+    listing = "\n".join(one(c) for c in live)
     return (
         f"The XERJ Corpus Hub {k} domain ({title}) has {len(live)} reference corpora. "
         "You do not have to name one: XERJ routes the question to the right corpus and says which. "
@@ -453,7 +482,10 @@ def tile(c):
         meta = f"{human_bytes(nbytes)} · {human_files(files)}" if nbytes else "curated pack"
     else:
         meta = st
-    ttl = f'{c["slug"]} — {meta}'
+    up = upstream_label(c)
+    if up:
+        meta = f"{up} · {meta}"
+    ttl = f'{c["slug"]} · {meta}'
     return (f'<div class="tile" data-cat="{esc(c["cat"])}" '
             f'data-region="{esc(region(c))}" data-name="{esc(c["slug"])}" '
             f'data-bytes="{nbytes}" title="{esc(ttl)}">'
@@ -641,6 +673,7 @@ background:var(--z-bg);padding:var(--sp-4)}
 .card:hover{background:var(--z-faint)}
 .chead{display:flex;justify-content:space-between;align-items:center}
 .cname{font-family:var(--font-mono);font-weight:600;font-size:var(--fs-13)}
+.crepo{font-family:var(--font-mono);font-size:var(--fs-11);color:var(--z-mute);margin:0}
 .dot{width:.65em;height:.65em;border-radius:50%;display:inline-block}
 .dot.ok{background:var(--ok)}.dot.warn{background:var(--warn)}
 .dot.bad{background:var(--bad)}.dot.mute{background:var(--z-mute)}
@@ -1520,7 +1553,8 @@ def detail_body(c, g7, graded, impact, prov, contrib="", top=""):
     rows = []
     for r in c["repos"]:
         rv = r.get("review", {})
-        rows.append(f'''<tr><td class="mono"><a href="{esc(r.get('url',''))}">{esc(r.get('repo',''))}</a></td>
+        label = search_index.github_owner_repo(r.get("url", ""), r.get("repo", "")) or r.get("repo", "")
+        rows.append(f'''<tr><td class="mono"><a href="{esc(r.get('url',''))}">{esc(label)}</a></td>
 <td class="mono">{esc(r.get('sha','')[:12])}</td><td>{esc(rv.get('spdx','?'))}</td>
 <td class="mono">{human_bytes(r.get('bytes'))} / {human_files(r.get('files'))}</td>
 <td class="note">{esc(plain(rv.get('note',''))[:400])}</td></tr>''')
@@ -1583,10 +1617,12 @@ def detail_body(c, g7, graded, impact, prov, contrib="", top=""):
         useit = (f'<div class="kbox"><b>Use it</b><br>'
                  f'<span class="note">This entry has no hub pack, so there is nothing to ask. '
                  f'<a href="../llms.txt">The catalogue</a> lists the corpora that can be asked.</span></div>')
+    up = upstream_label(c)
+    upline = f'<p class="crepo">{esc(up)}</p>\n' if up else ""
     return f'''<main>
 {top or '<p><a class="backlink" href="../">&larr; all corpora</a></p>'}
 <h1 class="slug">{esc(c['slug'])} <span class="dot {stcls}"></span></h1>
-{contributors.star_widget("corpus", c["slug"], esc, inline=True)}
+{upline}{contributors.star_widget("corpus", c["slug"], esc, inline=True)}
 <p class="note">{esc(c['kind'])} · status <b>{st}</b> · domain <b>{esc(c['cat'])}</b> ({esc(cat_desc[0])}) · lane {esc(c['lane'])} · refresh {esc(c['refresh'])} · tags <b>{esc(tags_txt)}</b></p>
 {facts_html(c)}
 <section class="detail"><h2>What an agent uses it for</h2><p>{esc(c['usecase'] or 'n/a')}</p></section>
@@ -1881,7 +1917,9 @@ def main():
         r = imp2.get(c["slug"])
         if r and r.get("status") == "measured":
             ab = f"; agent A/B {r['p']} -> {r['x']}"
-        lines.append(f"- [{c['slug']}](https://hub.xerj.org/corpus/{c['slug']}): {c['cat']} · {tags} · {'+'.join(licences) or '?'} · {human_bytes(nbytes)} · {g7s}{ab}; {plain(c['usecase'])[:160]}")
+        up = upstream_label(c)
+        who = f"{up} · " if up else ""
+        lines.append(f"- [{c['slug']}](https://hub.xerj.org/corpus/{c['slug']}): {who}{c['cat']} · {tags} · {'+'.join(licences) or '?'} · {human_bytes(nbytes)} · {g7s}{ab}; {plain(c['usecase'])[:160]}")
     lines += ["", "## Also in the registry", "",
               f"- {len(corpora) - len(live)} rows in candidate, planned, deferred, killed, or",
               "  withdrawn states (visible, not hidden: hub policy is honest statuses).",

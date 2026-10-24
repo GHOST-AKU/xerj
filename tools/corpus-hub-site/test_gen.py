@@ -32,6 +32,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import gen  # noqa: E402
 import contributors  # noqa: E402
 import repo_pages  # noqa: E402
+import search_index  # noqa: E402
 
 
 class ParseGradedSuitesTest(unittest.TestCase):
@@ -310,6 +311,31 @@ class GeneratedSiteTest(unittest.TestCase):
         self.assertIn("root key `servers`", text)
         # local corpora: the prefix the query must repeat (#1580)
         self.assertIn("xerj search --prefix <name>", text)
+
+    def test_listing_names_the_upstream_repo_not_just_the_slug(self):
+        # Issue #2179: fabric / candle / webgl share a name with a different
+        # project. The catalogue line, the corpus page and the search index
+        # have to say which repo the slug actually is.
+        text = (self.out / "llms.txt").read_text(encoding="utf-8")
+
+        def line(slug):
+            return next(l for l in text.splitlines() if l.startswith(f"- [{slug}]("))
+
+        self.assertIn("danielmiessler/fabric", line("fabric"))
+        self.assertIn("prompt", line("fabric").lower())
+        self.assertIn("huggingface/candle", line("candle"))
+        self.assertIn("KhronosGroup/WebGL", line("webgl"))
+        page = (self.out / "corpus" / "fabric.html").read_text(encoding="utf-8")
+        self.assertIn(">danielmiessler/fabric</a>", page)
+        self.assertIn('class="crepo">danielmiessler/fabric</p>', page)
+        idx = json.loads((self.out / "search" / "index.json").read_text(encoding="utf-8"))
+        more = json.loads((self.out / "search" / "more.json").read_text(encoding="utf-8"))
+        i = next(i for i, r in enumerate(idx["c"]) if "danielmiessler/fabric" in (r[1] or ""))
+        self.assertEqual(idx["c"][i][0], "fabric")
+        self.assertIn("prompt", more["c"][i][2].lower())
+        js = (self.out / "assets" / "search.js").read_text(encoding="utf-8")
+        self.assertIn("not ", js)
+        self.assertIn("projectStem", js)
 
     def test_hub_llms_txt_first_screen_has_no_long_line(self):
         # llms.txt study rule 7: no line over about 300 characters above the
@@ -1156,6 +1182,133 @@ class XPostsTest(unittest.TestCase):
             for x in posts:
                 self.assertTrue({"id", "url", "author_username", "author_name", "created_at", "text"} <= set(x), login)
                 self.assertTrue(x["url"].startswith("https://x.com/"), login)
+
+
+class HubIdentityTest(unittest.TestCase):
+    """Issue #2179: a listing has to say which upstream project a slug is.
+
+    `fabric` is danielmiessler/fabric, not fabric.js. The card, the detail
+    source link, the paste prompt and the llms.txt line all carry owner/name
+    plus the one-line description.
+    """
+
+    FABRIC = {
+        "slug": "fabric", "lane": "A", "cat": "AI", "status": "live", "refresh": "pinned",
+        "usecase": "An agent building a reusable prompt library queries this for prompt patterns.",
+        "repos": [{
+            "repo": "fabric", "url": "https://github.com/danielmiessler/fabric.git",
+            "sha": "b" * 40, "bytes": 32_000_000, "files": 400,
+            "review": {"spdx": "MIT", "use": "adapt-with-attribution", "note": "ok"},
+        }],
+        "added": "2026-10-01T00:00:00Z", "kind": "reference corpus", "consumed": "",
+        "tags": {"region": "global", "topics": ["prompts"]}, "merged_into": "",
+    }
+
+    def test_upstream_label_is_owner_and_repo_not_the_bare_name(self):
+        self.assertEqual(gen.upstream_label(self.FABRIC), "danielmiessler/fabric")
+        self.assertEqual(gen.upstream_label(LANE_A), "lz4/lz4")
+        bare = {"repos": [{"repo": "fabric", "url": ""}], "sources": []}
+        self.assertEqual(gen.upstream_label(bare), "")
+        ssh = {"repos": [{"repo": "WebGL", "url": "git@github.com:KhronosGroup/WebGL.git"}], "sources": []}
+        self.assertEqual(gen.upstream_label(ssh), "KhronosGroup/WebGL")
+
+    def test_card_names_the_upstream_repo_and_the_one_line(self):
+        html = gen.card(self.FABRIC, {}, {}, {})
+        self.assertIn('class="crepo">danielmiessler/fabric</p>', html)
+        self.assertIn("prompt library", html)
+        self.assertIn('class="cname">fabric</span>', html)
+
+    def test_detail_source_link_is_owner_and_repo(self):
+        body = gen.detail_body(self.FABRIC, {}, {}, {}, {})
+        self.assertIn(">danielmiessler/fabric</a>", body)
+        self.assertIn('class="crepo">danielmiessler/fabric</p>', body)
+        self.assertIn("prompt library", body)
+        self.assertNotIn(">fabric</a>", body)
+
+    def test_prompt_names_the_upstream_repo(self):
+        p = gen.install_prompt(self.FABRIC)
+        self.assertIn("Upstream repo: danielmiessler/fabric.", p)
+        self.assertIn("prompt library", p)
+        self.assertNotIn("\u2014", p)
+        self.assertNotIn("\u2013", p)
+
+    def test_tile_title_and_label_name_the_upstream_repo(self):
+        html = gen.tile(self.FABRIC)
+        self.assertIn("danielmiessler/fabric", html)
+        self.assertIn('title="fabric · danielmiessler/fabric', html)
+
+
+class SearchIdentityTest(unittest.TestCase):
+    """The static search box must show owner/name and the one-line description,
+    and a same-stem different project (`fabric.js`) must not look like a hit
+    on the slug."""
+
+    def test_index_row_stores_the_github_owner_and_repo(self):
+        corpora = [HubIdentityTest.FABRIC]
+        idx = search_index.build(corpora, {}, {}, {}, {}, gen.plain, "2026-10-23")
+        row = idx["c"][0]
+        self.assertEqual(row[0], "fabric")
+        self.assertEqual(row[1], "danielmiessler/fabric")
+        self.assertIn("prompt library", row[7])
+
+    def test_browser_search_labels_a_different_project_of_the_same_stem(self):
+        import subprocess
+        import tempfile
+        js_path = pathlib.Path(tempfile.mkdtemp()) / "search.js"
+        js_path.write_text(search_index.JS, encoding="utf-8")
+        harness = r"""
+const fs = require('fs');
+const vm = require('vm');
+const js = fs.readFileSync(process.argv[1], 'utf8');
+const window = {};
+const document = {
+  currentScript: { src: 'https://hub.xerj.org/assets/search.js' },
+  querySelectorAll() { return []; },
+  getElementById() { return null; },
+  addEventListener() {},
+};
+const context = {
+  window, document, performance: { now: () => 1 },
+  fetch: () => Promise.reject(new Error('offline')),
+  URL, URLSearchParams, console,
+  history: { replaceState() {} },
+  location: { href: 'https://hub.xerj.org/search/', search: '' },
+};
+vm.createContext(context);
+vm.runInContext(js, context);
+const T = window.__hubSearch;
+if (T.projectStem('fabric.js') !== 'fabric') { console.error('stem', T.projectStem('fabric.js')); process.exit(2); }
+if (T.projectStem('lz4.h') !== '') { console.error('header', T.projectStem('lz4.h')); process.exit(3); }
+if (T.projectStem('fabricjs') !== 'fabric') { console.error('glued', T.projectStem('fabricjs')); process.exit(4); }
+const fabric = {t:'c', slug:'fabric', repos:['danielmiessler/fabric'], stars:0, dom:'AI', st:'live',
+  k:['fabric','danielmiessler/fabric','fabric','danielmiessler'], w:['prompts'],
+  use:'An agent building a reusable prompt library', u:['an','agent','building','reusable','prompt','library']};
+const candle = {t:'c', slug:'candle', repos:['huggingface/candle'], stars:0, dom:'ML', st:'live',
+  k:['candle','huggingface/candle','candle','huggingface'], w:['rust'],
+  use:'A Rust tensor framework', u:['rust','tensor','framework']};
+T._set([fabric, candle], []);
+const hit = T.search('fabric.js', 5);
+if (!hit || !hit.c.n || hit.c.items[0].slug !== 'fabric') { console.error('no fabric hit', JSON.stringify(hit)); process.exit(5); }
+const html = T.row(hit.c.items[0], 'fabric.js', 'r0');
+for (const need of ['not fabric.js', 'danielmiessler/fabric', 'prompt library']) {
+  if (!html.includes(need)) { console.error('missing', need, html); process.exit(6); }
+}
+const exact = T.row(fabric, 'fabric', 'r1');
+if (exact.includes('not fabric')) { console.error('exact slug labeled different', exact); process.exit(7); }
+if (!exact.includes('danielmiessler/fabric') || !exact.includes('prompt library')) { console.error('exact missing identity', exact); process.exit(8); }
+const charts = T.row(candle, 'candle charts', 'r2');
+if (charts.includes('not candle')) { console.error('candle charts is not a different project', charts); process.exit(9); }
+if (!charts.includes('huggingface/candle') || !charts.includes('tensor framework')) { console.error('candle identity', charts); process.exit(10); }
+const named = T.collisionToken('see fabric.js', Object.assign({}, fabric, {use:'the fabric.js canvas library'}));
+if (named) { console.error('token already in the description', named); process.exit(11); }
+console.log('ok');
+"""
+        proc = subprocess.run(
+            ["node", "-e", harness, str(js_path)],
+            check=False, capture_output=True, text=True,
+        )
+        self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+        self.assertIn("ok", proc.stdout)
 
 
 if __name__ == "__main__":
