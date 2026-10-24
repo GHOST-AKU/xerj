@@ -31,6 +31,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   back into that map. Explicit `?pipeline=` was already unaffected
   ([#2294](https://github.com/xerj-org/xerj/issues/2294)).
 
+- `POST /{index}/_refresh` makes recent writes searchable without waiting for
+  a background segment merge to finish, and a multi-index or wildcard refresh
+  is not serialized behind one busy index. The route used to call the
+  durability flush (snapshot fsync and WAL prune) once per index; autoindex
+  finalize sent that as one `POST /<prefix>-*/_refresh` and stalled at the
+  end of the run when a large matching index had a merge in progress.
+  `_refresh` now publishes an unflushed memtable and returns immediately when
+  the memtable is already empty. `_flush` is unchanged and still checkpoints
+  the WAL. A merge encode no longer occupies a tokio blocking thread for the
+  whole encode, so a refresh that does have to publish a segment is not
+  queued behind that merge. Autoindex finalize refreshes each dataset index
+  (and the edges index) on its own, names the index it is waiting on, and
+  does not retry a timed-out refresh
+  ([#2234](https://github.com/xerj-org/xerj/issues/2234)).
+
 - A matching index template's `semantic_text` properties and
   `index.default_pipeline` are applied when an index is created, including
   the body `xerj autoindex` sends and the first bulk or single-document
@@ -105,6 +120,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `valid: false` (with `error`/`explanations`) instead of claiming a body
   `_search` rejects is valid. The parse-only answer is kept for a selector
   that resolves to no index.
+
+- On Windows, the process memory cap is limited by commit space (the commit
+  limit and what this process can still commit), not only by physical RAM. A
+  default `xerj autoindex` on a machine with no pagefile and little free
+  commit rejects writes with HTTP 429 naming that limit and how to enlarge
+  the pagefile, instead of aborting with `memory allocation of N bytes
+  failed` (#1122). The AUTO tier is still chosen from physical RAM, then
+  lowered when commit is the tighter ceiling. Linux and macOS budgets are
+  unchanged.
 
 - A `semantic` query on a `semantic_text` field returns `highlight` fragments
   when the request asks for them (#1947). The fragments are the field's
