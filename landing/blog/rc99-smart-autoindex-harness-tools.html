@@ -249,7 +249,7 @@
   <div class="kicker">05 · THE COUNT</div>
   <h2 class="scene">The 98th tagged release</h2>
 
-  <p>The version number and the tag list are different counts. There is no <code class="inline">v1.0.0-rc.79</code> tag. Tags from rc.1 through rc.98 number <strong>97</strong>. rc.99 is the next cut, the <strong>98th</strong> tagged release. It lands just over 100 days since rc.1. The changelog is dated 2026-10-24. The window since rc.98 is 116 merged pull requests. The 20 people named above are the community in that window. The maintaining team landed the rest.</p>
+  <p>The version number and the tag list are different counts. There is no <code class="inline">v1.0.0-rc.79</code> tag. Tags from rc.1 through rc.98 number <strong>97</strong>. rc.99 is the <strong>98th</strong> tagged release. It lands just over 100 days since rc.1. The changelog is dated 2026-10-24. The window since rc.98 is 116 merged pull requests. The 20 people named above are the community in that window. The maintaining team landed the rest.</p>
 </section>
 
 <section class="scene-section">
@@ -286,7 +286,7 @@
   <div class="kicker">08 · UPGRADE</div>
   <h2 class="scene">Install v1.0.0-rc.99</h2>
 
-  <p><strong>Before you upgrade.</strong> Back up your data folder first. Once rc.99 upgrades it to format 3, rc.98 cannot open it. Run <code class="inline">xerj autoindex --fresh</code> again on your log and <code class="inline">.sql</code> indices to get the new matching and the code indexing.</p>
+  <p><strong>Before you upgrade.</strong> Back up your data folder first. Opening it with rc.99 changes nothing, but once rc.99 writes a field name with an uppercase letter (like <code class="inline">page_Id</code>), the folder moves to format 3 and rc.98 can no longer open it. Run <code class="inline">xerj autoindex --fresh</code> again on your log and <code class="inline">.sql</code> indices to get the new matching and the code indexing.</p>
 
   <p>The installers download a GitHub release and check its SHA-256. Pin this release with <code class="inline">XERJ_VERSION</code>. On Linux, macOS, and Windows Git Bash, MSYS, and Cygwin:</p>
 
@@ -369,7 +369,7 @@
 </nav>
 <!-- seo:footer-end -->
 <footer class="footer">
-  <span>XERJ.AI · V1.0.0-RC.98 · 2026</span>
+  <span>XERJ.AI · V1.0.0-RC.99 · 2026</span>
   <span>SEARCH FOR THE AGENT ERA</span>
   <span><a href="/product">PRODUCT</a> · <a href="/docs/">DOCS</a> · <a href="/brand">BRAND</a> · <a href="/playground">DASHBOARDS</a> &middot; <a href="/llms.txt">LLMS.TXT</a></span>
 </footer>
