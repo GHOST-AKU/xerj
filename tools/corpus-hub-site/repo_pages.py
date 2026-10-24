@@ -101,27 +101,81 @@ def usecase_text(u):
     return cap(u)
 
 
-def title(name, desc):
-    """'<name>: <short description> | XERJ Hub', at most 62 chars. Cuts the
-    description first, then drops the suffix, never the name."""
+# words a title or phrase must not end on: it reads as cut off
+DANGLING = frozenset("""a an the and or nor but so yet of for to in on at by from via with without within into onto
+over under up about across through than as like is are was were be been being am can could will would shall should
+may might must do does did has have had we its your our their my his her whose which that not no non
+any some each every these those such own another other""".split())
+QUESTION = re.compile(r"^(?:what|how|why|who|when|where|which|is|are|do|does|can|should|will|would)\b", re.I)
+
+
+def dangling(text):
+    """True when text ends on a word that leaves the phrase hanging (a/of/and/is/we/its/agent's ...)."""
+    t = re.sub(r"\s*\|\s*XERJ Hub$", "", _html.unescape(str(text or ""))).strip()
+    w = (t.split() or [""])[-1].strip(".,;:!?\"'()[]")
+    lw = w.lower()
+    return not w or lw in DANGLING or lw.endswith(("'s", "\u2019s", "s'")) or w.endswith(("/", "&"))
+
+
+def phrases(desc):
+    """Complete phrases of desc, longest first: the whole text, its sentences, and its leading
+    clauses (cut only at . ! ? ; : , or an opening bracket). Never a cut mid-phrase."""
     d = clean(desc)
-    if d:
-        full = []
+    if not d:
+        return []
+    out = [d]
+    for m in re.finditer(r"[.!?;:,](?=\s)|\s[(\[]|\s[\u2014\u2013-]\s", d):
+        out.append(d[:m.start()].rstrip(" .,;:"))
+    # the head noun phrase before a trailing modifier: "A driver for Laravel" -> "A driver"
+    for m in re.finditer(r"\s(?=(?:of|for|with|in|on|to|over|via|using|that|which|from|across|into|onto|by|at|"
+                         r"under|without|where|when|so|built|written|powered|based)\s)", d):
+        out.append(d[:m.start()].rstrip(" .,;:"))
+    seen, res = set(), []
+    for x in sorted(out, key=len, reverse=True):
+        x = clean(x)
+        if x and x not in seen:
+            seen.add(x)
+            res.append(x)
+    return res
+
+
+def good_phrase(x):
+    """A phrase fit for a title: two words or more, not a question, not left hanging,
+    brackets balanced."""
+    return (len(x.split()) >= 2 and len(x) >= 10 and not QUESTION.match(x) and not dangling(x)
+            and x.count("(") == x.count(")") and x.count('"') % 2 == 0)
+
+
+def title(name, *descs, fallbacks=()):
+    """'<name>: <phrase> | XERJ Hub', at most 62 chars. The phrase is a description, or a complete
+    sentence or clause of one, never cut mid-phrase. If none fits, the first fallback that fits
+    ('{name}' is replaced), then the bare name."""
+    for desc in descs:
+        for x in (x for x in phrases(desc) if good_phrase(x)):
+            for suf in (SUFFIX, ""):
+                if len(name) + 2 + len(x) + len(suf) <= TITLE_MAX:
+                    return f"{name}: {x}{suf}"
+    for fb in fallbacks:
+        t = fb.replace("{name}", name)
         for suf in (SUFFIX, ""):
-            room = TITLE_MAX - len(name) - 2 - len(suf)
-            if room >= 10 and len(d) <= room:
-                return f"{name}: {d}{suf}"
-            t = clip(d, room) if room >= 10 else ""
-            full.append((t, suf))
-        for t, suf in full:
-            if len(t) >= 30 or (t and len(t) >= 0.6 * len(d)):
-                return f"{name}: {t}{suf}"
-        t = full[-1][0]
-        if len(t) >= 12:
-            return f"{name}: {t}"
+            if len(t) + len(suf) <= TITLE_MAX and not dangling(t):
+                return t + suf
     if len(name) + len(SUFFIX) <= TITLE_MAX:
         return name + SUFFIX
-    return name[:TITLE_MAX]
+    cut = name[:TITLE_MAX]                 # a very long repo name: cut at a separator, not mid-word
+    i = max(cut.rfind(c) for c in "-_./")
+    return (cut[:i] if i > TITLE_MAX // 2 else cut).rstrip("-_./ ")
+
+
+def fallback_titles(lang="", stats=False):
+    """Short titles from real data only, for when no description phrase fits."""
+    fb = []
+    if lang:
+        fb.append("{name}: " + f"{lang} repo corpus for AI agents")
+    if stats:
+        fb.append("{name} source and stats")
+    fb += ["{name}: repo corpus for AI agents", "{name}: corpus for AI agents"]
+    return fb
 
 
 def description(head, facts, tails):
@@ -323,7 +377,7 @@ def repo_facts(slug, e, stats, descs):
 
 
 def repo_title(f):
-    return title(f["repo"], f["desc"])
+    return title(f["repo"], f["desc"], fallbacks=fallback_titles(f["lang"], bool(f["st"])))
 
 
 def repo_description(f, dup=False):

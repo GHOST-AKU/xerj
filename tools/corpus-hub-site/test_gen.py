@@ -328,6 +328,31 @@ class RepoPagesTest(unittest.TestCase):
         t = repo_pages.title("humanlayer/12-factor-agents", "Reliability and design principles of production LLM agents")
         self.assertEqual(t, "humanlayer/12-factor-agents: Reliability and design principles")
 
+    def test_title_never_ends_on_a_dangling_word(self):
+        d = repo_pages.dangling
+        for t in ("x: What are the principles we can", "x: Its own or another agent's | XERJ Hub",
+                  "x: FAISS-based semantic search over any", "x: A driver for the", "x: Tools across", "x: Built with LangGraph and"):
+            self.assertTrue(d(t), t)
+        self.assertFalse(d("x: A flat-file Eloquent driver | XERJ Hub"))
+        fb = repo_pages.fallback_titles("C++", True)
+        cases = {
+            ("humanlayer/12-factor-agents", "What are the principles we can use to build LLM-powered software that "
+             "is actually good enough to put in the hands of production customers?"): "humanlayer/12-factor-agents source and stats | XERJ Hub",
+            ("TomasUribe/switch-frame-tap", "Play your Nintendo Switch or Switch Lite on your PC: stream games at up "
+             "to 1080p60 with sound over USB"): "TomasUribe/switch-frame-tap: C++ repo corpus for AI agents",
+            ("jovempedr0/faiss_index", "FAISS-based semantic search over any folder of documents"):
+                "jovempedr0/faiss_index: FAISS-based semantic search | XERJ Hub",
+            ("openbsd/www", "Read-only git conversion of OpenBSD's official CVS www repository"):
+                "openbsd/www: Read-only git conversion | XERJ Hub",
+        }
+        for (name, desc), want in cases.items():
+            got = repo_pages.title(name, desc, fallbacks=fb if "switch" in name else repo_pages.fallback_titles("", True))
+            self.assertEqual(got, want)
+            self.assertLessEqual(len(got), 62)
+            self.assertFalse(repo_pages.dangling(got), got)
+        long = repo_pages.title("kalviumcommunity/S116-0826-Decrypters-Full-Stack-With-Flutter-Dart-Firebase", "")
+        self.assertEqual(long, "kalviumcommunity/S116-0826-Decrypters-Full-Stack-With-Flutter")
+
     def test_clip_cuts_at_a_sentence_or_word_and_drops_dashes(self):
         self.assertEqual(repo_pages.clip("One two three four five", 13), "One two three")
         self.assertEqual(repo_pages.clip("One two three of four", 17), "One two three")
@@ -988,7 +1013,7 @@ class BuiltSiteDiscoverabilityTest(SiteLinksTest):
         return h, t, d
 
     def test_titles_and_descriptions_fit_are_unique_and_have_no_dashes(self):
-        titles, descs = collections.Counter(), collections.Counter()
+        titles, descs, hanging = collections.Counter(), collections.Counter(), []
         for f in self.out.rglob("*.html"):
             rel = f.relative_to(self.out).as_posix()
             h, t, d = self._meta(rel)
@@ -1005,6 +1030,9 @@ class BuiltSiteDiscoverabilityTest(SiteLinksTest):
                 self.assertNotIn("\u2013", x, rel)
             titles[t] += 1
             descs[d] += 1
+            if repo_pages.dangling(t):
+                hanging.append((rel, t))
+        self.assertEqual(hanging, [])
         self.assertEqual([t for t, n in titles.items() if n > 1], [])
         self.assertEqual([d for d, n in descs.items() if n > 1], [])
 

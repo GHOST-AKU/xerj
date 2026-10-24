@@ -1427,11 +1427,14 @@ def corpus_seo(c, gh, fetched, people, logins):
     if n > 50:                          # the aggregates: the count says more than the blurb
         title = repo_pages.title(slug, count)
     else:
-        title = repo_pages.title(name, ghd or use)
+        cat0 = plain(CATS.get(c["cat"], ("", ""))[0])
+        fb = (repo_pages.fallback_titles(st.get("language", ""), bool(st)) if single else
+              ([f"{{name}}: {cat0} corpus for AI agents"] if cat0 else []) + ["{name}: corpus for AI agents"])
+        title = repo_pages.title(name, ghd, use, fallbacks=fb)
         if ":" not in title and n > 1:
             title = repo_pages.title(name, count)
     if title in _TITLES:                # two corpora pin the same repo: name the second by its slug
-        title = repo_pages.title(slug, ghd or use or count)
+        title = repo_pages.title(slug, ghd, use, count, fallbacks=repo_pages.fallback_titles(st.get("language", "")))
     _TITLES.add(title)
     head = f"{slug}: {ghd or use}" if (ghd or use) else f"{slug} corpus"
     if ghd and use and len(ghd) < 60:
