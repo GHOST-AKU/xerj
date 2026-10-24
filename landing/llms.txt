@@ -1,6 +1,6 @@
 # XERJ
 
-Last updated: 2026-10-21 (hub section run on v1.0.0-rc.97). When this file and the binary disagree, the binary wins: `xerj --help` and `xerj <command> --help` outrank this file and every page it links.
+Last updated: 2026-10-23 (Windows install paths; hub section run on v1.0.0-rc.97). When this file and the binary disagree, the binary wins: `xerj --help` and `xerj <command> --help` outrank this file and every page it links.
 
 > **This file is an index for you, the AI agent: search it for your topic and follow the link — the detail lives behind the links, not here.** XERJ is an AI-native search engine in a single Rust binary. `xerj autoindex <folder>` turns mixed-format files (PDF, DOCX, SQLite, hostile CSVs, logs, SQL dumps, mbox mailboxes, …) into typed, queryable, self-describing indices with zero configuration; agents then query them over an Elasticsearch-8.x-compatible REST API with first-class agent primitives — semantic search, kNN vector search, hybrid retrieval, and namespaced long-term memory. No JVM, no separate vector DB, no embedding API key: a zero-config embedder ships inside the binary. ES wire compatibility is the transport, not the product. Expanded capability and API reference: [llms-full.txt](https://xerj.org/llms-full.txt).
 
@@ -13,9 +13,9 @@ This file asks two things of you. **Reference-code before you write** — retrie
 - Linux / macOS: `curl -fsSL https://xerj.org/get | sh`
 - Windows PowerShell: `irm https://xerj.org/get.ps1 | iex`
 
-The installer detects OS/CPU (Linux x86_64/aarch64 static musl, macOS x86_64/arm64, Windows x64/ARM64; the x86_64 builds target x86-64-v2 and use AVX2/FMA at runtime when the CPU has them, so a pre-Haswell CPU installs and runs the same binary), downloads the latest GitHub release, verifies its SHA-256 (fail-closed: a missing or mismatched checksum aborts, and the `sh` installer tries `sha256sum`, `shasum`, `openssl`, `sha256`, `busybox` and `cksum` in turn and **refuses to install** if none exists — installing unverified is opt-in only, with `XERJ_INSECURE_SKIP_CHECKSUM=1`), and installs one `xerj` binary — default `~/.local/bin` on Unix (it prints the path and a PATH hint; it does not edit your shell profile), `%LOCALAPPDATA%\Programs\xerj` on Windows (added to user PATH; opt out with `XERJ_NO_PATH=1`). Pin with `XERJ_VERSION=vX.Y.Z`; both honour `XERJ_INSTALL_DIR`.
+The installer detects OS/CPU (Linux x86_64/aarch64 static musl, macOS x86_64/arm64, Windows x64/ARM64; the x86_64 builds target x86-64-v2 and use AVX2/FMA at runtime when the CPU has them, so a pre-Haswell CPU installs and runs the same binary), downloads the latest GitHub release, verifies its SHA-256 (fail-closed: a missing or mismatched checksum aborts, and the `sh` installer tries `sha256sum`, `shasum`, `openssl`, `sha256`, `busybox` and `cksum` in turn and **refuses to install** if none exists — installing unverified is opt-in only, with `XERJ_INSECURE_SKIP_CHECKSUM=1`), and installs one `xerj` binary. The `sh` installer (Linux, macOS, and Windows Git Bash, MSYS and Cygwin) defaults to `~/.local/bin` (`xerj.exe` on Windows; it prints the path and a PATH hint and does not edit your shell profile). The PowerShell installer (`get.ps1`) defaults to `%LOCALAPPDATA%\Programs\xerj` and adds that directory to the user PATH (opt out with `XERJ_NO_PATH=1`). Pin with `XERJ_VERSION=vX.Y.Z`; both honour `XERJ_INSTALL_DIR`.
 
-**PATH consequence — read this before the next command.** Because the installer does not edit your shell profile, in a fresh shell `~/.local/bin` is often not on `PATH` and a bare `xerj …` fails with `command not found`. Either call it by full path (`$HOME/.local/bin/xerj …`) or `export PATH="$HOME/.local/bin:$PATH"` first. Every `xerj` below assumes you did one of those.
+**PATH consequence — read this before the next command.** Because the `sh` installer does not edit your shell profile, in a fresh shell `~/.local/bin` is often not on `PATH` and a bare `xerj …` fails with `command not found`. The PowerShell installer does add its directory to the user PATH; a new terminal picks that up. Either call it by full path (`$HOME/.local/bin/xerj …`) or `export PATH="$HOME/.local/bin:$PATH"` first. Every `xerj` below assumes you did one of those.
 
 First run, in order (`autoindex` is a client of a running node at `http://localhost:9200`):
 
@@ -65,9 +65,9 @@ Tell the user the corpus, the pin date and the licence your answer rests on, wit
 Exit codes of `xerj ask`:
 
 - `0` answered · `2` usage error or unknown corpus
-- `1` no match. If a `closest corpora: …` line follows `no hub corpus matches`, ask again with `--corpus <slug>` for the one that fits; without it the hub does not hold the answer: say so, do not answer from memory
+- `1` no match. If a `closest corpora: …` line follows `no hub corpus matches`, ask again with `--corpus <slug>` for the one that fits; without it the hub does not hold the answer: say so, do not answer from memory. `no hub corpus covers this topic` is the same exit: a weak overlap, or a tie on some other word while the question names a project no corpus contains, is not a choice. Index it locally with `xerj autoindex <path>`, then `xerj code` or `xerj search`. `xerj hub find` lists what the hub does have
 - `3` a pack failed its checksum or signature check and was discarded
-- `4` more than one corpus fits: the candidates print, one per line; run again with `--corpus <slug>`
+- `4` more than one corpus actually fits: the candidates print, one per line; run again with `--corpus <slug>`. A topic no corpus covers is exit 1, not this
 - `5` this build has no hub public key, so nothing was downloaded: tell the user, a retry will not help
 
 XERJ uses the node at `--url`, `$XERJ_URL` or `localhost:9200` if one answers; otherwise it starts its own on a free loopback port and records its PID.

@@ -850,16 +850,17 @@ pub struct Engine {
     /// commits a new shard assignment.
     pub shard_router: Arc<parking_lot::RwLock<xerj_cluster::router::ShardRouter>>,
 
-    /// Exclusive advisory lock on `<data_dir>/node.lock`, held for the
-    /// engine's whole lifetime (RC4 blocker 13). Acquired in
-    /// [`Engine::new`] BEFORE any index is opened (i.e. before any WAL
-    /// replay or segment flush can touch the directory), so a second
-    /// xerj process pointed at a live data dir fails fast instead of
-    /// replaying the WAL and flushing duplicate segments into it — the
-    /// classic systemd double-start corruption. The lock is an OS-level
-    /// `flock`-style lock (`std::fs::File::try_lock`), so it dies with
-    /// the process: a `kill -9` releases it automatically and a stale
-    /// `node.lock` file never blocks the next boot.
+    /// Exclusive lock on `<data_dir>/node.lock`, held for the engine's
+    /// whole lifetime (RC4 blocker 13). Acquired in [`Engine::new`] BEFORE
+    /// any index is opened (i.e. before any WAL replay or segment flush can
+    /// touch the directory), so a second xerj process pointed at a live data
+    /// dir fails fast instead of replaying the WAL and flushing duplicate
+    /// segments into it — the classic systemd double-start corruption.
+    ///
+    /// The OS lock dies with the process on Unix. A crash on Windows can
+    /// leave `LockFileEx` stuck on the file; `node_lock` reclaims it when
+    /// the PID it records is not running, and logs that reclaim. A live
+    /// holder still blocks a second start.
     _node_lock: Arc<std::fs::File>,
 
     /// Serializes rewrites of `<data_dir>/cluster_state.json` (issue #203).
@@ -939,7 +940,7 @@ impl Engine {
         // scanning/opening any index below — Index::open replays the WAL
         // and can flush segments, which must never happen while another
         // process serves the same directory.
-        let node_lock = Arc::new(Self::acquire_node_lock(&data_dir)?);
+        let node_lock = Arc::new(crate::node_lock::acquire(&data_dir)?);
 
         // Classify durable cluster metadata before Index::open can replay a
         // WAL or startup reconciliation can rewrite it. The parsed document
@@ -1222,61 +1223,6 @@ impl Engine {
         }
 
         Ok(engine)
-    }
-
-    /// Acquire the exclusive `<data_dir>/node.lock` advisory lock (RC4
-    /// blocker 13 — data-dir exclusivity).
-    ///
-    /// Uses `std::fs::File::try_lock` (flock-style, non-blocking): if
-    /// another process already holds the lock we fail fast with the
-    /// holder's pid instead of replaying its WAL and flushing duplicate
-    /// segments into a live directory. On success our own pid is written
-    /// into the file purely as a diagnostic for the *next* contender —
-    /// exclusivity comes from the OS lock, never from the pid content,
-    /// so a stale file left by `kill -9` (lock auto-released at process
-    /// death) can never wedge a reboot.
-    fn acquire_node_lock(data_dir: &std::path::Path) -> Result<std::fs::File> {
-        use std::io::Write;
-        let lock_path = data_dir.join("node.lock");
-        // Never O_TRUNC here: truncation must only happen AFTER the lock
-        // is ours, or a losing contender would erase the holder's pid.
-        let file = std::fs::OpenOptions::new()
-            .read(true)
-            .write(true)
-            .create(true)
-            .truncate(false)
-            .open(&lock_path)?;
-        match file.try_lock() {
-            Ok(()) => {
-                let _ = file.set_len(0);
-                let _ = writeln!(&file, "{}", std::process::id());
-                let _ = file.sync_all();
-                Ok(file)
-            }
-            Err(std::fs::TryLockError::WouldBlock) => {
-                let holder = std::fs::read_to_string(&lock_path)
-                    .ok()
-                    .map(|s| s.trim().to_string())
-                    .filter(|s| !s.is_empty())
-                    .unwrap_or_else(|| "unknown".to_string());
-                Err(EngineError::Common(xerj_common::XerjError::config(
-                    format!(
-                        "data dir '{}' is already in use by another running xerj process \
-                     (pid {holder}, lock file '{}') — refusing to start. Two processes \
-                     serving one data dir would replay each other's WAL and corrupt \
-                     segments; stop the other process or point this one at its own \
-                     server.data_dir.",
-                        data_dir.display(),
-                        lock_path.display(),
-                    ),
-                )))
-            }
-            Err(std::fs::TryLockError::Error(e)) => {
-                Err(EngineError::Common(xerj_common::XerjError::config(
-                    format!("failed to acquire node lock '{}': {e}", lock_path.display()),
-                )))
-            }
-        }
     }
 
     /// Drop PIT contexts whose `expires_at` is in the past. Cheap
@@ -3711,7 +3657,35 @@ impl Engine {
         router.clear_index(index);
         for assignment in plan {
             router.assign(index, assignment.shard, &assignment.node_id);
+            for replica in &assignment.replicas {
+                if replica != &assignment.node_id {
+                    router.add_replica(index, assignment.shard, replica);
+                }
+            }
         }
+    }
+
+    /// `(shard, primary node)` for `doc_id`, when the index has a plan.
+    pub fn primary_of(&self, index: &str, doc_id: &str) -> Option<(u32, String)> {
+        let router = self.shard_router.read();
+        let (shard, owner) = router.route_doc(index, doc_id);
+        owner.map(|owner| (shard, owner.to_string()))
+    }
+
+    /// Replica node ids for one shard, excluding the primary.
+    pub fn replica_nodes(&self, index: &str, shard: u32) -> Vec<String> {
+        self.shard_router.read().get_replicas(index, shard)
+    }
+
+    /// Primary shards of `index` owned by `node_id`, sorted.
+    pub fn shards_owned_by(&self, index: &str, node_id: &str) -> Vec<u32> {
+        self.shard_router.read().shards_owned_by(index, node_id)
+    }
+
+    /// Shards of `index` for which this node is a replica, sorted.
+    pub fn local_replica_shards(&self, index: &str) -> Vec<u32> {
+        let me = self.routing_node_id();
+        self.shard_router.read().replica_shards_for(index, &me)
     }
 
     /// Record one primary without dropping the index's other shards.
@@ -4327,9 +4301,13 @@ impl Engine {
                     Some(g) => g,
                     None => return,
                 };
-                let rss = crate::governor::current_rss_bytes();
+                // Working set on Linux and macOS. On Windows, the max of the
+                // working set and commit charge, plus available commit, so a
+                // no-pagefile box trips before VirtualAlloc aborts (#1122).
+                let observed = crate::governor::current_process_memory_bytes();
+                let available_commit = xerj_common::resource::available_commit_bytes();
                 let (disk_pct, disk_avail) = crate::governor::disk_used_pct_and_avail(&data_dir);
-                governor.refresh_memory_disk(rss, disk_pct, disk_avail);
+                governor.refresh_memory_observing(observed, disk_pct, disk_avail, available_commit);
 
                 // Issue #948 / #2238 — a breaker that only rejects never lets
                 // a memory-pinned workload finish: caches hold gigabytes of

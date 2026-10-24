@@ -22,6 +22,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `POST /{index}/_refresh` makes recent writes searchable without waiting for
+  a background segment merge to finish, and a multi-index or wildcard refresh
+  is not serialized behind one busy index. The route used to call the
+  durability flush (snapshot fsync and WAL prune) once per index; autoindex
+  finalize sent that as one `POST /<prefix>-*/_refresh` and stalled at the
+  end of the run when a large matching index had a merge in progress.
+  `_refresh` now publishes an unflushed memtable and returns immediately when
+  the memtable is already empty. `_flush` is unchanged and still checkpoints
+  the WAL. A merge encode no longer occupies a tokio blocking thread for the
+  whole encode, so a refresh that does have to publish a segment is not
+  queued behind that merge. Autoindex finalize refreshes each dataset index
+  (and the edges index) on its own, names the index it is waiting on, and
+  does not retry a timed-out refresh
+  ([#2234](https://github.com/xerj-org/xerj/issues/2234)).
+
 - Neural `xerj autoindex` prints an estimated embedding time before ingest,
   from a probe measured when the neural model loads and the bytes of files
   that feed a `semantic_text` dataset. The line names no duration when the
@@ -41,12 +56,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `object` and the default pipeline was dropped, so the pipeline never ran
   ([#2281](https://github.com/xerj-org/xerj/issues/2281)).
 
+- `xerj --help` lists `xerj hub` next to `xerj ask` when the build has a hub
+  signing key. The `xerj ask` line names `xerj hub stop` as the way to stop
+  the node that command started. A build with no hub key still does not
+  advertise `xerj hub`
+  ([#2280](https://github.com/xerj-org/xerj/issues/2280)).
+
 - `POST /{index}/_count` honours `min_score`. The handler rebuilds a `size: 0`
   search body from the query alone, so the threshold used to be dropped: for
   `{"query":{"match":…},"min_score":10}` `_search` returned 0 while `_count`
   returned every match. Both the single-index and the multi-index/alias paths
   now set it on the request, and a non-numeric value is the same 400
   `parse_exception` `_search` gives.
+
+- MCP `xerj_code_search` token budgets preserve adjacent definitions and distinct
+  snippets at the same citation. Rendered text is deduped only when both its
+  locator and displayed passage match an already-shown block; display labels,
+  separators and match citations no longer stand in for source ranges.
 
 - x86_64 release binaries no longer require AVX2. The build baseline is
   `x86-64-v2` (SSE4.2). The HNSW eight-accumulator dot product — the kernel
@@ -64,6 +90,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   deduplicate. Plain-string `xerj_search` requests the
   provenance fields needed for this distinction by default.
 
+- SIGTERM and SIGINT keep the HTTP ports bound until the final memtable
+  flush has finished writing the data directory. New HTTP requests during
+  that window get 503, except `/health/live`, which stays 200 so a liveness
+  probe does not restart the process mid-flush. Connection refusal is the
+  signal that the process is done with the data directory; closing the port
+  first let a wipe that keys off that signal delete a segment the flush was
+  still publishing.
+
+- A `node.lock` left by a process that is no longer running no longer blocks
+  the next start
+  ([#2233](https://github.com/xerj-org/xerj/issues/2233)). The data-directory
+  lock is still the OS file lock, so a live node blocks a second start. When
+  that lock is busy and the PID recorded in the file is not running — a
+  Windows crash can leave `LockFileEx` stuck after the process is gone — the
+  file is replaced and the reclaim is logged. A PID that cannot be read or
+  checked is left alone. `--auto-port` does not treat that stale lock as a
+  reason to start on an empty sibling directory.
+
 - `xerj corpus index` killed mid-index resumes that build's journal instead of
   starting a legacy index under a new prefix. When the journal still has a
   generation in progress, indexing continues at the uncommitted operations and
@@ -78,6 +122,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `valid: false` (with `error`/`explanations`) instead of claiming a body
   `_search` rejects is valid. The parse-only answer is kept for a selector
   that resolves to no index.
+
+- On Windows, the process memory cap is limited by commit space (the commit
+  limit and what this process can still commit), not only by physical RAM. A
+  default `xerj autoindex` on a machine with no pagefile and little free
+  commit rejects writes with HTTP 429 naming that limit and how to enlarge
+  the pagefile, instead of aborting with `memory allocation of N bytes
+  failed` (#1122). The AUTO tier is still chosen from physical RAM, then
+  lowered when commit is the tighter ceiling. Linux and macOS budgets are
+  unchanged.
 
 - A `semantic` query on a `semantic_text` field returns `highlight` fragments
   when the request asks for them (#1947). The fragments are the field's

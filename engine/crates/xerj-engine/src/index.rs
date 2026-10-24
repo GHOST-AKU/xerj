@@ -5507,6 +5507,87 @@ mod merge_publication_transaction_tests {
         .expect("merge did not reach the pre-apply gate");
     }
 
+    /// #2234 — `_refresh` must publish a new write while a merge encode is
+    /// held, on a runtime whose tokio blocking pool has a single thread.
+    ///
+    /// The encode used to run inside `spawn_blocking` for its whole duration.
+    /// Refresh builds a segment on that same pool, so with one blocking thread
+    /// the refresh queued until the merge returned. The encode now runs on the
+    /// merge pool; this test parks it there and requires `refresh` to drain
+    /// the memtable before the park is released.
+    #[test]
+    fn refresh_publishes_while_a_merge_encode_is_held() {
+        let runtime = tokio::runtime::Builder::new_multi_thread()
+            .worker_threads(4)
+            .max_blocking_threads(1)
+            .enable_all()
+            .build()
+            .expect("runtime");
+        runtime.block_on(async {
+            let dir = TempDir::new().unwrap();
+            let (_engine, index) = fixture(&dir).await;
+            // Releasing on drop covers an assertion failure: a parked merge
+            // thread must not outlive the test and pin the process-global
+            // merge pool.
+            struct ReleaseHold<'a>(&'a AtomicBool);
+            impl Drop for ReleaseHold<'_> {
+                fn drop(&mut self) {
+                    self.0.store(false, Ordering::Release);
+                }
+            }
+            index.test_hold_merge_encode.store(true, Ordering::Release);
+            let release = ReleaseHold(&index.test_hold_merge_encode);
+            let merge_index = Arc::clone(&index);
+            let merge = tokio::spawn(async move { merge_index.run_merge_once().await });
+            tokio::time::timeout(std::time::Duration::from_secs(10), async {
+                while !index.test_merge_encode_held.load(Ordering::Acquire) {
+                    tokio::task::yield_now().await;
+                }
+            })
+            .await
+            .expect("merge encode did not reach the hold");
+
+            index
+                .index_document(Some("c".into()), serde_json::json!({"value": "new-c"}))
+                .await
+                .unwrap();
+            assert_eq!(
+                index.memtable.doc_count(),
+                1,
+                "the new document must still be in the memtable"
+            );
+            let refreshed =
+                tokio::time::timeout(std::time::Duration::from_secs(8), index.refresh()).await;
+            assert!(
+                refreshed.is_ok(),
+                "refresh did not return within 8s while the merge encode was held"
+            );
+            refreshed
+                .expect("timeout already checked")
+                .expect("refresh");
+            assert_eq!(
+                index.memtable.doc_count(),
+                0,
+                "refresh must drain the memtable without waiting for the merge"
+            );
+            assert!(
+                index.test_merge_encode_held.load(Ordering::Acquire),
+                "the merge encode must still be parked after refresh returns"
+            );
+            assert_eq!(
+                index.get_document("c").await.unwrap().unwrap()["value"],
+                "new-c"
+            );
+
+            drop(release);
+            let merged = tokio::time::timeout(std::time::Duration::from_secs(30), merge)
+                .await
+                .expect("merge did not finish after the hold was released")
+                .expect("merge task");
+            assert_eq!(merged.expect("merge"), 1);
+        });
+    }
+
     #[tokio::test]
     async fn apply_failure_restores_sources_survives_restart_and_retry() {
         let dir = TempDir::new().unwrap();
@@ -6167,6 +6248,41 @@ mod merge_publication_transaction_tests {
         );
     }
 
+    /// Drive the paused clock past one debounce, and give the merge pool a
+    /// real turn so an encode can finish.
+    ///
+    /// #2234 runs that encode on the merge pool, off this runtime. A paused
+    /// `sleep` auto-advances while the pass is still awaiting the pool, so
+    /// the scheduler never looks idle and a later segment change is only a
+    /// bumped epoch on the in-flight pass — the evaluation counter does not
+    /// move until the encode returns. `std::thread::sleep` does not advance
+    /// the paused clock, so it cannot itself schedule a merge check.
+    async fn settle_merge_scheduler(index: &Index) {
+        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
+        loop {
+            let before = index.merge_evaluation_count();
+            std::thread::sleep(std::time::Duration::from_millis(15));
+            tokio::task::yield_now().await;
+            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+            tokio::task::yield_now().await;
+            let after = index.merge_evaluation_count();
+            if after == before && !index.is_merge_in_progress() {
+                // A second window with no real sleep: a still-armed debounce
+                // is the only thing that can move the counter.
+                tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+                if index.merge_evaluation_count() == after && !index.is_merge_in_progress() {
+                    return;
+                }
+            }
+            assert!(
+                std::time::Instant::now() < deadline,
+                "background merges did not quiesce (evaluations {}, in progress {})",
+                index.merge_evaluation_count(),
+                index.is_merge_in_progress()
+            );
+        }
+    }
+
     /// #871 — merge scheduling must be event-driven: after an index's merge
     /// work settles, ZERO further merge-policy evaluations may run until the
     /// segment set changes again.
@@ -6195,10 +6311,9 @@ mod merge_publication_transaction_tests {
         }
         // Let the scheduled checks and their cascading merges run to
         // quiescence (min/max_merge_count = 2 collapses two at a time).
-        for _ in 0..8 {
-            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
-            tokio::task::yield_now().await;
-        }
+        // The encode is on the merge pool (#2234); paused sleeps do not
+        // wait for it.
+        settle_merge_scheduler(&index).await;
         let settled = index.merge_evaluation_count();
         assert!(
             settled >= 1,
@@ -6220,14 +6335,19 @@ mod merge_publication_transaction_tests {
             .await
             .unwrap();
         index.flush().await.unwrap();
-        for _ in 0..8 {
-            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+        let wake_deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+        loop {
+            std::thread::sleep(std::time::Duration::from_millis(15));
             tokio::task::yield_now().await;
+            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+            if index.merge_evaluation_count() > settled {
+                break;
+            }
+            assert!(
+                std::time::Instant::now() < wake_deadline,
+                "a published segment no longer schedules a merge check"
+            );
         }
-        assert!(
-            index.merge_evaluation_count() > settled,
-            "a published segment no longer schedules a merge check"
-        );
     }
 
     #[tokio::test]
@@ -9300,6 +9420,23 @@ pub struct Index {
     test_pause_merge_before_apply: Arc<AtomicBool>,
     #[cfg(test)]
     test_merge_repoint_ready: Arc<AtomicBool>,
+    /// #2234 — park the merge encode on the merge pool, before any segment
+    /// bytes are written, so a test can prove `refresh` proceeds while that
+    /// encode is held. The park is a merge-pool thread, not a tokio blocking
+    /// thread: occupying the blocking pool here is the stall this hook exists
+    /// to catch.
+    #[cfg(test)]
+    test_hold_merge_encode: Arc<AtomicBool>,
+    #[cfg(test)]
+    test_merge_encode_held: Arc<AtomicBool>,
+    /// #2234 — park `refresh` before it looks at the memtable. Off in release
+    /// builds; `xerj-api` tests turn it on with the `refresh-test-hook` feature.
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    test_pause_refresh: Arc<AtomicBool>,
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    test_refresh_paused: Arc<AtomicBool>,
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    test_refresh_finished: Arc<AtomicU64>,
     /// #1212 — park the next search the instant its capture bracket
     /// validates (`test_pause_search_after_capture`), announcing via
     /// `test_search_capture_parked` so a test can publish a merge or flush
@@ -9913,8 +10050,19 @@ pub struct Index {
     /// the fallback (an input the preflight refused, or
     /// `XERJ_MERGE_FTS_REANALYZE=1`). An index whose merges are silently
     /// paying the old O(text) cost shows it here and nowhere else.
-    /// `Arc` because the merge encode runs in `spawn_blocking`.
+    /// `Arc` because the merge encode runs on the merge pool, off the caller.
     merge_fts_reanalysed_docs: Arc<AtomicU64>,
+}
+
+/// Counts one `Index::refresh` that got past the test hold, on every exit.
+#[cfg(any(test, feature = "refresh-test-hook"))]
+struct TestRefreshFinished<'a>(&'a Index);
+
+#[cfg(any(test, feature = "refresh-test-hook"))]
+impl Drop for TestRefreshFinished<'_> {
+    fn drop(&mut self) {
+        self.0.test_refresh_finished.fetch_add(1, Ordering::Release);
+    }
 }
 
 impl Index {
@@ -10193,6 +10341,16 @@ impl Index {
             test_pause_merge_before_apply: Arc::new(AtomicBool::new(false)),
             #[cfg(test)]
             test_merge_repoint_ready: Arc::new(AtomicBool::new(false)),
+            #[cfg(test)]
+            test_hold_merge_encode: Arc::new(AtomicBool::new(false)),
+            #[cfg(test)]
+            test_merge_encode_held: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_pause_refresh: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_refresh_paused: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_refresh_finished: Arc::new(AtomicU64::new(0)),
             #[cfg(test)]
             test_pause_search_after_capture: Arc::new(AtomicBool::new(false)),
             #[cfg(test)]
@@ -10679,6 +10837,16 @@ impl Index {
             test_pause_merge_before_apply: Arc::new(AtomicBool::new(false)),
             #[cfg(test)]
             test_merge_repoint_ready: Arc::new(AtomicBool::new(false)),
+            #[cfg(test)]
+            test_hold_merge_encode: Arc::new(AtomicBool::new(false)),
+            #[cfg(test)]
+            test_merge_encode_held: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_pause_refresh: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_refresh_paused: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_refresh_finished: Arc::new(AtomicU64::new(0)),
             #[cfg(test)]
             test_pause_search_after_capture: Arc::new(AtomicBool::new(false)),
             #[cfg(test)]
@@ -11599,17 +11767,21 @@ impl Index {
         }
 
         // Vector indexing is only meaningful when at least one document
-        // in the batch carries an array of numbers. Scan until the first
-        // candidate instead of inspecting only processed[0]: mixed batches
-        // may legitimately begin with an ordinary text/log document.
+        // in the batch carries a vector. Scan until the first candidate
+        // instead of inspecting only processed[0]: mixed batches may
+        // legitimately begin with an ordinary text/log document. A packed
+        // `xerj:f32:` string is that vector (#1940); treating only number
+        // arrays as candidates skipped HNSW for every semantic bulk batch.
         if processed.iter().any(|r| {
             r.source
                 .as_object()
                 .map(|obj| {
                     obj.values().any(|v| {
-                        v.as_array()
-                            .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
-                            .unwrap_or(false)
+                        v.as_str()
+                            .is_some_and(xerj_common::packed_f32::is_packed_f32)
+                            || v.as_array()
+                                .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
+                                .unwrap_or(false)
                     })
                 })
                 .unwrap_or(false)
@@ -12641,18 +12813,68 @@ impl Index {
         }
     }
 
+    /// Hold `refresh` until [`Self::test_set_pause_refresh`] clears.
+    ///
+    /// The flag is announced only after this call has entered, so a test can
+    /// wait until the index is actually inside refresh and not merely racing
+    /// the request.
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    async fn await_test_refresh_hold(&self) {
+        if !self.test_pause_refresh.load(Ordering::Acquire) {
+            return;
+        }
+        self.test_refresh_paused.store(true, Ordering::Release);
+        while self.test_pause_refresh.load(Ordering::Acquire) {
+            tokio::task::yield_now().await;
+        }
+        self.test_refresh_paused.store(false, Ordering::Release);
+    }
+
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    pub fn test_set_pause_refresh(&self, pause: bool) {
+        self.test_pause_refresh.store(pause, Ordering::Release);
+    }
+
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    pub fn test_refresh_is_paused(&self) -> bool {
+        self.test_refresh_paused.load(Ordering::Acquire)
+    }
+
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    pub fn test_refresh_finished_count(&self) -> u64 {
+        self.test_refresh_finished.load(Ordering::Acquire)
+    }
+
+    /// Make recent writes searchable.
+    ///
+    /// This is the body of HTTP `_refresh` (#2234). An empty memtable is
+    /// already searchable — return without verified WAL maintenance, which is
+    /// `flush` / `_flush` and is what used to sit behind a background segment
+    /// merge. A non-empty memtable is published to a segment. The HNSW graph
+    /// is persisted either way: background flushes skip that save, and an
+    /// explicit refresh is the checkpoint for it. `save_hnsw_to_disk` returns
+    /// immediately when the index has no graph.
     pub async fn refresh(&self) -> Result<()> {
+        #[cfg(any(test, feature = "refresh-test-hook"))]
+        self.await_test_refresh_hold().await;
+        // Count a refresh that actually returned, including the empty-memtable
+        // path and errors. The hold above is outside this guard so a paused
+        // index does not look finished.
+        #[cfg(any(test, feature = "refresh-test-hook"))]
+        let _refresh_finished = TestRefreshFinished(self);
         {
             let mem = &*self.memtable;
             if mem.doc_count() == 0 {
+                let _ = self.save_hnsw_to_disk().await;
                 return Ok(());
             }
         }
 
-        // Flush the memtable to a new segment on disk.  This drains the
-        // memtable, writes the segment file + FTS index, swaps the snapshot,
-        // and checkpoints the WAL.  The drained memtable is dropped, freeing
-        // all RAM.
+        // Publish the memtable to a new segment. This drains the memtable,
+        // writes the segment file + FTS index, and swaps the snapshot. The
+        // drained memtable is dropped, freeing its RAM. Verified WAL
+        // maintenance (snapshot fsync + prune) is `_flush` / `Index::flush`,
+        // not this path (#2234).
         let (field_configs, excluded_fts_fields, dv_skip) = {
             let schema = self.schema.read().await;
             (
@@ -13325,18 +13547,36 @@ impl Index {
             let batch_for_task = batch;
             let metas_for_task = metas;
             let failed_for_task = Arc::clone(&failed_batches);
+            #[cfg(test)]
+            let hold_merge_encode = Arc::clone(&self.test_hold_merge_encode);
+            #[cfg(test)]
+            let merge_encode_held = Arc::clone(&self.test_merge_encode_held);
 
-            tokio::task::spawn_blocking(move || -> Option<MergeOutput> {
-                // Entire merge encode runs on the dedicated SMALL merge
-                // pool (nice +15, ncores/8 threads): the decompress +
-                // byte-copy + FTS/DV rebuild below saturates its workers
-                // for seconds.  On the normal-priority blocking pool it
-                // stole scheduler time from foreground searches (read-
-                // under-write tail); on the shared ingest pool it queued
-                // every bulk request's parse/analyze/insert behind it,
-                // fully stalling 1 M×c8 ingest for ~13 s per merge pass
-                // (see `crate::merge_pool`).
-                crate::merge_pool().install(move || -> Option<MergeOutput> {
+            // #2234 — the encode used to run inside `spawn_blocking` +
+            // `merge_pool().install`, which parked one tokio blocking-pool
+            // thread for the whole encode (minutes on a large segment; the
+            // shutdown path still names that leftover job). `_refresh` builds
+            // its segment on that same blocking pool, so one in-progress
+            // merge stalled refresh behind it. Queue the encode on the merge
+            // pool and wait from this async driver. `spawn` returns as soon
+            // as the job is queued. The #1122 inline fallback (the pool
+            // cannot start a thread at all) still runs the encode on the
+            // caller — the same degradation `install` already had.
+            //
+            // The CPU work is unchanged: decompress + byte-copy + FTS/DV
+            // rebuild on the small nice-+15 merge pool (`crate::merge_pool`),
+            // off the ingest pool that a merge used to stall.
+            let (encode_tx, encode_rx) = tokio::sync::oneshot::channel();
+            crate::merge_pool().spawn(move || {
+                #[cfg(test)]
+                if hold_merge_encode.load(Ordering::Acquire) {
+                    merge_encode_held.store(true, Ordering::Release);
+                    while hold_merge_encode.load(Ordering::Acquire) {
+                        std::thread::sleep(std::time::Duration::from_millis(5));
+                    }
+                    merge_encode_held.store(false, Ordering::Release);
+                }
+                let encoded = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
                     use serde_json::value::RawValue;
 
                     // V4 M4.8 — STREAMING BYTE-COPY MERGE.
@@ -13970,7 +14210,7 @@ impl Index {
                                         .ensure_fts_encoded_field_component_format()
                                     {
                                         tracing::warn!(
-                                            "merge: encoded FTS filename format preflight failed: {e}"
+                                            "merge: encoded FTS filename format preflight failed: {e:#}"
                                         );
                                         return Ok(());
                                     }
@@ -13978,7 +14218,7 @@ impl Index {
                                         fts_writer.publish_encoded_filename_layout()
                                     {
                                         tracing::warn!(
-                                            "merge: FTS filename-layout publication failed: {e}"
+                                            "merge: FTS filename-layout publication failed: {e:#}"
                                         );
                                         return Ok(());
                                     }
@@ -14058,7 +14298,7 @@ impl Index {
                                 &columns,
                                 merge_zstd_level,
                             ) {
-                                tracing::warn!("merge: doc-values write failed: {e}");
+                                tracing::warn!("merge: doc-values write failed: {e:#}");
                             }
                         }
                     }
@@ -14087,7 +14327,19 @@ impl Index {
                         ids_pairs,
                         version_repoint_intents,
                     ))
-                })
+                }));
+                let _ = encode_tx.send(encoded);
+            });
+            tokio::spawn(async move {
+                match encode_rx.await {
+                    Ok(Ok(value)) => value,
+                    Ok(Err(payload)) => std::panic::resume_unwind(payload),
+                    // The encode task vanished without a result. Panic so the
+                    // driver counts a failed batch (the `JoinError` arm)
+                    // instead of treating a lost encode as an empty output
+                    // and dropping its inputs.
+                    Err(_closed) => panic!("merge encode dropped its result"),
+                }
             })
         };
 
@@ -14105,8 +14357,8 @@ impl Index {
         while !in_flight.is_empty() {
             // Await the first handle in the queue.  tokio doesn't provide
             // a built-in "select any", but for small parallelism this FIFO
-            // drain is fine — all spawn_blocking tasks run concurrently
-            // anyway, we're just reaping their results in submission
+            // drain is fine — the encodes run concurrently on the merge
+            // pool anyway, we're just reaping their results in submission
             // order.
             let handle = in_flight.remove(0);
             match handle.await {
@@ -14435,7 +14687,7 @@ impl Index {
                 }
                 Ok(None) => {}
                 Err(e) => {
-                    tracing::error!("merge: spawn_blocking panicked: {e}");
+                    tracing::error!("merge: encode task panicked: {e}");
                     failed_batches.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
                 }
             }
@@ -14976,9 +15228,11 @@ impl Index {
         // (see the load gate in `Index::open`), so a live graph always has
         // a pinned dense_vector field and takes the fast path above.)
         let has_candidate = obj.values().any(|v| {
-            v.as_array()
-                .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
-                .unwrap_or(false)
+            v.as_str()
+                .is_some_and(xerj_common::packed_f32::is_packed_f32)
+                || v.as_array()
+                    .map(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
+                    .unwrap_or(false)
         });
         if !has_candidate {
             return;
@@ -15966,13 +16220,12 @@ impl Index {
             if get_field_value(&src, &chunk_field).is_some() {
                 return None;
             }
-            let doc_vec: Vec<f32> = match get_field_value(&src, field) {
-                Some(Value::Array(arr)) => arr
-                    .iter()
-                    .filter_map(|v| v.as_f64().map(|f| f as f32))
-                    .collect(),
-                _ => return None,
-            };
+            // Packed embeddings are the retained source form (#1940). A
+            // number array is still valid for segments written before that.
+            // `extract_numeric_vector` reads both. Any other shape, or a
+            // vector whose length is not the query's, is an extract anomaly:
+            // hand the whole request back to the exact scan.
+            let doc_vec = extract_numeric_vector(&src, field)?;
             if doc_vec.len() != query_vec.len() {
                 return None;
             }
@@ -17497,9 +17750,14 @@ impl Index {
     /// Early-exits on the first hit; only invoked on an empty nested-knn result.
     async fn index_has_any_nested_vector_at(&self, nested_path: &str, subfield: &str) -> bool {
         fn elem_has_vector(elem: &Value, subfield: &str) -> bool {
-            elem.get(subfield)
-                .and_then(Value::as_array)
-                .is_some_and(|a| !a.is_empty() && a.iter().all(Value::is_number))
+            match elem.get(subfield) {
+                Some(Value::String(text)) => xerj_common::packed_f32::unpack_f32_vector(text)
+                    .is_some_and(|values| !values.is_empty()),
+                Some(value) => value
+                    .as_array()
+                    .is_some_and(|a| !a.is_empty() && a.iter().all(Value::is_number)),
+                None => false,
+            }
         }
         fn doc_has(source: &Value, nested_path: &str, subfield: &str) -> bool {
             match get_field_value(source, nested_path) {
@@ -18165,8 +18423,20 @@ impl Index {
                 1 => chunk_vecs[0].clone(),
                 _ => mean_pool_normalize(&chunk_vecs),
             };
-            let arr: Vec<Value> = pooled.into_iter().map(|f| Value::from(f as f64)).collect();
-            obj.insert(job.target.clone(), Value::Array(arr));
+            // #1940: a 384-d `Vec<Value>` is tens of KB of retained heap per
+            // record (two memtables plus any later stored-source parse) for
+            // ~1.5 KB of f32s. Keep the packed string in the source; readers
+            // unpack it, and response paths expand it back to a number array.
+            match xerj_common::packed_f32::pack_f32_vector(&pooled) {
+                Some(packed) => {
+                    obj.insert(job.target.clone(), Value::String(packed));
+                }
+                None => {
+                    let arr: Vec<Value> =
+                        pooled.into_iter().map(|f| Value::from(f as f64)).collect();
+                    obj.insert(job.target.clone(), Value::Array(arr));
+                }
+            }
             // Compact, durable passage provenance. Text is deliberately NOT
             // duplicated: the response reconstructs only the winning page
             // slice from the original semantic field using these UTF-8 byte
@@ -18194,9 +18464,30 @@ impl Index {
             if chunk_vecs.len() > 1 {
                 let chunks_json: Vec<Value> = chunk_vecs
                     .iter()
-                    .map(|cv| Value::Array(cv.iter().map(|f| Value::from(*f as f64)).collect()))
+                    .map(|cv| match xerj_common::packed_f32::pack_f32_vector(cv) {
+                        Some(packed) => Value::String(packed),
+                        None => Value::Array(cv.iter().map(|f| Value::from(*f as f64)).collect()),
+                    })
                     .collect();
                 obj.insert(format!("{}_chunks", job.target), Value::Array(chunks_json));
+            }
+        }
+
+        // Caller-supplied vectors skip the job loop above and would otherwise
+        // stay as number arrays — the same retained-heap shape. Pack those
+        // too, field by field, after every generated vector is in place.
+        for source in sources.iter_mut() {
+            let Some(obj) = source.as_object_mut() else {
+                continue;
+            };
+            for (_, target, _) in &specs {
+                if let Some(value) = obj.get_mut(target) {
+                    xerj_common::packed_f32::compact_vector_value(value);
+                }
+                let chunks_name = format!("{target}_chunks");
+                if let Some(value) = obj.get_mut(&chunks_name) {
+                    xerj_common::packed_f32::compact_vector_value(value);
+                }
             }
         }
 
@@ -18801,6 +19092,9 @@ impl Index {
                         .iter()
                         .filter_map(|v| v.as_f64().map(|f| f as f32))
                         .collect(),
+                    Value::String(text) => {
+                        xerj_common::packed_f32::unpack_f32_vector(text).unwrap_or_default()
+                    }
                     _ => continue,
                 };
                 if doc_vec.len() != query_vec.len() {
@@ -19407,6 +19701,9 @@ impl Index {
         };
         if let Ok(Some(source)) = &mut res {
             strip_internal_passage_metadata(source);
+            // The stored source keeps embeddings packed (#1940). GET returns
+            // the number array callers already see.
+            xerj_common::packed_f32::expand_packed_f32_values(source);
         }
         match &res {
             Ok(Some(_)) => {
@@ -26444,6 +26741,17 @@ impl Index {
         self.memtable.size_bytes()
     }
 
+    /// Retained JSON-heap estimate of every live memtable source. Test-only
+    /// so a regression can bound #1940 without sampling process RSS.
+    #[cfg(test)]
+    pub(crate) fn memtable_source_heaps_for_test(&self) -> Vec<usize> {
+        self.memtable
+            .all_docs_with_sources_arc()
+            .into_iter()
+            .map(|(_, source)| crate::ingest_memory::estimated_json_heap(&source))
+            .collect()
+    }
+
     /// #948 — entries currently resident in the STORAGE memtable
     /// (`IndexStore::memtable_shards`).  Diagnostic twin of
     /// [`Self::memtable_bytes`]: the FTS memtable drains on every flush,
@@ -27896,6 +28204,14 @@ fn build_doc_value_columns<'a>(
                     col.push(Some(v));
                 }
                 Value::String(s) => {
+                    // A packed embedding is not a keyword term. Filing it
+                    // would put one multi-kilobyte dictionary entry per
+                    // document into the `.dv` sidecar (#1940). Absence of a
+                    // column is the same outcome the number-array form
+                    // already had: arrays are multi-valued and ship no column.
+                    if xerj_common::packed_f32::is_packed_f32(s) {
+                        continue;
+                    }
                     if !keyword.contains_key(field) {
                         keyword.insert(field.clone(), Vec::new());
                     }
@@ -34687,7 +35003,7 @@ async fn do_flush_shard(
                     write_doc_values_sidecar(&segments_dir_for_dv, meta.id.as_str(), &columns)
                         .map_err(|error| {
                             xerj_storage::StorageError::Io(std::io::Error::other(format!(
-                                "doc-values side-car write failed: {error}"
+                                "doc-values side-car write failed: {error:#}"
                             )))
                         })?;
                 }
@@ -35650,8 +35966,20 @@ fn apply_source_filter_measured(
             );
         }
         // The caller explicitly asked for the whole document — MORE than the
-        // default projection, not less. Nothing was withheld.
-        SourceFilter::Enabled(true) => return (hits, None),
+        // default projection, not less. Nothing was withheld. Expand packed
+        // embeddings here, on the page only, so the wire form stays a number
+        // array (#1940).
+        SourceFilter::Enabled(true) => {
+            return (
+                hits.into_iter()
+                    .map(|mut hit| {
+                        xerj_common::packed_f32::expand_packed_f32_values(&mut hit.source);
+                        hit
+                    })
+                    .collect(),
+                None,
+            );
+        }
         // `_source: false`: keep the raw source so the response layer can
         // still resolve `fields` / `_ignored` / `highlight` against it —
         // `_source` emission is suppressed in es_compat.rs.
@@ -35687,6 +36015,10 @@ fn apply_source_filter_measured(
                     .then(|| default_projection_len(&h.source, generated_companion_fields, mode));
                 let sentinels = take_collapse_sentinels(&h.source);
                 h.source = filter_object(&h.source, fields, &[]);
+                // Expand before the savings measurement so a caller who asked
+                // for the companion is billed for the number array on the wire,
+                // not the packed string it was stored as.
+                xerj_common::packed_f32::expand_packed_f32_values(&mut h.source);
                 if let Some(baseline) = baseline {
                     // Saturating: a caller who explicitly projects a generated
                     // companion gets MORE than the default, and more is not a
@@ -35704,6 +36036,7 @@ fn apply_source_filter_measured(
                     .then(|| default_projection_len(&h.source, generated_companion_fields, mode));
                 let sentinels = take_collapse_sentinels(&h.source);
                 h.source = filter_object(&h.source, includes, excludes);
+                xerj_common::packed_f32::expand_packed_f32_values(&mut h.source);
                 if let Some(baseline) = baseline {
                     acc.record(&h.id, baseline.saturating_sub(json_len(&h.source, mode)));
                 }
@@ -37866,6 +38199,15 @@ fn stored_chunk_vectors(source: &Value, vector_field: &str) -> Vec<Vec<f32>> {
 }
 
 fn json_f32_vector(value: &Value) -> Option<Vec<f32>> {
+    // #1940 stores each chunk as a `xerj:f32:` string. A number array is
+    // still valid for segments written before that. Non-finite components
+    // in a number array keep the previous `as_f64() as f32` read.
+    if value
+        .as_str()
+        .is_some_and(xerj_common::packed_f32::is_packed_f32)
+    {
+        return xerj_common::packed_f32::unpack_f32_vector(value.as_str()?);
+    }
     let row = value.as_array()?;
     let mut vector = Vec::with_capacity(row.len());
     for component in row {
@@ -42555,14 +42897,20 @@ fn push_field_root_keys(field: &str, out: &mut Vec<String>) -> bool {
 /// Returns `None` when the field is absent, not an array, empty, or holds
 /// any non-number element.
 fn extract_numeric_vector(source: &Value, field: &str) -> Option<Vec<f32>> {
-    match get_field_value(source, field) {
-        Some(Value::Array(arr)) if !arr.is_empty() && arr.iter().all(|v| v.is_number()) => Some(
-            arr.iter()
-                .filter_map(|v| v.as_f64().map(|f| f as f32))
-                .collect(),
-        ),
-        _ => None,
+    let value = get_field_value(source, field)?;
+    // Packed strings are the retained form (#1940). Number arrays remain
+    // valid for segments written before that, and for a caller that raced
+    // a vector in before compaction.
+    if value
+        .as_str()
+        .is_some_and(xerj_common::packed_f32::is_packed_f32)
+        || value
+            .as_array()
+            .is_some_and(|arr| !arr.is_empty() && arr.iter().all(Value::is_number))
+    {
+        return xerj_common::packed_f32::json_to_f32_vector(&value);
     }
+    None
 }
 
 /// Collect every dense_vector-mapped field in schema order (dotted paths
@@ -62558,6 +62906,29 @@ mod exact_scan_hydration_tests {
         assert!(
             drained.load(std::sync::atomic::Ordering::SeqCst),
             "on_drained must fire on the empty-shard fast path"
+        );
+    }
+}
+
+#[cfg(test)]
+mod packed_vector_doc_values_tests {
+    use super::build_doc_value_columns;
+    use serde_json::json;
+
+    #[test]
+    fn packed_embedding_is_not_filed_as_a_keyword() {
+        let src = json!({
+            "msg": "hello",
+            "msg_vector": xerj_common::packed_f32::pack_f32_vector(&[1.0, 0.0, -1.0]).unwrap(),
+        });
+        let cols = build_doc_value_columns(
+            std::iter::once(Some(&src)),
+            &std::collections::HashSet::new(),
+        );
+        assert!(cols.contains_key("msg"));
+        assert!(
+            !cols.contains_key("msg_vector"),
+            "a packed embedding must not become a per-doc keyword term"
         );
     }
 }

@@ -332,8 +332,7 @@ boots the same `--insecure` dev node. Drop this into your MCP client's config:
 }
 ```
 
-Use an absolute path. The installer puts `xerj` in `~/.local/bin` by default
-(`command -v xerj` confirms), and MCP hosts launched from a desktop icon do not inherit your
+Use an absolute path. The `sh` installer (Linux, macOS, and Windows Git Bash, MSYS and Cygwin) puts `xerj` in `~/.local/bin` (`xerj.exe` on Windows; `command -v xerj` confirms) and does not edit PATH. The PowerShell installer (`get.ps1`) puts `xerj.exe` in `%LOCALAPPDATA%\Programs\xerj` and adds that directory to the user PATH (`(Get-Command xerj).Source` confirms; `XERJ_NO_PATH=1` opts out). MCP hosts launched from a desktop icon do not inherit your
 shell's `PATH`. If the node is running with auth (anything but `--insecure`), add
 `"XERJ_AUTH": "ApiKey <key>"` alongside `XERJ_URL`; the key is in `<data-dir>/admin.key`.
 
@@ -435,18 +434,22 @@ context servers, and OpenClaw nests them under `mcp`:
 {mcp: {servers: {xerj: {command: "/abs/path/to/xerj", args: ["mcp"], transport: "stdio"}}}}
 ```
 
-DeepSeek Harness loads MCP as a plugin in its Cordis patch file:
+DeepSeek Harness loads one MCP server as one plugin in `$DSH_HOME/cordis.patch.yml`, or in a profile patch at `$DSH_HOME/profiles/<profile>/cordis.patch.yml`. If that file is only `[]`, replace the array with the block below; appending under `[]` is not valid YAML. `env` and `cwd` are optional stdio fields (`args` defaults to `[]`, `env` to `{}`, `cwd` to `""`). When the node is not running `--insecure`, add `XERJ_AUTH: "ApiKey <key>"` under `env`:
 
 ```yaml
+# $DSH_HOME/cordis.patch.yml
 - insert:
     - id: mcp-xerj
-      name: "@deepseek-ai/dsh-mcp-client"
+      name: '@deepseek-ai/dsh-mcp-client'
       config:
         serverName: xerj
         transport: stdio
         command: /abs/path/to/xerj
         args:
           - mcp
+        env:
+          XERJ_URL: "http://localhost:9200"
+        cwd: ""
 ```
 
 Three candidates from the original list are deliberately absent. Aider has no MCP client support at

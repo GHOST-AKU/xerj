@@ -12712,6 +12712,10 @@ async fn search_dispatch(
 }
 
 /// One shard's search, used by the cluster fan-out. Does not fan out again.
+///
+/// `Box::pin` keeps this future pointer-sized. `search_impl`'s state is
+/// enormous, and a fan-out that awaited it by value would embed a second
+/// copy inside the coordinator's already-boxed search future.
 pub(crate) async fn search_shard_local(
     state: AppState,
     index: String,
@@ -12719,7 +12723,14 @@ pub(crate) async fn search_shard_local(
     principal: crate::auth::Principal,
     body: EsSearchBody,
 ) -> Response {
-    search_impl(state, index, params, principal, EsSearchJson(Some(body))).await
+    Box::pin(search_impl(
+        state,
+        index,
+        params,
+        principal,
+        EsSearchJson(Some(body)),
+    ))
+    .await
 }
 
 async fn search_impl(
@@ -17151,6 +17162,11 @@ async fn search_impl(
                         } else {
                             raw
                         };
+                        // #1940 stores the embedding as one `xerj:f32:` string.
+                        // `fields` reports the vector the caller named, which
+                        // is the number array — including `"_source": false`,
+                        // where the engine keeps the packed source on purpose.
+                        let raw = raw.map(expand_packed_embedding_value);
                         let arr_raw: Vec<Value> = match raw {
                             Some(Value::Array(a)) => a,
                             Some(Value::Null) | None => continue,
@@ -17622,6 +17638,7 @@ async fn search_impl(
                             other => {
                                 if is_stored(other) {
                                     if let Some(raw) = get_source_value_by_path(&h.source, other) {
+                                        let raw = expand_packed_embedding_value(raw);
                                         let arr = match raw {
                                             Value::Array(a) => a,
                                             Value::Null => continue,
@@ -17668,6 +17685,7 @@ async fn search_impl(
                             .or_else(|| target_via_alias.and_then(|t| get_source_value_by_path(&h.source, t)))
                             .or_else(|| get_source_value_by_path(&h.source, &response_key));
                         if let Some(raw) = raw {
+                            let raw = expand_packed_embedding_value(raw);
                             let arr = match raw {
                                 Value::Array(a) => a,
                                 Value::Null => vec![],
@@ -23109,6 +23127,41 @@ fn apply_one_update_stmt(source: &mut Value, stmt: &str, params: &Value) -> Resu
 // POST /{index}/_refresh
 // ─────────────────────────────────────────────────────────────────────────────
 
+/// One `_shards.failures` entry for `_refresh`, in selector order. The first
+/// failure's HTTP status becomes the response status (ES
+/// `BaseBroadcastResponse::getStatus`).
+fn record_refresh_failure(
+    failures: &mut Vec<Value>,
+    response_status: &mut StatusCode,
+    name: &str,
+    rendered: Value,
+) {
+    let status = rendered
+        .get("status")
+        .and_then(Value::as_u64)
+        .and_then(|code| StatusCode::from_u16(code as u16).ok())
+        .unwrap_or(StatusCode::INTERNAL_SERVER_ERROR);
+    if failures.is_empty() {
+        *response_status = status;
+    }
+    let reason = rendered
+        .pointer("/error/root_cause/0")
+        .or_else(|| rendered.pointer("/error"))
+        .cloned()
+        .unwrap_or_else(|| json!({ "type": "exception", "reason": "refresh failed" }));
+    let status_name = status
+        .canonical_reason()
+        .unwrap_or("Internal Server Error")
+        .to_ascii_uppercase()
+        .replace([' ', '-'], "_");
+    failures.push(json!({
+        "shard": 0,
+        "index": name,
+        "status": status_name,
+        "reason": reason,
+    }));
+}
+
 pub async fn refresh_index(
     State(state): State<AppState>,
     Path(index): Path<String>,
@@ -23121,39 +23174,42 @@ pub async fn refresh_index(
     let mut successful = 0u64;
     let mut failures = Vec::new();
     let mut response_status = StatusCode::OK;
-    // #1635: `Index::flush` bounds both flush admission and the caller-visible
-    // wait. One stuck index returns an error naming that index; this loop
-    // records it under `_shards.failures` and continues, so the refresh of
-    // the other indices in the pattern is not parked behind it.
-    for (name, idx) in &handles {
-        match idx.flush().await {
+    // #2234: `_refresh` makes writes searchable. It is not `_flush`.
+    // `Index::flush` also runs verified WAL maintenance (snapshot fsync and
+    // prune). That work shares the disk with a background segment merge, and
+    // this handler used to await it one index at a time — a wildcard refresh
+    // sat behind the first busy index for the whole flush budget, which is
+    // what stalled autoindex finalize. `Index::refresh` publishes an
+    // unflushed memtable and returns immediately when that memtable is
+    // already empty (#1635 still bounds a memtable that does have to be
+    // published). The indices run together, so a healthy index is searchable
+    // while a busy one is still inside its own budget. Results are collected
+    // in selector order: the first failure still sets the HTTP status.
+    let mut tasks = Vec::with_capacity(handles.len());
+    for (name, idx) in handles {
+        let task_name = name.clone();
+        tasks.push((
+            name,
+            tokio::spawn(async move { (task_name, idx.refresh().await) }),
+        ));
+    }
+    for (name, task) in tasks {
+        let (name, result) = match task.await {
+            Ok(pair) => pair,
+            Err(error) => {
+                let rendered = ApiError::new(xerj_common::XerjError::internal(format!(
+                    "index [{name}] refresh task failed: {error}"
+                )))
+                .into_value();
+                record_refresh_failure(&mut failures, &mut response_status, &name, rendered);
+                continue;
+            }
+        };
+        match result {
             Ok(()) => successful += 1,
             Err(error) => {
                 let rendered = ApiError::new(xerj_common::XerjError::from(error)).into_value();
-                let status = rendered
-                    .get("status")
-                    .and_then(Value::as_u64)
-                    .and_then(|code| StatusCode::from_u16(code as u16).ok())
-                    .unwrap_or(StatusCode::INTERNAL_SERVER_ERROR);
-                if failures.is_empty() {
-                    response_status = status;
-                }
-                let reason = rendered
-                    .pointer("/error/root_cause/0")
-                    .or_else(|| rendered.pointer("/error"))
-                    .cloned()
-                    .unwrap_or_else(|| json!({ "type": "exception", "reason": "refresh failed" }));
-                let status_name = status
-                    .canonical_reason()
-                    .unwrap_or("Internal Server Error")
-                    .to_ascii_uppercase()
-                    .replace([' ', '-'], "_");
-                failures.push(json!({
-                    "shard": 0,
-                    "index": name,
-                    "status": status_name,
-                    "reason": reason,
-                }));
+                record_refresh_failure(&mut failures, &mut response_status, &name, rendered);
             }
         }
     }
@@ -35636,6 +35692,9 @@ pub async fn cat_allocation(
             "host": "127.0.0.1",
             "ip": "127.0.0.1",
             "node": "xerj-node-1",
+            // #2284: memory writes name this directory when the flood-stage
+            // block fires. Not a cat column — the text table below is unchanged.
+            "path.data": state.config.server.data_dir,
         });
         // #2077: effective flood-stage gate, so autoindex can refuse before
         // it walks. Not cat columns — the text table below is unchanged.
@@ -42625,6 +42684,9 @@ pub(crate) fn build_docvalue_fields(
             let base = field_name.strip_suffix(".keyword")?;
             get_source_value_by_path(source, base)
         });
+        // Same packed-embedding expansion as `fields` (#1940). Doc values
+        // skip the string, so this path is the one that still sees it.
+        let raw = raw.map(expand_packed_embedding_value);
         let arr: Vec<Value> = match raw {
             Some(Value::Array(a)) => a,
             Some(Value::Null) | None => vec![],
@@ -42782,6 +42844,14 @@ pub(crate) fn get_field_value_via_walk(source: &Value, segs: &[&str]) -> Option<
         }
     }
     walk(source, segs)
+}
+
+/// Expand a packed embedding (`xerj:f32:` hex) into the number array
+/// `fields` and `docvalue_fields` have always returned. Leaves every other
+/// value unchanged, including a vector that is already a number array.
+fn expand_packed_embedding_value(mut value: Value) -> Value {
+    xerj_common::packed_f32::expand_packed_f32_values(&mut value);
+    value
 }
 
 pub(crate) fn get_source_value_by_path(source: &Value, path: &str) -> Option<Value> {
