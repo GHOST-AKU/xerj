@@ -5820,6 +5820,21 @@ impl std::fmt::Display for UnsupportedInventoryDeltaError {
 
 impl std::error::Error for UnsupportedInventoryDeltaError {}
 
+/// Paths of swept content groups, capped the same way a refusal lists them.
+fn deleted_group_list(entries: &[InventoryDeltaEntry]) -> String {
+    let mut rendered = entries
+        .iter()
+        .take(REFUSAL_LIST_CAP)
+        .map(|entry| entry.path.as_str())
+        .collect::<Vec<_>>()
+        .join(", ");
+    let remaining = entries.len().saturating_sub(REFUSAL_LIST_CAP);
+    if remaining > 0 {
+        rendered.push_str(&format!(", … and {remaining} more"));
+    }
+    rendered
+}
+
 /// Whether a plan file that vanished from the walk is still on disk (#439).
 ///
 /// The disk probe uses the file's reversible raw-bytes identity (`path_id`:
@@ -8513,10 +8528,11 @@ fn run_index_report_inner(
                     .map(|entry| entry.file_key.clone()),
             );
             let count = delta.deleted_content_groups.len();
+            let paths = deleted_group_list(&delta.deleted_content_groups);
             if cfg.dry_run {
                 pr.note(&format!(
-                    "autoindex: {count} file(s) indexed under this resume plan are gone from the \
-                     folder; a real run removes their documents"
+                    "autoindex: {count} file(s) indexed under this resume plan no longer exist in \
+                     the folder ({paths}); a real run removes their documents"
                 ));
             } else {
                 let edges_index = graph_edges_index(&cfg);
@@ -8531,8 +8547,8 @@ fn run_index_report_inner(
                 .context("sweep deleted content groups")?;
                 swept_membership = true;
                 pr.note(&format!(
-                    "autoindex: removed documents for {count} file(s) that are no longer in the \
-                     folder"
+                    "autoindex: removed documents for {count} file(s) that no longer exist in the \
+                     folder ({paths})"
                 ));
             }
         }
@@ -8883,7 +8899,14 @@ fn run_index_report_inner(
                 .iter()
                 .map(|entry| entry.file_key.clone())
                 .collect();
-            if !cfg.dry_run {
+            let count = delta.deleted_content_groups.len();
+            let paths = deleted_group_list(&delta.deleted_content_groups);
+            if cfg.dry_run {
+                pr.note(&format!(
+                    "autoindex: {count} file(s) indexed under this resume plan no longer exist in \
+                     the folder ({paths}); a real run removes their documents"
+                ));
+            } else {
                 swept_membership = true;
                 let edges_index = graph_edges_index(&cfg);
                 sweep_excluded_groups(
@@ -8895,6 +8918,10 @@ fn run_index_report_inner(
                     chrono::Utc::now().timestamp_millis(),
                 )
                 .context("sweep deleted content groups")?;
+                pr.note(&format!(
+                    "autoindex: removed documents for {count} file(s) that no longer exist in the \
+                     folder ({paths})"
+                ));
             }
             plan.files.retain(|key, _| !gone.contains(key));
             plan.duplicate_files.retain(|alias| {

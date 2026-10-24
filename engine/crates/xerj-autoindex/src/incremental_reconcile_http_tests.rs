@@ -1032,7 +1032,7 @@ fn search_http(path: &str, body: &[u8], state: &Arc<Mutex<HttpState>>) -> Value 
     // #2314: one short catalog page, internally consistent (total matches the
     // hits actually returned). The per-group equality then falls short and
     // the retry after refresh must see the document that was held back.
-    let catalog_file_key_page = indices.iter().any(|index| *index == catalog::CATALOG_INDEX)
+    let catalog_file_key_page = indices.contains(&catalog::CATALOG_INDEX)
         && filters
             .iter()
             .any(|filter| filter.pointer("/terms/file_key").is_some());

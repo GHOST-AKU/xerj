@@ -1948,9 +1948,6 @@ impl Journal {
         Ok(())
     }
 
-    /// Durably invalidate an older completion before persisting a new plan or
-    /// changing live visibility. Replaying this record schedules repair until
-    /// a later durable file_done commits the generation.
     /// A planned file left the folder and its documents were swept (#2314).
     ///
     /// Unlike [`Self::file_replace_start`], this does not schedule a
@@ -1968,6 +1965,9 @@ impl Journal {
         Ok(())
     }
 
+    /// Durably invalidate an older completion before persisting a new plan or
+    /// changing live visibility. Replaying this record schedules repair until
+    /// a later durable file_done commits the generation.
     pub fn file_replace_start(&mut self, file_key: &str, generation: &str) -> Result<()> {
         self.append_transaction(
             &serde_json::json!({

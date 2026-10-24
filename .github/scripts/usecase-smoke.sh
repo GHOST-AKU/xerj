@@ -170,35 +170,58 @@ else
   bad "expected >=3 hits for 'zanzibarite' across the discovered datasets, got ${HITS:-0}"
 fi
 
-# ── 4. autoindex: a removed file is refused, and the refusal is reversible ─
+# ── 4. autoindex: a removed file is swept, and putting it back reindexes it ─
 phase "4. autoindex rerun over a mutated folder"
-# Nothing above reruns autoindex over a folder that CHANGED, which is where the
-# silent-skip bug lived: a rerun used to exit 0 while the removed file's
-# documents stayed live with no source behind them. The refusal has unit and
-# in-process HTTP tests; this is the end-to-end gate — and it also proves the
-# cheapest recovery the message names (put the file back) actually works.
+# Nothing above reruns autoindex over a folder that CHANGED. A rerun used to
+# exit 0 while the removed file's documents stayed live, and graph mode then
+# refused every later run (#2314). The sweep has unit and in-process HTTP
+# tests; this is the end-to-end gate. It requires the run to finish, to name
+# the file, and to make that file's text unsearchable — then putting the file
+# back must index it again. Exit 0 and exit 3 are both a completed run.
 AX_STATE="$AX_WORK/state"
 ax_run() { "$XERJ_BIN" autoindex "$CORPUS" --url "$AX_URL" --state-dir "$AX_STATE" \
              --prefix ax-eval --brain eval "$@" 2>&1; }
+# A token that exists only in logs/app.log.
+LOG_TOKEN="declined"
 
 mv "$CORPUS/logs/app.log" "$AX_WORK/app.log.away"
 REMOVED="$(ax_run)"; REMOVED_RC=$?
-if [ "$REMOVED_RC" != 0 ] \
+if { [ "$REMOVED_RC" = 0 ] || [ "$REMOVED_RC" = 3 ]; } \
    && grep -q "no longer exist in the folder" <<<"$REMOVED" \
    && grep -q "app.log" <<<"$REMOVED"; then
-  ok "a rerun after a removal refuses (exit $REMOVED_RC) and names the removed file"
+  ok "a rerun after a removal sweeps logs/app.log (exit $REMOVED_RC) and names it"
 else
-  bad "expected a nonzero refusal naming logs/app.log, got exit $REMOVED_RC"
+  bad "expected a completed sweep naming logs/app.log, got exit $REMOVED_RC"
   echo "$REMOVED" | tail -20
+fi
+
+curl -s -o /dev/null -m 30 -XPOST "$AX_URL/ax-*/_refresh" || true
+GONE="$(curl -s -m 30 -G "$AX_URL/ax-*/_search" --data-urlencode "q=$LOG_TOKEN" \
+        --data-urlencode 'size=0' | jq -r '.hits.total.value // .hits.total // 0')"
+echo "  hits for '$LOG_TOKEN' after removal: ${GONE:-none}"
+if [ "${GONE:-1}" = 0 ]; then
+  ok "the removed file's documents are no longer searchable"
+else
+  bad "removed file's documents stayed live (${GONE:-none} hits for '$LOG_TOKEN')"
 fi
 
 mv "$AX_WORK/app.log.away" "$CORPUS/logs/app.log"
 RESTORED="$(ax_run)"; RESTORED_RC=$?
 if [ "$RESTORED_RC" = 0 ] || [ "$RESTORED_RC" = 3 ]; then
-  ok "restoring the file — recovery (1) in the refusal — lets the rerun through again"
+  ok "restoring the file lets the rerun through again (exit $RESTORED_RC)"
 else
   bad "expected the restored folder to rerun cleanly, got exit $RESTORED_RC"
   echo "$RESTORED" | tail -20
+fi
+
+curl -s -o /dev/null -m 30 -XPOST "$AX_URL/ax-*/_refresh" || true
+BACK="$(curl -s -m 30 -G "$AX_URL/ax-*/_search" --data-urlencode "q=$LOG_TOKEN" \
+        --data-urlencode 'size=0' | jq -r '.hits.total.value // .hits.total // 0')"
+echo "  hits for '$LOG_TOKEN' after restore: ${BACK:-none}"
+if [ "${BACK:-0}" -ge 1 ]; then
+  ok "restoring the file makes its documents searchable again"
+else
+  bad "restored file was not reindexed (${BACK:-none} hits for '$LOG_TOKEN')"
 fi
 
 # ── 5. brain: a wiped data dir refuses, and the --fresh it names recovers ──

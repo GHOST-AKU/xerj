@@ -63,8 +63,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   deleted. An added file that fits a frozen dataset is indexed on the rerun;
   a file that needs a new dataset stays unindexed until `--fresh`. Documents,
   catalog rows, and graph edges for a file that left the folder are removed,
-  including when `--fresh` rebuilds the plan. `xerj autoindex remove` deletes
-  that folder's resume journal (and `sync-snapshots`), and an explicit
+  and the run names that file, including when `--fresh` rebuilds the plan.
+  `xerj autoindex remove` deletes that folder's resume journal (and
+  `sync-snapshots`), and an explicit
   `--state-dir` on `remove` deletes the journal there too. A file whose size
   changes while a run is reading it is skipped with a warning instead of
   aborting the run, on the graph path and on `--no-graph` snapshot sealing.
