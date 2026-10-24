@@ -7,7 +7,7 @@ cluster: "Operations: exit codes"
 question: "What does indexer exit code 3 mean?"
 intent: "troubleshooting"
 published: "2026-08-22"
-updated: "2026-10-19"
+updated: "2026-10-24"
 author: "XERJ documentation team"
 reviewer: "XERJ engineering team"
 schema_type: "TechArticle"
@@ -38,10 +38,10 @@ links_out:
   - "autoindex-dataset-refused-by-server"
   - "autoindex-server-back-pressure-429"
 evidence:
-  - claim: "EXIT CODES: 0 complete (also: gate answered with --approve cancel); 3 completed-with-junk (junk recorded, never fatal) - this includes a dataset whose mapping the server REFUSED: its files are recorded as junk with the server's reason, the xerj-done line carries datasets_refused / files_refused, and every other dataset is indexed; 4 NEEDS A DECISION - the estimate exceeded --max-minutes and nothing was indexed, a JSON decision request is on stdout; 2 usage; 1 endpoint/journal failure, a refused corpus removal, or a refused unsafe state transition."
-    source: "engine/crates/xerj-autoindex/src/cli.rs:395"
+  - claim: "EXIT CODES: 0 complete (also: gate answered with --approve cancel); 3 completed-with-junk (junk recorded, never fatal) — SUCCESS: the index is searchable, and the summary on stdout opens with a line starting `ok:` that says so (xerj-done carries ok=true). Treat 0 and 3 alike as a finished run. This includes a dataset whose mapping the server REFUSED: its files are recorded as junk with the server's reason, the xerj-done line carries datasets_refused / files_refused, and every other dataset is indexed; 4 NEEDS A DECISION — the estimate exceeded --max-minutes and nothing was indexed, a JSON decision request is on stdout; 2 usage; 1 endpoint/journal failure, a refused corpus removal, or a refused unsafe state transition."
+    source: "engine/crates/xerj-autoindex/src/cli.rs:771"
   - claim: "Exit 4 is a code of its own; 1 is the catch-all for real failures, and the decision request is answered by re-running the same command with --approve proceed, fast or cancel."
-    source: "engine/crates/xerj-autoindex/src/cli.rs:395"
+    source: "engine/crates/xerj-autoindex/src/cli.rs:771"
   - claim: "A forced mapping refusal ended xerj-done ok=true exit=3 reason=completed-with-junk wall=0.7s files=1 records=1 generation=1 datasets_refused=1 files_refused=2, with the other dataset indexed."
     source: "benchmarks/autoindex-resilience/refusal-e2e.run1.stderr.txt"
   - claim: "Before issue #955 was fixed, a 48,533-file --no-graph run applied every operation and then ended xerj-done ok=false exit=1 reason=aborted wall=10336.0s, because the catalog went out as one bulk request of 51,129 actions and the engine's max_actions_per_bulk is 50,000."
@@ -54,7 +54,7 @@ evidence:
     source: "engine/crates/xerj-autoindex/src/lib.rs:277"
 faq:
   - q: "What does indexer exit code 3 mean?"
-    a: "It means the run completed and recorded junk. `xerj autoindex --help` states it as `3 completed-with-junk (junk recorded, never fatal)`. Treat it as a success with a refusal list to read."
+    a: "It means the run completed and recorded junk. `xerj autoindex --help` states it as `3 completed-with-junk (junk recorded, never fatal) — SUCCESS` and says to treat 0 and 3 alike as a finished run. Treat it as a success with a refusal list to read. Do not rerun it as a failure."
   - q: "The indexer exited 3 (or 4). Did it fail?"
     a: "3 did not fail. 4 did not fail either, and it did not index anything: it is a decision request waiting for `--approve`. Only 1 and 2 are failures."
   - q: "Why did folder indexing stop and ask me to approve?"
@@ -80,7 +80,7 @@ The list below is quoted from `xerj autoindex --help` on the installed binary. R
 | Exit | Name in `--help` | What it means for the corpus |
 | --- | --- | --- |
 | 0 | complete | The run finished and refused nothing. A gate answered with `--approve cancel` also exits 0. |
-| 3 | completed-with-junk | The run finished. At least one file was refused and recorded. Never fatal. This includes a whole dataset whose mapping the server refused. |
+| 3 | completed-with-junk | SUCCESS. The run finished. At least one file was refused and recorded. Treat it the same as exit 0: the index is searchable. This includes a whole dataset whose mapping the server refused. |
 | 4 | NEEDS A DECISION | The estimate exceeded `--max-minutes`. Nothing was indexed. A JSON decision request is on stdout. |
 | 2 | usage | The command line was wrong. Nothing ran. |
 | 1 | endpoint/journal failure | The node or the resume journal failed, a corpus removal was refused, or an unsafe state transition was refused. |
@@ -89,7 +89,7 @@ Read the table in that order rather than in numeric order. It is the order the h
 
 ## Exit 3 is a finished run
 
-`3 completed-with-junk (junk recorded, never fatal)` is the phrase in the help text, and `never fatal` is doing the work in that sentence.
+`3 completed-with-junk (junk recorded, never fatal) — SUCCESS` is the phrase in the help text, and it says to treat 0 and 3 alike as a finished run. Exit 3 is success. Do not rerun it as a failure.
 
 A folder of real files almost always contains something XERJ will not parse. An unknown binary, an image, a file above `--max-file-gb`. Those files are recorded in the catalog with a reason, and the rest of the folder is indexed and queryable.
 

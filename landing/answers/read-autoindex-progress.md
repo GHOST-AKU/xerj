@@ -2,13 +2,13 @@
 ---
 title: "How do I read autoindex progress?"
 canonical: "https://xerj.org/answers/read-autoindex-progress"
-updated: "2026-10-19"
+updated: "2026-10-24"
 source: "content/answers/read-autoindex-progress.md"
 ---
 
 # How do I read autoindex progress?
 
-**Short answer** (updated 2026-10-19): How can I see whether folder indexing is still working? Pass --progress plain and read the xerj-progress lines on stderr. A captured 22.2 s run emitted 12 phases in order and ended with xerj-done ok=true. On a single 16 MB file the percentage stays at 0.0%, so read since_progress_s and waiting_on instead.
+**Short answer** (updated 2026-10-24): How can I see whether folder indexing is still working? Pass --progress plain and read the xerj-progress lines on stderr. A captured 22.2 s run emitted 12 phases in order and ended with xerj-done ok=true. On a single 16 MB file the percentage stays at 0.0%, so read since_progress_s and waiting_on instead.
 
 **Key number:** With --no-graph, a 231-file repository reported 9 phases in order, and its index phase read pct=81.7 at 169/231 items. (as of 2026-10-19; source: [benchmarks/autoindex-resilience/after-fix.small-repo.stderr.txt](https://github.com/xerj-org/xerj/blob/main/benchmarks/autoindex-resilience/after-fix.small-repo.stderr.txt))
 
@@ -144,6 +144,8 @@ xerj-done ok=true exit=0 reason=completed wall=22.2s files=1 records=164441 data
 ```
 
 `reason` distinguishes `completed`, `dry-run`, `completed-with-junk`, `aborted` and, on the `--no-graph` path, `server-backpressure`, and the exit code follows it. Exit 3 with `completed-with-junk` means the run refused some files, and the catalog holds a reason for each one. `server-backpressure` is exit 1: the node kept rejecting for the whole 600 s a bulk waits, and the line adds `ops_applied` and `ops_remaining` so you know how much the same command still has to do.
+
+Exit 3 is success. Treat it the same as exit 0. Do not rerun it as a failure.
 
 If the server refused a whole dataset, the line also carries `datasets_refused` and `files_refused`. They appear only when it happened. The [refused-dataset page](/answers/autoindex-dataset-refused-by-server) covers that case.
 
