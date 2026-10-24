@@ -39199,7 +39199,11 @@ fn spawn_watch_evaluator(
                 if !alive {
                     break;
                 }
-                cursor = evaluate_watch_pass(&state, &id, &watch, cursor).await;
+                // The pass owns a search state machine. Polling it inline on
+                // this task shares the caller's stack with the `#[tokio::test]`
+                // runtime (2 MiB). The box keeps that machine off the stack;
+                // the cursor and the retry rules are unchanged.
+                cursor = Box::pin(evaluate_watch_pass(&state, &id, &watch, cursor)).await;
             }
         },
     ));

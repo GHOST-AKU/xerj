@@ -217,8 +217,21 @@ fn assert_symbol(docs: &[Value], name: &str, file: &str, line: u64) {
     );
 }
 
-#[tokio::test(flavor = "multi_thread", worker_threads = 2)]
-async fn autoindex_finds_inline_script_functions_by_def_and_search() {
+#[test]
+fn autoindex_finds_inline_script_functions_by_def_and_search() {
+    // Debug autoindex builds a future that does not fit tokio's 2 MiB
+    // default worker. The server runtime is 4 MiB (`RT_THREAD_STACK_SIZE`);
+    // this test uses the same floor so a debug `cargo test` matches it.
+    let rt = tokio::runtime::Builder::new_multi_thread()
+        .worker_threads(2)
+        .thread_stack_size(4 * 1024 * 1024)
+        .enable_all()
+        .build()
+        .expect("runtime");
+    rt.block_on(autoindex_finds_inline_script_functions_by_def_and_search_inner());
+}
+
+async fn autoindex_finds_inline_script_functions_by_def_and_search_inner() {
     let app = app().await;
     let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
     let addr = listener.local_addr().unwrap();
