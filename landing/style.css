@@ -925,7 +925,8 @@ section.section-split p.wide { max-width: none; }
   color: var(--z-accent);
   margin-bottom: var(--sp-3);
 }
-.uc-hero h1 {
+.uc-hero h1,
+.uc-hero .uc-display {
   font-family: var(--font-display);
   font-weight: 900;
   font-size: 80px;
@@ -933,6 +934,24 @@ section.section-split p.wide { max-width: none; }
   text-transform: uppercase;
   color: var(--z-ink);
   margin-bottom: var(--sp-4);
+}
+.uc-hero .uc-display {
+  /* matches the browser's default h1 top margin and lifts the p measure,
+     so the former <h1> keeps its exact spacing and width */
+  margin-top: 0.67em;
+  max-width: none;
+}
+/* Use-case pages carry a plain-text H1 in the eyebrow style, and the big
+   display headline is a <p class="uc-display">, so the look is unchanged. */
+.uc-hero h1.uc-eyebrow {
+  font-family: var(--font-data);
+  font-weight: 400;
+  font-size: var(--fs-11);
+  line-height: inherit;
+  letter-spacing: var(--track-ui);
+  text-transform: uppercase;
+  color: var(--z-accent);
+  margin: 0 0 var(--sp-3);
 }
 .uc-hero .uc-lead {
   font-size: var(--fs-20);
@@ -2867,6 +2886,16 @@ svg.chart.is-interactive .ser:focus-visible {
   .prompt-stage::before { inset: -14px; filter: blur(28px); }
   .prompt-copy { align-self: stretch; text-align: center; }
 }
+
+/* nav GitHub stars badge (scripts/seo/stars_badge.py writes it, theme.js refreshes
+   the count). Muted 1px frame so it never competes with the gold primary CTA; the
+   count box is fixed-width so a refreshed number causes no layout shift. */
+.nav a.nav-stars{display:inline-flex;align-items:center;gap:5px;
+  padding:2px 6px;border:1px solid var(--z-line);color:var(--z-mute);white-space:nowrap;
+  line-height:1;letter-spacing:.04em;font-variant-numeric:tabular-nums;}
+.nav a.nav-stars:hover{color:var(--z-ink);border-color:var(--z-mute);}
+.nav a.nav-stars svg{width:12px;height:12px;fill:currentColor;flex:none;display:block;}
+.nav .nav-stars-n{display:inline-block;min-width:7ch;}
 
 /* nav download button — latest release tag, links to /releases/latest */
 .nav .nav-dl{padding:.35rem .7rem;border:1px solid var(--z-accent);border-radius:4px;

@@ -95,6 +95,8 @@ impl ClusterNode {
             node_id: id.clone(),
             state: RaftState::Follower,
             leader_id: None,
+            snapshot_index: 0,
+            log_len: 0,
         }));
         let shard = transport.shard_rpc();
         let mut members = peers.clone();
@@ -114,6 +116,40 @@ impl ClusterNode {
         }
     }
 
+    /// Like [`ClusterNode::new`], opening the Raft log at `storage_dir`.
+    ///
+    /// The committed entries are loaded into the Raft log and are not applied
+    /// yet. Call [`ClusterNode::replay_committed`] after [`ClusterNode::set_applier`]
+    /// so the engine sees the same entries the metadata store does. Applying
+    /// here would run before the applier exists and a restarted index plan
+    /// would stay in metadata only.
+    pub fn with_storage(
+        id: String,
+        peers: Vec<String>,
+        transport: Box<dyn ClusterTransport>,
+        storage_dir: impl AsRef<std::path::Path>,
+    ) -> Result<Self> {
+        let mut node = Self::new(id.clone(), peers, transport);
+        let peer_ids = node.raft.peers().to_vec();
+        node.raft = RaftNode::with_storage(id, peer_ids, storage_dir)?;
+        Ok(node)
+    }
+
+    /// Apply every committed log entry that this process has not applied yet.
+    ///
+    /// On a fresh open that is the whole committed prefix. The applier, when
+    /// one is installed, runs for each entry before this returns. Safe to call
+    /// again: a second call finds nothing pending.
+    pub async fn replay_committed(&mut self) {
+        let commit = self.raft.commit_index();
+        if commit == 0 {
+            info!(node = %self.raft.id, "raft log has no committed entries to replay");
+            return;
+        }
+        info!(node = %self.raft.id, commit, "replaying committed raft log");
+        self.apply_ready().await;
+    }
+
     /// Handle the engine layer uses to propose metadata and read leadership.
     pub fn handle(&self) -> ClusterHandle {
         self.handle.clone()
@@ -126,6 +162,29 @@ impl ClusterNode {
     /// update only the in-memory metadata store.
     pub fn set_applier(&mut self, applier: Arc<dyn MetadataApplier>) {
         self.applier = Some(applier);
+    }
+
+    /// Applier installed by [`ClusterNode::set_applier`], if any.
+    ///
+    /// The runner uses this to copy replica documents off the Raft step.
+    pub(crate) fn applier(&self) -> Option<Arc<dyn MetadataApplier>> {
+        self.applier.clone()
+    }
+
+    /// See [`crate::raft::RaftNode::set_snapshot_every`].
+    pub fn set_snapshot_every(&mut self, every: u64) {
+        self.raft.set_snapshot_every(every);
+    }
+
+    /// Snapshot the applied prefix now. The run loop also does this after
+    /// [`crate::raft::DEFAULT_SNAPSHOT_EVERY`] new applied entries.
+    pub fn compact_applied(&mut self) -> bool {
+        self.raft.compact_applied()
+    }
+
+    /// Index covered by the snapshot. 0 when this node has not compacted.
+    pub fn snapshot_index(&self) -> u64 {
+        self.raft.snapshot_index()
     }
 
     /// Tick the Raft state machine and dispatch any outbound messages.
@@ -255,30 +314,40 @@ impl ClusterNode {
     ///
     /// The engine applier runs before the waiting caller is released, so a
     /// successful return means this node has the metadata locally and a
-    /// majority has the log entry.
+    /// majority has the log entry. A snapshot installed since the last call
+    /// is applied first: those commands are no longer in the log.
     async fn apply_ready(&mut self) {
+        let installed = self.raft.take_installed_entries();
+        for entry in installed {
+            self.apply_entry(entry).await;
+        }
         let entries = self.raft.ready();
         for entry in entries {
-            debug!(
-                node = %self.raft.id,
-                index = entry.index,
-                term = entry.term,
-                "Applying committed entry"
-            );
-            self.metadata.apply(entry.index, &entry.command);
-            let effect = if let Some(applier) = &self.applier {
-                applier.apply_metadata(&entry.command).await
-            } else {
-                ApplyEffect::Applied
-            };
-            // Request ids are per accepting node. A leader applying a
-            // forwarded entry must not complete its own waiter that happens
-            // to share the number.
-            if entry.command.client_origin() == Some(self.raft.id.as_str()) {
-                if let Some(request_id) = entry.command.client_request_id() {
-                    if let Some(waiter) = self.waiters.remove(&request_id) {
-                        let _ = waiter.ack.send(Ok(effect));
-                    }
+            self.apply_entry(entry).await;
+        }
+        self.raft.maybe_compact();
+    }
+
+    async fn apply_entry(&mut self, entry: crate::raft::LogEntry) {
+        debug!(
+            node = %self.raft.id,
+            index = entry.index,
+            term = entry.term,
+            "Applying committed entry"
+        );
+        self.metadata.apply(entry.index, &entry.command);
+        let effect = if let Some(applier) = &self.applier {
+            applier.apply_metadata(&entry.command).await
+        } else {
+            ApplyEffect::Applied
+        };
+        // Request ids are per accepting node. A leader applying a
+        // forwarded entry must not complete its own waiter that happens
+        // to share the number.
+        if entry.command.client_origin() == Some(self.raft.id.as_str()) {
+            if let Some(request_id) = entry.command.client_request_id() {
+                if let Some(waiter) = self.waiters.remove(&request_id) {
+                    let _ = waiter.ack.send(Ok(effect));
                 }
             }
         }
@@ -288,6 +357,8 @@ impl ClusterNode {
         let mut view = self.view.write().unwrap_or_else(|e| e.into_inner());
         view.state = self.raft.state().clone();
         view.leader_id = self.raft.leader_id().map(|s| s.to_string());
+        view.snapshot_index = self.raft.snapshot_index();
+        view.log_len = self.raft.log_len();
     }
 
     async fn accept_proposal(&mut self, req: ProposalRequest) {

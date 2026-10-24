@@ -5507,6 +5507,87 @@ mod merge_publication_transaction_tests {
         .expect("merge did not reach the pre-apply gate");
     }
 
+    /// #2234 — `_refresh` must publish a new write while a merge encode is
+    /// held, on a runtime whose tokio blocking pool has a single thread.
+    ///
+    /// The encode used to run inside `spawn_blocking` for its whole duration.
+    /// Refresh builds a segment on that same pool, so with one blocking thread
+    /// the refresh queued until the merge returned. The encode now runs on the
+    /// merge pool; this test parks it there and requires `refresh` to drain
+    /// the memtable before the park is released.
+    #[test]
+    fn refresh_publishes_while_a_merge_encode_is_held() {
+        let runtime = tokio::runtime::Builder::new_multi_thread()
+            .worker_threads(4)
+            .max_blocking_threads(1)
+            .enable_all()
+            .build()
+            .expect("runtime");
+        runtime.block_on(async {
+            let dir = TempDir::new().unwrap();
+            let (_engine, index) = fixture(&dir).await;
+            // Releasing on drop covers an assertion failure: a parked merge
+            // thread must not outlive the test and pin the process-global
+            // merge pool.
+            struct ReleaseHold<'a>(&'a AtomicBool);
+            impl Drop for ReleaseHold<'_> {
+                fn drop(&mut self) {
+                    self.0.store(false, Ordering::Release);
+                }
+            }
+            index.test_hold_merge_encode.store(true, Ordering::Release);
+            let release = ReleaseHold(&index.test_hold_merge_encode);
+            let merge_index = Arc::clone(&index);
+            let merge = tokio::spawn(async move { merge_index.run_merge_once().await });
+            tokio::time::timeout(std::time::Duration::from_secs(10), async {
+                while !index.test_merge_encode_held.load(Ordering::Acquire) {
+                    tokio::task::yield_now().await;
+                }
+            })
+            .await
+            .expect("merge encode did not reach the hold");
+
+            index
+                .index_document(Some("c".into()), serde_json::json!({"value": "new-c"}))
+                .await
+                .unwrap();
+            assert_eq!(
+                index.memtable.doc_count(),
+                1,
+                "the new document must still be in the memtable"
+            );
+            let refreshed =
+                tokio::time::timeout(std::time::Duration::from_secs(8), index.refresh()).await;
+            assert!(
+                refreshed.is_ok(),
+                "refresh did not return within 8s while the merge encode was held"
+            );
+            refreshed
+                .expect("timeout already checked")
+                .expect("refresh");
+            assert_eq!(
+                index.memtable.doc_count(),
+                0,
+                "refresh must drain the memtable without waiting for the merge"
+            );
+            assert!(
+                index.test_merge_encode_held.load(Ordering::Acquire),
+                "the merge encode must still be parked after refresh returns"
+            );
+            assert_eq!(
+                index.get_document("c").await.unwrap().unwrap()["value"],
+                "new-c"
+            );
+
+            drop(release);
+            let merged = tokio::time::timeout(std::time::Duration::from_secs(30), merge)
+                .await
+                .expect("merge did not finish after the hold was released")
+                .expect("merge task");
+            assert_eq!(merged.expect("merge"), 1);
+        });
+    }
+
     #[tokio::test]
     async fn apply_failure_restores_sources_survives_restart_and_retry() {
         let dir = TempDir::new().unwrap();
@@ -6167,6 +6248,41 @@ mod merge_publication_transaction_tests {
         );
     }
 
+    /// Drive the paused clock past one debounce, and give the merge pool a
+    /// real turn so an encode can finish.
+    ///
+    /// #2234 runs that encode on the merge pool, off this runtime. A paused
+    /// `sleep` auto-advances while the pass is still awaiting the pool, so
+    /// the scheduler never looks idle and a later segment change is only a
+    /// bumped epoch on the in-flight pass — the evaluation counter does not
+    /// move until the encode returns. `std::thread::sleep` does not advance
+    /// the paused clock, so it cannot itself schedule a merge check.
+    async fn settle_merge_scheduler(index: &Index) {
+        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(10);
+        loop {
+            let before = index.merge_evaluation_count();
+            std::thread::sleep(std::time::Duration::from_millis(15));
+            tokio::task::yield_now().await;
+            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+            tokio::task::yield_now().await;
+            let after = index.merge_evaluation_count();
+            if after == before && !index.is_merge_in_progress() {
+                // A second window with no real sleep: a still-armed debounce
+                // is the only thing that can move the counter.
+                tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+                if index.merge_evaluation_count() == after && !index.is_merge_in_progress() {
+                    return;
+                }
+            }
+            assert!(
+                std::time::Instant::now() < deadline,
+                "background merges did not quiesce (evaluations {}, in progress {})",
+                index.merge_evaluation_count(),
+                index.is_merge_in_progress()
+            );
+        }
+    }
+
     /// #871 — merge scheduling must be event-driven: after an index's merge
     /// work settles, ZERO further merge-policy evaluations may run until the
     /// segment set changes again.
@@ -6195,10 +6311,9 @@ mod merge_publication_transaction_tests {
         }
         // Let the scheduled checks and their cascading merges run to
         // quiescence (min/max_merge_count = 2 collapses two at a time).
-        for _ in 0..8 {
-            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
-            tokio::task::yield_now().await;
-        }
+        // The encode is on the merge pool (#2234); paused sleeps do not
+        // wait for it.
+        settle_merge_scheduler(&index).await;
         let settled = index.merge_evaluation_count();
         assert!(
             settled >= 1,
@@ -6220,14 +6335,19 @@ mod merge_publication_transaction_tests {
             .await
             .unwrap();
         index.flush().await.unwrap();
-        for _ in 0..8 {
-            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+        let wake_deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+        loop {
+            std::thread::sleep(std::time::Duration::from_millis(15));
             tokio::task::yield_now().await;
+            tokio::time::sleep(std::time::Duration::from_secs(30)).await;
+            if index.merge_evaluation_count() > settled {
+                break;
+            }
+            assert!(
+                std::time::Instant::now() < wake_deadline,
+                "a published segment no longer schedules a merge check"
+            );
         }
-        assert!(
-            index.merge_evaluation_count() > settled,
-            "a published segment no longer schedules a merge check"
-        );
     }
 
     #[tokio::test]
@@ -9300,6 +9420,23 @@ pub struct Index {
     test_pause_merge_before_apply: Arc<AtomicBool>,
     #[cfg(test)]
     test_merge_repoint_ready: Arc<AtomicBool>,
+    /// #2234 — park the merge encode on the merge pool, before any segment
+    /// bytes are written, so a test can prove `refresh` proceeds while that
+    /// encode is held. The park is a merge-pool thread, not a tokio blocking
+    /// thread: occupying the blocking pool here is the stall this hook exists
+    /// to catch.
+    #[cfg(test)]
+    test_hold_merge_encode: Arc<AtomicBool>,
+    #[cfg(test)]
+    test_merge_encode_held: Arc<AtomicBool>,
+    /// #2234 — park `refresh` before it looks at the memtable. Off in release
+    /// builds; `xerj-api` tests turn it on with the `refresh-test-hook` feature.
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    test_pause_refresh: Arc<AtomicBool>,
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    test_refresh_paused: Arc<AtomicBool>,
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    test_refresh_finished: Arc<AtomicU64>,
     /// #1212 — park the next search the instant its capture bracket
     /// validates (`test_pause_search_after_capture`), announcing via
     /// `test_search_capture_parked` so a test can publish a merge or flush
@@ -9913,8 +10050,24 @@ pub struct Index {
     /// the fallback (an input the preflight refused, or
     /// `XERJ_MERGE_FTS_REANALYZE=1`). An index whose merges are silently
     /// paying the old O(text) cost shows it here and nowhere else.
-    /// `Arc` because the merge encode runs in `spawn_blocking`.
+    /// `Arc` because the merge encode runs on the merge pool, off the caller.
     merge_fts_reanalysed_docs: Arc<AtomicU64>,
+    /// Set for the pass that just finished when at least one selected
+    /// batch was left unmerged because its estimated working set would
+    /// cross the memory watermark (#1122). The debounced check retries;
+    /// a pass that merges everything leaves this false.
+    merge_batches_deferred: std::sync::atomic::AtomicBool,
+}
+
+/// Counts one `Index::refresh` that got past the test hold, on every exit.
+#[cfg(any(test, feature = "refresh-test-hook"))]
+struct TestRefreshFinished<'a>(&'a Index);
+
+#[cfg(any(test, feature = "refresh-test-hook"))]
+impl Drop for TestRefreshFinished<'_> {
+    fn drop(&mut self) {
+        self.0.test_refresh_finished.fetch_add(1, Ordering::Release);
+    }
 }
 
 impl Index {
@@ -10194,6 +10347,16 @@ impl Index {
             #[cfg(test)]
             test_merge_repoint_ready: Arc::new(AtomicBool::new(false)),
             #[cfg(test)]
+            test_hold_merge_encode: Arc::new(AtomicBool::new(false)),
+            #[cfg(test)]
+            test_merge_encode_held: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_pause_refresh: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_refresh_paused: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_refresh_finished: Arc::new(AtomicU64::new(0)),
+            #[cfg(test)]
             test_pause_search_after_capture: Arc::new(AtomicBool::new(false)),
             #[cfg(test)]
             test_search_capture_parked: Arc::new(AtomicBool::new(false)),
@@ -10326,6 +10489,7 @@ impl Index {
             merge_scheduling_stopped: std::sync::atomic::AtomicBool::new(false),
             merge_evaluations: AtomicU64::new(0),
             merge_fts_reanalysed_docs: Arc::new(AtomicU64::new(0)),
+            merge_batches_deferred: std::sync::atomic::AtomicBool::new(false),
             schema_persist_failures: AtomicU64::new(0),
         });
         // #871 — event-driven merge scheduling: the store fires this hook on
@@ -10680,6 +10844,16 @@ impl Index {
             #[cfg(test)]
             test_merge_repoint_ready: Arc::new(AtomicBool::new(false)),
             #[cfg(test)]
+            test_hold_merge_encode: Arc::new(AtomicBool::new(false)),
+            #[cfg(test)]
+            test_merge_encode_held: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_pause_refresh: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_refresh_paused: Arc::new(AtomicBool::new(false)),
+            #[cfg(any(test, feature = "refresh-test-hook"))]
+            test_refresh_finished: Arc::new(AtomicU64::new(0)),
+            #[cfg(test)]
             test_pause_search_after_capture: Arc::new(AtomicBool::new(false)),
             #[cfg(test)]
             test_search_capture_parked: Arc::new(AtomicBool::new(false)),
@@ -10776,6 +10950,7 @@ impl Index {
             merge_scheduling_stopped: std::sync::atomic::AtomicBool::new(false),
             merge_evaluations: AtomicU64::new(0),
             merge_fts_reanalysed_docs: Arc::new(AtomicU64::new(0)),
+            merge_batches_deferred: std::sync::atomic::AtomicBool::new(false),
             schema_persist_failures: AtomicU64::new(0),
         });
         // #871 — event-driven merge scheduling (see `Index::create` and
@@ -10957,9 +11132,10 @@ impl Index {
         // Process-wide admission: disk flood-stage block (item 3) + parent
         // memory circuit breaker (item 1). Fires before any per-index work.
         self.governor_write_gate()?;
-        // Already-parsed bodies (PUT `/_doc/{id}` builds a `Value` in the
-        // extractor) still have to be refused before semantic embedding and
-        // `analyze_doc`. Bulk NDJSON is refused on the raw bytes earlier.
+        // Bodies that arrived already parsed (in-process callers, a pipeline
+        // rewrite) still have to be refused before semantic embedding and
+        // `analyze_doc`. HTTP `PUT`/`POST /_doc` and bulk NDJSON are refused
+        // on the raw bytes earlier.
         if let Some(seen) =
             xerj_common::document_limit::json_value_exceeds_indexed_document_limit(&source)
         {
@@ -11709,6 +11885,10 @@ impl Index {
             }
         }
 
+        // Charge the token spike before the batch is parsed. Eight bulks can
+        // pass one RSS sample and then analyze together; the reservation
+        // makes the second one 429 while the first is still allocating (#1122).
+        let analyze_reservation = Self::reserve_batch_analyze(validated.docs())?;
         let dom_t = std::time::Instant::now();
         let validated = crate::ingest_pool()
             .install(|| xerj_storage::IndexStore::parse_validated_raw_batch(validated))
@@ -11944,6 +12124,9 @@ impl Index {
                 p_insert_us = p_t.elapsed().as_micros();
             }
         }
+        // Tokens are in the memtable. Drop the estimate so the next batch
+        // is charged the live RSS of those tokens, not the estimate as well.
+        drop(analyze_reservation);
         drop(publication_schema);
 
         if prof {
@@ -12100,6 +12283,7 @@ impl Index {
             }
         }
 
+        let analyze_reservation = Self::reserve_batch_analyze(validated.docs())?;
         let _hnsw_publication = has_vector_mapping.then(|| self.begin_hnsw_publication());
         let index_start = std::time::Instant::now();
         let wal_t = std::time::Instant::now();
@@ -12291,6 +12475,7 @@ impl Index {
                 })
                 .collect()
         });
+        drop(analyze_reservation);
         // Single batch-level atomic instead of one per doc.  At 1.7 M/s
         // × 10 k batch = 170 batches/s this cuts ~17 M atomic ops/s of
         // cache-line bouncing on `doc_count`.
@@ -12645,18 +12830,68 @@ impl Index {
         }
     }
 
+    /// Hold `refresh` until [`Self::test_set_pause_refresh`] clears.
+    ///
+    /// The flag is announced only after this call has entered, so a test can
+    /// wait until the index is actually inside refresh and not merely racing
+    /// the request.
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    async fn await_test_refresh_hold(&self) {
+        if !self.test_pause_refresh.load(Ordering::Acquire) {
+            return;
+        }
+        self.test_refresh_paused.store(true, Ordering::Release);
+        while self.test_pause_refresh.load(Ordering::Acquire) {
+            tokio::task::yield_now().await;
+        }
+        self.test_refresh_paused.store(false, Ordering::Release);
+    }
+
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    pub fn test_set_pause_refresh(&self, pause: bool) {
+        self.test_pause_refresh.store(pause, Ordering::Release);
+    }
+
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    pub fn test_refresh_is_paused(&self) -> bool {
+        self.test_refresh_paused.load(Ordering::Acquire)
+    }
+
+    #[cfg(any(test, feature = "refresh-test-hook"))]
+    pub fn test_refresh_finished_count(&self) -> u64 {
+        self.test_refresh_finished.load(Ordering::Acquire)
+    }
+
+    /// Make recent writes searchable.
+    ///
+    /// This is the body of HTTP `_refresh` (#2234). An empty memtable is
+    /// already searchable — return without verified WAL maintenance, which is
+    /// `flush` / `_flush` and is what used to sit behind a background segment
+    /// merge. A non-empty memtable is published to a segment. The HNSW graph
+    /// is persisted either way: background flushes skip that save, and an
+    /// explicit refresh is the checkpoint for it. `save_hnsw_to_disk` returns
+    /// immediately when the index has no graph.
     pub async fn refresh(&self) -> Result<()> {
+        #[cfg(any(test, feature = "refresh-test-hook"))]
+        self.await_test_refresh_hold().await;
+        // Count a refresh that actually returned, including the empty-memtable
+        // path and errors. The hold above is outside this guard so a paused
+        // index does not look finished.
+        #[cfg(any(test, feature = "refresh-test-hook"))]
+        let _refresh_finished = TestRefreshFinished(self);
         {
             let mem = &*self.memtable;
             if mem.doc_count() == 0 {
+                let _ = self.save_hnsw_to_disk().await;
                 return Ok(());
             }
         }
 
-        // Flush the memtable to a new segment on disk.  This drains the
-        // memtable, writes the segment file + FTS index, swaps the snapshot,
-        // and checkpoints the WAL.  The drained memtable is dropped, freeing
-        // all RAM.
+        // Publish the memtable to a new segment. This drains the memtable,
+        // writes the segment file + FTS index, and swaps the snapshot. The
+        // drained memtable is dropped, freeing its RAM. Verified WAL
+        // maintenance (snapshot fsync + prune) is `_flush` / `Index::flush`,
+        // not this path (#2234).
         let (field_configs, excluded_fts_fields, dv_skip) = {
             let schema = self.schema.read().await;
             (
@@ -13024,6 +13259,18 @@ impl Index {
             let n = self.merge_pass_locked(Some(target)).await?;
             total += n;
             let seg_count = self.store.snapshot().segments.len();
+            // A small budget deferred every remaining batch. Waiting is
+            // not "already at `target`": the inputs are still there.
+            // The request timeout bounds the wait.
+            if n == 0
+                && seg_count > target
+                && self
+                    .merge_batches_deferred
+                    .load(std::sync::atomic::Ordering::Relaxed)
+            {
+                tokio::time::sleep(std::time::Duration::from_secs(1)).await;
+                continue;
+            }
             if n == 0 || seg_count <= target {
                 break;
             }
@@ -13040,6 +13287,26 @@ impl Index {
         Ok(total)
     }
 
+    /// Process-memory budget the merge scheduler plans against, in bytes.
+    ///
+    /// A positive numeric `XERJ_MAX_PROCESS_MEMORY_MB` wins. Otherwise the
+    /// installed governor's resolved cap. `0` when neither is present
+    /// (engine unit tests that never call `Engine::new`): planning then
+    /// keeps the historical 512 MiB batch.
+    fn merge_process_budget_bytes() -> u64 {
+        const MB: u64 = 1024 * 1024;
+        if let Some(limit_mb) = std::env::var("XERJ_MAX_PROCESS_MEMORY_MB")
+            .ok()
+            .and_then(|raw| raw.trim().parse::<u64>().ok())
+            .filter(|mb| *mb > 0)
+        {
+            return limit_mb.saturating_mul(MB);
+        }
+        crate::governor::global()
+            .map(|governor| governor.process_memory_limit_bytes())
+            .unwrap_or(0)
+    }
+
     /// Upper bound on the total INPUT bytes of one merge batch.  Issue #948.
     ///
     /// The merge executor materialises decoded and re-encoded copies of
@@ -13054,17 +13321,19 @@ impl Index {
     /// `LogMergePolicy` filters candidates by size before batching
     /// (`max_docs_before_merge`, `src/indexer/log_merge_policy.rs:22,94`).
     ///
-    /// Derived: `clamp(process cap / 64, 32 MiB, 512 MiB)` — at #948's
-    /// 16 GiB auto-cap that is a 256 MiB batch, i.e. a worst-case merge
-    /// working set of ~1.5-2.4 GiB at the measured multipliers.
+    /// An explicit numeric `XERJ_MAX_PROCESS_MEMORY_MB` keeps
+    /// `clamp(cap / 64, 32 MiB, 512 MiB)` — at a 16 GiB cap that is a
+    /// 256 MiB batch. `auto`, `off`, and an unset variable read the
+    /// governor's resolved budget ([`crate::merge_budget`]). A budget
+    /// that still covers the historical 512 MiB batch keeps it, so a
+    /// 16 GiB host does not merge in smaller pieces. A 4 GiB budget
+    /// (the AUTO cap on an 8 GiB host) is 64 MiB.
     /// `XERJ_MERGE_BATCH_MAX_INPUT_MB` overrides (0 disables the bound).
-    /// A non-numeric cap (`auto`, `off`) falls back to the 512 MiB
-    /// default.
     fn merge_batch_cap_bytes() -> u64 {
         const MB: u64 = 1024 * 1024;
         if let Ok(raw) = std::env::var("XERJ_MERGE_BATCH_MAX_INPUT_MB") {
             if let Ok(mb) = raw.trim().parse::<u64>() {
-                return mb * MB;
+                return mb.saturating_mul(MB);
             }
         }
         match std::env::var("XERJ_MAX_PROCESS_MEMORY_MB")
@@ -13072,7 +13341,9 @@ impl Index {
             .and_then(|raw| raw.trim().parse::<u64>().ok())
         {
             Some(limit_mb) if limit_mb > 0 => (limit_mb / 64).clamp(32, 512) * MB,
-            _ => 512 * MB,
+            _ => {
+                crate::merge_budget::merge_batch_input_cap_bytes(Self::merge_process_budget_bytes())
+            }
         }
     }
 
@@ -13096,6 +13367,8 @@ impl Index {
         // so it is exactly what the counter measures. Background debounced
         // checks, hand-driven `run_merge_once`, and `_forcemerge` all count.
         self.merge_evaluations.fetch_add(1, AtomicOrdering::Relaxed);
+        self.merge_batches_deferred
+            .store(false, AtomicOrdering::Relaxed);
 
         // V4 M4.5 — larger merge batches so a bursty-ingest index with
         // thousands of small segments converges in far fewer passes.
@@ -13238,10 +13511,21 @@ impl Index {
         // each give ~2.4 GB peak and let the index converge in
         // predictable time without swapping.  Override via env var
         // for machines with more RAM.
-        let merge_parallelism: usize = std::env::var("XERJ_MERGE_PARALLELISM")
+        let configured_parallelism: usize = std::env::var("XERJ_MERGE_PARALLELISM")
             .ok()
             .and_then(|s| s.parse().ok())
             .unwrap_or(1);
+        let merge_parallelism = crate::merge_budget::merge_parallelism_under_budget(
+            configured_parallelism,
+            Self::merge_process_budget_bytes(),
+        );
+        if merge_parallelism < configured_parallelism.max(1) {
+            tracing::debug!(
+                configured = configured_parallelism.max(1),
+                running = merge_parallelism,
+                "merge parallelism reduced to stay inside the process memory budget"
+            );
+        }
         use tokio::task::JoinHandle;
         type MergeOutput = (
             Vec<xerj_storage::segment::SegmentId>,
@@ -13274,6 +13558,50 @@ impl Index {
             if metas.len() == batch.len() {
                 launch_queue.push((batch, metas));
             }
+        }
+
+        // #1122 — on a small process budget, leave batches whose estimated
+        // working set would cross the watermark. The first batch still
+        // runs: merge is what retires per-segment caches. A budget that
+        // still uses the 512 MiB batch starts every batch, which is the
+        // path a 16 GiB host and larger already took.
+        let budget_bytes = Self::merge_process_budget_bytes();
+        let (rss_bytes, watermark_bytes) = match crate::governor::global() {
+            Some(governor) => (
+                governor.observed_rss_bytes(),
+                governor.memory_watermark_bytes(),
+            ),
+            None => (0, 0),
+        };
+        let input_bytes: Vec<u64> = launch_queue
+            .iter()
+            .map(|(_, metas)| metas.iter().map(|meta| meta.size_bytes).sum())
+            .collect();
+        let plan = crate::merge_budget::throttle_merge_batches(
+            &input_bytes,
+            budget_bytes,
+            rss_bytes,
+            watermark_bytes,
+        );
+        let mut deferred = 0usize;
+        let mut kept = Vec::with_capacity(launch_queue.len());
+        for (item, start) in launch_queue.into_iter().zip(plan) {
+            if start {
+                kept.push(item);
+            } else {
+                deferred += 1;
+            }
+        }
+        let launch_queue = kept;
+        if deferred > 0 {
+            self.merge_batches_deferred
+                .store(true, AtomicOrdering::Relaxed);
+            tracing::info!(
+                deferred,
+                rss_mb = rss_bytes / (1024 * 1024),
+                watermark_mb = watermark_bytes / (1024 * 1024),
+                "merge batches deferred: estimated working set would cross the memory watermark; inputs kept"
+            );
         }
 
         // Derived once from the schema, then moved into each merge task: a
@@ -13329,18 +13657,36 @@ impl Index {
             let batch_for_task = batch;
             let metas_for_task = metas;
             let failed_for_task = Arc::clone(&failed_batches);
+            #[cfg(test)]
+            let hold_merge_encode = Arc::clone(&self.test_hold_merge_encode);
+            #[cfg(test)]
+            let merge_encode_held = Arc::clone(&self.test_merge_encode_held);
 
-            tokio::task::spawn_blocking(move || -> Option<MergeOutput> {
-                // Entire merge encode runs on the dedicated SMALL merge
-                // pool (nice +15, ncores/8 threads): the decompress +
-                // byte-copy + FTS/DV rebuild below saturates its workers
-                // for seconds.  On the normal-priority blocking pool it
-                // stole scheduler time from foreground searches (read-
-                // under-write tail); on the shared ingest pool it queued
-                // every bulk request's parse/analyze/insert behind it,
-                // fully stalling 1 M×c8 ingest for ~13 s per merge pass
-                // (see `crate::merge_pool`).
-                crate::merge_pool().install(move || -> Option<MergeOutput> {
+            // #2234 — the encode used to run inside `spawn_blocking` +
+            // `merge_pool().install`, which parked one tokio blocking-pool
+            // thread for the whole encode (minutes on a large segment; the
+            // shutdown path still names that leftover job). `_refresh` builds
+            // its segment on that same blocking pool, so one in-progress
+            // merge stalled refresh behind it. Queue the encode on the merge
+            // pool and wait from this async driver. `spawn` returns as soon
+            // as the job is queued. The #1122 inline fallback (the pool
+            // cannot start a thread at all) still runs the encode on the
+            // caller — the same degradation `install` already had.
+            //
+            // The CPU work is unchanged: decompress + byte-copy + FTS/DV
+            // rebuild on the small nice-+15 merge pool (`crate::merge_pool`),
+            // off the ingest pool that a merge used to stall.
+            let (encode_tx, encode_rx) = tokio::sync::oneshot::channel();
+            crate::merge_pool().spawn(move || {
+                #[cfg(test)]
+                if hold_merge_encode.load(Ordering::Acquire) {
+                    merge_encode_held.store(true, Ordering::Release);
+                    while hold_merge_encode.load(Ordering::Acquire) {
+                        std::thread::sleep(std::time::Duration::from_millis(5));
+                    }
+                    merge_encode_held.store(false, Ordering::Release);
+                }
+                let encoded = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
                     use serde_json::value::RawValue;
 
                     // V4 M4.8 — STREAMING BYTE-COPY MERGE.
@@ -13433,8 +13779,27 @@ impl Index {
                     let mut min_seq = u64::MAX;
                     let mut max_seq = 0u64;
 
-                    let mut merged_json_buf: Vec<u8> = Vec::with_capacity(60 * 1024 * 1024);
-                    merged_json_buf.push(b'[');
+                    // #1122: `Vec::with_capacity(60 MiB)` aborts the process
+                    // when the allocator refuses (`memory allocation of N
+                    // bytes failed`, no panic line). `try_reserve` of the
+                    // same 60 MiB keeps the success path and turns a refusal
+                    // into an aborted batch. Inputs stay on disk.
+                    let mut merged_json_buf: Vec<u8> = Vec::new();
+                    if let Err(error) = crate::merge_reserve::reserve_merge_output_buffer(
+                        &mut merged_json_buf,
+                        crate::merge_reserve::MERGE_OUTPUT_RESERVE_BYTES,
+                    ) {
+                        tracing::error!("{error}");
+                        failed_for_task.fetch_add(1, Ordering::Relaxed);
+                        return None;
+                    }
+                    if let Err(error) =
+                        crate::merge_reserve::extend_merge_output(&mut merged_json_buf, b"[")
+                    {
+                        tracing::error!("{error}");
+                        failed_for_task.fetch_add(1, Ordering::Relaxed);
+                        return None;
+                    }
                     let mut first_doc = true;
                     let mut live_doc_count: u64 = 0;
 
@@ -13658,8 +14023,21 @@ impl Index {
 
                         // The FTS/doc-values ordinal space of a segment is the
                         // order of its stored documents, so the map is exactly as
-                        // long as this vector.
-                        doc_maps[source_index] = vec![None; raw_docs.len()];
+                        // long as this vector. `vec![None; n]` aborts if that
+                        // allocation is refused (#1122); `try_reserve` does not.
+                        let mut ordinals = Vec::new();
+                        if ordinals.try_reserve(raw_docs.len()).is_err() {
+                            tracing::error!(
+                                ?seg_path,
+                                docs = raw_docs.len(),
+                                "merge aborted: not enough memory to reserve the document map; \
+                                 input segments were preserved and the node stayed up"
+                            );
+                            failed_for_task.fetch_add(1, Ordering::Relaxed);
+                            return None;
+                        }
+                        ordinals.resize(raw_docs.len(), None);
+                        doc_maps[source_index] = ordinals;
                         for (source_ordinal, raw) in raw_docs.iter().enumerate() {
                             let raw_str = raw.get();
                             let id_seq: IdSeq = match serde_json::from_str(raw_str) {
@@ -13689,14 +14067,23 @@ impl Index {
                             }
 
                             // Survives — hold (seq, id, raw) for the global
-                            // _seq_no-ordered build below.
-                            survivors.push((
-                                id_seq.seq_no,
-                                id_seq.id.to_string(),
-                                raw_str.to_string(),
-                                source_index as u32,
-                                source_ordinal as u32,
-                            ));
+                            // _seq_no-ordered build below. Growth is fallible:
+                            // `push` aborts the process when the allocator
+                            // refuses (#1122).
+                            if let Err(error) = crate::merge_reserve::try_push_merge(
+                                &mut survivors,
+                                (
+                                    id_seq.seq_no,
+                                    id_seq.id.to_string(),
+                                    raw_str.to_string(),
+                                    source_index as u32,
+                                    source_ordinal as u32,
+                                ),
+                            ) {
+                                tracing::error!("{error}");
+                                failed_for_task.fetch_add(1, Ordering::Relaxed);
+                                return None;
+                            }
                             survivor_bytes = survivor_bytes.saturating_add(
                                 raw_str.len()
                                     + id_seq.id.len()
@@ -13726,14 +14113,35 @@ impl Index {
                     let mut fts_input_bytes: usize = 0;
                     for (seq_no, id_str, raw_str, source_index, source_ordinal) in survivors {
                         if !first_doc {
-                            merged_json_buf.push(b',');
+                            if let Err(error) = crate::merge_reserve::extend_merge_output(
+                                &mut merged_json_buf,
+                                b",",
+                            ) {
+                                tracing::error!("{error}");
+                                failed_for_task.fetch_add(1, Ordering::Relaxed);
+                                return None;
+                            }
                         }
                         first_doc = false;
-                        merged_json_buf.extend_from_slice(raw_str.as_bytes());
+                        if let Err(error) = crate::merge_reserve::extend_merge_output(
+                            &mut merged_json_buf,
+                            raw_str.as_bytes(),
+                        ) {
+                            tracing::error!("{error}");
+                            failed_for_task.fetch_add(1, Ordering::Relaxed);
+                            return None;
+                        }
                         live_doc_count += 1;
                         // The .ids side-car must cover every stored doc
                         // (alignment invariant, see above).
-                        ids_pairs.push((seq_no, id_str.clone()));
+                        if let Err(error) = crate::merge_reserve::try_push_merge(
+                            &mut ids_pairs,
+                            (seq_no, id_str.clone()),
+                        ) {
+                            tracing::error!("{error}");
+                            failed_for_task.fetch_add(1, Ordering::Relaxed);
+                            return None;
+                        }
 
                         // Per-doc Value parse for FTS / DV builders.
                         //
@@ -13779,7 +14187,13 @@ impl Index {
                                     doc_value.get("_source").unwrap_or(&Value::Null),
                                 ));
                         }
-                        fts_input.push((id_str, fields, source));
+                        if let Err(error) =
+                            crate::merge_reserve::try_push_merge(&mut fts_input, (id_str, fields, source))
+                        {
+                            tracing::error!("{error}");
+                            failed_for_task.fetch_add(1, Ordering::Relaxed);
+                            return None;
+                        }
                         // Sampled checkpoints every 8192 drained docs: the
                         // survivor set shrinks as `merged_json_buf` and
                         // `fts_input` grow, so the crossover IS the batch's
@@ -13805,7 +14219,13 @@ impl Index {
                     if live_doc_count == 0 {
                         return None;
                     }
-                    merged_json_buf.push(b']');
+                    if let Err(error) =
+                        crate::merge_reserve::extend_merge_output(&mut merged_json_buf, b"]")
+                    {
+                        tracing::error!("{error}");
+                        failed_for_task.fetch_add(1, Ordering::Relaxed);
+                        return None;
+                    }
                     crate::ingest_memory::observe_checkpoint(
                         crate::ingest_memory::Category::MergeJsonBuffer,
                         merged_json_buf.len(),
@@ -14091,7 +14511,19 @@ impl Index {
                         ids_pairs,
                         version_repoint_intents,
                     ))
-                })
+                }));
+                let _ = encode_tx.send(encoded);
+            });
+            tokio::spawn(async move {
+                match encode_rx.await {
+                    Ok(Ok(value)) => value,
+                    Ok(Err(payload)) => std::panic::resume_unwind(payload),
+                    // The encode task vanished without a result. Panic so the
+                    // driver counts a failed batch (the `JoinError` arm)
+                    // instead of treating a lost encode as an empty output
+                    // and dropping its inputs.
+                    Err(_closed) => panic!("merge encode dropped its result"),
+                }
             })
         };
 
@@ -14109,8 +14541,8 @@ impl Index {
         while !in_flight.is_empty() {
             // Await the first handle in the queue.  tokio doesn't provide
             // a built-in "select any", but for small parallelism this FIFO
-            // drain is fine — all spawn_blocking tasks run concurrently
-            // anyway, we're just reaping their results in submission
+            // drain is fine — the encodes run concurrently on the merge
+            // pool anyway, we're just reaping their results in submission
             // order.
             let handle = in_flight.remove(0);
             match handle.await {
@@ -14439,7 +14871,7 @@ impl Index {
                 }
                 Ok(None) => {}
                 Err(e) => {
-                    tracing::error!("merge: spawn_blocking panicked: {e}");
+                    tracing::error!("merge: encode task panicked: {e}");
                     failed_batches.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
                 }
             }
@@ -14505,9 +14937,10 @@ impl Index {
             return Err(EngineError::Common(xerj_common::XerjError::internal(
                 format!(
                     "merge pass aborted {failed} batch(es): an input segment could not \
-                     be fully read or the output could not be written; input segments \
-                     were preserved (no documents dropped, {merged_batches} other \
-                     batch(es) merged)"
+                     be fully read, the output could not be written, or there was not \
+                     enough memory to build the merged segment; input segments \
+                     were preserved (no documents dropped, the node stayed up, \
+                     {merged_batches} other batch(es) merged)"
                 ),
             )));
         }
@@ -14630,7 +15063,12 @@ impl Index {
                         if *n > 0 {
                             tracing::debug!(batches = n, "merge pass ran");
                         }
-                        false
+                        // Batches left behind under a small budget need
+                        // another check after the debounce sleep. A pass
+                        // that merged something already bumps
+                        // `merge_events`; this covers the pass that
+                        // started nothing because every extra batch waited.
+                        idx.merge_batches_deferred.load(AtomicOrdering::Relaxed)
                     }
                 };
                 if retry || idx.merge_events.load(AtomicOrdering::SeqCst) != seen {
@@ -17701,6 +18139,11 @@ impl Index {
             xerj_ai::local::local_embed(text, dims)
         } else {
             // #530: name the offending field, symmetric with the knn 400 (#498).
+            // A concrete index keeps this 400. A wildcard, `_all`, or alias
+            // expansion is isolated by the search coordinator (#2305): those
+            // indices contribute no hits instead of failing the request.
+            // Do not soften this error here — the explicit-index contract is
+            // the 400, and the coordinator matches this reason text.
             return Err(EngineError::Common(xerj_common::XerjError::invalid_query(
                 format!(
                     "semantic query on field [{field}]: it is not a `semantic_text` field, so \
@@ -19418,6 +19861,14 @@ impl Index {
             "_index" => Some(Value::String(self.name.as_str().to_string())),
             _ => None,
         }
+    }
+
+    /// Live document ids, sorted by id.
+    ///
+    /// A tombstone is not included. The id is present once the index call
+    /// has returned, including before refresh.
+    pub fn live_document_ids(&self) -> Vec<String> {
+        self.store.version_map.live_ids()
     }
 
     /// Retrieve a document by its string ID.
@@ -26858,9 +27309,30 @@ impl Index {
         if let Some(g) = crate::governor::global() {
             g.check_disk_block(self.name.as_str())
                 .map_err(EngineError::Common)?;
-            g.check_ingest_admission().map_err(EngineError::Common)?;
+            if let Err(error) = g.check_ingest_admission() {
+                // The rejection does not free the memtable or the RSS that
+                // tripped it. Request the drain on this 429, not only on the
+                // sampler's next tick (#2321, #948).
+                crate::engine::request_memory_pressure_drain();
+                return Err(EngineError::Common(error));
+            }
         }
         Ok(())
+    }
+
+    /// Reserve headroom for the token spike of `docs` before they are parsed
+    /// (#1122). See [`crate::governor::analyze_reserve_bytes`]. No governor
+    /// reserves nothing, so an `Index` built directly in a unit test is unchanged.
+    fn reserve_batch_analyze(
+        docs: &[xerj_storage::RawJsonDoc],
+    ) -> Result<crate::governor::AnalyzeReservation> {
+        let Some(governor) = crate::governor::global() else {
+            return Ok(crate::governor::AnalyzeReservation::none());
+        };
+        let raw = docs.iter().map(|(_, bytes)| bytes.len() as u64).sum();
+        governor
+            .reserve_analyze(crate::governor::analyze_reserve_bytes(raw))
+            .map_err(EngineError::Common)
     }
 
     /// Every block name the `_block` API and `index.blocks.*` settings accept.
@@ -38954,6 +39426,181 @@ fn configured_neural_identity(
     unreachable!("the neural backend is not compiled into this build")
 }
 
+/// Probe text sent once per process to learn a proxy model's vector width.
+///
+/// Kept distinct from document text so a resume test can tell the probe apart
+/// from a re-embedded document.
+const PROXY_WIDTH_PROBE_TEXT: &str = "xerj-proxy-identity-probe";
+
+/// On-disk copy of the last confirmed proxy width, under the data directory.
+///
+/// A restart whose endpoint is briefly down reuses this instead of reporting
+/// a different identity and refusing to resume. It is not an index directory
+/// (`Engine::new` only opens subdirectories that contain a `wal`).
+const PROXY_WIDTH_CACHE_FILE: &str = "proxy-embedding-probe.json";
+
+fn proxy_width_unconfirmed_reason() -> String {
+    "the proxy embedding endpoint has not confirmed a vector width, so semantic \
+     resume cannot reuse already-embedded documents. The embedder identity is the \
+     backend, the configured model, the endpoint, and the vector width; without a \
+     confirmed width a rerun cannot tell this model from a different one. Make the \
+     embedding endpoint reachable and rerun — documents already indexed are kept and \
+     are not re-embedded once the same width is confirmed. Rebuild with a new \
+     --state-dir and a new --prefix only to discard this corpus and start over"
+        .to_string()
+}
+
+fn confirmed_proxy_width(cfg: &xerj_common::config::EmbeddingConfig) -> Option<usize> {
+    let guard = cfg
+        .runtime_proxy_width
+        .read()
+        .unwrap_or_else(|poisoned| poisoned.into_inner());
+    guard.as_ref().and_then(|confirmed| {
+        (confirmed.endpoint == cfg.default_endpoint
+            && confirmed.model == cfg.default_model
+            && confirmed.dimensions > 0)
+            .then_some(confirmed.dimensions)
+    })
+}
+
+fn remember_proxy_width(cfg: &xerj_common::config::EmbeddingConfig, dimensions: usize) {
+    let mut guard = cfg
+        .runtime_proxy_width
+        .write()
+        .unwrap_or_else(|poisoned| poisoned.into_inner());
+    *guard = Some(xerj_common::config::ConfirmedProxyWidth {
+        endpoint: cfg.default_endpoint.clone(),
+        model: cfg.default_model.clone(),
+        dimensions,
+    });
+}
+
+fn proxy_mode_selected(cfg: &xerj_common::config::EmbeddingConfig) -> bool {
+    let requested = cfg.mode.trim().to_ascii_lowercase();
+    match requested.as_str() {
+        "proxy" => !cfg.default_endpoint.is_empty(),
+        "neural" | "lexical" | "onnx-experimental" => false,
+        _ => !cfg.default_endpoint.is_empty(),
+    }
+}
+
+#[derive(serde::Serialize, serde::Deserialize)]
+struct ProxyWidthCacheFile {
+    endpoint: String,
+    model: String,
+    dimensions: usize,
+}
+
+fn load_proxy_width_cache(
+    data_dir: &Path,
+    cfg: &xerj_common::config::EmbeddingConfig,
+) -> Option<usize> {
+    let bytes = std::fs::read(data_dir.join(PROXY_WIDTH_CACHE_FILE)).ok()?;
+    let cached: ProxyWidthCacheFile = serde_json::from_slice(&bytes).ok()?;
+    (cached.endpoint == cfg.default_endpoint
+        && cached.model == cfg.default_model
+        && cached.dimensions > 0)
+        .then_some(cached.dimensions)
+}
+
+fn store_proxy_width_cache(
+    data_dir: &Path,
+    cfg: &xerj_common::config::EmbeddingConfig,
+    dimensions: usize,
+) {
+    if let Err(error) = std::fs::create_dir_all(data_dir) {
+        warn!(
+            error = %error,
+            "could not create the data directory for the proxy width cache"
+        );
+        return;
+    }
+    let bytes = match serde_json::to_vec(&ProxyWidthCacheFile {
+        endpoint: cfg.default_endpoint.clone(),
+        model: cfg.default_model.clone(),
+        dimensions,
+    }) {
+        Ok(bytes) => bytes,
+        Err(error) => {
+            warn!(error = %error, "could not encode the proxy width cache");
+            return;
+        }
+    };
+    if let Err(error) = write_file_atomic(&data_dir.join(PROXY_WIDTH_CACHE_FILE), &bytes) {
+        warn!(error = %error, "could not store the confirmed proxy vector width");
+    }
+}
+
+fn probe_proxy_width(
+    cfg: &xerj_common::config::EmbeddingConfig,
+) -> std::result::Result<usize, String> {
+    let proxy =
+        xerj_ai::embed::EmbeddingProxy::new(proxy_config(cfg)).map_err(|e| e.to_string())?;
+    let probed = proxy.embed(PROXY_WIDTH_PROBE_TEXT.to_string());
+    let vector = if let Ok(handle) = tokio::runtime::Handle::try_current() {
+        tokio::task::block_in_place(|| handle.block_on(probed))
+    } else {
+        let runtime = tokio::runtime::Builder::new_current_thread()
+            .enable_all()
+            .build()
+            .map_err(|e| e.to_string())?;
+        runtime.block_on(probed)
+    }
+    .map_err(|e| e.to_string())?;
+    if vector.is_empty() {
+        return Err("embedding endpoint returned an empty vector".to_string());
+    }
+    Ok(vector.len())
+}
+
+/// Confirm the proxy model's vector width once per process (#2306).
+///
+/// A successful probe is remembered in memory and under `data_dir`, and the
+/// identity that follows reports `resumable: true` with that width. A failed
+/// probe reuses the on-disk width for the same endpoint and model so a restart
+/// while the endpoint is down does not look like a different embedder. With
+/// neither, the identity stays non-resumable and names what to do.
+///
+/// No-op unless this config actually resolves to the proxy backend. Called from
+/// the identity request, not from index open.
+pub(crate) fn confirm_proxy_embedding_width(
+    cfg: &xerj_common::config::EmbeddingConfig,
+    data_dir: &Path,
+) {
+    if !proxy_mode_selected(cfg) || confirmed_proxy_width(cfg).is_some() {
+        return;
+    }
+    // An endpoint this process cannot even construct a client for is the
+    // identity function's error (explicit proxy) or its lexical fallback
+    // (auto). Probing it would only repeat that failure.
+    if xerj_ai::embed::EmbeddingProxy::new(proxy_config(cfg)).is_err() {
+        return;
+    }
+    match probe_proxy_width(cfg) {
+        Ok(dimensions) => {
+            remember_proxy_width(cfg, dimensions);
+            store_proxy_width_cache(data_dir, cfg, dimensions);
+        }
+        Err(error) => {
+            if let Some(dimensions) = load_proxy_width_cache(data_dir, cfg) {
+                warn!(
+                    error = %error,
+                    dimensions,
+                    "proxy width probe failed; reusing the last confirmed width for this \
+                     endpoint and model"
+                );
+                remember_proxy_width(cfg, dimensions);
+            } else {
+                warn!(
+                    error = %error,
+                    "proxy embedding width could not be confirmed; semantic autoindex cannot \
+                     resume until the endpoint answers a probe"
+                );
+            }
+        }
+    }
+}
+
 pub(crate) fn embedding_execution_identity(
     cfg: &xerj_common::config::EmbeddingConfig,
 ) -> Result<crate::engine::EmbeddingExecutionIdentity> {
@@ -39001,9 +39648,10 @@ pub(crate) fn embedding_execution_identity(
     }
     // Only report a width for the backends whose width this server actually
     // pins. `neural` reads it from the resolved model's `config.json`
-    // (`hidden_size`, the same number `NeuralEmbedder::dims` reports) and
-    // `proxy` gets whatever the remote returns, so only the latter is omitted
-    // rather than reported as 384.
+    // (`hidden_size`, the same number `NeuralEmbedder::dims` reports). An
+    // unconfirmed `proxy` omits the width rather than reporting 384; once a
+    // probe (or the on-disk fallback) has confirmed one, that width is
+    // reported (#2306). It is not part of the digest.
     let (material, resumable, reason, dimensions) = match backend {
         "lexical" => (
             format!(
@@ -39037,26 +39685,43 @@ pub(crate) fn embedding_execution_identity(
             )
         }
         "neural" => configured_neural_identity(cfg),
-        "proxy" => (
+        "proxy" => {
             // #533: the endpoint is part of the embedder identity — the same
             // model name behind a different `default_endpoint` is a DIFFERENT
             // embedder, and omitting it let the endpoint change silently past the
             // #434 guard (a missed detection). `api_key` is deliberately left out
             // (a rotated key over the same endpoint+model is the same embedder).
-            format!(
+            //
+            // #2306: the digest stays that model+endpoint string. Folding the
+            // probed width into it would change the hash the moment a probe
+            // succeeds and refuse to open every index recorded before the probe
+            // (or recorded while the endpoint was down). The width travels in
+            // `dimensions` instead, and autoindex compares it on resume. A
+            // provider that swaps weights without changing the name, the
+            // endpoint, or the width is not detectable from here.
+            let material = format!(
                 "proxy-unpinned.v1;configured-model={};endpoint={}",
                 cfg.default_model, cfg.default_endpoint
-            ),
-            false,
-            Some(
-                "the remote provider does not attest immutable model assets; semantic resume is unsafe"
-                    .to_string(),
-            ),
-            None,
-        ),
+            );
+            match confirmed_proxy_width(cfg) {
+                Some(width) => (material, true, None, Some(width)),
+                None => (
+                    material,
+                    false,
+                    Some(proxy_width_unconfirmed_reason()),
+                    None,
+                ),
+            }
+        }
         _ => unreachable!(),
     };
     let canonical = format!("{CONTRACT};backend={backend};{material}");
+    // The probe is a rate sample, not an input to the digest above. Folding
+    // it in would make every boot look like a different embedder.
+    let probe = (backend == "neural")
+        .then(|| cfg.neural_ingest_probe.get().copied().flatten())
+        .flatten()
+        .filter(|probe| probe.bytes > 0 && probe.passages > 0 && probe.millis > 0);
     Ok(crate::engine::EmbeddingExecutionIdentity {
         // This is the WIRE/API version the autoindex client pins on
         // (esclient.rs requires == 1); it is NOT the on-disk migration marker.
@@ -39071,6 +39736,9 @@ pub(crate) fn embedding_execution_identity(
         semantic_contract: CONTRACT.to_string(),
         resumable,
         non_resumable_reason: reason,
+        ingest_probe_bytes: probe.map(|probe| probe.bytes),
+        ingest_probe_passages: probe.map(|probe| probe.passages),
+        ingest_probe_millis: probe.map(|probe| probe.millis),
     })
 }
 
@@ -39385,6 +40053,31 @@ mod embedding_identity_tests {
         let encoded = serde_json::to_string(&identity).unwrap();
         assert!(!encoded.contains("endpoint"));
         assert!(!encoded.contains("path"));
+        assert!(
+            !encoded.contains("ingest_probe"),
+            "an unmeasured probe must stay off the wire: {encoded}"
+        );
+        assert!(identity.ingest_probe_millis.is_none());
+    }
+
+    /// A stored probe must not move `identity_sha256`. The digest is what
+    /// resume pins; a rate sample changes every boot.
+    #[test]
+    fn an_ingest_probe_does_not_change_the_identity_digest() {
+        let cfg = xerj_common::config::EmbeddingConfig::default();
+        let before = embedding_execution_identity(&cfg).unwrap();
+        cfg.neural_ingest_probe
+            .set(Some(xerj_common::config::NeuralIngestProbe {
+                bytes: 16_384,
+                passages: 32,
+                millis: 800,
+            }))
+            .unwrap();
+        let after = embedding_execution_identity(&cfg).unwrap();
+        assert_eq!(before.identity_sha256, after.identity_sha256);
+        assert!(after.ingest_probe_bytes.is_none());
+        let encoded = serde_json::to_string(&after).unwrap();
+        assert!(!encoded.contains("ingest_probe"), "{encoded}");
     }
 
     #[test]
@@ -39451,9 +40144,17 @@ mod embedding_identity_tests {
         let identity = embedding_execution_identity(&proxy).unwrap();
         assert_eq!(identity.backend, "proxy");
         assert!(!identity.resumable);
-        // A remote provider returns whatever width its model has; this server
-        // never sees it, so it is omitted rather than asserted.
+        // No probe has confirmed a width, so it is omitted rather than asserted.
         assert_eq!(identity.dimensions, None);
+        let reason = identity.non_resumable_reason.clone().unwrap();
+        assert!(
+            reason.contains("vector width") && reason.contains("reachable"),
+            "an unconfirmed proxy must say why resume is refused and how to retry: {reason}"
+        );
+        assert!(
+            !reason.contains("secret.example") && !reason.contains("private-alias"),
+            "the endpoint and model must not reach a remote client: {reason}"
+        );
         let encoded = serde_json::to_string(&identity).unwrap();
         assert!(!encoded.contains("secret.example"));
         assert!(!encoded.contains("private-alias"));
@@ -39626,6 +40327,147 @@ mod embedding_identity_tests {
         let err = validate_embedding_execution(index_dir, &b, false, true)
             .expect_err("#533: a swapped proxy endpoint over a populated index must be refused");
         assert!(format!("{err}").contains("holds vectors produced by embedding backend"));
+    }
+
+    /// #2306: confirming a proxy width makes the backend resumable and publishes
+    /// that width. The digest stays the model+endpoint string, so a probe
+    /// cannot change the hash an existing index was recorded under.
+    #[test]
+    fn confirmed_proxy_width_makes_semantic_resume_possible() {
+        let cfg = xerj_common::config::EmbeddingConfig {
+            mode: "proxy".into(),
+            default_endpoint: "https://secret.example/v1".into(),
+            default_model: "private-alias".into(),
+            ..Default::default()
+        };
+        let unconfirmed = embedding_execution_identity(&cfg).unwrap();
+        assert!(!unconfirmed.resumable);
+        assert_eq!(unconfirmed.dimensions, None);
+
+        let confirmed_cfg = cfg.clone();
+        *confirmed_cfg.runtime_proxy_width.write().unwrap() =
+            Some(xerj_common::config::ConfirmedProxyWidth {
+                endpoint: confirmed_cfg.default_endpoint.clone(),
+                model: confirmed_cfg.default_model.clone(),
+                dimensions: 384,
+            });
+        let confirmed = embedding_execution_identity(&confirmed_cfg).unwrap();
+        assert!(confirmed.resumable);
+        assert_eq!(confirmed.dimensions, Some(384));
+        assert!(confirmed.non_resumable_reason.is_none());
+        assert_eq!(
+            confirmed.identity_sha256, unconfirmed.identity_sha256,
+            "the probed width must not move the digest"
+        );
+        let encoded = serde_json::to_string(&confirmed).unwrap();
+        assert!(!encoded.contains("secret.example"));
+        assert!(!encoded.contains("private-alias"));
+
+        *confirmed_cfg.runtime_proxy_width.write().unwrap() =
+            Some(xerj_common::config::ConfirmedProxyWidth {
+                endpoint: confirmed_cfg.default_endpoint.clone(),
+                model: confirmed_cfg.default_model.clone(),
+                dimensions: 768,
+            });
+        let wider = embedding_execution_identity(&confirmed_cfg).unwrap();
+        assert_eq!(wider.dimensions, Some(768));
+        assert_eq!(wider.identity_sha256, unconfirmed.identity_sha256);
+
+        // A cached width for a different endpoint is not this embedder.
+        *confirmed_cfg.runtime_proxy_width.write().unwrap() =
+            Some(xerj_common::config::ConfirmedProxyWidth {
+                endpoint: "https://other.example/v1".into(),
+                model: confirmed_cfg.default_model.clone(),
+                dimensions: 384,
+            });
+        let mismatched = embedding_execution_identity(&confirmed_cfg).unwrap();
+        assert!(!mismatched.resumable);
+        assert_eq!(mismatched.dimensions, None);
+    }
+
+    /// #2306: one successful probe confirms the width and stores it. A later
+    /// probe that cannot reach the endpoint reuses that store for the same
+    /// model. A store for a different model is ignored.
+    #[test]
+    fn proxy_width_probe_confirms_dimensions_and_falls_back_to_the_last_confirmation() {
+        let endpoint = serve_proxy_embeddings(8, 200);
+        let dir = tempfile::tempdir().unwrap();
+        let cfg = xerj_common::config::EmbeddingConfig {
+            mode: "proxy".into(),
+            default_endpoint: endpoint,
+            default_model: "mock-embed".into(),
+            timeout_ms: 2_000,
+            ..Default::default()
+        };
+        confirm_proxy_embedding_width(&cfg, dir.path());
+        let identity = embedding_execution_identity(&cfg).unwrap();
+        assert!(identity.resumable, "{identity:?}");
+        assert_eq!(identity.dimensions, Some(8));
+        assert!(dir.path().join(PROXY_WIDTH_CACHE_FILE).is_file());
+        let encoded = serde_json::to_string(&identity).unwrap();
+        assert!(!encoded.contains("127.0.0.1"));
+        assert!(!encoded.contains("mock-embed"));
+
+        let down = xerj_common::config::EmbeddingConfig {
+            mode: "proxy".into(),
+            default_endpoint: "http://127.0.0.1:1/v1/embeddings".into(),
+            default_model: "m".into(),
+            timeout_ms: 200,
+            ..Default::default()
+        };
+        let cache_dir = tempfile::tempdir().unwrap();
+        std::fs::write(
+            cache_dir.path().join(PROXY_WIDTH_CACHE_FILE),
+            serde_json::json!({
+                "endpoint": "http://127.0.0.1:1/v1/embeddings",
+                "model": "m",
+                "dimensions": 32
+            })
+            .to_string(),
+        )
+        .unwrap();
+        confirm_proxy_embedding_width(&down, cache_dir.path());
+        let reused = embedding_execution_identity(&down).unwrap();
+        assert!(reused.resumable, "{reused:?}");
+        assert_eq!(reused.dimensions, Some(32));
+        let reused_encoded = serde_json::to_string(&reused).unwrap();
+        assert!(!reused_encoded.contains("127.0.0.1"));
+        assert!(!reused_encoded.contains("\"m\""));
+
+        let other_model = xerj_common::config::EmbeddingConfig {
+            default_model: "other".into(),
+            ..down.clone()
+        };
+        confirm_proxy_embedding_width(&other_model, cache_dir.path());
+        let ignored = embedding_execution_identity(&other_model).unwrap();
+        assert!(!ignored.resumable);
+        assert_eq!(ignored.dimensions, None);
+    }
+
+    /// One HTTP embedding response, then the socket closes. `status` is 200 or 400.
+    fn serve_proxy_embeddings(width: usize, status: u16) -> String {
+        let listener = std::net::TcpListener::bind("127.0.0.1:0").unwrap();
+        let addr = listener.local_addr().unwrap();
+        std::thread::spawn(move || {
+            let _ = listener.set_nonblocking(false);
+            if let Ok((mut sock, _)) = listener.accept() {
+                let mut buf = [0u8; 8192];
+                let _ = std::io::Read::read(&mut sock, &mut buf);
+                let embedding: Vec<f64> = (0..width).map(|i| (i as f64) * 0.01).collect();
+                let body = if status == 200 {
+                    serde_json::json!({"data":[{"index":0,"embedding":embedding}]}).to_string()
+                } else {
+                    "{\"error\":\"refused\"}".to_string()
+                };
+                let reason = if status == 200 { "OK" } else { "Bad Request" };
+                let resp = format!(
+                    "HTTP/1.1 {status} {reason}\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
+                    body.len()
+                );
+                let _ = std::io::Write::write_all(&mut sock, resp.as_bytes());
+            }
+        });
+        format!("http://{addr}/v1/embeddings")
     }
 
     /// #533 migration: a record persisted at version 1 (before the endpoint was
@@ -39841,6 +40683,35 @@ mod embedding_identity_tests {
         let encoded = serde_json::to_string(&identity).unwrap();
         assert!(!encoded.contains(&first_dir.path().to_string_lossy().into_owned()));
         assert!(!encoded.contains("MiniLM"), "{encoded}");
+        assert!(
+            !encoded.contains("ingest_probe"),
+            "a neural identity with no probe must omit the rate fields: {encoded}"
+        );
+
+        let probed = neural(&first_dir);
+        probed
+            .neural_ingest_probe
+            .set(Some(xerj_common::config::NeuralIngestProbe {
+                bytes: 16_384,
+                passages: 32,
+                millis: 800,
+            }))
+            .unwrap();
+        let with_probe = embedding_execution_identity(&probed).unwrap();
+        assert_eq!(
+            with_probe.identity_sha256, identity.identity_sha256,
+            "the probe is not an embedder input"
+        );
+        assert_eq!(with_probe.ingest_probe_bytes, Some(16_384));
+        assert_eq!(with_probe.ingest_probe_passages, Some(32));
+        assert_eq!(with_probe.ingest_probe_millis, Some(800));
+        let probed_json = serde_json::to_string(&with_probe).unwrap();
+        assert!(
+            probed_json.contains("\"ingest_probe_millis\":800"),
+            "{probed_json}"
+        );
+        assert!(!probed_json.contains("endpoint"), "{probed_json}");
+        assert!(!probed_json.contains(&first_dir.path().to_string_lossy().into_owned()));
 
         // Same bytes in a DIFFERENT directory → same identity. This is the
         // property the fix exists for: it is a different `NeuralConfig`, so it
@@ -40439,12 +41310,43 @@ pub fn ensure_neural_ready(cfg: &xerj_common::config::EmbeddingConfig) -> Result
                 xerj_ai::neural::startup_failure_message(&neural_cfg.model_id, &error),
             )));
         }
+        record_neural_ingest_probe(cfg);
         Ok(())
     }
     #[cfg(not(feature = "neural"))]
     {
         Ok(())
     }
+}
+
+/// Time one ingest-shaped batch and store it on `cfg` for identity reporting.
+///
+/// A probe failure does not fail startup: the model loaded, and autoindex
+/// prints "not measured" rather than a made-up rate. The cell is filled
+/// either way so a later index open does not probe again.
+#[cfg(feature = "neural")]
+fn record_neural_ingest_probe(cfg: &xerj_common::config::EmbeddingConfig) {
+    if cfg.neural_ingest_probe.get().is_some() {
+        return;
+    }
+    let neural_cfg = configured_neural_config(cfg);
+    let Some(embedder) = xerj_ai::Embedder::preload_neural(&neural_cfg).ok() else {
+        let _ = cfg.neural_ingest_probe.set(None);
+        return;
+    };
+    let probe = xerj_ai::neural::measure_ingest_probe(&embedder);
+    match probe {
+        Some(probe) => info!(
+            bytes = probe.bytes,
+            passages = probe.passages,
+            millis = probe.millis,
+            "neural ingest probe (512-character passages, one untimed warmup excluded)"
+        ),
+        None => warn!(
+            "neural ingest probe did not produce a rate; autoindex will not print a time estimate"
+        ),
+    }
+    let _ = cfg.neural_ingest_probe.set(probe);
 }
 
 /// Construct the built-in neural embedder when compiled in.
@@ -58690,6 +59592,77 @@ mod lexical_passage_tests {
             "ordinal = line index of window start"
         );
         assert!(passage.ordinal > 0, "window must not hug the file head");
+    }
+
+    /// #2327: a nested test callback under the 16 KiB AST cap used to be
+    /// returned whole. The passage stays inside the lexical window and keeps
+    /// the line ordinal of that window.
+    #[test]
+    fn nested_test_callback_passage_stays_inside_the_lexical_window() {
+        let mut callback = String::from("() => {\n  const CALLBACK_START_SENTINEL = 1;\n");
+        for i in 0..70 {
+            callback.push_str(&format!(
+                "  const pad_{i:03} = \"session-token-handler-pad\";\n"
+            ));
+        }
+        callback.push_str("  const refreshMarker = sessionTokenHandler();\n}\n");
+        assert!(callback.len() > LEXICAL_PASSAGE_MAX_BYTES);
+        assert!(callback.len() < crate::code_blocks::DEFAULT_MAX_BLOCK_BYTES);
+        let body = format!(
+            "{}\ndescribe(\"session token\", () => {{\n  it(\"refreshes the handler\", {callback});\n}});\n",
+            "// preamble\n".repeat(8)
+        );
+        let query = QueryNode::MultiMatch {
+            fields: vec!["body".into()],
+            query: "refreshMarker sessionTokenHandler".into(),
+            match_type: Default::default(),
+            operator: None,
+            analyzer: None,
+            boost: None,
+            slop: 0,
+            max_expansions: 50,
+            lenient: false,
+        };
+        let hit = Hit {
+            id: "doc-1".into(),
+            score: 1.0,
+            source: json!({
+                "body": body,
+                "language": "typescript",
+                "symbol_count": 2
+            }),
+            seq_no: None,
+            version: None,
+            sort: Vec::new(),
+            explain: None,
+            highlight: None,
+            matched_queries: Vec::new(),
+            passage: None,
+        };
+        let out = apply_lexical_passages(vec![hit], &query);
+        let passage = out[0].passage.as_ref().expect("lexical passage filled");
+        assert!(
+            passage.text.contains("refreshMarker"),
+            "the window must contain the match: {}",
+            passage.text
+        );
+        assert!(
+            passage.text.len() <= LEXICAL_PASSAGE_MAX_BYTES,
+            "a nested callback must not be returned whole ({} bytes)",
+            passage.text.len()
+        );
+        assert!(
+            !passage.text.contains("CALLBACK_START_SENTINEL"),
+            "the callback head is outside the window: {}",
+            passage.text
+        );
+        let start = passage.start_offset as usize;
+        assert_eq!(
+            passage.ordinal as usize,
+            body[..start].matches('\n').count(),
+            "ordinal is the file line of the bounded window"
+        );
+        assert!(passage.ordinal > 0, "the preamble keeps a real line");
     }
 
     /// A short symbol-list field must not capture the passage from the body:

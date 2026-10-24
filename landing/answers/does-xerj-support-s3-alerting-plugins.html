@@ -49,8 +49,10 @@
   "alternateName": "XERJ.ai",
   "url": "https://xerj.org/",
   "logo": "https://xerj.org/brandbook/xerj-mark.svg",
+  "description": "A new way for AI to search for data: one local Rust binary that indexes your code, docs, specs and logs, plus Corpus Hub packs, and returns cited answers.",
   "sameAs": [
-    "https://github.com/xerj-org/xerj"
+    "https://github.com/xerj-org/xerj",
+    "https://x.com/xerj_org"
   ]
 }
 </script>
@@ -77,10 +79,13 @@
   "image": "https://xerj.org/og/xerj-card.png",
   "inLanguage": "en",
   "datePublished": "2026-09-18",
-  "dateModified": "2026-10-19",
+  "dateModified": "2026-10-23",
   "author": {
-    "@type": "Person",
-    "name": "XERJ documentation team"
+    "@type": "Organization",
+    "name": "XERJ documentation team",
+    "parentOrganization": {
+      "@id": "https://xerj.org/#organization"
+    }
   },
   "publisher": {
     "@id": "https://xerj.org/#organization"
@@ -93,9 +98,84 @@
     "@id": "https://xerj.org/answers/does-xerj-support-s3-alerting-plugins"
   },
   "reviewedBy": {
-    "@type": "Person",
-    "name": "XERJ engineering team"
+    "@type": "Organization",
+    "name": "XERJ engineering team",
+    "parentOrganization": {
+      "@id": "https://xerj.org/#organization"
+    }
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can XERJ store its index in S3, send alerts, or run my own ingest plugin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "S3 fully, since v1.0.0-rc.77 (storage.backend = \"s3\"); alerting PARTIALLY, since v1.0.0-rc.80 (one watch shape evaluates, everything else 501s); record corpus packs since rc.78. User-supplied ingest plugins are the one still not implemented, and the xerj-wasm crate name makes it look closer to done than it is. This page says exactly what exists."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does XERJ support S3 or object storage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in both directions. xerj autoindex s3://bucket/prefix reads documents OUT of a bucket as a source, and since v1.0.0-rc.77 storage.backend = \"s3\" stores the index itself in the bucket: one immutable ZBM1 bundle object per segment family plus a snapshot.json catalogue, written by a real S3-compatible client (Cloudflare R2, MinIO, AWS S3). Before rc.77 the index side refused to start on purpose — an earlier version of this page said it always would."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does XERJ have alerting or a working watcher?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partially, since v1.0.0-rc.80. One watch shape is real: PUT /_watcher/watch/{id} with an interval trigger, a one-index search input, a condition.xerj_decide question and an index_alert action runs a background evaluator that writes fires into .xerj_alert_fires when the positive label wins non-abstaining at or above p_min. Everything else — cron, transforms, other actions, multi-index input — is refused with a 501 that names what is not evaluated. Restarts do not resume watches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I write my own ingest plugin for XERJ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet. The ingest pipeline runs built-in native transforms only. The crate is named xerj-wasm, but the wasmtime backend is not in the tree."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the server refuse to start when I set the storage backend to s3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only one case refuses now, and it is deliberate: storage.s3_bucket is empty or does not name an existing bucket. XERJ never creates a bucket, so the config check fails loudly instead of writing to local disk in silence. With a named, existing bucket the server starts and the index lives in it (since v1.0.0-rc.77)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there anything real to build a detection on today?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, one piece. The percolate query is a dispatched query type and matches stored queries against a document you supply. The judging and alerting stages that would sit after it do not exist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download a pre-indexed corpus for XERJ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Record packs, yes, since v1.0.0-rc.78: xerj corpus build turns a recipe into a checksummed, signable pack of records and corpus add --from <pack> verifies it — the rust-vulns pack is published daily. PRE-INDEXED packs (an indexed bundle you mount) are still unbuilt, and there is no hub beyond that one pack."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is the authoritative status?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ROADMAP.md in the repository. If this page and the roadmap disagree, the roadmap wins, and the disagreement is a bug worth an issue."
+      }
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -141,7 +221,7 @@
   <a href="/docs/recipes/">RECIPES</a>
   <a href="/playground">DASHBOARDS</a>
   <a href="https://hub.xerj.org" rel="external">HUB</a>
-  <a href="https://github.com/xerj-org/xerj" rel="external">GITHUB</a>
+  <a class="nav-stars" href="https://github.com/xerj-org/xerj" rel="external" title="XERJ on GitHub" aria-label="XERJ on GitHub, 14,225 stars"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="nav-stars-n" data-gh-stars="14225">★ 14.2k</span></a>
   <a href="https://x.com/xerj_org" rel="external" title="XERJ on X" style="display:inline-flex;align-items:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
   <a href="https://discord.com/invite/yetXFusXfs" rel="external" title="XERJ on Discord" style="display:inline-flex;align-items:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.74 19.74 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.1 13.1 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.3 12.3 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.84 19.84 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
   <span class="spacer"></span>
@@ -156,11 +236,11 @@
   <div class="breadcrumb"><a href="/">HOME</a><span class="sep">·</span><a href="/answers/">ANSWERS</a><span class="sep">·</span>DOES XERJ SUPPORT S3 STORAGE, ALERTING OR CUSTOM PLUGINS YET?</div>
   <div class="kicker"><span>ANSWERS · CAPABILITIES AND LIMITS</span></div>
   <h1>Does XERJ support S3 storage, alerting or custom plugins yet?</h1>
-  <div class="source-note">AUTHOR · XERJ documentation team · REVIEWED BY · XERJ engineering team · PUBLISHED · 2026-09-18 · UPDATED · 2026-10-19</div>
+  <div class="source-note">AUTHOR · XERJ documentation team · REVIEWED BY · XERJ engineering team · PUBLISHED · 2026-09-18 · UPDATED · 2026-10-23</div>
   <div class="prompt-card answer-first" id="short-answer">
-    <span class="prompt-label">SHORT ANSWER · UPDATED 2026-10-19</span>
+    <span class="prompt-label">SHORT ANSWER · UPDATED 2026-10-23</span>
     <p>Can XERJ store its index in S3, send alerts, or run my own ingest plugin? Partly. Since v1.0.0-rc.77 an index can live in an S3-compatible bucket. Since rc.80 _watcher evaluates exactly one watch shape and refuses every other with a 501. User-supplied ingest plugins are not supported; transforms are built-in only.</p>
-    <p class="key-fact"><strong>Key number:</strong> XERJ passes 1366 of 1369 Elasticsearch YAML conformance cases; the remaining gaps are listed in the suite. <span class="mute">(as of 2026-10-19 · source: <a href="https://github.com/xerj-org/xerj/blob/main/README.md">README.md</a>)</span></p>
+    <p class="key-fact"><strong>Key number:</strong> XERJ passes 1444 of 1454 Elasticsearch YAML conformance cases, with 0 failures and 10 skipped. <span class="mute">(as of 2026-10-23 · source: <a href="https://github.com/xerj-org/xerj/blob/main/README.md">README.md</a>)</span></p>
   </div>
   <p><strong>TL;DR</strong> — The scoreboard moved twice since this page was written: an index can live in an S3-compatible bucket since v1.0.0-rc.77, record corpus packs shipped in rc.78, and alerting became PARTIAL in rc.80 (<code class="inline">_watcher</code> evaluates exactly one watch shape and refuses every other loudly). User-supplied ingest plugins remain built-in-only. This page says exactly what exists, with the file that proves it. The authoritative list is <a href="https://github.com/xerj-org/xerj/blob/main/ROADMAP.md"><code class="inline">ROADMAP.md</code></a>.</p>
   <div class="prompt-card">

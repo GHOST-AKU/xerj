@@ -12,7 +12,9 @@
 //!     Crossing either rejects writes with HTTP 429
 //!     `circuit_breaking_exception` (so a 429 beats the OOM-killer), and
 //!     wires the hitherto-inert `max_query_memory_mb` into a per-query
-//!     allocation guard.
+//!     allocation guard. An analyze reservation charges in-flight token
+//!     spikes before the next RSS sample, so several bulks cannot all pass
+//!     one sample and allocate together (#1122).
 //!   * **item 2** — a global search-concurrency pool sized from
 //!     `max_concurrent_searches` (previously a hardcoded per-index
 //!     `Semaphore::new(64)`, i.e. no global cap).
@@ -26,7 +28,8 @@
 //! admission checks are relaxed atomic loads — never syscalls.
 
 use std::sync::atomic::{AtomicBool, AtomicU64, AtomicU8, Ordering};
-use std::sync::{Arc, OnceLock};
+use std::sync::{Arc, Mutex, OnceLock};
+use std::time::{Duration, Instant};
 
 use serde_json::Value;
 use tokio::sync::{OwnedSemaphorePermit, Semaphore};
@@ -38,12 +41,138 @@ use crate::segment_cache_budget::{SegmentHydrationBudget, SegmentHydrationBudget
 /// The process-wide governor singleton.
 static GOVERNOR: OnceLock<Arc<ResourceGovernor>> = OnceLock::new();
 
+/// Decides when the sampler may request another memory-pressure drain.
+///
+/// The engage edge fires immediately. While the breaker stays engaged, the
+/// next request waits `interval`, which starts at the 2 s floor and doubles
+/// up to [`MEMORY_DRAIN_MAX_INTERVAL`] whenever a request did not lower RSS.
+/// A drop resets the spacing. Disengaging resets everything, so the next
+/// real engage is immediate again.
+#[derive(Debug)]
+pub(crate) struct MemoryDrainSchedule {
+    interval: Duration,
+    last_request: Option<Instant>,
+    rss_at_request: Option<u64>,
+    min: Duration,
+}
+
+impl MemoryDrainSchedule {
+    pub(crate) fn new(min: Duration) -> Self {
+        Self {
+            interval: min,
+            last_request: None,
+            rss_at_request: None,
+            min,
+        }
+    }
+
+    /// `true` when this sample should request a drain.
+    pub(crate) fn observe(&mut self, now: Instant, rss: u64, engaged: bool) -> bool {
+        if !engaged {
+            self.interval = self.min;
+            self.last_request = None;
+            self.rss_at_request = None;
+            return false;
+        }
+        let due = match self.last_request {
+            None => true,
+            Some(at) => now.saturating_duration_since(at) >= self.interval,
+        };
+        if !due {
+            return false;
+        }
+        if let Some(prev) = self.rss_at_request {
+            // A one-page dip is compressor noise, not a drain that worked.
+            // Resetting on it would pin the spacing at 2 s for a footprint
+            // that never actually shrinks (#1981).
+            if prev.saturating_sub(rss) > MEMORY_RSS_NOISE_BYTES {
+                self.interval = self.min;
+            } else {
+                self.interval = self
+                    .interval
+                    .checked_mul(2)
+                    .unwrap_or(MEMORY_DRAIN_MAX_INTERVAL)
+                    .min(MEMORY_DRAIN_MAX_INTERVAL);
+            }
+        }
+        self.rss_at_request = Some(rss);
+        self.last_request = Some(now);
+        true
+    }
+}
+
 /// Interval at which the background sampler refreshes the RSS / memtable /
 /// disk atomics. Kept short so the RSS admission has a tight overshoot margin
 /// under a runaway ingest — the sampler runs on a dedicated OS thread (see
 /// `Engine::spawn_resource_sampler`), so this cadence is honoured even when the
 /// tokio pool is saturated.
 pub const SAMPLE_INTERVAL_MS: u64 = 100;
+
+/// How long RSS may sit flat at or above the watermark before the breaker
+/// releases (#1981).
+///
+/// One memory-pressure drain is 2 s apart from the next. That is enough time
+/// for the drain to reclaim caches and purge arenas. If RSS still has not
+/// fallen, another drain will not either — on macOS jemalloc has no
+/// background thread, so a footprint the purge cannot shrink (compressed
+/// pages in `ri_phys_footprint`, or a live set the caches are not) used to
+/// keep the sampler requesting a drain every 2 s for the rest of the
+/// process. Each request flushes every index and walks the caches. That is
+/// the idle-CPU climb: the node is quiet until RSS crosses the watermark,
+/// then one core stays busy with drains that change nothing, and a restart
+/// (RSS back under the watermark) looks like a cure.
+pub const MEMORY_FLAT_RELEASE: Duration = Duration::from_secs(2);
+
+/// Ceiling on the automatic drain spacing once a drain stops lowering RSS.
+/// The floor is the sampler's 2 s minimum; doubling from there reaches this
+/// in a few minutes instead of staying at 2 s for an 18-hour uptime.
+pub const MEMORY_DRAIN_MAX_INTERVAL: Duration = Duration::from_secs(15 * 60);
+
+/// RSS movement at or below this is not a falling drain and not new
+/// pressure (#1981).
+///
+/// macOS reports `ri_phys_footprint`, which moves by pages while the
+/// compressor runs even when the process is idle. An exact-byte clock never
+/// stays flat for [`MEMORY_FLAT_RELEASE`] on that signal, and a one-byte dip
+/// would also reset the drain backoff, so the 2 s flush loop would survive
+/// the latch fix. A climb past this band is a real working-set change.
+pub const MEMORY_RSS_NOISE_BYTES: u64 = 4 * 1024 * 1024;
+
+/// Bytes of analyze-time reservation charged per raw JSON input byte (#1122).
+///
+/// `document_limit` measured about 56 bytes of RSS per token for a
+/// `Vec<String>` of the word `word ` (2026-10-23, 8,388,605 input bytes).
+/// The densest input that still produces one token per two bytes is `"a "`,
+/// so 28 bytes of reservation per input byte covers that spike. One token
+/// per byte is outside this factor; the 8 MiB document ceiling bounds that
+/// input. Eight such bulks are admitted only while the sum of reservations
+/// stays under the watermark.
+pub const ANALYZE_RESERVE_PER_INPUT_BYTE: u64 = 28;
+
+/// Reservation for a raw JSON batch of `raw_json_bytes`.
+pub fn analyze_reserve_bytes(raw_json_bytes: u64) -> u64 {
+    raw_json_bytes.saturating_mul(ANALYZE_RESERVE_PER_INPUT_BYTE)
+}
+
+/// `true` when `request` bytes of analyze reservation still fit.
+///
+/// A watermark of `0` is the disabled breaker: every request fits. Otherwise
+/// the request fails when `observed + already_reserved + request` reaches
+/// the watermark. The comparison is `>=`, matching RSS admission.
+pub fn analyze_reservation_fits(
+    watermark: u64,
+    observed: u64,
+    already_reserved: u64,
+    request: u64,
+) -> bool {
+    if watermark == 0 {
+        return true;
+    }
+    observed
+        .saturating_add(already_reserved)
+        .saturating_add(request)
+        < watermark
+}
 
 /// Process-wide resource governor. See the module docs.
 pub struct ResourceGovernor {
@@ -67,6 +196,8 @@ pub struct ResourceGovernor {
     /// AUTO-tier *capped* value (e.g. 16 GiB on a 119 GiB box): a live override
     /// exists precisely to climb past that conservative cap, so it must be able
     /// to reach up to real machine memory, never just a fraction of the cap.
+    /// On a commit-bound Windows box this stops at the post-reserve commit
+    /// ceiling instead: a raise cannot grant commit the system will not give.
     machine_memory_bytes: u64,
     /// Boot-derived RSS admission threshold = `memory_limit_bytes * pct/100`.
     /// `0` = the watermark was disabled at startup and stays disabled; a runtime
@@ -81,6 +212,10 @@ pub struct ResourceGovernor {
     memory_watermark_bytes: AtomicU64,
     /// Last sampled resident set size of this process.
     rss_bytes: AtomicU64,
+    /// Bytes reserved for in-flight analysis spikes that the RSS sample has
+    /// not observed yet (#1122). Released once those tokens exist, so the
+    /// next admission sees them in live RSS instead of counting them twice.
+    analyze_reserved: Arc<AtomicU64>,
     /// Latched: last sample crossed the RSS watermark.
     memory_tripped: AtomicBool,
     /// The effective watermark in force when the breaker last engaged (#1250).
@@ -90,6 +225,15 @@ pub struct ResourceGovernor {
     /// against the new value without the band, so a live raise releases at
     /// once instead of waiting for RSS to fall 5% below the NEW watermark.
     memory_trip_watermark: AtomicU64,
+    /// When RSS first stopped falling while the breaker was engaged at or
+    /// above the watermark. `None` while RSS is falling or the breaker is
+    /// disengaged. Aged by tests; the sampler's wall clock fills it in
+    /// production (#1981).
+    memory_flat_since: Mutex<Option<Instant>>,
+    /// RSS at which a flat footprint was released. Later samples at or below
+    /// this stay disengaged, so the latch cannot flap back on at the same
+    /// reading one sample later. `0` means no floor.
+    memory_stall_floor: AtomicU64,
 
     // ── item 1: per-query memory guard (`max_query_memory_mb`) ──────────
     /// Maximum bytes a single query may be estimated to allocate. `0` = off.
@@ -136,6 +280,24 @@ pub struct ResourceGovernor {
     disk_blocked: AtomicBool,
     /// Last sampled used-percentage of the data-dir filesystem.
     disk_used_pct: AtomicU64,
+
+    // ── Windows commit ceiling (#1122) ──────────────────────────────────
+    // Physical RAM is the AUTO tier's input on every platform. On Windows the
+    // allocator aborts when commit charge hits the commit limit, which with
+    // no pagefile is about RAM and is already partly spent by other processes.
+    // These fields are zero off Windows (and when the probe fails), and the
+    // admission path below then behaves exactly as it did before.
+    /// `MEMORYSTATUSEX::ullTotalPageFile`. `0` = no commit probe.
+    commit_limit_bytes: u64,
+    /// Available commit below this engages the breaker even when RSS is under
+    /// the watermark. `0` disables the check.
+    commit_reserve_bytes: u64,
+    /// Last sampled `ullAvailPageFile`.
+    available_commit_bytes: AtomicU64,
+    /// Latched: available commit is under [`Self::commit_reserve_bytes`].
+    commit_starved: AtomicBool,
+    /// The process cap was lowered to the commit ceiling at startup.
+    commit_capped: bool,
 }
 
 impl ResourceGovernor {
@@ -159,27 +321,115 @@ impl ResourceGovernor {
         if self.memory_tripped.load(Ordering::Relaxed) {
             let rss = self.rss_bytes.load(Ordering::Relaxed);
             let watermark = self.memory_watermark_bytes.load(Ordering::Relaxed);
+            let starved = self.commit_starved.load(Ordering::Relaxed);
             // Inside the release band (#1250) RSS is already under the
             // watermark while the drain finishes; say so rather than print a
-            // false `>=`.
-            let relation = if rss >= watermark {
+            // false `>=`. A commit-starvation trip with RSS still under the
+            // watermark is neither of those: the process has not crossed the
+            // RSS line, Windows has run out of commit.
+            let relation = if starved && rss < watermark {
+                "under"
+            } else if rss >= watermark {
                 ">="
             } else {
                 "draining below"
             };
-            return Err(XerjError::circuit_breaking(format!(
-                "[parent] real memory circuit breaker tripped: rss={}MB {relation} watermark={}MB \
-                 ({}% of limit={}MB); writes rejected to prevent an out-of-memory kill \
-                 (raise limits.max_process_memory_mb or XERJ_MAX_PROCESS_MEMORY_MB, or live \
-                 with PUT _cluster/settings {{\"persistent\":\
-                 {{\"indices.breaker.total.limit\":\"<N>gb\"}}}})",
-                rss / (1024 * 1024),
-                watermark / (1024 * 1024),
-                pct_of(watermark, self.memory_limit_bytes),
-                self.memory_limit_bytes / (1024 * 1024),
+            let commit = (self.commit_capped || starved).then(|| CommitBreakerDetail {
+                limit: self.commit_limit_bytes,
+                available: self.available_commit_bytes.load(Ordering::Relaxed),
+                reserve: self.commit_reserve_bytes,
+            });
+            return Err(XerjError::circuit_breaking(memory_breaker_reason(
+                rss,
+                relation,
+                watermark,
+                self.memory_limit_bytes,
+                commit,
             )));
         }
         Ok(())
+    }
+
+    /// Reserve `bytes` of upcoming analysis allocations (#1122).
+    ///
+    /// Callers pass [`analyze_reserve_bytes`] of the raw JSON, before the
+    /// batch is parsed. The check uses the max of the sampled RSS and a live
+    /// probe, plus reservations already held, and rechecks after the atomic
+    /// add so two bulks cannot both pass the same snapshot. A watermark of
+    /// `0`, or a zero request, reserves nothing. The guard releases on drop.
+    pub(crate) fn reserve_analyze(&self, bytes: u64) -> Result<AnalyzeReservation, XerjError> {
+        if bytes == 0 || self.memory_watermark_bytes.load(Ordering::Relaxed) == 0 {
+            return Ok(AnalyzeReservation::none());
+        }
+        if self.memory_tripped.load(Ordering::Relaxed) {
+            return Err(self.analyze_reservation_refused(bytes));
+        }
+        let watermark = self.memory_watermark_bytes.load(Ordering::Relaxed);
+        let observed = self.observed_process_memory();
+        let already = self.analyze_reserved.load(Ordering::Acquire);
+        if !analyze_reservation_fits(watermark, observed, already, bytes) {
+            return Err(self.analyze_reservation_refused(bytes));
+        }
+        let prev = self.analyze_reserved.fetch_add(bytes, Ordering::AcqRel);
+        let watermark = self.memory_watermark_bytes.load(Ordering::Relaxed);
+        if watermark == 0 {
+            self.analyze_reserved.fetch_sub(bytes, Ordering::AcqRel);
+            return Ok(AnalyzeReservation::none());
+        }
+        let observed = self.observed_process_memory();
+        if analyze_reservation_fits(watermark, observed, prev, bytes) {
+            return Ok(AnalyzeReservation {
+                slot: Some(Arc::clone(&self.analyze_reserved)),
+                bytes,
+            });
+        }
+        self.analyze_reserved.fetch_sub(bytes, Ordering::AcqRel);
+        Err(self.analyze_reservation_refused(bytes))
+    }
+
+    fn observed_process_memory(&self) -> u64 {
+        self.rss_bytes
+            .load(Ordering::Relaxed)
+            .max(current_process_memory_bytes())
+    }
+
+    fn analyze_reservation_refused(&self, request: u64) -> XerjError {
+        const MIB: u64 = 1024 * 1024;
+        let observed = self.observed_process_memory();
+        let reserved = self.analyze_reserved.load(Ordering::Relaxed);
+        let watermark = self.memory_watermark_bytes.load(Ordering::Relaxed);
+        XerjError::circuit_breaking(format!(
+            "[parent] real memory circuit breaker tripped: rss={}MB plus {}MB already reserved \
+             for analysis plus {}MB for this batch would reach watermark={}MB ({}% of \
+             limit={}MB); writes rejected to prevent an out-of-memory kill (raise \
+             limits.max_process_memory_mb or XERJ_MAX_PROCESS_MEMORY_MB, or live with \
+             PUT _cluster/settings {{\"persistent\":{{\"indices.breaker.total.limit\":\"<N>gb\"}}}})",
+            observed / MIB,
+            reserved / MIB,
+            request / MIB,
+            watermark / MIB,
+            pct_of(watermark, self.memory_limit_bytes),
+            self.memory_limit_bytes / MIB,
+        ))
+    }
+
+    /// Resolved process-memory ceiling in bytes. `0` is not used: an
+    /// uncapped config stores the machine size here. Merge planning reads
+    /// this so a small host's batches follow the AUTO cap instead of a
+    /// fixed 512 MiB.
+    pub fn process_memory_limit_bytes(&self) -> u64 {
+        self.memory_limit_bytes
+    }
+
+    /// RSS admission watermark in bytes. `0` means the check is off.
+    pub fn memory_watermark_bytes(&self) -> u64 {
+        self.memory_watermark_bytes.load(Ordering::Relaxed)
+    }
+
+    /// Larger of the last RSS sample and a live read. `0` when this
+    /// platform cannot read process memory.
+    pub fn observed_rss_bytes(&self) -> u64 {
+        self.observed_process_memory()
     }
 
     /// Whether the parent RSS memory breaker is currently engaged (issue
@@ -190,6 +440,44 @@ impl ResourceGovernor {
     /// caches or memtables hold the bytes make progress.
     pub fn memory_breaker_engaged(&self) -> bool {
         self.memory_tripped.load(Ordering::Relaxed)
+    }
+
+    /// Start or read the flat-footprint clock. The first sample inside the
+    /// noise band records `now` and returns zero; later samples return how
+    /// long RSS has stayed there. Cleared when RSS leaves that band, the
+    /// breaker releases, or the watermark is retuned.
+    fn note_memory_flat(&self) -> Duration {
+        let mut slot = self
+            .memory_flat_since
+            .lock()
+            .unwrap_or_else(|e| e.into_inner());
+        match *slot {
+            Some(at) => at.elapsed(),
+            None => {
+                *slot = Some(Instant::now());
+                Duration::ZERO
+            }
+        }
+    }
+
+    fn clear_memory_flat(&self) {
+        *self
+            .memory_flat_since
+            .lock()
+            .unwrap_or_else(|e| e.into_inner()) = None;
+    }
+
+    /// #1981 test hook: age the flat-footprint clock without sleeping, so a
+    /// test can cross [`MEMORY_FLAT_RELEASE`] on a paused schedule.
+    #[cfg(test)]
+    fn age_memory_flat_for_test(&self, by: Duration) {
+        let mut slot = self
+            .memory_flat_since
+            .lock()
+            .unwrap_or_else(|e| e.into_inner());
+        if let Some(at) = *slot {
+            *slot = Some(at.checked_sub(by).unwrap_or(at));
+        }
     }
 
     /// Whether the summed-memtable budget breaker is currently engaged.
@@ -208,6 +496,11 @@ impl ResourceGovernor {
     /// with every index still under its own flush line. Writes then stay
     /// 429 and the indexed count stays 0 unless this latch requests the
     /// same drain.
+    ///
+    /// The two latches do not share a timer. The RSS latch backs off when a
+    /// drain does not lower RSS (#1981). The memtable latch stays on the
+    /// fixed window, because that flush is what frees this budget and a
+    /// stable RSS is the normal shape of a memtable-only trip.
     pub fn ingest_pressure_needs_drain(&self) -> bool {
         self.memory_breaker_engaged() || self.memtable_breaker_engaged()
     }
@@ -429,6 +722,23 @@ impl ResourceGovernor {
     /// `0` when it isn't available (e.g. from the [`Self::refresh`] test
     /// wrapper); it only affects that one log line, never admission.
     pub fn refresh_memory_disk(&self, rss: u64, disk_used_pct: u64, disk_avail_bytes: u64) {
+        self.refresh_memory_observing(rss, disk_used_pct, disk_avail_bytes, None);
+    }
+
+    /// [`Self::refresh_memory_disk`] plus an optional Windows available-commit
+    /// sample. `None` leaves the commit latch as it was (Linux, and tests
+    /// that only move RSS). A `Some` below the commit reserve engages the
+    /// breaker even when `rss` is under the watermark (#1122). That hold is
+    /// independent of the flat-footprint release (#1981): a footprint that
+    /// does not fall still releases once commit is back above the reserve,
+    /// and commit starvation does not clear the flat clock.
+    pub fn refresh_memory_observing(
+        &self,
+        rss: u64,
+        disk_used_pct: u64,
+        disk_avail_bytes: u64,
+        available_commit: Option<u64>,
+    ) {
         // ── RSS watermark, with a bounded release hysteresis (#1250) ──
         //
         // Engage at `rss >= watermark`. Once engaged, hold the latch while RSS
@@ -440,27 +750,110 @@ impl ResourceGovernor {
         // has nothing more to free: holding would only reject writes the node
         // can take and keep the sampler re-draining every
         // `MEMORY_DRAIN_MIN_INTERVAL` forever, so the latch releases exactly
-        // as it did before the band existed. A live watermark change (#1323)
-        // drops the band for that sample: the operator's new value decides.
+        // as it did before the band existed.
+        //
+        // The same "stopped falling" rule applies AT or ABOVE the watermark
+        // (#1981), after [`MEMORY_FLAT_RELEASE`], with a
+        // [`MEMORY_RSS_NOISE_BYTES`] band so page-sized footprint noise is
+        // not a climb or a recovery. A footprint that does not fall past
+        // that band is not a drain the sampler should repeat for the life
+        // of the process. The release records `memory_stall_floor` so a
+        // later sample inside the band does not engage again — without that
+        // floor `rss >= watermark` would re-trip one sample later and the
+        // drain edge would fire forever. A climb past the band is new
+        // pressure and engages. A live watermark change (#1323) drops the
+        // band and the floor for that sample: the operator's new value
+        // decides.
         let prev_rss = self.rss_bytes.swap(rss, Ordering::Relaxed);
         let watermark = self.memory_watermark_bytes.load(Ordering::Relaxed);
         let cur_mem = self.memory_tripped.load(Ordering::Relaxed);
         let retuned = self.memory_trip_watermark.load(Ordering::Relaxed) != watermark;
         let release_bytes = watermark - (watermark / 20);
-        let mem_next = watermark != 0
+        let stall_floor = self.memory_stall_floor.load(Ordering::Relaxed);
+        // In-band hysteresis (#1250) still uses an exact comparison: one
+        // sample that does not fall releases. Above the watermark the same
+        // comparison would treat compressor noise as a climb or a recovery.
+        let falling = rss < prev_rss;
+        let dropped = prev_rss.saturating_sub(rss) > MEMORY_RSS_NOISE_BYTES;
+        let climbed = rss.saturating_sub(prev_rss) > MEMORY_RSS_NOISE_BYTES;
+        // `None` keeps the previous latch so an RSS-only refresh (Linux, and
+        // the test helper) does not clear a commit trip it did not sample.
+        // Reserve 0 means this platform has no commit probe: starved stays
+        // false and the RSS formula below is the pre-#1122 check.
+        let starved = if self.commit_reserve_bytes == 0 {
+            false
+        } else if let Some(available) = available_commit {
+            self.available_commit_bytes
+                .store(available, Ordering::Relaxed);
+            available < self.commit_reserve_bytes
+        } else {
+            self.commit_starved.load(Ordering::Relaxed)
+        };
+        self.commit_starved.store(starved, Ordering::Relaxed);
+        // RSS latch (#1250, #1981). Commit starvation is applied after this
+        // so a flat footprint can release, and a pagefileless box still
+        // stays engaged while available commit is under the reserve.
+        let rss_next = watermark != 0
             && if rss >= watermark {
-                true
+                let within_floor =
+                    stall_floor != 0 && rss <= stall_floor.saturating_add(MEMORY_RSS_NOISE_BYTES);
+                if !cur_mem && within_floor && !retuned {
+                    false
+                } else if cur_mem && !retuned && !dropped {
+                    if climbed {
+                        // Still climbing past noise: the drain has not
+                        // caught the working set. Forget the flat clock.
+                        self.clear_memory_flat();
+                        self.memory_stall_floor.store(0, Ordering::Relaxed);
+                        true
+                    } else {
+                        let flat_for = self.note_memory_flat();
+                        // Starvation must not record a stall floor: that
+                        // floor means "released at this footprint", and the
+                        // breaker has not released. The clock keeps running
+                        // so the release happens on the first sample after
+                        // commit recovers, once the window has elapsed.
+                        if !starved && flat_for >= MEMORY_FLAT_RELEASE {
+                            self.memory_stall_floor.store(rss, Ordering::Relaxed);
+                            self.clear_memory_flat();
+                            false
+                        } else {
+                            true
+                        }
+                    }
+                } else {
+                    // Dropped past the noise band, a live retune, or the
+                    // engage edge. Reaching this arm means one of those is
+                    // true, so the flat clock and the floor are stale.
+                    self.clear_memory_flat();
+                    self.memory_stall_floor.store(0, Ordering::Relaxed);
+                    true
+                }
             } else if cur_mem && !retuned {
-                rss >= release_bytes && rss < prev_rss
+                self.clear_memory_flat();
+                rss >= release_bytes && falling
             } else {
+                self.clear_memory_flat();
+                if !cur_mem || retuned {
+                    self.memory_stall_floor.store(0, Ordering::Relaxed);
+                }
                 false
             };
+        let mem_next = starved || rss_next;
         if mem_next {
             self.memory_trip_watermark
                 .store(watermark, Ordering::Relaxed);
         }
         if mem_next != self.memory_tripped.swap(mem_next, Ordering::Relaxed) {
-            if mem_next {
+            if mem_next && starved {
+                tracing::warn!(
+                    available_commit_mb = self.available_commit_bytes.load(Ordering::Relaxed)
+                        / (1024 * 1024),
+                    commit_limit_mb = self.commit_limit_bytes / (1024 * 1024),
+                    reserve_mb = self.commit_reserve_bytes / (1024 * 1024),
+                    "available Windows commit is under the reserve — engaging the parent memory circuit breaker (writes → 429)"
+                );
+            } else if mem_next {
                 tracing::warn!(
                     rss_mb = rss / (1024 * 1024),
                     watermark_mb = watermark / (1024 * 1024),
@@ -630,10 +1023,39 @@ fn cap_memory_limit(machine_limit: u64, cap_mb: u64) -> u64 {
     machine_limit.min(cap_mb.saturating_mul(1024 * 1024))
 }
 
+/// Lower a tiered cap to the Windows commit ceiling. `None` (Linux, macOS, a
+/// failed probe) returns `tiered_limit` unchanged.
+fn apply_windows_commit_ceiling(
+    tiered_limit: u64,
+    budget: Option<&xerj_common::resource::WindowsCommitBudget>,
+) -> u64 {
+    match budget {
+        Some(budget) if budget.commit_bound && budget.effective_bytes < tiered_limit => {
+            budget.effective_bytes.max(1)
+        }
+        _ => tiered_limit,
+    }
+}
+
+/// Hard clamp for a live `indices.breaker.total.limit` override. Off Windows
+/// this is physical/cgroup memory. On a commit-bound Windows box it stops at
+/// the post-reserve ceiling, so raising the breaker cannot grant commit
+/// Windows will not give the process.
+fn windows_override_ceiling(
+    physical: u64,
+    budget: Option<&xerj_common::resource::WindowsCommitBudget>,
+) -> u64 {
+    match budget {
+        Some(budget) if budget.commit_bound => budget.effective_bytes.min(physical).max(1),
+        _ => physical,
+    }
+}
+
 /// The AUTO process-memory cap, in MiB, chosen from the effective memory the
-/// process can actually see, in binary-GiB steps:
+/// process can actually see:
 ///
-///   effective < 64 GiB             → 8 GiB
+///   effective < 16 GiB             → half of that RAM
+///   16 GiB ≤ effective < 64 GiB    → 8 GiB
 ///   64 GiB ≤ effective < 128 GiB   → 16 GiB
 ///   effective ≥ 128 GiB            → 32 GiB
 ///
@@ -641,11 +1063,21 @@ fn cap_memory_limit(machine_limit: u64, cap_mb: u64) -> u64 {
 /// `effective_memory_limit_bytes` — not raw host RAM, so a container smaller
 /// than its host is sized for the container. This only *chooses* a ceiling;
 /// `cap_memory_limit` still mins it with the machine, so the cap only ever
-/// LOWERS a budget: on a 40 GiB box the 8 GiB tier yields min(40, 8) = 8, and
-/// on a 6 GiB box it yields min(6, 8) = 6. It never invents headroom.
+/// LOWERS a budget: on a 40 GiB box the 8 GiB tier yields min(40, 8) = 8.
+///
+/// Hosts under 16 GiB used to take the 8 GiB step and then `min` with the
+/// machine, so an 8 GiB box's process budget was all of its RAM. A merge
+/// storm on that budget died; the same box stayed up at a 4 GiB cap
+/// (#1122). Half of RAM is that cap. At 16 GiB, half is 8 GiB, so the
+/// steps above 16 GiB — and the memtable budget they derive — do not move.
+/// A sub-mebibyte reading rounds up to 1 MiB and is still min'd with the
+/// machine, so the floor does not invent RAM.
 fn tiered_cap_mb(effective_bytes: u64) -> u64 {
     const GIB: u64 = 1024 * 1024 * 1024;
-    if effective_bytes < 64 * GIB {
+    const MIB: u64 = 1024 * 1024;
+    if effective_bytes < 16 * GIB {
+        (effective_bytes / 2 / MIB).max(1)
+    } else if effective_bytes < 64 * GIB {
         8 * 1024
     } else if effective_bytes < 128 * GIB {
         16 * 1024
@@ -893,7 +1325,8 @@ fn build(config: &Config) -> ResourceGovernor {
     //
     // Capped by `limits.max_process_memory_mb`, resolved through
     // `resolve_process_memory_cap`: the AUTO default tiers the cap off the
-    // machine (8/16/32 GiB), `0` means uncapped (whole machine), an explicit
+    // machine (half of RAM under 16 GiB, then 8/16/32 GiB), `0` means uncapped
+    // (whole machine), an explicit
     // `N` forces a fixed MiB ceiling, and `XERJ_MAX_PROCESS_MEMORY_MB` can
     // override any of it. Every budget below derives from this one number, so
     // capping HERE is what makes the ceiling coherent — capping each dependent
@@ -914,7 +1347,22 @@ fn build(config: &Config) -> ResourceGovernor {
     if let Some(warning) = &resolved_process_cap.warning {
         tracing::warn!("{warning}");
     }
-    let memory_limit_bytes = cap_memory_limit(effective_memory_bytes, resolved_process_cap.cap_mb);
+    let tiered_memory_limit = cap_memory_limit(effective_memory_bytes, resolved_process_cap.cap_mb);
+    // Windows only: the tier above is still physical RAM / cgroup. A no-pagefile
+    // box's commit limit is about that RAM, and other processes have already
+    // charged most of it. Lower the cap to what this process can still commit,
+    // minus a reserve, so the watermark trips before the allocator aborts.
+    // Linux and macOS pass `None` and keep `tiered_memory_limit` byte for byte.
+    let commit_budget = xerj_common::resource::windows_commit_sample()
+        .map(xerj_common::resource::windows_commit_budget);
+    let memory_limit_bytes =
+        apply_windows_commit_ceiling(tiered_memory_limit, commit_budget.as_ref());
+    let commit_capped = memory_limit_bytes < tiered_memory_limit;
+    let machine_memory_bytes =
+        windows_override_ceiling(effective_memory_bytes, commit_budget.as_ref());
+    let startup_starved = commit_budget.as_ref().is_some_and(|budget| {
+        budget.reserve_bytes > 0 && budget.available_commit < budget.reserve_bytes
+    });
 
     // ── memtable budget: 0 = auto-derive from the effective (cgroup-aware)
     // memory limit — see `auto_memtable_budget`. Must be derived from the
@@ -987,7 +1435,12 @@ fn build(config: &Config) -> ResourceGovernor {
         (ProcessMemoryCapSource::Env, _, 0) => "uncapped via XERJ_MAX_PROCESS_MEMORY_MB",
         (ProcessMemoryCapSource::Env, _, _) => "explicit XERJ_MAX_PROCESS_MEMORY_MB",
     };
-    if resolved_process_cap.cap_mb == 0 {
+    if let Some(budget) = commit_budget.as_ref().filter(|_| commit_capped) {
+        tracing::info!(
+            "{}",
+            commit_ceiling_startup_line(effective_memory_bytes, memory_limit_bytes, budget)
+        );
+    } else if resolved_process_cap.cap_mb == 0 {
         tracing::info!(
             "memory: detected {} usable, using the whole machine (no process cap — {}); \
              set limits.max_process_memory_mb or XERJ_MAX_PROCESS_MEMORY_MB to add one",
@@ -1001,6 +1454,12 @@ fn build(config: &Config) -> ResourceGovernor {
             format_gib(effective_memory_bytes),
             format_gib(memory_limit_bytes),
             cap_reason,
+        );
+    }
+    if startup_starved {
+        tracing::warn!(
+            "Windows has no commit left under the reserve — writes will be rejected until \
+             commit is free. Enlarge the pagefile or close other programs"
         );
     }
 
@@ -1026,12 +1485,23 @@ fn build(config: &Config) -> ResourceGovernor {
         memtable_used_bytes: AtomicU64::new(0),
         memtable_tripped: AtomicBool::new(false),
         memory_limit_bytes,
-        machine_memory_bytes: effective_memory_bytes,
+        machine_memory_bytes,
         memory_watermark_bytes_default: memory_watermark_bytes,
         memory_watermark_bytes: AtomicU64::new(memory_watermark_bytes),
-        rss_bytes: AtomicU64::new(0),
-        memory_tripped: AtomicBool::new(false),
-        memory_trip_watermark: AtomicU64::new(0),
+        rss_bytes: AtomicU64::new(if startup_starved {
+            current_process_memory_bytes()
+        } else {
+            0
+        }),
+        analyze_reserved: Arc::new(AtomicU64::new(0)),
+        memory_tripped: AtomicBool::new(startup_starved),
+        memory_trip_watermark: AtomicU64::new(if startup_starved {
+            memory_watermark_bytes
+        } else {
+            0
+        }),
+        memory_flat_since: Mutex::new(None),
+        memory_stall_floor: AtomicU64::new(0),
         max_query_memory_bytes,
         search_pool: Arc::new(Semaphore::new(max_concurrent_searches)),
         max_concurrent_searches,
@@ -1044,6 +1514,16 @@ fn build(config: &Config) -> ResourceGovernor {
         disk_threshold_enabled: AtomicBool::new(true),
         disk_blocked: AtomicBool::new(false),
         disk_used_pct: AtomicU64::new(0),
+        commit_limit_bytes: commit_budget.as_ref().map(|b| b.commit_limit).unwrap_or(0),
+        commit_reserve_bytes: commit_budget.as_ref().map(|b| b.reserve_bytes).unwrap_or(0),
+        available_commit_bytes: AtomicU64::new(
+            commit_budget
+                .as_ref()
+                .map(|b| b.available_commit)
+                .unwrap_or(0),
+        ),
+        commit_starved: AtomicBool::new(startup_starved),
+        commit_capped,
     }
 }
 
@@ -1061,6 +1541,20 @@ fn build(config: &Config) -> ResourceGovernor {
 /// the watermark was dead on macOS however much memory the process took.
 pub fn current_rss_bytes() -> u64 {
     xerj_common::resource::current_rss_bytes().unwrap_or(0)
+}
+
+/// Bytes the memory breaker compares to the watermark.
+///
+/// Off Windows this is [`current_rss_bytes`]. On Windows it is the max of the
+/// working set and the process commit charge: a trimmed working set can sit
+/// under the watermark while commit charge is what the next allocation fails
+/// on (#1122).
+pub fn current_process_memory_bytes() -> u64 {
+    let rss = current_rss_bytes();
+    match xerj_common::resource::process_commit_charge_bytes() {
+        Some(commit) => rss.max(commit),
+        None => rss,
+    }
 }
 
 /// Total system RAM in bytes. Falls back to [`ASSUMED_TOTAL_BYTES`] on a
@@ -1424,12 +1918,108 @@ fn parse_byte_size(s: &str) -> Option<u64> {
 // Small formatting helpers
 // ─────────────────────────────────────────────────────────────────────────
 
+/// Releases an analyze reservation when the batch's tokens exist (#1122).
+#[derive(Debug)]
+pub(crate) struct AnalyzeReservation {
+    slot: Option<Arc<AtomicU64>>,
+    bytes: u64,
+}
+
+impl AnalyzeReservation {
+    pub(crate) fn none() -> Self {
+        Self {
+            slot: None,
+            bytes: 0,
+        }
+    }
+}
+
+impl Drop for AnalyzeReservation {
+    fn drop(&mut self) {
+        if let Some(slot) = self.slot.take() {
+            if self.bytes > 0 {
+                slot.fetch_sub(self.bytes, Ordering::AcqRel);
+            }
+        }
+    }
+}
+
 fn pct_of(part: u64, whole: u64) -> u64 {
     if whole == 0 {
         0
     } else {
         ((part as u128 * 100) / whole as u128) as u64
     }
+}
+
+struct CommitBreakerDetail {
+    limit: u64,
+    available: u64,
+    reserve: u64,
+}
+
+/// Admission text for the parent memory breaker.
+///
+/// `commit == None` is the ordinary RSS sentence: it names
+/// `limits.max_process_memory_mb` / `XERJ_MAX_PROCESS_MEMORY_MB` and the live
+/// `indices.breaker.total.limit` hint (#2238). A Windows commit ceiling
+/// replaces that hint: raising `indices.breaker.total.limit` cannot create
+/// commit, and the sentence names the limit and the pagefile instead.
+fn memory_breaker_reason(
+    rss: u64,
+    relation: &str,
+    watermark: u64,
+    limit: u64,
+    commit: Option<CommitBreakerDetail>,
+) -> String {
+    const MIB: u64 = 1024 * 1024;
+    let base = format!(
+        "[parent] real memory circuit breaker tripped: rss={}MB {relation} watermark={}MB \
+         ({}% of limit={}MB); writes rejected to prevent an out-of-memory kill",
+        rss / MIB,
+        watermark / MIB,
+        pct_of(watermark, limit),
+        limit / MIB,
+    );
+    match commit {
+        Some(detail) => format!(
+            "{base}. Windows commit limit is {}MB with {}MB still committable \
+             (reserve {}MB). Enlarge the pagefile (System Properties → Advanced → \
+             Performance → Settings → Advanced → Virtual memory) or close other programs. \
+             XERJ_MAX_PROCESS_MEMORY_MB cannot exceed that commit limit",
+            detail.limit / MIB,
+            detail.available / MIB,
+            detail.reserve / MIB,
+        ),
+        None => format!(
+            "{base} (raise limits.max_process_memory_mb or XERJ_MAX_PROCESS_MEMORY_MB, or live \
+             with PUT _cluster/settings {{\"persistent\":\
+             {{\"indices.breaker.total.limit\":\"<N>gb\"}}}})"
+        ),
+    }
+}
+
+fn commit_ceiling_startup_line(
+    physical: u64,
+    limit: u64,
+    budget: &xerj_common::resource::WindowsCommitBudget,
+) -> String {
+    const MIB: u64 = 1024 * 1024;
+    format!(
+        "memory: detected {} usable, using a {} cap (auto tier lowered to the Windows commit \
+         ceiling); physical RAM is {}, Windows commit limit is {}MB, {}MB still committable \
+         (this process holds {}MB, reserve {}MB). Enlarge the pagefile (System Properties → \
+         Advanced → Performance → Settings → Advanced → Virtual memory) or close other \
+         programs. limits.max_process_memory_mb and XERJ_MAX_PROCESS_MEMORY_MB cannot exceed \
+         that commit limit",
+        format_gib(limit),
+        format_gib(limit),
+        format_gib(physical),
+        budget.commit_limit / MIB,
+        budget.committable / MIB,
+        budget.process_commit / MIB,
+        budget.reserve_bytes / MIB,
+    )
 }
 
 fn human_bytes(b: u64) -> String {
@@ -1450,6 +2040,53 @@ fn human_bytes(b: u64) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn analyze_reservation_fits_under_the_watermark_and_rejects_at_it() {
+        assert!(analyze_reservation_fits(0, 100, 100, 100));
+        assert!(analyze_reservation_fits(1_000, 100, 100, 799));
+        assert!(!analyze_reservation_fits(1_000, 100, 100, 800));
+        assert!(!analyze_reservation_fits(1_000, 900, 50, 50));
+        assert_eq!(analyze_reserve_bytes(8 << 20), (8 << 20) * 28);
+    }
+
+    /// The guard is a thin wrapper around [`analyze_reservation_fits`]. The
+    /// watermark sits above a live probe so the test does not depend on this
+    /// process's RSS, and a second reserve sees the first until it is dropped.
+    #[test]
+    fn analyze_reservation_releases_and_sees_a_prior_reserve() {
+        let governor = build(&Config::default());
+        let live = governor.observed_process_memory();
+        let slack = 512 * 1024 * 1024;
+        governor
+            .memory_watermark_bytes
+            .store(live.saturating_add(slack), Ordering::Relaxed);
+        governor.rss_bytes.store(live, Ordering::Relaxed);
+        assert_eq!(governor.analyze_reserved.load(Ordering::Relaxed), 0);
+
+        let first = governor.reserve_analyze(32 * 1024 * 1024).unwrap();
+        assert_eq!(
+            governor.analyze_reserved.load(Ordering::Relaxed),
+            32 * 1024 * 1024
+        );
+        let refused = governor.reserve_analyze(480 * 1024 * 1024 + 1).unwrap_err();
+        let text = refused.to_string();
+        assert!(text.contains("circuit breaker"), "{text}");
+        assert!(text.contains("writes rejected"), "{text}");
+        assert!(text.contains("limits.max_process_memory_mb"), "{text}");
+        assert_eq!(refused.http_status(), 429);
+
+        drop(first);
+        assert_eq!(governor.analyze_reserved.load(Ordering::Relaxed), 0);
+        let second = governor.reserve_analyze(400 * 1024 * 1024).unwrap();
+        drop(second);
+        assert_eq!(governor.analyze_reserved.load(Ordering::Relaxed), 0);
+
+        governor.memory_watermark_bytes.store(0, Ordering::Relaxed);
+        let disabled = governor.reserve_analyze(u64::MAX).unwrap();
+        assert_eq!(governor.analyze_reserved.load(Ordering::Relaxed), 0);
+        drop(disabled);
+    }
 
     #[test]
     fn segment_hydration_resolver_is_cgroup_proportional_and_explicit() {
@@ -1532,14 +2169,33 @@ mod tests {
         assert_eq!(cap_memory_limit(40 * GIB, laptop.cap_mb), 8 * GIB);
         assert_eq!(auto_memtable_budget(8 * GIB), 2 * GIB);
 
-        // 6 GiB box → 8 GiB tier, but the machine only has 6, so min = 6.
+        // 8 GiB host → half of RAM, 4 GiB. The old tier was min(8, 8) = 8,
+        // the whole machine; a merge storm on that budget is #1122.
+        let small = resolve_process_memory_cap(8 * GIB, AUTO, None);
+        assert_eq!(small.cap_mb, 4 * 1024);
+        assert_eq!(cap_memory_limit(8 * GIB, small.cap_mb), 4 * GIB);
+        // The memtable floor stays 2 GiB, the same budget the old 8 GiB
+        // tier handed this host, so ingest is not given a smaller buffer.
+        assert_eq!(auto_memtable_budget(4 * GIB), 2 * GIB);
+
+        // 6 GiB box → half of RAM, 3 GiB, not min(6, 8) = 6.
         let tiny = resolve_process_memory_cap(6 * GIB, AUTO, None);
-        assert_eq!(tiny.cap_mb, 8 * 1024, "the tier is chosen before the min");
-        assert_eq!(
-            cap_memory_limit(6 * GIB, tiny.cap_mb),
-            6 * GIB,
-            "cap only lowers"
-        );
+        assert_eq!(tiny.cap_mb, 3 * 1024);
+        assert_eq!(cap_memory_limit(6 * GIB, tiny.cap_mb), 3 * GIB);
+    }
+
+    /// Under 16 GiB the cap is half of RAM. 16 GiB is the old 8 GiB step.
+    #[test]
+    fn a_host_under_sixteen_gib_is_capped_at_half_its_ram() {
+        const GIB: u64 = 1024 * 1024 * 1024;
+        assert_eq!(tiered_cap_mb(4 * GIB), 2 * 1024);
+        assert_eq!(tiered_cap_mb(8 * GIB), 4 * 1024);
+        assert_eq!(tiered_cap_mb(12 * GIB), 6 * 1024);
+        // One byte under 16 GiB is still the half-RAM step, in whole MiB.
+        assert_eq!(tiered_cap_mb(16 * GIB - 1), 8191);
+        assert_eq!(tiered_cap_mb(16 * GIB), 8 * 1024);
+        // And the 64 GiB step is unchanged.
+        assert_eq!(tiered_cap_mb(64 * GIB - 1), 8 * 1024);
     }
 
     /// The tier steps exactly on the 64 GiB and 128 GiB binary boundaries.
@@ -1651,6 +2307,69 @@ mod tests {
         assert_eq!(cap_memory_limit(2 * GIB, 8192), 2 * GIB);
         // A cgroup smaller than the cap still wins.
         assert_eq!(cap_memory_limit(512 * 1024 * 1024, 8192), 512 * 1024 * 1024);
+    }
+
+    /// #1122, field report #2174. Injected commit numbers, not a live Windows
+    /// box: 16 GiB physical, no pagefile, ~4 GiB still committable. The AUTO
+    /// tier stays the 8 GiB step (physical RAM is unchanged). The cap the
+    /// governor actually uses is the commit ceiling, and a 95% watermark
+    /// leaves room for the 100 MiB flush that aborted that run.
+    #[test]
+    fn windows_commit_lowers_the_cap_without_moving_the_auto_tier() {
+        const GIB: u64 = 1024 * 1024 * 1024;
+        const MIB: u64 = 1024 * 1024;
+        const AUTO: u64 = xerj_common::config::AUTO_PROCESS_MEMORY_MB;
+        let physical = 16 * GIB;
+        let resolved = resolve_process_memory_cap(physical, AUTO, None);
+        assert_eq!(
+            resolved.cap_mb,
+            8 * 1024,
+            "tier input is still physical RAM"
+        );
+        let tiered = cap_memory_limit(physical, resolved.cap_mb);
+        assert_eq!(tiered, 8 * GIB);
+
+        let budget = xerj_common::resource::windows_commit_budget(
+            xerj_common::resource::WindowsCommitSample {
+                total_phys: physical,
+                commit_limit: physical,
+                available_commit: 4 * GIB,
+                process_commit: 200 * MIB,
+            },
+        );
+        let limited = apply_windows_commit_ceiling(tiered, Some(&budget));
+        assert!(limited < tiered);
+        assert_eq!(limited, budget.effective_bytes);
+        let watermark = limited * 95 / 100;
+        assert!(budget.committable - watermark >= 100 * MIB);
+        assert_eq!(
+            windows_override_ceiling(physical, Some(&budget)),
+            budget.effective_bytes,
+            "a live breaker raise stops at the commit ceiling"
+        );
+
+        // No budget (Linux, macOS, failed probe): the tiered cap is returned.
+        assert_eq!(apply_windows_commit_ceiling(tiered, None), tiered);
+        assert_eq!(windows_override_ceiling(physical, None), physical);
+
+        // 64 GiB with commit covering RAM: tier stays 16 GiB, ceiling does not bind.
+        let big = 64 * GIB;
+        let big_tier = cap_memory_limit(big, resolve_process_memory_cap(big, AUTO, None).cap_mb);
+        assert_eq!(big_tier, 16 * GIB);
+        let covered = xerj_common::resource::windows_commit_budget(
+            xerj_common::resource::WindowsCommitSample {
+                total_phys: big,
+                commit_limit: 96 * GIB,
+                available_commit: 80 * GIB,
+                process_commit: 512 * MIB,
+            },
+        );
+        assert!(!covered.commit_bound);
+        assert_eq!(
+            apply_windows_commit_ceiling(big_tier, Some(&covered)),
+            big_tier
+        );
+        assert_eq!(windows_override_ceiling(big, Some(&covered)), big);
     }
 
     /// The 2 GiB memtable floor must not punch through a smaller ceiling —
@@ -2043,6 +2762,194 @@ mod tests {
         );
     }
 
+    /// The sentence autoindex matches on (`real memory circuit breaker tripped`
+    /// … `writes rejected to prevent an out-of-memory kill`) stays when commit
+    /// is not the ceiling. That sentence names the process-memory cap and the
+    /// live cluster-settings hint (#2238). Numbers are the historical 16 GiB
+    /// fixture, and it does not mention the pagefile.
+    #[test]
+    fn the_rss_breaker_message_is_unchanged_without_a_commit_ceiling() {
+        const MIB: u64 = 1024 * 1024;
+        let msg = memory_breaker_reason(15_679 * MIB, ">=", 15_564 * MIB, 16_384 * MIB, None);
+        assert_eq!(
+            msg,
+            "[parent] real memory circuit breaker tripped: rss=15679MB >= watermark=15564MB \
+             (94% of limit=16384MB); writes rejected to prevent an out-of-memory kill \
+             (raise limits.max_process_memory_mb or XERJ_MAX_PROCESS_MEMORY_MB, or live \
+             with PUT _cluster/settings {\"persistent\":{\"indices.breaker.total.limit\":\"<N>gb\"}})"
+        );
+        assert!(!msg.contains("pagefile"));
+    }
+
+    #[test]
+    fn a_commit_ceiling_names_the_limit_and_how_to_raise_it() {
+        const MIB: u64 = 1024 * 1024;
+        const GIB: u64 = 1024 * MIB;
+        let msg = memory_breaker_reason(
+            3_200 * MIB,
+            "under",
+            3_061 * MIB,
+            3_222 * MIB,
+            Some(CommitBreakerDetail {
+                limit: 16 * GIB,
+                available: 900 * MIB,
+                reserve: 1_074 * MIB,
+            }),
+        );
+        assert!(msg.contains("[parent] real memory circuit breaker tripped"));
+        assert!(msg.contains("writes rejected to prevent an out-of-memory kill"));
+        assert!(msg.contains("Windows commit limit is 16384MB"));
+        assert!(msg.contains("900MB still committable"));
+        assert!(msg.contains("reserve 1074MB"));
+        assert!(msg.contains("pagefile"));
+        assert!(msg.contains("Virtual memory"));
+        assert!(msg.contains("XERJ_MAX_PROCESS_MEMORY_MB cannot exceed that commit limit"));
+        assert!(
+            !msg.contains("indices.breaker.total.limit"),
+            "raising the breaker cannot create commit Windows will not give: {msg}"
+        );
+
+        let line = commit_ceiling_startup_line(
+            16 * GIB,
+            3_378_511_872,
+            &xerj_common::resource::windows_commit_budget(
+                xerj_common::resource::WindowsCommitSample {
+                    total_phys: 16 * GIB,
+                    commit_limit: 16 * GIB,
+                    available_commit: 4 * GIB,
+                    process_commit: 200 * MIB,
+                },
+            ),
+        );
+        assert!(line.contains("memory: detected "));
+        assert!(line.contains(" usable, using a "));
+        assert!(line.contains(" cap "));
+        assert!(line.contains("physical RAM is 16 GiB"));
+        assert!(line.contains("Windows commit limit is 16384MB"));
+        assert!(line.contains("pagefile"));
+        assert!(line.contains("XERJ_MAX_PROCESS_MEMORY_MB"));
+    }
+
+    /// RSS is under the watermark. Available commit is under the reserve.
+    /// That is the pagefileless shape: the process has not "used its cap",
+    /// the machine has run out of commit, and the next allocation would abort.
+    #[test]
+    fn commit_starvation_rejects_writes_and_releases_when_commit_returns() {
+        const MIB: u64 = 1024 * 1024;
+        const GIB: u64 = 1024 * MIB;
+        let mut cfg = Config::default();
+        cfg.limits.max_total_memtable_mb = 0;
+        cfg.limits.memory_watermark_percent = 95;
+        let mut g = build(&cfg);
+        // Overwrite whatever this host probed. The test injects the shortage.
+        g.commit_limit_bytes = 16 * GIB;
+        g.commit_reserve_bytes = 512 * MIB;
+        g.commit_capped = true;
+        g.available_commit_bytes.store(4 * GIB, Ordering::Relaxed);
+        g.commit_starved.store(false, Ordering::Relaxed);
+        g.memory_tripped.store(false, Ordering::Relaxed);
+
+        let watermark = g.memory_watermark_bytes.load(Ordering::Relaxed);
+        assert!(
+            watermark > 10 * MIB,
+            "rss sample must sit under the watermark"
+        );
+        g.refresh_memory_observing(10 * MIB, 0, 0, Some(128 * MIB));
+        assert!(g.memory_breaker_engaged());
+        assert!(!g.thread_spawn_safe());
+        let msg = format!("{}", g.check_ingest_admission().unwrap_err());
+        assert_eq!(g.check_ingest_admission().unwrap_err().http_status(), 429);
+        assert!(msg.contains("rss=10MB under watermark="), "{msg}");
+        assert!(msg.contains("Windows commit limit is 16384MB"), "{msg}");
+        assert!(msg.contains("128MB still committable"), "{msg}");
+        assert!(msg.contains("pagefile"), "{msg}");
+
+        g.refresh_memory_observing(10 * MIB, 0, 0, Some(2 * GIB));
+        assert!(
+            g.check_ingest_admission().is_ok(),
+            "commit back above the reserve releases the breaker"
+        );
+        assert!(g.thread_spawn_safe());
+    }
+
+    /// #1122 x #1981: commit starvation and a flat footprint are different
+    /// holds. A footprint that sits on the watermark must not release the
+    /// breaker while available commit is still under the reserve — that
+    /// release is what lets the next allocation abort. The flat clock keeps
+    /// running, so the first sample after commit recovers releases instead
+    /// of starting the 2 s window over, and that footprint does not re-arm.
+    #[test]
+    fn commit_starvation_holds_a_flat_footprint_until_commit_returns() {
+        const MIB: u64 = 1024 * 1024;
+        const GIB: u64 = 1024 * MIB;
+        let mut cfg = Config::default();
+        cfg.limits.max_total_memtable_mb = 0;
+        cfg.limits.memory_watermark_percent = 95;
+        let mut g = build(&cfg);
+        g.commit_limit_bytes = 16 * GIB;
+        g.commit_reserve_bytes = 512 * MIB;
+        g.commit_capped = true;
+        g.available_commit_bytes.store(4 * GIB, Ordering::Relaxed);
+        g.commit_starved.store(false, Ordering::Relaxed);
+        g.memory_tripped.store(false, Ordering::Relaxed);
+
+        let wm = g.memory_watermark_bytes.load(Ordering::Relaxed);
+        assert!(wm > 0, "this test needs a live RSS watermark");
+        let stuck = wm + 100;
+        g.refresh_memory_observing(stuck, 0, 0, Some(128 * MIB));
+        assert!(g.memory_breaker_engaged(), "crossing the watermark engages");
+        g.refresh_memory_observing(stuck, 0, 0, Some(128 * MIB));
+        g.age_memory_flat_for_test(MEMORY_FLAT_RELEASE + Duration::from_millis(1));
+        g.refresh_memory_observing(stuck, 0, 0, Some(128 * MIB));
+        assert!(
+            g.memory_breaker_engaged(),
+            "a flat footprint must not release a breaker commit starvation is holding"
+        );
+        let msg = format!("{}", g.check_ingest_admission().unwrap_err());
+        assert!(msg.contains("pagefile"), "{msg}");
+
+        g.refresh_memory_observing(stuck, 0, 0, Some(2 * GIB));
+        assert!(
+            !g.memory_breaker_engaged(),
+            "once commit is back, a footprint that already sat flat releases"
+        );
+        g.refresh_memory_observing(stuck, 0, 0, Some(2 * GIB));
+        assert!(
+            !g.memory_breaker_engaged(),
+            "the same footprint must not re-arm"
+        );
+        g.refresh_memory_observing(stuck + MEMORY_RSS_NOISE_BYTES + 1, 0, 0, Some(2 * GIB));
+        assert!(
+            g.memory_breaker_engaged(),
+            "a climb past the noise band is new pressure"
+        );
+    }
+
+    /// Off Windows there is no commit charge, so the breaker probe is the RSS
+    /// sample it just took. Both probes read the kernel counter, and that
+    /// read allocates, as do other tests in this process, so one pair can
+    /// differ by pages. A quiet pair is the contract.
+    #[cfg(not(target_os = "windows"))]
+    #[test]
+    fn process_memory_matches_rss_off_windows() {
+        assert!(xerj_common::resource::process_commit_charge_bytes().is_none());
+        assert!(xerj_common::resource::available_commit_bytes().is_none());
+        assert!(xerj_common::resource::windows_commit_sample().is_none());
+        let mut last_process = 0u64;
+        let mut last_rss = 0u64;
+        for _ in 0..128 {
+            last_process = current_process_memory_bytes();
+            last_rss = current_rss_bytes();
+            if last_process > 0 && last_process == last_rss {
+                return;
+            }
+        }
+        panic!(
+            "off Windows the breaker probe is RSS; no quiet pair in 128 tries \
+             (last process={last_process} rss={last_rss})"
+        );
+    }
+
     #[test]
     fn disk_flood_blocks_with_hysteresis() {
         let mut cfg = Config::default();
@@ -2324,10 +3231,17 @@ mod tests {
             err.contains("draining below watermark"),
             "an in-band rejection must not claim rss >= watermark: {err}"
         );
-        assert!(
-            err.contains("limits.max_process_memory_mb"),
-            "an RSS rejection must name the process-memory cap: {err}"
-        );
+        if g.commit_capped {
+            assert!(
+                err.contains("Windows commit limit"),
+                "a commit-capped rejection names the limit instead of the process cap: {err}"
+            );
+        } else {
+            assert!(
+                err.contains("limits.max_process_memory_mb"),
+                "an RSS rejection must name the process-memory cap: {err}"
+            );
+        }
         g.refresh(0, wm * 97 / 100, 0);
         assert!(
             g.check_ingest_admission().is_err(),
@@ -2367,6 +3281,145 @@ mod tests {
             "a stalled in-band RSS must release, not latch forever"
         );
         assert!(g.check_ingest_admission().is_ok());
+    }
+
+    /// #1981: a footprint that sits flat at or above the watermark is not a
+    /// drain the sampler should repeat until restart. After
+    /// [`MEMORY_FLAT_RELEASE`] the latch releases, and the same RSS does not
+    /// re-engage (that flap would request a drain on every engage edge). A
+    /// higher RSS is new pressure and engages again. One flat sample is not
+    /// enough — the in-flight drain has not had its window.
+    #[test]
+    fn flat_rss_above_the_watermark_releases_and_does_not_rearm() {
+        let mut cfg = Config::default();
+        cfg.limits.max_total_memtable_mb = 0;
+        cfg.limits.memory_watermark_percent = 95;
+        let g = build(&cfg);
+        let wm = g.memory_watermark_bytes.load(Ordering::Relaxed);
+        assert!(wm > 0, "this test needs a live RSS watermark");
+        let stuck = wm + 100;
+
+        g.refresh(0, stuck, 0);
+        assert!(g.memory_breaker_engaged(), "crossing the watermark engages");
+        g.refresh(0, stuck, 0);
+        assert!(
+            g.memory_breaker_engaged(),
+            "one flat sample must stay engaged so a drain can run"
+        );
+        g.age_memory_flat_for_test(MEMORY_FLAT_RELEASE + Duration::from_millis(1));
+        g.refresh(0, stuck, 0);
+        assert!(
+            !g.memory_breaker_engaged(),
+            "RSS that does not fall must release instead of draining forever"
+        );
+        assert!(g.check_ingest_admission().is_ok());
+
+        // The old latch re-tripped here: rss >= watermark on a disengaged
+        // governor is an engage edge, and the sampler would drain again.
+        g.refresh(0, stuck, 0);
+        assert!(
+            !g.memory_breaker_engaged(),
+            "the same footprint must not re-arm the drain"
+        );
+        // Page-sized noise around the floor is the macOS signal, not a new
+        // working set. Re-arming on it would engage, drain, and release on
+        // every sample.
+        g.refresh(0, stuck + 1, 0);
+        assert!(
+            !g.memory_breaker_engaged(),
+            "a one-byte bump around the floor must not re-arm the drain"
+        );
+
+        g.refresh(0, stuck + MEMORY_RSS_NOISE_BYTES + 1, 0);
+        assert!(
+            g.memory_breaker_engaged(),
+            "a climb past the noise band is new pressure"
+        );
+    }
+
+    /// #1981: `ri_phys_footprint` does not sit on one byte. A quiet node
+    /// whose samples wander inside [`MEMORY_RSS_NOISE_BYTES`] must still
+    /// release once that wander has lasted [`MEMORY_FLAT_RELEASE`].
+    #[test]
+    fn rss_noise_around_a_flat_footprint_still_releases() {
+        let mut cfg = Config::default();
+        cfg.limits.max_total_memtable_mb = 0;
+        cfg.limits.memory_watermark_percent = 95;
+        let g = build(&cfg);
+        let wm = g.memory_watermark_bytes.load(Ordering::Relaxed);
+        assert!(wm > MEMORY_RSS_NOISE_BYTES);
+        let stuck = wm + MEMORY_RSS_NOISE_BYTES;
+
+        g.refresh(0, stuck, 0);
+        assert!(g.memory_breaker_engaged());
+        g.refresh(0, stuck + 4096, 0);
+        assert!(g.memory_breaker_engaged(), "noise must not release early");
+        g.refresh(0, stuck - 4096, 0);
+        assert!(g.memory_breaker_engaged());
+        g.age_memory_flat_for_test(MEMORY_FLAT_RELEASE + Duration::from_millis(1));
+        g.refresh(0, stuck + 8192, 0);
+        assert!(
+            !g.memory_breaker_engaged(),
+            "page-sized wander is a flat footprint"
+        );
+        g.refresh(0, stuck - 8192, 0);
+        assert!(!g.memory_breaker_engaged(), "the same band must not re-arm");
+    }
+
+    /// #1981: while the breaker stays engaged and RSS does not fall, drain
+    /// requests must back off. An 18-hour stuck footprint sampled on the old
+    /// 2 s cadence is 32_400 requests; the doubled schedule stays in the
+    /// dozens. Falling RSS returns to the 2 s floor.
+    #[test]
+    fn drain_requests_back_off_when_rss_does_not_fall() {
+        let min = Duration::from_secs(2);
+        let mut schedule = MemoryDrainSchedule::new(min);
+        let t0 = Instant::now();
+        let horizon = Duration::from_secs(18 * 60 * 60);
+        let stuck = 64 * MEMORY_RSS_NOISE_BYTES;
+        let mut fires = 0u64;
+        let mut t = Duration::ZERO;
+        let mut step = 0u64;
+        while t < horizon {
+            // Alternate a page either side of the stuck footprint. The old
+            // schedule treated every downward byte as a successful drain
+            // and snapped back to 2 s.
+            let rss = if step.is_multiple_of(2) {
+                stuck
+            } else {
+                stuck + 4096
+            };
+            if schedule.observe(t0 + t, rss, true) {
+                fires += 1;
+            }
+            t += min;
+            step += 1;
+        }
+        let unbounded = horizon.as_secs() / min.as_secs();
+        assert!(
+            fires < unbounded / 50,
+            "stuck RSS requested {fires} drains over 18h; the 2s loop would be {unbounded}"
+        );
+        assert!(fires > 10, "backoff must still retry, got {fires}");
+
+        // A drop resets the spacing: the next request is one floor later,
+        // not a doubled gap. Step a full cap ahead so this request is due
+        // no matter where in the capped window the 18 h loop stopped.
+        let now = t0 + horizon + MEMORY_DRAIN_MAX_INTERVAL;
+        let dropped = stuck - MEMORY_RSS_NOISE_BYTES - 1;
+        assert!(
+            schedule.observe(now, dropped, true),
+            "a lower RSS is due work"
+        );
+        assert!(
+            !schedule.observe(now + min - Duration::from_millis(1), dropped, true),
+            "the reset spacing is still the floor, not immediate"
+        );
+        assert!(schedule.observe(now + min, dropped - MEMORY_RSS_NOISE_BYTES - 1, true));
+
+        // Disengage forgets the episode; the next engage fires at once.
+        assert!(!schedule.observe(now + min + min, dropped, false));
+        assert!(schedule.observe(now + min + min, dropped, true));
     }
 
     /// #1250 x #1323: the watermark is live-tunable. Raising it while the

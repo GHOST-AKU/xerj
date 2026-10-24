@@ -9,10 +9,10 @@
 //!
 //! It speaks the MCP **stdio transport**: newline-delimited
 //! JSON-RPC 2.0 messages on stdin/stdout. It exposes XERJ to any MCP-capable
-//! agent host (Claude Desktop, IDE agents, custom orchestrators) as twenty-one
-//! tools: eighteen without a hub key, and three Corpus Hub tools
+//! agent host (Claude Desktop, IDE agents, custom orchestrators) as twenty-two
+//! tools: nineteen without a hub key, and three Corpus Hub tools
 //! (`xerj_hub_*`) that run the `xerj ask` flow itself. Thirteen of those
-//! eighteen construct exactly the request the running engine already accepts
+//! nineteen construct exactly the request the running engine already accepts
 //! and forward it to a configurable base URL. `xerj_index_budget` counts a
 //! folder and returns the budget plans; it does not index. `xerj_autoindex_remove`
 //! deletes one autoindexed folder after listing what that folder owns, and only
@@ -29,6 +29,7 @@
 //! |------------------------|---------------------------------------|-----------------|
 //! | `xerj_def` | `GET /{index}/_mapping` + `POST /{index}/_search` | local definition lookup with CLI ranking and deduplication |
 //! | `xerj_search`          | `POST /{index}/_search`               | ES query-DSL search (full-text / keyword / structured) |
+//! | `xerj_batch_search` | `GET /{index}/_mapping` + `POST /_msearch` | ordered per-item evidence, abstention or error; shared with `xerj batch-search` |
 //! | `xerj_semantic_search` | `POST /{index}/_search` (`semantic`)  | server-side lexical embedding, no external key |
 //! | `xerj_vector_search`   | `POST /{index}/_search` (`knn`)       | kNN over a `dense_vector` field (HNSW-served unfiltered, exact filtered) |
 //! | `xerj_hybrid_search`   | `POST /{index}/_search` (`hybrid`)    | RRF or linear fusion of sub-queries |
@@ -100,10 +101,14 @@
 //! words), with duplicate passages removed before budgeting and
 //! over-budget hits reduced to locators.
 
+mod batch;
+mod batch_cli;
 mod def;
 mod hub;
 mod map;
 mod token_budget;
+
+pub use batch_cli::run_batch_cli;
 
 use std::time::Duration;
 
@@ -757,6 +762,7 @@ pub fn tool_specs() -> Value {
 pub fn tool_specs_with(include_hub: bool) -> Value {
     let mut specs = json!([
         def::spec(),
+        batch::spec(),
         {
             "name": "xerj_search",
             "description":
@@ -1259,6 +1265,11 @@ pub fn tool_specs_with(include_hub: bool) -> Value {
                 "real codebases solve this problem? Returns the matching definition ",
                 "(not a byte window), the file:line to cite, and per-hit licence ",
                 "warnings — AGPL/SSPL/Elastic/BUSL/GPL/LGPL/MPL sources are approach-only. ",
+                "A corpus marked own (`xerj corpus add --own`, or `xerj corpus own <name>`) ",
+                "is the caller's own first-party code: an unidentified licence (UNKNOWN or ",
+                "NONE-FOUND) stays in the hit header and the do-not-copy banner is omitted ",
+                "for that unidentified licence only. A detected copyleft or source-available ",
+                "licence still warns. Hub pack licence classes are unchanged. ",
                 "Refuses indices older than 30 days (override with stale_ok). ",
                 "A no-match is NOT an error: it says the corpus is wrong for the task. ",
                 "A line `weak match: the corpus may not cover this` means the passages are nearest neighbours, not coverage — fall back to grep or another corpus. ",
@@ -1276,7 +1287,7 @@ pub fn tool_specs_with(include_hub: bool) -> Value {
                     "full": { "type": "integer", "description": "Max chars per passage (default 800; 0 = file head only)." },
                     "no_symbol": { "type": "boolean", "description": "Window selection instead of the matching definition." },
                     "stale_ok": { "type": "boolean", "description": "Override the 30-day staleness refusal." },
-                    "licence_policy": { "type": "string", "enum": ["warn", "strict"], "description": "strict strips passage text from restricted-licence hits, keeping locator + warning (default warn)." },
+                    "licence_policy": { "type": "string", "enum": ["warn", "strict"], "description": "strict strips passage text from restricted-licence hits, keeping locator + warning (default warn). An own corpus's unidentified licence is not stripped." },
                     "max_tokens": max_tokens_arg_schema()
                 },
                 "required": ["corpus", "query"]
@@ -1862,6 +1873,9 @@ async fn call_tool(ctx: &Ctx, msg: &Value) -> Value {
     let mut demote_page: Option<usize> = None;
     let result = match name {
         "xerj_def" => return def::run(ctx, &args).await,
+        // Keep the batch state machine off the shared dispatcher future's
+        // stack: single-item tools must not inherit its larger frame.
+        "xerj_batch_search" => return Box::pin(batch::run(ctx, &args)).await,
         "xerj_search" => {
             // Resolve before even the mapping GET: conflicting or malformed
             // scope arguments must never silently query a different corpus.
@@ -1994,7 +2008,7 @@ fn plain_search_demotes_test_paths(args: &Value, mapping: Option<&Value>) -> boo
 /// The penalty is [`xerj_autoindex::def::penalize_demoted_paths`] — the same
 /// `path_is_demoted` rules `xerj def` uses. A response that is not a search
 /// hit list is returned unchanged.
-fn apply_search_path_demotion(text: &str, page: usize) -> String {
+fn apply_search_path_demotion(text: &str, page: usize, query: &str) -> String {
     let Ok(mut resp) = serde_json::from_str::<Value>(text) else {
         return text.to_string();
     };
@@ -2003,6 +2017,7 @@ fn apply_search_path_demotion(text: &str, page: usize) -> String {
             return text.to_string();
         };
         xerj_autoindex::def::penalize_demoted_paths(hits);
+        xerj_common::xccode::render::demote_sparse_definition_hits(hits, query);
         hits.truncate(page);
     }
     serde_json::to_string(&resp).unwrap_or_else(|_| text.to_string())
@@ -2875,6 +2890,7 @@ async fn run_autoindex_remove(ctx: &Ctx, args: &Value) -> Value {
             root,
             yes: confirm,
             prompt: false,
+            state_dir: None,
         })
     })
     .await;
@@ -3102,6 +3118,52 @@ fn error_detail(err: &reqwest::Error) -> String {
     out
 }
 
+/// `POST /_memory/{namespace}` — not recall, not the bare list.
+fn is_memory_store_path(path: &str) -> bool {
+    let Some(rest) = path.strip_prefix("/_memory/") else {
+        return false;
+    };
+    !rest.is_empty() && !rest.contains('/')
+}
+
+/// #2284: a flood-stage block on `xerj_memory_store` is a nested
+/// `cluster_block_exception`. Replace that blob with the plain disk sentence.
+/// `None` keeps the HTTP wrapper — this was not the flood-stage block.
+async fn memory_flood_tool_text(ctx: &Ctx, body_text: &str) -> Option<String> {
+    let body = serde_json::from_str::<Value>(body_text).ok()?;
+    // `None` facts: a plain server sentence comes back unchanged, and a raw
+    // block becomes the sentence with unknown free space. The raw case is
+    // filled in from `/_cat/allocation` below — the same probe autoindex uses.
+    let without = xerj_autoindex::flood::explain_memory_flood(&body, None)?;
+    if body
+        .pointer("/error/reason")
+        .and_then(Value::as_str)
+        .is_some_and(|reason| reason == without)
+    {
+        return Some(without);
+    }
+    let facts = fetch_allocation(ctx)
+        .await
+        .map(|alloc| xerj_autoindex::flood::disk_facts_from_allocation(&alloc));
+    Some(xerj_autoindex::flood::explain_memory_flood(&body, facts.as_ref()).unwrap_or(without))
+}
+
+async fn fetch_allocation(ctx: &Ctx) -> Option<Value> {
+    let url = format!(
+        "{}/_cat/allocation?format=json",
+        ctx.base_url.trim_end_matches('/')
+    );
+    let mut req = ctx.client.get(&url);
+    if let Some(auth) = &ctx.auth {
+        req = req.header("Authorization", auth);
+    }
+    let resp = req.send().await.ok()?;
+    if !resp.status().is_success() {
+        return None;
+    }
+    resp.json().await.ok()
+}
+
 /// The query `xerj_search` should locate inside each passage (#2266).
 /// Other tools do not get the annotation: a semantic/vector ordinal is a
 /// chunk index, and `xerj_def` already returns the declaration's `line`.
@@ -3144,7 +3206,9 @@ async fn engine_request(
             let text = resp.text().await.unwrap_or_default();
             if status.is_success() {
                 let text = match demote_page {
-                    Some(page) => apply_search_path_demotion(&text, page),
+                    Some(page) => {
+                        apply_search_path_demotion(&text, page, match_query.unwrap_or(""))
+                    }
                     None => text,
                 };
                 let text = match match_query {
@@ -3158,6 +3222,12 @@ async fn engine_request(
                         tool_text(token_budget::budget_json_response(&text, max_tokens), false)
                     }
                     None => tool_text(text, false),
+                }
+            } else if is_memory_store_path(path) {
+                if let Some(explained) = memory_flood_tool_text(ctx, &text).await {
+                    tool_text(explained, true)
+                } else {
+                    tool_text(format!("XERJ returned HTTP {status}: {text}"), true)
                 }
             } else {
                 tool_text(format!("XERJ returned HTTP {status}: {text}"), true)
@@ -3286,6 +3356,162 @@ mod tests {
         assert!(text.contains("unauthorized"), "{text}");
         assert!(!text.contains("no XERJ node is listening"), "{text}");
         assert!(!text.contains("xerj --insecure"), "{text}");
+    }
+
+    /// One HTTP/1.1 response, then close. Enough for the memory-store tests,
+    /// which may open a second connection for `/_cat/allocation`.
+    async fn answer_once(listener: tokio::net::TcpListener, status: &str, body: &str) {
+        let body = body.to_string();
+        let status = status.to_string();
+        tokio::spawn(async move {
+            let Ok((mut sock, _)) = listener.accept().await else {
+                return;
+            };
+            let mut buf = vec![0u8; 8192];
+            let _ = tokio::io::AsyncReadExt::read(&mut sock, &mut buf).await;
+            let header = format!(
+                "HTTP/1.1 {status}\r\nContent-Length: {}\r\nConnection: close\r\nContent-Type: application/json\r\n\r\n",
+                body.len()
+            );
+            let _ = tokio::io::AsyncWriteExt::write_all(&mut sock, header.as_bytes()).await;
+            let _ = tokio::io::AsyncWriteExt::write_all(&mut sock, body.as_bytes()).await;
+        });
+    }
+
+    /// #2284: the server already explained the flood-stage block. The tool
+    /// text is that sentence, not `XERJ returned HTTP` plus the JSON.
+    #[tokio::test]
+    async fn memory_store_prints_a_plain_flood_reason_verbatim() {
+        let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let addr = listener.local_addr().unwrap();
+        let reason = "the disk holding the data dir is nearly full, so this memory write was refused (free 2.0gb, 96% used, threshold 95%, data dir D:\\xerj-data). Free space on that drive, or restart the node with --data-dir on another drive.";
+        let body = format!(
+            r#"{{"error":{{"type":"memory_error","reason":{}}},"status":429}}"#,
+            serde_json::to_string(reason).unwrap()
+        );
+        answer_once(listener, "429 Too Many Requests", &body).await;
+        let ctx = Ctx {
+            client: reqwest::Client::new(),
+            base_url: format!("http://{addr}"),
+            auth: None,
+        };
+        let msg = json!({
+            "params": {
+                "name": "xerj_memory_store",
+                "arguments": { "namespace": "notes", "text": "remember this" }
+            }
+        });
+        let res = call_tool(&ctx, &msg).await;
+        assert_eq!(res["isError"], true, "{res}");
+        let text = res["content"][0]["text"].as_str().unwrap();
+        assert_eq!(text, reason);
+        assert!(!text.contains("cluster_block_exception"), "{text}");
+        assert!(!text.contains("XERJ returned HTTP"), "{text}");
+    }
+
+    /// The raw nested exception: the tool probes allocation (the #2077 read)
+    /// and says the disk is nearly full, with free space and the data dir.
+    #[tokio::test]
+    async fn memory_store_rewrites_a_nested_cluster_block_using_allocation() {
+        let store = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let addr = store.local_addr().unwrap();
+        tokio::spawn(async move {
+            // Two requests, either order, possibly one connection each.
+            for _ in 0..2 {
+                let Ok((mut sock, _)) = store.accept().await else {
+                    return;
+                };
+                let mut buf = vec![0u8; 8192];
+                let n = tokio::io::AsyncReadExt::read(&mut sock, &mut buf)
+                    .await
+                    .unwrap_or(0);
+                let req = String::from_utf8_lossy(&buf[..n]);
+                let body = if req.contains("GET /_cat/allocation") {
+                    r#"[{"disk.percent":"96","disk.avail":"2147483648b","disk.flood_stage":"95","disk.threshold_enabled":"true","disk.flood_blocked":"true","path.data":"D:\\xerj-data"}]"#.to_string()
+                } else {
+                    let inner = r#"{"error":{"type":"cluster_block_exception","reason":"index [.xerj-memory-notes] is blocked for read_only_allow_delete (disk usage 96% exceeded flood-stage watermark [95%]) operations"},"status":429}"#;
+                    format!(
+                        r#"{{"error":{{"type":"memory_error","reason":{}}},"status":429}}"#,
+                        serde_json::to_string(&format!("failed to store memory: {inner}")).unwrap()
+                    )
+                };
+                let header = format!(
+                    "HTTP/1.1 429 Too Many Requests\r\nContent-Length: {}\r\nConnection: close\r\nContent-Type: application/json\r\n\r\n",
+                    body.len()
+                );
+                // Allocation is 200. A 429 on the probe would be ignored and
+                // the sentence would say free space is unknown.
+                let header = if req.contains("GET /_cat/allocation") {
+                    format!(
+                        "HTTP/1.1 200 OK\r\nContent-Length: {}\r\nConnection: close\r\nContent-Type: application/json\r\n\r\n",
+                        body.len()
+                    )
+                } else {
+                    header
+                };
+                let _ = tokio::io::AsyncWriteExt::write_all(&mut sock, header.as_bytes()).await;
+                let _ = tokio::io::AsyncWriteExt::write_all(&mut sock, body.as_bytes()).await;
+            }
+        });
+        let ctx = Ctx {
+            client: reqwest::Client::new(),
+            base_url: format!("http://{addr}"),
+            auth: None,
+        };
+        let msg = json!({
+            "params": {
+                "name": "xerj_memory_store",
+                "arguments": { "namespace": "notes", "text": "remember this" }
+            }
+        });
+        let res = call_tool(&ctx, &msg).await;
+        assert_eq!(res["isError"], true, "{res}");
+        let text = res["content"][0]["text"].as_str().unwrap();
+        assert!(
+            text.contains("the disk holding the data dir is nearly full"),
+            "{text}"
+        );
+        assert!(text.contains("free 2.0gb"), "{text}");
+        assert!(text.contains("96% used"), "{text}");
+        assert!(text.contains("threshold 95%"), "{text}");
+        assert!(text.contains("data dir D:\\xerj-data"), "{text}");
+        assert!(
+            text.contains("restart the node with --data-dir on another drive"),
+            "{text}"
+        );
+        assert!(!text.contains("cluster_block_exception"), "{text}");
+        assert!(!text.contains("XERJ returned HTTP"), "{text}");
+    }
+
+    /// A memory-store 400 is not a full disk. The HTTP wrapper stays.
+    #[tokio::test]
+    async fn memory_store_validation_error_is_not_a_flood_message() {
+        let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let addr = listener.local_addr().unwrap();
+        answer_once(
+            listener,
+            "400 Bad Request",
+            r#"{"error":{"type":"memory_error","reason":"a memory must have non-empty `text` or a `vector`"},"status":400}"#,
+        )
+        .await;
+        let ctx = Ctx {
+            client: reqwest::Client::new(),
+            base_url: format!("http://{addr}"),
+            auth: None,
+        };
+        let msg = json!({
+            "params": {
+                "name": "xerj_memory_store",
+                "arguments": { "namespace": "notes", "text": "remember this" }
+            }
+        });
+        let res = call_tool(&ctx, &msg).await;
+        assert_eq!(res["isError"], true, "{res}");
+        let text = res["content"][0]["text"].as_str().unwrap();
+        assert!(text.contains("XERJ returned HTTP 400"), "{text}");
+        assert!(text.contains("non-empty"), "{text}");
+        assert!(!text.contains("nearly full"), "{text}");
+        assert!(!text.contains("--data-dir"), "{text}");
     }
 
     #[test]
@@ -3616,7 +3842,7 @@ mod tests {
             {"_id":"s","_score":30.0,"_source":{"ax_path":"tests/contract.rs"}},
             {"_id":"x","_score":1.0,"_source":{"ax_path":"src/extra.rs"}}
         ]}}"#;
-        let text = apply_search_path_demotion(raw, 3);
+        let text = apply_search_path_demotion(raw, 3, "");
         let resp: Value = serde_json::from_str(&text).unwrap();
         let paths: Vec<&str> = resp["hits"]["hits"]
             .as_array()
@@ -3634,7 +3860,7 @@ mod tests {
         );
         assert_eq!(resp["hits"]["hits"][2]["_score"], json!(6.0));
         assert_eq!(resp["hits"]["hits"][1]["_score"], json!(9.0));
-        assert_eq!(apply_search_path_demotion("not json", 3), "not json");
+        assert_eq!(apply_search_path_demotion("not json", 3, ""), "not json");
     }
 
     /// A numeric mapping of a code field drops that leg (#1284 via #1601):
@@ -4124,7 +4350,7 @@ mod tests {
     }
 
     #[test]
-    fn exactly_the_six_search_tools_advertise_max_tokens() {
+    fn search_tools_advertise_their_budget_contracts() {
         let specs = tool_specs();
         let search_tools = [
             "xerj_def",
@@ -4164,6 +4390,15 @@ mod tests {
                         .unwrap_or(false),
                     "{name}: `max_tokens` is optional"
                 );
+            } else if name == "xerj_batch_search" {
+                // Unlike the single-search adapter, a batch must preserve
+                // every item's outcome and refuse an undersized envelope.
+                let d = prop["description"].as_str().expect("described");
+                assert!(d.contains(token_budget::TOKENIZER_NAME), "{d}");
+                assert!(d.contains("NEVER exceeds"), "{d}");
+                assert!(d.contains("ordered item outcomes"), "{d}");
+                assert!(d.contains("Refuses"), "{d}");
+                assert_eq!(prop["minimum"], token_budget::MIN_MAX_TOKENS);
             } else if name == "xerj_hub_ask" {
                 // The hub's own budget (docs/hub-v2-grpc-mcp-notes.md): the
                 // `xerj ask --max-tokens` cap, a SOFT ~4-chars-a-token trim of
@@ -5156,7 +5391,7 @@ mod tests {
             .iter()
             .map(|t| t["name"].as_str().unwrap())
             .collect();
-        assert_eq!(names.len(), 21);
+        assert_eq!(names.len(), 22);
         for n in [
             "xerj_def",
             "xerj_search",
@@ -5272,23 +5507,23 @@ mod tests {
                 .collect()
         };
         let without = names(false);
-        assert_eq!(without.len(), 18, "{without:?}");
+        assert_eq!(without.len(), 19, "{without:?}");
         assert!(
             without.iter().all(|n| !n.starts_with("xerj_hub_")),
             "{without:?}"
         );
         let with = names(true);
-        assert_eq!(with.len(), 21, "{with:?}");
+        assert_eq!(with.len(), 22, "{with:?}");
         for n in ["xerj_hub_find", "xerj_hub_def", "xerj_hub_ask"] {
             assert!(with.iter().any(|name| name == n), "missing {n}");
         }
 
         let help = tools_paragraph(false);
-        assert!(help.contains("proxies 18 tools"), "{help}");
+        assert!(help.contains("proxies 19 tools"), "{help}");
         assert!(!help.contains("xerj_hub_"), "{help}");
         assert!(help.contains("~/xerj-data"), "{help}");
         let help = tools_paragraph(true);
-        assert!(help.contains("proxies 21 tools"), "{help}");
+        assert!(help.contains("proxies 22 tools"), "{help}");
         assert!(help.contains("xerj_hub_ask"), "{help}");
         assert!(help.contains("serves 3 Corpus Hub tools"), "{help}");
     }
@@ -5521,5 +5756,156 @@ mod tests {
             Some("ApiKey real-key"),
             "an empty candidate must be skipped over, not stop the search"
         );
+    }
+
+    /// #2339: MCP `xerj_code_search` is the same renderer as `xerj code`.
+    /// An own corpus keeps UNKNOWN in the header and drops the do-not-copy
+    /// banner. The same passage from a corpus that is not marked own still
+    /// carries the banner.
+    #[test]
+    fn code_search_own_corpus_omits_the_unidentified_copy_banner() {
+        let home = tempfile::tempdir().unwrap();
+        let previous = std::env::var("XERJ_CODE_HOME").ok();
+        std::env::set_var("XERJ_CODE_HOME", home.path());
+        struct Restore(Option<String>);
+        impl Drop for Restore {
+            fn drop(&mut self) {
+                match &self.0 {
+                    Some(value) => std::env::set_var("XERJ_CODE_HOME", value),
+                    None => std::env::remove_var("XERJ_CODE_HOME"),
+                }
+            }
+        }
+        let _restore = Restore(previous);
+
+        let write_corpus = |name: &str, own: bool| {
+            let dir = home.path().join("corpora").join(name);
+            std::fs::create_dir_all(dir.join("myrepo")).unwrap();
+            let own_json = if own { ",\"own\":true" } else { "" };
+            std::fs::write(
+                dir.join("corpus.json"),
+                format!(
+                    "{{\"corpus\":\"{name}\"{own_json},\"repos\":[{{\"repo\":\"myrepo\",\"url\":\"u\",\"licence\":\"UNKNOWN\"}}]}}"
+                ),
+            )
+            .unwrap();
+            std::fs::create_dir_all(home.path().join("state")).unwrap();
+            // An unparsable stamp disables the age refusal; this test is
+            // about the banner, not the clock.
+            std::fs::write(
+                home.path().join("state").join(format!("{name}.json")),
+                format!(
+                    "{{\"corpus\":\"{name}\",\"indexed_at\":\"fresh\",\"prefix\":\"xc-{name}\",\"url\":\"u\",\"autoindex_exit\":0,\"salvaged\":false,\"build\":\"b1\",\"index_prefix\":\"xc-{name}-b1\",\"state_dir\":\"/tmp/s\"}}"
+                ),
+            )
+            .unwrap();
+        };
+        write_corpus("owned", true);
+        write_corpus("other", false);
+
+        let listener = std::net::TcpListener::bind("127.0.0.1:0").unwrap();
+        listener.set_nonblocking(true).unwrap();
+        let address = listener.local_addr().unwrap();
+        let server = std::thread::spawn(move || {
+            let mapping = r#"{"idx":{"mappings":{"properties":{"body":{"type":"text"}}}}}"#;
+            let hit = r#"{"hits":{"hits":[{"_score":4.0,"_source":{"ax_path":"myrepo/src/lib.rs","line":1,"body":"fn mine() {}\n"}}]}}"#;
+            let cat = r#"[{"index":"xc-owned-b1-000"}]"#;
+            let started = std::time::Instant::now();
+            let mut served = 0;
+            while served < 6 && started.elapsed() < std::time::Duration::from_secs(20) {
+                let (mut sock, _) = match listener.accept() {
+                    Ok(pair) => pair,
+                    Err(err) if err.kind() == std::io::ErrorKind::WouldBlock => {
+                        std::thread::sleep(std::time::Duration::from_millis(20));
+                        continue;
+                    }
+                    Err(_) => break,
+                };
+                sock.set_nonblocking(false).unwrap();
+                served += 1;
+                sock.set_read_timeout(Some(std::time::Duration::from_secs(5)))
+                    .unwrap();
+                let mut buf = Vec::new();
+                let mut tmp = [0u8; 4096];
+                loop {
+                    match std::io::Read::read(&mut sock, &mut tmp) {
+                        Ok(0) => break,
+                        Ok(n) => {
+                            buf.extend_from_slice(&tmp[..n]);
+                            if let Some(header_end) = buf.windows(4).position(|w| w == b"\r\n\r\n")
+                            {
+                                let headers = String::from_utf8_lossy(&buf[..header_end]);
+                                let length = headers.lines().find_map(|line| {
+                                    let rest = line
+                                        .split_once(':')
+                                        .filter(|(name, _)| {
+                                            name.eq_ignore_ascii_case("content-length")
+                                        })?
+                                        .1;
+                                    rest.trim().parse::<usize>().ok()
+                                });
+                                let body_at = header_end + 4;
+                                if let Some(length) = length {
+                                    while buf.len() < body_at + length {
+                                        match std::io::Read::read(&mut sock, &mut tmp) {
+                                            Ok(0) | Err(_) => break,
+                                            Ok(n) => buf.extend_from_slice(&tmp[..n]),
+                                        }
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                        Err(_) => break,
+                    }
+                }
+                let head = String::from_utf8_lossy(&buf);
+                let body = if head.contains("_cat/indices") {
+                    cat
+                } else if head.contains("_mapping") {
+                    mapping
+                } else {
+                    hit
+                };
+                let response = format!(
+                    "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
+                    body.len()
+                );
+                let _ = std::io::Write::write_all(&mut sock, response.as_bytes());
+            }
+        });
+
+        let ctx = Ctx {
+            client: reqwest::Client::new(),
+            base_url: format!("http://{address}"),
+            auth: None,
+        };
+        let owned = block_on(call_tool(
+            &ctx,
+            &json!({"params": {"name": "xerj_code_search", "arguments": {
+                "corpus": "owned", "query": "fn mine"
+            }}}),
+        ));
+        let other = block_on(call_tool(
+            &ctx,
+            &json!({"params": {"name": "xerj_code_search", "arguments": {
+                "corpus": "other", "query": "fn mine"
+            }}}),
+        ));
+        server.join().unwrap();
+
+        let owned_text = tool_body(&owned);
+        let other_text = tool_body(&other);
+        assert_eq!(owned["isError"], false, "{owned_text}");
+        assert_eq!(other["isError"], false, "{other_text}");
+        assert!(owned_text.contains(", UNKNOWN)"), "{owned_text}");
+        assert!(owned_text.contains("fn mine()"), "{owned_text}");
+        assert!(!owned_text.contains("!!"), "{owned_text}");
+        assert!(!owned_text.contains("do not copy"), "{owned_text}");
+        assert!(
+            other_text.contains("!! UNKNOWN: adapt the APPROACH, do not copy the code"),
+            "{other_text}"
+        );
+        assert!(other_text.contains(", UNKNOWN)"), "{other_text}");
     }
 }

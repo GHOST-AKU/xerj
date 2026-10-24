@@ -1475,6 +1475,7 @@ catalogue could not be loaded (hub unreachable, no signed catalogue served, or
 pub const KNOWN_SUBCOMMANDS: &[&str] = &[
     "index",
     "search",
+    "batch-search",
     "def",
     "init",
     "gain",
@@ -1482,6 +1483,7 @@ pub const KNOWN_SUBCOMMANDS: &[&str] = &[
     "brain",
     "share",
     "feedback",
+    "memory",
     "code",
     "corpus",
     "hub",
@@ -2267,6 +2269,7 @@ mod tests {
             "brain",
             "share",
             "feedback",
+            "memory",
             "code",
             "corpus",
             "hub",
