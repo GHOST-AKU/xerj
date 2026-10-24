@@ -126,6 +126,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `xerj search` and MCP `xerj_search` print a hint when the autoindex of a
+  folder on this machine is older than the files there. The hint names the
+  last index time and `xerj autoindex <folder> --prefix <name>`. Passages
+  are printed along with the hint. `xerj code`'s 30-day ledger refusal is
+  unchanged. The check reads the catalog run (`summary_generated_at`, or
+  `started` when the summary stamp is absent) and stats at most 4096
+  entries, newest directory first, stopping after 100ms. Hidden names,
+  `.gitignore` / `.xerjignore` / built-in ignores, and a folder that is not
+  on this machine produce no hint
+  ([#2345](https://github.com/xerj-org/xerj/issues/2345)).
+
 - `xerj autoindex` indexes `.sql` schema, migration, and routine files as
   code. `CREATE TABLE` / `VIEW` / `FUNCTION` / `PROCEDURE` / `INDEX` /
   `TRIGGER` / `TYPE` / `SCHEMA` / `SEQUENCE` become symbols, and the source
