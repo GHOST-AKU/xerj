@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XERJ.ai — Blog: the engineering log</title>
-<meta name="description" content="The rc.99 launch post: 102 days from the first tag, what shipped, and the rc.97 and rc.98 notes. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.">
+<meta name="description" content="The rc.99 launch post: smart, resource-aware autoindex and more harness tools. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="XERJ.ai">
 <meta property="og:type" content="website">
 <meta property="og:title" content="XERJ.ai — Blog: the engineering log">
-<meta property="og:description" content="The rc.99 launch post: 102 days from the first tag, what shipped, and the rc.97 and rc.98 notes. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.">
+<meta property="og:description" content="The rc.99 launch post: smart, resource-aware autoindex and more harness tools. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.">
 <meta property="og:url" content="https://xerj.org/blog/">
 <meta property="og:image" content="https://xerj.org/og/xerj-card.png">
 <meta property="og:image:width" content="1200">
@@ -37,7 +37,7 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="XERJ.ai — Blog: the engineering log">
-<meta name="twitter:description" content="The rc.99 launch post: 102 days from the first tag, what shipped, and the rc.97 and rc.98 notes. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.">
+<meta name="twitter:description" content="The rc.99 launch post: smart, resource-aware autoindex and more harness tools. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.">
 <meta name="twitter:image" content="https://xerj.org/og/xerj-card.png">
 <script type="application/ld+json">
 {
@@ -71,11 +71,11 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "XERJ.ai — Blog: the engineering log",
-  "description": "The rc.99 launch post: 102 days from the first tag, what shipped, and the rc.97 and rc.98 notes. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.",
+  "description": "The rc.99 launch post: smart, resource-aware autoindex and more harness tools. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.",
   "url": "https://xerj.org/blog/",
   "image": "https://xerj.org/og/xerj-card.png",
   "inLanguage": "en",
-  "dateModified": "2026-10-23",
+  "dateModified": "2026-10-24",
   "isPartOf": {
     "@id": "https://xerj.org/#website"
   },
@@ -142,16 +142,16 @@
        Move to a generator only past ~10 posts. -->
   <ol class="blog-list">
     <li>
-      <a class="bl-card" href="/blog/rc99-102-days">
-        <img class="bl-thumb" src="/blog/covers/rc99-102-days-thumb.webp" width="640" height="336" alt="Cover art: 102 small squares in six rows of seventeen, the first ink and the last yellow" loading="lazy" decoding="async">
+      <a class="bl-card" href="/blog/rc99-smart-autoindex-harness-tools">
+        <img class="bl-thumb" src="/blog/covers/rc99-smart-autoindex-harness-tools-thumb.webp" width="640" height="336" alt="Cover art: eight large squares for the 8 GiB tier, the first two yellow for the 2 GiB memtable budget, beside eight small squares for the 8 MiB document ceiling and one outlined square for JSON streamed past 64 MiB" loading="lazy" decoding="async">
         <div class="bl-meta">
           <p class="bl-date"><time datetime="2026-10-23">2026-10-23</time> · RELEASE · V1.0.0-RC.99</p>
-          <h2 class="bl-title">Release candidate 99, 102 days from the first tag</h2>
-          <p class="bl-excerpt">v1.0.0-rc.99 is the public launch. The <code>v1.0.0-rc.1</code> tag is dated
-          <strong>2026-07-13</strong>; this release day is <strong>2026-10-23</strong>, <strong>102 days</strong>
-          later. Cluster replication advanced in three pull requests, and <strong>#1170</strong> is still open.
-          x86_64 builds no longer require AVX2. The rc.98 and rc.97 notes that never had posts of their own
-          are in the same piece, including CVE-2026-97406 and Corpus Hub v2.</p>
+          <h2 class="bl-title">rc.99: smart, resource-aware autoindex and more harness tools</h2>
+          <p class="bl-excerpt">v1.0.0-rc.99 is the public launch. Autoindex drains memtable pressure on the
+          <strong>8 GiB</strong> tier, packs embeddings, and streams or refuses an oversized JSON
+          document. <strong>#1122</strong> stays open. The harness gained <code>xerj_def</code>, a
+          search prefix, matched-line citations, a DeepSeek Harness profile bundle, and a Cline row
+          marked tested. This is the 98th tagged release, just over 100 days since rc.1.</p>
           <p class="bl-byline">AUTHOR · XERJ ENGINEERING · PUBLISHED · 2026-10-23</p>
           <span class="bl-read">READ THE POST &rarr;</span>
         </div>

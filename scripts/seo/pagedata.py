@@ -221,16 +221,17 @@ PAGES: dict[str, dict[str, str]] = {
     # 2026-10-20 refresh before publishing: repo stars/forks/contributors, hub
     # stars (/api/hub-stars) and the Releases pack count (245 -> 251) re-read;
     # contributor totals and the top-ten table re-checked, unchanged.
-    # rc.99 launch post, 2026-10-23. Day span is the v1.0.0-rc.1 tagger
-    # date (2026-07-13) to this release day: 102 days. Tag census and the
-    # rc.98 pull-request count are from git, recorded in the post.
-    "blog/rc99-102-days.html": dict(
-        label="Release candidate 99", kind="article",
-        title="Release candidate 99, 102 days from the first tag",
-        description="v1.0.0-rc.99 is the public launch, 102 days after the 2026-07-13 tag. Cluster replication advanced with #1170 still open. The missed rc notes are here.",
-        published="2026-10-23", updated="2026-10-23",
-        og_image="og/blog-rc99-102-days.png",
-        og_image_alt="Cover: “Release candidate 99” in display type beside the post’s square-matrix art, labelled 102 days. The art: 102 small squares in six rows of seventeen, the first ink and the last yellow",
+    # rc.99 launch post, 2026-10-23. Headline chosen by the owner.
+    # Tag census: 97 v1.0.0-rc.* tags through rc.98 (rc.79 never tagged),
+    # so rc.99 is the 98th tagged release. The post says "just over 100
+    # days since rc.1" and does not print a day count taken from the tag date.
+    "blog/rc99-smart-autoindex-harness-tools.html": dict(
+        label="rc.99", kind="article",
+        title="rc.99: smart, resource-aware autoindex and more harness tools",
+        description="v1.0.0-rc.99 makes autoindex respect the machine: memtable drain on the 8 GiB tier, packed embeddings, streamed oversized JSON. More harness tools. #1122 stays open.",
+        published="2026-10-23", updated="2026-10-24",
+        og_image="og/blog-rc99-smart-autoindex-harness-tools.png",
+        og_image_alt="Cover: “rc.99” in display type beside the post’s square-matrix art, labelled 8 GiB and 2 GiB. The art: eight large squares for the 8 GiB tier, the first two yellow for the 2 GiB memtable budget, beside eight small squares for the 8 MiB document ceiling and one outlined square for JSON streamed past 64 MiB",
     ),
     "blog/corpus-hub-v2.html": dict(
         label="Corpus Hub v2", kind="article",
@@ -243,8 +244,8 @@ PAGES: dict[str, dict[str, str]] = {
     "blog/index.html": dict(
         label="Blog", kind="collection",
         title="XERJ.ai — Blog: the engineering log",
-        description="The rc.99 launch post: 102 days from the first tag, what shipped, and the rc.97 and rc.98 notes. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.",
-        updated="2026-10-23",
+        description="The rc.99 launch post: smart, resource-aware autoindex and more harness tools. Also Corpus Hub v2, the exploit hub, and the rc.80 gates.",
+        updated="2026-10-24",
     ),
     "demo/index.html": dict(
         label="Real-data demo", kind="software",
