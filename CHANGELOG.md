@@ -9,6 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- With `[cluster] enabled = true`, a single-document index or delete is
+  acknowledged when a quorum of the shard's copies has confirmed, not only
+  when every placed replica has. Copies are the primary plus the replicas
+  named by `index.number_of_replicas` at create. A quorum is
+  `copies / 2 + 1`, and the primary already counts, so one replica out of
+  two is enough. The replica that did not confirm is removed from the
+  in-sync set through the Raft log and is not used for a later read. Nothing
+  replays the writes it missed, so it stays out. `number_of_replicas` 0 or 1
+  is unchanged: there is no replica to wait for, or that one replica must
+  confirm. Fewer confirmations than the quorum is still HTTP 503
+  `replica_not_acknowledged` — the primary has the write, and retrying the
+  index copies it to the replicas still in sync. There is still no
+  `wait_for_active_shards`, no replica promotion, and no snapshot catch-up
+  for a node that missed the log (part of
+  [#1170](https://github.com/xerj-org/xerj/issues/1170)). Single-node mode
+  does not take this path.
+
+- A DeepSeek Harness profile bundle in `dsh/` (`xerj-dsh`, Apache-2.0)
+  inserts the README's `mcp-xerj` stdio row via
+  `@deepseek-ai/dsh-mcp-client`. The row is still untested on DSH.
+  `landing/brandbook/xerj-mark-400.png` is a 400×400 PNG of the letter
+  mark for directory submissions.
+
 - MCP `xerj_def` exposes local definition lookup, completing #2080 after the
   `xerj_search` prefix support. It shares `xerj def --json` query construction,
   mapping guards, ranking and location deduplication; accepts `symbol`,
@@ -35,6 +58,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   provider that swaps weights without changing the name, endpoint, or width
   is still not detectable
   ([#2306](https://github.com/xerj-org/xerj/issues/2306)).
+
+- `xerj autoindex` no longer aborts the node on one large JSON file (#1122).
+  A bulk whose analysis would cross the memory watermark is rejected with
+  HTTP 429 before the documents are parsed, so several in-flight bulks cannot
+  allocate their token strings together. Uncompressed JSON larger than 64 MiB
+  is read one value at a time; a value over the fixed 8 MiB document ceiling
+  is skipped with a note that names the file, its size, and that
+  `--max-file-mb` and `limits.max_process_memory_mb` do not raise that
+  ceiling. A file over the scan cap names its size and `--max-file-mb`.
 
 - `POST /{index}/_refresh` makes recent writes searchable without waiting for
   a background segment merge to finish, and a multi-index or wildcard refresh

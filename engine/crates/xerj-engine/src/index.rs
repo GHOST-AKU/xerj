@@ -11877,6 +11877,10 @@ impl Index {
             }
         }
 
+        // Charge the token spike before the batch is parsed. Eight bulks can
+        // pass one RSS sample and then analyze together; the reservation
+        // makes the second one 429 while the first is still allocating (#1122).
+        let analyze_reservation = Self::reserve_batch_analyze(validated.docs())?;
         let dom_t = std::time::Instant::now();
         let validated = crate::ingest_pool()
             .install(|| xerj_storage::IndexStore::parse_validated_raw_batch(validated))
@@ -12112,6 +12116,9 @@ impl Index {
                 p_insert_us = p_t.elapsed().as_micros();
             }
         }
+        // Tokens are in the memtable. Drop the estimate so the next batch
+        // is charged the live RSS of those tokens, not the estimate as well.
+        drop(analyze_reservation);
         drop(publication_schema);
 
         if prof {
@@ -12268,6 +12275,7 @@ impl Index {
             }
         }
 
+        let analyze_reservation = Self::reserve_batch_analyze(validated.docs())?;
         let _hnsw_publication = has_vector_mapping.then(|| self.begin_hnsw_publication());
         let index_start = std::time::Instant::now();
         let wal_t = std::time::Instant::now();
@@ -12459,6 +12467,7 @@ impl Index {
                 })
                 .collect()
         });
+        drop(analyze_reservation);
         // Single batch-level atomic instead of one per doc.  At 1.7 M/s
         // × 10 k batch = 170 batches/s this cuts ~17 M atomic ops/s of
         // cache-line bouncing on `doc_count`.
@@ -17949,6 +17958,11 @@ impl Index {
             xerj_ai::local::local_embed(text, dims)
         } else {
             // #530: name the offending field, symmetric with the knn 400 (#498).
+            // A concrete index keeps this 400. A wildcard, `_all`, or alias
+            // expansion is isolated by the search coordinator (#2305): those
+            // indices contribute no hits instead of failing the request.
+            // Do not soften this error here — the explicit-index contract is
+            // the 400, and the coordinator matches this reason text.
             return Err(EngineError::Common(xerj_common::XerjError::invalid_query(
                 format!(
                     "semantic query on field [{field}]: it is not a `semantic_text` field, so \
@@ -27109,6 +27123,21 @@ impl Index {
             g.check_ingest_admission().map_err(EngineError::Common)?;
         }
         Ok(())
+    }
+
+    /// Reserve headroom for the token spike of `docs` before they are parsed
+    /// (#1122). See [`crate::governor::analyze_reserve_bytes`]. No governor
+    /// reserves nothing, so an `Index` built directly in a unit test is unchanged.
+    fn reserve_batch_analyze(
+        docs: &[xerj_storage::RawJsonDoc],
+    ) -> Result<crate::governor::AnalyzeReservation> {
+        let Some(governor) = crate::governor::global() else {
+            return Ok(crate::governor::AnalyzeReservation::none());
+        };
+        let raw = docs.iter().map(|(_, bytes)| bytes.len() as u64).sum();
+        governor
+            .reserve_analyze(crate::governor::analyze_reserve_bytes(raw))
+            .map_err(EngineError::Common)
     }
 
     /// Every block name the `_block` API and `index.blocks.*` settings accept.
