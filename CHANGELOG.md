@@ -7,7 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Corpus Hub: `r2r-mcp` (Thneoly/r2r-jev @ 244ac9520db9), `r2r-enforce` (@ 10c2f8ff2fe0) and `admission-compare` (@ 7a439382d306), Apache-2.0 with attribution, from #2310.
+
 ### Fixed
+
+- Corpus Hub: `tangency-labs/solidcraft` was also recorded as `bherbruck/solidcraft` after the rename, so its stars were summed twice. The contributor ledger now uses the one repository URL.
+- Corpus Hub: `validate_hub.py` rejects an author-candidate push that omits the description, GitHub pin, attribution, star count, or a ledger row matching the manifest.
 
 - `xerj_map` applies index-name globs before its 100-dataset response cap, so
   unrelated larger datasets cannot hide a matching catalog entry.

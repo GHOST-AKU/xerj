@@ -1,0 +1,21 @@
+{
+ "corpus": "admission-compare",
+ "cloned_at": "2026-10-24T03:42:00Z",
+ "repos": [
+  {
+   "repo": "r2r-jev",
+   "url": "https://github.com/Thneoly/r2r-jev",
+   "licence": "Apache-2.0",
+   "sha": "7a439382d306ac8599b9cf613e967bf54c86d0f2",
+   "files": 28,
+   "bytes": 150413,
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "@Thneoly",
+    "at": "2026-10-24",
+    "note": "Sibling the author asked to include in xerj-org/xerj#2310, same Apache-2.0 attribution. LICENSE at 7a439382d306 is the Apache License 2.0. git ls-files at that pin: 28 files, 150413 bytes. The commit adds the admission-compare two-arm experiment."
+   }
+  }
+ ]
+}

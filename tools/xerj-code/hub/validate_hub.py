@@ -177,6 +177,117 @@ for path in manifests:
         if review.get("at") and not re.match(r"^\d{4}-\d{2}-\d{2}$", review["at"]):
             err(f"{where}: review.at must be YYYY-MM-DD")
 
+# ── Author-approved candidates ────────────────────────────────────────────
+# candidates/authors/ is not a live registry (review.use may be UNREVIEWED
+# until G4), but a push still has to be internally consistent: one manifest
+# per slug, a GitHub pin, a description, attribution, a star count, and a
+# ledger row whose repo URL matches. Two repo URLs under one slug double-count
+# stars (bherbruck/solidcraft and tangency-labs/solidcraft were one rename).
+AUTHORS = HUB / "candidates" / "authors"
+CANDIDATE_USE = LEGAL_USE | {"UNREVIEWED"}
+CANDIDATE_AT = re.compile(r"^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2})?Z)?$")
+CANDIDATE_LOGIN = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$")
+GH_REPO = re.compile(r"^https://github\.com/([^/\s]+)/([^/\s#?]+?)(?:\.git)?/?$", re.I)
+LEDGER_MAX = 5 * 1024 * 1024
+
+
+def _repo_url(url: object) -> str:
+    return str(url or "").strip().rstrip("/").removesuffix(".git").lower()
+
+
+author_files = sorted(AUTHORS.glob("*.json")) if AUTHORS.is_dir() else []
+ledger_rows: dict[str, list[dict]] = {}
+if AUTHORS.is_dir():
+    ledgers = sorted(AUTHORS.glob("CONTRIBUTORS*.jsonl"))
+    if not ledgers:
+        err(f"{AUTHORS.relative_to(ROOT)}: no CONTRIBUTORS*.jsonl ledger")
+    for ledger in ledgers:
+        if ledger.stat().st_size > LEDGER_MAX:
+            err(f"{ledger.relative_to(ROOT)}: {ledger.stat().st_size} bytes exceeds the {LEDGER_MAX}-byte ledger limit")
+        for n, line in enumerate(ledger.read_text().splitlines(), 1):
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError as e:
+                err(f"{ledger.relative_to(ROOT)}:{n}: not valid JSON ({e})")
+                continue
+            slug = row.get("corpus")
+            if not isinstance(slug, str) or not slug:
+                err(f"{ledger.relative_to(ROOT)}:{n}: missing corpus")
+                continue
+            ledger_rows.setdefault(slug, []).append(row)
+
+seen_author_slugs: set[str] = set()
+for path in author_files:
+    rel = path.relative_to(ROOT)
+    try:
+        data = json.loads(path.read_text())
+    except json.JSONDecodeError as e:
+        err(f"{rel}: not valid JSON ({e})")
+        continue
+    slug = data.get("corpus")
+    if slug != path.stem:
+        err(f"{rel}: corpus field {slug!r} must equal the filename {path.stem!r}")
+        continue
+    if slug in seen_author_slugs:
+        err(f"{rel}: duplicate candidate slug {slug!r}")
+    seen_author_slugs.add(slug)
+    if not isinstance(data.get("domain"), str) or not data["domain"].strip():
+        err(f"{rel}: missing domain (the description an agent would query)")
+    repos = data.get("repos")
+    if not isinstance(repos, list) or len(repos) != 1 or not isinstance(repos[0], dict):
+        err(f"{rel}: repos must be a one-element list")
+        continue
+    repo = repos[0]
+    where = f"{rel}: repos[0]"
+    url = repo.get("url")
+    if not isinstance(url, str) or not GH_REPO.match(url.strip()):
+        err(f"{where}: url must be https://github.com/<owner>/<repo>")
+    sha = repo.get("sha") or ""
+    if not SHA_RE.match(sha):
+        err(f"{where}: sha must be full 40-hex, got {sha!r}")
+    if not repo.get("licence"):
+        err(f"{where}: missing licence")
+    review = repo.get("review")
+    if not isinstance(review, dict):
+        err(f"{where}: missing review block")
+    else:
+        use = review.get("use")
+        if use not in CANDIDATE_USE:
+            err(f"{where}: review.use must be one of {sorted(CANDIDATE_USE)} or UNREVIEWED, got {use!r}")
+        if use in LEGAL_USE:
+            for field in ("spdx", "by", "at"):
+                if not review.get(field):
+                    err(f"{where}: review missing {field}")
+            if review.get("at") and not CANDIDATE_AT.match(review["at"]):
+                err(f"{where}: review.at must be YYYY-MM-DD or an ISO minute, got {review.get('at')!r}")
+    rows_for = ledger_rows.get(slug) or []
+    if not rows_for:
+        err(f"{rel}: no ledger row in CONTRIBUTORS*.jsonl (no attribution, stars, or contributor page)")
+        continue
+    urls = {_repo_url(r.get("repo_url")) for r in rows_for}
+    if len(urls) != 1:
+        err(f"{rel}: ledger rows name {sorted(urls)} — one corpus slug must be one repository URL")
+    elif _repo_url(url) and _repo_url(url) not in urls:
+        err(f"{rel}: manifest url {url!r} does not match the ledger ({next(iter(urls))})")
+    pins = set()
+    for r in rows_for:
+        pin = (r.get("pin") or {}).get("sha") or (r.get("contribution") or {}).get("commit") or ""
+        if pin:
+            pins.add(pin.lower())
+        who = (r.get("contributor") or {}).get("login") or ""
+        if not CANDIDATE_LOGIN.match(who):
+            err(f"{rel}: contributor login {who!r} is not a GitHub login")
+        if not isinstance(r.get("repo_stars"), int):
+            err(f"{rel}: repo_stars must be an integer, got {r.get('repo_stars')!r}")
+    if sha and sha.lower() not in pins:
+        err(f"{rel}: manifest sha {sha[:12]} is not a ledger pin")
+
+for slug, rows_for in sorted(ledger_rows.items()):
+    if slug not in seen_author_slugs and slug not in {p.stem for p in manifests}:
+        err(f"candidates/authors ledger: {slug} has no manifest")
+
 # ── Lane B: pack recipes ──────────────────────────────────────────────────
 recipes = sorted(p for p in PACKS.glob("*/recipe.toml")
                  if p.parent.name != "TEMPLATE-recipe")

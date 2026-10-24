@@ -1131,6 +1131,64 @@ class BuiltSiteDiscoverabilityTest(SiteLinksTest):
         self.assertIn(">Copy the prompt</button>", h)
         self.assertIn("xerj autoindex", h)
 
+    def test_issue_2310_corpora_link_contributors_and_carry_seo(self):
+        """r2r-mcp, r2r-enforce and admission-compare (Thneoly/r2r-jev, #2310)
+        are live registry pages: catalogue fields, contributor links both ways,
+        and the same SEO block every other corpus page gets."""
+        slugs = ("r2r-mcp", "r2r-enforce", "admission-compare")
+        reg = {c["slug"]: c for c in gen.load_registry()}
+        llms = (self.out / "llms.txt").read_text()
+        home = (self.out / "index.html").read_text()
+        cat = (self.out / "category" / "AI.html").read_text()
+        search = json.loads((self.out / "search" / "index.json").read_text())
+        by_slug = {}
+        for row in search["c"]:
+            by_slug.setdefault(row[0], row)
+        person = (self.out / "contributors" / "Thneoly.html").read_text()
+        pins = {
+            "r2r-mcp": "244ac9520db91c822a26f385a6b3bc6d4fa426a0",
+            "r2r-enforce": "10c2f8ff2fe0e180227428a8f5b45ba7847d8d84",
+            "admission-compare": "7a439382d306ac8599b9cf613e967bf54c86d0f2",
+        }
+        for slug in slugs:
+            c = reg[slug]
+            self.assertEqual(c["status"], "live", slug)
+            self.assertEqual(c["repos"][0]["url"], "https://github.com/Thneoly/r2r-jev")
+            self.assertEqual(c["repos"][0]["sha"], pins[slug])
+            self.assertEqual(c["repos"][0]["review"]["spdx"], "Apache-2.0")
+            self.assertEqual(c["repos"][0]["review"]["use"], "adapt-with-attribution")
+            self.assertTrue(c["usecase"].strip(), slug)
+            h, t, d = self._meta(f"corpus/{slug}.html")
+            self.assertLessEqual(len(t), 62, t)
+            self.assertGreaterEqual(len(d), 40, d)
+            self.assertIn(f'href="https://hub.xerj.org/corpus/{slug}"', h)
+            self.assertIn('property="og:image" content="https://hub.xerj.org/assets/og.png"', h)
+            self.assertIn('name="twitter:card" content="summary_large_image"', h)
+            types = set()
+            for b in re.findall(r'<script type="application/ld\+json">\n(.*?)\n</script>', h, re.S):
+                def walk(x):
+                    if isinstance(x, dict):
+                        if "@type" in x:
+                            types.add(x["@type"])
+                        for v in x.values():
+                            walk(v)
+                    elif isinstance(x, list):
+                        for v in x:
+                            walk(v)
+                walk(json.loads(b))
+            self.assertTrue({"Dataset", "SoftwareSourceCode", "BreadcrumbList"} <= types, types)
+            self.assertIn('href="../contributors/Thneoly"', h)
+            self.assertIn(f'href="../corpus/{slug}"', person)
+            self.assertIn(f"[{slug}](https://hub.xerj.org/corpus/{slug})", llms)
+            self.assertIn(f'href="corpus/{slug}"', home)
+            self.assertIn(f'href="../corpus/{slug}"', cat)
+            self.assertEqual(by_slug[slug][1], "Thneoly/r2r-jev")
+            self.assertEqual(by_slug[slug][4], "live")
+            self.assertIn(f"https://hub.xerj.org/corpus/{slug}", (self.out / "sitemap-corpora.xml").read_text())
+        self.assertIn('"@type": "ProfilePage"', person)
+        self.assertIn('"@type": "Person"', person)
+        self.assertIn('href="https://hub.xerj.org/contributors/Thneoly"', person)
+
     def test_registry_page_title_names_the_repo_and_has_crumbs(self):
         h, t, d = self._meta("corpus/12-factor-agents.html")
         self.assertTrue(t.startswith("humanlayer/12-factor-agents: "), t)

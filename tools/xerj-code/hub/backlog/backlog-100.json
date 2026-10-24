@@ -13390,6 +13390,72 @@
      "sandboxing"
     ]
    }
+  },
+  {
+   "cat": "AI",
+   "domain": "an agent wiring governance into an MCP client queries this for how r2r-mcp exposes observe, decide and explain over R2R relation state on stdio",
+   "lane": "A",
+   "refresh": "pinned",
+   "slug": "r2r-mcp",
+   "sources": [
+    {
+     "licence_hint": "Apache-2.0 \u2014 author confirmation in #2310, LICENSE at 244ac9520db9",
+     "url": "https://github.com/Thneoly/r2r-jev"
+    }
+   ],
+   "status": "live",
+   "tags": {
+    "region": "GLOBAL",
+    "topics": [
+     "mcp",
+     "governance",
+     "agents"
+    ]
+   }
+  },
+  {
+   "cat": "AI",
+   "domain": "an agent closing the decision/execution gap queries this for how r2r-enforce binds an execution to the governance decision and state version that authorized it",
+   "lane": "A",
+   "refresh": "pinned",
+   "slug": "r2r-enforce",
+   "sources": [
+    {
+     "licence_hint": "Apache-2.0 \u2014 author confirmation in #2310, LICENSE at 10c2f8ff2fe0",
+     "url": "https://github.com/Thneoly/r2r-jev"
+    }
+   ],
+   "status": "live",
+   "tags": {
+    "region": "GLOBAL",
+    "topics": [
+     "governance",
+     "enforcement",
+     "agents"
+    ]
+   }
+  },
+  {
+   "cat": "AI",
+   "domain": "an agent comparing evidence admission with a direct threshold queries this for how admission-compare runs the two-arm experiment over CSV judgment traces",
+   "lane": "A",
+   "refresh": "pinned",
+   "slug": "admission-compare",
+   "sources": [
+    {
+     "licence_hint": "Apache-2.0 \u2014 author confirmation in #2310, LICENSE at 7a439382d306",
+     "url": "https://github.com/Thneoly/r2r-jev"
+    }
+   ],
+   "status": "live",
+   "tags": {
+    "region": "GLOBAL",
+    "topics": [
+     "evaluation",
+     "admission",
+     "agents"
+    ]
+   }
   }
  ],
  "lanes": [
