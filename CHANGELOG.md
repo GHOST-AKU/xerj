@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- A DeepSeek Harness profile bundle in `dsh/` (`xerj-dsh`, Apache-2.0)
+  inserts the README's `mcp-xerj` stdio row via
+  `@deepseek-ai/dsh-mcp-client`. The row is still untested on DSH.
+  `landing/brandbook/xerj-mark-400.png` is a 400×400 PNG of the letter
+  mark for directory submissions.
+
 - MCP `xerj_def` exposes local definition lookup, completing #2080 after the
   `xerj_search` prefix support. It shares `xerj def --json` query construction,
   mapping guards, ranking and location deduplication; accepts `symbol`,
@@ -32,6 +38,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `eta_quality=stalled` when a phase with a known total completes nothing
   (including 0/N), and when a phase with no total has been silent for 10
   minutes (#1981).
+
+- `xerj autoindex` no longer aborts the node on one large JSON file (#1122).
+  A bulk whose analysis would cross the memory watermark is rejected with
+  HTTP 429 before the documents are parsed, so several in-flight bulks cannot
+  allocate their token strings together. Uncompressed JSON larger than 64 MiB
+  is read one value at a time; a value over the fixed 8 MiB document ceiling
+  is skipped with a note that names the file, its size, and that
+  `--max-file-mb` and `limits.max_process_memory_mb` do not raise that
+  ceiling. A file over the scan cap names its size and `--max-file-mb`.
 
 - `POST /{index}/_refresh` makes recent writes searchable without waiting for
   a background segment merge to finish, and a multi-index or wildcard refresh
