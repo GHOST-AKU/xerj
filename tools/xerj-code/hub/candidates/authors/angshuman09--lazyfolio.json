@@ -1,0 +1,23 @@
+{
+ "corpus": "angshuman09--lazyfolio",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on nextjs, prisma, typescript queries this for how Angshuman09/LazyFolio implements it: The easiest way to showcase what you build (selected work: app/dashboard, app/api, lib)",
+ "repos": [
+  {
+   "repo": "LazyFolio",
+   "url": "https://github.com/Angshuman09/LazyFolio",
+   "sha": "4081b3fddbfc3f6d8d47db9354ad6134c7fff6b7",
+   "licence": "MIT (LICENSE file at pin 4081b3fddbfc, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:35Z",
+    "consent_receipt": "20db9912c34a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:35Z (receipt 20db9912c34a); selected commit 4081b3fddbfc: \"create a new page for article editor\". LICENSE file at pin 4081b3fddbfc detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

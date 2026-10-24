@@ -9,13 +9,14 @@
    "repo": "Mirlow",
    "url": "https://github.com/franciscogfsm/Mirlow",
    "sha": "e1a6815ebbfd00d32278ab075c9ee0ca7b5e389c",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin e1a6815ebbfd, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit e1a6815ebbfd: \"mroe imrpvoments\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T09:03Z",
+    "consent_receipt": "afba8e6c7c9e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T09:03Z (receipt afba8e6c7c9e); selected commit e1a6815ebbfd: \"mroe imrpvoments\". LICENSE file at pin e1a6815ebbfd detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

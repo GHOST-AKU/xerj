@@ -2,20 +2,21 @@
  "corpus": "l3gitfoxy--momento",
  "cloned_at": null,
  "status": "draft",
- "shelf": "WEB",
- "domain": "an agent working on JavaScript queries this for how L3gitFoxy/Momento implements it: A cool lil' app / website to help you plan out your days! (selected work: the project root)",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how L3gitFoxy/Momento implements it: You need a reason to stick with the plan, not another list of tasks . Most planners track what you should do Momento makes you want to do it (selected work: the project root)",
  "repos": [
   {
    "repo": "Momento",
    "url": "https://github.com/L3gitFoxy/Momento",
    "sha": "d3149fa62eb7b6431856aa2c7fb40505b709b051",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin d3149fa62eb7, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit d3149fa62eb7: \"Updated files\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T10:29Z",
+    "consent_receipt": "cbacf828e677",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T10:29Z (receipt cbacf828e677); selected commit d3149fa62eb7: \"Updated files\". LICENSE file at pin d3149fa62eb7 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

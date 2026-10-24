@@ -9,13 +9,14 @@
    "repo": "jazz",
    "url": "https://github.com/lvndry/jazz",
    "sha": "3dbd4dd8cdd8dd0e88107236bb1224526b6d4965",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 3dbd4dd8cdd8, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 3dbd4dd8cdd8: \"perf(chat): keep per-token transcript cost flat as a chat grows (#884)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T06:41Z",
+    "consent_receipt": "3c91d73a82d7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:41Z (receipt 3c91d73a82d7); selected commit 3dbd4dd8cdd8: \"perf(chat): keep per-token transcript cost flat as a chat grows (#884)\". LICENSE file at pin 3dbd4dd8cdd8 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

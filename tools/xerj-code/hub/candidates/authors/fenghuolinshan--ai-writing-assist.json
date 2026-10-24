@@ -9,13 +9,14 @@
    "repo": "ai-writing-assist",
    "url": "https://github.com/FengHuoLinShan/ai-writing-assist",
    "sha": "b6009d695f7c50de62f45c1a1af80712b95a4a53",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit b6009d695f7c: \"feat(frontend): add invalidation notice and recompute panel (P2-C)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "0a0bddd967d3",
+    "note": "author consent by email 2026-10-11T05:48Z (receipt 0a0bddd967d3); selected commit b6009d695f7c: \"feat(frontend): add invalidation notice and recompute panel (P2-C)\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

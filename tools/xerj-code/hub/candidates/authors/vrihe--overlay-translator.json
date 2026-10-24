@@ -1,0 +1,23 @@
+{
+ "corpus": "vrihe--overlay-translator",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on llm, overlay-tool, pyqt5 queries this for how Vrihe/Overlay-Translator implements it: Screen overlay translator: select any region (like Win+Shift+S) - OCR reads the text, an LLM translates it with context-aware prompts (games (selected work: translate, ui, tests)",
+ "repos": [
+  {
+   "repo": "Overlay-Translator",
+   "url": "https://github.com/Vrihe/Overlay-Translator",
+   "sha": "1502e37d385c56a1cf8a89abf73db14f60b048b7",
+   "licence": "hint only: MIT (LICENSE at pin: NONE)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "68d7811b5a48",
+    "note": "author consent by email 2026-10-22T09:30Z (receipt 68d7811b5a48); selected commit 1502e37d385c: \"added model version picker that lists hugging face tags, matches loca\u2026\"; LICENSE at pin: NONE vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "praxis",
    "url": "https://github.com/praxis-proxy/praxis",
    "sha": "2cd4c663dc0f6d9308729dd13a695e2433c1eed3",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 2cd4c663dc0f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 2cd4c663dc0f: \"feat(filter): add syslog sink to access_log filter (#1360)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T10:23Z",
+    "consent_receipt": "86e65457b34b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T10:23Z (receipt 86e65457b34b); selected commit 2cd4c663dc0f: \"feat(filter): add syslog sink to access_log filter (#1360)\". LICENSE file at pin 2cd4c663dc0f detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

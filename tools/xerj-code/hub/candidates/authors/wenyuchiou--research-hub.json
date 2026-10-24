@@ -9,13 +9,14 @@
    "repo": "research-hub",
    "url": "https://github.com/WenyuChiou/research-hub",
    "sha": "ac3ec19aff2bd7cfa5206fa488f68bf9fa9d5967",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin ac3ec19aff2b, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit ac3ec19aff2b: \"fix: preserve PDF glyph orientation and marginal prose flow\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T04:36Z",
+    "consent_receipt": "aede223cfb4b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T04:36Z (receipt aede223cfb4b); selected commit ac3ec19aff2b: \"fix: preserve PDF glyph orientation and marginal prose flow\". LICENSE file at pin ac3ec19aff2b detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

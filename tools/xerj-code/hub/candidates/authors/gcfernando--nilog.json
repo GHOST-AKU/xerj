@@ -9,13 +9,14 @@
    "repo": "nilog",
    "url": "https://github.com/gcfernando/nilog",
    "sha": "58434de51b2e557ec617b99298b55ac313b9c6d7",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 58434de51b2e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 58434de51b2e: \"Fixed minor issues\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T04:50Z",
+    "consent_receipt": "d6c2de16d269",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T04:50Z (receipt d6c2de16d269); selected commit 58434de51b2e: \"Fixed minor issues\". LICENSE file at pin 58434de51b2e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "shashi-17-afk--hiresight",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how Shashi-17-afk/HireSight implements it: Shashi-17-afk/HireSight (TypeScript) (selected work: src/react-app, src/worker, migrations)",
+ "repos": [
+  {
+   "repo": "HireSight",
+   "url": "https://github.com/Shashi-17-afk/HireSight",
+   "sha": "4cf2f216728d90f773b408401a957a834f274671",
+   "licence": "MIT (LICENSE file at pin 4cf2f216728d, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T04:28Z",
+    "consent_receipt": "c8cb7ff659f2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T04:28Z (receipt c8cb7ff659f2); selected commit 4cf2f216728d: \"Update candidate dashboard layout, add recruiter messaging system and\u2026\". LICENSE file at pin 4cf2f216728d detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

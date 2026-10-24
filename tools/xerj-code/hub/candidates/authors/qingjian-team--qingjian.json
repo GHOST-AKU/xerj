@@ -9,13 +9,14 @@
    "repo": "qingjian",
    "url": "https://github.com/qingjian-team/qingjian",
    "sha": "cc08b48c3caaf9fe0e64c35056cfecc5d8aa44dc",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin cc08b48c3caa, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit cc08b48c3caa: \"feat(windows): \u6309\u9700\u4e91\u8054\u60f3\u5feb\u6377\u952e\u4e0e\u81ea\u52a8\u8054\u60f3\u5f00\u5173 (#564)\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-15T19:11Z",
+    "consent_receipt": "216a9bd38f79",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T19:11Z (receipt 216a9bd38f79); selected commit cc08b48c3caa: \"feat(windows): \u6309\u9700\u4e91\u8054\u60f3\u5feb\u6377\u952e\u4e0e\u81ea\u52a8\u8054\u60f3\u5f00\u5173 (#564)\". LICENSE file at pin cc08b48c3caa detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

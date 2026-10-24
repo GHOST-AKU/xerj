@@ -9,13 +9,14 @@
    "repo": "pilot-typesafeai-jev",
    "url": "https://github.com/jyje/pilot-typesafeai-jev",
    "sha": "564fc5c444a7dd7d1b52cea33f811348e7771ad5",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 564fc5c444a7, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 564fc5c444a7: \"\ud83d\udc1b bug(experiments): apply the second review round\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T03:51Z",
+    "consent_receipt": "9effcf235715",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T03:51Z (receipt 9effcf235715); selected commit 564fc5c444a7: \"\ud83d\udc1b bug(experiments): apply the second review round\". LICENSE file at pin 564fc5c444a7 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

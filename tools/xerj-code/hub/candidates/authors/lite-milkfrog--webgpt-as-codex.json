@@ -1,0 +1,23 @@
+{
+ "corpus": "lite-milkfrog--webgpt-as-codex",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how lite-milkfrog/webgpt-as-codex implements it: Turn ChatGPT into a local coding/computer agent. No extra API tokens or API fees; use your existing ChatGPT plan for more local compute free (selected work: src/webgpt_as_codex, tests)",
+ "repos": [
+  {
+   "repo": "webgpt-as-codex",
+   "url": "https://github.com/lite-milkfrog/webgpt-as-codex",
+   "sha": "d711110d9648bda9692233bfd70beffa1214e66b",
+   "licence": "Apache-2.0 (LICENSE file at pin d711110d9648, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T04:19Z",
+    "consent_receipt": "d1e9c8aa6114",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T04:19Z (receipt d1e9c8aa6114); selected commit d711110d9648: \"fix(playwright): enforce machine-level exactly-once handoff\". LICENSE file at pin d711110d9648 detected as Apache-2.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

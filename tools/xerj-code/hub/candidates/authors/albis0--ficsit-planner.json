@@ -9,13 +9,14 @@
    "repo": "ficsit_planner",
    "url": "https://github.com/Albis0/ficsit_planner",
    "sha": "3e9cbdbd157bb6dfaf5a54ab305e7fe061d90055",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin 3e9cbdbd157b, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-09 (reply to Corpus Hub outreach); selected commit 3e9cbdbd157b: \"0.13.24: belts that need more than one belt's worth are drawn side by\u2026\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-09T06:25Z",
+    "consent_receipt": "e6008981d9f2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T06:25Z (receipt e6008981d9f2); selected commit 3e9cbdbd157b: \"0.13.24: belts that need more than one belt's worth are drawn side by\u2026\". LICENSE file at pin 3e9cbdbd157b detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

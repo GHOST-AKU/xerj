@@ -9,13 +9,14 @@
    "repo": "crater",
    "url": "https://github.com/raids-lab/crater",
    "sha": "b8678eba27d8f61f89c553910451e435e50bc45b",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin b8678eba27d8, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit b8678eba27d8: \"feat(cli): \u652f\u6301\u8fdc\u7aef\u6587\u4ef6\u4e0a\u4f20\u3001\u76ee\u5f55\u521b\u5efa\u3001\u79fb\u52a8\u4e0e\u5220\u9664 / add safe remote file operations (#488)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T00:54Z",
+    "consent_receipt": "271a947bfbe5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T00:54Z (receipt 271a947bfbe5); selected commit b8678eba27d8: \"feat(cli): \u652f\u6301\u8fdc\u7aef\u6587\u4ef6\u4e0a\u4f20\u3001\u76ee\u5f55\u521b\u5efa\u3001\u79fb\u52a8\u4e0e\u5220\u9664 / add safe remote file operations (#488)\". LICENSE file at pin b8678eba27d8 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

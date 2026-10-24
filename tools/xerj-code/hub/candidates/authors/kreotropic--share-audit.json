@@ -8,14 +8,15 @@
   {
    "repo": "share_audit",
    "url": "https://github.com/kreotropic/share_audit",
-   "sha": "0d1ecbfe65dd933f574a20786cd90f34e00912ee",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "a06b0dafac41bbdb1f2c4a24dbbd82da65118dad",
+   "licence": "AGPL-3.0 (LICENSE file at pin a06b0dafac41, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 0d1ecbfe65dd: \"test, docs, l10n: audit regressions, 0.8.0 package version, changelog\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-16T08:46Z",
+    "consent_receipt": "58a3337ece00",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T08:46Z (receipt 58a3337ece00); selected commit a06b0dafac41: \"test, docs, l10n: audit regressions, 0.8.0 package version, changelog\". LICENSE file at pin a06b0dafac41 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head a06b0dafac41 (contains the selected commit): the LICENSE at the selected commit was NOASSERTION."
    }
   }
  ]

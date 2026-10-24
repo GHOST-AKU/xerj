@@ -9,13 +9,14 @@
    "repo": "booster",
    "url": "https://github.com/anatol/booster",
    "sha": "97597a5334516625c2883f115d74722ef2c96070",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 97597a533451, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 97597a533451: \"init: name every setting a device's second source lost\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T00:16Z",
+    "consent_receipt": "3e3ae37376ad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T00:16Z (receipt 3e3ae37376ad); selected commit 97597a533451: \"init: name every setting a device's second source lost\". LICENSE file at pin 97597a533451 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

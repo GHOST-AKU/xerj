@@ -9,13 +9,14 @@
    "repo": "european-tech-opportunities-2027",
    "url": "https://github.com/simonesiega/european-tech-opportunities-2027",
    "sha": "df7b7989466f11c9bfc1aca273693468bd2b5d4e",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin df7b7989466f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit df7b7989466f: \"feat: publish validated partial collections and rotate searches (#236)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T18:12Z",
+    "consent_receipt": "df797816d662",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T18:12Z (receipt df797816d662); selected commit df7b7989466f: \"feat: publish validated partial collections and rotate searches (#236)\". LICENSE file at pin df7b7989466f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

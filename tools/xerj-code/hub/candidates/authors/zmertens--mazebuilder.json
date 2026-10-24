@@ -9,13 +9,14 @@
    "repo": "MazeBuilder",
    "url": "https://github.com/zmertens/MazeBuilder",
    "sha": "d36547c249aa73174a5a2b47a48b2a3ceb6c331b",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin d36547c249aa, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit d36547c249aa: \"level support\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T22:48Z",
+    "consent_receipt": "92abdff148ea",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T22:48Z (receipt 92abdff148ea); selected commit d36547c249aa: \"level support\". LICENSE file at pin d36547c249aa detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

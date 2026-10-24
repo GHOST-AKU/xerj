@@ -9,13 +9,14 @@
    "repo": "finaince",
    "url": "https://github.com/WeissHymmnos/finaince",
    "sha": "f81b8a2adf1d1f01ddb77da1134277a174d4e11c",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "AGPL-3.0 (LICENSE file at pin f81b8a2adf1d, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit f81b8a2adf1d: \"fix: close SQLite handles and move blocking desk work off the event loop\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-14T05:29Z",
+    "consent_receipt": "31a30df9bf08",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T05:29Z (receipt 31a30df9bf08); selected commit f81b8a2adf1d: \"fix: close SQLite handles and move blocking desk work off the event loop\". LICENSE file at pin f81b8a2adf1d detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "claude-code-practice",
    "url": "https://github.com/wesammustafa/claude-code-practice",
    "sha": "ba0849b651a99413bceb1b4a5502254aeb799663",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin ba0849b651a9, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit ba0849b651a9: \"Learn: the check-only card names its page and fills its item window, \u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T06:58Z",
+    "consent_receipt": "04e457b249b3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T06:58Z (receipt 04e457b249b3); selected commit ba0849b651a9: \"Learn: the check-only card names its page and fills its item window, \u2026\". LICENSE file at pin ba0849b651a9 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

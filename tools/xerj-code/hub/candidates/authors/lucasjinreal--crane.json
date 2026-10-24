@@ -9,13 +9,14 @@
    "repo": "Crane",
    "url": "https://github.com/lucasjinreal/Crane",
    "sha": "71e1d9f2fa5394e89fb8960bce87a44f02ddb84b",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 71e1d9f2fa53, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit 71e1d9f2fa53: \"CUDA support with prefill speedup 390 \u2192 935 tok/s\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T18:04Z",
+    "consent_receipt": "9f58bbbce84e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T18:04Z (receipt 9f58bbbce84e); selected commit 71e1d9f2fa53: \"CUDA support with prefill speedup 390 \u2192 935 tok/s\". LICENSE file at pin 71e1d9f2fa53 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

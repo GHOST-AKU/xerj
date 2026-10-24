@@ -1,0 +1,23 @@
+{
+ "corpus": "triparno--lz-er",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TeX queries this for how triparno/LZ_ER implements it: A repository of codes and documents corresponding to the LZ Electron recoil paper (selected work: paper, analysis, the project root)",
+ "repos": [
+  {
+   "repo": "LZ_ER",
+   "url": "https://github.com/triparno/LZ_ER",
+   "sha": "0bd50051868690fd22fa011d93a2ec5411fd390b",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "d9e2a511e8dc",
+    "note": "author consent by email 2026-10-22T03:08Z (receipt d9e2a511e8dc); selected commit 0bd500518686: \"arxiv v1\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

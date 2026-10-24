@@ -9,13 +9,14 @@
    "repo": "StartLux-Decision-v1",
    "url": "https://github.com/StartLuxLabs/StartLux-Decision-v1",
    "sha": "c61bfab3bb4fa3ae9d155d457247a7fd0a299a24",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit c61bfab3bb4f: \"Read images and prompts up to 262,144 tokens\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "2a346e7682c3",
+    "note": "author consent by email 2026-10-12T18:28Z (receipt 2a346e7682c3); selected commit c61bfab3bb4f: \"Read images and prompts up to 262,144 tokens\"; LICENSE at pin: not checked yet vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

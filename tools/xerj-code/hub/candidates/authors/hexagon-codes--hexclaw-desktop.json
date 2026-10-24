@@ -9,13 +9,14 @@
    "repo": "hexclaw-desktop",
    "url": "https://github.com/hexagon-codes/hexclaw-desktop",
    "sha": "e532dedea56ca1c1b27899d17a28410c63ee02bb",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin e532dedea56c, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit e532dedea56c: \"feat(k12): \u63a5\u5165\u8bfe\u7a0b\u8fdb\u5ea6\u5efa\u8bae\u4e0e\u6863\u6848\u66f4\u65b0\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T07:37Z",
+    "consent_receipt": "3dff323cf520",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T07:37Z (receipt 3dff323cf520); selected commit e532dedea56c: \"feat(k12): \u63a5\u5165\u8bfe\u7a0b\u8fdb\u5ea6\u5efa\u8bae\u4e0e\u6863\u6848\u66f4\u65b0\". LICENSE file at pin e532dedea56c detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

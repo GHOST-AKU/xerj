@@ -1,0 +1,23 @@
+{
+ "corpus": "nezzy-joe--nez-widget-platform",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on Go queries this for how Nezzy-joe/nez-widget-platform implements it: A Go-based embeddable widget and lead-capture platform with multi-tenant security, CORS, rate limiting, validation, geo-enrichment, caching, (selected work: web, scripts, internal/widgetassets)",
+ "repos": [
+  {
+   "repo": "nez-widget-platform",
+   "url": "https://github.com/Nezzy-joe/nez-widget-platform",
+   "sha": "09a60ea12d3dcb65ac1b1d32928371cf3c4a8470",
+   "licence": "MIT (LICENSE file at pin 09a60ea12d3d, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:01Z",
+    "consent_receipt": "a7ae9270ee65",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:01Z (receipt a7ae9270ee65); selected commit 09a60ea12d3d: \"Complete widget dashboard and capstone submission pack\". LICENSE file at pin 09a60ea12d3d detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

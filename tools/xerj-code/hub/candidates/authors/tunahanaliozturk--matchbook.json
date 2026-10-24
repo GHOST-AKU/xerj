@@ -9,13 +9,14 @@
    "repo": "matchbook",
    "url": "https://github.com/tunahanaliozturk/matchbook",
    "sha": "21f9d2559e2ef0e50c150721b38680ef7ddfd66b",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 21f9d2559e2e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 21f9d2559e2e: \"feat(web): invoices, exceptions and payment runs\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T07:02Z",
+    "consent_receipt": "56474e259fee",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T07:02Z (receipt 56474e259fee); selected commit 21f9d2559e2e: \"feat(web): invoices, exceptions and payment runs\". LICENSE file at pin 21f9d2559e2e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

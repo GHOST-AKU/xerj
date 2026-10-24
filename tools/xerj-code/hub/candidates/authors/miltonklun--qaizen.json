@@ -9,13 +9,14 @@
    "repo": "Qaizen",
    "url": "https://github.com/MiltonKlun/Qaizen",
    "sha": "2ed445b050362a36999128f9291a0031064d38ed",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 2ed445b05036, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 2ed445b05036: \"feat(design): derive test cases with named test design techniques (#117)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T03:13Z",
+    "consent_receipt": "26645dbb2ac7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T03:13Z (receipt 26645dbb2ac7); selected commit 2ed445b05036: \"feat(design): derive test cases with named test design techniques (#117)\". LICENSE file at pin 2ed445b05036 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

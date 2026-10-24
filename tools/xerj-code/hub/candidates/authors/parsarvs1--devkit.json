@@ -9,13 +9,14 @@
    "repo": "devkit",
    "url": "https://github.com/parsarvs1/devkit",
    "sha": "60c7d51059e5b0310348dc5708e3c0ba47ebb7a1",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 60c7d51059e5, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 60c7d51059e5: \"feat: add PWA support with offline capabilities\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T20:39Z",
+    "consent_receipt": "6e0b05931559",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T20:39Z (receipt 6e0b05931559); selected commit 60c7d51059e5: \"feat: add PWA support with offline capabilities\". LICENSE file at pin 60c7d51059e5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

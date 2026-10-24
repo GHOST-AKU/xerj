@@ -9,13 +9,14 @@
    "repo": "js-helpers",
    "url": "https://github.com/emiliodominguez/js-helpers",
    "sha": "d7ef9694062054ea457cc63386e68630ebf76d5e",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit d7ef96940620: \"Fix iterator throw() handling, async source cleanup and random edge c\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "1b9f2dae4d34",
+    "note": "author consent by email 2026-10-14T02:20Z (receipt 1b9f2dae4d34); selected commit d7ef96940620: \"Fix iterator throw() handling, async source cleanup and random edge c\u2026\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

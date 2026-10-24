@@ -9,13 +9,14 @@
    "repo": "lumina",
    "url": "https://github.com/zwl467135974/lumina",
    "sha": "83bf6364e1f5e6f8237e3aab796741dcc8f05ca8",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 83bf6364e1f5: \"feat(memory,schedule): \u8bb0\u5fc6\u6574\u7406\u4ee3\u7406\u4e0e\u6279\u6b21 4 \u5236\u5ea6\u6536\u53e3\u2014\u2014v3.14 \u6279\u6b21 4\uff08ZCode/DSH\uff09\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "492dae53854c",
+    "note": "author consent by email 2026-10-11T06:01Z (receipt 492dae53854c); selected commit 83bf6364e1f5: \"feat(memory,schedule): \u8bb0\u5fc6\u6574\u7406\u4ee3\u7406\u4e0e\u6279\u6b21 4 \u5236\u5ea6\u6536\u53e3\u2014\u2014v3.14 \u6279\u6b21 4\uff08ZCode/DSH\uff09\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

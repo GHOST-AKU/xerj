@@ -9,13 +9,14 @@
    "repo": "elasticemail-examples",
    "url": "https://github.com/ElasticEmail/elasticemail-examples",
    "sha": "8386830504baa841066f8d8e5a66d1b44f63b67c",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 8386830504ba, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 8386830504ba: \"fix: nodejs examples\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T13:31Z",
+    "consent_receipt": "21811d319e75",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T13:31Z (receipt 21811d319e75); selected commit 8386830504ba: \"fix: nodejs examples\". LICENSE file at pin 8386830504ba detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

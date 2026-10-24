@@ -1,0 +1,23 @@
+{
+ "corpus": "tenstorrent--tt-metal",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on llama, llm, metal queries this for how tenstorrent/tt-metal implements it: :metal: TT-NN operator library, and TT-Metalium low level kernel programming model (selected work: tests, ttnn)",
+ "repos": [
+  {
+   "repo": "tt-metal",
+   "url": "https://github.com/tenstorrent/tt-metal",
+   "sha": "65268cbdbf170a1662b0897e6b16a8c2997d195f",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "959fafb82f73",
+    "note": "author consent by email 2026-10-21T19:25Z (receipt 959fafb82f73); selected commit 65268cbdbf17: \"[Bug fix] cumsum: keep fp32 compensated cumsum at +-inf after an inf,\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

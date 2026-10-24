@@ -9,13 +9,14 @@
    "repo": "rwanda-f1-2026-sim",
    "url": "https://github.com/KhazP/rwanda-f1-2026-sim",
    "sha": "38eaada81ce348a758c1620bfe6a7572c2c736a3",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 38eaada81ce3: \"test: add physics, session, FFB, and telemetry verification suites an\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "4410e393b36d",
+    "note": "author consent by email 2026-10-19T00:02Z (receipt 4410e393b36d); selected commit 38eaada81ce3: \"test: add physics, session, FFB, and telemetry verification suites an\u2026\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

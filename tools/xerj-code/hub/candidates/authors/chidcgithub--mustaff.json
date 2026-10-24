@@ -1,0 +1,23 @@
+{
+ "corpus": "chidcgithub--mustaff",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how ChidcGithub/Mustaff implements it: A Python project that automatically generates rhythm game charts by analyzing the horizontal (time/beats) and vertical (frequency/pitch/volu (selected work: training, mustaff, the project root)",
+ "repos": [
+  {
+   "repo": "Mustaff",
+   "url": "https://github.com/ChidcGithub/Mustaff",
+   "sha": "a3886907a5b016d5b6dbd021137f2adaebd4a3a6",
+   "licence": "MIT (LICENSE file at pin a3886907a5b0, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T05:29Z",
+    "consent_receipt": "446b1b75cc75",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T05:29Z (receipt 446b1b75cc75); selected commit a3886907a5b0: \"v1.0.2: beat-grid v3 ML models, 82ch music-structure features, univer\u2026\". LICENSE file at pin a3886907a5b0 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

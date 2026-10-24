@@ -9,13 +9,14 @@
    "repo": "opengrep",
    "url": "https://github.com/opengrep/opengrep",
    "sha": "566bdf9127762086d9616a465f8dff9025911379",
-   "licence": "hint only: LGPL-2.1 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: LGPL-2.1 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "LGPL-2.1",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 566bdf912776: \"frontends: represent switch value labels as values\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "3d0a14027300",
+    "note": "author consent by email 2026-10-16T21:29Z (receipt 3d0a14027300); selected commit 566bdf912776: \"frontends: represent switch value labels as values\"; LICENSE at pin: NOASSERTION vs repository LGPL-2.1 \u2014 needs a human licence review."
    }
   }
  ]

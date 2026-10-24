@@ -1,0 +1,23 @@
+{
+ "corpus": "lowellwinston--polynx",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on dataframe, eval, llm-tools queries this for how LowellWinston/polynx implements it: pandas-style query/eval/assign for Polars: string expressions compiled to native Polars expressions. Eager + lazy, @var, UDFs, agent-ready (selected work: src/polynx, tests, the project root)",
+ "repos": [
+  {
+   "repo": "polynx",
+   "url": "https://github.com/LowellWinston/polynx",
+   "sha": "87e7131aafc7c33af007e7e8b8217b8f7167f33c",
+   "licence": "MIT (LICENSE file at pin 87e7131aafc7, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T02:57Z",
+    "consent_receipt": "9c72db302e61",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T02:57Z (receipt 9c72db302e61); selected commit 87e7131aafc7: \"Enhance engine: Add Polars plx namespace, optimize methods, add CI wo\u2026\". LICENSE file at pin 87e7131aafc7 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

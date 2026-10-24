@@ -1,0 +1,23 @@
+{
+ "corpus": "garthtrickett--gust",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Gosu queries this for how garthtrickett/gust implements it: garthtrickett/gust (Gosu) (selected work: compiler, tests, scripts)",
+ "repos": [
+  {
+   "repo": "gust",
+   "url": "https://github.com/garthtrickett/gust",
+   "sha": "1ba63b0145a7ae216e0cf892fafa92f295c75ee0",
+   "licence": "MIT (LICENSE file at pin 1ba63b0145a7, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T08:35Z",
+    "consent_receipt": "7e9b910511a6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:35Z (receipt 7e9b910511a6); selected commit 1ba63b0145a7: \"Qualify Phase 26 R2 executable collection provenance\". LICENSE file at pin 1ba63b0145a7 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

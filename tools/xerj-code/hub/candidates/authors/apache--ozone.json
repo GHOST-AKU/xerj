@@ -1,0 +1,23 @@
+{
+ "corpus": "apache--ozone",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on hadoop, object-store, storage queries this for how apache/ozone implements it: Scalable, reliable, distributed storage system optimized for data analytics and object store workloads (selected work: hadoop-hdds, hadoop-ozone)",
+ "repos": [
+  {
+   "repo": "ozone",
+   "url": "https://github.com/apache/ozone",
+   "sha": "4f853ccf48434335978ec21865ec9d6b1c178cdc",
+   "licence": "Apache-2.0 (LICENSE file at pin 4f853ccf4843, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T06:12Z",
+    "consent_receipt": "c99fb9cfa8d8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:12Z (receipt c99fb9cfa8d8); selected commit 4f853ccf4843: \"HDDS-16247. Separate StorageContainerLocationProtocol RPC identity fr\u2026\". LICENSE file at pin 4f853ccf4843 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

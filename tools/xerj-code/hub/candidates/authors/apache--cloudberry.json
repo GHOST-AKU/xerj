@@ -9,13 +9,14 @@
    "repo": "cloudberry",
    "url": "https://github.com/apache/cloudberry",
    "sha": "e045165222f707091b85039be854dc54d74b3f23",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin e045165222f7, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit e045165222f7: \"mcp-server: add vector, full-text and hybrid search tools\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T02:20Z",
+    "consent_receipt": "d4a3589de538",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T02:20Z (receipt d4a3589de538); selected commit e045165222f7: \"mcp-server: add vector, full-text and hybrid search tools\". LICENSE file at pin e045165222f7 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

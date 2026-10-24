@@ -1,0 +1,23 @@
+{
+ "corpus": "raphgm--cloudcost-cli",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on apache-arrow, aws, azure queries this for how raphgm/cloudcost-cli implements it: Provider-neutral, open-source FinOps data platform \u2014 Arrow-based pipelines, SQL-first governance policies, DuckDB/Postgres/BigQuery destinat (selected work: src/cloudcost, tests, the project root)",
+ "repos": [
+  {
+   "repo": "cloudcost-cli",
+   "url": "https://github.com/raphgm/cloudcost-cli",
+   "sha": "c352bbda928327c662b5b2b56bd69e41d0e8684b",
+   "licence": "Apache-2.0 (LICENSE file at pin c352bbda9283, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T15:15Z",
+    "consent_receipt": "e64196c5209d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T15:15Z (receipt e64196c5209d); selected commit c352bbda9283: \"fix: rename PyPI distribution to cloudcost-finops, add missing reques\u2026\". LICENSE file at pin c352bbda9283 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head c352bbda9283 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

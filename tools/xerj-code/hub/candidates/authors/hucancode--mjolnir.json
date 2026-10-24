@@ -9,13 +9,14 @@
    "repo": "mjolnir",
    "url": "https://github.com/hucancode/mjolnir",
    "sha": "664f41e0e9f3e77510b487beb11e54adf5fab9e0",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 664f41e0e9f3, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 664f41e0e9f3: \"simplify L3 engine code\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T23:45Z",
+    "consent_receipt": "6d64be8b8f34",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T23:45Z (receipt 6d64be8b8f34); selected commit 664f41e0e9f3: \"simplify L3 engine code\". LICENSE file at pin 664f41e0e9f3 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

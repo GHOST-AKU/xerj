@@ -9,13 +9,14 @@
    "repo": "reflect-cpp",
    "url": "https://github.com/getml/reflect-cpp",
    "sha": "10580aa6305d8c859fdf58f1d3974af59c84940f",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 10580aa6305d: \"Reserve vector capacity when array lengths are known (#739)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "7c70c7e6e024",
+    "note": "author consent by email 2026-10-17T09:31Z (receipt 7c70c7e6e024); selected commit 10580aa6305d: \"Reserve vector capacity when array lengths are known (#739)\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

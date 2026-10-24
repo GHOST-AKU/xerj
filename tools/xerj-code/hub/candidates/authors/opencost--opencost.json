@@ -1,0 +1,23 @@
+{
+ "corpus": "opencost--opencost",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on kubernetes, opencost, aws queries this for how opencost/opencost implements it: Cost monitoring for Kubernetes workloads and cloud costs (selected work: pkg/cloud, pkg/costmodel, pkg/mcp)",
+ "repos": [
+  {
+   "repo": "opencost",
+   "url": "https://github.com/opencost/opencost",
+   "sha": "547f5dfd831fa046160956b0c28af256466c6b7a",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "b33580a8de98",
+    "note": "author consent by email 2026-10-23T00:14Z (receipt b33580a8de98); selected commit 547f5dfd831f: \"Enhance pricing data refresh and cache management in settings (#3604)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

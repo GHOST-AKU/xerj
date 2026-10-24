@@ -1,0 +1,23 @@
+{
+ "corpus": "gvjavx--dddesignreport",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Go queries this for how gvjavx/DdDesignReport implements it: Library drag and drop reporting desainer (selected work: the project root, designer)",
+ "repos": [
+  {
+   "repo": "DdDesignReport",
+   "url": "https://github.com/gvjavx/DdDesignReport",
+   "sha": "2ba2b479e002b0b29baecf98d76e185b147472f5",
+   "licence": "MIT (LICENSE file at pin 2ba2b479e002, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T00:43Z",
+    "consent_receipt": "1fd60a6a8b71",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T00:43Z (receipt 1fd60a6a8b71); selected commit 2ba2b479e002: \"Multi-level grouping, sub-reports, sheets per group, table rules, dra\u2026\". LICENSE file at pin 2ba2b479e002 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "GraceLauncher",
    "url": "https://github.com/Galaxy-rio/GraceLauncher",
    "sha": "0b843a02af5aebc9914a97153244007568b68e42",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin 0b843a02af5a, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit 0b843a02af5a: \"\u641c\u7d22\u4e0b\u62c9\u5173\u95ed\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-10T03:35Z",
+    "consent_receipt": "483d865f79c3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T03:35Z (receipt 483d865f79c3); selected commit 0b843a02af5a: \"\u641c\u7d22\u4e0b\u62c9\u5173\u95ed\". LICENSE file at pin 0b843a02af5a detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "EyeCar-Image",
    "url": "https://github.com/Siberias-Last-Hope/EyeCar-Image",
    "sha": "d26ab1e4979867f7e3dd354ec30cb821e29ef2da",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit d26ab1e49798: \"Add image builder, Docker and ROS 2 packages\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "93974fd84f83",
+    "note": "author consent by email 2026-10-18T10:50Z (receipt 93974fd84f83); selected commit d26ab1e49798: \"Add image builder, Docker and ROS 2 packages\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

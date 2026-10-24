@@ -9,13 +9,14 @@
    "repo": "brawl_status_kr",
    "url": "https://github.com/psh1234567890/brawl_status_kr",
    "sha": "c72e884775d1fca9a9402db826e90258015005ed",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin c72e884775d1, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit c72e884775d1: \"fix(accounts): ignore consumed deletion intent in other tabs\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T03:58Z",
+    "consent_receipt": "d7582266739c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T03:58Z (receipt d7582266739c); selected commit c72e884775d1: \"fix(accounts): ignore consumed deletion intent in other tabs\". LICENSE file at pin c72e884775d1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

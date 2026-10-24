@@ -9,13 +9,14 @@
    "repo": "cloelib",
    "url": "https://github.com/cloe-org/cloelib",
    "sha": "dbe35c999795c027ca72763e1d79f5ec6047956c",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin dbe35c999795, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit dbe35c999795: \"gh-23: Verify all internal docs (#629)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T15:00Z",
+    "consent_receipt": "2aac46b6f6d8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T15:00Z (receipt 2aac46b6f6d8); selected commit dbe35c999795: \"gh-23: Verify all internal docs (#629)\". LICENSE file at pin dbe35c999795 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

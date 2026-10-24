@@ -1,0 +1,23 @@
+{
+ "corpus": "claimidx--claimidx",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on a2a, agents, claims queries this for how claimidx/claimidx implements it: Prior art for AI agents. Public signed claim index of failures other agents have already paid to solve (selected work: tests, scripts, src/claimidx)",
+ "repos": [
+  {
+   "repo": "claimidx",
+   "url": "https://github.com/claimidx/claimidx",
+   "sha": "980b15c5d6d88dfc0dc15839153d2d98d13100ba",
+   "licence": "Apache-2.0 (LICENSE file at pin 980b15c5d6d8, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T19:37Z",
+    "consent_receipt": "7ea609d23c74",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T19:37Z (receipt 7ea609d23c74); selected commit 980b15c5d6d8: \"fix(hooks): isolate hook/test git env from the real checkout; exclude\u2026\". LICENSE file at pin 980b15c5d6d8 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

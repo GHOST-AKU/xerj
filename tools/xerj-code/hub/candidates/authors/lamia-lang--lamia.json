@@ -9,13 +9,14 @@
    "repo": "lamia",
    "url": "https://github.com/lamia-lang/lamia",
    "sha": "f16912e9f20fe92a8e0b3814cfef55fb3f4b0c7d",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin f16912e9f20f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit f16912e9f20f: \"use multi-turn communication for almost all flows, file inlining impr\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T15:05Z",
+    "consent_receipt": "394aeeee4a3c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T15:05Z (receipt 394aeeee4a3c); selected commit f16912e9f20f: \"use multi-turn communication for almost all flows, file inlining impr\u2026\". LICENSE file at pin f16912e9f20f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "Zith-Lang",
    "url": "https://github.com/GalaxyHaze/Zith-Lang",
    "sha": "0ccc7639824f52ba99a1563161ebf959b20217a3",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 0ccc7639824f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 0ccc7639824f: \"feat(cli): VM v2 fallback for --virtual-machine and no-LLVM builds\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T08:14Z",
+    "consent_receipt": "9fa38a5ed4c8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T08:14Z (receipt 9fa38a5ed4c8); selected commit 0ccc7639824f: \"feat(cli): VM v2 fallback for --virtual-machine and no-LLVM builds\". LICENSE file at pin 0ccc7639824f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

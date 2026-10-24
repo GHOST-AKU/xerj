@@ -9,13 +9,14 @@
    "repo": "GShockAPI",
    "url": "https://github.com/izivkov/GShockAPI",
    "sha": "a6eb12f4350484cdee384ba6fed5d28fadba2b76",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin a6eb12f43504, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit a6eb12f43504: \"See release notes\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T00:07Z",
+    "consent_receipt": "4e5505ef3386",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T00:07Z (receipt 4e5505ef3386); selected commit a6eb12f43504: \"See release notes\". LICENSE file at pin a6eb12f43504 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

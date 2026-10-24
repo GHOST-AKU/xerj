@@ -9,13 +9,14 @@
    "repo": "osusume",
    "url": "https://github.com/LookUpMark/osusume",
    "sha": "9474e4ba7fc0b19fd56d1da782494c385cfd195f",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 9474e4ba7fc0, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 9474e4ba7fc0: \"feat(ui): redesign completo nello stile di Verba \u2014 design system Clau\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T09:01Z",
+    "consent_receipt": "34fbee69ce0d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T09:01Z (receipt 34fbee69ce0d); selected commit 9474e4ba7fc0: \"feat(ui): redesign completo nello stile di Verba \u2014 design system Clau\u2026\". LICENSE file at pin 9474e4ba7fc0 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "a2n.Hangfire.Dashboard",
    "url": "https://github.com/anwarminarso/a2n.Hangfire.Dashboard",
    "sha": "804397106a433ed9d4a8e9d184c66295e8d36b4a",
-   "licence": "hint only: LGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: LGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "LGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 804397106a43: \"feat(ui): fit the dashboard to phones, tablets, laptops and wide screens\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "045133163d72",
+    "note": "author consent by email 2026-10-12T02:41Z (receipt 045133163d72); selected commit 804397106a43: \"feat(ui): fit the dashboard to phones, tablets, laptops and wide screens\"; LICENSE at pin: NOASSERTION vs repository LGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

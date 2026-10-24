@@ -1,0 +1,23 @@
+{
+ "corpus": "buzzm--postgresbson",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on Python queries this for how buzzm/postgresbson implements it: postgres support for BSON (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "postgresbson",
+   "url": "https://github.com/buzzm/postgresbson",
+   "sha": "d3112ebe4b88f8e078b4ed0d95b61e85a08132b5",
+   "licence": "MIT (LICENSE file at pin d3112ebe4b88, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T21:40Z",
+    "consent_receipt": "a35c7055a014",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T21:40Z (receipt a35c7055a014); selected commit d3112ebe4b88: \"Fix bson_recv, format strings, hash UB, datetime math from external r\u2026\". LICENSE file at pin d3112ebe4b88 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

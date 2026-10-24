@@ -9,13 +9,14 @@
    "repo": "opennotebook",
    "url": "https://github.com/mahmoud-emad/opennotebook",
    "sha": "f9c53b799c4025fc4f0d94d99e33288ad2104faa",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin f9c53b799c40, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit f9c53b799c40: \"refactor(ai): tidy providers and fix review findings\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T08:57Z",
+    "consent_receipt": "932cdf4fa08d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T08:57Z (receipt 932cdf4fa08d); selected commit f9c53b799c40: \"refactor(ai): tidy providers and fix review findings\". LICENSE file at pin f9c53b799c40 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

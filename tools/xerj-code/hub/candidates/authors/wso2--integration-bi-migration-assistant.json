@@ -1,0 +1,23 @@
+{
+ "corpus": "wso2--integration-bi-migration-assistant",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how wso2/integration-bi-migration-assistant implements it: The Mule to Ballerina Integrator Migration Assistant is a comprehensive tool designed to convert Mule XML configuration files into Ballerina (selected work: mule)",
+ "repos": [
+  {
+   "repo": "integration-bi-migration-assistant",
+   "url": "https://github.com/wso2/integration-bi-migration-assistant",
+   "sha": "af6fadd60cb8a2fabe8d3c7ea468a1c9f0a5efb0",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "af3b3a953e37",
+    "note": "author consent by email 2026-10-20T04:46Z (receipt af3b3a953e37); selected commit af6fadd60cb8: \"Fix http request-config basePath and response timeout conversion\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

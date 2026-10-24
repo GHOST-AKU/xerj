@@ -9,13 +9,14 @@
    "repo": "Beskar.Networking",
    "url": "https://github.com/MarvinDrude/Beskar.Networking",
    "sha": "962320660a0a5ce5602d9c7d102e4ba9de13a5f8",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 962320660a0a, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 962320660a0a: \"Rework socket sender and boost single echo messages. More granular me\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T08:19Z",
+    "consent_receipt": "d7e0a42b980a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T08:19Z (receipt d7e0a42b980a); selected commit 962320660a0a: \"Rework socket sender and boost single echo messages. More granular me\u2026\". LICENSE file at pin 962320660a0a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

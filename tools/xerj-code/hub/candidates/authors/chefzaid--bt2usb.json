@@ -9,13 +9,14 @@
    "repo": "bt2usb",
    "url": "https://github.com/chefzaid/bt2usb",
    "sha": "1c22207df3974c0dd0a77646b1deeaf90850ed10",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin 1c22207df397, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 1c22207df397: \"Close the gaps a review found in the stack guard\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-14T21:06Z",
+    "consent_receipt": "44bf791612b9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T21:06Z (receipt 44bf791612b9); selected commit 1c22207df397: \"Close the gaps a review found in the stack guard\". LICENSE file at pin 1c22207df397 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

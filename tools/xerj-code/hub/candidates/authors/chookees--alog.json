@@ -8,14 +8,15 @@
   {
    "repo": "ALog",
    "url": "https://github.com/Chookees/ALog",
-   "sha": "2341241c63ed72083a0cb4fe645b2f9878edb8cf",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "a89a93230b19a0b7286cb80c648b1de789c6ed55",
+   "licence": "Apache-2.0 (LICENSE file at pin a89a93230b19, GitHub licence API 2026-10-23)",
    "review": {
-    "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 2341241c63ed: \"Z1-Mini: synchronous writes no longer deadlock on a SynchronizationCo\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T07:03Z",
+    "consent_receipt": "75761ffc90c6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T07:03Z (receipt 75761ffc90c6); selected commit a89a93230b19: \"Z1-Mini: synchronous writes no longer deadlock on a SynchronizationCo\u2026\". LICENSE file at pin a89a93230b19 detected as Apache-2.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution. Pinned to head a89a93230b19 (contains the selected commit): the LICENSE at the selected commit was MIT."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "brian-r-ohern--fr24-dump1090-bridge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on ads-b, flightracking, flightradar24 queries this for how brian-r-ohern/fr24-dump1090-bridge implements it: The FR24 dump1090 Bridge functions as a lightweight, non-invasive Home Assistant add-on that collects and normalizes local aircraft tracking (selected work: fr24-dump1090, tests, tools)",
+ "repos": [
+  {
+   "repo": "fr24-dump1090-bridge",
+   "url": "https://github.com/brian-r-ohern/fr24-dump1090-bridge",
+   "sha": "d19d2d8c393989a8e0fbe48de670404463db6b11",
+   "licence": "Apache-2.0 (LICENSE file at pin d19d2d8c3939, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T11:14Z",
+    "consent_receipt": "9bcc54f0cdcf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T11:14Z (receipt 9bcc54f0cdcf); selected commit d19d2d8c3939: \"v0.7.0 ETA, color by activity, FAA SFDPS, density upgrade, and debug-\u2026\". LICENSE file at pin d19d2d8c3939 detected as Apache-2.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

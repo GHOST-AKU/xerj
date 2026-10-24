@@ -9,13 +9,14 @@
    "repo": "email-conversation-integrity-detection",
    "url": "https://github.com/0x0allenace/email-conversation-integrity-detection",
    "sha": "ea7abf081fe6ca3b3684f78370fa2daa6a8defbb",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin ea7abf081fe6, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit ea7abf081fe6: \"feat(ml): add reproducible evaluation pipeline\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T10:00Z",
+    "consent_receipt": "8d25f3c8cb80",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T10:00Z (receipt 8d25f3c8cb80); selected commit ea7abf081fe6: \"feat(ml): add reproducible evaluation pipeline\". LICENSE file at pin ea7abf081fe6 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

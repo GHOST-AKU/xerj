@@ -9,13 +9,14 @@
    "repo": "setu_ner",
    "url": "https://github.com/mKs2609/setu_ner",
    "sha": "207a0e1b5bde4ce5ed25dc5dc5a98a12cc3eedeb",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 207a0e1b5bde: \"Document every endpoint, split the data licences out, refresh the counts\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "a4d50349d08f",
+    "note": "author consent by email 2026-10-15T18:37Z (receipt a4d50349d08f); selected commit 207a0e1b5bde: \"Document every endpoint, split the data licences out, refresh the counts\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

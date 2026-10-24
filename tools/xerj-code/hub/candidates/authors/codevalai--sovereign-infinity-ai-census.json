@@ -1,0 +1,23 @@
+{
+ "corpus": "codevalai--sovereign-infinity-ai-census",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how codevalai/sovereign-infinity-ai-census. implements it: Sovereign Infinity is a planetary\u2011scale AI observatory, combining a durable global census, a multi\u2011tier dependency graph, a sovereign agent  (selected work: supabase, src, src/agents)",
+ "repos": [
+  {
+   "repo": "sovereign-infinity-ai-census.",
+   "url": "https://github.com/codevalai/sovereign-infinity-ai-census.",
+   "sha": "0fad7a927c428858d50d78c31f5e04cee8c959fa",
+   "licence": "MIT (LICENSE file at pin 0fad7a927c42, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T13:18Z",
+    "consent_receipt": "93a9e057841f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T13:18Z (receipt 93a9e057841f); selected commit 0fad7a927c42: \"Build census agent lifecycle and telemetry\". LICENSE file at pin 0fad7a927c42 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

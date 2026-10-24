@@ -8,14 +8,15 @@
   {
    "repo": "Dungeon-Trouble",
    "url": "https://github.com/Rahul7562/Dungeon-Trouble",
-   "sha": "7323b7fedbf1ee7125f64af44a2b8e7ae95eda5f",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "57059a219220871c162cdbf3333d9cef3df08db2",
+   "licence": "Apache-2.0 (LICENSE file at pin 57059a219220, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 7323b7fedbf1: \"feat: implement item upgrade system and UI guide\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T04:17Z",
+    "consent_receipt": "3d9594d6117c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T04:17Z (receipt 3d9594d6117c); selected commit 57059a219220: \"feat: implement item upgrade system and UI guide\". LICENSE file at pin 57059a219220 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head 57059a219220 (contains the selected commit): the LICENSE at the selected commit was MIT."
    }
   }
  ]

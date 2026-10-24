@@ -9,13 +9,14 @@
    "repo": "personal-management-system-front",
    "url": "https://github.com/Volmarg/personal-management-system-front",
    "sha": "6a3bb501e5e8e514b4bf9fcefcda586ef1bc42e9",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 6a3bb501e5e8, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 6a3bb501e5e8: \"\u2728 Upload form on storage files picker\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T14:37Z",
+    "consent_receipt": "ee2a644bfb2c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T14:37Z (receipt ee2a644bfb2c); selected commit 6a3bb501e5e8: \"\u2728 Upload form on storage files picker\". LICENSE file at pin 6a3bb501e5e8 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

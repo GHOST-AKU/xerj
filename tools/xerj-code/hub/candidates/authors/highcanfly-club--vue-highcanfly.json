@@ -9,13 +9,14 @@
    "repo": "vue-highcanfly",
    "url": "https://github.com/highcanfly-club/vue-highcanfly",
    "sha": "2a502a108f404dbc82c7d1a21c73bbba61f80fa8",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 2a502a108f40, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 2a502a108f40: \"update sensitive datas\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T09:33Z",
+    "consent_receipt": "6c4da1cdd1cc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:33Z (receipt 6c4da1cdd1cc); selected commit 2a502a108f40: \"update sensitive datas\". LICENSE file at pin 2a502a108f40 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

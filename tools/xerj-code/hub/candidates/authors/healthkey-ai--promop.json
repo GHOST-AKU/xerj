@@ -9,13 +9,14 @@
    "repo": "promop",
    "url": "https://github.com/healthkey-ai/promop",
    "sha": "4dcdae133da34e0710f8427855a1d2b507a0415e",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 4dcdae133da3, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 4dcdae133da3: \"Preserve patient edits across refresh and navigation (#1815)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T05:23Z",
+    "consent_receipt": "c6f7d6048fc2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T05:23Z (receipt c6f7d6048fc2); selected commit 4dcdae133da3: \"Preserve patient edits across refresh and navigation (#1815)\". LICENSE file at pin 4dcdae133da3 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "czeslaw-wludarczyk--cwstudio-components-library",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Pascal queries this for how czeslaw-wludarczyk/CWStudio-Components-Library implements it: Modern Windows 11 / WinUI 3 (Fluent UI v9) styled VCL components for Delphi / RAD Studio (selected work: CWStudio_demo, the project root)",
+ "repos": [
+  {
+   "repo": "CWStudio-Components-Library",
+   "url": "https://github.com/czeslaw-wludarczyk/CWStudio-Components-Library",
+   "sha": "701ff595cd1e7f07eaac43c8056e177252ba6c00",
+   "licence": "MIT (LICENSE file at pin 701ff595cd1e, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T04:34Z",
+    "consent_receipt": "4d6a8596f04b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T04:34Z (receipt 4d6a8596f04b); selected commit 701ff595cd1e: \"- removed errorsoft dependencies from the demo app\". LICENSE file at pin 701ff595cd1e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

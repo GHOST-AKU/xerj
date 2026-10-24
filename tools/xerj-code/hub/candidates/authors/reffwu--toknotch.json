@@ -9,13 +9,14 @@
    "repo": "toknotch",
    "url": "https://github.com/ReffWu/toknotch",
    "sha": "6c1f9edc0780d148ff2ede337edd40e8e1a053f7",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 6c1f9edc0780, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 6c1f9edc0780: \"TokNotch 1.3.0: multi-display support and full-bleed top alignment\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T15:25Z",
+    "consent_receipt": "efb079453a0d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T15:25Z (receipt efb079453a0d); selected commit 6c1f9edc0780: \"TokNotch 1.3.0: multi-display support and full-bleed top alignment\". LICENSE file at pin 6c1f9edc0780 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

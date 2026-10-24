@@ -9,13 +9,14 @@
    "repo": "kelivo",
    "url": "https://github.com/Chevey339/kelivo",
    "sha": "bbd600633626b23aa86260b3ef94a5d9d9a27df6",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "AGPL-3.0 (LICENSE file at pin bbd600633626, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit bbd600633626: \"perf: bound large-history loading and ZIP memory\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-13T07:13Z",
+    "consent_receipt": "d211407bd7ac",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:13Z (receipt d211407bd7ac); selected commit bbd600633626: \"perf: bound large-history loading and ZIP memory\". LICENSE file at pin bbd600633626 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

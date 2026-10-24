@@ -9,13 +9,14 @@
    "repo": "edlc",
    "url": "https://github.com/LateinCecer/edlc",
    "sha": "08018f7e0ebac7f6e4d5092e5e927e2c1da07d5f",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 08018f7e0eba: \"fixed impls for type alias\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "480b1074387b",
+    "note": "author consent by email 2026-10-12T12:13Z (receipt 480b1074387b); selected commit 08018f7e0eba: \"fixed impls for type alias\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

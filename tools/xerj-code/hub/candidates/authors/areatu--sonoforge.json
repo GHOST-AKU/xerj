@@ -1,0 +1,23 @@
+{
+ "corpus": "areatu--sonoforge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "HEALTH",
+ "domain": "an agent working on Python queries this for how areatu/SonoForge implements it: Open-source cross-platform echocardiography analysis suite \u2014 DICOM/JPEG/MP4 & PACS (DICOMweb/DIMSE) support, ASE measurements, AI contours,  (selected work: src/echo_personal_tool, tests)",
+ "repos": [
+  {
+   "repo": "SonoForge",
+   "url": "https://github.com/areatu/SonoForge",
+   "sha": "6c8872595412db3042b64e7cdbe7627316d2f60f",
+   "licence": "GPL-3.0 (LICENSE file at pin 6c8872595412, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-20T05:33Z",
+    "consent_receipt": "d2544b00cc14",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T05:33Z (receipt d2544b00cc14); selected commit 6c8872595412: \"feat(report): add report sections and not-filled column\". LICENSE file at pin 6c8872595412 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

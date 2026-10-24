@@ -9,13 +9,14 @@
    "repo": "KumaBox",
    "url": "https://github.com/kgpp34/KumaBox",
    "sha": "dbab362102bb7205c6e709177474c4e7b14bcd44",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin dbab362102bb, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit dbab362102bb: \"Optimize cold boot and snapshot clone latency\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T03:57Z",
+    "consent_receipt": "4b034d075b3f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T03:57Z (receipt 4b034d075b3f); selected commit dbab362102bb: \"Optimize cold boot and snapshot clone latency\". LICENSE file at pin dbab362102bb detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

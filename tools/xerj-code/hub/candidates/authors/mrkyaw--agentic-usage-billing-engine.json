@@ -1,0 +1,23 @@
+{
+ "corpus": "mrkyaw--agentic-usage-billing-engine",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on billing, billing-engine, event-driven queries this for how MrKyaw/Agentic-Usage-Billing-Engine implements it: Event-driven idempotent usage-based billing engine (POC v0.1). Ingest \u2192 idempotent process \u2192 versioned rating \u2192 aggregate \u2192 query \u2192 reconcil (selected work: src/billing_engine, tests)",
+ "repos": [
+  {
+   "repo": "Agentic-Usage-Billing-Engine",
+   "url": "https://github.com/MrKyaw/Agentic-Usage-Billing-Engine",
+   "sha": "cc14c3cc0ffed63acf45e59f08d6b975d7fb7a31",
+   "licence": "MIT (LICENSE file at pin cc14c3cc0ffe, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T11:12Z",
+    "consent_receipt": "7e319d8a7095",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T11:12Z (receipt 7e319d8a7095); selected commit cc14c3cc0ffe: \"add Event-Driven Resilience, Agentic Workflows & MCP, Production Guar\u2026\". LICENSE file at pin cc14c3cc0ffe detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

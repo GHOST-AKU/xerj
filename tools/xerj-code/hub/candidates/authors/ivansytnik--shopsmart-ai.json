@@ -9,13 +9,14 @@
    "repo": "shopsmart-ai",
    "url": "https://github.com/IvanSytnik/shopsmart-ai",
    "sha": "2046520dffe476856514f42b0c7a1d465f4b4a97",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 2046520dffe4, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 2046520dffe4: \"feat(backend): structured outputs with AsyncOpenAI and one repair retry\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T12:07Z",
+    "consent_receipt": "7714b3edf4e6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T12:07Z (receipt 7714b3edf4e6); selected commit 2046520dffe4: \"feat(backend): structured outputs with AsyncOpenAI and one repair retry\". LICENSE file at pin 2046520dffe4 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

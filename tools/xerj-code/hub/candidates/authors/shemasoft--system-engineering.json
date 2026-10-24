@@ -1,0 +1,23 @@
+{
+ "corpus": "shemasoft--system-engineering",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agentic-ai, ai-agents, developer-tools queries this for how SHEMASOFT/SYSTEM-ENGINEERING implements it: Turn AI coding agents into a governed, traceable, and token-efficient engineering system (selected work: SE-INSTALLER, SCRIPTS)",
+ "repos": [
+  {
+   "repo": "SYSTEM-ENGINEERING",
+   "url": "https://github.com/SHEMASOFT/SYSTEM-ENGINEERING",
+   "sha": "c25b866f31fe91b661e3104e338712b45c56c0d4",
+   "licence": "MIT (LICENSE file at pin c25b866f31fe, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T23:01Z",
+    "consent_receipt": "24edfb62d209",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T23:01Z (receipt 24edfb62d209); selected commit c25b866f31fe: \"fix: install OpenCode v2 with npm or standalone binary\". LICENSE file at pin c25b866f31fe detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

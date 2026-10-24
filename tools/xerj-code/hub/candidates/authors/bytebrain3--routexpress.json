@@ -9,13 +9,14 @@
    "repo": "RouteXpress",
    "url": "https://github.com/bytebrain3/RouteXpress",
    "sha": "0bbfc4be7718550ebe703c5148555ba5e88093f8",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 0bbfc4be7718, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 0bbfc4be7718: \"feat: add CarryBee provider with full API, webhooks, and tests\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T08:12Z",
+    "consent_receipt": "3b5f7bbe0404",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T08:12Z (receipt 3b5f7bbe0404); selected commit 0bbfc4be7718: \"feat: add CarryBee provider with full API, webhooks, and tests\". LICENSE file at pin 0bbfc4be7718 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

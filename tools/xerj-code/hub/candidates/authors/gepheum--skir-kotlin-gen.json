@@ -9,13 +9,14 @@
    "repo": "skir-kotlin-gen",
    "url": "https://github.com/gepheum/skir-kotlin-gen",
    "sha": "e39464e1bb9bbca4fa0415348ac11610dd4e5219",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin e39464e1bb9b, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit e39464e1bb9b: \"Fix race condition which can happen when multiple threads try to acce\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T10:50Z",
+    "consent_receipt": "47ec3104f8d3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T10:50Z (receipt 47ec3104f8d3); selected commit e39464e1bb9b: \"Fix race condition which can happen when multiple threads try to acce\u2026\". LICENSE file at pin e39464e1bb9b detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

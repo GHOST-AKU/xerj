@@ -9,13 +9,14 @@
    "repo": "king-pong",
    "url": "https://github.com/KingAlexGilbert/king-pong",
    "sha": "7ab185bb3e8f91a4aba227541866e7f6ddecf70c",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: GPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-05 (reply to Corpus Hub outreach); selected commit 7ab185bb3e8f: \"Polish gameplay, audio, match rules, and retro UI\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "9dda67c3032e",
+    "note": "author consent by email 2026-10-05T18:22Z (receipt 9dda67c3032e); selected commit 7ab185bb3e8f: \"Polish gameplay, audio, match rules, and retro UI\"; LICENSE at pin: NOASSERTION vs repository GPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

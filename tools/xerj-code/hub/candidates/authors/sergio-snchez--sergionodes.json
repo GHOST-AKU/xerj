@@ -1,0 +1,23 @@
+{
+ "corpus": "sergio-snchez--sergionodes",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Python queries this for how sergio-snchez/SergioNodes implements it: Custom Nodes for ComfyUI (selected work: web)",
+ "repos": [
+  {
+   "repo": "SergioNodes",
+   "url": "https://github.com/sergio-snchez/SergioNodes",
+   "sha": "1c528d2a4b3558427affd369b82a2ce578665d36",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "72803116abd8",
+    "note": "author consent by email 2026-10-21T20:50Z (receipt 72803116abd8); selected commit 1c528d2a4b35: \"Copy NKD VFX web assets for Relight widget\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

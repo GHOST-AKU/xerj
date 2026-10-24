@@ -1,0 +1,23 @@
+{
+ "corpus": "aryan-pardeshi--citeproof-ai-mcp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on academic-research, ai-agents, docker queries this for how Aryan-Pardeshi/CiteProof-AI-MCP implements it: Open-source research assistant and MCP audit toolkit for systematic reviews: cited research reports, PRISMA tracking, evidence and claim che (selected work: tests, backend)",
+ "repos": [
+  {
+   "repo": "DeepResearch_AI",
+   "url": "https://github.com/Aryan-Pardeshi/DeepResearch_AI",
+   "sha": "74d345b216971e6ea0419e6a0f37c54cc5fad9e2",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "1234fd8a6aa3",
+    "note": "author consent by email 2026-10-20T12:43Z (receipt 1234fd8a6aa3); selected commit 74d345b21697: \"fix(validation): stop labelling resolved claims \"verified\"\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

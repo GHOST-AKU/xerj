@@ -1,0 +1,23 @@
+{
+ "corpus": "a3ak--localmeetassist",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on C queries this for how a3ak/LocalMeetAssist implements it: Local-first, offline meeting recorder with on-device transcription and speaker diarization. Supports connecting an LLM to generate meeting m (selected work: internal/server, internal/config, the project root)",
+ "repos": [
+  {
+   "repo": "LocalMeetAssist",
+   "url": "https://github.com/a3ak/LocalMeetAssist",
+   "sha": "43333f7c3a122d3b44ffdff7944bf4ae3be3611d",
+   "licence": "MIT (LICENSE file at pin 43333f7c3a12, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T18:02Z",
+    "consent_receipt": "e321c11db4c7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T18:02Z (receipt e321c11db4c7); selected commit 43333f7c3a12: \"add meeting retention and archive audio after three days by default\". LICENSE file at pin 43333f7c3a12 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

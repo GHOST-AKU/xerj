@@ -1,0 +1,23 @@
+{
+ "corpus": "simple-relay--simple-relay",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on go-lang, golang, reliability queries this for how simple-relay/simple-relay implements it: A tiny, single-file tool to make sure your webhooks and HTTP requests are never lost\u2014automatic retries (selected work: internal/cli, cmd/relay, the project root)",
+ "repos": [
+  {
+   "repo": "simple-relay",
+   "url": "https://github.com/simple-relay/simple-relay",
+   "sha": "bfbb5a67d444682d3d1a82b1c6e6845400c5a997",
+   "licence": "AGPL-3.0 (LICENSE file at pin bfbb5a67d444, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-20T06:51Z",
+    "consent_receipt": "40c0beb020df",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:51Z (receipt 40c0beb020df); selected commit bfbb5a67d444: \"feat(cli): merge operator tooling into single relay binary (#75)\". LICENSE file at pin bfbb5a67d444 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

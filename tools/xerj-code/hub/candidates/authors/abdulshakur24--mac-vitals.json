@@ -1,0 +1,23 @@
+{
+ "corpus": "abdulshakur24--mac-vitals",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Swift queries this for how Abdulshakur24/mac-vitals implements it: A single-item macOS menu bar system monitor: CPU, memory and swap, network, disk, and die temperature. No preferences window, no update chec (selected work: Sources, Tests)",
+ "repos": [
+  {
+   "repo": "mac-vitals",
+   "url": "https://github.com/Abdulshakur24/mac-vitals",
+   "sha": "e2711a645618fb95ebe2ea6f3f522bb441455f78",
+   "licence": "MIT (LICENSE file at pin e2711a645618, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:58Z",
+    "consent_receipt": "b23358c12e5f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:58Z (receipt b23358c12e5f); selected commit e2711a645618: \"Add grouped app rankings by CPU and memory\". LICENSE file at pin e2711a645618 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

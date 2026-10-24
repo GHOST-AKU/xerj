@@ -3,19 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "OPS",
- "domain": "an agent working on amazon-eks, cluster-management, desktop-app queries this for how dcotecnologia/kubescope implements it: Read-only desktop viewer for Kubernetes workloads on Amazon EKS, Google GKE and Azure AKS, built with Python and Qt (selected work: tests, the project root)",
+ "domain": "an agent working on amazon-eks, cluster-management, desktop-app queries this for how dcotecnologia/kubescope implements it: IDE for Kubernetes workloads on Amazon EKS, Google GKE and Azure AKS, built with Python and Qt (selected work: tests, the project root)",
  "repos": [
   {
    "repo": "kubescope",
    "url": "https://github.com/dcotecnologia/kubescope",
    "sha": "8565d280f1ea890ae7fd276e77a5628e88337f26",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 8565d280f1ea, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 8565d280f1ea: \"feat(install): add scripts that install or update KubeScope from a re\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T07:32Z",
+    "consent_receipt": "17089e6140e8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T07:32Z (receipt 17089e6140e8); selected commit 8565d280f1ea: \"feat(install): add scripts that install or update KubeScope from a re\u2026\". LICENSE file at pin 8565d280f1ea detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

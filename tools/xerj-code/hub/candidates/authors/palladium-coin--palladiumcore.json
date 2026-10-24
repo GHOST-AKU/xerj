@@ -1,0 +1,23 @@
+{
+ "corpus": "palladium-coin--palladiumcore",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on C++ queries this for how palladium-coin/palladiumcore implements it: C++ source code for the Palladium Core daemon (palladiumd) and the consensus rules of the Palladium network (selected work: docker-build)",
+ "repos": [
+  {
+   "repo": "palladiumcore",
+   "url": "https://github.com/palladium-coin/palladiumcore",
+   "sha": "ed0fdca34438022071502d9564653739f5dccdf5",
+   "licence": "MIT (LICENSE file at pin ed0fdca34438, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T15:41Z",
+    "consent_receipt": "cf6fa96c3b04",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T15:41Z (receipt cf6fa96c3b04); selected commit ed0fdca34438: \"build: make the Docker release builds reproducible\". LICENSE file at pin ed0fdca34438 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

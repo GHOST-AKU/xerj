@@ -9,13 +9,14 @@
    "repo": "VeriContest",
    "url": "https://github.com/HIPREL-Group/VeriContest",
    "sha": "2578227514cdd625b1d3f8086c82b9f075ed5432",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 2578227514cd: \"fix code issues with lc377 and lc643\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "16fb58db6f76",
+    "note": "author consent by email 2026-10-11T18:37Z (receipt 16fb58db6f76); selected commit 2578227514cd: \"fix code issues with lc377 and lc643\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

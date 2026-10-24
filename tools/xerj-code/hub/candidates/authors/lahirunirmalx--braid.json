@@ -1,0 +1,23 @@
+{
+ "corpus": "lahirunirmalx--braid",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on C queries this for how lahirunirmalx/braid implements it: Braid: a transport-agnostic mesh data-link stack for ESP32 over ESP-NOW, UART, WiFi UDP and nRF24L01+. CRC-16, Reed-Solomon FEC and ARQ on e (selected work: firmware)",
+ "repos": [
+  {
+   "repo": "braid",
+   "url": "https://github.com/lahirunirmalx/braid",
+   "sha": "a1996e8e0eb2bd2c07302b9df6c15e1c1195efb1",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "5328660fb125",
+    "note": "author consent by email 2026-10-20T09:52Z (receipt 5328660fb125); selected commit a1996e8e0eb2: \"Demo: M5Stack Cardputer as a fourth node (ST7789 LCD, USB console)\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

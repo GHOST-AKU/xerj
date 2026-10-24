@@ -9,13 +9,14 @@
    "repo": "SynthEdit-sems",
    "url": "https://github.com/maxbreges/SynthEdit-sems",
    "sha": "bcf896c91950c56fa3f7a2c899f3dba39223d572",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit bcf896c91950: \"pulses on hold (key repeat)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "49d6cb3edf74",
+    "note": "author consent by email 2026-10-18T22:51Z (receipt 49d6cb3edf74); selected commit bcf896c91950: \"pulses on hold (key repeat)\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

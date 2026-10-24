@@ -1,0 +1,23 @@
+{
+ "corpus": "dotsystemsdevs--commitmentissues",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on github-api, nextjs, stripe queries this for how dotsystemsdevs/commitmentissues implements it: Official death certificates for abandoned GitHub repos (selected work: src/app, src/lib)",
+ "repos": [
+  {
+   "repo": "commitmentissues",
+   "url": "https://github.com/dotsystemsdevs/commitmentissues",
+   "sha": "9c3b9601bf9410bbcaf91f8ab89f62ffd0a894f9",
+   "licence": "MIT (LICENSE file at pin 9c3b9601bf94, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T09:30Z",
+    "consent_receipt": "41823080d070",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T09:30Z (receipt 41823080d070); selected commit 9c3b9601bf94: \"Homepage: never scroll at any viewport >=1280px or common phones\". LICENSE file at pin 9c3b9601bf94 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

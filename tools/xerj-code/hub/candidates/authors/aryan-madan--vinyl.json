@@ -1,0 +1,23 @@
+{
+ "corpus": "aryan-madan--vinyl",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how aryan-madan/Vinyl implements it: Create shareable 3D song artwork for free, in your browser (selected work: src, src/components, src/lib)",
+ "repos": [
+  {
+   "repo": "Vinyl",
+   "url": "https://github.com/aryan-madan/Vinyl",
+   "sha": "7f6314253e6da413a99bbd6430bf35f83a0bce80",
+   "licence": "AGPL-3.0 (LICENSE file at pin 7f6314253e6d, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-20T03:21Z",
+    "consent_receipt": "399ba13f2514",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T03:21Z (receipt 399ba13f2514); selected commit 7f6314253e6d: \"c5 - Refine responsive layout and ratio rendering\". LICENSE file at pin 7f6314253e6d detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

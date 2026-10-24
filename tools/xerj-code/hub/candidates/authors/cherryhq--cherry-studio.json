@@ -9,13 +9,14 @@
    "repo": "cherry-studio",
    "url": "https://github.com/CherryHQ/cherry-studio",
    "sha": "b0508791107365134157917aded0e6002e79c098",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "AGPL-3.0 (LICENSE file at pin b05087911073, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit b05087911073: \"perf(files): hydrate only newly paginated entries (#19380)\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-15T04:24Z",
+    "consent_receipt": "4cf717c33965",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T04:24Z (receipt 4cf717c33965); selected commit b05087911073: \"perf(files): hydrate only newly paginated entries (#19380)\". LICENSE file at pin b05087911073 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

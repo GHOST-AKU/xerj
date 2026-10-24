@@ -9,13 +9,14 @@
    "repo": "linky",
    "url": "https://github.com/LLRHook/linky",
    "sha": "ebe9efb3f4521e26fe7964ba7cd75fa3c2694147",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin ebe9efb3f452, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit ebe9efb3f452: \"feat: finish deliveries on shutdown and catch up after restarts [FEAT\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T03:06Z",
+    "consent_receipt": "c567c3444140",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T03:06Z (receipt c567c3444140); selected commit ebe9efb3f452: \"feat: finish deliveries on shutdown and catch up after restarts [FEAT\u2026\". LICENSE file at pin ebe9efb3f452 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

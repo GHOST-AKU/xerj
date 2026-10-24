@@ -9,13 +9,14 @@
    "repo": "AgentSociety",
    "url": "https://github.com/tsinghua-fib-lab/AgentSociety",
    "sha": "8cf440a4119f3499f4c63a92fac05428777a5ce4",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 8cf440a4119f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit 8cf440a4119f: \"fix: \u5f3a\u5236 LiteLLM \u4f7f\u7528\u672c\u5730\u4ef7\u76ee\u8868\uff0c\u907f\u514d\u542f\u52a8\u65f6\u8fdc\u7a0b\u62c9\u53d6\u8b66\u544a\uff0c\u5e76\u4f18\u5316\u82e5\u5e72\u7ec6\u8282\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T13:19Z",
+    "consent_receipt": "063465505dc0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T13:19Z (receipt 063465505dc0); selected commit 8cf440a4119f: \"fix: \u5f3a\u5236 LiteLLM \u4f7f\u7528\u672c\u5730\u4ef7\u76ee\u8868\uff0c\u907f\u514d\u542f\u52a8\u65f6\u8fdc\u7a0b\u62c9\u53d6\u8b66\u544a\uff0c\u5e76\u4f18\u5316\u82e5\u5e72\u7ec6\u8282\". LICENSE file at pin 8cf440a4119f detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

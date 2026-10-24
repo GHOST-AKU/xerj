@@ -9,13 +9,14 @@
    "repo": "runxin-local",
    "url": "https://github.com/Danirv/runxin-local",
    "sha": "fce313ce146426d590385e28a48c1c4615a46861",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin fce313ce1464, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit fce313ce1464: \"Migrate to async python-broadlink for HA 2026.10 (2.10.0) (#34)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T08:02Z",
+    "consent_receipt": "08d7bb0f05b0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T08:02Z (receipt 08d7bb0f05b0); selected commit fce313ce1464: \"Migrate to async python-broadlink for HA 2026.10 (2.10.0) (#34)\". LICENSE file at pin fce313ce1464 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

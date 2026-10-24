@@ -9,13 +9,14 @@
    "repo": "nebulex",
    "url": "https://github.com/elixir-nebulex/nebulex",
    "sha": "306221384c64236f2f341be7511de922b4a20e8b",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 306221384c64, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 306221384c64: \"feat(cache): add Nebulex.Adapter.CompositeKV behaviour\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T12:38Z",
+    "consent_receipt": "a83d1a3aafdc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T12:38Z (receipt a83d1a3aafdc); selected commit 306221384c64: \"feat(cache): add Nebulex.Adapter.CompositeKV behaviour\". LICENSE file at pin 306221384c64 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

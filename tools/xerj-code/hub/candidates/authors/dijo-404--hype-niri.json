@@ -9,13 +9,14 @@
    "repo": "Hype_Niri",
    "url": "https://github.com/Dijo-404/Hype_Niri",
    "sha": "fff03f8ff281e3971ee8c80a20694bceb1acbcf7",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin fff03f8ff281, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit fff03f8ff281: \"[ feat ] : make copilot key useful\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T22:54Z",
+    "consent_receipt": "04620f54fc18",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T22:54Z (receipt 04620f54fc18); selected commit fff03f8ff281: \"[ feat ] : make copilot key useful\". LICENSE file at pin fff03f8ff281 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "Claude-of-Tanks",
    "url": "https://github.com/Kevin-Liu-01/Claude-of-Tanks",
    "sha": "6979d489c85dba34ce7402c49c65c431c6e390ad",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-06 (reply to Corpus Hub outreach); selected commit 6979d489c85d: \"feat(ui): redesign spectator controls as compact hexagonal instruments\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "a2a9c389dbf4",
+    "note": "author consent by email 2026-10-06T04:01Z (receipt a2a9c389dbf4); selected commit 6979d489c85d: \"feat(ui): redesign spectator controls as compact hexagonal instruments\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

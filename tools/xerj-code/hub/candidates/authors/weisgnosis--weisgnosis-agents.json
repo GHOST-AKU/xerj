@@ -9,13 +9,14 @@
    "repo": "weisgnosis-agents",
    "url": "https://github.com/weisgnosis/weisgnosis-agents",
    "sha": "e0381490a38ec3952df6d46a84e36d19af256025",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin e0381490a38e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit e0381490a38e: \"fix(core): preserve tool cleanup causes with scoped execution\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T09:53Z",
+    "consent_receipt": "aafcb7633046",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T09:53Z (receipt aafcb7633046); selected commit e0381490a38e: \"fix(core): preserve tool cleanup causes with scoped execution\". LICENSE file at pin e0381490a38e detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

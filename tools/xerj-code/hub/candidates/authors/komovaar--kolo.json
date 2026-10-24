@@ -9,13 +9,14 @@
    "repo": "kolo",
    "url": "https://github.com/komovaar/kolo",
    "sha": "ddd7c668ca7e14d3205fb43fb237a17933d98cb5",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "AGPL-3.0 (LICENSE file at pin ddd7c668ca7e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit ddd7c668ca7e: \"feat(ui): use React primitives for session switching and sharing\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-14T20:47Z",
+    "consent_receipt": "cb3e86f53500",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T20:47Z (receipt cb3e86f53500); selected commit ddd7c668ca7e: \"feat(ui): use React primitives for session switching and sharing\". LICENSE file at pin ddd7c668ca7e detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

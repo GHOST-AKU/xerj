@@ -1,0 +1,23 @@
+{
+ "corpus": "tarunagarwal1981--wobbly",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, evaluation, llm queries this for how tarunagarwal1981/wobbly implements it: Metamorphic testing for AI outputs \u2014 find wrong LLM answers without an answer key (selected work: wobbly, tests, scripts)",
+ "repos": [
+  {
+   "repo": "wobbly",
+   "url": "https://github.com/tarunagarwal1981/wobbly",
+   "sha": "da5edf67a21a1620f6d90197fe94cb5af0d81a5d",
+   "licence": "MIT (LICENSE file at pin da5edf67a21a, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T12:57Z",
+    "consent_receipt": "f9ad91c6fa54",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T12:57Z (receipt f9ad91c6fa54); selected commit da5edf67a21a: \"feat(length): length_bias() + length_invariant() \u2014 verbosity-bias che\u2026\". LICENSE file at pin da5edf67a21a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "docs-alive",
    "url": "https://github.com/akshaypalekar15/docs-alive",
    "sha": "ca829b530a716a84951c81130f465b0a5eef7971",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin ca829b530a71, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit ca829b530a71: \"Edit section text and table cells without destroying what a section h\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T02:35Z",
+    "consent_receipt": "bcf74f04c0d5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T02:35Z (receipt bcf74f04c0d5); selected commit ca829b530a71: \"Edit section text and table cells without destroying what a section h\u2026\". LICENSE file at pin ca829b530a71 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "abdullahhanif-001--elite-ebpf-telemetry",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on ebpf, golang, linux queries this for how abdullahhanif-001/elite-ebpf-telemetry implements it: eBPF physics telemetry + userspace EWMA kinematic fault projection (0-alloc scrape path, dry-run/semi shed, systemd Physics Pack) (selected work: scripts, benchmarks)",
+ "repos": [
+  {
+   "repo": "elite-ebpf-telemetry",
+   "url": "https://github.com/abdullahhanif-001/elite-ebpf-telemetry",
+   "sha": "e932f1bedbb2279b92c1343a135465f8a228c840",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "c6a039fdd748",
+    "note": "author consent by email 2026-10-22T08:03Z (receipt c6a039fdd748); selected commit e932f1bedbb2: \"feat(verify): offline full-repo proof without sched_ext VPS\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

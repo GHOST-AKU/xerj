@@ -9,13 +9,14 @@
    "repo": "BiliLearn-AI",
    "url": "https://github.com/yxyusage/BiliLearn-AI",
    "sha": "6074c86973485f2e17eb9f328689b74933ad4481",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 6074c8697348, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 6074c8697348: \"feat(review-material): \u590d\u4e60\u8d44\u6599\u300c\u8be6\u7248\u300d\u9010\u7ae0\u751f\u6210\uff0c\u957f\u5408\u96c6\u4e0d\u518d\u53ea\u6709\u6982\u89c8 (v1.8.10)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T08:45Z",
+    "consent_receipt": "bdd9639d9969",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T08:45Z (receipt bdd9639d9969); selected commit 6074c8697348: \"feat(review-material): \u590d\u4e60\u8d44\u6599\u300c\u8be6\u7248\u300d\u9010\u7ae0\u751f\u6210\uff0c\u957f\u5408\u96c6\u4e0d\u518d\u53ea\u6709\u6982\u89c8 (v1.8.10)\". LICENSE file at pin 6074c8697348 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

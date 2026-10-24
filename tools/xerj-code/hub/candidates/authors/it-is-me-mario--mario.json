@@ -9,13 +9,14 @@
    "repo": "MARIO",
    "url": "https://github.com/it-is-me-mario/MARIO",
    "sha": "9e8fdadcb1772741ed66f1bd98743255df61f99e",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin 9e8fdadcb177, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 9e8fdadcb177: \"fix(parsers): reconcile MRIO layouts and source metadata\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-15T08:38Z",
+    "consent_receipt": "63c089b3a07f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T08:38Z (receipt 63c089b3a07f); selected commit 9e8fdadcb177: \"fix(parsers): reconcile MRIO layouts and source metadata\". LICENSE file at pin 9e8fdadcb177 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

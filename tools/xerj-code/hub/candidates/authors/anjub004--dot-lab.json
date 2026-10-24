@@ -1,0 +1,23 @@
+{
+ "corpus": "anjub004--dot-lab",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how Anjub004/dot-lab implements it: An experimental always-on AI agent that plans, uses tools, maintains memory, executes multi-step tasks, and requests human approval when nee (selected work: app/memory)",
+ "repos": [
+  {
+   "repo": "dot-lab",
+   "url": "https://github.com/Anjub004/dot-lab",
+   "sha": "c864d2da6385ae80631d7fd8f3401f3405b74db3",
+   "licence": "MIT (LICENSE file at pin c864d2da6385, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T10:01Z",
+    "consent_receipt": "7c2c2b77edd3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T10:01Z (receipt 7c2c2b77edd3); selected commit c864d2da6385: \"Add persistent SQLite memory store\". LICENSE file at pin c864d2da6385 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

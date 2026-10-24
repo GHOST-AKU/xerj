@@ -9,13 +9,14 @@
    "repo": "swagger-cpp",
    "url": "https://github.com/stescobedo92/swagger-cpp",
    "sha": "298fdb33b142e0a67259adbea464e56adddc33b3",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 298fdb33b142, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 298fdb33b142: \"fix: validate portable vcpkg release registry and optional CLI\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T21:51Z",
+    "consent_receipt": "9dd5545fdcb4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T21:51Z (receipt 9dd5545fdcb4); selected commit 298fdb33b142: \"fix: validate portable vcpkg release registry and optional CLI\". LICENSE file at pin 298fdb33b142 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

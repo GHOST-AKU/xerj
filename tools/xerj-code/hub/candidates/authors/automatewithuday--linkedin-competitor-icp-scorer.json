@@ -1,0 +1,23 @@
+{
+ "corpus": "automatewithuday--linkedin-competitor-icp-scorer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on apify, claude, gtm queries this for how automatewithuday/linkedin-competitor-icp-scorer implements it: Qualify the people engaging with your competitors' LinkedIn posts against your ICP: company fit first, then the buyer, every decision with a (selected work: src, tests, the project root)",
+ "repos": [
+  {
+   "repo": "linkedin-competitor-icp-scorer",
+   "url": "https://github.com/automatewithuday/linkedin-competitor-icp-scorer",
+   "sha": "f859d56cf9ed65a1ce293d69aebda1c43977c983",
+   "licence": "MIT (LICENSE file at pin f859d56cf9ed, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T20:24Z",
+    "consent_receipt": "1832ec37a408",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T20:24Z (receipt 1832ec37a408); selected commit f859d56cf9ed: \"Redesign around guided ICP calibration and company-first qualification\". LICENSE file at pin f859d56cf9ed detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

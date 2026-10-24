@@ -9,13 +9,14 @@
    "repo": "vectorcraft",
    "url": "https://github.com/storytold/vectorcraft",
    "sha": "e80b7e383bcf7c8dab1abe363b1c72ee6b852025",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit e80b7e383bcf: \"MCP: prompts, resource templates, completions and logging\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "a7d4b3b034aa",
+    "note": "author consent by email 2026-10-12T14:15Z (receipt a7d4b3b034aa); selected commit e80b7e383bcf: \"MCP: prompts, resource templates, completions and logging\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

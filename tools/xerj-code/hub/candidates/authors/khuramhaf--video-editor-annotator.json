@@ -1,0 +1,23 @@
+{
+ "corpus": "khuramhaf--video-editor-annotator",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on audio-effects, video-editor, video-filtering queries this for how khuramhaf/Video-Editor-Annotator implements it: Online Video Editor and Annotator that is purely Client Side. You can add graphics, animations and apply audio and video filters (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "Video-Editor-Annotator",
+   "url": "https://github.com/khuramhaf/Video-Editor-Annotator",
+   "sha": "28adada25b16729c90b556a75a871e12cee182a6",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "138fc9e6a2c0",
+    "note": "author consent by email 2026-10-22T12:52Z (receipt 138fc9e6a2c0); selected commit 28adada25b16: \"drawing changed\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

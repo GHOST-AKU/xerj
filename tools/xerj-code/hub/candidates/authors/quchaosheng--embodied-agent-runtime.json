@@ -9,13 +9,14 @@
    "repo": "embodied-agent-runtime",
    "url": "https://github.com/Quchaosheng/embodied-agent-runtime",
    "sha": "ec8d99549c7992a78656dead43c9210c04dff05b",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin ec8d99549c79, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit ec8d99549c79: \"feat(tracing): emit cross-layer stage evidence for offline diagnosis\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T07:18Z",
+    "consent_receipt": "18b3abaf7bc0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:18Z (receipt 18b3abaf7bc0); selected commit ec8d99549c79: \"feat(tracing): emit cross-layer stage evidence for offline diagnosis\". LICENSE file at pin ec8d99549c79 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "candlebench",
    "url": "https://github.com/dpologdvinity/candlebench",
    "sha": "9ab349d3483525c3d6e872e7869ab5411100e027",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 9ab349d34835, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 9ab349d34835: \"perf(engine): run the trade walk in C++ when a compiler is available\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T23:24Z",
+    "consent_receipt": "f8671f05ae5b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T23:24Z (receipt f8671f05ae5b); selected commit 9ab349d34835: \"perf(engine): run the trade walk in C++ when a compiler is available\". LICENSE file at pin 9ab349d34835 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

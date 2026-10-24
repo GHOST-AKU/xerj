@@ -1,0 +1,23 @@
+{
+ "corpus": "matiasbuendia08--censos-2007-2025",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on HTML queries this for how matiasbuendia08/Censos-2007-2025 implements it: P\u00e1gina web para comparaci\u00f3n de censos (selected work: fuente, the project root, data)",
+ "repos": [
+  {
+   "repo": "Censos-2007-2025",
+   "url": "https://github.com/matiasbuendia08/Censos-2007-2025",
+   "sha": "14df32ae62c8840821e5a71cb4f4e504a071ff03",
+   "licence": "MIT (LICENSE file at pin 14df32ae62c8, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T00:35Z",
+    "consent_receipt": "dd12c65f14e1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T00:35Z (receipt dd12c65f14e1); selected commit 14df32ae62c8: \"Publica el comparador de censos 2007, 2017 y 2025\". LICENSE file at pin 14df32ae62c8 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "rwml",
    "url": "https://github.com/HyunjoJung/rwml",
    "sha": "19a8aee44c92d8a310480360f63df5ce73bb28f9",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 19a8aee44c92: \"Add bounded commit-bound diagnostic render CI\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "8a4209ff518c",
+    "note": "author consent by email 2026-10-13T23:54Z (receipt 8a4209ff518c); selected commit 19a8aee44c92: \"Add bounded commit-bound diagnostic render CI\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

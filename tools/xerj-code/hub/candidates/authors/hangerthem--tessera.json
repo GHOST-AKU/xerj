@@ -1,0 +1,23 @@
+{
+ "corpus": "hangerthem--tessera",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on digital-wallet, local-first, loyalty-cards queries this for how HangerThem/tessera implements it: A simple, privacy-first loyalty and membership card manager. Scan your physical cards once, then pull them up at checkout - no account, no a (selected work: src/utils, src/components, src/hooks)",
+ "repos": [
+  {
+   "repo": "tessera",
+   "url": "https://github.com/HangerThem/tessera",
+   "sha": "093a82a42fc20919f1518513dbd4a3ef25466945",
+   "licence": "MIT-0 (LICENSE file at pin 093a82a42fc2, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT-0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T05:38Z",
+    "consent_receipt": "bed314cdafef",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T05:38Z (receipt bed314cdafef); selected commit 093a82a42fc2: \"fix: App loads ZXing and bwip-js on every start (#88)\". LICENSE file at pin 093a82a42fc2 detected as MIT-0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

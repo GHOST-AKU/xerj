@@ -9,13 +9,14 @@
    "repo": "alchemy",
    "url": "https://github.com/alchemy-run/alchemy",
    "sha": "db7442f0361f20803f66931df520a031408ff10c",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit db7442f0361f: \"fix(docker): accept Podman missing images and push digests (#2095)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "fc89941d4f11",
+    "note": "author consent by email 2026-10-12T21:26Z (receipt fc89941d4f11); selected commit db7442f0361f: \"fix(docker): accept Podman missing images and push digests (#2095)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

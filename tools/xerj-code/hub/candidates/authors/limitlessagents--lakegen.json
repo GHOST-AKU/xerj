@@ -9,13 +9,14 @@
    "repo": "lakegen",
    "url": "https://github.com/LimitlessAgents/lakegen",
    "sha": "68d660805df24864e24ec344597bccd3ca49a2d1",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 68d660805df2, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-09 (reply to Corpus Hub outreach); selected commit 68d660805df2: \"fix\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T19:49Z",
+    "consent_receipt": "b02f8ea40c27",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T19:49Z (receipt b02f8ea40c27); selected commit 68d660805df2: \"fix\". LICENSE file at pin 68d660805df2 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

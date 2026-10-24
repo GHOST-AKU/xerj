@@ -9,13 +9,14 @@
    "repo": "twitch-spy",
    "url": "https://github.com/TomsBicans/twitch-spy",
    "sha": "9a09d1c13df8b226a5b086e736110f8e2517d38e",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin 9a09d1c13df8, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 9a09d1c13df8: \"feat: add autoplay, shuffle, and search-based playback navigation\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-17T09:49Z",
+    "consent_receipt": "d945c7bd525b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T09:49Z (receipt d945c7bd525b); selected commit 9a09d1c13df8: \"feat: add autoplay, shuffle, and search-based playback navigation\". LICENSE file at pin 9a09d1c13df8 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

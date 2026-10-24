@@ -1,0 +1,23 @@
+{
+ "corpus": "asemqaffaf--rust-fetch",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on axios-alternative, browser, fetch queries this for how asemqaffaf/rust-fetch implements it: Resilient HTTP client for JavaScript & TypeScript: fetch() with timeouts, retries, typed errors, interceptors, upload/download progress and  (selected work: api, scripts, wasm-module)",
+ "repos": [
+  {
+   "repo": "rust-fetch",
+   "url": "https://github.com/asemqaffaf/rust-fetch",
+   "sha": "159faa03b3a5b269c19fb66a497e86daf8ab3d28",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "6c7fd4d61206",
+    "note": "author consent by email 2026-10-22T00:32Z (receipt 6c7fd4d61206); selected commit 159faa03b3a5: \"Add release gates: dependency audit, API compatibility, size budget\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

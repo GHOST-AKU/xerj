@@ -9,13 +9,14 @@
    "repo": "convergence",
    "url": "https://github.com/MauroDruwel/convergence",
    "sha": "b36b10e91c7e9be4d38794dc4e563b30a1bda3eb",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin b36b10e91c7e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit b36b10e91c7e: \"feat(ui): session-persistent tutorial unlock + DO SQLite rehydration\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T09:59Z",
+    "consent_receipt": "70216c0515c0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T09:59Z (receipt 70216c0515c0); selected commit b36b10e91c7e: \"feat(ui): session-persistent tutorial unlock + DO SQLite rehydration\". LICENSE file at pin b36b10e91c7e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "martacondedesign--helixds",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on accessibility, ai-agents, component-library queries this for how MartaCondeDesign/helixds implements it: The design system an AI agent can use without guessing \u2014 React 19, native HTML, Tailwind v4, DTCG tokens, per-component contracts and an MCP (selected work: packages/mcp, scripts, packages/core)",
+ "repos": [
+  {
+   "repo": "helixds",
+   "url": "https://github.com/MartaCondeDesign/helixds",
+   "sha": "aa3432a5546eb300e6a1669a86322e407ed21120",
+   "licence": "MIT (LICENSE file at pin aa3432a5546e, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T10:37Z",
+    "consent_receipt": "c852e785692b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T10:37Z (receipt c852e785692b); selected commit aa3432a5546e: \"@helixds/mcp runs from npm (npx @helixds/mcp) (#16)\". LICENSE file at pin aa3432a5546e detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

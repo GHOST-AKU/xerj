@@ -9,13 +9,14 @@
    "repo": "iconflow",
    "url": "https://github.com/FerrisMind/iconflow",
    "sha": "ae1d8e4b68aadbd37c849658da473a81e9b6ed18",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit ae1d8e4b68aa: \"fix(phosphor): register IcoMoon alias icons under canonical names\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "aa76bd7d9ac4",
+    "note": "author consent by email 2026-10-18T15:23Z (receipt aa76bd7d9ac4); selected commit ae1d8e4b68aa: \"fix(phosphor): register IcoMoon alias icons under canonical names\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

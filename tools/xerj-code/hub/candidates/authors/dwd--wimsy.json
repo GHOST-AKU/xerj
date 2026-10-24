@@ -9,13 +9,14 @@
    "repo": "Wimsy",
    "url": "https://github.com/dwd/Wimsy",
    "sha": "e307c78223da850189a7f21797abc110acbab0c1",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin e307c78223da, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit e307c78223da: \"Fix Maestro e2e flows end-to-end: Openfire autosetup, PIN screen, sem\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T08:59Z",
+    "consent_receipt": "52236b3c559b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T08:59Z (receipt 52236b3c559b); selected commit e307c78223da: \"Fix Maestro e2e flows end-to-end: Openfire autosetup, PIN screen, sem\u2026\". LICENSE file at pin e307c78223da detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

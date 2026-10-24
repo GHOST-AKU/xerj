@@ -1,0 +1,23 @@
+{
+ "corpus": "koldunovn--cdors",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how koldunovn/cdors implements it: CDO-style climate statistics on Zarr, kerchunk and NetCDF, in Rust. Prototype, tested against CDO 2.6.0 (selected work: bench)",
+ "repos": [
+  {
+   "repo": "cdors",
+   "url": "https://github.com/koldunovn/cdors",
+   "sha": "4d068989bdad9ab0f37f5b1852f10ceda7754a44",
+   "licence": "hint only: BSD-3-Clause (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "BSD-3-Clause",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "dbb9bbba8929",
+    "note": "author consent by email 2026-10-22T07:15Z (receipt dbb9bbba8929); selected commit 4d068989bdad: \"Agent check, long-script task H2: the volume transport through Drake \u2026\"; LICENSE at pin: NOASSERTION vs repository BSD-3-Clause \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

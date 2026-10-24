@@ -1,0 +1,23 @@
+{
+ "corpus": "haix02--logistico-software",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on CSS queries this for how Haix02/logistico-software implements it: Open-source logistics and delivery platform for Iraq. Arabic-first, .NET 10, Blazor WebAssembly, PostgreSQL (selected work: src/Modules, src/Logistico.Web.Client, src/Logistico.SharedKernel)",
+ "repos": [
+  {
+   "repo": "logistico-software",
+   "url": "https://github.com/Haix02/logistico-software",
+   "sha": "f2ce071bb2bd1bd628b5ef8a5e7b231c1bafe926",
+   "licence": "Apache-2.0 (LICENSE file at pin f2ce071bb2bd, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T19:29Z",
+    "consent_receipt": "688e017cfb3e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T19:29Z (receipt 688e017cfb3e); selected commit f2ce071bb2bd: \"Search that finds what people type; robustness and UI fixes\". LICENSE file at pin f2ce071bb2bd detected as Apache-2.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

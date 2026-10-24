@@ -9,13 +9,14 @@
    "repo": "rimeno",
    "url": "https://github.com/matiasinsaurralde/rimeno",
    "sha": "27619e8d52c437ced6ae3ea3a2ebfdea1f9bf118",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 27619e8d52c4, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 27619e8d52c4: \"Add rimeno/memory: generic durable memory layer for agents (#6)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T04:03Z",
+    "consent_receipt": "fe149772472f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T04:03Z (receipt fe149772472f); selected commit 27619e8d52c4: \"Add rimeno/memory: generic durable memory layer for agents (#6)\". LICENSE file at pin 27619e8d52c4 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

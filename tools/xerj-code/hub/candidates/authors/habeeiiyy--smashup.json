@@ -9,13 +9,14 @@
    "repo": "SmashUp",
    "url": "https://github.com/habeeiiyy/SmashUp",
    "sha": "769225e0c89509c038901742302518799f412d2c",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 769225e0c895, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 769225e0c895: \"frontend issues\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T05:53Z",
+    "consent_receipt": "298e190ab1d6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T05:53Z (receipt 298e190ab1d6); selected commit 769225e0c895: \"frontend issues\". LICENSE file at pin 769225e0c895 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

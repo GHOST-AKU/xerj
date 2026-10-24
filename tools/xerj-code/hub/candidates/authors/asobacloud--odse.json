@@ -1,0 +1,23 @@
+{
+ "corpus": "asobacloud--odse",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on api, data-schema, energy queries this for how AsobaCloud/odse implements it: ODSE: Open Data Schema for Energy - standardized energy asset data interchange (selected work: src/python, transforms, schemas)",
+ "repos": [
+  {
+   "repo": "odse",
+   "url": "https://github.com/AsobaCloud/odse",
+   "sha": "a6be357b585479d3fb9734ca2bc6e7612f81aa8f",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "c35bcf28f99c",
+    "note": "author consent by email 2026-10-22T11:07Z (receipt c35bcf28f99c); selected commit a6be357b5854: \"feat: per-phase OEM emissions and Huawei electrical KPI ingest (SEP-0\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

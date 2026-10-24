@@ -1,0 +1,23 @@
+{
+ "corpus": "matthewmaker--lean-atlassian",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Shell queries this for how MatthewMaker/lean-atlassian implements it: Claude Code plugin that mediates Atlassian MCP server interactions to minimize context bloat (selected work: plugins, tests, the project root)",
+ "repos": [
+  {
+   "repo": "lean-atlassian",
+   "url": "https://github.com/MatthewMaker/lean-atlassian",
+   "sha": "7136ebe4c8133149d5d440864874a0dea7b740a3",
+   "licence": "MIT (LICENSE file at pin 7136ebe4c813, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T00:59Z",
+    "consent_receipt": "368d6eb1f31e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T00:59Z (receipt 368d6eb1f31e); selected commit 7136ebe4c813: \"feat: auto-approve listed Atlassian execute operations\". LICENSE file at pin 7136ebe4c813 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

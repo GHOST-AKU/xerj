@@ -9,13 +9,14 @@
    "repo": "DX.Comply",
    "url": "https://github.com/omonien/DX.Comply",
    "sha": "cbcf65e164294c8a02b47b917489fa52f5341ae8",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin cbcf65e16429, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit cbcf65e16429: \"Add a library mode for source releases (#65)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T07:00Z",
+    "consent_receipt": "87c26c424e6a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T07:00Z (receipt 87c26c424e6a); selected commit cbcf65e16429: \"Add a library mode for source releases (#65)\". LICENSE file at pin cbcf65e16429 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

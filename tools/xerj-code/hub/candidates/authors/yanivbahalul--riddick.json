@@ -1,0 +1,23 @@
+{
+ "corpus": "yanivbahalul--riddick",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on computer-vision, deep-learning, image-enhancement queries this for how yanivbahalul/Riddick implements it: Deep Learning Based Low Light Image & Video Enhancement (selected work: riddick, scripts)",
+ "repos": [
+  {
+   "repo": "Riddick",
+   "url": "https://github.com/yanivbahalul/Riddick",
+   "sha": "19ec39c78eb63b426376e1462cbced7e5f939d08",
+   "licence": "MIT (LICENSE file at pin 19ec39c78eb6, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T08:06Z",
+    "consent_receipt": "f861fcf58e6d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:06Z (receipt f861fcf58e6d); selected commit 19ec39c78eb6: \"Restructure: a riddick/ package and a scripts/ folder, nothing at the\u2026\". LICENSE file at pin 19ec39c78eb6 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

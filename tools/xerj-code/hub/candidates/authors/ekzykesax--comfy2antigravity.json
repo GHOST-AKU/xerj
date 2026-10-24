@@ -1,0 +1,23 @@
+{
+ "corpus": "ekzykesax--comfy2antigravity",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on PowerShell queries this for how Ekzykesax/comfy2antigravity implements it: Ekzykesax/comfy2antigravity (PowerShell) (selected work: scripts, the project root)",
+ "repos": [
+  {
+   "repo": "comfy2antigravity",
+   "url": "https://github.com/Ekzykesax/comfy2antigravity",
+   "sha": "2739f8fe056bf5e952525f981ce45349a3cf6ca9",
+   "licence": "Apache-2.0 (LICENSE file at pin 2739f8fe056b, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T12:38Z",
+    "consent_receipt": "100778366361",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T12:38Z (receipt 100778366361); selected commit 2739f8fe056b: \"feat: release comfyui-qwen-image skill for Antigravity\". LICENSE file at pin 2739f8fe056b detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

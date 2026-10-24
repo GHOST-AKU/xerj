@@ -9,13 +9,14 @@
    "repo": "be-concise",
    "url": "https://github.com/yannelli/be-concise",
    "sha": "5660095b14e10b6815e255ef9af5868a31603d91",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 5660095b14e1, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-06 (reply to Corpus Hub outreach); selected commit 5660095b14e1: \"feat(concise): add settings tools, writing tuner, and dictionary\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-06T03:23Z",
+    "consent_receipt": "12ad48f3eb33",
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T03:23Z (receipt 12ad48f3eb33); selected commit 5660095b14e1: \"feat(concise): add settings tools, writing tuner, and dictionary\". LICENSE file at pin 5660095b14e1 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

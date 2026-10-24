@@ -1,0 +1,23 @@
+{
+ "corpus": "spinningvinyl--kwst",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Go queries this for how SpinningVinyl/kwst implements it: kwst (KWin scripting tool) is a small utility to control kwin_wayland from the command line (selected work: integration, the project root, tmpl)",
+ "repos": [
+  {
+   "repo": "kwst",
+   "url": "https://github.com/SpinningVinyl/kwst",
+   "sha": "8b9923156d3654a2248491a3843c4b92f5390482",
+   "licence": "hint only: GPL-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "GPL-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "421f7f06ed74",
+    "note": "author consent by email 2026-10-22T17:19Z (receipt 421f7f06ed74); selected commit 8b9923156d36: \"implement get-window-property\"; LICENSE at pin: NOASSERTION vs repository GPL-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

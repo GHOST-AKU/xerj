@@ -1,0 +1,23 @@
+{
+ "corpus": "anonmohak--dakken",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on cli, ratatui, rust queries this for how AnonMohak/dakken implements it: A typing-speed test for the terminal (selected work: src/ui, src)",
+ "repos": [
+  {
+   "repo": "dakken",
+   "url": "https://github.com/AnonMohak/dakken",
+   "sha": "4cb0929670c3c6d44d6faea4a5c959fe83c69636",
+   "licence": "MIT (LICENSE file at pin 4cb0929670c3, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T17:16Z",
+    "consent_receipt": "491ff1b34906",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T17:16Z (receipt 491ff1b34906); selected commit 4cb0929670c3: \"feat: menu with the logo on top, a mode screen on o, and dracula as t\u2026\". LICENSE file at pin 4cb0929670c3 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

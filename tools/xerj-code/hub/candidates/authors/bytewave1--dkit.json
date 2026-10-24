@@ -1,0 +1,23 @@
+{
+ "corpus": "bytewave1--dkit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cli, developer-tools, discord queries this for how Bytewave1/dkit implements it: An offline toolbox for Discord bot developers: snowflakes, permissions, intents and invite URLs (selected work: src/dkit, tests)",
+ "repos": [
+  {
+   "repo": "dkit",
+   "url": "https://github.com/Bytewave1/dkit",
+   "sha": "e3bd0ebac464d3f90eb5415799b25eaee79a30ff",
+   "licence": "MIT (LICENSE file at pin e3bd0ebac464, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:49Z",
+    "consent_receipt": "d8abcd28a65d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:49Z (receipt d8abcd28a65d); selected commit e3bd0ebac464: \"feat: add dkit timestamp for Discord <t:...> tags (#10)\". LICENSE file at pin e3bd0ebac464 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

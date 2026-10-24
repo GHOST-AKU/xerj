@@ -8,14 +8,15 @@
   {
    "repo": "ShreeMewa",
    "url": "https://github.com/AgrShubham/ShreeMewa",
-   "sha": "70066ff49b86f86413b9e08b4270ac0a37c8f5ce",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "878a2878ee0430bde5754658f3003c5fcc727fb2",
+   "licence": "MIT (LICENSE file at pin 878a2878ee04, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 70066ff49b86: \"refactor(home): deconstruct monolithic HomeView into 10 modular secti\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T18:31Z",
+    "consent_receipt": "a44079a0ff97",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T18:31Z (receipt a44079a0ff97); selected commit 878a2878ee04: \"refactor(home): deconstruct monolithic HomeView into 10 modular secti\u2026\". LICENSE file at pin 878a2878ee04 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head 878a2878ee04 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

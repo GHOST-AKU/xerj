@@ -9,13 +9,14 @@
    "repo": "rsclaw",
    "url": "https://github.com/rsclaw-ai/rsclaw",
    "sha": "29b1f7e54aacbe092801ba1ad20bf13195522bac",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 29b1f7e54aac: \"feat(owner,docs): owner management in desktop UI and CLI; security docs\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "adf63eb110a0",
+    "note": "author consent by email 2026-10-12T23:38Z (receipt adf63eb110a0); selected commit 29b1f7e54aac: \"feat(owner,docs): owner management in desktop UI and CLI; security docs\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "gopsc--mybot",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Lua queries this for how gopsc/mybot implements it: gopsc/mybot (Lua) (selected work: tests, pymybot, the project root)",
+ "repos": [
+  {
+   "repo": "mybot",
+   "url": "https://github.com/gopsc/mybot",
+   "sha": "f36a2bcf9aca8979dcbca5efb8d5ed88281955d6",
+   "licence": "MIT (LICENSE file at pin f36a2bcf9aca, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T02:24Z",
+    "consent_receipt": "6a07ba49d7f5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T02:24Z (receipt 6a07ba49d7f5); selected commit f36a2bcf9aca: \"feat(agent): add PydanticAI mode with guarded robot execution\". LICENSE file at pin f36a2bcf9aca detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

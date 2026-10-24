@@ -9,13 +9,14 @@
    "repo": "sedrila",
    "url": "https://github.com/fubinf/sedrila",
    "sha": "1e5da14fdd2821de9c2d7bcee7ad931dfe214144",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 1e5da14fdd28, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 1e5da14fdd28: \"big refactoring: introduce a proper package structure\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T09:37Z",
+    "consent_receipt": "33a3c305b2e8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T09:37Z (receipt 33a3c305b2e8); selected commit 1e5da14fdd28: \"big refactoring: introduce a proper package structure\". LICENSE file at pin 1e5da14fdd28 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

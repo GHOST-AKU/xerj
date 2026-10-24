@@ -9,13 +9,14 @@
    "repo": "ShotAI",
    "url": "https://github.com/ReDChicagOTypewriteR/ShotAI",
    "sha": "c51604a0d5ebb3155c355c1252b000312fa78a01",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin c51604a0d5eb, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit c51604a0d5eb: \"feat: add Chinese and English UI with system locale fallback\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T00:40Z",
+    "consent_receipt": "fd302bde5a2d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T00:40Z (receipt fd302bde5a2d); selected commit c51604a0d5eb: \"feat: add Chinese and English UI with system locale fallback\". LICENSE file at pin c51604a0d5eb detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "yantrik-os",
    "url": "https://github.com/yantrikos/yantrik-os",
    "sha": "1a589e4aace639bb5d05292de45a337b17256fb6",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin 1a589e4aace6, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 1a589e4aace6: \"Add explain_route observability to CognitiveRouter\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-13T02:52Z",
+    "consent_receipt": "c22b5583e627",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T02:52Z (receipt c22b5583e627); selected commit 1a589e4aace6: \"Add explain_route observability to CognitiveRouter\". LICENSE file at pin 1a589e4aace6 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

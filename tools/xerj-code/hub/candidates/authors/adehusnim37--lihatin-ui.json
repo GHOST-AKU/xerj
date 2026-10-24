@@ -1,0 +1,23 @@
+{
+ "corpus": "adehusnim37--lihatin-ui",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how adehusnim37/Lihatin-UI implements it: Lihatin UI (selected work: components, lib/api, app/auth)",
+ "repos": [
+  {
+   "repo": "Lihatin-UI",
+   "url": "https://github.com/adehusnim37/Lihatin-UI",
+   "sha": "027d21a28be469d829109ca6e83ef0b3aee99511",
+   "licence": "Unlicense (LICENSE file at pin 027d21a28be4, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "Unlicense",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:58Z",
+    "consent_receipt": "76833e16dcad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:58Z (receipt 76833e16dcad); selected commit 027d21a28be4: \"feat: add passkey authentication, TOTP recovery codes, and profile se\u2026\". LICENSE file at pin 027d21a28be4 detected as Unlicense by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

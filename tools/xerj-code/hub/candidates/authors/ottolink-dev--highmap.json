@@ -9,13 +9,14 @@
    "repo": "HighMap",
    "url": "https://github.com/ottolink-dev/HighMap",
    "sha": "90bb8041b17fd7c0bd1631597fda78cb492368f4",
-   "licence": "hint only: LGPL-2.1 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: LGPL-2.1 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "LGPL-2.1",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-06 (reply to Corpus Hub outreach); selected commit 90bb8041b17f: \"feat: add loose symmetry operator and example (#461)\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "1271b0e00efb",
+    "note": "author consent by email 2026-10-06T07:06Z (receipt 1271b0e00efb); selected commit 90bb8041b17f: \"feat: add loose symmetry operator and example (#461)\"; LICENSE at pin: NOASSERTION vs repository LGPL-2.1 \u2014 needs a human licence review."
    }
   }
  ]

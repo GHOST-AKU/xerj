@@ -8,14 +8,15 @@
   {
    "repo": "reixo",
    "url": "https://github.com/webcoderspeed/reixo",
-   "sha": "f3f6e49110845d0d917344e9570bf9beadcfce6f",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "3e670190c4fb034e38e8390e08be389ce7a572fc",
+   "licence": "MIT (LICENSE file at pin 3e670190c4fb, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); pinned to the default-branch head; suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T00:31Z",
+    "consent_receipt": "6b2ce78e8b87",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T00:31Z (receipt 6b2ce78e8b87); pinned to the default-branch head. LICENSE file at pin 3e670190c4fb detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

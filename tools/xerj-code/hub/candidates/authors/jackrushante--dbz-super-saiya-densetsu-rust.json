@@ -1,0 +1,23 @@
+{
+ "corpus": "jackrushante--dbz-super-saiya-densetsu-rust",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on decompilation, dragon-ball, emulation queries this for how JackRushante/DBZ-Super-Saiya-Densetsu-Rust implements it: Dragon Ball Z: Super Saiya Densetsu (SNES) \u2014 Classic, Recompiled and HD Remastered, rewritten in Rust. Bring your own ROM (selected work: crates/ssd-menus, crates/ssd-game, xtask)",
+ "repos": [
+  {
+   "repo": "DBZ-Super-Saiya-Densetsu-Rust",
+   "url": "https://github.com/JackRushante/DBZ-Super-Saiya-Densetsu-Rust",
+   "sha": "3af07d084ccce434942b0e8b647812b74f1e6436",
+   "licence": "hint only: GPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "f10b70a89f64",
+    "note": "author consent by email 2026-10-22T07:18Z (receipt f10b70a89f64); selected commit 3af07d084ccc: \"Cheats in battle, Zeni gained and the Item spawner; the recruits of t\u2026\"; LICENSE at pin: NOASSERTION vs repository GPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

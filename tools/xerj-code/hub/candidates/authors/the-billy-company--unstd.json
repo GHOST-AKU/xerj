@@ -1,0 +1,23 @@
+{
+ "corpus": "the-billy-company--unstd",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on blake3, json, performance queries this for how The-Billy-Company/unstd implements it: stdlib-faithful accelerated replacements behind optional extras (selected work: src/unstd, tests, bench)",
+ "repos": [
+  {
+   "repo": "unstd",
+   "url": "https://github.com/The-Billy-Company/unstd",
+   "sha": "06537358e40fe58e6d39e99c849bfc47bfa21888",
+   "licence": "Apache-2.0 (LICENSE file at pin 06537358e40f, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T19:44Z",
+    "consent_receipt": "421c4bb52741",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T19:44Z (receipt 421c4bb52741); selected commit 06537358e40f: \"perf(serde): format default JSON spacing without text fallbacks\". LICENSE file at pin 06537358e40f detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

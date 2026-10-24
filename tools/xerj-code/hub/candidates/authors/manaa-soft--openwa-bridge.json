@@ -1,0 +1,23 @@
+{
+ "corpus": "manaa-soft--openwa-bridge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on bullmq, erpnext, frappe queries this for how Manaa-Soft/openwa_bridge implements it: Frappe ERPNext bridge to OpenWA Gateway (WhatsApp Web API) \u2014 outbox pattern, session lifecycle management, real-time delivery status (selected work: openwa_bridge)",
+ "repos": [
+  {
+   "repo": "openwa_bridge",
+   "url": "https://github.com/Manaa-Soft/openwa_bridge",
+   "sha": "5835d656daf167e16156347cc44fde1525a00439",
+   "licence": "GPL-3.0 (LICENSE file at pin 5835d656daf1, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T04:05Z",
+    "consent_receipt": "46713c100562",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T04:05Z (receipt 46713c100562); selected commit 5835d656daf1: \"feat: sync bridge with OpenWA v0.23.7 (commerce types, prompt taps, c\u2026\". LICENSE file at pin 5835d656daf1 detected as GPL-3.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

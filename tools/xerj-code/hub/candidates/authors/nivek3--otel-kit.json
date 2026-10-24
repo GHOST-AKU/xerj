@@ -1,0 +1,23 @@
+{
+ "corpus": "nivek3--otel-kit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on axum, logging, observability queries this for how nivek3/otel-kit implements it: OpenTelemetry tracing and logging for Rust and Axum (selected work: crates/tracing-otel, crates/otel-logger, crates/otel-http)",
+ "repos": [
+  {
+   "repo": "otel-kit",
+   "url": "https://github.com/nivek3/otel-kit",
+   "sha": "0bceca51b049be3d2d79295b8c16d23aeb6f516c",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "bda10ec96db7",
+    "note": "author consent by email 2026-10-22T02:07Z (receipt bda10ec96db7); selected commit 0bceca51b049: \"refactor!: split tracing-otel into otel-http and otel-logger (#44)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

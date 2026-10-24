@@ -9,13 +9,14 @@
    "repo": "JS8Call-improved",
    "url": "https://github.com/JS8Call-improved/JS8Call-improved",
    "sha": "fcf3b64ea43324a32d8f6923eef6902cf02ec77a",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin fcf3b64ea433, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit fcf3b64ea433: \"Fix strong signal decoder regression.\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-14T22:05Z",
+    "consent_receipt": "e6aa380b78b9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T22:05Z (receipt e6aa380b78b9); selected commit fcf3b64ea433: \"Fix strong signal decoder regression.\". LICENSE file at pin fcf3b64ea433 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

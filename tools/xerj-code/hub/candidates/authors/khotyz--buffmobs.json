@@ -1,0 +1,23 @@
+{
+ "corpus": "khotyz--buffmobs",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how Khotyz/BuffMobs implements it: BuffMobs Repo (selected work: src/main, the project root)",
+ "repos": [
+  {
+   "repo": "BuffMobs",
+   "url": "https://github.com/Khotyz/BuffMobs",
+   "sha": "f55e82e77afa489f3f9782cacda167a8e337a566",
+   "licence": "MIT (LICENSE file at pin f55e82e77afa, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T18:54Z",
+    "consent_receipt": "45f74c90ce72",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T18:54Z (receipt 45f74c90ce72); selected commit f55e82e77afa: \"4.0.0\". LICENSE file at pin f55e82e77afa detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

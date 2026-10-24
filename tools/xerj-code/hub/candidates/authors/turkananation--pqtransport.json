@@ -1,0 +1,23 @@
+{
+ "corpus": "turkananation--pqtransport",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on cryptography, dart, dns-over-https queries this for how turkananation/pqtransport implements it: Pure-Dart post-quantum transport for Dart and Flutter: hybrid TLS 1.3 (RFC 10024 X25519MLKEM768, SecP256r1MLKEM768, SecP384r1MLKEM1024), enc (selected work: lib/src, tool, test)",
+ "repos": [
+  {
+   "repo": "pqtransport",
+   "url": "https://github.com/turkananation/pqtransport",
+   "sha": "65dcd4bd17bae353a54bb10cee21e40248b31efd",
+   "licence": "MIT (LICENSE file at pin 65dcd4bd17ba, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T18:02Z",
+    "consent_receipt": "eb16f356eb92",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T18:02Z (receipt eb16f356eb92); selected commit 65dcd4bd17ba: \"LIM-01: OpenSSL 3.5.9 handshakes for all three RFC 10024 groups (#57)\". LICENSE file at pin 65dcd4bd17ba detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

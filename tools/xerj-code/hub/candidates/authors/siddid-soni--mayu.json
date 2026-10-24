@@ -1,0 +1,23 @@
+{
+ "corpus": "siddid-soni--mayu",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on asyncio, background-jobs, celery queries this for how Siddid-Soni/mayu implements it: Fast Python task queue with a Rust core, built for free-threaded (no-GIL) Python. Redis-backed Celery alternative (selected work: tests, python)",
+ "repos": [
+  {
+   "repo": "mayu",
+   "url": "https://github.com/Siddid-Soni/mayu",
+   "sha": "247c416343d18d8e35b70d5655dda6bd858014ef",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "4b53cdf952a0",
+    "note": "author consent by email 2026-10-22T01:26Z (receipt 4b53cdf952a0); selected commit 247c416343d1: \"feat(py): linger= on pools and --lookahead loading from workflow demand\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "trusty-tools",
    "url": "https://github.com/bobmatnyc/trusty-tools",
    "sha": "19ed4b42c854b0d83e6b72ca9acce3e3ff039367",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 19ed4b42c854, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 19ed4b42c854: \"fix(trusty-mpm): pm-guard denies tmux verbs aimed at the Architect pa\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T12:45Z",
+    "consent_receipt": "26d789783138",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T12:45Z (receipt 26d789783138); selected commit 19ed4b42c854: \"fix(trusty-mpm): pm-guard denies tmux verbs aimed at the Architect pa\u2026\". LICENSE file at pin 19ed4b42c854 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "cristofima--ai-banking-assistant-agentframework",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agent, azure, python queries this for how cristofima/AI-Banking-Assistant-AgentFramework implements it: An AI-first banking customer-service prototype for the Factored AI & Data Hackathon 2026 (selected work: infra)",
+ "repos": [
+  {
+   "repo": "AI-Banking-Assistant-AgentFramework",
+   "url": "https://github.com/cristofima/AI-Banking-Assistant-AgentFramework",
+   "sha": "b511990a0810183acd7ba7ecc1da5e9df137b17e",
+   "licence": "MIT (LICENSE file at pin b511990a0810, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T21:22Z",
+    "consent_receipt": "e7a206ec7841",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T21:22Z (receipt e7a206ec7841); selected commit b511990a0810: \"feat(infra): provision native OAuth keys and scoped operations grants\". LICENSE file at pin b511990a0810 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

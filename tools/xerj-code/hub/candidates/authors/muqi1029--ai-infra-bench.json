@@ -1,0 +1,23 @@
+{
+ "corpus": "muqi1029--ai-infra-bench",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on Python queries this for how Muqi1029/ai-infra-bench implements it: End-to-end automated benchmarking for AI infrastructure workflows (selected work: tests, ai_infra_bench, test)",
+ "repos": [
+  {
+   "repo": "ai-infra-bench",
+   "url": "https://github.com/Muqi1029/ai-infra-bench",
+   "sha": "eec792884a177be55c488a11243fc9a2fde8b930",
+   "licence": "Apache-2.0 (LICENSE file at pin eec792884a17, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T09:00Z",
+    "consent_receipt": "41977d2343f9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T09:00Z (receipt 41977d2343f9); selected commit eec792884a17: \"refactor & support aib tokenize\". LICENSE file at pin eec792884a17 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

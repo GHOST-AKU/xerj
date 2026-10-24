@@ -1,0 +1,23 @@
+{
+ "corpus": "aerele--jarvis",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, ai-agents, enterprise-ai queries this for how aerele/jarvis implements it: Jarvis - The AI teammate inside ERPNext (selected work: frontend)",
+ "repos": [
+  {
+   "repo": "jarvis",
+   "url": "https://github.com/aerele/jarvis",
+   "sha": "fa6c232a69a0531a110459cab509a144513e5e28",
+   "licence": "AGPL-3.0 (LICENSE file at pin fa6c232a69a0, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T11:35Z",
+    "consent_receipt": "030b2be7fc93",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T11:35Z (receipt 030b2be7fc93); selected commit fa6c232a69a0: \"fix(chat): copy a reply as formatted text, not raw Markdown\". LICENSE file at pin fa6c232a69a0 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

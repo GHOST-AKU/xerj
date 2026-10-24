@@ -9,13 +9,14 @@
    "repo": "opencode-parser",
    "url": "https://github.com/TejasS1233/opencode-parser",
    "sha": "959fbd3f7cbdfc2fc0fed28ee8b285b827c62d34",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 959fbd3f7cbd, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 959fbd3f7cbd: \"feat: support both OpenCode V1 and V2 from one package\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T14:33Z",
+    "consent_receipt": "11c998797897",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T14:33Z (receipt 11c998797897); selected commit 959fbd3f7cbd: \"feat: support both OpenCode V1 and V2 from one package\". LICENSE file at pin 959fbd3f7cbd detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

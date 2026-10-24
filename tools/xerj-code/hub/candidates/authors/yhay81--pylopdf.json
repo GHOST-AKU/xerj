@@ -3,19 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on pdf, pdf-editing, pdf-library queries this for how yhay81/pylopdf implements it: PDF editing, rendering, text extraction, and generation for Python, powered by Rust. pymupdf-style API without the AGPL \u2014 MIT, zero dependen (selected work: tests, rust, src/pylopdf)",
+ "domain": "an agent working on pdf, pdf-editing, pdf-library queries this for how yhay81/pylopdf implements it: PDF editing, rendering, extraction, and generation for Python on the Rust engines lopdf, hayro, and krilla \u2014 MIT, safe on untrusted input, W (selected work: tests, rust, src/pylopdf)",
  "repos": [
   {
    "repo": "pylopdf",
    "url": "https://github.com/yhay81/pylopdf",
    "sha": "b22cf63f2efb1c392176dad2b0cf0cda8e6fafa2",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin b22cf63f2efb, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit b22cf63f2efb: \"Expose glyph positions through rawdict text extraction (#195)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T00:59Z",
+    "consent_receipt": "8bb56176a506",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T00:59Z (receipt 8bb56176a506); selected commit b22cf63f2efb: \"Expose glyph positions through rawdict text extraction (#195)\". LICENSE file at pin b22cf63f2efb detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -9,13 +9,14 @@
    "repo": "Robin",
    "url": "https://github.com/sharmao07/Robin",
    "sha": "8ce0d3b9bdd7bca4f6d1771722c9a2d43d1f50ac",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 8ce0d3b9bdd7, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 8ce0d3b9bdd7: \"Prepare Robin standalone desktop release candidate\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T04:25Z",
+    "consent_receipt": "9f5d808bd993",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T04:25Z (receipt 9f5d808bd993); selected commit 8ce0d3b9bdd7: \"Prepare Robin standalone desktop release candidate\". LICENSE file at pin 8ce0d3b9bdd7 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

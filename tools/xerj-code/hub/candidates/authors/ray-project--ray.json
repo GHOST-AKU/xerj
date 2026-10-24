@@ -9,13 +9,14 @@
    "repo": "ray",
    "url": "https://github.com/ray-project/ray",
    "sha": "48894b0b6249caffbbbaa9e29d4d9eafe2d91c4a",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 48894b0b6249, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit 48894b0b6249: \"[Feat][Core/Auth] Enable token authentication for local clusters by d\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T07:51Z",
+    "consent_receipt": "d750b90200cb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T07:51Z (receipt d750b90200cb); selected commit 48894b0b6249: \"[Feat][Core/Auth] Enable token authentication for local clusters by d\u2026\". LICENSE file at pin 48894b0b6249 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

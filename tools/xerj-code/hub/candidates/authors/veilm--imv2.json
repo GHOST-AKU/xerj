@@ -1,0 +1,23 @@
+{
+ "corpus": "veilm--imv2",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C queries this for how veilm/imv2 implements it: fork of imv with gallery/thumbnail mode like nsxiv has (selected work: src, test, the project root)",
+ "repos": [
+  {
+   "repo": "imv2",
+   "url": "https://github.com/veilm/imv2",
+   "sha": "44d5285dda0b593d655b7cd027a80a9f73504baa",
+   "licence": "MIT (LICENSE file at pin 44d5285dda0b, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T01:34Z",
+    "consent_receipt": "2d337bb51c4a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T01:34Z (receipt 2d337bb51c4a); selected commit 44d5285dda0b: \"Thu Sep 24 18:50:58 EDT 2026 hnt-tagme\". LICENSE file at pin 44d5285dda0b detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

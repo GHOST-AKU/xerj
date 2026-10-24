@@ -9,13 +9,14 @@
    "repo": "gzh-article-group",
    "url": "https://github.com/Designer-Awei/gzh-article-group",
    "sha": "1076fb5262b75a1cfb2dbfd596a4397d8036c8e0",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 1076fb5262b7, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 1076fb5262b7: \"feat(layout): \u6bcd\u7248\u5e93 02\u201304 + INDEX\uff1b\u66f4\u65b0\u5404 bot 2026-10-15 \u89c4\u5219\uff1bCHANGELOG\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T06:33Z",
+    "consent_receipt": "b9ad51ea130a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:33Z (receipt b9ad51ea130a); selected commit 1076fb5262b7: \"feat(layout): \u6bcd\u7248\u5e93 02\u201304 + INDEX\uff1b\u66f4\u65b0\u5404 bot 2026-10-15 \u89c4\u5219\uff1bCHANGELOG\". LICENSE file at pin 1076fb5262b7 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

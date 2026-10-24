@@ -3,19 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on agent, agent-framework, deepseek queries this for how esengine/DeepSeek-Reasonix implements it: A reliable coding agent for complex software engineering tasks (selected work: internal/ext, internal/frontend)",
+ "domain": "an agent working on agent, agent-framework, deepseek queries this for how esengine/DeepSeek-Reasonix implements it: A reliable coding agent for complex software engineering tasks (selected work: internal/state)",
  "repos": [
   {
    "repo": "DeepSeek-Reasonix",
    "url": "https://github.com/esengine/DeepSeek-Reasonix",
-   "sha": "a078f8e30fa4a8986300f0f0b0f72c90cceac6d4",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "67e3ff51b4258d024d317ef2b7db8b3a31940afa",
+   "licence": "MIT (LICENSE file at pin 67e3ff51b425, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-04 (reply to Corpus Hub outreach); selected commit a078f8e30fa4: \"fix(studio): unify MCP launcher name inference\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T06:02Z",
+    "consent_receipt": "33bff4cb96ac",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:02Z (receipt 33bff4cb96ac); selected commit 67e3ff51b425: \"fix(migration): keep the conversations 1.x had archived archived\". LICENSE file at pin 67e3ff51b425 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

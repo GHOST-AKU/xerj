@@ -1,0 +1,23 @@
+{
+ "corpus": "sunnyeyles--lintcat",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how sunnyeyles/lintcat implements it: Agentic PR review system (selected work: packages/ai, apps/worker, packages/logging)",
+ "repos": [
+  {
+   "repo": "lintcat",
+   "url": "https://github.com/sunnyeyles/lintcat",
+   "sha": "43b643fb23631b2070ba68f317c0151cb7b35dce",
+   "licence": "MIT (LICENSE file at pin 43b643fb2363, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T21:51Z",
+    "consent_receipt": "8cd3ab86e3b9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T21:51Z (receipt 8cd3ab86e3b9); selected commit 43b643fb2363: \"Mask secrets in every exported trace and document Langfuse Cloud EU\". LICENSE file at pin 43b643fb2363 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

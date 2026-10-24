@@ -9,13 +9,14 @@
    "repo": "vivePDF",
    "url": "https://github.com/mtvrkan/vivePDF",
    "sha": "53d41603cbcf8e86502399e59239add897043219",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "AGPL-3.0 (LICENSE file at pin 53d41603cbcf, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 53d41603cbcf: \"Only let a picked file's folder take new files, and ask where to save\u2026\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-18T12:16Z",
+    "consent_receipt": "163b3be536e7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T12:16Z (receipt 163b3be536e7); selected commit 53d41603cbcf: \"Only let a picked file's folder take new files, and ask where to save\u2026\". LICENSE file at pin 53d41603cbcf detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

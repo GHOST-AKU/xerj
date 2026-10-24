@@ -3,19 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "OPS",
- "domain": "an agent working on container, dinit, golang queries this for how sunlightlinux/slinit implements it: Go init system + service manager with dinit-compat config, full systemd journalctl parity (65/65 flags), FSS-sealed binary journal, ~250 sys (selected work: tests, cmd/slinitctl, pkg/service)",
+ "domain": "an agent working on container, dinit, golang queries this for how sunlightlinux/slinit implements it: Go init system + service manager \u2014 dinit-compatible config, 304 directives, features from 9 upstreams (runit, s6, OpenRC, upstart, finit, la (selected work: tests, cmd/slinitctl, pkg/service)",
  "repos": [
   {
    "repo": "slinit",
    "url": "https://github.com/sunlightlinux/slinit",
    "sha": "9cb50cfa9d1f0399c74f33528b713df07a12f14d",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 9cb50cfa9d1f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 9cb50cfa9d1f: \"Close two of v3.1.6's Known entries; the third is not a defect\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T09:45Z",
+    "consent_receipt": "1c0bcdb75957",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T09:45Z (receipt 1c0bcdb75957); selected commit 9cb50cfa9d1f: \"Close two of v3.1.6's Known entries; the third is not a defect\". LICENSE file at pin 9cb50cfa9d1f detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

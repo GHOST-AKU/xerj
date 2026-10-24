@@ -1,0 +1,23 @@
+{
+ "corpus": "versolauth--versola-cli",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on Go queries this for how versolauth/versola-cli implements it: Command-line tool for deploying Versola (selected work: internal/deploy, internal/state, e2e)",
+ "repos": [
+  {
+   "repo": "versola-cli",
+   "url": "https://github.com/versolauth/versola-cli",
+   "sha": "a3387cdb242501a70f303e0c184353e8dda1a350",
+   "licence": "Apache-2.0 (LICENSE file at pin a3387cdb2425, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T04:55Z",
+    "consent_receipt": "58409a456ac2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T04:55Z (receipt 58409a456ac2); selected commit a3387cdb2425: \"Go back from the previous bundle on rollout --abort\". LICENSE file at pin a3387cdb2425 detected as Apache-2.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution. Pinned to head a3387cdb2425 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

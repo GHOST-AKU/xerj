@@ -1,0 +1,23 @@
+{
+ "corpus": "shenjiecode--pi-wechat-assistant",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agent, coding-agent, pi-extension queries this for how shenjiecode/pi-wechat-assistant implements it: \u5728\u5fae\u4fe1\u91cc\u7ee7\u7eed\u4f60\u7684 pi \u5bf9\u8bdd\u3002Continue your pi conversation from WeChat \u2014 tasks, replies, images, and files (selected work: tests, src/extension, src/bridge)",
+ "repos": [
+  {
+   "repo": "pi-wechat-assistant",
+   "url": "https://github.com/shenjiecode/pi-wechat-assistant",
+   "sha": "13f893869385d44e8937f857e2cbd3e835d132df",
+   "licence": "MIT (LICENSE file at pin 13f893869385, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T17:48Z",
+    "consent_receipt": "c7cf4c81f4b6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T17:48Z (receipt c7cf4c81f4b6); selected commit 13f893869385: \"fix: restore configurable receipt notifications (#22)\". LICENSE file at pin 13f893869385 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

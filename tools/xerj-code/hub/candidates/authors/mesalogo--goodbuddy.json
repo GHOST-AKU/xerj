@@ -9,13 +9,14 @@
    "repo": "goodbuddy",
    "url": "https://github.com/mesalogo/goodbuddy",
    "sha": "c6a8455f8876db47e2dfd768b2d721a422d761bd",
-   "licence": "hint only: 0BSD (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "0BSD (LICENSE file at pin c6a8455f8876, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "0BSD",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit c6a8455f8876: \"feat(composer): move role picker into the input and keep it per conve\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T14:19Z",
+    "consent_receipt": "7e1841f1372e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T14:19Z (receipt 7e1841f1372e); selected commit c6a8455f8876: \"feat(composer): move role picker into the input and keep it per conve\u2026\". LICENSE file at pin c6a8455f8876 detected as 0BSD by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

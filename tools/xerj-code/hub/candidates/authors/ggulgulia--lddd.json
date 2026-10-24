@@ -1,0 +1,23 @@
+{
+ "corpus": "ggulgulia--lddd",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C queries this for how ggulgulia/lddd implements it: a private repository for linux device driver development (and hence the name lddd) (selected work: ch3)",
+ "repos": [
+  {
+   "repo": "lddd",
+   "url": "https://github.com/ggulgulia/lddd",
+   "sha": "84d92f9012d9060e40e398805705815df7eaac11",
+   "licence": "GPL-3.0 (LICENSE file at pin 84d92f9012d9, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-20T06:23Z",
+    "consent_receipt": "1d3267c51fe6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:23Z (receipt 1d3267c51fe6); selected commit 84d92f9012d9: \"add practice execricses for spinlocks\". LICENSE file at pin 84d92f9012d9 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

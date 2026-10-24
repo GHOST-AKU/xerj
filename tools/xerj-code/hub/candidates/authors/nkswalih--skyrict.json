@@ -1,0 +1,23 @@
+{
+ "corpus": "nkswalih--skyrict",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on accounting, ai-agents, crm queries this for how nkswalih/skyrict implements it: Enterprise software for AI-powered business operations, intelligence, and automation (selected work: services, infra)",
+ "repos": [
+  {
+   "repo": "skyrict",
+   "url": "https://github.com/nkswalih/skyrict",
+   "sha": "ecf29d44361664a37be1990eb5c4c2fb47ec0b53",
+   "licence": "Apache-2.0 (LICENSE file at pin ecf29d443616, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T05:34Z",
+    "consent_receipt": "626c2967ce40",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T05:34Z (receipt 626c2967ce40); selected commit ecf29d443616: \"feat(core): reconcile tenants missing their default packs\". LICENSE file at pin ecf29d443616 detected as Apache-2.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "not-boring-notch",
    "url": "https://github.com/AllenReder/not-boring-notch",
    "sha": "4afe313bf0aed613d4b1354a6273220c03e9d509",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: GPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 4afe313bf0ae: \"feat: \u81ea\u5b9a\u4e49\u63d0\u9192\u901a\u9053 (Reminder Channel) (#31)\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "23fe7d5d1fa0",
+    "note": "author consent by email 2026-10-15T02:46Z (receipt 23fe7d5d1fa0); selected commit 4afe313bf0ae: \"feat: \u81ea\u5b9a\u4e49\u63d0\u9192\u901a\u9053 (Reminder Channel) (#31)\"; LICENSE at pin: NOASSERTION vs repository GPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

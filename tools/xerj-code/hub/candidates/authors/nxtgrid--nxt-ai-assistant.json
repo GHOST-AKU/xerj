@@ -9,13 +9,14 @@
    "repo": "nxt-ai-assistant",
    "url": "https://github.com/nxtgrid/nxt-ai-assistant",
    "sha": "4210e6643a08ee7324d1543f12760871cbec97d5",
-   "licence": "hint only: MPL-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MPL-2.0 (LICENSE file at pin 4210e6643a08, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MPL-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 4210e6643a08: \"Add optional OpenRouter Jev decisions routing (#206)\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T07:37Z",
+    "consent_receipt": "305214b0a61b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T07:37Z (receipt 305214b0a61b); selected commit 4210e6643a08: \"Add optional OpenRouter Jev decisions routing (#206)\". LICENSE file at pin 4210e6643a08 detected as MPL-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

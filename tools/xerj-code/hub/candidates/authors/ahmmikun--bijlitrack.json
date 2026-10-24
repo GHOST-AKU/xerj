@@ -8,14 +8,15 @@
   {
    "repo": "bijlitrack",
    "url": "https://github.com/ahmmikun/bijlitrack",
-   "sha": "1c4a999ad8811478f68e6bcef168ee855605b79d",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "2f90b84aa0d54e57f8a32a33453227fc0c12924a",
+   "licence": "MIT (LICENSE file at pin 2f90b84aa0d5, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 1c4a999ad881: \"feat(ui): wire Claude bill roast into audit report and add interactiv\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T10:31Z",
+    "consent_receipt": "c81c0cd626ac",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T10:31Z (receipt c81c0cd626ac); selected commit 2f90b84aa0d5: \"feat(ui): wire Claude bill roast into audit report and add interactiv\u2026\". LICENSE file at pin 2f90b84aa0d5 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head 2f90b84aa0d5 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

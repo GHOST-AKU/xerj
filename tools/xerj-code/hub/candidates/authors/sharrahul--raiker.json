@@ -9,13 +9,14 @@
    "repo": "Raiker",
    "url": "https://github.com/sharRahul/Raiker",
    "sha": "46baf279c64c92977becaf027837ecad5143c287",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 46baf279c64c, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 46baf279c64c: \"Derive the API contract where it is verified, finish BUG-310 on Windo\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T08:29Z",
+    "consent_receipt": "3f36feeed6ad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T08:29Z (receipt 3f36feeed6ad); selected commit 46baf279c64c: \"Derive the API contract where it is verified, finish BUG-310 on Windo\u2026\". LICENSE file at pin 46baf279c64c detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

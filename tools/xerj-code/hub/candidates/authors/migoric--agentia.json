@@ -9,13 +9,14 @@
    "repo": "agentia",
    "url": "https://github.com/retrychx/agentia",
    "sha": "b093b8415d6367ea3e07e83cc6abb99f62840513",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit b093b8415d63: \"feat(cli): \u811a\u624b\u67b6\u9ed8\u8ba4\u5165\u53e3\u7ffb\u6210\u670d\u52a1 \u2014\u2014 npm start \u5373 HTTP \u670d\u52a1\uff0c\u4e00\u6b21\u6027\u632a\u53bb batch.ts (#224)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "70b606a8e71a",
+    "note": "author consent by email 2026-10-11T15:12Z (receipt 70b606a8e71a); selected commit b093b8415d63: \"feat(cli): \u811a\u624b\u67b6\u9ed8\u8ba4\u5165\u53e3\u7ffb\u6210\u670d\u52a1 \u2014\u2014 npm start \u5373 HTTP \u670d\u52a1\uff0c\u4e00\u6b21\u6027\u632a\u53bb batch.ts (#224)\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

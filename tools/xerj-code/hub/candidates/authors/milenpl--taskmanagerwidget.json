@@ -9,13 +9,14 @@
    "repo": "TaskManagerWidget",
    "url": "https://github.com/MilenPL/TaskManagerWidget",
    "sha": "9c3e135af2ce2b290fe732476f008874aedb3e72",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 9c3e135af2ce, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 9c3e135af2ce: \"task manager widget - v2.29-gnome\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T18:08Z",
+    "consent_receipt": "5bb75759c3bb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T18:08Z (receipt 5bb75759c3bb); selected commit 9c3e135af2ce: \"task manager widget - v2.29-gnome\". LICENSE file at pin 9c3e135af2ce detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

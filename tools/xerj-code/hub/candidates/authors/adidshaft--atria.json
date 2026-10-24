@@ -9,13 +9,14 @@
    "repo": "atria",
    "url": "https://github.com/adidshaft/atria",
    "sha": "892b69ced0d881fe5c0755b035b6279cf16f505f",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 892b69ced0d8: \"Address App Review demo, HealthKit and wellness disclosures\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "110db2c26e58",
+    "note": "author consent by email 2026-10-11T07:54Z (receipt 110db2c26e58); selected commit 892b69ced0d8: \"Address App Review demo, HealthKit and wellness disclosures\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

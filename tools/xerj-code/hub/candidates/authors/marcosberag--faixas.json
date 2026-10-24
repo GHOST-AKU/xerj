@@ -1,0 +1,23 @@
+{
+ "corpus": "marcosberag--faixas",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on HTML queries this for how marcosberag/faixas implements it: Estimacion por LiDAR del arbolado de especie no permitida en las franjas de proteccion contra incendios de Galicia (Ley 3/2007). Pontevedra  (selected work: scripts, salidas)",
+ "repos": [
+  {
+   "repo": "faixas",
+   "url": "https://github.com/marcosberag/faixas",
+   "sha": "bc37c522d37f82c630a62242f79e62d93b449530",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "a131457df902",
+    "note": "author consent by email 2026-10-19T11:53Z (receipt a131457df902); selected commit bc37c522d37f: \"Publica visor completo de Pontevedra con consulta movil y detalle por\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "ansible",
    "url": "https://github.com/Kollekcioner47/ansible",
    "sha": "2f9ae37479b909c0babd32e0a0b704bec5d9163f",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 2f9ae37479b9: \"\u041f\u0435\u0440\u0435\u043f\u0438\u0441\u044b\u0432\u0430\u043d\u0438\u0435 \u043a\u0443\u0440\u0441\u0430\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "10660509d745",
+    "note": "author consent by email 2026-10-16T11:03Z (receipt 10660509d745); selected commit 2f9ae37479b9: \"\u041f\u0435\u0440\u0435\u043f\u0438\u0441\u044b\u0432\u0430\u043d\u0438\u0435 \u043a\u0443\u0440\u0441\u0430\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

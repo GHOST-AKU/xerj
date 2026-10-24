@@ -1,0 +1,23 @@
+{
+ "corpus": "notbigmuzzy--river-rogue",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on canvas, game, javascript queries this for how notbigmuzzy/river-rogue implements it: A browser-based tribute to River Raid with a little rogue-lite spin (selected work: src, src/game)",
+ "repos": [
+  {
+   "repo": "riveraid",
+   "url": "https://github.com/notbigmuzzy/riveraid",
+   "sha": "095ba451dc919a888cca2850a976a1d10d7fa215",
+   "licence": "hint only: MIT (LICENSE at pin: not checked yet)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "c00b11e5fb27",
+    "note": "author consent by email 2026-10-18T20:04Z (receipt c00b11e5fb27); selected commit 095ba451dc91: \"update screens\"; LICENSE at pin: not checked yet vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

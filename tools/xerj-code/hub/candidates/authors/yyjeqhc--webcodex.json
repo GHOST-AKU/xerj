@@ -9,13 +9,14 @@
    "repo": "webcodex",
    "url": "https://github.com/yyjeqhc/webcodex",
    "sha": "f6bd366ef7de9896ec1adbe59dd10b34e7e40c8c",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin f6bd366ef7de, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-04 (reply to Corpus Hub outreach); selected commit f6bd366ef7de: \"fix(browser): avoid admitting disabled and readonly controls (#894)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-04T10:52Z",
+    "consent_receipt": "b136c44a6bbd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-04T10:52Z (receipt b136c44a6bbd); selected commit f6bd366ef7de: \"fix(browser): avoid admitting disabled and readonly controls (#894)\". LICENSE file at pin f6bd366ef7de detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

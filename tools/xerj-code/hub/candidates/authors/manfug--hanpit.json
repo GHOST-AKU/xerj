@@ -1,0 +1,23 @@
+{
+ "corpus": "manfug--hanpit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on android, capacitor, chinese-learning queries this for how ManfuG/HanPit implements it: Offline Chinese learning for Android and web: FSRS-6 flashcards, Mandarin audio, grammar, readings, progressive HSK tests and portable local (selected work: src, android, the project root)",
+ "repos": [
+  {
+   "repo": "HanPit",
+   "url": "https://github.com/ManfuG/HanPit",
+   "sha": "febde2ac261f47df1b553a847c09d185372803a1",
+   "licence": "MIT (LICENSE file at pin febde2ac261f, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T06:59Z",
+    "consent_receipt": "7deddee7d093",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T06:59Z (receipt 7deddee7d093); selected commit febde2ac261f: \"Polish Android entry and compact study screens\". LICENSE file at pin febde2ac261f detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

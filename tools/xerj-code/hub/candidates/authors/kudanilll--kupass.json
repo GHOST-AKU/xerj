@@ -9,13 +9,14 @@
    "repo": "kupass",
    "url": "https://github.com/kudanilll/kupass",
    "sha": "ed943797607d9f1e2185519f3453477193342c75",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin ed943797607d, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit ed943797607d: \"feat: opt-in site icons via Favget\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-10T08:42Z",
+    "consent_receipt": "3df53bf85790",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T08:42Z (receipt 3df53bf85790); selected commit ed943797607d: \"feat: opt-in site icons via Favget\". LICENSE file at pin ed943797607d detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

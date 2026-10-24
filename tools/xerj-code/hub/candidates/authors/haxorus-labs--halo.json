@@ -1,0 +1,23 @@
+{
+ "corpus": "haxorus-labs--halo",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how haxorus-labs/halo implements it: haxorus-labs/halo (Python) (selected work: halo, tests)",
+ "repos": [
+  {
+   "repo": "halo",
+   "url": "https://github.com/haxorus-labs/halo",
+   "sha": "c75c68323e28fc4ad8169ee10bebb62b2f7711b3",
+   "licence": "Apache-2.0 (LICENSE file at pin c75c68323e28, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T11:39Z",
+    "consent_receipt": "c988229b392a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T11:39Z (receipt c988229b392a); selected commit c75c68323e28: \"fix: stop cost estimation from starting a GitHub Copilot login\". LICENSE file at pin c75c68323e28 detected as Apache-2.0 by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

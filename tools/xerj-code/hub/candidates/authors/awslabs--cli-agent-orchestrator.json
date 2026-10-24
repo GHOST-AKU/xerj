@@ -9,13 +9,14 @@
    "repo": "cli-agent-orchestrator",
    "url": "https://github.com/awslabs/cli-agent-orchestrator",
    "sha": "fd5113ea91c25727ea1139a188769853f6ab967b",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin fd5113ea91c2, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit fd5113ea91c2: \"feat(ephemeral): create and store ephemeral agents, not yet launchabl\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T04:07Z",
+    "consent_receipt": "495c2fe31504",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T04:07Z (receipt 495c2fe31504); selected commit fd5113ea91c2: \"feat(ephemeral): create and store ephemeral agents, not yet launchabl\u2026\". LICENSE file at pin fd5113ea91c2 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

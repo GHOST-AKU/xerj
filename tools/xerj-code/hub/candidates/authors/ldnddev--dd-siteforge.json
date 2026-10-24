@@ -9,13 +9,14 @@
    "repo": "dd_siteforge",
    "url": "https://github.com/ldnddev/dd_siteforge",
    "sha": "98d2ee3361dd40d4369f505d0eb9c99626123036",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 98d2ee3361dd, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 98d2ee3361dd: \"export: keep preview and copied assets inside the site\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T17:32Z",
+    "consent_receipt": "5621cda42d05",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T17:32Z (receipt 5621cda42d05); selected commit 98d2ee3361dd: \"export: keep preview and copied assets inside the site\". LICENSE file at pin 98d2ee3361dd detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

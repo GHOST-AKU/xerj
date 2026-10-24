@@ -9,13 +9,14 @@
    "repo": "solidcraft",
    "url": "https://github.com/tangency-labs/solidcraft",
    "sha": "b7eac9220b3d85f9ddce2bd917a5cd522f0b1871",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit b7eac9220b3d: \"inspect.silhouette: the outline of bodies seen from a view, as a mask\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "c849b821fbb5",
+    "note": "author consent by email 2026-10-17T14:10Z (receipt c849b821fbb5); selected commit b7eac9220b3d: \"inspect.silhouette: the outline of bodies seen from a view, as a mask\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

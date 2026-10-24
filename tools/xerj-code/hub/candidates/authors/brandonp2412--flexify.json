@@ -9,13 +9,14 @@
    "repo": "Flexify",
    "url": "https://github.com/brandonp2412/Flexify",
    "sha": "069ade802ebdcfece3fb352bcd8d2adb72127f11",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 069ade802ebd, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-04 (reply to Corpus Hub outreach); selected commit 069ade802ebd: \"fix: harden database restructure\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-04T21:21Z",
+    "consent_receipt": "154a513b31cd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-04T21:21Z (receipt 154a513b31cd); selected commit 069ade802ebd: \"fix: harden database restructure\". LICENSE file at pin 069ade802ebd detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "foam-foundation--foam-recipes",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on JavaScript queries this for how foam-foundation/FOAM-Recipes implements it: Sample FOAM cooking recipe database application (selected work: src/com, journals)",
+ "repos": [
+  {
+   "repo": "FOAM-Recipes",
+   "url": "https://github.com/foam-foundation/FOAM-Recipes",
+   "sha": "78a601e24875f2341821a1b7f6c8ddb0ecaa0c08",
+   "licence": "Apache-2.0 (LICENSE file at pin 78a601e24875, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T14:49Z",
+    "consent_receipt": "04cfc3bf51cf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T14:49Z (receipt 04cfc3bf51cf); selected commit 78a601e24875: \"FAOM-5500 Add a nanoservice to the example app and a tutorial chapter\u2026\". LICENSE file at pin 78a601e24875 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

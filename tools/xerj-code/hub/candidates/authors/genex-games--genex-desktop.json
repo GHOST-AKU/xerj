@@ -3,19 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on TypeScript queries this for how genex-games/genex-desktop implements it: Desktop app for game dev with AI. macOS and Linux, Windows soon (selected work: src/renderer, tests, src/shared)",
+ "domain": "an agent working on TypeScript queries this for how genex-games/genex-desktop implements it: Desktop app for game dev with AI. macOS, Windows and Linux (selected work: src/renderer, tests, src/shared)",
  "repos": [
   {
    "repo": "genex-desktop",
    "url": "https://github.com/genex-games/genex-desktop",
    "sha": "1526f83f27d985fdeb18664d62943562fdbf1a67",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 1526f83f27d9, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 1526f83f27d9: \"Add MCP server as one dialog: paste to fill, On this Mac or From a URL\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T19:49Z",
+    "consent_receipt": "fed4dc2366ab",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T19:49Z (receipt fed4dc2366ab); selected commit 1526f83f27d9: \"Add MCP server as one dialog: paste to fill, On this Mac or From a URL\". LICENSE file at pin 1526f83f27d9 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

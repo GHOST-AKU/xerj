@@ -1,0 +1,23 @@
+{
+ "corpus": "sspurlang--sspur",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, compiler, contracts queries this for how sspurlang/sspur implements it: A programming language for AI agents to write, read, and maintain. Native code faster than C++, effects and contracts checked by the compile (selected work: crates/sspur-smt, crates/sspur-cli)",
+ "repos": [
+  {
+   "repo": "sspur",
+   "url": "https://github.com/sspurlang/sspur",
+   "sha": "050e260d0d4d5b6e6d2be9b0f00b82a967e07cb5",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "962d2e703848",
+    "note": "author consent by email 2026-10-19T14:39Z (receipt 962d2e703848); selected commit 050e260d0d4d: \"W_CONVERSION_MAY_TRAP: sspur check proves F64 round, floor, ceil and \u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

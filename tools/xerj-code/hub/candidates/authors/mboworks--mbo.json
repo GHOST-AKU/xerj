@@ -9,13 +9,14 @@
    "repo": "mbo",
    "url": "https://github.com/mboworks/mbo",
    "sha": "40392d84b119d9413e0e7b78cea44b08e7046259",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 40392d84b119, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-10 (reply to Corpus Hub outreach); selected commit 40392d84b119: \"Compare Frozen reads using Mumbo Fambo and Dumbo hashes (#552)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T07:23Z",
+    "consent_receipt": "37499dbe95d9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T07:23Z (receipt 37499dbe95d9); selected commit 40392d84b119: \"Compare Frozen reads using Mumbo Fambo and Dumbo hashes (#552)\". LICENSE file at pin 40392d84b119 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

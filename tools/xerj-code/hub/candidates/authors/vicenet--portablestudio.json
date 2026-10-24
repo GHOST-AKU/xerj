@@ -1,0 +1,23 @@
+{
+ "corpus": "vicenet--portablestudio",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on adobe-illustrator, brand-guidelines, design-tools queries this for how vicenet/PortableStudio implements it: Free open-source Adobe Illustrator & Photoshop plugin: generate brand guidelines, logo presentations, Instagram carousels and logo kits from (selected work: mcp, tests, host)",
+ "repos": [
+  {
+   "repo": "PortableStudio",
+   "url": "https://github.com/vicenet/PortableStudio",
+   "sha": "dfbe0ceb43f67baf5ec80a3b853dd29341a8faa2",
+   "licence": "GPL-3.0 (LICENSE file at pin dfbe0ceb43f6, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-20T06:33Z",
+    "consent_receipt": "f35bba53932c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T06:33Z (receipt f35bba53932c); selected commit dfbe0ceb43f6: \"Replace eval in the ExtendScript JSON shim with a strict parser, decl\u2026\". LICENSE file at pin dfbe0ceb43f6 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

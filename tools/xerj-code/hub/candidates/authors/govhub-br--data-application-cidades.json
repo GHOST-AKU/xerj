@@ -1,0 +1,23 @@
+{
+ "corpus": "govhub-br--data-application-cidades",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how GovHub-br/data-application-cidades implements it: Pipeline de Dados do Gov-Hub (selected work: infra)",
+ "repos": [
+  {
+   "repo": "data-application-cidades",
+   "url": "https://github.com/GovHub-br/data-application-cidades",
+   "sha": "67b1105a461693836d55497247e4e53a57982324",
+   "licence": "MIT (LICENSE file at pin 67b1105a4616, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T20:10Z",
+    "consent_receipt": "96cb842e954a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T20:10Z (receipt 96cb842e954a); selected commit 67b1105a4616: \"feat(infra): playbook do OpenMetadata\". LICENSE file at pin 67b1105a4616 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

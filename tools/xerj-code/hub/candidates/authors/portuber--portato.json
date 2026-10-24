@@ -1,0 +1,23 @@
+{
+ "corpus": "portuber--portato",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on bubbletea, cli, devtools queries this for how portuber/portato implements it: SSH port-forwarding manager with a TUI \u2014 toggle local, remote and SOCKS5 tunnels from one screen. Single Go binary, background daemon, autos (selected work: internal/forward, internal/config, internal/tui)",
+ "repos": [
+  {
+   "repo": "portato",
+   "url": "https://github.com/portuber/portato",
+   "sha": "b665ebdc105366cf40df97b8ad2acb977aafcac7",
+   "licence": "MIT (LICENSE file at pin b665ebdc1053, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T05:22Z",
+    "consent_receipt": "11712fcf3129",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T05:22Z (receipt 11712fcf3129); selected commit b665ebdc1053: \"feat(forward): port preflight at enable time + local: 0 auto port\". LICENSE file at pin b665ebdc1053 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,13 +9,14 @@
    "repo": "dkron",
    "url": "https://github.com/dkron-io/dkron",
    "sha": "faf3cb3bad66b76e70dd2a1a4295f0ca64dfc6a5",
-   "licence": "hint only: LGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: LGPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "LGPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit faf3cb3bad66: \"Improve the job editing experience (#2072)\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "c405da44702a",
+    "note": "author consent by email 2026-10-13T10:30Z (receipt c405da44702a); selected commit faf3cb3bad66: \"Improve the job editing experience (#2072)\"; LICENSE at pin: NOASSERTION vs repository LGPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

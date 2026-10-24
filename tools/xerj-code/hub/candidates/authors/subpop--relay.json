@@ -9,13 +9,14 @@
    "repo": "Relay",
    "url": "https://github.com/subpop/Relay",
    "sha": "74edea5b5ae516e84ab8e535077bf5c7b1d06048",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit 74edea5b5ae5: \"Migrate Relay to the normalized SwiftData store API\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "cf7adc75cf48",
+    "note": "author consent by email 2026-10-12T01:03Z (receipt cf7adc75cf48); selected commit 74edea5b5ae5: \"Migrate Relay to the normalized SwiftData store API\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

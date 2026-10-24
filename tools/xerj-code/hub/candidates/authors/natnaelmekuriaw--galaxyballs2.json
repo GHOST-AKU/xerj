@@ -9,13 +9,14 @@
    "repo": "GalaxyBalls2",
    "url": "https://github.com/natnaelmekuriaw/GalaxyBalls2",
    "sha": "fac54db3cc24feabc80ff8fe393b1d0c6c46cb9c",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin fac54db3cc24, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit fac54db3cc24: \"Switch to Expo project structure\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T11:51Z",
+    "consent_receipt": "ef8693ad453d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T11:51Z (receipt ef8693ad453d); selected commit fac54db3cc24: \"Switch to Expo project structure\". LICENSE file at pin fac54db3cc24 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

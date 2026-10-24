@@ -9,13 +9,14 @@
    "repo": "veylance",
    "url": "https://github.com/ChAbdulWahhab/veylance",
    "sha": "9bd664544f5d22732115ee21b245a6a6bf9efdc1",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 9bd664544f5d, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 9bd664544f5d: \"fix(security): enforce domain-scoped consent gating and authorization\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T06:03Z",
+    "consent_receipt": "b46b98680026",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T06:03Z (receipt b46b98680026); selected commit 9bd664544f5d: \"fix(security): enforce domain-scoped consent gating and authorization\u2026\". LICENSE file at pin 9bd664544f5d detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

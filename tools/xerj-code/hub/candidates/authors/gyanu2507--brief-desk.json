@@ -1,0 +1,23 @@
+{
+ "corpus": "gyanu2507--brief-desk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how gyanu2507/brief-desk implements it: CopilotKit + AG-UI chat desk with MCP tools for workspace and corpus briefing (selected work: backend, app, lib)",
+ "repos": [
+  {
+   "repo": "brief-desk",
+   "url": "https://github.com/gyanu2507/brief-desk",
+   "sha": "e108f3420b62ab93c11beee3480b9bbf3bf8e9e7",
+   "licence": "MIT (LICENSE file at pin e108f3420b62, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T06:51Z",
+    "consent_receipt": "dc09e3983038",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T06:51Z (receipt dc09e3983038); selected commit e108f3420b62: \"Add discovery MCP tools: trending, search, releases, security\". LICENSE file at pin e108f3420b62 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

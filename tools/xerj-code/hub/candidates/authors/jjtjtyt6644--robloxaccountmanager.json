@@ -8,14 +8,15 @@
   {
    "repo": "RobloxAccountManager",
    "url": "https://github.com/jjtjtyt6644/RobloxAccountManager",
-   "sha": "fe36ee2fac4c17da1910800706b49831f610d1a4",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "sha": "d7aabae813b58461fcd741370b0138863590b277",
+   "licence": "GPL-3.0 (LICENSE file at pin d7aabae813b5, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit fe36ee2fac4c: \"v1.7.0: one window per account, working performance profiles, lighter\u2026\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-15T05:19Z",
+    "consent_receipt": "463c2766fd16",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T05:19Z (receipt 463c2766fd16); selected commit d7aabae813b5: \"v1.7.0: one window per account, working performance profiles, lighter\u2026\". LICENSE file at pin d7aabae813b5 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution. Pinned to head d7aabae813b5 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

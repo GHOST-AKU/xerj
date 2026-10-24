@@ -1,0 +1,23 @@
+{
+ "corpus": "aantoniadis--lenz",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on diff, diff-tool, diff-viewer queries this for how aantoniadis/lenz implements it: Code reader, side-by-side diff viewer, git client and merge tool for Linux and macOS, with native GUI and terminal frontends, built in Rust (selected work: crates/reader-core, crates/reader-tui, crates/reader-gui)",
+ "repos": [
+  {
+   "repo": "lenz",
+   "url": "https://github.com/aantoniadis/lenz",
+   "sha": "d49c230bf81786584394ac7591227748e090eef9",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "784b83ce6ba1",
+    "note": "author consent by email 2026-10-21T22:09Z (receipt 784b83ce6ba1); selected commit d49c230bf817: \"feat(reader): improve large-project indexing and dependency browsing \u2026\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

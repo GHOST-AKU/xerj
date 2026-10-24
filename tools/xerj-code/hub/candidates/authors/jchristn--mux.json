@@ -9,13 +9,14 @@
    "repo": "Mux",
    "url": "https://github.com/jchristn/Mux",
    "sha": "3a3cf5a7785799c1995d04f0558d817935b82ea6",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 3a3cf5a77857, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 3a3cf5a77857: \"Support framework selection across platform scripts\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T03:53Z",
+    "consent_receipt": "681d52238391",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T03:53Z (receipt 681d52238391); selected commit 3a3cf5a77857: \"Support framework selection across platform scripts\". LICENSE file at pin 3a3cf5a77857 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

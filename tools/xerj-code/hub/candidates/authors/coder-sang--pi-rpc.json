@@ -1,0 +1,23 @@
+{
+ "corpus": "coder-sang--pi-rpc",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Rust queries this for how Coder-Sang/pi-rpc implements it: Coder-Sang/pi-rpc (Rust) (selected work: src/client, src, tests)",
+ "repos": [
+  {
+   "repo": "pi-rpc",
+   "url": "https://github.com/Coder-Sang/pi-rpc",
+   "sha": "9b1082a0e81e2812705cba4a36e25620016f6f31",
+   "licence": "Apache-2.0 (LICENSE file at pin 9b1082a0e81e, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T10:08Z",
+    "consent_receipt": "2713117b6878",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T10:08Z (receipt 2713117b6878); selected commit 9b1082a0e81e: \"fix: preserve ready protocol failures at the process-exit cutoff\". LICENSE file at pin 9b1082a0e81e detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

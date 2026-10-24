@@ -9,13 +9,14 @@
    "repo": "bluewake",
    "url": "https://github.com/chrissotraidis/bluewake",
    "sha": "d9e175969656064875f041839c4c75eaaec60c12",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: GPL-3.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit d9e175969656: \"linux: share reproducible CI build container\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "4b734d58f9ec",
+    "note": "author consent by email 2026-10-11T23:03Z (receipt 4b734d58f9ec); selected commit d9e175969656: \"linux: share reproducible CI build container\"; LICENSE at pin: NOASSERTION vs repository GPL-3.0 \u2014 needs a human licence review."
    }
   }
  ]

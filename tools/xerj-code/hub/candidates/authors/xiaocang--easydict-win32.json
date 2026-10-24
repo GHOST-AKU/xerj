@@ -1,0 +1,23 @@
+{
+ "corpus": "xiaocang--easydict-win32",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C# queries this for how xiaocang/easydict_win32 implements it: Easy to look up words or translate text. Windows port of tisfeng/Easydict (selected work: dotnet)",
+ "repos": [
+  {
+   "repo": "easydict_win32",
+   "url": "https://github.com/xiaocang/easydict_win32",
+   "sha": "11d27d228fe275456995bd20f32278c42908b97c",
+   "licence": "GPL-3.0 (LICENSE file at pin 11d27d228fe2, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-21T01:58Z",
+    "consent_receipt": "f136ceef9c2e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T01:58Z (receipt f136ceef9c2e); selected commit 11d27d228fe2: \"Add selectable tray icons that fill the tray slot (#223) (#239)\". LICENSE file at pin 11d27d228fe2 detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

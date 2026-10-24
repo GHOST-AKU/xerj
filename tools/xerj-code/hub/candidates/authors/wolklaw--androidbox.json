@@ -1,0 +1,23 @@
+{
+ "corpus": "wolklaw--androidbox",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Python queries this for how Wolklaw/Androidbox implements it: An ad-free Android emulator for Windows. Google Play, game controls, controllers, macros and multiple instances (selected work: androidbox)",
+ "repos": [
+  {
+   "repo": "Androidbox",
+   "url": "https://github.com/Wolklaw/Androidbox",
+   "sha": "bf162e3f44397930c70b59faa23476f93b04ba73",
+   "licence": "MIT (LICENSE file at pin bf162e3f4439, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T02:48Z",
+    "consent_receipt": "444304f27db8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T02:48Z (receipt 444304f27db8); selected commit bf162e3f4439: \"Profiles with presets and folder sync\". LICENSE file at pin bf162e3f4439 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

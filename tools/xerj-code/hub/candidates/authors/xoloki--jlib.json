@@ -1,0 +1,23 @@
+{
+ "corpus": "xoloki--jlib",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, audio, cryptography queries this for how xoloki/jlib implements it: C++20 library: iostream wrappers, ABNF/RFC parsers, coroutine networking with TLS, quantized transformer runtime, and hyperspace rendering (selected work: jlib, tests)",
+ "repos": [
+  {
+   "repo": "jlib",
+   "url": "https://github.com/xoloki/jlib",
+   "sha": "00b5c52fce77e69ddbef5246dfab8bb10150ee9e",
+   "licence": "Apache-2.0 (LICENSE file at pin 00b5c52fce77, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T14:35Z",
+    "consent_receipt": "ff1ab3bf9235",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T14:35Z (receipt ff1ab3bf9235); selected commit 00b5c52fce77: \"ai: engine drops a model nothing has used, on idleness and never on p\u2026\". LICENSE file at pin 00b5c52fce77 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

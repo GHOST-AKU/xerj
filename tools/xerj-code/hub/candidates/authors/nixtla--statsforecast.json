@@ -9,13 +9,14 @@
    "repo": "statsforecast",
    "url": "https://github.com/Nixtla/statsforecast",
    "sha": "4ea8a9fd359f289f5211c38413e78ccfc8500b27",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 4ea8a9fd359f: \"fix: use the finite-sample conformal quantile for conformal intervals\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "9be65b2d1a53",
+    "note": "author consent by email 2026-10-15T06:40Z (receipt 9be65b2d1a53); selected commit 4ea8a9fd359f: \"fix: use the finite-sample conformal quantile for conformal intervals\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

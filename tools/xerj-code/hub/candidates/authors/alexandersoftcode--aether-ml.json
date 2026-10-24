@@ -1,0 +1,23 @@
+{
+ "corpus": "alexandersoftcode--aether-ml",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on cupy, deep-learning, gpu-acceleration queries this for how AlexanderSoftCode/Aether-ML implements it: A ground-up deep learning framework featuring vectorized neural network and CNN layers, dual NumPy/CuPy backends, and CUDA/ROCm GPU accelera (selected work: tests, aether)",
+ "repos": [
+  {
+   "repo": "Aether-ML",
+   "url": "https://github.com/AlexanderSoftCode/Aether-ML",
+   "sha": "647c6e189181785dc3e1eb3a3d82225a8f05bb21",
+   "licence": "MIT (LICENSE file at pin 647c6e189181, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T21:02Z",
+    "consent_receipt": "1d5685818096",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T21:02Z (receipt 1d5685818096); selected commit 647c6e189181: \"fix(conv): derive 'same' geometry once, in ConvShapeMeta\". LICENSE file at pin 647c6e189181 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

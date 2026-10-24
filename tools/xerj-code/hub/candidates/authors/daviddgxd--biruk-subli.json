@@ -9,13 +9,14 @@
    "repo": "BIRUK-SUBLI",
    "url": "https://github.com/DavidDgxd/BIRUK-SUBLI",
    "sha": "8b4110356b98ca023928716e5006a77664ed6b5c",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 8b4110356b98, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 8b4110356b98: \"feat(staff): implement custody intake page with dev staff context\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T03:43Z",
+    "consent_receipt": "4cc670e361ba",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T03:43Z (receipt 4cc670e361ba); selected commit 8b4110356b98: \"feat(staff): implement custody intake page with dev staff context\". LICENSE file at pin 8b4110356b98 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

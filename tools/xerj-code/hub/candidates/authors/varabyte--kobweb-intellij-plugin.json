@@ -9,13 +9,14 @@
    "repo": "kobweb-intellij-plugin",
    "url": "https://github.com/varabyte/kobweb-intellij-plugin",
    "sha": "de74a636c2b90d8520ac40b37401c458bf15efa2",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin de74a636c2b9, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit de74a636c2b9: \"Update logic to preserve overhead comments in style blocks when they \u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T02:00Z",
+    "consent_receipt": "f71a0614fb3f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T02:00Z (receipt f71a0614fb3f); selected commit de74a636c2b9: \"Update logic to preserve overhead comments in style blocks when they \u2026\". LICENSE file at pin de74a636c2b9 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

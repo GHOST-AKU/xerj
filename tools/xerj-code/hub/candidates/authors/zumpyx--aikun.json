@@ -9,13 +9,14 @@
    "repo": "Aikun",
    "url": "https://github.com/zumpyx/Aikun",
    "sha": "37e40285b9d5bac2daf9c6052d8d0c942b790285",
-   "licence": "hint only: AGPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "AGPL-3.0 (LICENSE file at pin 37e40285b9d5, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 37e40285b9d5: \"feat: \u6e20\u9053\u4eb2\u548c\u3001\u601d\u8003\u5b57\u6bb5\u4fdd\u7559\u4e0e\u53ea\u8bfb\u4ef7\u76ee\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T08:34Z",
+    "consent_receipt": "1c20effa459f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T08:34Z (receipt 1c20effa459f); selected commit 37e40285b9d5: \"feat: \u6e20\u9053\u4eb2\u548c\u3001\u601d\u8003\u5b57\u6bb5\u4fdd\u7559\u4e0e\u53ea\u8bfb\u4ef7\u76ee\". LICENSE file at pin 37e40285b9d5 detected as AGPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

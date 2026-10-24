@@ -1,0 +1,23 @@
+{
+ "corpus": "fulanto--herdr-oncall",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on herdr-plugin, ai-agents, claude-code queries this for how fulanto/herdr-oncall implements it: Answer your coding agent's permission prompts from a floating macOS panel or Telegram \u2014 a Herdr plugin for Claude Code and Codex (selected work: test, src/lib, src/actions)",
+ "repos": [
+  {
+   "repo": "herdr-oncall",
+   "url": "https://github.com/fulanto/herdr-oncall",
+   "sha": "aa5ea4a9fa7a9fa6dc18d15de3568b0fdd51b12d",
+   "licence": "MIT (LICENSE file at pin aa5ea4a9fa7a, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T04:31Z",
+    "consent_receipt": "de2d36723841",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T04:31Z (receipt de2d36723841); selected commit aa5ea4a9fa7a: \"v0.5.13: the panel needs no Telegram, and the poller hears a late token\". LICENSE file at pin aa5ea4a9fa7a detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

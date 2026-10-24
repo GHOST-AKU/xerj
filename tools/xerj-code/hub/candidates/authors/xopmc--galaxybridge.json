@@ -9,13 +9,14 @@
    "repo": "GalaxyBridge",
    "url": "https://github.com/XopMC/GalaxyBridge",
    "sha": "f151afb0306c0428154fdf23c432baecf151bde6",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin f151afb0306c, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-17 (reply to Corpus Hub outreach); selected commit f151afb0306c: \"Relay scoped display-state leases with recoverable cancellation [skip\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T23:21Z",
+    "consent_receipt": "d86ba7d60371",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T23:21Z (receipt d86ba7d60371); selected commit f151afb0306c: \"Relay scoped display-state leases with recoverable cancellation [skip\u2026\". LICENSE file at pin f151afb0306c detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

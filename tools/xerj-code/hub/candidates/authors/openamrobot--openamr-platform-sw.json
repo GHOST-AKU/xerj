@@ -2,20 +2,21 @@
  "corpus": "openamrobot--openamr-platform-sw",
  "cloned_at": null,
  "status": "draft",
- "shelf": "AI",
+ "shelf": "WEB",
  "domain": "an agent working on gazebo, nav2, open-source queries this for how openAMRobot/openamr-platform-sw implements it: ROS 2 Jazzy software for the OpenAMRobot mobile base: simulation, Nav2, SLAM, docking, control, drivers, and bringup (selected work: ros2)",
  "repos": [
   {
    "repo": "openamr-platform-sw",
    "url": "https://github.com/openAMRobot/openamr-platform-sw",
    "sha": "6be74390ebf745c661646290f531f264a0ad2e7d",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 6be74390ebf7, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-18 (reply to Corpus Hub outreach); selected commit 6be74390ebf7: \"feat(nav2): mirror navigation status on /diagnostics (part of #34) (#52)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T16:11Z",
+    "consent_receipt": "4f8bbd5da3d8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T16:11Z (receipt 4f8bbd5da3d8); selected commit 6be74390ebf7: \"feat(nav2): mirror navigation status on /diagnostics (part of #34) (#52)\". LICENSE file at pin 6be74390ebf7 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

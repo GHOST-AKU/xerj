@@ -9,13 +9,14 @@
    "repo": "KI-Regeln",
    "url": "https://github.com/Borstwerk/KI-Regeln",
    "sha": "e4edd6c9257b16148294410b3875209167e443c8",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit e4edd6c9257b: \"Add trustworthy runtime contracts\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "8c005ac87ab6",
+    "note": "author consent by email 2026-10-15T06:11Z (receipt 8c005ac87ab6); selected commit e4edd6c9257b: \"Add trustworthy runtime contracts\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

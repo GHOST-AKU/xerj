@@ -1,0 +1,23 @@
+{
+ "corpus": "marcellosso--penciled",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on annotation, css-highlight-api, highlight queries this for how marcellosso/penciled implements it: penciled.js: a 15 kB open-source JavaScript library for persistent text highlights and notes on any web page. Built on the CSS Custom Highli (selected work: apps/extension, the project root)",
+ "repos": [
+  {
+   "repo": "penciled",
+   "url": "https://github.com/marcellosso/penciled",
+   "sha": "ac9223be89215c0345a8e6c899ed979d00f723f3",
+   "licence": "MIT (LICENSE file at pin ac9223be8921, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T03:04Z",
+    "consent_receipt": "69c0819cf0d8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T03:04Z (receipt 69c0819cf0d8); selected commit ac9223be8921: \"Add the browser extension: content script, storage, SPA handling\". LICENSE file at pin ac9223be8921 detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

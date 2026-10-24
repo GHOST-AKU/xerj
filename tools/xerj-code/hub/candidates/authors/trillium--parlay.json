@@ -9,13 +9,14 @@
    "repo": "parlay",
    "url": "https://github.com/trillium/parlay",
    "sha": "6f960e40b4cf9ac10077b819fe0cca6d4928a798",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 6f960e40b4cf, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-09 (reply to Corpus Hub outreach); selected commit 6f960e40b4cf: \"Allow tailnet/LAN origins to reach the events stream and eval via COR\u2026\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T17:12Z",
+    "consent_receipt": "6037817da0fb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T17:12Z (receipt 6037817da0fb); selected commit 6f960e40b4cf: \"Allow tailnet/LAN origins to reach the events stream and eval via COR\u2026\". LICENSE file at pin 6f960e40b4cf detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

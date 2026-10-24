@@ -3,19 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on JavaScript queries this for how SixK/coco-annotator-ng implements it: JsBroks COCO Annotator modernized (selected work: client)",
+ "domain": "an agent working on Vue queries this for how SixK/coco-annotator-ng implements it: JsBroks COCO Annotator modernized (selected work: client)",
  "repos": [
   {
    "repo": "coco-annotator-ng",
    "url": "https://github.com/SixK/coco-annotator-ng",
    "sha": "82075d057fb9e8738175d2bb707de31bdb8d02e6",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 82075d057fb9, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit 82075d057fb9: \"use defineProps in place of defineModels when variable is not 2 ways\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T21:23Z",
+    "consent_receipt": "f86967d15859",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T21:23Z (receipt f86967d15859); selected commit 82075d057fb9: \"use defineProps in place of defineModels when variable is not 2 ways\". LICENSE file at pin 82075d057fb9 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

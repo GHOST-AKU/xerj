@@ -9,13 +9,14 @@
    "repo": "cpe-access-atlas",
    "url": "https://github.com/Yunushan/cpe-access-atlas",
    "sha": "068e70834e1f147a0afe66508242620ec5915dea",
-   "licence": "hint only: 0BSD (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "0BSD (LICENSE file at pin 068e70834e1f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "0BSD",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-14 (reply to Corpus Hub outreach); selected commit 068e70834e1f: \"Redact complete YAML flow values before private output\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T08:22Z",
+    "consent_receipt": "e9e5df306afb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T08:22Z (receipt e9e5df306afb); selected commit 068e70834e1f: \"Redact complete YAML flow values before private output\". LICENSE file at pin 068e70834e1f detected as 0BSD by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

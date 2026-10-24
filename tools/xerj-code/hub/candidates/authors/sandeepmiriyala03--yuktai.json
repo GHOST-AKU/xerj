@@ -3,19 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on TypeScript queries this for how sandeepmiriyala03/yuktai implements it: Open source AI engine for JavaScript. Build and run intelligent features locally with a plugin-based runtime (selected work: src/grid, src)",
+ "domain": "an agent working on TypeScript queries this for how sandeepmiriyala03/yuktai implements it: Open-source AI + accessibility toolkit for Next.js. Agentic data grid, WebMCP, in-browser RAG. No API keys, works offline (selected work: src/grid, src)",
  "repos": [
   {
    "repo": "yuktai",
    "url": "https://github.com/sandeepmiriyala03/yuktai",
    "sha": "cbd28847eb6e295096243915efcf931b56111d14",
-   "licence": "hint only: GPL-3.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "GPL-3.0 (LICENSE file at pin cbd28847eb6e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit cbd28847eb6e: \"fix: update grid agent custom rule execution\". suggested use: approach-only \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T02:03Z",
+    "consent_receipt": "296a969821fe",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T02:03Z (receipt 296a969821fe); selected commit cbd28847eb6e: \"fix: update grid agent custom rule execution\". LICENSE file at pin cbd28847eb6e detected as GPL-3.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

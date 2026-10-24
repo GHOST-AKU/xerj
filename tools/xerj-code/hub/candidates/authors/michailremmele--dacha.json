@@ -9,13 +9,14 @@
    "repo": "dacha",
    "url": "https://github.com/michailRemmele/dacha",
    "sha": "2301bab1287e662f72c0cd8aa4041f8237c7bfa9",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 2301bab1287e, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 2301bab1287e: \"remove constructors for components where it's possible\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T20:42Z",
+    "consent_receipt": "fad0c2be764a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T20:42Z (receipt fad0c2be764a); selected commit 2301bab1287e: \"remove constructors for components where it's possible\". LICENSE file at pin 2301bab1287e detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

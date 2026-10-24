@@ -1,0 +1,23 @@
+{
+ "corpus": "cbdt-jwt--eenotes",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on thu, thu-ee queries this for how CBDT-JWT/EEnotes implements it: \u9762\u5411\u6e05\u534e\u5927\u5b66\u7535\u5b50\u7cfb\u7684\u5b66\u4e60\u7b14\u8bb0\uff0c\u6309\u7167\u5982\u4e0b\u65b9\u5f0f\u6574\u7406 (selected work: overrides, scripts, the project root)",
+ "repos": [
+  {
+   "repo": "EEnotes",
+   "url": "https://github.com/CBDT-JWT/EEnotes",
+   "sha": "b3c2d717fad269338d07b92b5ac2904084acd782",
+   "licence": "MIT (LICENSE file at pin b3c2d717fad2, GitHub licence API 2026-10-23)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T11:02Z",
+    "consent_receipt": "bea78a18ecc2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T11:02Z (receipt bea78a18ecc2); selected commit b3c2d717fad2: \"Align notes UI and scale with the main site\". LICENSE file at pin b3c2d717fad2 detected as MIT by the GitHub licence API on 2026-10-23; used under that licence with attribution."
+   }
+  }
+ ]
+}

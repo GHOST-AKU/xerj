@@ -9,13 +9,14 @@
    "repo": "canquery",
    "url": "https://github.com/RyuPrad/canquery",
    "sha": "280def23ab7f499214d3e9e66977aedc0feb897e",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 280def23ab7f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 280def23ab7f: \"Fix resource chart layout, labels and data windows\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T19:28Z",
+    "consent_receipt": "e28753bd2238",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T19:28Z (receipt e28753bd2238); selected commit 280def23ab7f: \"Fix resource chart layout, labels and data windows\". LICENSE file at pin 280def23ab7f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

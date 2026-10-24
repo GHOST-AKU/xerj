@@ -9,13 +9,14 @@
    "repo": "nap",
    "url": "https://github.com/mangit955/nap",
    "sha": "4930e97dab644af952c318e70dcdfa9e2ab7cc31",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 4930e97dab64, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit 4930e97dab64: \"fix(chat): recover refused first prompts with media\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T08:55Z",
+    "consent_receipt": "6b6b5c8ed250",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T08:55Z (receipt 6b6b5c8ed250); selected commit 4930e97dab64: \"fix(chat): recover refused first prompts with media\". LICENSE file at pin 4930e97dab64 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

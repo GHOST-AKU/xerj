@@ -1,0 +1,23 @@
+{
+ "corpus": "nawazxz--moontty",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agentic-coding, ai-agents, claude-code queries this for how nawazxz/moontty implements it: Keep watch over every Claude Code agent: every agent and subagent live on one canvas, with exact status, a branch per mission and terminals  (selected work: shell, public, the project root)",
+ "repos": [
+  {
+   "repo": "moontty",
+   "url": "https://github.com/nawazxz/moontty",
+   "sha": "66c769256bef5c676405854c57882062b565716c",
+   "licence": "MIT (LICENSE file at pin 66c769256bef, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T09:29Z",
+    "consent_receipt": "e91b9144d09e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T09:29Z (receipt e91b9144d09e); selected commit 66c769256bef: \"Mac terminal keys, grey history hints in zsh, plan usage in the top bar\". LICENSE file at pin 66c769256bef detected as MIT by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

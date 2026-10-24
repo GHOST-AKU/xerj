@@ -9,13 +9,14 @@
    "repo": "567-agent",
    "url": "https://github.com/Chinachani/567-agent",
    "sha": "4f692c7447612629d661c9a16f49dea5aafa5d31",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin 4f692c744761, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-13 (reply to Corpus Hub outreach); selected commit 4f692c744761: \"feat(client): \u5b8c\u5584 1.x \u66f4\u65b0\u4f53\u9a8c\u4e0e\u98ce\u683c\u5e93\u9884\u89c8\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T17:31Z",
+    "consent_receipt": "f1617849d603",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T17:31Z (receipt f1617849d603); selected commit 4f692c744761: \"feat(client): \u5b8c\u5584 1.x \u66f4\u65b0\u4f53\u9a8c\u4e0e\u98ce\u683c\u5e93\u9884\u89c8\". LICENSE file at pin 4f692c744761 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

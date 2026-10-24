@@ -9,13 +9,14 @@
    "repo": "prism-viz",
    "url": "https://github.com/floorianmb/prism-viz",
    "sha": "262be7bcd83fdb41705109bb6e0b598e9364cf99",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "MIT",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-09 (reply to Corpus Hub outreach); selected commit 262be7bcd83f: \"Prism 0.5.2: pinch to zoom in blocks\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "6767cae86949",
+    "note": "author consent by email 2026-10-09T16:09Z (receipt 6767cae86949); selected commit 262be7bcd83f: \"Prism 0.5.2: pinch to zoom in blocks\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
    }
   }
  ]

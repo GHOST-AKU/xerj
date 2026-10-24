@@ -9,13 +9,14 @@
    "repo": "ClaudeBar",
    "url": "https://github.com/tddworks/ClaudeBar",
    "sha": "d1bfbdcf8c73e93cdbac025e25756a12683eac7a",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "Apache-2.0 (LICENSE file at pin d1bfbdcf8c73, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-12 (reply to Corpus Hub outreach); selected commit d1bfbdcf8c73: \"feat(popover): All shows every provider on one page (#539)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T02:23Z",
+    "consent_receipt": "dc9712ae261e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T02:23Z (receipt dc9712ae261e); selected commit d1bfbdcf8c73: \"feat(popover): All shows every provider on one page (#539)\". LICENSE file at pin d1bfbdcf8c73 detected as Apache-2.0 by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

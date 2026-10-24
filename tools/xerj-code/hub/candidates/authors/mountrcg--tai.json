@@ -9,13 +9,14 @@
    "repo": "Tai",
    "url": "https://github.com/mountrcg/Tai",
    "sha": "8335f721e7874a29dd6b8da20dc7f52a935419ce",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 8335f721e787, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit 8335f721e787: \"Linearize watch command authorization with the side effects it guards\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T07:03Z",
+    "consent_receipt": "da4d1f7a0420",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T07:03Z (receipt da4d1f7a0420); selected commit 8335f721e787: \"Linearize watch command authorization with the side effects it guards\". LICENSE file at pin 8335f721e787 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

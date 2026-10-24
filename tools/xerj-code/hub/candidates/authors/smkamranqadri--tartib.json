@@ -9,13 +9,14 @@
    "repo": "tartib",
    "url": "https://github.com/smkamranqadri/tartib",
    "sha": "a45e13bde97f693a49c2034adf857eab42532000",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin a45e13bde97f, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-19 (reply to Corpus Hub outreach); selected commit a45e13bde97f: \"feat(home,inbox): act on a waiting capture, and count them in the nav\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T10:34Z",
+    "consent_receipt": "28974f664725",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T10:34Z (receipt 28974f664725); selected commit a45e13bde97f: \"feat(home,inbox): act on a waiting capture, and count them in the nav\". LICENSE file at pin a45e13bde97f detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

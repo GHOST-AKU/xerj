@@ -9,13 +9,14 @@
    "repo": "styleguide",
    "url": "https://github.com/helsingborg-stad/styleguide",
    "sha": "4ff57a32ddbd9ce1809f7a8a0e27cb28f523f66e",
-   "licence": "hint only: MIT (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "MIT (LICENSE file at pin 4ff57a32ddbd, GitHub licence API 2026-10-21)",
    "review": {
     "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
-    "note": "author permission by email 2026-10-07 (reply to Corpus Hub outreach); selected commit 4ff57a32ddbd: \"feat: complete rework on popover\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-07T08:45Z",
+    "consent_receipt": "9123d7443753",
+    "note": "Inclusion consented by the commit author by email at 2026-10-07T08:45Z (receipt 9123d7443753); selected commit 4ff57a32ddbd: \"feat: complete rework on popover\". LICENSE file at pin 4ff57a32ddbd detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
    }
   }
  ]

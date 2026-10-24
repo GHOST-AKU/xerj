@@ -1,0 +1,23 @@
+{
+ "corpus": "nexusrun--zela",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on Go queries this for how nexusrun/zela implements it: Zela is an open-source platform for deploying and managing Docker clusters, with a web dashboard, encrypted networking, monitoring, and MCP  (selected work: internal/control, internal/storageprobe, internal/engine)",
+ "repos": [
+  {
+   "repo": "zela",
+   "url": "https://github.com/nexusrun/zela",
+   "sha": "0c96d138dc048773497d6b1324f9ed35db3f4772",
+   "licence": "Apache-2.0 (LICENSE file at pin 0c96d138dc04, GitHub licence API 2026-10-22)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T09:06Z",
+    "consent_receipt": "b8986ae5fa35",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T09:06Z (receipt b8986ae5fa35); selected commit 0c96d138dc04: \"added shared storage support\". LICENSE file at pin 0c96d138dc04 detected as Apache-2.0 by the GitHub licence API on 2026-10-22; used under that licence with attribution."
+   }
+  }
+ ]
+}

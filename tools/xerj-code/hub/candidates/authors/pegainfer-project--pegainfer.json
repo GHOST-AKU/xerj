@@ -9,13 +9,14 @@
    "repo": "pegainfer",
    "url": "https://github.com/pegainfer-project/pegainfer",
    "sha": "d386999f8492d0d11c6c02a7e227c2dbe0e1ef7d",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-11 (reply to Corpus Hub outreach); selected commit d386999f8492: \"fix(qwen35): honor request-scoped stop policy (#1134)\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "334224f482eb",
+    "note": "author consent by email 2026-10-11T20:42Z (receipt 334224f482eb); selected commit d386999f8492: \"fix(qwen35): honor request-scoped stop policy (#1134)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

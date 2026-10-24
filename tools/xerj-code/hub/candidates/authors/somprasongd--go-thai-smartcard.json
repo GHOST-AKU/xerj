@@ -9,13 +9,14 @@
    "repo": "go-thai-smartcard",
    "url": "https://github.com/somprasongd/go-thai-smartcard",
    "sha": "d18d70ffea8ee8d2c59e5c852ff17f5411fc0a28",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-16 (reply to Corpus Hub outreach); selected commit d18d70ffea8e: \"correlate requested card reads\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "a611852fb63c",
+    "note": "author consent by email 2026-10-16T06:15Z (receipt a611852fb63c); selected commit d18d70ffea8e: \"correlate requested card reads\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

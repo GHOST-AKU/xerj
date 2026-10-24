@@ -1,0 +1,23 @@
+{
+ "corpus": "gwowen--log-and-order",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how gwowen/log-and-order implements it: gwowen/log-and-order (Python) (selected work: log_and_order, tests, the project root)",
+ "repos": [
+  {
+   "repo": "log-and-order",
+   "url": "https://github.com/gwowen/log-and-order",
+   "sha": "cf6484b519a42caba49c962d77b911103d6247d2",
+   "licence": "MIT (LICENSE file at pin cf6484b519a4, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T15:06Z",
+    "consent_receipt": "9f1e0905d8dc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T15:06Z (receipt 9f1e0905d8dc); selected commit cf6484b519a4: \"Implement MCP server functionality and enhance documentation\". LICENSE file at pin cf6484b519a4 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}

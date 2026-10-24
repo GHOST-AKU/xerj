@@ -9,13 +9,14 @@
    "repo": "ACTINV",
    "url": "https://github.com/AvilaLabs/ACTINV",
    "sha": "1b91e5f5c9078dde3950bac8f0fe4e3258e332af",
-   "licence": "hint only: Apache-2.0 (GitHub licenseInfo 2026-10-19; verify at pin)",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "UNREVIEWED",
     "by": "",
     "at": "",
-    "note": "author permission by email 2026-10-15 (reply to Corpus Hub outreach); selected commit 1b91e5f5c907: \"P121: record G1-G3 evidence\". suggested use: adapt-with-attribution \u2014 G4 review of the LICENSE file at this pin still required."
+    "consent_receipt": "b576525c3998",
+    "note": "author consent by email 2026-10-15T01:32Z (receipt b576525c3998); selected commit 1b91e5f5c907: \"P121: record G1-G3 evidence\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
    }
   }
  ]

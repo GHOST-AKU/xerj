@@ -1,0 +1,23 @@
+{
+ "corpus": "kubus-project--art-kubus",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on art, augmented-reality, map queries this for how kubus-project/art.kubus implements it: Open-source Flutter app for discovering and mapping public art. Built on MapLibre, with community tools, optional AR and decentralized infra (selected work: test, lib/screens, lib/widgets)",
+ "repos": [
+  {
+   "repo": "art.kubus",
+   "url": "https://github.com/kubus-project/art.kubus",
+   "sha": "6ff04b8fc269e7e8b829d64219d2d72e5b9ee834",
+   "licence": "hint only: MPL-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "MPL-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "f3f7eeab9711",
+    "note": "author consent by email 2026-10-19T18:58Z (receipt f3f7eeab9711); selected commit 6ff04b8fc269: \"fix(map): size nearby peek to its header\"; LICENSE at pin: NOASSERTION vs repository MPL-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

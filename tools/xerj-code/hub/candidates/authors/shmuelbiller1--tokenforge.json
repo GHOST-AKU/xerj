@@ -1,0 +1,23 @@
+{
+ "corpus": "shmuelbiller1--tokenforge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how shmuelbiller1/TOKENFORGE implements it: shmuelbiller1/TOKENFORGE (JavaScript) (selected work: backend, desktop)",
+ "repos": [
+  {
+   "repo": "TOKENFORGE",
+   "url": "https://github.com/shmuelbiller1/TOKENFORGE",
+   "sha": "7f2049abcdb91026365e643c2a3e18d8bd3c9dc7",
+   "licence": "MIT (LICENSE file at pin 7f2049abcdb9, GitHub licence API 2026-10-21)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T00:26Z",
+    "consent_receipt": "1ffdedc877a3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T00:26Z (receipt 1ffdedc877a3); selected commit 7f2049abcdb9: \"Add evidence-first offline R&D revision history (#5)\". LICENSE file at pin 7f2049abcdb9 detected as MIT by the GitHub licence API on 2026-10-21; used under that licence with attribution."
+   }
+  }
+ ]
+}
