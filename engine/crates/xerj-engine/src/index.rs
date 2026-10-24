@@ -35281,24 +35281,31 @@ async fn do_flush_shard(
                 fts_writer.add_documents_parallel(&drained_fts_for_build);
                 fts_add_us = t_add.elapsed().as_micros();
                 let t_fin = std::time::Instant::now();
+                // The data-dir format marker is a fence, not a side-car. If
+                // that preflight fails, this flush must fail and leave the
+                // documents uncommitted: a retry then writes the marker and
+                // the encoded side-cars. Publishing a no-FTS segment here
+                // would clear the memtable and skip that recovery.
+                let case_distinguished =
+                    fts_writer.uses_case_distinguished_field_filename_components();
+                let encoded =
+                    !case_distinguished && fts_writer.uses_encoded_field_filename_components();
+                if case_distinguished {
+                    store_for_warm.ensure_fts_case_distinguished_field_component_format()?;
+                } else if encoded {
+                    store_for_warm.ensure_fts_encoded_field_component_format()?;
+                }
                 // #2349 — a side-car publish that fails on a case-folding
                 // volume used to fail this flush, and the aggregate `-docs`
                 // refresh then aborted the whole autoindex. When the partial
                 // files can be removed, keep the stored segment: search scans
                 // it, and a later merge rebuilds full text. The error logged
                 // by `degrade_fts_publish` names the path and the OS error.
-                let store_for_publish = Arc::clone(&store_for_warm);
                 let segment_id_for_fts = meta.id.clone();
                 let publish_result = (move || -> anyhow::Result<()> {
-                    if fts_writer.uses_case_distinguished_field_filename_components() {
-                        store_for_publish
-                            .ensure_fts_case_distinguished_field_component_format()
-                            .map_err(|error| anyhow::anyhow!("{error:#}"))?;
+                    if case_distinguished {
                         fts_writer.publish_case_distinguished_filename_layout()?;
-                    } else if fts_writer.uses_encoded_field_filename_components() {
-                        store_for_publish
-                            .ensure_fts_encoded_field_component_format()
-                            .map_err(|error| anyhow::anyhow!("{error:#}"))?;
+                    } else if encoded {
                         fts_writer.publish_encoded_filename_layout()?;
                     }
                     fts_writer.finish()?;
