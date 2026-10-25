@@ -125,6 +125,8 @@ const DEFAULT_PROTOCOL_VERSION: &str = "2025-06-18";
 const DEFAULT_SEARCH_SIZE: usize = 10;
 /// Default XERJ ES-compatible endpoint.
 const DEFAULT_XERJ_URL: &str = "http://localhost:9200";
+/// Deadline for one proxied request to the node, connect to last body byte.
+const REQUEST_TIMEOUT: Duration = Duration::from_secs(30);
 
 /// How to start the node `xerj mcp` proxies to. The flags are the local-dev
 /// start in llms.txt ("Start here", step 1), the README, and the `xerj mcp`
@@ -369,7 +371,7 @@ pub async fn run(args: &[String]) -> anyhow::Result<()> {
         resolve_auth(auth_override, std::env::var("XERJ_AUTH").ok(), &base_url);
 
     let client = node_http_builder(&base_url)
-        .timeout(Duration::from_secs(30))
+        .timeout(REQUEST_TIMEOUT)
         .build()?;
 
     let ctx = Ctx {
@@ -2715,6 +2717,10 @@ fn build_brain_overview(args: &Value) -> Result<BuiltRequest, String> {
 struct McpXc {
     base_url: String,
     auth: Option<String>,
+    /// `Ctx.client`'s deadline does not reach this fresh client; without one a
+    /// node that accepts and never answers holds the tool call (and the stdio
+    /// loop behind it) forever.
+    timeout: Duration,
 }
 
 impl McpXc {
@@ -2726,12 +2732,14 @@ impl McpXc {
         let url = format!("{}{}", self.base_url, path);
         let base_url = self.base_url.clone();
         let auth = self.auth.clone();
+        let timeout = self.timeout;
         let method = method.to_string();
         let body = body.cloned();
         rt.block_on(async move {
             let client = node_http_builder(&base_url)
+                .timeout(timeout)
                 .build()
-                .map_err(|e| format!("could not build HTTP client: {e}"))?;
+                .map_err(|e| format!("http client: {e}"))?;
             let m = reqwest::Method::from_bytes(method.as_bytes())
                 .map_err(|_| format!("not an HTTP method: {method}"))?;
             let mut req = client.request(m, &url);
@@ -2744,7 +2752,7 @@ impl McpXc {
             let resp = req
                 .send()
                 .await
-                .map_err(|e| transport_failure_text(&base_url, &url, &e))?;
+                .map_err(|e| mcp_xc_send_error(&base_url, &url, &e))?;
             // Surface the status WITH the body: the tri-state callers (404 =
             // zero, not error) classify it themselves.
             let status = resp.status().as_u16();
@@ -2992,7 +3000,11 @@ async fn run_code_search(ctx: &Ctx, args: &Value) -> Value {
     let base_url = ctx.base_url.clone();
     let auth = ctx.auth.clone();
     let res = tokio::task::spawn_blocking(move || {
-        let http = McpXc { base_url, auth };
+        let http = McpXc {
+            base_url,
+            auth,
+            timeout: REQUEST_TIMEOUT,
+        };
         let root = code_root();
         xerj_common::xccode::run_code_query(&root, &http, &http.base_url, &p, "stale_ok:true")
     })
@@ -3141,6 +3153,21 @@ fn proxy_gateway_message(request_url: &str, proxy: &str, status: u16, body: &str
 ///
 /// A failure that went through an env proxy names that proxy instead (#2379).
 /// Connection refused on the proxy is not "no node is listening".
+/// `McpXc` keeps the "no response" wording `xerj_code_search` tests for when
+/// the node accepts and then stays silent. A refused connect still goes
+/// through [`transport_failure_text`], so a dead proxy is not reported as a
+/// dead node.
+fn mcp_xc_send_error(base_url: &str, request_url: &str, err: &reqwest::Error) -> String {
+    if err.is_timeout() {
+        let detail = error_detail(err);
+        return match env_proxy_label(base_url) {
+            Some(proxy) => format!("no response from {request_url} via proxy {proxy}: {detail}"),
+            None => format!("no response from {request_url}: {detail}"),
+        };
+    }
+    transport_failure_text(base_url, request_url, err)
+}
+
 pub(crate) fn transport_failure_text(
     base_url: &str,
     request_url: &str,
@@ -3433,6 +3460,36 @@ mod tests {
         assert!(!label.contains("user"), "{label}");
         let socks: http::Uri = "socks5://127.0.0.1:1080".parse().unwrap();
         assert_eq!(redact_proxy(&socks), "socks5://127.0.0.1:1080");
+    }
+
+    /// `xerj_code_search` talks to the node through `McpXc`, not `Ctx.client`,
+    /// so it needs a deadline of its own: a node that accepts the connection
+    /// and never answers must give an error, not hang the tool call (and with
+    /// it the stdio loop, which serves one request at a time).
+    #[test]
+    fn code_search_transport_gives_up_on_a_silent_node() {
+        let listener = std::net::TcpListener::bind("127.0.0.1:0").unwrap();
+        let base_url = format!("http://{}", listener.local_addr().unwrap());
+        // Accept, then hold the connection open without a byte of reply.
+        std::thread::spawn(move || {
+            let held = listener.accept();
+            std::thread::sleep(Duration::from_secs(10));
+            drop(held);
+        });
+        let (tx, rx) = std::sync::mpsc::channel();
+        std::thread::spawn(move || {
+            let http = McpXc {
+                base_url,
+                auth: None,
+                timeout: Duration::from_millis(300),
+            };
+            let _ = tx.send(http.request("GET", "/_cat/indices/x?format=json", None));
+        });
+        let res = rx
+            .recv_timeout(Duration::from_secs(5))
+            .expect("McpXc::request still pending after 5 s against a silent node");
+        let err = res.expect_err("a silent node is not a reply");
+        assert!(err.contains("no response from"), "{err}");
     }
 
     /// #2079: the sentence itself, with no network. The connect-vs-HTTP split
