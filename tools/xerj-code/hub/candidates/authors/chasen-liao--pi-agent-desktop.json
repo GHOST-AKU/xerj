@@ -1,0 +1,23 @@
+{
+ "corpus": "chasen-liao--pi-agent-desktop",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent, pi, pi-agent queries this for how Chasen-Liao/pi-agent-desktop implements it: Pi Agent Desktop \u2014 \u57fa\u4e8e Electron \u7684 Pi \u7f16\u7a0b\u667a\u80fd\u4f53\u684c\u9762\u5ba2\u6237\u7aef (\u884d\u751f\u81ea pi-web) (selected work: lib, components, the project root)",
+ "repos": [
+  {
+   "repo": "pi-agent-desktop",
+   "url": "https://github.com/Chasen-Liao/pi-agent-desktop",
+   "sha": "df62fad27d5c20493fc9ef2b4ee7d445285872a1",
+   "licence": "MIT (LICENSE file at pin df62fad27d5c, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T07:40Z",
+    "consent_receipt": "be2492782e21",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T07:40Z (receipt be2492782e21); selected commit df62fad27d5c: \"feat: upgrade Pi to 0.99.1 with native MCP and Codemode controls\". LICENSE file at pin df62fad27d5c detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

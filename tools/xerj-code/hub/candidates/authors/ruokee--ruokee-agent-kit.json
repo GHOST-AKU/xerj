@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on TypeScript queries this for how ruokee/ruokee-agent-kit implements it: ruokee/ruokee-agent-kit (TypeScript) (selected work: projects)",
+ "domain": "an agent working on agent-skills, ai-agents, developer-tools queries this for how ruokee/ruokee-agent-kit implements it: First-party Agent Skills and extensions for everyday engineering work (selected work: projects)",
  "repos": [
   {
    "repo": "ruokee-agent-kit",

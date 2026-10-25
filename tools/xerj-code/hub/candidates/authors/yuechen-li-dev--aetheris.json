@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on 3d-modeling, cad, brep queries this for how yuechen-li-dev/Aetheris implements it: STEP AP242 Native-ish BREP Geometric Modeling Kernel (selected work: scripts, aetheris.client, Aetheris.Cadmata.Desktop)",
+ "domain": "an agent working on 3d-modeling, cad, brep queries this for how yuechen-li-dev/Aetheris implements it: Next Gen STEP AP242 Native-ish BREP Geometric Modeling Kernel (selected work: scripts, aetheris.client, Aetheris.Cadmata.Desktop)",
  "repos": [
   {
    "repo": "Aetheris",

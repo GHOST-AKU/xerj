@@ -1,0 +1,23 @@
+{
+ "corpus": "bananamind--bananaall",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how BananaMind/BananaAll implements it: SLM Super App (selected work: electron, backend, src)",
+ "repos": [
+  {
+   "repo": "BananaAll",
+   "url": "https://github.com/BananaMind/BananaAll",
+   "sha": "8084a4a274ac4f6afb53a9aba63404ee8ae3173d",
+   "licence": "MIT (LICENSE file at pin 8084a4a274ac, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T14:33Z",
+    "consent_receipt": "4531bcd775cf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T14:33Z (receipt 4531bcd775cf); selected commit 8084a4a274ac: \"Expand training workflows and custom model support\". LICENSE file at pin 8084a4a274ac detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

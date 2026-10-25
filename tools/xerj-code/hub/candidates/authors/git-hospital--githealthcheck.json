@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "HEALTH",
- "domain": "an agent working on code-quality, git, static-analysis queries this for how Git-Hospital/githealthcheck implements it: Code health analyzer for Git repositories: tests, history, complexity, architecture. Every number is a measurement or null with a reason. Go (selected work: internal/execx, internal/repo, cmd/githealthcheck)",
+ "domain": "an agent working on code-quality, git, static-analysis queries this for how Git-Hospital/githealthcheck implements it: Code health analyzer for Git repositories: tests, history and complexity, Go first. Every number is a measurement or null with a reason (selected work: internal/execx, internal/repo, cmd/githealthcheck)",
  "repos": [
   {
    "repo": "githealthcheck",

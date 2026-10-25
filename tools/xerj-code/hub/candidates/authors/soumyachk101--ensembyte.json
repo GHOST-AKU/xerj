@@ -1,0 +1,23 @@
+{
+ "corpus": "soumyachk101--ensembyte",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, ai-agent, claude queries this for how soumyachk101/Ensembyte implements it: The open-source, local-first coding assistant and multi-agent IDE for macOS, Windows & Linux (selected work: Ensembyte-rust)",
+ "repos": [
+  {
+   "repo": "Ensembyte",
+   "url": "https://github.com/soumyachk101/Ensembyte",
+   "sha": "64548b88172d5b09b95ad2593385638176636867",
+   "licence": "MIT (LICENSE file at pin 64548b88172d, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T17:04Z",
+    "consent_receipt": "2d704dab0eed",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T17:04Z (receipt 2d704dab0eed); selected commit 64548b88172d: \"feat(ui): add thinking shader orb, interactive test results, and reas\u2026\". LICENSE file at pin 64548b88172d detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

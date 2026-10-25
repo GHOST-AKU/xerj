@@ -1,0 +1,23 @@
+{
+ "corpus": "aetheriumsimulator--qemu-hmos",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how AetheriumSimulator/qemu-hmos implements it: A QEMU distro for Huawei's HarmonyOS Tablets and laptops, working in progress (selected work: entry)",
+ "repos": [
+  {
+   "repo": "qemu-hmos",
+   "url": "https://github.com/AetheriumSimulator/qemu-hmos",
+   "sha": "5a3513d635b7c0e60f8f54912ada11f986a0beae",
+   "licence": "hint only: GPL-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "GPL-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "5a20fcf7b9ab",
+    "note": "author consent by email 2026-10-14T03:01Z (receipt 5a20fcf7b9ab); selected commit 5a3513d635b7: \"fix: improve issue 34 startup logging diagnostics\"; LICENSE at pin: NOASSERTION vs repository GPL-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

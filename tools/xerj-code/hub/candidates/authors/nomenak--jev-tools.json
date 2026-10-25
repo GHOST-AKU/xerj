@@ -1,0 +1,23 @@
+{
+ "corpus": "nomenak--jev-tools",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on code-review, coding-agents, jev queries this for how NomenAK/jev-tools implements it: Six evidence-oriented tools for pi and omp coding agents, compatible with the Jev API format (selected work: test, src/mcp, src/adapters)",
+ "repos": [
+  {
+   "repo": "jev-tools",
+   "url": "https://github.com/NomenAK/jev-tools",
+   "sha": "8c464a2b32f0ec9fecbaf5420e5f3565b6edb044",
+   "licence": "MIT (LICENSE file at pin 8c464a2b32f0, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T18:36Z",
+    "consent_receipt": "86c08b0fbc81",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T18:36Z (receipt 86c08b0fbc81); selected commit 8c464a2b32f0: \"Add MCP stdio server; fix USD budget race and Windows paths\". LICENSE file at pin 8c464a2b32f0 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

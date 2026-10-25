@@ -1,0 +1,23 @@
+{
+ "corpus": "siralfry--retro-arcade-collection-phaser",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how sirAlfry/retro-arcade-collection-phaser implements it: sirAlfry/retro-arcade-collection-phaser (JavaScript) (selected work: src/scenes, src/ui, the project root)",
+ "repos": [
+  {
+   "repo": "retro-arcade-collection-phaser",
+   "url": "https://github.com/sirAlfry/retro-arcade-collection-phaser",
+   "sha": "6ecdc1bd5bf72861b1f551d7a93d0a38a57d6a83",
+   "licence": "MIT (LICENSE file at pin 6ecdc1bd5bf7, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:19Z",
+    "consent_receipt": "d4273bcce8a7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:19Z (receipt d4273bcce8a7); selected commit 6ecdc1bd5bf7: \"feat: supporto multi-dispositivo (touch, PWA) e correzione bug\". LICENSE file at pin 6ecdc1bd5bf7 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

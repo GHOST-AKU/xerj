@@ -1,0 +1,23 @@
+{
+ "corpus": "plasma-ai--erdos",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how plasma-ai/erdos implements it: An open record of the Erd\u0151s problems (selected work: library, the project root)",
+ "repos": [
+  {
+   "repo": "erdos",
+   "url": "https://github.com/plasma-ai/erdos",
+   "sha": "1ab58af6873264e61abc0fae5a5149df79e19d48",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "86f86f5f5f31",
+    "note": "author consent by email 2026-10-15T21:18Z (receipt 86f86f5f5f31); selected commit 1ab58af68732: \"Record Plasma AI's resolution of Problem 408's first two questions\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

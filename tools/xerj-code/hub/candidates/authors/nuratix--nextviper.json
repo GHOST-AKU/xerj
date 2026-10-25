@@ -1,0 +1,23 @@
+{
+ "corpus": "nuratix--nextviper",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how nuratix/nextviper implements it: NextViper: Modern, fast general-purpose programming language (v0.1.0) (selected work: src, tests, include)",
+ "repos": [
+  {
+   "repo": "nextviper",
+   "url": "https://github.com/nuratix/nextviper",
+   "sha": "d5f016ab738df3e4e879d83c4f16e4d168604679",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "5b66ed33524b",
+    "note": "author consent by email 2026-10-19T14:22Z (receipt 5b66ed33524b); selected commit d5f016ab738d: \"Harden runtime and compiler, replace unsupported readiness claims\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "mze3e--kognita",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how mze3e/kognita implements it: Content guardrails check what an AI says. Kognita decides whether it was allowed to ask, before any data is retrieved. An AI gateway and an  (selected work: tests, src/kognita)",
+ "repos": [
+  {
+   "repo": "kognita",
+   "url": "https://github.com/mze3e/kognita",
+   "sha": "cd62f9576066e7aa2c313036ab633b52dad5caa2",
+   "licence": "MIT (LICENSE file at pin cd62f9576066, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T04:29Z",
+    "consent_receipt": "93bdb524f143",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T04:29Z (receipt 93bdb524f143); selected commit cd62f9576066: \"fix(authority): resolve effective client scope once for authority, li\u2026\". LICENSE file at pin cd62f9576066 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "anselmopinheiro--lina",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how anselmopinheiro/lina implements it: AI-powered Obsidian plugin for semantic search, smart note organisation and knowledge workflows (selected work: src/search, tests)",
+ "repos": [
+  {
+   "repo": "lina",
+   "url": "https://github.com/anselmopinheiro/lina",
+   "sha": "fbb2e8ecc7ca9e248d91d3679513e50ecaf1f670",
+   "licence": "MIT (LICENSE file at pin fbb2e8ecc7ca, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T15:06Z",
+    "consent_receipt": "98ccb0c92e71",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T15:06Z (receipt 98ccb0c92e71); selected commit fbb2e8ecc7ca: \"feat(taxonomy): add local-first recommendation engines\". LICENSE file at pin fbb2e8ecc7ca detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

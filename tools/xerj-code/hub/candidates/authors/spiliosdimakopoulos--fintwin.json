@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on conformal-prediction, digital-twin, monte-carlo queries this for how SpiliosDimakopoulos/fintwin implements it: Digital twin of 390+ S&P 500 companies' finances from SEC XBRL filings: system-dynamics model + Monte Carlo stress tests, rebuilt weekly for (selected work: web, tools)",
+ "domain": "an agent working on conformal-prediction, digital-twin, monte-carlo queries this for how SpiliosDimakopoulos/fintwin implements it: Financial digital twin of 390+ US public companies, built from SEC XBRL filings: Monte Carlo stress tests in the browser, rebuilt weekly for (selected work: web, tools)",
  "repos": [
   {
    "repo": "fintwin",

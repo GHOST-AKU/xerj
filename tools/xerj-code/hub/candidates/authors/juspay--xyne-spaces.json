@@ -1,0 +1,23 @@
+{
+ "corpus": "juspay--xyne-spaces",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, ai-agents, ai-tools queries this for how juspay/xyne-spaces implements it: The AI Org-OS \u2014 a collaborative platform for humans and agents. Explore: https://spaces.xyne.ai (selected work: apps/dashboard, apps/backend)",
+ "repos": [
+  {
+   "repo": "xyne-spaces",
+   "url": "https://github.com/juspay/xyne-spaces",
+   "sha": "ac6e06165fa89ddcf709bf5dbca5a4b6217d6a2e",
+   "licence": "Apache-2.0 (LICENSE file at pin ac6e06165fa8, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T06:33Z",
+    "consent_receipt": "3c2806311f65",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T06:33Z (receipt 3c2806311f65); selected commit ac6e06165fa8: \"feat: XYNE-65598 Add artifact apps in Xyne AI context picker (#2832)\". LICENSE file at pin ac6e06165fa8 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

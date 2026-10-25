@@ -1,0 +1,23 @@
+{
+ "corpus": "anonmoty--red-hawk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on information-gathering, information-gathering-python, information-gathering-tool queries this for how anonmoty/Red_Hawk implements it: RED_HAWK - Information Gathering, Vulnerability Scanning & Crawling Tool. PHP based XSS/SQLi scanner for penetration testers (selected work: modules)",
+ "repos": [
+  {
+   "repo": "Red_Hawk",
+   "url": "https://github.com/anonmoty/Red_Hawk",
+   "sha": "232c8a94b99db528d1e12a8e55d8d65dfdd9f29b",
+   "licence": "Apache-2.0 (LICENSE file at pin 232c8a94b99d, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T10:48Z",
+    "consent_receipt": "7a153470b72a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T10:48Z (receipt 7a153470b72a); selected commit 232c8a94b99d: \"Add files via upload\". LICENSE file at pin 232c8a94b99d detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

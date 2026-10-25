@@ -1,0 +1,23 @@
+{
+ "corpus": "whosowsee--kr580",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on emulator, iced, intel-8080 queries this for how WhoSowSee/KR580 implements it: A modern Rust rewrite of the classic \u041a\u0420580\u0412\u041c80\u0410 desktop emulator (selected work: crates/ui)",
+ "repos": [
+  {
+   "repo": "KR580",
+   "url": "https://github.com/WhoSowSee/KR580",
+   "sha": "1b0ae53b7240e578ea8576dc557e5f421d2f3ff1",
+   "licence": "MIT (LICENSE file at pin 1b0ae53b7240, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T21:43Z",
+    "consent_receipt": "ab7817c4a092",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T21:43Z (receipt ab7817c4a092); selected commit 1b0ae53b7240: \"fix(ui): refine dropdown scrolling and option previews\". LICENSE file at pin 1b0ae53b7240 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

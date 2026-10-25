@@ -1,0 +1,23 @@
+{
+ "corpus": "mattilsynet--h8s",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Go queries this for how Mattilsynet/h8s implements it: h8s | httptonats - HTTP and bi-directional websockets over NATS (selected work: pkg/h8sproxy, cmd/h8sd)",
+ "repos": [
+  {
+   "repo": "h8s",
+   "url": "https://github.com/Mattilsynet/h8s",
+   "sha": "5024db02e971079c391e6891f529b2cf4cbbd9a0",
+   "licence": "MIT (LICENSE file at pin 5024db02e971, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T07:16Z",
+    "consent_receipt": "99b6ad9913d7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T07:16Z (receipt 99b6ad9913d7); selected commit 5024db02e971: \"feat: Added self-signed tls mode\". LICENSE file at pin 5024db02e971 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

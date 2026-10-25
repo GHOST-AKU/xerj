@@ -1,0 +1,23 @@
+{
+ "corpus": "longistamina--tidypyrs",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Longistamina/tidypyrs implements it: Bring Tidyverse to Python with Polars backend (selected work: src/tidypyrs)",
+ "repos": [
+  {
+   "repo": "tidypyrs",
+   "url": "https://github.com/Longistamina/tidypyrs",
+   "sha": "f8c8964c7394daf2bfbe09ed9eafd07837bc7d38",
+   "licence": "MIT (LICENSE file at pin f8c8964c7394, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T01:33Z",
+    "consent_receipt": "d0221b6bb223",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T01:33Z (receipt d0221b6bb223); selected commit f8c8964c7394: \"Minor fixes in __dir__ and __init__.py\". LICENSE file at pin f8c8964c7394 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

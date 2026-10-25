@@ -1,0 +1,23 @@
+{
+ "corpus": "mochabafey--whale-notify",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on deepseek, deepseek-harness, dsh queries this for how Mochabafey/whale-notify implements it: \u9cb8\u9c7c\u901a\u77e5\u2014\u2014\u57fa\u4e8eDeepSeek Harness\u7684\u901a\u77e5\u548c\u9cb8\u9c7c\u5a18\u4eba\u8bbe\u63d2\u4ef6 (selected work: plugins)",
+ "repos": [
+  {
+   "repo": "whale-notify",
+   "url": "https://github.com/Mochabafey/whale-notify",
+   "sha": "531e73a50d734532f100649422526a836fe9215f",
+   "licence": "MIT (LICENSE file at pin 531e73a50d73, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T10:53Z",
+    "consent_receipt": "ad333fcd3510",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T10:53Z (receipt ad333fcd3510); selected commit 531e73a50d73: \"feat: \u8ba9\u9cb8\u9c7c\u5a18\u719f\u7ec3\u638c\u63e1 dsh-ssh-ops \u4e0e dsh-ops\". LICENSE file at pin 531e73a50d73 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

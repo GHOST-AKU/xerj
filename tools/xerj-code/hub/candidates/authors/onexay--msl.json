@@ -1,0 +1,23 @@
+{
+ "corpus": "onexay--msl",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on apple-silicon, linux, macos queries this for how onexay/msl implements it: Run Linux distributions on Apple silicon Macs in a lightweight VM with a WSL-like command line and macOS integration (selected work: tests, host, guest)",
+ "repos": [
+  {
+   "repo": "msl",
+   "url": "https://github.com/onexay/msl",
+   "sha": "bee84aa3aa844c1385303bf01703e914f9c369c9",
+   "licence": "Apache-2.0 (LICENSE file at pin bee84aa3aa84, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T14:06Z",
+    "consent_receipt": "cfd2bc3a265b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T14:06Z (receipt cfd2bc3a265b); selected commit bee84aa3aa84: \"Keep distro clocks aligned after host sleep (#39)\". LICENSE file at pin bee84aa3aa84 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

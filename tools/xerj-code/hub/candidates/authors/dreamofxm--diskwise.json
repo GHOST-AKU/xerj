@@ -2,8 +2,8 @@
  "corpus": "dreamofxm--diskwise",
  "cloned_at": null,
  "status": "draft",
- "shelf": "DB",
- "domain": "an agent working on apache-2-0, disk-cleaner, docker queries this for how DreamOfXM/diskwise implements it: Free, open-source CleanMyMac alternative for macOS. Native SwiftUI disk cleaner for app caches, node_modules, Xcode DerivedData and Docker u (selected work: Sources)",
+ "shelf": "AI",
+ "domain": "an agent working on disk-cleaner, docker, homebrew queries this for how DreamOfXM/diskwise implements it: Free, open-source CleanMyMac alternative for macOS. Native SwiftUI disk cleaner for app caches, node_modules, Xcode DerivedData, Docker and  (selected work: Sources)",
  "repos": [
   {
    "repo": "diskwise",

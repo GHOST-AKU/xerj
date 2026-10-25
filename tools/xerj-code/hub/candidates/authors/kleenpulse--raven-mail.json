@@ -1,0 +1,23 @@
+{
+ "corpus": "kleenpulse--raven-mail",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on agpl, bun, docker queries this for how kleenpulse/raven-mail implements it: Self-hosted email client for Gmail, Outlook, iCloud and any IMAP inbox. See who's waiting on your reply and ask your inbox anything (selected work: lib/rules, test, components)",
+ "repos": [
+  {
+   "repo": "raven-mail",
+   "url": "https://github.com/kleenpulse/raven-mail",
+   "sha": "7bf3ccc2dc52b8b4cd45d5bd8989d3a2add3fa94",
+   "licence": "AGPL-3.0 (LICENSE file at pin 7bf3ccc2dc52, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-23T18:16Z",
+    "consent_receipt": "01efbac28126",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T18:16Z (receipt 01efbac28126); selected commit 7bf3ccc2dc52: \"fix(rules): preview a rule among the others, as a run judges it\". LICENSE file at pin 7bf3ccc2dc52 detected as AGPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

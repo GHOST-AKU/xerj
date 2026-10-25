@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "OPS",
- "domain": "an agent working on container, dinit, golang queries this for how sunlightlinux/slinit implements it: Go init system + service manager \u2014 dinit-compatible config, 304 directives, features from 9 upstreams (runit, s6, OpenRC, upstart, finit, la (selected work: tests, cmd/slinitctl, pkg/service)",
+ "domain": "an agent working on container, dinit, golang queries this for how sunlightlinux/slinit implements it: Go init system + service manager \u2014 dinit-compatible, 304 directives, features from 9 upstreams (runit, s6, OpenRC, upstart, finit, launchd,  (selected work: tests, cmd/slinitctl, pkg/service)",
  "repos": [
   {
    "repo": "slinit",

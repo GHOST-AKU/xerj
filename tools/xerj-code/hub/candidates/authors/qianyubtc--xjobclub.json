@@ -1,0 +1,23 @@
+{
+ "corpus": "qianyubtc--xjobclub",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Go queries this for how qianyubtc/xjobclub implements it: \u63a8\u4e86\u4e48\uff1a\u57fa\u4e8e X\uff08Twitter\uff09\u7684\u53d1\u5e16\u4efb\u52a1\u64ae\u5408\u5e73\u53f0\u3002 (selected work: the project root, templates)",
+ "repos": [
+  {
+   "repo": "xjobclub",
+   "url": "https://github.com/qianyubtc/xjobclub",
+   "sha": "e5c738cd549e32219468c07512958846653a091c",
+   "licence": "MIT (LICENSE file at pin e5c738cd549e, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T23:38Z",
+    "consent_receipt": "74cc1a5208b7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T23:38Z (receipt 74cc1a5208b7); selected commit e5c738cd549e: \"\u903e\u671f\u8d85\u65f6\u81ea\u52a8\u8fdd\u7ea6\u4e0a\u699c\uff1a\u903e\u671f\u6ee1 72 \u5c0f\u65f6\u4ecd\u672a\u4ed8\u6e05\uff08\u63d0\u524d 24 \u5c0f\u65f6\u8b66\u544a\uff09\uff0c\u4e0d\u7b49\u4e3e\u62a5\u81ea\u52a8\u8bb0\u4e3a\u8fdd\u7ea6\u5e76\u5217\u5165\u9ed1\u540d\u5355\uff0c\u4e3e\u62a5\u4e2d\u7684\u8bb0\u5f55\u540c\u6837\u5904\u7406\uff1b\u63a5\u5355\u65b9\u5728\u2026\". LICENSE file at pin e5c738cd549e detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

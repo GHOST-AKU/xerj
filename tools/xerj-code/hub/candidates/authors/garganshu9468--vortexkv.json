@@ -1,0 +1,23 @@
+{
+ "corpus": "garganshu9468--vortexkv",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on cache, golang, high-performance queries this for how GargAnshu9468/vortexkv implements it: The fastest pure Go in-memory Redis alternative. 6.87M+ ops/s peak throughput, 119\u00b5s latency, Multi-Reactor engine, embedded Cyberpunk Web S (selected work: internal/reactor, internal/engine)",
+ "repos": [
+  {
+   "repo": "vortexkv",
+   "url": "https://github.com/GargAnshu9468/vortexkv",
+   "sha": "02bfcbb161399928fc762173caf796b6087990fb",
+   "licence": "MIT (LICENSE file at pin 02bfcbb16139, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T03:19Z",
+    "consent_receipt": "a62f0162c8ed",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T03:19Z (receipt a62f0162c8ed); selected commit 02bfcbb16139: \"perf(reactor): single-cycle integer dispatch, SO_REUSEPORT kernel soc\u2026\". LICENSE file at pin 02bfcbb16139 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

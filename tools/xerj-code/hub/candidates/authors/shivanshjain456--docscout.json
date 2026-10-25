@@ -1,0 +1,23 @@
+{
+ "corpus": "shivanshjain456--docscout",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "LAW",
+ "domain": "an agent working on bm25, fastapi, hybrid-search queries this for how shivanshjain456/DocScout implements it: Citation-grounded search and question-answering service that helps compliance teams query and verify Indian regulatory circulars from the RB (selected work: app, tests, app/api)",
+ "repos": [
+  {
+   "repo": "DocScout",
+   "url": "https://github.com/shivanshjain456/DocScout",
+   "sha": "c031f2f45c2ae127cd2b8f9d1407d74a82b6075b",
+   "licence": "MIT (LICENSE file at pin c031f2f45c2a, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T19:17Z",
+    "consent_receipt": "51b1e98761b8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T19:17Z (receipt 51b1e98761b8); selected commit c031f2f45c2a: \"feat(telemetry): implement high-cardinality telemetry and cost-per-qu\u2026\". LICENSE file at pin c031f2f45c2a detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

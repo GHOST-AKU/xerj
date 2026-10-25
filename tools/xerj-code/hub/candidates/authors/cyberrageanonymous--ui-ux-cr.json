@@ -1,0 +1,23 @@
+{
+ "corpus": "cyberrageanonymous--ui-ux-cr",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Python queries this for how CyberRageAnonymous/ui-ux-cr implements it: CyberRageAnonymous/ui-ux-cr (Python) (selected work: scripts)",
+ "repos": [
+  {
+   "repo": "ui-ux-cr",
+   "url": "https://github.com/CyberRageAnonymous/ui-ux-cr",
+   "sha": "0d20fffe6a015e662ab684b0341c09e27f4b4bbb",
+   "licence": "MIT (LICENSE file at pin 0d20fffe6a01, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T13:12Z",
+    "consent_receipt": "82fcf2e78e96",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T13:12Z (receipt 82fcf2e78e96); selected commit 0d20fffe6a01: \"Add files via upload\". LICENSE file at pin 0d20fffe6a01 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

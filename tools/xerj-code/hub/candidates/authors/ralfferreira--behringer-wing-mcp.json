@@ -1,0 +1,23 @@
+{
+ "corpus": "ralfferreira--behringer-wing-mcp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on audio, behringer, mcp queries this for how ralfferreira/behringer-wing-mcp implements it: Model Context Protocol server for Behringer WING digital mixers over OSC/UDP (selected work: src)",
+ "repos": [
+  {
+   "repo": "behringer-wing-mcp",
+   "url": "https://github.com/ralfferreira/behringer-wing-mcp",
+   "sha": "f04a5e16a630c523b7b98bfa1123957dba3b6902",
+   "licence": "MIT (LICENSE file at pin f04a5e16a630, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T02:54Z",
+    "consent_receipt": "aa8444903f84",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T02:54Z (receipt aa8444903f84); selected commit f04a5e16a630: \"feat(wing): add typed EQ, gate, dyn, and filter tools\". LICENSE file at pin f04a5e16a630 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

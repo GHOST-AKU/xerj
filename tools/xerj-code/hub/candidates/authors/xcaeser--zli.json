@@ -1,0 +1,23 @@
+{
+ "corpus": "xcaeser--zli",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cli, zig, zig-package queries this for how xcaeser/zli implements it: \ud83d\udcdf Build ergonomic, high-performance command-line tools (CLI) with zig (selected work: src, tests, src/lib)",
+ "repos": [
+  {
+   "repo": "zli",
+   "url": "https://github.com/xcaeser/zli",
+   "sha": "1093fddf1e5b3f806e4114b141f10179c6d1f094",
+   "licence": "MIT (LICENSE file at pin 1093fddf1e5b, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T05:05Z",
+    "consent_receipt": "328ee70c89bf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T05:05Z (receipt 328ee70c89bf); selected commit 1093fddf1e5b: \"Clean up the parser and help, fix 14 bugs, and simplify the spinner API\". LICENSE file at pin 1093fddf1e5b detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

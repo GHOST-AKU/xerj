@@ -1,9 +1,9 @@
 {
- "corpus": "naenaetart--naenae-amll-ttml-tool",
+ "corpus": "spicylyrics--ttml-tool",
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how NaeNaeTart/NaeNae-AMLL-TTML-TOOL implements it: ye (not kanye) (selected work: src/modules, src-tauri, src/utils)",
+ "domain": "an agent working on TypeScript queries this for how spicylyrics/ttml-tool implements it: Official Spicy Lyrics TTML Tool for TTML Uploads (selected work: src/modules, src-tauri, src/utils)",
  "repos": [
   {
    "repo": "NaeNae-AMLL-TTML-TOOL",

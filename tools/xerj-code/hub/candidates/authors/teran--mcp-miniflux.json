@@ -1,0 +1,23 @@
+{
+ "corpus": "teran--mcp-miniflux",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on mcp, mcp-server, mcp-tools queries this for how teran/mcp-miniflux implements it: Miniflux MCP server (selected work: infrastructure, cmd/mcp-miniflux)",
+ "repos": [
+  {
+   "repo": "mcp-miniflux",
+   "url": "https://github.com/teran/mcp-miniflux",
+   "sha": "b9029df22e505d4e3bdc649ce4d68fd600e30632",
+   "licence": "Apache-2.0 (LICENSE file at pin b9029df22e50, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T01:01Z",
+    "consent_receipt": "dce41e30dfaf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T01:01Z (receipt dce41e30dfaf); selected commit b9029df22e50: \"feat(mcp): add read-only self-describing guidance resources (M08/M09)\u2026\". LICENSE file at pin b9029df22e50 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

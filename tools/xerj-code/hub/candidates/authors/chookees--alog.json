@@ -8,15 +8,15 @@
   {
    "repo": "ALog",
    "url": "https://github.com/Chookees/ALog",
-   "sha": "63a26210cd6e2c1596edcbcb7ae461654056de9e",
-   "licence": "Apache-2.0 (LICENSE file at pin 63a26210cd6e, GitHub licence API 2026-10-24)",
+   "sha": "964099ecff1db4d8a91ad3f01fa96b00633607a5",
+   "licence": "Apache-2.0 (LICENSE file at pin 964099ecff1d, GitHub licence API 2026-10-25)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T07:03Z",
     "consent_receipt": "75761ffc90c6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T07:03Z (receipt 75761ffc90c6); selected commit 63a26210cd6e: \"Z1-Mini: synchronous writes no longer deadlock on a SynchronizationCo\u2026\". LICENSE file at pin 63a26210cd6e detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head 63a26210cd6e (contains the selected commit): the LICENSE at the selected commit was MIT."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T07:03Z (receipt 75761ffc90c6); selected commit 964099ecff1d: \"Z1-Mini: synchronous writes no longer deadlock on a SynchronizationCo\u2026\". LICENSE file at pin 964099ecff1d detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution. Pinned to head 964099ecff1d (contains the selected commit): the LICENSE at the selected commit was MIT."
    }
   }
  ]

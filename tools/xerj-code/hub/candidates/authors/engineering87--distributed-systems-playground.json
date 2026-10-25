@@ -1,0 +1,23 @@
+{
+ "corpus": "engineering87--distributed-systems-playground",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on distributed-systems, distributed-systems-algorithm, distributed-systems-fundamentals queries this for how engineering87/distributed-systems-playground implements it: Write distributed algorithms in pseudocode, run them against a network that breaks its promises, and check the properties they should satisf (selected work: test, scripts, the project root)",
+ "repos": [
+  {
+   "repo": "distributed-systems-playground",
+   "url": "https://github.com/engineering87/distributed-systems-playground",
+   "sha": "f1a4030abc9df6645d605836973bdedd9158b0c7",
+   "licence": "MIT (LICENSE file at pin f1a4030abc9d, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T06:59Z",
+    "consent_receipt": "46c82bac72c4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T06:59Z (receipt 46c82bac72c4); selected commit f1a4030abc9d: \"fix(security): stop matching HTML with regular expressions anywhere\". LICENSE file at pin f1a4030abc9d detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

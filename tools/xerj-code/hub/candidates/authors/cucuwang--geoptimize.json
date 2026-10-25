@@ -1,0 +1,23 @@
+{
+ "corpus": "cucuwang--geoptimize",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-search, ai-seo, claude-code-skill queries this for how cucuwang/geoptimize implements it: Deterministic content-readiness lint (selected work: marketing)",
+ "repos": [
+  {
+   "repo": "geoptimize",
+   "url": "https://github.com/cucuwang/geoptimize",
+   "sha": "c5874cfcc8d335470f6a09573dab444cd68c8ec5",
+   "licence": "MIT (LICENSE file at pin c5874cfcc8d3, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T06:09Z",
+    "consent_receipt": "dae55bb0feaa",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T06:09Z (receipt dae55bb0feaa); selected commit c5874cfcc8d3: \"feat: add playful geoptimize video preview\". LICENSE file at pin c5874cfcc8d3 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "hdai654--kologram",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Python queries this for how HDAI654/Kologram implements it: Kologram is a marketplace backend built as a set of small services that talk to each other over HTTP and an event bus. Buyers and sellers ca (selected work: test_ui)",
+ "repos": [
+  {
+   "repo": "Kologram",
+   "url": "https://github.com/HDAI654/Kologram",
+   "sha": "3f09dc68914173b1e7a23f65beec3864dd93359b",
+   "licence": "MIT (LICENSE file at pin 3f09dc689141, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T17:52Z",
+    "consent_receipt": "e0b17790c4bc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T17:52Z (receipt e0b17790c4bc); selected commit 3f09dc689141: \"imrpove test-ui\". LICENSE file at pin 3f09dc689141 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

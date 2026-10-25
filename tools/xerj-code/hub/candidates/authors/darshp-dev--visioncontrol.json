@@ -1,0 +1,23 @@
+{
+ "corpus": "darshp-dev--visioncontrol",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how DarshP-Dev/VisionControl implements it: AI-powered computer vision system for gesture recognition, face tracking, and voice control (selected work: gestures, hand_tracking)",
+ "repos": [
+  {
+   "repo": "VisionControl",
+   "url": "https://github.com/DarshP-Dev/VisionControl",
+   "sha": "3219077d357ca9bbd088ee43c766c540811f4835",
+   "licence": "MIT (LICENSE file at pin 3219077d357c, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T05:01Z",
+    "consent_receipt": "3f06509dbef1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T05:01Z (receipt 3f06509dbef1); selected commit 3219077d357c: \"feat(gestures): add gesture state management and event arbitration\". LICENSE file at pin 3219077d357c detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

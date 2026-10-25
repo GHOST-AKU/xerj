@@ -1,0 +1,23 @@
+{
+ "corpus": "benolabsai--benostreamdb",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on Rust queries this for how benolabsai/benostreamdb implements it: BenoStream DB: A Hybrid scalar+vector search on Iceberg/Parquet. RoaringBitmap indexes, HNSW, pgvector SQL. Rust-native, serverless (selected work: contrib, src/core)",
+ "repos": [
+  {
+   "repo": "benostreamdb",
+   "url": "https://github.com/benolabsai/benostreamdb",
+   "sha": "14fdbb372edb8297d1b90f8e6603f6593d4ec695",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "5c9666226f57",
+    "note": "author consent by email 2026-10-16T09:31Z (receipt 5c9666226f57); selected commit 14fdbb372edb: \"feat(catalog,mcp): authoritative catalog policy, untrusted connector \u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}
