@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "DB",
- "domain": "an agent working on JavaScript queries this for how det-Labs/det implements it: Fast, local-first SQL ETL workspace & pipeline orchestrator powered by Apache DataFusion & Arrow. Zero-cloud-lock-in alternative to dbt & Sp (selected work: src/det, scripts)",
+ "domain": "an agent working on analytics-engineering, apache-arrow, data-engineering queries this for how det-Labs/det implements it: Fast, local-first SQL ETL workspace and pipeline orchestration engine powered by DuckDB 2.0 and Apache Arrow (selected work: src/det, scripts)",
  "repos": [
   {
    "repo": "det",

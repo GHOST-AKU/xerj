@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on Go queries this for how AlanForester/remote-llm-gateway implements it: Remote LLM Gateway \u2014 \u043e\u0434\u0438\u043d \u0448\u043b\u044e\u0437 \u0434\u043b\u044f Grok Build, Claude Code \u0438 GPT. \u041f\u043b\u0430\u0433\u0438\u043d \u0432 VS Code \u0438 Cursor \u0438 CLI remote-llm \u0440\u0430\u0431\u043e\u0442\u0430\u044e\u0442 \u0441 \u043b\u043e\u043a\u0430\u043b\u044c\u043d\u044b\u043c \u043f\u0440\u043e\u0435\u043a\u0442\u043e\u043c,  (selected work: admin)",
+ "domain": "an agent working on claude, gateway, golang queries this for how AlanForester/remote-llm-gateway implements it: Remote LLM Gateway is one gateway for Grok Build, Claude Code, and GPT. The VS Code and Cursor plugin and the remote-llm CLI work with the l (selected work: admin)",
  "repos": [
   {
    "repo": "remote-llm-gateway",

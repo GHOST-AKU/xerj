@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on agent-control-plane, ai-agents, codex queries this for how loopx-project/loopx implements it: Turn long-horizon goals into verifiable results. A local-first control plane and research workbench for agents and teams, across sessions an (selected work: tests, loopx, apps/presentation)",
+ "domain": "an agent working on agent-control-plane, ai-agents, codex queries this for how loopx-project/loopx implements it: Turn long-horizon goals into verifiable results. A local-first semantic control plane and research workbench for long-running agent teams, a (selected work: tests, loopx, apps/presentation)",
  "repos": [
   {
    "repo": "loopx",

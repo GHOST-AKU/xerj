@@ -8,15 +8,15 @@
   {
    "repo": "phyra",
    "url": "https://github.com/oguzhankir/phyra",
-   "sha": "3eef40f9a8f44786f63f27f0a6d720d994f4f6fa",
-   "licence": "Apache-2.0 (LICENSE file at pin 3eef40f9a8f4, GitHub licence API 2026-10-24)",
+   "sha": "daa8c2e69a17910a4056eefb88a6ddfaeae62ba5",
+   "licence": "Apache-2.0 (LICENSE file at pin daa8c2e69a17, GitHub licence API 2026-10-25)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-09T22:32Z",
     "consent_receipt": "f91c21049115",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T22:32Z (receipt f91c21049115); selected commit 3eef40f9a8f4: \"fix(cad): isolate native output in packaged workers\". LICENSE file at pin 3eef40f9a8f4 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head 3eef40f9a8f4 (contains the selected commit): the LICENSE at the selected commit was GPL-3.0."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T22:32Z (receipt f91c21049115); selected commit daa8c2e69a17: \"fix(cad): isolate native output in packaged workers\". LICENSE file at pin daa8c2e69a17 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution. Pinned to head daa8c2e69a17 (contains the selected commit): the LICENSE at the selected commit was GPL-3.0."
    }
   }
  ]

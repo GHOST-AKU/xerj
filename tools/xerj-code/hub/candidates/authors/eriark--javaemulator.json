@@ -8,15 +8,15 @@
   {
    "repo": "JavaEmulator",
    "url": "https://github.com/EriArk/JavaEmulator",
-   "sha": "6afee06c9587d80f3a36f2751ffba8b96a3d676e",
-   "licence": "GPL-3.0 (LICENSE file at pin 6afee06c9587, GitHub licence API 2026-10-24)",
+   "sha": "f056bc65ba744816a56c5e2c55dbca2e8bac398d",
+   "licence": "GPL-3.0 (LICENSE file at pin f056bc65ba74, GitHub licence API 2026-10-25)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-17T17:57Z",
     "consent_receipt": "1f1993fa99c1",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T17:57Z (receipt 1f1993fa99c1); selected commit 6afee06c9587: \"Add optimized M3G upgrade rehearsal and fix release-only regressions\". LICENSE file at pin 6afee06c9587 detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head 6afee06c9587 (contains the selected commit): the LICENSE at the selected commit was Apache-2.0."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T17:57Z (receipt 1f1993fa99c1); selected commit f056bc65ba74: \"Add optimized M3G upgrade rehearsal and fix release-only regressions\". LICENSE file at pin f056bc65ba74 detected as GPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution. Pinned to head f056bc65ba74 (contains the selected commit): the LICENSE at the selected commit was Apache-2.0."
    }
   }
  ]

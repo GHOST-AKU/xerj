@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on ai-agents, claude-agent-sdk, claude-code queries this for how maya8237/MEOW implements it: Simple harness engineering for Claude Code and the Claude Agent SDK. One request in, a verified branch out (selected work: tests, src/meow, frontend)",
+ "domain": "an agent working on ai-agents, claude-agent-sdk, claude-code queries this for how maya8237/MEOW implements it: Simple harness engineering for Claude Code and the Claude Agent SDK. One request in, a verified MR out (selected work: tests, src/meow, frontend)",
  "repos": [
   {
    "repo": "MEOW",

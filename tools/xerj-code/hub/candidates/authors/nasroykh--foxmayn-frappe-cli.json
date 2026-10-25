@@ -2,8 +2,8 @@
  "corpus": "nasroykh--foxmayn-frappe-cli",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on cli, erp, erpnext queries this for how nasroykh/foxmayn_frappe_cli implements it: Go CLI for managing Frappe/ERPNext sites (selected work: internal/cmd, internal/client, internal/frappetest)",
+ "shelf": "AI",
+ "domain": "an agent working on cli, erp, erpnext queries this for how nasroykh/foxmayn_frappe_cli implements it: Command line, MCP server and desktop app for Frappe and ERPNext: scripts, AI assistants with approvals and per-site limits, signed releases (selected work: internal/cmd, internal/client, internal/frappetest)",
  "repos": [
   {
    "repo": "foxmayn_frappe_cli",

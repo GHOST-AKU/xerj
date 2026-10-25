@@ -2,8 +2,8 @@
  "corpus": "dekaruntime--deka",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on deka, dsc queries this for how dekaruntime/deka implements it: Deka Runtime (selected work: crates/deka_ui, crates/deka_ui_hot_reload, scripts)",
+ "shelf": "WEB",
+ "domain": "an agent working on deka, rust, ui queries this for how dekaruntime/deka implements it: Rust UI Library (selected work: crates/deka_ui, crates/deka_ui_hot_reload, scripts)",
  "repos": [
   {
    "repo": "deka",
