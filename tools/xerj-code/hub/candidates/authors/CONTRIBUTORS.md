@@ -1,12 +1,12 @@
 # Contributor-permission corpora — authors (generated)
 
-Generated 2026-10-25 16:02 UTC by the outreach pipeline (`hub_publish.py`); do not edit by hand, the next run rewrites it.
+Generated 2026-10-25 16:05 UTC by the outreach pipeline (`hub_publish.py`); do not edit by hand, the next run rewrites it.
 Each row is one author who replied to the Corpus Hub outreach email agreeing to inclusion of the selected work, with attribution, under the repository's licence. Email addresses and reply texts are not published; the maintainers keep the original emails.
 Every manifest here is a **candidate** (`review.use: UNREVIEWED`): it goes live only after G4 (licence at the pin) and G7.
 
-**5142 contributions** · 5140 contributors · 3568 approved by the repo owner
+**5144 contributions** · 5142 contributors · 3569 approved by the repo owner
 
-## API (1659)
+## API (1661)
 
 | repo | contributor | consent (UTC) | contribution | licence | ★ repo |
 |---|---|---|---|---|---:|
@@ -770,6 +770,7 @@ Every manifest here is a **candidate** (`review.use: UNREVIEWED`): it goes live 
 | [woosungchoi/codex-telegram-bot](https://github.com/woosungchoi/codex-telegram-bot) | [@woosungchoi](https://github.com/woosungchoi) WoosungChoi (owner) | 2026-10-10T11:33Z | [f9e9c7463c](https://github.com/woosungchoi/codex-telegram-bot/commit/f9e9c7463cb898624834518ba89dd6e780c50031) Fix seven follow-up security findings (#114) | MIT | 6 |
 | [Wujerry/RepoAtlas](https://github.com/Wujerry/RepoAtlas) | [@Wujerry](https://github.com/Wujerry) JerryWu (owner) | 2026-10-19T05:49Z | [7d972b7daa](https://github.com/Wujerry/RepoAtlas/commit/7d972b7daa738ea99beb0bba1e2815272099e357) fix: reconcile dependency updates and harden local quota tra | MIT | 6 |
 | [xieyinch/xauat-swjw-app](https://github.com/xieyinch/xauat-swjw-app) | [@xieyinch](https://github.com/xieyinch) 仙吟 (owner) | 2026-10-13T08:42Z | [689f6432fa](https://github.com/xieyinch/xauat-swjw-app/commit/689f6432fa572e14cfcdc368e70d6c7a18cb4f5e) Show class times and rotate upcoming widget courses | MIT | 6 |
+| [openedges/elk-rs](https://github.com/openedges/elk-rs) | [@luuvish](https://github.com/luuvish) luuvish | 2026-10-16T01:28Z | [a1443fb59c](https://github.com/openedges/elk-rs/commit/a1443fb59cc958b9d418fc79bfcbbb820561e267) fix: release graph ownership cycles and layout caches | EPL-2.0 | 6 |
 | [7amo10/helix-jvm-engine](https://github.com/7amo10/helix-jvm-engine) | [@7amo10](https://github.com/7amo10) Ahmed Ashour (owner) | 2026-10-13T08:29Z | [4d3787c628](https://github.com/7amo10/helix-jvm-engine/commit/4d3787c62835baeaac216532b9d479876c7ae8de) feat(benchmarks): implement JMH microbenchmarks for L4 cache | Apache-2.0 | 5 |
 | [alimarchal/laravel-chart-of-accounts-package](https://github.com/alimarchal/laravel-chart-of-accounts-package) | [@alimarchal](https://github.com/alimarchal) Ali Raza Marchal (owner) | 2026-10-12T06:36Z | [4bbc54b42b](https://github.com/alimarchal/laravel-chart-of-accounts-package/commit/4bbc54b42b7c011a2c7456da7236a76185d61249) Payroll operations: attendance, leave, overtime, loans, cont | MIT | 5 |
 | [Anas-Gazi/CS-Fundamentals](https://github.com/Anas-Gazi/CS-Fundamentals) | [@Anas-Gazi](https://github.com/Anas-Gazi) Anas (owner) | 2026-10-22T19:46Z | [214155f11f](https://github.com/Anas-Gazi/CS-Fundamentals/commit/214155f11fb6eb252da60f25e915ee0e2be76cf7) Add starter 261 problem solutions | MIT | 5 |
@@ -1002,6 +1003,7 @@ Every manifest here is a **candidate** (`review.use: UNREVIEWED`): it goes live 
 | [zavvdev/elise-lang](https://github.com/zavvdev/elise-lang) | [@zavvdev](https://github.com/zavvdev) Ihor Zaviriukha (owner) | 2026-10-20T13:05Z | [9de5625c20](https://github.com/zavvdev/elise-lang/commit/9de5625c200bf440f34d5a8f893f1ed521af1278) added semantic analysis for dicts | MIT | 3 |
 | [zhao-guang-ai/dsh-quote-annotate-pro](https://github.com/zhao-guang-ai/dsh-quote-annotate-pro) | [@zhao-guang-ai](https://github.com/zhao-guang-ai) (owner) | 2026-10-18T08:57Z | [bfcd3f806f](https://github.com/zhao-guang-ai/dsh-quote-annotate-pro/commit/bfcd3f806f1e3e2d033486aafb23b4596b487de1) feat(annotation): 编号批注 + 回复逐条对照（v0.3.0） | MIT | 3 |
 | [Zweisteinium/GameFleet](https://github.com/Zweisteinium/GameFleet) | [@Zweisteinium](https://github.com/Zweisteinium) David R (owner) | 2026-10-18T13:39Z | [8e66176619](https://github.com/Zweisteinium/GameFleet/commit/8e6617661950ff157d5b8e1a3fb9b3a07893b031) Restore from the backups game servers already make | MIT | 3 |
+| [xingyuanbianyu/XingYuanBot](https://github.com/xingyuanbianyu/XingYuanBot) | [@xingyuanbianyu](https://github.com/xingyuanbianyu) XingYuan (owner) | 2026-10-18T02:33Z | [3e00c5b110](https://github.com/xingyuanbianyu/XingYuanBot/commit/3e00c5b1108e4af8a31d1d3c036d23bac7f30149) 优化处理逻辑 | MIT | 3 |
 | [3pm-baking/wright](https://github.com/3pm-baking/wright) | [@williambdean](https://github.com/williambdean) Will Dean | 2026-10-19T10:15Z | [31cfb08259](https://github.com/3pm-baking/wright/commit/31cfb08259afb7e4448fabb938dd9cee7b27f442) feat: ingredient substitution — Assembly.substitute() and sw | MIT | 2 |
 | [7sadakonr/Arctri](https://github.com/7sadakonr/Arctri) | [@7sadakonr](https://github.com/7sadakonr) Jetsadakorn Muangwichit (owner) | 2026-10-18T03:11Z | [f320fe0ad5](https://github.com/7sadakonr/Arctri/commit/f320fe0ad558d4dc8b0a3e0ce71840226e3e46d8) Agent bar: show the model in use, drop the Codex notificatio | MIT | 2 |
 | [abhishek944/pi-herdr-skills](https://github.com/abhishek944/pi-herdr-skills) | [@abhishek944](https://github.com/abhishek944) abhishek tatikella (owner) | 2026-10-18T20:04Z | [8d387d3ccd](https://github.com/abhishek944/pi-herdr-skills/commit/8d387d3ccd9358a1de74243a7b29c81c51a1f31f) feat: add multi-select interviews and UI/UX testing skill | MIT | 2 |
