@@ -181,6 +181,7 @@ def load(hub_dir, registry=None):
                 "reviewed": lic.get("reviewed") is True, "agreed": (r.get("consent") or {}).get("at", ""), "corpora": [],
                 "committed_at": k.get("committed_at") or "", "suggested_use": lic.get("suggested_use") or "",
                 "pin": (r.get("pin") or {}).get("sha") or "",
+                "channel": (r.get("consent") or {}).get("channel") or "",
             })
             if r["corpus"] not in w["corpora"]:
                 w["corpora"].append(r["corpus"])

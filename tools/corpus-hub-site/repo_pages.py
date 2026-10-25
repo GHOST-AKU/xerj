@@ -451,7 +451,19 @@ def repo_body(f, esc, people, cats, related, fetched, rel="../"):
             "From GitHub's licence detection. A person still checks the LICENSE file at the pinned commit.")
     big2, p2 = USE.get(f["use"], ("Same as the repository", "Answers name the repo, the commit and the file:line."))
     agreed = (w.get("agreed") or "")[:10]
-    p2 = (f"The author agreed by email on {esc(agreed)}. " if agreed else "") + esc(p2)
+    channel = (w.get("channel") or "")
+    # Email rows keep the historical sentence. A written consent that names
+    # another channel (a GitHub discussion, an issue) must not be called email.
+    if agreed and channel and "email" not in channel.lower():
+        if "discussion" in channel.lower():
+            how = f"The author agreed in a GitHub discussion on {esc(agreed)}. "
+        else:
+            how = f"The author agreed on {esc(agreed)}. "
+    elif agreed:
+        how = f"The author agreed by email on {esc(agreed)}. "
+    else:
+        how = ""
+    p2 = how + esc(p2)
     lic = (f'<div class="rptwo"><div class="rpbox"><h3>The repository</h3><div class="big">{esc(spdx)}</div><p>{lic1}</p></div>'
            f'<div class="rpbox"><h3>The XERJ corpus</h3><div class="big">{esc(big2.format(spdx=spdx))}</div><p>{p2}</p></div></div>'
            f'<p class="rpchips"><span class="chip warn">in licence review</span><span class="chip">not in the hub yet</span>'

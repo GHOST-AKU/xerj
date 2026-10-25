@@ -1170,6 +1170,49 @@ class BuiltSiteDiscoverabilityTest(SiteLinksTest):
         self.assertIn(">Copy the prompt</button>", h)
         self.assertIn("xerj autoindex", h)
 
+    def test_discussion_2383_agilepool_is_indexed(self):
+        """Yiming1997/agilePool, restored from discussion #2383.
+
+        The ledger row and the candidate manifest are what the generator reads.
+        The contributor page, the corpus page, the search index, llms-contributors.txt
+        and the sitemap are the pages a crawler and an agent actually fetch.
+        """
+        pin = "f8ec741dfac7acf201a981d61f93bb11b4bf20bf"
+        slug = "yiming1997--agilepool"
+        manifest = json.loads((gen.HUB / "candidates" / "authors" / f"{slug}.json").read_text())
+        self.assertEqual(manifest["repos"][0]["sha"], pin)
+        self.assertEqual(manifest["repos"][0]["review"]["spdx"], "MIT")
+        self.assertEqual(manifest["repos"][0]["review"]["use"], "adapt-with-attribution")
+        self.assertIn("discussioncomment-19172478", manifest["repos"][0]["review"]["note"])
+        people = contributors.load(gen.HUB, gen.load_registry())
+        self.assertIn("Yiming1997", people)
+        work = next(iter(people["Yiming1997"]["work"].values()))
+        self.assertTrue(work["reviewed"])
+        self.assertEqual(work["spdx"], "MIT")
+        self.assertEqual(work["pin"], pin)
+        self.assertIn("discussioncomment-19172478", work["channel"])
+        person = (self.out / "contributors" / "Yiming1997.html").read_text()
+        corpus = (self.out / "corpus" / f"{slug}.html").read_text()
+        self.assertIn(f'href="https://hub.xerj.org/contributors/Yiming1997"', person)
+        self.assertIn(f'href="../corpus/{slug}"', person)
+        self.assertIn("agreed 2026-10-25", person)
+        self.assertIn("Yiming1997/agilePool", corpus)
+        self.assertIn('href="../contributors/Yiming1997"', corpus)
+        self.assertIn(pin, corpus)
+        self.assertIn("The author agreed in a GitHub discussion on 2026-10-25.", corpus)
+        self.assertIn("in licence review", corpus)
+        self.assertIn(f"https://hub.xerj.org/contributors/Yiming1997", (self.out / "sitemap-contributors.xml").read_text())
+        self.assertIn(f"https://hub.xerj.org/corpus/{slug}", (self.out / "sitemap-repos.xml").read_text())
+        llms = (self.out / "llms-contributors.txt").read_text()
+        self.assertIn(f"- yiming (@Yiming1997): https://hub.xerj.org/contributors/Yiming1997 · 1 selected commit · 0 live corpora", llms)
+        search = json.loads((self.out / "search" / "index.json").read_text())
+        row = next(r for r in search["c"] if r[1] == "Yiming1997/agilePool")
+        self.assertEqual(row[3], "API")
+        self.assertEqual(row[4], "review")
+        self.assertTrue(any(r[0] == "Yiming1997" for r in search["p"]))
+        # an email consent still says email; the discussion wording is only for a non-email channel
+        self.assertIn("agreed by email", (self.out / "corpus" / "jacobjoergensen--laravel-paper.html").read_text())
+
     def test_issue_2310_corpora_link_contributors_and_carry_seo(self):
         """r2r-mcp, r2r-enforce and admission-compare (Thneoly/r2r-jev, #2310)
         are live registry pages: catalogue fields, contributor links both ways,

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Corpus Hub: restore `Yiming1997/agilePool` (`yiming1997--agilepool` @ f8ec741dfac7). The author confirmed inclusion of that commit under MIT with attribution in discussion #2383. The GitHub licence API reads the LICENSE file at the pin as MIT, so the ledger marks it reviewed the same way as the other detected-MIT rows. An audit of the 237 logins removed by #2171 is in `tools/xerj-code/hub/audits/2171-drops.csv` (report only; those rows are not restored).
 - Corpus Hub: `r2r-mcp` (Thneoly/r2r-jev @ 244ac9520db9), `r2r-enforce` (@ 10c2f8ff2fe0) and `admission-compare` (@ 7a439382d306), Apache-2.0 with attribution, from #2310.
 
 ### Fixed
