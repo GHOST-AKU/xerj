@@ -243,7 +243,10 @@ class MCP:
             hits = len(jj.get("hits", {}).get("hits", jj.get("results", []))) if isinstance(jj, dict) else len(jj)
         except Exception:
             hits = 1 if txt.strip() and "no results" not in txt.lower() else 0
-        return ms, hits, "isError" if r.get("isError") or "error" in j else None
+        if r.get("isError") or "error" in j:
+            msg = txt or json.dumps(j.get("error"))
+            return ms, 0, ("mcp error: " + msg.replace("\n", " "))[:200]
+        return ms, hits, None
 
     def close(self):
         try:
@@ -328,7 +331,8 @@ def cmd_run(a):
         res["search"] = {"n": len(allms), "p50_ms": round(pct(allms, 50), 1), "p95_ms": round(pct(allms, 95), 1),
                          "max_ms": round(max(allms), 1),
                          "with_hits_pct": round(100.0 * sum(1 for rows in lat.values() for r in rows if r["hits"] and not r["err"]) / len(allms), 1),
-                         "errors": sum(1 for rows in lat.values() for r in rows if r["err"])}
+                         "errors": sum(1 for rows in lat.values() for r in rows if r["err"]),
+                         "first_error": next(("%s: %s" % (k, r["err"]) for k, rows in lat.items() for r in rows if r["err"]), None)}
         for s, rows in lat.items():
             ms = [r["ms"] for r in rows]
             res["search"][s] = {"p50_ms": round(pct(ms, 50), 1), "p95_ms": round(pct(ms, 95), 1), "max_ms": round(max(ms), 1)}
@@ -393,6 +397,7 @@ def cmd_eval(a):
         s.get("max_ms") is not None and s["max_ms"] <= t["max_search_max_ms"], "n=%s, errors=%s" % (s.get("n"), s.get("errors")))
     add("queries with hits (%)", s.get("with_hits_pct"), ">= %d" % t["min_queries_with_hits_pct"],
         (s.get("with_hits_pct") or 0) >= t["min_queries_with_hits_pct"])
+    add("search errors", s.get("errors"), "0", s.get("errors") == 0, (s.get("first_error") or "")[:120])
     add("circuit-breaker trips", c.get("breaker_trips"), "<= %d" % t["max_breaker_trips"],
         c.get("breaker_trips") is not None and c["breaker_trips"] <= t["max_breaker_trips"])
     add("bulk retries / 429s", c.get("bulk_retries"), "<= %d" % t["max_bulk_retries"],
