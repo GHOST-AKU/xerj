@@ -120,3 +120,13 @@ test('no binding: disabled, and the page is still served', async () => {
   assert.equal(r.status, 200);
   assert.equal(await recordView({}, req('/'), 'lz4'), 'disabled');
 });
+
+test('/corpus and /corpus/ redirect to the hub home, which lists every corpus', async () => {
+  for (const path of ['/corpus', '/corpus/', '/corpus/?x=1']) {
+    let nexted = false;
+    const res = await page({ request: new Request(`https://hub.xerj.org${path}`), env: {}, next: async () => { nexted = true; return new Response('', { status: 404 }); } });
+    assert.equal(res.status, 301, path);
+    assert.equal(res.headers.get('location'), path.includes('?') ? 'https://hub.xerj.org/?x=1' : 'https://hub.xerj.org/', path);
+    assert.equal(nexted, false, path);
+  }
+});

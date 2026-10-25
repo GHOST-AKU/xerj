@@ -49,6 +49,9 @@
 
 const CT = 'text/plain; charset=utf-8';
 
+// Where the installer is published. See the asset-404 branch below.
+const CANONICAL_HOST = 'xerj.org';
+
 // Cache-Control on the installer used to be `public, max-age=300` (set in
 // landing/_headers). A cached response never reaches this function, so a
 // counter behind a 5-minute cache would undercount by exactly the cache hit
@@ -177,6 +180,17 @@ export async function onRequestGet(context) {
   let body;
   try {
     const asset = await env.ASSETS.fetch(new URL(`/${script}`, url.origin).toString());
+    // A deployment that does not ship the installer at all (hub.xerj.org
+    // shares this functions/ tree) answers 404 for the asset. That is not an
+    // outage, so send the caller to the canonical first-party copy instead of
+    // a 503, which search engines report as a server error. Never on
+    // xerj.org itself, so this cannot loop.
+    if (asset.status === 404 && url.hostname !== CANONICAL_HOST) {
+      return new Response(null, {
+        status: 301,
+        headers: { location: `https://${CANONICAL_HOST}${url.pathname}${url.search}`, 'cache-control': 'no-store', 'x-robots-tag': 'noindex' },
+      });
+    }
     if (!asset.ok) throw new Error(`asset ${script} -> ${asset.status}`);
     body = await asset.text();
   } catch (e) {

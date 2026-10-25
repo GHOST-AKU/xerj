@@ -1182,11 +1182,11 @@ AUTH_JS = """<script>
       sum.appendChild(el('span',{},u.login));
       menu.appendChild(el('span',{},(u.name||u.login)+' · '+(u.provider==='hf'?'Hugging Face':'GitHub')));
       (me.links||[]).forEach(function(l){menu.appendChild(el('a',{href:l.href},l.label))});
-      menu.appendChild(el('a',{href:'/auth/logout?return='+here},'Sign out'));
+      menu.appendChild(el('a',{href:'/auth/logout?return='+here,rel:'nofollow'},'Sign out'));
     }else{
       sum.textContent='Sign in';
-      if(me.providers.github)menu.appendChild(el('a',{href:'/auth/github/login?return='+here},'with GitHub'));
-      if(me.providers.hf)menu.appendChild(el('a',{href:'/auth/hf/login?return='+here},'with Hugging Face'));
+      if(me.providers.github)menu.appendChild(el('a',{href:'/auth/github/login?return='+here,rel:'nofollow'},'with GitHub'));
+      if(me.providers.hf)menu.appendChild(el('a',{href:'/auth/hf/login?return='+here,rel:'nofollow'},'with Hugging Face'));
     }
     box.appendChild(sum);box.appendChild(menu);box.hidden=false;
     document.addEventListener('click',function(e){if(!box.contains(e.target))box.open=false});
