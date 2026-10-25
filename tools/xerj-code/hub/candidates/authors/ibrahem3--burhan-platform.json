@@ -1,0 +1,22 @@
+{
+ "corpus": "ibrahem3--burhan-platform",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on authentication, boilerplate, cms queries this for how Ibrahem3/burhan-platform implements it: Production-ready Multi-Tenant SaaS Platform built with Nuxt 4, Supabase, PostgreSQL RLS, PWA, AI-ready architecture, and full Arabic/English (selected work: tests, server, app/utils)",
+ "repos": [
+  {
+   "repo": "burhan-platform",
+   "url": "https://github.com/Ibrahem3/burhan-platform",
+   "sha": "28a7d2e637f0874657cdb6d98a76de792399dd0b",
+   "licence": "AGPL-3.0 (LICENSE file at pin 28a7d2e637f0, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-13T17:54Z",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T17:54Z; selected commit 28a7d2e637f0: \"fix(security): sanitize v-html article content, validate observatory \u2026\". LICENSE file at pin 28a7d2e637f0 detected as AGPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

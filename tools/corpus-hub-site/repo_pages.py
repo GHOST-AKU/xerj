@@ -356,8 +356,21 @@ USE = {"adapt-with-attribution": ("{spdx}, with credit", "Same terms as the repo
 
 def repo_facts(slug, e, stats, descs):
     """Everything one repo page needs, from the registry and data/repo_stats.json."""
-    login, w = sorted(e["works"], key=lambda x: (-(x[1].get("repo_stars") or 0), x[0].lower()))[0]
     src = (e.get("repos") or [{}])[0]
+    sha_hint = (src.get("sha") or "").lower()
+
+    def rank(item):
+        who, work = item
+        pin = (work.get("commit") or work.get("pin") or "").lower()
+        # The manifest names one pin. Feature that commit so the person and the
+        # snapshot are the same work when several people share the repository.
+        # With one work, or when nothing matches the pin, this is the stars order.
+        match = 0 if sha_hint and pin == sha_hint else 1
+        return (match, -(work.get("repo_stars") or 0), who.lower())
+
+    ordered = sorted(e["works"], key=rank)
+    login, w = ordered[0]
+    others = sorted(ordered[1:], key=lambda item: item[0].lower())
     url = src.get("url") or w["repo_url"]
     st = stats.get(key(url)) or {}
     repo = st.get("repo") or w["repo"] or "/".join(url.rstrip("/").split("/")[-2:])
@@ -370,7 +383,7 @@ def repo_facts(slug, e, stats, descs):
     topics = [t for t in (st.get("topics") or w.get("topics") or []) if t]
     langs = [l for l, _ in st.get("languages", [])] or list(w.get("langs") or [])
     stars = st.get("stars") if "stars" in st else w.get("repo_stars")
-    return dict(slug=slug, login=login, w=w, url=url, st=st, repo=repo, owner=owner, short=short, sha=sha,
+    return dict(slug=slug, login=login, w=w, others=others, url=url, st=st, repo=repo, owner=owner, short=short, sha=sha,
                 spdx=spdx, use=use, desc=desc, topics=topics, langs=langs, stars=stars,
                 lang=langs[0] if langs else "", shelf=w.get("shelf") or "",
                 tree=st.get("tree") if "files" in (st.get("tree") or {}) else None)
@@ -443,7 +456,12 @@ def repo_body(f, esc, people, cats, related, fetched, rel="../"):
                                    (esc(size) + (f" in {esc(areas)}" if areas else "") + ".") if size else ""] if x)
     who = (f'<div class="rpwho"><img src="https://github.com/{esc(login)}.png?size=112" alt="" loading="lazy" width="56" height="56">'
            f'<div><a href="{rel}contributors/{esc(login)}"><b>{esc(name)}</b></a><br><span class="mono">@{esc(login)}</span></div></div>')
-    work = f'<div class="rpbox"><h3>Selected work</h3>{who}<p>{work_p}</p></div>'
+    also_bits = []
+    for ol, ow in f.get("others") or []:
+        pin = (ow.get("commit") or ow.get("pin") or "")[:12]
+        also_bits.append(f'<a href="{rel}contributors/{esc(ol)}">@{esc(ol)}</a>' + (f" ({esc(pin)})" if pin else ""))
+    also = f'<p>Also selected on this repository: {", ".join(also_bits)}.</p>' if also_bits else ""
+    work = f'<div class="rpbox"><h3>Selected work</h3>{who}<p>{work_p}</p>{also}</div>'
     # licence
     spdx = f["spdx"] if f["spdx"] not in ("", "?") else "Not stated"
     reviewed = bool((w.get("reviewed")))

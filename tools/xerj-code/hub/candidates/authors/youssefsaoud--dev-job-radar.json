@@ -1,0 +1,22 @@
+{
+ "corpus": "youssefsaoud--dev-job-radar",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on automation, cli, developer-tools queries this for how youssefsaoud/dev-job-radar implements it: Python job monitoring tool that scrapes LinkedIn and Indeed, scores relevant developer roles, removes duplicates, and tracks new opportuniti (selected work: tests, src/dev_job_radar)",
+ "repos": [
+  {
+   "repo": "dev-job-radar",
+   "url": "https://github.com/youssefsaoud/dev-job-radar",
+   "sha": "d328b5d7065edf9fa539799f87157943e0de2354",
+   "licence": "MIT (LICENSE file at pin d328b5d7065e, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T18:57Z",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T18:57Z; selected commit d328b5d7065e: \"Improve job deduplication and Telegram alerts\". LICENSE file at pin d328b5d7065e detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "corpus": "martcpp--local-takkie",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Rust queries this for how martcpp/local-takkie implements it: a local walking talking device that that use local network to operate (selected work: apps/takkie-app, crates/takkie-core, crates/takkie-tui)",
+ "repos": [
+  {
+   "repo": "local-takkie",
+   "url": "https://github.com/martcpp/local-takkie",
+   "sha": "c6a6292d799762b62577249a0cbc5a660924088c",
+   "licence": "MIT (LICENSE file at pin c6a6292d7997, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T22:54Z",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T22:54Z; selected commit c6a6292d7997: \"feat: switches for noise removal, even volume and clarity in all apps\". LICENSE file at pin c6a6292d7997 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

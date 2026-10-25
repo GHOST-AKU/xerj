@@ -258,7 +258,12 @@ def pinned_repo_stars(people):
     for pp in people.values():
         for w in pp["work"].values():
             if isinstance(w.get("repo_stars"), int) and w.get("repo_url"):
-                by_repo[w["repo_url"].rstrip("/").lower()] = w["repo_stars"]
+                key = w["repo_url"].rstrip("/").lower()
+                # Two consented commits can name one repository with different
+                # snapshots. The wall shows the higher recorded count once.
+                prev = by_repo.get(key)
+                if prev is None or w["repo_stars"] > prev:
+                    by_repo[key] = w["repo_stars"]
     return sum(by_repo.values()), len(by_repo)
 
 
@@ -506,15 +511,19 @@ def seo_desc(f):
     lang = f["langs"][0] + " " if f["langs"] else ""
     head = f"{f['short']}: {f['desc'].rstrip('.…')}." if f["desc"] else f"{f['w']['repo']} on the XERJ Corpus Hub."
     tp = f" for {', '.join(f['topics'][:2])}" if f["topics"] else ""
+    named = f" Work by {f['name']}."
     tails = [f" A {lang}corpus AI agents search{tp}, with work by {f['name']}.",
              f" A {lang}corpus AI agents search, with work by {f['name']}.",
-             f" Work by {f['name']}.", f" A {lang}corpus for AI agents.", " For AI agents."]
+             named, f" A {lang}corpus for AI agents.", " For AI agents."]
     for t in tails:
         if len(head + t) <= 160:
             d = head + t
             break
     else:
-        d = _fit(head, 160 - len(tails[-1])).rstrip(".") + tails[-1]
+        # Keep the name when the head is too long. Two people on one repository
+        # would otherwise share the generic tail and the same description.
+        tail = named if len(named) <= 80 else tails[-1]
+        d = _fit(head, 160 - len(tail)).rstrip(".") + tail
     if len(d) < 110:
         d += " Agents get it back as cited worked examples."
     return _fit(d, 160)
@@ -772,6 +781,8 @@ def repo_index(people, pages=()):
                 repo = w["repo"] or key.split("github.com/")[-1]
                 e = seen[key] = {"repo": repo, "url": w["repo_url"], "stars": w["repo_stars"],
                                  "owner": repo.split("/")[0], "corpus": "", "by": login}
+            elif w["repo_stars"] > e["stars"]:
+                e["stars"] = w["repo_stars"]
             if not e["corpus"]:
                 e["corpus"] = next((c for c in w["corpora"] if c in pages), "")
     by_low = {l.lower(): l for l in people}

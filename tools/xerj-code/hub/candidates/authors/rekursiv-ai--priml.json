@@ -1,0 +1,22 @@
+{
+ "corpus": "rekursiv-ai--priml",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on machine-learning, machine-learning-algorithms, machinelearning queries this for how rekursiv-ai/priml implements it: Strongly typed configurable building blocks for A/B testing ML research (selected work: priml, typings)",
+ "repos": [
+  {
+   "repo": "priml",
+   "url": "https://github.com/rekursiv-ai/priml",
+   "sha": "2bae58248b5e0f0f05d2793ae4b9254641551f53",
+   "licence": "Apache-2.0 (LICENSE file at pin 2bae58248b5e, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T05:01Z",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T05:01Z; selected commit 2bae58248b5e: \"Add exp000 inference baseline (#485)\". LICENSE file at pin 2bae58248b5e detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

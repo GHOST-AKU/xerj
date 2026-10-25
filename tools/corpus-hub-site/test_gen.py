@@ -16,6 +16,7 @@ indexes a corpus, and the catalogue link is on every page.
 """
 import collections
 import contextlib
+import csv
 import html
 import io
 import json
@@ -1212,6 +1213,111 @@ class BuiltSiteDiscoverabilityTest(SiteLinksTest):
         self.assertTrue(any(r[0] == "Yiming1997" for r in search["p"]))
         # an email consent still says email; the discussion wording is only for a non-email channel
         self.assertIn("agreed by email", (self.out / "corpus" / "jacobjoergensen--laravel-paper.html").read_text())
+
+    def test_2171_restores_are_indexed(self):
+        """The #2171 rows marked restored=yes are back in the ledger, the pages, the search index, llms-contributors.txt and the sitemaps.
+
+        Yiming1997 keeps the discussion #2383 consent from the first restore.
+        docling-project/docling-pipelines and omni-line/omni-audit already had a
+        manifest for another contributor; those files stay on that contributor's pin.
+        """
+        audit = pathlib.Path(__file__).resolve().parents[1] / "xerj-code" / "hub" / "audits" / "2171-drops.csv"
+        with audit.open(newline="") as fh:
+            table = list(csv.DictReader(fh))
+        self.assertEqual(len(table), 237)
+        restored = [r for r in table if r["restored"] == "yes"]
+        withheld = [r for r in table if r["restored"] == "no"]
+        self.assertEqual(len(restored), 200, len(restored))
+        self.assertEqual(len(withheld), 37)
+        authors = gen.HUB / "candidates" / "authors"
+        ledger = {}
+        for path in sorted(authors.glob("CONTRIBUTORS*.jsonl")):
+            for line in path.read_text().splitlines():
+                if line.strip():
+                    row = json.loads(line)
+                    ledger.setdefault(row["contributor"]["login"], []).append(row)
+        shared = {
+            "docling-project--docling-pipelines": "50fce561c823622482a49dfec79dbc8451388141",
+            "omni-line--omni-audit": "fbe2ace2b593a6281de335e648d10fd291c78502",
+        }
+        for slug, sha in shared.items():
+            manifest = json.loads((authors / f"{slug}.json").read_text())
+            self.assertEqual(manifest["repos"][0]["sha"], sha, slug)
+        people = contributors.load(gen.HUB, gen.load_registry())
+        llms = (self.out / "llms-contributors.txt").read_text()
+        sm_people = (self.out / "sitemap-contributors.xml").read_text()
+        sm_repos = (self.out / "sitemap-repos.xml").read_text()
+        sm_corpora = (self.out / "sitemap-corpora.xml").read_text()
+        reg_slugs = {c["slug"] for c in gen.load_registry()}
+        search = json.loads((self.out / "search" / "index.json").read_text())
+        by_login = {r[0]: r for r in search["p"]}
+        by_repo = {}
+        for row in search["c"]:
+            for repo in (row[1] or "").split():
+                by_repo.setdefault(repo, row)
+        for r in withheld:
+            self.assertNotIn(r["login"], ledger, r["login"])
+        for r in restored:
+            login, pin = r["login"], r["pin"]
+            rows = ledger.get(login) or []
+            self.assertEqual(len(rows), 1, login)
+            row = rows[0]
+            lic = row["licence"]
+            self.assertTrue(lic["reviewed"], login)
+            self.assertEqual(lic["at_pin"], lic["spdx"], login)
+            self.assertNotIn(lic["spdx"], ("", "NONE", "NOASSERTION"), login)
+            self.assertEqual(row["pin"]["sha"], pin, login)
+            consent = row["consent"]
+            if login == "Yiming1997":
+                self.assertIn("discussioncomment-19172478", consent["channel"])
+            else:
+                self.assertEqual(consent["channel"], "email reply to Corpus Hub outreach", login)
+                self.assertNotIn("receipt", consent, login)
+            slug = row["corpus"]
+            self.assertIn(login, people, login)
+            work = next(w for w in people[login]["work"].values() if w["pin"] == pin)
+            self.assertTrue(work["reviewed"], login)
+            self.assertEqual(work["spdx"], lic["spdx"], login)
+            person = (self.out / "contributors" / f"{login}.html").read_text()
+            corpus = (self.out / "corpus" / f"{slug}.html").read_text()
+            self.assertIn(f'href="https://hub.xerj.org/contributors/{login}"', person)
+            self.assertIn(f'href="../corpus/{slug}"', person)
+            self.assertIn(f"agreed {consent['at'][:10]}", person)
+            if row["contribution"].get("commit"):
+                self.assertIn(pin, person, login)
+            else:
+                # The pre-drop row pinned a branch head because the selected
+                # commit was not found. The corpus page still carries that pin.
+                self.assertIn(pin, corpus, login)
+            self.assertIn(f'href="../contributors/{login}"', corpus)
+            loc = f"https://hub.xerj.org/corpus/{slug}"
+            # A slug that is already a live registry corpus is listed with the
+            # corpora sitemap. Every other restored corpus is a repo page.
+            self.assertTrue(loc in sm_repos or loc in sm_corpora, slug)
+            # Thin contributor pages are noindex and stay out of the sitemap.
+            # The corpus page above is the indexable URL for that work.
+            if "noindex" not in person.split("</head>", 1)[0]:
+                self.assertIn(f"https://hub.xerj.org/contributors/{login}", sm_people, login)
+            self.assertIn(f"(@{login})", llms)
+            self.assertIn(f"https://hub.xerj.org/contributors/{login}", llms)
+            self.assertIn(login, by_login, login)
+            repo_name = row["repo"]
+            hit = by_repo.get(repo_name)
+            self.assertIsNotNone(hit, repo_name)
+            self.assertEqual(hit[4], "live" if slug in reg_slugs else "review", repo_name)
+            if login != "Yiming1997" and slug not in shared and slug not in reg_slugs:
+                manifest = json.loads((authors / f"{slug}.json").read_text())
+                src = manifest["repos"][0]
+                self.assertEqual(src["sha"], pin, slug)
+                self.assertEqual(src["url"], row["repo_url"], slug)
+                self.assertEqual(src["review"]["use"], lic["suggested_use"], slug)
+                self.assertEqual(src["review"]["by"], "author-consent", slug)
+                self.assertEqual(src["review"]["at"], consent["at"], slug)
+                self.assertEqual(src["review"]["spdx"], lic["at_pin"], slug)
+                self.assertNotIn("consent_receipt", src["review"], slug)
+                self.assertNotIn("G4", src["review"]["note"], slug)
+                self.assertIn("agreed by email", corpus, slug)
+                self.assertIn(consent["at"][:10], corpus, slug)
 
     def test_issue_2310_corpora_link_contributors_and_carry_seo(self):
         """r2r-mcp, r2r-enforce and admission-compare (Thneoly/r2r-jev, #2310)
