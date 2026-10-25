@@ -1,0 +1,98 @@
+# Release performance budgets for `scripts/perf/autoindex_release_gate.sh`.
+#
+# Every key is a hard ceiling (max_*) or floor (min_*). A run fails when ANY
+# budget is broken; the gate prints which, as a markdown table, and exits 1.
+# Tiers are picked by --tier (default: "1gb"). Values are proposals sized
+# from the rc.99 regressions found on 2026-10-25 (#2421-#2428); each comment
+# says why the number is where it is. Change a number here, in a reviewed PR,
+# never by editing the workflow.
+
+[tier.smoke]
+# A ~200 MB corpus for a quick local check. Same shape, looser absolute
+# time floors (fixed per-run overheads dominate at this size).
+corpus_mb                     = 200
+node_memory_cap_mb            = 2048
+autoindex_timeout_min         = 6
+min_throughput_mb_s           = 1.5
+max_node_peak_rss_mb          = 2048
+max_client_peak_rss_mb        = 768
+max_state_to_source_ratio     = 1.2
+max_indices_per_prefix        = 40
+max_search_p95_ms             = 1000
+max_search_max_ms             = 2000
+max_breaker_trips             = 0
+max_bulk_retries              = 20
+max_restart_s                 = 60
+min_queries_with_hits_pct     = 90
+max_regression_pct            = 20
+
+[tier.1gb]
+# The PR / nightly tier. Runnable in < 20 min on 4 cores.
+corpus_mb                     = 1024
+# Node cap. 3 GB is the cap #2427 was measured with (node hit 3.9 GB). A
+# 1 GB corpus must fit with room to spare; the gate sets
+# XERJ_MAX_PROCESS_MEMORY_MB to this and the RSS ceiling below equals it:
+# the cap is a promise, so exceeding it at all is a failure.
+node_memory_cap_mb            = 3072
+# Hard wall-clock stop for `xerj autoindex` (a hang counts as a failure).
+# 15 min > 1024 MB / 3 MB/s (5.7 min) * 2.5, so only a real stall hits it.
+autoindex_timeout_min         = 15
+# Source MB / autoindex wall seconds. rc.99 on the 5 GB folder managed
+# ~0.2 MB/s (748 MB in 68 min, #2423). The #2423 ask (5 GB in 20 min) is
+# 4.3 MB/s; 3 MB/s at 1 GB leaves headroom for 4-core CI runners and the
+# fixed per-run startup/finalize costs that weigh more on a smaller corpus.
+min_throughput_mb_s           = 3.0
+max_node_peak_rss_mb          = 3072
+# Client RSS. #2424: phase A held several GB; after #2417 the client should
+# be a streaming pipeline, so 1 GB for 1 GB of input is generous.
+max_client_peak_rss_mb        = 1024
+# (state dir bytes) / (source bytes) after the run commits. rc.99: >= 1.6x
+# (8.4 GB for 5 GB, #2421). Resume metadata + journal must stay well under
+# a full copy; 1.2x is the ceiling the release issue asks for.
+max_state_to_source_ratio     = 1.2
+# rc.99 made 454 indices for one folder (#2422). #2430 adds a run cap of
+# 32 datasets plus docs/code indices; 40 leaves slack for those.
+max_indices_per_prefix        = 40
+# Uncached search latency (wall-clock incl. client start for the CLI, HTTP
+# round-trip for raw _search, tools/call round-trip for MCP). rc.99:
+# 13-23 s on 5 GB (#2422). 1 s p95 / 2 s max is what an agent tolerates
+# per call; #2422 targets p95 < 500 ms on 5 GB once fan-out is fixed.
+max_search_p95_ms             = 1000
+max_search_max_ms             = 2000
+# Parent memory circuit breaker engagements in the node log (writes -> 429).
+# #2427: rc.99 tripped it at 7.6 GB, then was OOM-killed. A release build on
+# a 1 GB corpus under a 3 GB cap must never need it.
+max_breaker_trips             = 0
+# Bulk back-pressure events reported by autoindex (bulk_congestion_events,
+# i.e. 429/overload retries) + retry lines in its stderr. A few are normal
+# adaptive-concurrency probing; dozens mean the node cannot keep up.
+max_bulk_retries              = 20
+# Node restart before the search phase (replay/open of every index).
+max_restart_s                 = 60
+# Sanity floor: every query is built from phrases planted in the corpus, so
+# a "fast" search that finds nothing is a failure, not a win.
+min_queries_with_hits_pct     = 90
+# With --baseline: fail when the candidate is worse than the previous
+# release binary by more than this on throughput, search p95, peak RSS
+# (node and client), or state ratio, on the same corpus and machine.
+max_regression_pct            = 20
+
+[tier.5gb]
+# The pre-release tier (v* tags). Mirrors the 5 GB folder of #2421-#2428.
+corpus_mb                     = 5120
+# #2423 ask: "node RSS under 4 GB" for 5 GB on a 16 GB box.
+node_memory_cap_mb            = 4096
+# #2423 ask: "finish in under 20 min"; 30 min is the hard stop.
+autoindex_timeout_min         = 30
+min_throughput_mb_s           = 4.0
+max_node_peak_rss_mb          = 4096
+max_client_peak_rss_mb        = 1536
+max_state_to_source_ratio     = 1.2
+max_indices_per_prefix        = 40
+max_search_p95_ms             = 1000
+max_search_max_ms             = 2000
+max_breaker_trips             = 0
+max_bulk_retries              = 50
+max_restart_s                 = 120
+min_queries_with_hits_pct     = 90
+max_regression_pct            = 20
