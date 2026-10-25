@@ -96,3 +96,47 @@ max_bulk_retries              = 50
 max_restart_s                 = 120
 min_queries_with_hits_pct     = 90
 max_regression_pct            = 20
+
+# ---------------------------------------------------------------------------
+# Engine-relative floors (Ivan, 2026-10-25): index size and indexing time are
+# floored against Lucene/Elasticsearch on the SAME corpus and the SAME runner,
+# so a slower or smaller CI machine moves both sides together.
+#
+# Enabled when the gate gets `--engine-baseline <file.json>`, a JSON object
+# measured on the same corpus (seed + size) and machine:
+#   { "engine": "elasticsearch-8.x", "corpus_mb": 1024, "seed": 2421,
+#     "index_bytes": <store.size after force-merge or final refresh>,
+#     "ingest_mb_s": <source MB / wall seconds to index + refresh>,
+#     "search_p95_ms": <optional, same 60 queries> }
+# scripts/perf/es_baseline.py produces exactly that from a live ES (the
+# workflow runs it against an ES service container), or point it at a
+# results.json written by the floor-measurement harness.
+#
+# Each ratio is xerj / baseline. Values are per tier below; a key left out
+# (or the whole table) disables that check.
+[ratio.default]
+# xerj_index_bytes <= k * es_index_bytes. xerj stores BM25 postings plus
+# keyword doc-values, FTS side-cars and (default) lexical semantic vectors,
+# so it is allowed to be larger than a plain Lucene index - but not
+# unboundedly: 2.0x keeps "an index costs about the data" true.
+max_index_bytes_vs_baseline   = 2.0
+# xerj_ingest_MBps >= k * es_ingest_MBps. autoindex does discovery,
+# sniffing and schema inference that a pre-mapped ES bulk load does not, so
+# parity is not required; less than half of ES's rate is a regression.
+min_ingest_mb_s_vs_baseline   = 0.5
+# xerj search p95 <= k * es search p95 (only if the baseline reports it).
+max_search_p95_vs_baseline    = 1.5
+
+[ratio.smoke]
+max_index_bytes_vs_baseline   = 2.5
+min_ingest_mb_s_vs_baseline   = 0.3
+
+[ratio."1gb"]
+max_index_bytes_vs_baseline   = 2.0
+min_ingest_mb_s_vs_baseline   = 0.5
+max_search_p95_vs_baseline    = 1.5
+
+[ratio."5gb"]
+max_index_bytes_vs_baseline   = 2.0
+min_ingest_mb_s_vs_baseline   = 0.5
+max_search_p95_vs_baseline    = 1.5
