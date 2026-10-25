@@ -2258,54 +2258,58 @@ impl ShardedFtsMemtable {
         // `missing = n - present` is unchanged.  Any shard that hits a bail
         // condition (array-valued field, `_doc_count` weights) yields `None`,
         // and `collect::<Option<_>>` short-circuits the whole call to `None`.
-        let per_shard: Option<Vec<(std::collections::HashMap<String, u64>, u64)>> = self
-            .shards
-            .par_iter()
-            .map(|s| {
-                let g = s.read();
-                let frozen: Vec<parking_lot::RwLockReadGuard<'_, FtsMemtable>> =
-                    g.frozen.iter().map(|fz| fz.gen.read()).collect();
-                let mut counts: std::collections::HashMap<String, u64> =
-                    std::collections::HashMap::new();
-                let mut missing: u64 = 0;
-                for gen in std::iter::once(&g.active).chain(frozen.iter().map(|rd| &**rd)) {
-                    let gn = gen.doc_count();
-                    if gn == 0 {
-                        continue;
-                    }
-                    if gen.doc_values.array_fields.contains(field)
-                        || gen.doc_values.numeric.contains_key("_doc_count")
-                        || gen.doc_values.keyword.contains_key("_doc_count")
-                    {
-                        return None;
-                    }
-                    let gcounts = gen.doc_values.with_keyword_field(field, |c| {
-                        match c.keyword_counts.get(field) {
-                            None => {
-                                // No doc in this generation carries the field
-                                // as a scalar — all of them are "missing".
-                                (std::collections::HashMap::new(), gn as u64)
+        // #1122: on the global pool when it started, on this thread when it
+        // could not. A bare `par_iter` after a failed `build_global` panics.
+        let per_shard: Option<Vec<(std::collections::HashMap<String, u64>, u64)>> =
+            crate::pools::search_fanout(|| {
+                self.shards
+                    .par_iter()
+                    .map(|s| {
+                        let g = s.read();
+                        let frozen: Vec<parking_lot::RwLockReadGuard<'_, FtsMemtable>> =
+                            g.frozen.iter().map(|fz| fz.gen.read()).collect();
+                        let mut counts: std::collections::HashMap<String, u64> =
+                            std::collections::HashMap::new();
+                        let mut missing: u64 = 0;
+                        for gen in std::iter::once(&g.active).chain(frozen.iter().map(|rd| &**rd)) {
+                            let gn = gen.doc_count();
+                            if gn == 0 {
+                                continue;
                             }
-                            Some(m) => {
-                                let mut gc: std::collections::HashMap<String, u64> =
-                                    std::collections::HashMap::with_capacity(m.len());
-                                let mut present: u64 = 0;
-                                for (k, &cnt) in m.iter() {
-                                    gc.insert(k.clone(), cnt as u64);
-                                    present += cnt as u64;
+                            if gen.doc_values.array_fields.contains(field)
+                                || gen.doc_values.numeric.contains_key("_doc_count")
+                                || gen.doc_values.keyword.contains_key("_doc_count")
+                            {
+                                return None;
+                            }
+                            let gcounts = gen.doc_values.with_keyword_field(field, |c| {
+                                match c.keyword_counts.get(field) {
+                                    None => {
+                                        // No doc in this generation carries the field
+                                        // as a scalar — all of them are "missing".
+                                        (std::collections::HashMap::new(), gn as u64)
+                                    }
+                                    Some(m) => {
+                                        let mut gc: std::collections::HashMap<String, u64> =
+                                            std::collections::HashMap::with_capacity(m.len());
+                                        let mut present: u64 = 0;
+                                        for (k, &cnt) in m.iter() {
+                                            gc.insert(k.clone(), cnt as u64);
+                                            present += cnt as u64;
+                                        }
+                                        (gc, gn as u64 - present)
+                                    }
                                 }
-                                (gc, gn as u64 - present)
+                            });
+                            missing += gcounts.1;
+                            for (term, cnt) in gcounts.0 {
+                                *counts.entry(term).or_insert(0) += cnt;
                             }
                         }
-                    });
-                    missing += gcounts.1;
-                    for (term, cnt) in gcounts.0 {
-                        *counts.entry(term).or_insert(0) += cnt;
-                    }
-                }
-                Some((counts, missing))
-            })
-            .collect();
+                        Some((counts, missing))
+                    })
+                    .collect()
+            });
         let per_shard = per_shard?;
         // Merge the per-shard partials (commutative — identical to the serial
         // single-map accumulation this replaces).

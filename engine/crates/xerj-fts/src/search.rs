@@ -1754,10 +1754,12 @@ pub fn search_segments(
     limit: usize,
     explain: bool,
 ) -> Result<Vec<ScoredHit>> {
-    let results: Vec<Result<Vec<ScoredHit>>> = searchers
-        .par_iter()
-        .map(|s| s.search(query, limit, explain))
-        .collect();
+    let results: Vec<Result<Vec<ScoredHit>>> = crate::parallel::run(|| {
+        searchers
+            .par_iter()
+            .map(|s| s.search(query, limit, explain))
+            .collect()
+    });
 
     let mut merged: Vec<ScoredHit> = Vec::new();
     for result in results {

@@ -1583,36 +1583,38 @@ impl FtsIndexWriter {
         let per_field_vec: Vec<(String, Vec<(u32, &FieldValues)>)> =
             per_field.into_iter().collect();
 
-        let built: Vec<(String, FieldData)> = per_field_vec
-            .into_par_iter()
-            .map(|(field_name, entries)| {
-                let cfg = field_configs
-                    .get(&field_name)
-                    .cloned()
-                    .unwrap_or_else(|| Self::unconfigured_field_config(&registry));
-                let analyzer = registry
-                    .get_analyzer(&cfg.analyzer)
-                    .or_else(|| registry.get_analyzer("standard"))
-                    .unwrap();
+        let built: Vec<(String, FieldData)> = crate::parallel::run(|| {
+            per_field_vec
+                .into_par_iter()
+                .map(|(field_name, entries)| {
+                    let cfg = field_configs
+                        .get(&field_name)
+                        .cloned()
+                        .unwrap_or_else(|| Self::unconfigured_field_config(&registry));
+                    let analyzer = registry
+                        .get_analyzer(&cfg.analyzer)
+                        .or_else(|| registry.get_analyzer("standard"))
+                        .unwrap();
 
-                let postings = if cfg.store_positions {
-                    PostingsWriter::new()
-                } else {
-                    PostingsWriter::new_no_positions()
-                };
-                let mut fd = FieldData {
-                    config: cfg,
-                    postings,
-                    stats: FieldStats::default(),
-                    norms: Vec::with_capacity(entries.len()),
-                };
+                    let postings = if cfg.store_positions {
+                        PostingsWriter::new()
+                    } else {
+                        PostingsWriter::new_no_positions()
+                    };
+                    let mut fd = FieldData {
+                        config: cfg,
+                        postings,
+                        stats: FieldStats::default(),
+                        norms: Vec::with_capacity(entries.len()),
+                    };
 
-                for (doc_ord, values) in entries {
-                    index_field_values(&mut fd, &analyzer, doc_ord, values.iter());
-                }
-                (field_name, fd)
-            })
-            .collect();
+                    for (doc_ord, values) in entries {
+                        index_field_values(&mut fd, &analyzer, doc_ord, values.iter());
+                    }
+                    (field_name, fd)
+                })
+                .collect()
+        });
 
         // Swap the built field data back in.
         for (name, fd) in built {
@@ -1695,11 +1697,13 @@ impl FtsIndexWriter {
             })
             .collect();
 
-        let built: Vec<Result<FieldData>> = field_names
-            .par_iter()
-            .zip(configs.par_iter())
-            .map(|(field, config)| merge_field_from_segments(field, config, sources))
-            .collect();
+        let built: Vec<Result<FieldData>> = crate::parallel::run(|| {
+            field_names
+                .par_iter()
+                .zip(configs.par_iter())
+                .map(|(field, config)| merge_field_from_segments(field, config, sources))
+                .collect()
+        });
 
         // Collect every field before mutating anything: a failure must leave
         // the writer exactly as the caller configured it, so the fallback
@@ -1786,45 +1790,50 @@ impl FtsIndexWriter {
         // Parallel field writes.  `write_field_static` is a pure function
         // of its inputs and touches only files named after the field, so
         // there's no cross-thread contention.
-        let results: Vec<Result<(String, FieldStats, Vec<xerj_common::fsio::StagedFile>)>> = fields
-            .into_par_iter()
-            .map(|(field_name, stats, field_data)| {
-                // A panic inside `fst::MapBuilder` (its `assert!(out.is_zero())`
-                // on a duplicate key the checker missed) or in the meta
-                // encoder used to escape the rayon worker and `resume_unwind`
-                // the flush task. Indexing then died with no path and no OS
-                // error. The same failure is now this field's `Err`.
-                #[cfg(test)]
-                let panic_this_field = panic_on_field.as_deref() == Some(field_name.as_str());
-                let outcome = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                    #[cfg(test)]
-                    if panic_this_field {
-                        panic!("simulated fst merge panic");
-                    }
-                    Self::write_field_static(
-                        &segment_dir,
-                        &segment_id,
-                        &field_name,
-                        field_data,
-                        zstd_level,
-                        layout,
-                    )
-                }));
-                match outcome {
-                    Ok(result) => {
-                        let files =
-                            result.with_context(|| format!("writing field '{field_name}'"))?;
-                        Ok((field_name, stats, files))
-                    }
-                    Err(payload) => {
-                        bail!(
-                            "writing field '{field_name}' panicked: {}",
-                            panic_payload_message(&payload)
-                        )
-                    }
-                }
-            })
-            .collect();
+        let results: Vec<Result<(String, FieldStats, Vec<xerj_common::fsio::StagedFile>)>> =
+            crate::parallel::run(|| {
+                fields
+                    .into_par_iter()
+                    .map(|(field_name, stats, field_data)| {
+                        // A panic inside `fst::MapBuilder` (its `assert!(out.is_zero())`
+                        // on a duplicate key the checker missed) or in the meta
+                        // encoder used to escape the rayon worker and `resume_unwind`
+                        // the flush task. Indexing then died with no path and no OS
+                        // error. The same failure is now this field's `Err`.
+                        #[cfg(test)]
+                        let panic_this_field =
+                            panic_on_field.as_deref() == Some(field_name.as_str());
+                        let outcome =
+                            std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                                #[cfg(test)]
+                                if panic_this_field {
+                                    panic!("simulated fst merge panic");
+                                }
+                                Self::write_field_static(
+                                    &segment_dir,
+                                    &segment_id,
+                                    &field_name,
+                                    field_data,
+                                    zstd_level,
+                                    layout,
+                                )
+                            }));
+                        match outcome {
+                            Ok(result) => {
+                                let files = result
+                                    .with_context(|| format!("writing field '{field_name}'"))?;
+                                Ok((field_name, stats, files))
+                            }
+                            Err(payload) => {
+                                bail!(
+                                    "writing field '{field_name}' panicked: {}",
+                                    panic_payload_message(&payload)
+                                )
+                            }
+                        }
+                    })
+                    .collect()
+            });
 
         // Surface any error (dropping `staged` removes every temp file);
         // otherwise build the stats map and publish the side-cars.

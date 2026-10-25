@@ -57,6 +57,7 @@
 pub mod analyzer;
 pub mod bm25;
 pub mod index;
+mod parallel;
 pub mod postings;
 pub mod search;
 

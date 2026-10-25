@@ -43,6 +43,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Search, aggregation, full-text build, and the `xerj index` file scan no
+  longer abort the node when the global rayon pool cannot start a worker.
+  `build_global` is once-only: a failed spawn leaves no registry, and the
+  next `par_iter` panics (`panic = "abort"`) or, if the pool was never
+  initialized, falls through to `std::thread::Builder`, which panics in the
+  child when the alternate signal stack cannot be mapped. The pool is
+  probed on a local pool first and installed only at a width that just
+  started. If even one thread cannot be started, that fan-out runs on the
+  calling thread. A host that can start the pool keeps the same pool and
+  the same width (part of
+  [#1122](https://github.com/xerj-org/xerj/issues/1122); the issue stays
+  open).
+
 - A graph-path `xerj autoindex` resume whose plan predates files now on disk
   names those files in the summary. The human text under the `ok:` line, the
   lines immediately before `xerj-done`, the run document, and the

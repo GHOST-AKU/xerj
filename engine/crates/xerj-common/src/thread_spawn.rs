@@ -74,6 +74,30 @@ pub fn spawn_allowed() -> bool {
     GATE.get().map(|gate| gate()).unwrap_or(true)
 }
 
+/// Set by the engine when rayon's global pool cannot be started (#1122).
+///
+/// That pool is initialized once per process. A failed `build_global`
+/// consumes the once and leaves no registry, so the next `par_iter`
+/// panics (`The global thread pool has not been initialized`) and
+/// `panic = "abort"` kills the node. A pool that was never initialized
+/// is built with `std::thread::Builder`, which panics in the child when
+/// the alternate signal stack cannot be mapped. Fan-out checks this and
+/// runs on the calling thread instead of touching that pool.
+static PARALLELISM_INLINE: AtomicBool = AtomicBool::new(false);
+
+/// Whether global-pool fan-out must run on the calling thread.
+pub fn parallelism_inline() -> bool {
+    PARALLELISM_INLINE.load(Ordering::Relaxed)
+}
+
+/// Record that global-pool fan-out must run on the calling thread.
+///
+/// The engine sets this once, when the search pool cannot be started.
+/// It is not cleared: rayon's global init cannot be retried.
+pub fn set_parallelism_inline(inline: bool) {
+    PARALLELISM_INLINE.store(inline, Ordering::Relaxed)
+}
+
 /// The boxed body handed to a [`Spawn`] implementation.
 pub type BoxedJob = Box<dyn FnOnce() + Send + 'static>;
 
@@ -1018,6 +1042,23 @@ fn spawn_std(name: &str, job: BoxedJob, stack_bytes: Option<usize>) -> io::Resul
 mod tests {
     use super::*;
     use std::sync::atomic::{AtomicU32, AtomicUsize};
+
+    #[test]
+    fn parallelism_inline_defaults_off_and_round_trips() {
+        // Process-global. This crate does not install the engine's rayon
+        // pool, so the flag starts off. Restore it so a later test in this
+        // process does not inherit the degraded setting.
+        struct Reset;
+        impl Drop for Reset {
+            fn drop(&mut self) {
+                set_parallelism_inline(false);
+            }
+        }
+        let _reset = Reset;
+        assert!(!parallelism_inline());
+        set_parallelism_inline(true);
+        assert!(parallelism_inline());
+    }
 
     /// Fails the first `fail_first` spawns with EAGAIN, then spawns for real.
     struct FlakySpawn {

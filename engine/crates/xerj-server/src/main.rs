@@ -2313,89 +2313,98 @@ async fn run_cli_index(cmd: IndexCmdArgs) -> Result<()> {
 
         let seen = std::sync::atomic::AtomicU64::new(0);
 
-        pairs
-            .par_iter()
-            .enumerate()
-            .for_each(|(scanner_idx, &(start, end))| {
-                if limit > 0 && seen.load(std::sync::atomic::Ordering::Relaxed) >= limit as u64 {
-                    return;
-                }
-                let chunk = &data[start..end];
-                let mut cursor = 0usize;
-                let mut current: Vec<(String, StdArc<[u8]>)> = Vec::with_capacity(batch_size);
+        // #1122: the global search pool, installed when the engine opened.
+        // If that pool could not be started, this runs on the calling thread
+        // instead of building rayon's default pool with `std::thread::Builder`.
+        xerj_engine::pools::search_fanout(|| {
+            pairs
+                .par_iter()
+                .enumerate()
+                .for_each(|(scanner_idx, &(start, end))| {
+                    if limit > 0 && seen.load(std::sync::atomic::Ordering::Relaxed) >= limit as u64
+                    {
+                        return;
+                    }
+                    let chunk = &data[start..end];
+                    let mut cursor = 0usize;
+                    let mut current: Vec<(String, StdArc<[u8]>)> = Vec::with_capacity(batch_size);
 
-                // Synchronous submit with back-pressure retry.  The engine
-                // returns ResourceExhausted only when memtable > 3× flush
-                // threshold (after the internal Condvar wait has already
-                // let the flusher drain).  Clone the batch up-front because
-                // a successful call consumes it; retry uses a sibling clone.
-                let submit = |batch: Vec<(String, StdArc<[u8]>)>| {
-                    let n = batch.len() as u64;
-                    let mut retry: Vec<(String, StdArc<[u8]>)> = batch
-                        .iter()
-                        .map(|(id, b)| (id.clone(), StdArc::clone(b)))
-                        .collect();
-                    let mut current_batch = Some(batch);
-                    let mut attempts: u32 = 0;
-                    loop {
-                        let b = current_batch.take().unwrap();
-                        match idx_for_rayon.index_batch_sync_raw(b) {
-                            Ok(_) => {
-                                sent_for_rayon.fetch_add(n, std::sync::atomic::Ordering::Relaxed);
-                                return;
-                            }
-                            Err(xerj_engine::EngineError::Common(
-                                xerj_common::XerjError::ResourceExhausted { .. },
-                            )) if attempts < 240 => {
-                                attempts += 1;
-                                // The engine's Condvar already waited up to
-                                // 50 ms; add a tiny thread::sleep to avoid
-                                // a tight busy-loop on persistent back-
-                                // pressure (flusher is clearly saturated).
-                                std::thread::sleep(std::time::Duration::from_millis(5));
-                                let reclone: Vec<(String, StdArc<[u8]>)> = retry
-                                    .iter()
-                                    .map(|(id, b)| (id.clone(), StdArc::clone(b)))
-                                    .collect();
-                                current_batch = Some(std::mem::replace(&mut retry, reclone));
-                            }
-                            Err(e) => {
-                                error!("batch ingest error: {e}");
-                                errs_for_rayon.fetch_add(n, std::sync::atomic::Ordering::Relaxed);
-                                return;
+                    // Synchronous submit with back-pressure retry.  The engine
+                    // returns ResourceExhausted only when memtable > 3× flush
+                    // threshold (after the internal Condvar wait has already
+                    // let the flusher drain).  Clone the batch up-front because
+                    // a successful call consumes it; retry uses a sibling clone.
+                    let submit = |batch: Vec<(String, StdArc<[u8]>)>| {
+                        let n = batch.len() as u64;
+                        let mut retry: Vec<(String, StdArc<[u8]>)> = batch
+                            .iter()
+                            .map(|(id, b)| (id.clone(), StdArc::clone(b)))
+                            .collect();
+                        let mut current_batch = Some(batch);
+                        let mut attempts: u32 = 0;
+                        loop {
+                            let b = current_batch.take().unwrap();
+                            match idx_for_rayon.index_batch_sync_raw(b) {
+                                Ok(_) => {
+                                    sent_for_rayon
+                                        .fetch_add(n, std::sync::atomic::Ordering::Relaxed);
+                                    return;
+                                }
+                                Err(xerj_engine::EngineError::Common(
+                                    xerj_common::XerjError::ResourceExhausted { .. },
+                                )) if attempts < 240 => {
+                                    attempts += 1;
+                                    // The engine's Condvar already waited up to
+                                    // 50 ms; add a tiny thread::sleep to avoid
+                                    // a tight busy-loop on persistent back-
+                                    // pressure (flusher is clearly saturated).
+                                    std::thread::sleep(std::time::Duration::from_millis(5));
+                                    let reclone: Vec<(String, StdArc<[u8]>)> = retry
+                                        .iter()
+                                        .map(|(id, b)| (id.clone(), StdArc::clone(b)))
+                                        .collect();
+                                    current_batch = Some(std::mem::replace(&mut retry, reclone));
+                                }
+                                Err(e) => {
+                                    error!("batch ingest error: {e}");
+                                    errs_for_rayon
+                                        .fetch_add(n, std::sync::atomic::Ordering::Relaxed);
+                                    return;
+                                }
                             }
                         }
-                    }
-                };
+                    };
 
-                while cursor < chunk.len() {
-                    let nl_rel =
-                        memchr::memchr(b'\n', &chunk[cursor..]).unwrap_or(chunk.len() - cursor);
-                    let line_end = cursor + nl_rel;
-                    let line = &chunk[cursor..line_end];
-                    cursor = line_end + 1;
-                    if line.is_empty() {
-                        continue;
-                    }
+                    while cursor < chunk.len() {
+                        let nl_rel =
+                            memchr::memchr(b'\n', &chunk[cursor..]).unwrap_or(chunk.len() - cursor);
+                        let line_end = cursor + nl_rel;
+                        let line = &chunk[cursor..line_end];
+                        cursor = line_end + 1;
+                        if line.is_empty() {
+                            continue;
+                        }
 
-                    let seq = seen.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-                    if limit > 0 && seq >= limit as u64 {
-                        break;
-                    }
+                        let seq = seen.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+                        if limit > 0 && seq >= limit as u64 {
+                            break;
+                        }
 
-                    let bytes: StdArc<[u8]> = StdArc::from(line);
-                    let doc_id = format!("{scanner_idx}_{seq}");
-                    current.push((doc_id, bytes));
+                        let bytes: StdArc<[u8]> = StdArc::from(line);
+                        let doc_id = format!("{scanner_idx}_{seq}");
+                        current.push((doc_id, bytes));
 
-                    if current.len() >= batch_size {
-                        let batch = std::mem::replace(&mut current, Vec::with_capacity(batch_size));
-                        submit(batch);
+                        if current.len() >= batch_size {
+                            let batch =
+                                std::mem::replace(&mut current, Vec::with_capacity(batch_size));
+                            submit(batch);
+                        }
                     }
-                }
-                if !current.is_empty() {
-                    submit(current);
-                }
-            });
+                    if !current.is_empty() {
+                        submit(current);
+                    }
+                });
+        });
     });
 
     scan_result.await.context("mmap scan task")?;

@@ -112,27 +112,168 @@ pub fn sizing() -> PoolSizing {
 /// `engine.search_workers` means building that pool explicitly — rayon
 /// otherwise defaults it to every core on first use.
 ///
-/// `build_global` can only succeed once per process. If some par_iter already
-/// ran, the request cannot be honoured; that is reported with the width the
-/// process actually has, instead of leaving the operator to guess.
+/// `build_global` can only succeed once per process (rayon-core 1.13,
+/// `registry.rs` `set_global_registry`: the `Once` runs even when the
+/// builder returns `Err`, and `THE_REGISTRY` stays empty). The next
+/// `par_iter` then hits `global_registry`'s `.expect`, or, if nothing
+/// called `build_global`, `DefaultSpawn` which is `std::thread::Builder`.
+/// Either one aborts the node under `panic = "abort"` (#1122). A failed
+/// spawn is probed on a *local* pool first, so the once-only global init
+/// is attempted only at a width that just started. If even one thread
+/// cannot be started, fan-out runs on the calling thread.
+///
+/// A probe that succeeds is dropped before `build_global`, so the process
+/// does not hold two copies of the pool. The retry is only on failure: a
+/// transient `EAGAIN` at boot must not pin search to one thread for the
+/// life of the process, and this init cannot be repeated later.
 fn install_search_pool(threads: usize) {
     static DONE: std::sync::Once = std::sync::Once::new();
     DONE.call_once(|| {
-        if let Err(err) = rayon::ThreadPoolBuilder::new()
-            .num_threads(threads)
+        let requested = threads.max(1);
+        let width = choose_search_width(requested, local_pool_starts);
+        if width == 0 {
+            degrade_search_fanout_inline(&format!(
+                "could not start the search pool with {requested} threads or with one thread; \
+                 search and bulk fan-out run on the calling thread (#1122)"
+            ));
+            return;
+        }
+        match ThreadPoolBuilder::new()
+            .num_threads(width)
             .thread_name(|i| format!("xerj-search-{i}"))
             .spawn_handler(safe_rayon_spawn)
             .build_global()
         {
-            let actual = rayon::current_num_threads();
-            if actual != threads {
-                tracing::warn!(
-                    "engine.search_workers={threads} could not be applied ({err}); search \
-                     fan-out runs on the already-initialised global pool of {actual} threads"
-                );
+            Ok(()) => {
+                if width != requested {
+                    tracing::error!(
+                        "could not start the search pool with {requested} threads; using {width} \
+                         (#1122)"
+                    );
+                }
             }
+            Err(err) if global_pool_already_initialized(&err) => {
+                // A `par_iter` won the race and the registry exists. Do not
+                // call `current_num_threads` on any other error: with an
+                // empty registry that call panics.
+                let actual = rayon::current_num_threads();
+                if actual != requested {
+                    tracing::warn!(
+                        "engine.search_workers={requested} could not be applied ({err}); search \
+                         fan-out runs on the already-initialised global pool of {actual} threads"
+                    );
+                }
+            }
+            Err(err) => degrade_search_fanout_inline(&format!(
+                "could not install the search pool ({err}); fan-out runs on the calling thread \
+                 (#1122)"
+            )),
         }
     });
+}
+
+/// How many search workers to ask `build_global` for.
+///
+/// `0` means not even one thread could be started. The caller must not
+/// pass that to a spawning `build_global`: the failure consumes rayon's
+/// once-only init.
+pub(crate) fn choose_search_width(
+    requested: usize,
+    mut can_start: impl FnMut(usize) -> bool,
+) -> usize {
+    let requested = requested.max(1);
+    if can_start(requested) {
+        return requested;
+    }
+    if requested > 1 && can_start(1) {
+        return 1;
+    }
+    0
+}
+
+/// Whether a local pool of `threads` workers starts.
+///
+/// This does not touch rayon's global registry. Three attempts, because a
+/// miss here is permanent for the process. The pool is dropped before the
+/// function returns, which joins the workers it started.
+fn local_pool_starts(threads: usize) -> bool {
+    for attempt in 0..3 {
+        if ThreadPoolBuilder::new()
+            .num_threads(threads.max(1))
+            .spawn_handler(safe_rayon_spawn)
+            .build()
+            .is_ok()
+        {
+            return true;
+        }
+        if attempt < 2 {
+            std::thread::sleep(std::time::Duration::from_millis(50));
+        }
+    }
+    false
+}
+
+/// Rayon-core 1.13 `ThreadPoolBuildError` display for
+/// `ErrorKind::GlobalPoolAlreadyInitialized`. The kind is private;
+/// `source()` is `None` for that error and also for
+/// `CurrentThreadAlreadyInPool`, so the text is what distinguishes a
+/// registry that exists from one that does not.
+fn global_pool_already_initialized(err: &rayon::ThreadPoolBuildError) -> bool {
+    err.to_string() == "The global thread pool has already been initialized."
+}
+
+/// Fan-out that goes through [`search_fanout`] must not touch the global
+/// pool. Occupy the once-only init with a spawn-free one-thread pool when
+/// this thread is not already a worker, so a later bare `par_iter` does not
+/// fall through to `std::thread::Builder` (that child panics, and
+/// `panic = "abort"` kills the node).
+///
+/// That occupying pool does not run a worker loop (rayon-core 1.13
+/// `Registry::new`, the `use_current_thread` arm). A bare `par_iter` on
+/// some other thread injects into it and waits. Search, aggregation,
+/// full-text build, and the `xerj index` scan go through [`search_fanout`]
+/// or the full-text helper, which build their own calling-thread pool.
+/// A bare `par_iter` added later can still hang that caller.
+fn degrade_search_fanout_inline(message: &str) {
+    xerj_common::thread_spawn::set_parallelism_inline(true);
+    tracing::error!("{message}");
+    if rayon::current_thread_index().is_some() {
+        // This thread is already a worker of some pool. `build_global`
+        // with `use_current_thread` would fail and, if it were the first
+        // init, leave the registry empty. Leave the once alone.
+        return;
+    }
+    match ThreadPoolBuilder::new()
+        .num_threads(1)
+        .use_current_thread()
+        .build_global()
+    {
+        Ok(()) => {}
+        Err(err) if global_pool_already_initialized(&err) => {}
+        Err(err) => tracing::error!(
+            "could not occupy rayon's global pool without spawning ({err}); a parallel \
+             iterator that does not go through search fan-out can still abort the process (#1122)"
+        ),
+    }
+}
+
+/// Run `op`, whose `par_iter` uses the global search pool.
+///
+/// When that pool could not be started, `op` runs on a one-thread pool
+/// made of the calling thread ([`inline_install`]). A `par_iter` inside
+/// it does not initialize rayon's global pool, so it cannot take the
+/// `std::thread::Builder` path that aborts the process (#1122). On the
+/// healthy path this is `op()` itself: same pool, same width.
+pub fn search_fanout<R: Send>(op: impl FnOnce() -> R + Send) -> R {
+    search_fanout_if(xerj_common::thread_spawn::parallelism_inline(), op)
+}
+
+pub(crate) fn search_fanout_if<R: Send>(inline: bool, op: impl FnOnce() -> R + Send) -> R {
+    if inline {
+        inline_install(op)
+    } else {
+        op()
+    }
 }
 
 // ── Building the named pools without aborting (#1122) ────────────────────────
@@ -471,5 +612,63 @@ mod tests {
             (0..64u32).into_par_iter().sum::<u32>()
         });
         assert_eq!(sum, (0..64u32).sum::<u32>());
+    }
+
+    #[test]
+    fn search_width_follows_what_can_actually_start() {
+        assert_eq!(super::choose_search_width(8, |_| true), 8);
+        assert_eq!(super::choose_search_width(0, |_| true), 1);
+        assert_eq!(super::choose_search_width(8, |n| n == 1), 1);
+        assert_eq!(super::choose_search_width(8, |_| false), 0);
+    }
+
+    /// `pthread_create` returning `EAGAIN`, the way a search-pool probe
+    /// observes it. The width is 0, so `build_global` is not called at a
+    /// width that would consume rayon's once-only init.
+    #[test]
+    fn a_spawn_failure_is_not_a_search_width() {
+        let width = super::choose_search_width(4, |n| {
+            ThreadPoolBuilder::new()
+                .num_threads(n)
+                .spawn_handler(|_| {
+                    Err(std::io::Error::new(
+                        std::io::ErrorKind::WouldBlock,
+                        "injected EAGAIN",
+                    ))
+                })
+                .build()
+                .is_ok()
+        });
+        assert_eq!(width, 0);
+    }
+
+    /// #1122: with the global pool unusable, fan-out still returns the
+    /// parallel result, on the calling thread, and does not build rayon's
+    /// global pool with `std::thread::Builder`.
+    #[test]
+    fn an_inline_search_fanout_runs_par_iter_on_the_caller() {
+        let (sum, on_caller, width) = std::thread::spawn(|| {
+            let caller = std::thread::current().id();
+            super::search_fanout_if(true, || {
+                use rayon::prelude::*;
+                let sum: u32 = (0..64u32)
+                    .into_par_iter()
+                    .map(|i| {
+                        assert_eq!(std::thread::current().id(), caller);
+                        i
+                    })
+                    .sum();
+                (
+                    sum,
+                    std::thread::current().id() == caller,
+                    rayon::current_num_threads(),
+                )
+            })
+        })
+        .join()
+        .expect("fan-out thread");
+        assert_eq!(sum, (0..64u32).sum::<u32>());
+        assert!(on_caller);
+        assert_eq!(width, 1);
     }
 }

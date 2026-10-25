@@ -879,10 +879,14 @@ impl Index {
         // `block_in_place`.
         {
             use rayon::prelude::*;
-            snap.segments.par_iter().for_each(|m| {
-                if m.doc_count > 0 {
-                    let _ = self.dv_columns_for(segments_dir, &m.id);
-                }
+            // #1122: global search pool, or the calling thread when that
+            // pool could not be started.
+            crate::pools::search_fanout(|| {
+                snap.segments.par_iter().for_each(|m| {
+                    if m.doc_count > 0 {
+                        let _ = self.dv_columns_for(segments_dir, &m.id);
+                    }
+                });
             });
         }
 
@@ -3685,10 +3689,12 @@ impl<'a> FastCtx<'a> {
         // parsing of every distinct term is the dominant first-call cost).
         {
             use rayon::prelude::*;
-            self.segs.par_iter().for_each(|seg| {
-                if matches!(seg.col(field), Some(Column::Keyword(_))) {
-                    let _ = self.date_sorted_prefix(seg, field);
-                }
+            crate::pools::search_fanout(|| {
+                self.segs.par_iter().for_each(|seg| {
+                    if matches!(seg.col(field), Some(Column::Keyword(_))) {
+                        let _ = self.date_sorted_prefix(seg, field);
+                    }
+                });
             });
         }
         // Per-segment sorted (ms, prefix-count) arrays (cached on the Index):
@@ -4575,10 +4581,12 @@ impl<'a> FastCtx<'a> {
         // parsing of every distinct term is the dominant first-call cost).
         {
             use rayon::prelude::*;
-            self.segs.par_iter().for_each(|seg| {
-                if matches!(seg.col(field), Some(Column::Keyword(_))) {
-                    let _ = self.date_ord_index(seg, field);
-                }
+            crate::pools::search_fanout(|| {
+                self.segs.par_iter().for_each(|seg| {
+                    if matches!(seg.col(field), Some(Column::Keyword(_))) {
+                        let _ = self.date_ord_index(seg, field);
+                    }
+                });
             });
         }
         let plan = self.plan_subs(sub, false)?;
