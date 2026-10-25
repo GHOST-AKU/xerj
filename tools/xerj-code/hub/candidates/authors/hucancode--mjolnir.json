@@ -2,7 +2,7 @@
  "corpus": "hucancode--mjolnir",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
+ "shelf": "WEB",
  "domain": "an agent working on odin-lang, vulkan, game-engine queries this for how hucancode/mjolnir implements it: Minimalistic game engine (selected work: examples, mjolnir, the project root)",
  "repos": [
   {

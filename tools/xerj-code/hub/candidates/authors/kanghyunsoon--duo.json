@@ -1,0 +1,23 @@
+{
+ "corpus": "kanghyunsoon--duo",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, claude-code, code-review queries this for how kanghyunsoon/duo implements it: Human-approved engineering decisions for AI coding agents. Local-first MCP tools for Codex and Claude Code with evidence-based Git diff revi (selected work: tests, packages/director, packages/core)",
+ "repos": [
+  {
+   "repo": "duo",
+   "url": "https://github.com/kanghyunsoon/duo",
+   "sha": "dd36d5424c091f512c70a856af683fe2b3195e98",
+   "licence": "Apache-2.0 (LICENSE file at pin dd36d5424c09, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T01:05Z",
+    "consent_receipt": "3949dd572b43",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T01:05Z (receipt 3949dd572b43); selected commit dd36d5424c09: \"fix(review): C264-C265 reviewed snapshot contract and fail-closed rev\u2026\". LICENSE file at pin dd36d5424c09 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

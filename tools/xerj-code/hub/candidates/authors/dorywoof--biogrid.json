@@ -1,0 +1,23 @@
+{
+ "corpus": "dorywoof--biogrid",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on computational-neuroscience, connectome, cpp queries this for how dorywoof/BioGrid implements it: A whole-brain spiking model of the FlyWire fruit fly connectome that screens 140 sensory types for steering pathways and predicts a thermo-h (selected work: biogrid, tools)",
+ "repos": [
+  {
+   "repo": "BioGrid",
+   "url": "https://github.com/dorywoof/BioGrid",
+   "sha": "681eadfb49bc3eb48216d9969db722cc0239b8f7",
+   "licence": "MIT (LICENSE file at pin 681eadfb49bc, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T14:49Z",
+    "consent_receipt": "ed7a8b4125b4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T14:49Z (receipt ed7a8b4125b4); selected commit 681eadfb49bc: \"Add BioGrid: a fly flown by the whole FlyWire brain\". LICENSE file at pin 681eadfb49bc detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "schwabauerbriantomas-gif--m2m-vector-search",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on edge-computing, embeddings, gaussian-splatting queries this for how schwabauerbriantomas-gif/m2m-vector-search implements it: Edge Vector search engine with Vulkan GPU acceleration, hierarchical indexing (HRM2), and native LangChain integration. Gaussian splat-based (selected work: src/m2m, bench, tests)",
+ "repos": [
+  {
+   "repo": "m2m-vector-search",
+   "url": "https://github.com/schwabauerbriantomas-gif/m2m-vector-search",
+   "sha": "90734e96c6f34a405d56c701dfcd9725a479f514",
+   "licence": "AGPL-3.0 (LICENSE file at pin 90734e96c6f3, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-12T17:13Z",
+    "consent_receipt": "f7a6f93753b1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T17:13Z (receipt f7a6f93753b1); selected commit 90734e96c6f3: \"feat(storage): SQ8DiskStore \u2014 modo comprimido opt-in (H13)\". LICENSE file at pin 90734e96c6f3 detected as AGPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

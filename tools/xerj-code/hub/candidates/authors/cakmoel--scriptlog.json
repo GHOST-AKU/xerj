@@ -1,0 +1,23 @@
+{
+ "corpus": "cakmoel--scriptlog",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on blog, blog-engine, blog-platform queries this for how cakmoel/Scriptlog implements it: Blog engine (selected work: lib/utility, lib/model, lib/core)",
+ "repos": [
+  {
+   "repo": "Scriptlog",
+   "url": "https://github.com/cakmoel/Scriptlog",
+   "sha": "2cf6ac95ca93cdd205895c72bb48ab6f2ce62f3a",
+   "licence": "MIT (LICENSE file at pin 2cf6ac95ca93, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T04:35Z",
+    "consent_receipt": "6843a9210d52",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T04:35Z (receipt 6843a9210d52); selected commit 2cf6ac95ca93: \"perf: dotenv cache, throttled scheduler, statement reuse, bounded ran\u2026\". LICENSE file at pin 2cf6ac95ca93 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "ad-astra-computing--ink",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-communication, agent-protocol, ai-agents queries this for how Ad-Astra-Computing/ink implements it: INK, the Inter-agent Networking Kernel. An open protocol for signed agent-to-agent messages (selected work: conformance, test, src/discovery)",
+ "repos": [
+  {
+   "repo": "ink",
+   "url": "https://github.com/Ad-Astra-Computing/ink",
+   "sha": "aa5bc263b6af84019fca88640353bfe0e0b1607b",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "efd0c10f5c09",
+    "note": "author consent by email 2026-10-21T02:39Z (receipt efd0c10f5c09); selected commit aa5bc263b6af: \"Decide agent card fetch on raw bytes, not a decoded string (#395)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

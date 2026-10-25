@@ -1,0 +1,23 @@
+{
+ "corpus": "alibaba--open-code-review",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent, code-review, code-review-assistant queries this for how alibaba/open-code-review implements it: Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precis (selected work: extensions, internal/llm)",
+ "repos": [
+  {
+   "repo": "open-code-review",
+   "url": "https://github.com/alibaba/open-code-review",
+   "sha": "f93ff155ddac3b22a9290cddc1645b91ca15eb2d",
+   "licence": "Apache-2.0 (LICENSE file at pin f93ff155ddac, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-06T00:56Z",
+    "consent_receipt": "b097527a11d4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T00:56Z (receipt b097527a11d4); selected commit f93ff155ddac: \"fix(extensions): generate provider catalogs from Go registry (#1212)\". LICENSE file at pin f93ff155ddac detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "vibex-ai--vibex",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on acp, ade, agents queries this for how vibex-ai/vibex implements it: Your agents. Your workspace. Your control\u2014from prompt to commit, desktop to mobile. Works with Codex, Claude Code, OpenCode, Pi, Grok, DeepS (selected work: apps/desktop)",
+ "repos": [
+  {
+   "repo": "vibex",
+   "url": "https://github.com/vibex-ai/vibex",
+   "sha": "49d28e21bd47014110b8f0cf340d643e336d8b5e",
+   "licence": "AGPL-3.0 (LICENSE file at pin 49d28e21bd47, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-12T10:16Z",
+    "consent_receipt": "1e93634c85d6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T10:16Z (receipt 1e93634c85d6); selected commit 49d28e21bd47: \"feat(desktop): give AI Souls distinct roaming boss encounters\". LICENSE file at pin 49d28e21bd47 detected as AGPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

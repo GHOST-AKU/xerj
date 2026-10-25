@@ -1,0 +1,23 @@
+{
+ "corpus": "kalybospro--frus",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Rust queries this for how KalybosPro/frus implements it: A cross-platform UI framework written entirely in Rust (selected work: crates/frus-widgets, crates/frus-demo, crates/frus-shell)",
+ "repos": [
+  {
+   "repo": "frus",
+   "url": "https://github.com/KalybosPro/frus",
+   "sha": "2f03c955b0d5fe55b2f1f325cb466b873dcab0a5",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "f860f44570b3",
+    "note": "author consent by email 2026-10-10T10:19Z (receipt f860f44570b3); selected commit 2f03c955b0d5: \"feat(widgets, shell): the menu bar is the window's, not a page's\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

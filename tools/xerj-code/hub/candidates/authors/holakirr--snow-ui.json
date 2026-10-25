@@ -1,0 +1,23 @@
+{
+ "corpus": "holakirr--snow-ui",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on react, reactjs, snow queries this for how holakirr/snow-ui implements it: SnowUI is a React component library designed by ByeWind, implemented and improved by holakirr for creating beautiful and interactive user in (selected work: apps/demo)",
+ "repos": [
+  {
+   "repo": "snow-ui",
+   "url": "https://github.com/holakirr/snow-ui",
+   "sha": "0bf336f468f13297d9d8ef2664f402e45defe38d",
+   "licence": "MIT (LICENSE file at pin 0bf336f468f1, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T10:48Z",
+    "consent_receipt": "6aa00391297f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T10:48Z (receipt 6aa00391297f); selected commit 0bf336f468f1: \"fix(demo): preserve overview axis label proportions (#227)\". LICENSE file at pin 0bf336f468f1 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

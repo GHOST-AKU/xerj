@@ -1,0 +1,23 @@
+{
+ "corpus": "aunysillyme--agent-personalizer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-onboarding, agents-md, ai-agents queries this for how aunysillyme/agent-personalizer implements it: AI custom instructions from approved entries: a profile and rules for Claude Code, Codex, Cursor, Gemini CLI and ChatGPT, kept in sync from  (selected work: bin, test, render)",
+ "repos": [
+  {
+   "repo": "agent-personalizer",
+   "url": "https://github.com/aunysillyme/agent-personalizer",
+   "sha": "a3b377a9684ba0eb6091e08a29671e0b8d504b01",
+   "licence": "MIT (LICENSE file at pin a3b377a9684b, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T07:49Z",
+    "consent_receipt": "bb7f31699874",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T07:49Z (receipt bb7f31699874); selected commit a3b377a9684b: \"0.8.0 candidate: learns from your sessions, no questionnaire\". LICENSE file at pin a3b377a9684b detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

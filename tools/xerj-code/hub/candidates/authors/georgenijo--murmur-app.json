@@ -1,0 +1,23 @@
+{
+ "corpus": "georgenijo--murmur-app",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how georgenijo/murmur-app implements it: georgenijo/murmur-app (Rust) (selected work: app/src, app/visual-tests)",
+ "repos": [
+  {
+   "repo": "murmur-app",
+   "url": "https://github.com/georgenijo/murmur-app",
+   "sha": "40a01d9b93c171600f9fd3e87d0e762b78fa7e60",
+   "licence": "MIT (LICENSE file at pin 40a01d9b93c1, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T02:22Z",
+    "consent_receipt": "e562c451b1a8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T02:22Z (receipt e562c451b1a8); selected commit 40a01d9b93c1: \"fix: stabilize window scrolling and streamline assistant rendering\". LICENSE file at pin 40a01d9b93c1 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

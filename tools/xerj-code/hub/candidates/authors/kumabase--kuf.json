@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how KumaBase/kuf implements it: Kuma Base Filer (selected work: src-tauri)",
+ "domain": "an agent working on Rust queries this for how KumaBase/kuf implements it: Kuma Base Filer (selected work: src-tauri)",
  "repos": [
   {
    "repo": "kuf",

@@ -1,0 +1,23 @@
+{
+ "corpus": "caciniep--slide-recipes",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on cjk, deck-generation, powerpoint queries this for how CacinieP/slide-recipes implements it: Editable PPTX + Markdown, AI outlines. China: https://slides.linguistwantstech.online/ | Global: https://slide-recipes-web.vercel.app/ (selected work: web)",
+ "repos": [
+  {
+   "repo": "slide-recipes",
+   "url": "https://github.com/CacinieP/slide-recipes",
+   "sha": "a253ec563955e12dde8b5fd0516a4be152246213",
+   "licence": "MIT (LICENSE file at pin a253ec563955, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T08:57Z",
+    "consent_receipt": "a27d4f050b78",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T08:57Z (receipt a27d4f050b78); selected commit a253ec563955: \"feat(web): add presets for ModelBest, StepFun, Kimi, Zhipu, MiniMax, \u2026\". LICENSE file at pin a253ec563955 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

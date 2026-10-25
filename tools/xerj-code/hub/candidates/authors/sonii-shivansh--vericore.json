@@ -1,0 +1,23 @@
+{
+ "corpus": "sonii-shivansh--vericore",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on contributions-welcome, kotlin, open-source queries this for how sonii-shivansh/Vericore implements it: Vericore is a verification layer for AI coding agents. Vericore verify that the AI agent changed what it was supposed to change (selected work: src/main, src/test, scripts)",
+ "repos": [
+  {
+   "repo": "Vericore",
+   "url": "https://github.com/sonii-shivansh/Vericore",
+   "sha": "e67591e788144236359679121b2dd235d7b9015a",
+   "licence": "MIT (LICENSE file at pin e67591e78814, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-05T15:15Z",
+    "consent_receipt": "0d4a195850e5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-05T15:15Z (receipt 0d4a195850e5); selected commit e67591e78814: \"fix(v1.0): harden release blockers\". LICENSE file at pin e67591e78814 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

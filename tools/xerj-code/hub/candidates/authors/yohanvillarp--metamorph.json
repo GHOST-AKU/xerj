@@ -1,0 +1,23 @@
+{
+ "corpus": "yohanvillarp--metamorph",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, automated-refactoring, cli queries this for how yohanvillarp/metamorph implements it: AI-powered CLI for automated code and framework migrations using autonomous multi-agent orchestration (selected work: packages/@nikelyh)",
+ "repos": [
+  {
+   "repo": "metamorph",
+   "url": "https://github.com/yohanvillarp/metamorph",
+   "sha": "78bde9347af157343d4211217c66adb6c9fc6885",
+   "licence": "GPL-3.0 (LICENSE file at pin 78bde9347af1, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-09T22:38Z",
+    "consent_receipt": "ea0a82b7c36e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T22:38Z (receipt ea0a82b7c36e); selected commit 78bde9347af1: \"feat(application): dynamically resolve entrypoint for start and dev s\u2026\". LICENSE file at pin 78bde9347af1 detected as GPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

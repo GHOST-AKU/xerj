@@ -1,0 +1,23 @@
+{
+ "corpus": "actix--actix-web",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on rust, web, web-development queries this for how actix/actix-web implements it: Actix Web is a powerful, pragmatic, and extremely fast web framework for Rust (selected work: actix-http)",
+ "repos": [
+  {
+   "repo": "actix-web",
+   "url": "https://github.com/actix/actix-web",
+   "sha": "41288cdd30582267a4b7f7507e478ee671c89a69",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "3d18f55e45b7",
+    "note": "author consent by email 2026-10-13T03:16Z (receipt 3d18f55e45b7); selected commit 41288cdd3058: \"fix(http): validate Host header in HTTP/1.1 requests (RFC 9112 \u00a73.2) \u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

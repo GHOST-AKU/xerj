@@ -1,0 +1,23 @@
+{
+ "corpus": "darshi1337--hermitlm",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-assistant, chatbot, llm queries this for how darshi1337/hermitlm implements it: A ~8M parameter LLM that talks like a tiny crab in an aquatic world. Runs in your browser, classifies intent in one forward pass (selected work: scripts, hermitlm, tests)",
+ "repos": [
+  {
+   "repo": "hermitlm",
+   "url": "https://github.com/darshi1337/hermitlm",
+   "sha": "3302f20517300d688487c888e94f87f8a9085fc3",
+   "licence": "MIT (LICENSE file at pin 3302f2051730, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T03:01Z",
+    "consent_receipt": "eca50020ae94",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T03:01Z (receipt eca50020ae94); selected commit 3302f2051730: \"Add probe decision model: intent classification + confused escalation\". LICENSE file at pin 3302f2051730 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

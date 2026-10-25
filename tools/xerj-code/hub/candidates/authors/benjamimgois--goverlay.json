@@ -1,0 +1,23 @@
+{
+ "corpus": "benjamimgois--goverlay",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Pascal queries this for how benjamimgois/goverlay implements it: Goverlay is an easy graphical interface to configure linux gaming applications (selected work: the project root, tests)",
+ "repos": [
+  {
+   "repo": "goverlay",
+   "url": "https://github.com/benjamimgois/goverlay",
+   "sha": "1e7284a695bc3e6097b37f4d10edc52515f72d27",
+   "licence": "GPL-3.0 (LICENSE file at pin 1e7284a695bc, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-11T23:05Z",
+    "consent_receipt": "9d2ebd75122a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T23:05Z (receipt 9d2ebd75122a); selected commit 1e7284a695bc: \"fix: download vkBasalt reshade shaders on startup and fix nix test co\u2026\". LICENSE file at pin 1e7284a695bc detected as GPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

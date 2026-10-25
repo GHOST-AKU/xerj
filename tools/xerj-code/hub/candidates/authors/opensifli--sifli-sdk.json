@@ -1,0 +1,23 @@
+{
+ "corpus": "opensifli--sifli-sdk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C queries this for how OpenSiFli/SiFli-SDK implements it: OpenSiFli/SiFli-SDK (C) (selected work: tools)",
+ "repos": [
+  {
+   "repo": "SiFli-SDK",
+   "url": "https://github.com/OpenSiFli/SiFli-SDK",
+   "sha": "22b220abb1d83dcdc3835484124e1fa35d6da532",
+   "licence": "Apache-2.0 (LICENSE file at pin 22b220abb1d8, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T05:17Z",
+    "consent_receipt": "667be0938133",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T05:17Z (receipt 667be0938133); selected commit 22b220abb1d8: \"[new][tools][crash_dump_analyser] Add script to dump psram data for 5\u2026\". LICENSE file at pin 22b220abb1d8 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

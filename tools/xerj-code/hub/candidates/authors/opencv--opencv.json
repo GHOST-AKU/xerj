@@ -1,0 +1,23 @@
+{
+ "corpus": "opencv--opencv",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on opencv, c-plus-plus, computer-vision queries this for how opencv/opencv implements it: Open Source Computer Vision Library (selected work: modules/dnn)",
+ "repos": [
+  {
+   "repo": "opencv",
+   "url": "https://github.com/opencv/opencv",
+   "sha": "78a5bba29d04736cff90f7f60d1a0d9c3aa1ff89",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "2c7c3cfaef08",
+    "note": "author consent by email 2026-10-22T08:57Z (receipt 2c7c3cfaef08); selected commit 78a5bba29d04: \"dnn(onnx): support bias and key_padding_mask in com.microsoft MultiHe\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

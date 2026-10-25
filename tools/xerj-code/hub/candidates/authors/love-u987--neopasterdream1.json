@@ -1,0 +1,23 @@
+{
+ "corpus": "love-u987--neopasterdream1",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how LOVE-U987/NeoPasterDream1 implements it: \u5e15\u65af\u7279\u4e4b\u68a6\u57281.21.1Neo\u4e0a\u7684\u91cd\u751f (selected work: PasterDream, libs)",
+ "repos": [
+  {
+   "repo": "NeoPasterDream1",
+   "url": "https://github.com/LOVE-U987/NeoPasterDream1",
+   "sha": "7f6d612c7db99a40805ef20c58bafa6340edae86",
+   "licence": "MIT (LICENSE file at pin 7f6d612c7db9, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T04:00Z",
+    "consent_receipt": "c5adc2c58e84",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T04:00Z (receipt c5adc2c58e84); selected commit 7f6d612c7db9: \"hotfix(worldgen): \u7075\u9b42\u77ff\u571f\u65e0\u6cd5\u6b63\u5e38\u751f\u6210\". LICENSE file at pin 7f6d612c7db9 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "notsurejr--constellation",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-writing, creative-writing, electron queries this for how Notsurejr/Constellation implements it: Local-first AI roleplay & fiction studio \u2014 lorebooks, a story chronicle, and a night sky that reacts to your prose (selected work: src/js, src/styles, the project root)",
+ "repos": [
+  {
+   "repo": "Constellation",
+   "url": "https://github.com/Notsurejr/Constellation",
+   "sha": "2739bb791c6ab3912daff18d3e2f4863e1a7ce31",
+   "licence": "MIT (LICENSE file at pin 2739bb791c6a, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T09:28Z",
+    "consent_receipt": "8bd7d1c88441",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:28Z (receipt 8bd7d1c88441); selected commit 2739bb791c6a: \"v0.9.0 \u2014 the thinking hand: reasoning steering, prefill drawer, exact\u2026\". LICENSE file at pin 2739bb791c6a detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

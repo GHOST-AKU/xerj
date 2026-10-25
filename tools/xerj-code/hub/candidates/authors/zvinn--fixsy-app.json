@@ -1,0 +1,23 @@
+{
+ "corpus": "zvinn--fixsy-app",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on home-services, leaflet, react queries this for how zvinn/fixsy-app implements it: Smart On-Demand Home Maintenance & Technician Marketplace powered by Multimodal AI Diagnosis, Vite 7, TypeScript 5, and Real-Time Geolocatio (selected work: src/pages, src/styles, src/components)",
+ "repos": [
+  {
+   "repo": "fixsy-app",
+   "url": "https://github.com/zvinn/fixsy-app",
+   "sha": "b2df72db91887fe98c7e82259343403a5f72a8cd",
+   "licence": "MIT (LICENSE file at pin b2df72db9188, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T10:45Z",
+    "consent_receipt": "12ce0975962c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T10:45Z (receipt 12ce0975962c); selected commit b2df72db9188: \"feat(ui): harmonize web design system with Flutter palette, gradients\u2026\". LICENSE file at pin b2df72db9188 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

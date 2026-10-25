@@ -1,0 +1,23 @@
+{
+ "corpus": "vooyajs--vooya",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on frontend, island, rust queries this for how vooyajs/vooya implements it: A Rust-first WASM islands runtime for existing JavaScript applications (selected work: packages/vite, packages/provider-rust, tests)",
+ "repos": [
+  {
+   "repo": "vooya",
+   "url": "https://github.com/vooyajs/vooya",
+   "sha": "7fe6eb1f2af4406d9876eeff355ad41e2859091f",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "3fcb9066dc24",
+    "note": "author consent by email 2026-10-12T04:58Z (receipt 3fcb9066dc24); selected commit 7fe6eb1f2af4: \"fix: recover Rust loads and preserve host integration behavior\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

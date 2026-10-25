@@ -1,0 +1,23 @@
+{
+ "corpus": "amir1387aht--microcs",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on arduino, bytecode, c99 queries this for how amir1387aht/MicroCS implements it: Modern C# for microcontrollers: a tiny C# compiler + bytecode VM in portable C99 (16 KB RAM, 64 KB flash). ESP32, RP2040/RP2350, STM32, nRF5 (selected work: tests, tools, modules/shell)",
+ "repos": [
+  {
+   "repo": "MicroCS",
+   "url": "https://github.com/amir1387aht/MicroCS",
+   "sha": "531185d3c301510508ed8d9249ccc4775db885ef",
+   "licence": "MIT (LICENSE file at pin 531185d3c301, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T06:33Z",
+    "consent_receipt": "0d866107d6d3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T06:33Z (receipt 0d866107d6d3); selected commit 531185d3c301: \"Console.ReadLine on devices, Studio input while running, file reload,\u2026\". LICENSE file at pin 531185d3c301 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

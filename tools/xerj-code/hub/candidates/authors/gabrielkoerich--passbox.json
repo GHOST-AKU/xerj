@@ -1,0 +1,23 @@
+{
+ "corpus": "gabrielkoerich--passbox",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on age-encryption, ai-agents, mcp queries this for how gabrielkoerich/passbox implements it: A password manager for AI agents. A fingerprint releases one secret into one process, not into the agent's context (selected work: src, tests, src/bin)",
+ "repos": [
+  {
+   "repo": "passbox",
+   "url": "https://github.com/gabrielkoerich/passbox",
+   "sha": "0f445d7bd3a4845258b5ff833e598f73649d4c57",
+   "licence": "MIT (LICENSE file at pin 0f445d7bd3a4, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T02:20Z",
+    "consent_receipt": "92ad3b85193e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T02:20Z (receipt 92ad3b85193e); selected commit 0f445d7bd3a4: \"fix: a prompt left open no longer blocks token reads or other connect\u2026\". LICENSE file at pin 0f445d7bd3a4 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

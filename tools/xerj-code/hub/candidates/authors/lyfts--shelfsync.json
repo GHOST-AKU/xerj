@@ -1,0 +1,23 @@
+{
+ "corpus": "lyfts--shelfsync",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on koreader-plugin queries this for how Lyfts/ShelfSync implements it: Synchronize KOReader reading progress to StoryGraph, Hardcover, Goodreads, Fable, and/or Pagebound (selected work: spec, shelfsync)",
+ "repos": [
+  {
+   "repo": "ShelfSync",
+   "url": "https://github.com/Lyfts/ShelfSync",
+   "sha": "3851c8b98577d906fa35b999639c77de2dd22a9b",
+   "licence": "MIT (LICENSE file at pin 3851c8b98577, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-06T16:06Z",
+    "consent_receipt": "6c51832e6cdc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T16:06Z (receipt 6c51832e6cdc); selected commit 3851c8b98577: \"Confirm status changes by default and keep Hardcover book privacy (#24)\". LICENSE file at pin 3851c8b98577 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

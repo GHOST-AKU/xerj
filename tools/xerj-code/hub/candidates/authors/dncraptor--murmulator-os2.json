@@ -1,0 +1,23 @@
+{
+ "corpus": "dncraptor--murmulator-os2",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C queries this for how DnCraptor/murmulator-os2 implements it: OS for Murmulator with RP2350 (selected work: api, apps/tcc, libs)",
+ "repos": [
+  {
+   "repo": "murmulator-os2",
+   "url": "https://github.com/DnCraptor/murmulator-os2",
+   "sha": "f1db4a76b91102494f5b6ff864909d4534666c35",
+   "licence": "GPL-3.0 (LICENSE file at pin f1db4a76b911, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-10T03:48Z",
+    "consent_receipt": "86091f4a7575",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T03:48Z (receipt 86091f4a7575); selected commit f1db4a76b911: \"+ tcc self-copile (in progress)\". LICENSE file at pin f1db4a76b911 detected as GPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

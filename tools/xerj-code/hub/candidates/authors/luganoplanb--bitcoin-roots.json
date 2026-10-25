@@ -1,0 +1,23 @@
+{
+ "corpus": "luganoplanb--bitcoin-roots",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on bitcoin, bitcoin-core, bitcoin-full-node queries this for how LuganoPlanB/bitcoin-roots implements it: Bitcoin node based on Core with selected policy features from Knots, provides reviewable patches and runnable builds (selected work: src/qt)",
+ "repos": [
+  {
+   "repo": "bitcoin-roots",
+   "url": "https://github.com/LuganoPlanB/bitcoin-roots",
+   "sha": "3b6d6ce87e5a3d8819dbc0ee399c9a45d31a93e6",
+   "licence": "MIT (LICENSE file at pin 3b6d6ce87e5a, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-06T04:26Z",
+    "consent_receipt": "ecd9fb4b1117",
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T04:26Z (receipt ecd9fb4b1117); selected commit 3b6d6ce87e5a: \"feat(qt): enhance privacy-aware coin control\". LICENSE file at pin 3b6d6ce87e5a detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

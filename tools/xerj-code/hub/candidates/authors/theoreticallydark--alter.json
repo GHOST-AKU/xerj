@@ -1,0 +1,23 @@
+{
+ "corpus": "theoreticallydark--alter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on design-system, flutter queries this for how theoreticallydark/alter implements it: A modern cross-platform design system built with Flutter & Figma (selected work: example, lib/mobile, test)",
+ "repos": [
+  {
+   "repo": "alter",
+   "url": "https://github.com/theoreticallydark/alter",
+   "sha": "253a8e229e6c02dba62844897f9a7a9c045a3234",
+   "licence": "MIT (LICENSE file at pin 253a8e229e6c, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T05:04Z",
+    "consent_receipt": "761312ddc58e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T05:04Z (receipt 761312ddc58e); selected commit 253a8e229e6c: \"ApplicationHeaderMobile is now under /mobile; Readme updated to showc\u2026\". LICENSE file at pin 253a8e229e6c detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

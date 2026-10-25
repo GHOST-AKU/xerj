@@ -1,0 +1,23 @@
+{
+ "corpus": "mjesbar--gladys",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, cross-platform, dictation queries this for how mjesbar/gladys implements it: Open Dictation Tool, cross-platform, no API required (selected work: src/modules, src/qml, src/assets)",
+ "repos": [
+  {
+   "repo": "gladys",
+   "url": "https://github.com/mjesbar/gladys",
+   "sha": "28be08d13b8c507e2bb70f95cc3de57e50d8b9cc",
+   "licence": "GPL-3.0 (LICENSE file at pin 28be08d13b8c, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-18T01:23Z",
+    "consent_receipt": "0a9f298fb541",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T01:23Z (receipt 0a9f298fb541); selected commit 28be08d13b8c: \"fix: modernize the ui framework from QtWidgets to QtQuick(QML)\". LICENSE file at pin 28be08d13b8c detected as GPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

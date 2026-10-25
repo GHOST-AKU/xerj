@@ -1,0 +1,23 @@
+{
+ "corpus": "hedanbaomi--mobile-agent-runtime",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Kotlin queries this for how hedanbaomi/mobile-agent-runtime implements it: hedanbaomi/mobile-agent-runtime (Kotlin) (selected work: app-android, feature)",
+ "repos": [
+  {
+   "repo": "mobile-agent-runtime",
+   "url": "https://github.com/hedanbaomi/mobile-agent-runtime",
+   "sha": "e62099961ac96f8b55796bbbd907e82799d05f99",
+   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "7fbb709e9157",
+    "note": "author consent by email 2026-10-10T09:06Z (receipt 7fbb709e9157); selected commit e62099961ac9: \"feat(chat): simplify citations and reply controls for preview 1.1.5.1\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

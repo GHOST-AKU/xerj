@@ -1,0 +1,23 @@
+{
+ "corpus": "aetna000--atmem",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent, ai-agent, auditability queries this for how aetna000/atmem implements it: Local-first, auditable memory for AI agents, with governed retrieval, delegated context delivery, and verifiable execution evidence. Works w (selected work: atmem, tests, tools)",
+ "repos": [
+  {
+   "repo": "atmem",
+   "url": "https://github.com/aetna000/atmem",
+   "sha": "3455de6bfd8fd255ffc46fa6c2402615342bcfa7",
+   "licence": "Apache-2.0 (LICENSE file at pin 3455de6bfd8f, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T02:42Z",
+    "consent_receipt": "b2be0161d872",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T02:42Z (receipt b2be0161d872); selected commit 3455de6bfd8f: \"feat: complete one-command Hermes integration\". LICENSE file at pin 3455de6bfd8f detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

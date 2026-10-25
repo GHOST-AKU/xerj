@@ -1,0 +1,23 @@
+{
+ "corpus": "plinkr--wild9recomp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on games, gaming, ps1 queries this for how plinkr/Wild9Recomp implements it: Native PC port of the classic PlayStation 1 title `Wild 9`, powered by static recompilation. Features true widescreen, high-resolution rende (selected work: src/mods, mods, the project root)",
+ "repos": [
+  {
+   "repo": "Wild9Recomp",
+   "url": "https://github.com/plinkr/Wild9Recomp",
+   "sha": "0f067ce36d327e07ab0c99f45423cc5ad536c3e8",
+   "licence": "MIT (LICENSE file at pin 0f067ce36d32, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T06:51Z",
+    "consent_receipt": "fcf266cd1ee2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T06:51Z (receipt fcf266cd1ee2); selected commit 0f067ce36d32: \"feat: add Rig overhead hover mod for stable grabbed object transport\". LICENSE file at pin 0f067ce36d32 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

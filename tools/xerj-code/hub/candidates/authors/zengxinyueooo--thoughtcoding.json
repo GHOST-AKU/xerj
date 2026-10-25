@@ -1,0 +1,23 @@
+{
+ "corpus": "zengxinyueooo--thoughtcoding",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Java queries this for how zengxinyueooo/ThoughtCoding implements it: \u652f\u6301\u547d\u4ee4\u884c\u7684 AI Agent \u7f16\u7a0b\u5de5\u5177 (selected work: src/main, src/test, the project root)",
+ "repos": [
+  {
+   "repo": "ThoughtCoding",
+   "url": "https://github.com/zengxinyueooo/ThoughtCoding",
+   "sha": "52f17b64d4ac05b0627ecdd5bc7342b507a14aec",
+   "licence": "Apache-2.0 (LICENSE file at pin 52f17b64d4ac, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T14:32Z",
+    "consent_receipt": "aacbc3548511",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T14:32Z (receipt aacbc3548511); selected commit 52f17b64d4ac: \"\u7edf\u4e00\u8bf7\u6c42\u9884\u7b97\u5e76\u4f18\u5316\u4efb\u52a1\u6536\u5c3e\". LICENSE file at pin 52f17b64d4ac detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

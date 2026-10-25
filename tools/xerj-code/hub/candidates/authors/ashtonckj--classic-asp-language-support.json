@@ -1,0 +1,23 @@
+{
+ "corpus": "ashtonckj--classic-asp-language-support",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on vscode, vscode-extension, classic-asp queries this for how ashtonckj/Classic-ASP-Language-Support implements it: Classic ASP & VBScript: formatter, IntelliSense, Go to Definition, Rename, error checking and syntax highlighting. For VS Code, and editors  (selected work: src/platform, src/test, src/core)",
+ "repos": [
+  {
+   "repo": "Classic-ASP-Language-Support",
+   "url": "https://github.com/ashtonckj/Classic-ASP-Language-Support",
+   "sha": "d885c03768f4f554b3be8a1ab849bf60d43c7769",
+   "licence": "MIT (LICENSE file at pin d885c03768f4, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T18:55Z",
+    "consent_receipt": "8f08e11f7a4f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T18:55Z (receipt 8f08e11f7a4f); selected commit d885c03768f4: \"feat: silences a problem with an asp-ignore-next-line or asp-ignore-f\u2026\". LICENSE file at pin d885c03768f4 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "santoshshinde2012--holdmap",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on cli, cross-platform, developer-tools queries this for how santoshshinde2012/holdmap implements it: See which ports, agents and tools are running, understand their connections, and stop the right thing safely. CLI, TUI, desktop and MCP serv (selected work: apps/desktop, crates/holdmap-core, crates/holdmap-mcp)",
+ "repos": [
+  {
+   "repo": "holdmap",
+   "url": "https://github.com/santoshshinde2012/holdmap",
+   "sha": "bb4f0e143ced39f72837efa2e7c00cc417054264",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "f83d7a7dce85",
+    "note": "author consent by email 2026-10-14T18:30Z (receipt f83d7a7dce85); selected commit bb4f0e143ced: \"fix: harden action safety and desktop window recovery (#42)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--sound-generation-via-vae",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/sound-generation-via-vae implements it: Creating sounds via VAE (selected work: logs, common, free_spoken_digit)",
+ "repos": [
+  {
+   "repo": "sound-generation-via-vae",
+   "url": "https://github.com/wajihullahbaig/sound-generation-via-vae",
+   "sha": "daf651617fe92e75186737e4c1754c4bf65ab465",
+   "licence": "Apache-2.0 (LICENSE file at pin daf651617fe9, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T06:06Z",
+    "consent_receipt": "b1a04ffb059d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T06:06Z (receipt b1a04ffb059d); selected commit daf651617fe9: \"Initialization bug removed, full pipeline test\". LICENSE file at pin daf651617fe9 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

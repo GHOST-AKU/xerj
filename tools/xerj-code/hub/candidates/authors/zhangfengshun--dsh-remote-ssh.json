@@ -1,0 +1,23 @@
+{
+ "corpus": "zhangfengshun--dsh-remote-ssh",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on deepseek, deepseek-harness, dsh queries this for how ZhangFengshun/dsh-remote-ssh implements it: DSH web plugin: VSCode Remote-SSH-like remote development (SSH, remote workspace, file explorer, integrated terminal) (selected work: tests, lib, the project root)",
+ "repos": [
+  {
+   "repo": "dsh-remote-ssh",
+   "url": "https://github.com/ZhangFengshun/dsh-remote-ssh",
+   "sha": "210a73263435be75fde497c2fb8e27344cbf11af",
+   "licence": "MIT (LICENSE file at pin 210a73263435, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T10:12Z",
+    "consent_receipt": "9d53c5086ca8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T10:12Z (receipt 9d53c5086ca8); selected commit 210a73263435: \"2.4.19: put first-hand evidence first in auth failures (missing priva\u2026\". LICENSE file at pin 210a73263435 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

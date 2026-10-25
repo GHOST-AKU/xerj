@@ -1,0 +1,23 @@
+{
+ "corpus": "mt25mb--sunny",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on accessibility, ai-assistant-free, ai-assistant-offline queries this for how MT25MB/Sunny implements it: An accessible desktop AI assistant built for older adults featuring high-contrast visuals, text-to-speech alerts, verified web recipe search (selected work: src, src/electron, src/renderer)",
+ "repos": [
+  {
+   "repo": "Sunny",
+   "url": "https://github.com/MT25MB/Sunny",
+   "sha": "27ab684d3ae9813b1e1061b81c84566df88c2325",
+   "licence": "MIT (LICENSE file at pin 27ab684d3ae9, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T19:51Z",
+    "consent_receipt": "ae0ff6090e31",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T19:51Z (receipt ae0ff6090e31); selected commit 27ab684d3ae9: \"feat: implement senior-focused features - recipe fetcher, cooking mod\u2026\". LICENSE file at pin 27ab684d3ae9 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

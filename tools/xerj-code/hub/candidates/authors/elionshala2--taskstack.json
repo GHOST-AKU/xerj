@@ -1,0 +1,23 @@
+{
+ "corpus": "elionshala2--taskstack",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on PHP queries this for how elionshala2/TaskStack implements it: TaskStack is a free task manager, add tasks, set priorities and deadlines, and get email reminders before you fall behind (selected work: the project root, includes, tasks)",
+ "repos": [
+  {
+   "repo": "TaskStack",
+   "url": "https://github.com/elionshala2/TaskStack",
+   "sha": "de0e2d775033cea66cb18d8db15902632fdbe754",
+   "licence": "GPL-3.0 (LICENSE file at pin de0e2d775033, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-20T19:02Z",
+    "consent_receipt": "51fa2a998e8f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T19:02Z (receipt 51fa2a998e8f); selected commit de0e2d775033: \"Formatted\". LICENSE file at pin de0e2d775033 detected as GPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

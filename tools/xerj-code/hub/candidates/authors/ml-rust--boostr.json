@@ -1,0 +1,23 @@
+{
+ "corpus": "ml-rust--boostr",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on artificial-intelligence, llm, machine-learning queries this for how ml-rust/boostr implements it: ML primitives for you to build your own AI/ML framework. Built on numr (selected work: src/model, the project root)",
+ "repos": [
+  {
+   "repo": "boostr",
+   "url": "https://github.com/ml-rust/boostr",
+   "sha": "b68174d8c39f898038e91c020c46ed61750b9193",
+   "licence": "Apache-2.0 (LICENSE file at pin b68174d8c39f, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T20:58Z",
+    "consent_receipt": "f900c91654de",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T20:58Z (receipt f900c91654de); selected commit b68174d8c39f: \"feat(model/audio): add CLAP audio and text towers behind a clap gate\". LICENSE file at pin b68174d8c39f detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

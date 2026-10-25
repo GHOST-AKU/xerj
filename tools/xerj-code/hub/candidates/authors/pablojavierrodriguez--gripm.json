@@ -1,0 +1,23 @@
+{
+ "corpus": "pablojavierrodriguez--gripm",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how pablojavierrodriguez/gripm implements it: Agile engineering & Product Management cockpit for AI pair programming: Markdown-backed backlog, MCP server and CLI for developers and auton (selected work: bin, server, scripts)",
+ "repos": [
+  {
+   "repo": "gripm",
+   "url": "https://github.com/pablojavierrodriguez/gripm",
+   "sha": "a9315ed2e6a31c73a644a49ff3bbea9dc2318864",
+   "licence": "MIT (LICENSE file at pin a9315ed2e6a3, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T04:12Z",
+    "consent_receipt": "3cdbea34345b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T04:12Z (receipt 3cdbea34345b); selected commit a9315ed2e6a3: \"feat(security): blindaje integral, loopback ipv6, gatekeeper hardened\u2026\". LICENSE file at pin a9315ed2e6a3 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

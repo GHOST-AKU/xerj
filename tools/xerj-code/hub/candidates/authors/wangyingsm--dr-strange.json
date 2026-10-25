@@ -1,0 +1,23 @@
+{
+ "corpus": "wangyingsm--dr-strange",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on Rust queries this for how wangyingsm/dr-strange implements it: An AI-native embedded graph database, written in Rust (selected work: crates/dr-strange-llm, crates/dr-strange-core)",
+ "repos": [
+  {
+   "repo": "dr-strange",
+   "url": "https://github.com/wangyingsm/dr-strange",
+   "sha": "9b318094f809a1efe333a25ba654d1ec58906f9d",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "f91f0a3d7aba",
+    "note": "author consent by email 2026-10-14T15:30Z (receipt f91f0a3d7aba); selected commit 9b318094f809: \"feat(llm,core): a plane says when the installed plugins no longer mat\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

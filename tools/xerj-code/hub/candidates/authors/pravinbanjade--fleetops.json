@@ -1,0 +1,23 @@
+{
+ "corpus": "pravinbanjade--fleetops",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on container-management, container-orchestration, devops queries this for how pravinbanjade/fleetops implements it: A fast, live web UI for Docker and Kubernetes, in one small self-hosted binary (selected work: the project root, scripts, crates/fleetops-api)",
+ "repos": [
+  {
+   "repo": "fleetops",
+   "url": "https://github.com/pravinbanjade/fleetops",
+   "sha": "8735602d6d13b8caba297b8a2dcafdb9ea0e658e",
+   "licence": "Apache-2.0 (LICENSE file at pin 8735602d6d13, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T03:57Z",
+    "consent_receipt": "4a652a725020",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T03:57Z (receipt 4a652a725020); selected commit 8735602d6d13: \"build: Community and Enterprise builds, images, boundary guard, EE e2\u2026\". LICENSE file at pin 8735602d6d13 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

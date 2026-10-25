@@ -1,0 +1,23 @@
+{
+ "corpus": "jadakeel--agent-mcp-bridge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how jadAkeel/Agent_MCP-Bridge implements it: jadAkeel/Agent_MCP-Bridge (JavaScript) (selected work: tests, bin, lib)",
+ "repos": [
+  {
+   "repo": "Agent_MCP-Bridge",
+   "url": "https://github.com/jadAkeel/Agent_MCP-Bridge",
+   "sha": "64231350623867e5406a0d2597482eec0064f544",
+   "licence": "ISC (LICENSE file at pin 642313506238, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "ISC",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T19:58Z",
+    "consent_receipt": "6a6a2d8ba831",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T19:58Z (receipt 6a6a2d8ba831); selected commit 642313506238: \"feat(bridge): ship packaged delegation and marketplace tooling\". LICENSE file at pin 642313506238 detected as ISC by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

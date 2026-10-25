@@ -1,0 +1,23 @@
+{
+ "corpus": "bmc-toolbox--bmclib",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on bmc, supermicro, dell queries this for how bmc-toolbox/bmclib implements it: Library to abstract Baseboard Management Controller interactions (selected work: providers, bmc, internal/redfishwrapper)",
+ "repos": [
+  {
+   "repo": "bmclib",
+   "url": "https://github.com/bmc-toolbox/bmclib",
+   "sha": "2e99cf75e04cd388eb070945559186a8effa2f9a",
+   "licence": "Apache-2.0 (LICENSE file at pin 2e99cf75e04c, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T07:16Z",
+    "consent_receipt": "d5252cbca7ec",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T07:16Z (receipt d5252cbca7ec); selected commit 2e99cf75e04c: \"refactor: name the chassis power API after the Chassis resource\". LICENSE file at pin 2e99cf75e04c detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

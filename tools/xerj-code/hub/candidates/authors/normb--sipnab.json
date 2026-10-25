@@ -1,0 +1,23 @@
+{
+ "corpus": "normb--sipnab",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on packet-analysis, pcap, rtp queries this for how NormB/sipnab implements it: SIP & RTP capture, analysis, and security tool. One binary, one dependency (libpcap), built in Rust (selected work: src/capture, tests, src)",
+ "repos": [
+  {
+   "repo": "sipnab",
+   "url": "https://github.com/NormB/sipnab",
+   "sha": "cb629cffaec03ad9d15d8a501221d885356638f5",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "754246d52e1b",
+    "note": "author consent by email 2026-10-05T20:12Z (receipt 754246d52e1b); selected commit cb629cffaec0: \"Land the HEP agent work: RTCP that HOMER stores, store-and-forward se\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}

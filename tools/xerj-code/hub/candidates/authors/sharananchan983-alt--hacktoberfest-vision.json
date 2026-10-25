@@ -1,0 +1,23 @@
+{
+ "corpus": "sharananchan983-alt--hacktoberfest-vision",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how sharananchan983-alt/Hacktoberfest_vision implements it: sharananchan983-alt/Hacktoberfest_vision (Python) (selected work: commitwise, the project root, scripts)",
+ "repos": [
+  {
+   "repo": "Hacktoberfest_vision",
+   "url": "https://github.com/sharananchan983-alt/Hacktoberfest_vision",
+   "sha": "c3add237c7e61b9bde5576b23530657d2421d25a",
+   "licence": "MIT (LICENSE file at pin c3add237c7e6, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T10:35Z",
+    "consent_receipt": "c541d614b1df",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T10:35Z (receipt c541d614b1df); selected commit c3add237c7e6: \"push\". LICENSE file at pin c3add237c7e6 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

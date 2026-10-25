@@ -1,0 +1,23 @@
+{
+ "corpus": "basedyuki--vnpresence",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on discord, discord-rpc, python queries this for how BasedYuki/vnpresence implements it: Show the visual novel you're reading on Discord - cover art, title, and elapsed time, automatically (selected work: src/vnpresence, tests)",
+ "repos": [
+  {
+   "repo": "vnpresence",
+   "url": "https://github.com/BasedYuki/vnpresence",
+   "sha": "afa1b452ab11c4ed5580f20a2a4cbf87bc01ad07",
+   "licence": "MIT (LICENSE file at pin afa1b452ab11, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T20:57Z",
+    "consent_receipt": "be537a919710",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T20:57Z (receipt be537a919710); selected commit afa1b452ab11: \"v0.18.0: bug fixes\". LICENSE file at pin afa1b452ab11 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

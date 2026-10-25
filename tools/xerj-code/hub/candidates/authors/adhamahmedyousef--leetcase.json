@@ -1,0 +1,23 @@
+{
+ "corpus": "adhamahmedyousef--leetcase",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how adhamahmedyousef/LeetCase implements it: Open-source Chrome extension that formats and copies LeetCode testcases for C++ by VoidHub (selected work: tests, extension, scripts)",
+ "repos": [
+  {
+   "repo": "LeetCase",
+   "url": "https://github.com/adhamahmedyousef/LeetCase",
+   "sha": "194f43cbbe2ab36f8b0204e95b78b2d1678491a1",
+   "licence": "MIT (LICENSE file at pin 194f43cbbe2a, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T05:26Z",
+    "consent_receipt": "e7c89a4768ad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T05:26Z (receipt e7c89a4768ad); selected commit 194f43cbbe2a: \"Add Java support and Python input colors\". LICENSE file at pin 194f43cbbe2a detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

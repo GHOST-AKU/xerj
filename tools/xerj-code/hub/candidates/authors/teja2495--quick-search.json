@@ -1,0 +1,23 @@
+{
+ "corpus": "teja2495--quick-search",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Kotlin queries this for how teja2495/quick-search implements it: Universal search app for Android which can search apps, shortcuts, contacts, files, calendar events, notes, settings and the internet (selected work: app/src)",
+ "repos": [
+  {
+   "repo": "quick-search",
+   "url": "https://github.com/teja2495/quick-search",
+   "sha": "23091b5d5cce59143faedc40532924615dc045cb",
+   "licence": "MIT (LICENSE file at pin 23091b5d5cce, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T13:41Z",
+    "consent_receipt": "6fd56fd659f1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T13:41Z (receipt 6fd56fd659f1); selected commit 23091b5d5cce: \"update review and update prompts\". LICENSE file at pin 23091b5d5cce detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

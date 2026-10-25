@@ -1,0 +1,23 @@
+{
+ "corpus": "forgebuilds--forgehq",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on hq, main, website queries this for how ForgeBuilds/ForgeHQ implements it: Main HQ (selected work: components, src/lib, the project root)",
+ "repos": [
+  {
+   "repo": "ForgeHQ",
+   "url": "https://github.com/ForgeBuilds/ForgeHQ",
+   "sha": "c8b27951ac3e60388700c6ba6568d473e0bbcd11",
+   "licence": "MIT (LICENSE file at pin c8b27951ac3e, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T02:30Z",
+    "consent_receipt": "48d5821b3eb1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T02:30Z (receipt 48d5821b3eb1); selected commit c8b27951ac3e: \"Changes : changes to the legal papers\". LICENSE file at pin c8b27951ac3e detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

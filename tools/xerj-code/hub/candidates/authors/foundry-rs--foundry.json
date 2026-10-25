@@ -1,0 +1,23 @@
+{
+ "corpus": "foundry-rs--foundry",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on rust, solidity, evm queries this for how foundry-rs/foundry implements it: Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust (selected work: crates/cast, crates/common)",
+ "repos": [
+  {
+   "repo": "foundry",
+   "url": "https://github.com/foundry-rs/foundry",
+   "sha": "c7d7599a99710c833b303ff6fba7890c5eb1c866",
+   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "UNREVIEWED",
+    "by": "",
+    "at": "",
+    "consent_receipt": "0454cedded59",
+    "note": "author consent by email 2026-10-12T23:15Z (receipt 0454cedded59); selected commit c7d7599a9971: \"fix(cast): match --proxy and immutables in storage (#17383)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+   }
+  }
+ ]
+}
