@@ -15,8 +15,7 @@
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T04:40Z",
-    "consent_receipt": "8a91bdd0bcdc",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T04:40Z (receipt 8a91bdd0bcdc); selected commit 893893590f82: \"Avoid redundant EPUB reprocessing\". LICENSE file at pin 893893590f82 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T04:40Z; selected commit 893893590f82: \"Avoid redundant EPUB reprocessing\". LICENSE file at pin 893893590f82 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution. The author's recorded condition: licence/attribution must travel with the code."
    }
   }
  ]

@@ -15,8 +15,7 @@
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-12T02:35Z",
-    "consent_receipt": "5cecb4d25082",
-    "note": "Inclusion consented by the commit author by email at 2026-10-12T02:35Z (receipt 5cecb4d25082); selected commit b8a875b881d4: \"\ud83d\udc1b fix(auth): restore automatic token login\". LICENSE file at pin b8a875b881d4 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T02:35Z; selected commit b8a875b881d4: \"\ud83d\udc1b fix(auth): restore automatic token login\". LICENSE file at pin b8a875b881d4 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
    }
   }
  ]

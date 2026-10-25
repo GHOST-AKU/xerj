@@ -9,14 +9,13 @@
    "repo": "agora",
    "url": "https://github.com/vinimoz/agora",
    "sha": "41045ee210ddeaf0777476c99d7abc9bcfaf40b5",
-   "licence": "AGPL-3.0 (LICENSE file at pin 41045ee210dd, GitHub licence API 2026-10-25)",
+   "licence": "AGPL-3.0 (COPYING file at pin 41045ee210dd, GitHub licence API 2026-10-25)",
    "review": {
     "spdx": "AGPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-06T17:55Z",
-    "consent_receipt": "cba0b60928e7",
-    "note": "Inclusion consented by the commit author by email at 2026-10-06T17:55Z (receipt cba0b60928e7); selected commit 41045ee210dd: \"v1.7.13\". LICENSE file at pin 41045ee210dd detected as AGPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T17:55Z; selected commit 41045ee210dd: \"v1.7.13\". COPYING file at pin 41045ee210dd detected as AGPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
    }
   }
  ]

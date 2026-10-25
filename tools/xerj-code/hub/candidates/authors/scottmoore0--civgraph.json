@@ -15,8 +15,7 @@
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T21:11Z",
-    "consent_receipt": "0f51716a882a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T21:11Z (receipt 0f51716a882a); selected commit 99ae3d769b6c: \"Redesign the Election Trends chart and restyle the election pane tables\". LICENSE file at pin 99ae3d769b6c detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T21:11Z; selected commit 99ae3d769b6c: \"Redesign the Election Trends chart and restyle the election pane tables\". LICENSE file at pin 99ae3d769b6c detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
    }
   }
  ]

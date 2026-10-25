@@ -15,8 +15,7 @@
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T04:11Z",
-    "consent_receipt": "568717b37f21",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T04:11Z (receipt 568717b37f21); selected commit e0306266af11: \"feat: describe indexed document in router prompt and add evaluation s\u2026\". LICENSE file at pin e0306266af11 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T04:11Z; selected commit e0306266af11: \"feat: describe indexed document in router prompt and add evaluation s\u2026\". LICENSE file at pin e0306266af11 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
    }
   }
  ]

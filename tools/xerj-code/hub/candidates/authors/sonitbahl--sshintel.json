@@ -15,8 +15,7 @@
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-16T14:29Z",
-    "consent_receipt": "32df23859544",
-    "note": "Inclusion consented by the commit author by email at 2026-10-16T14:29Z (receipt 32df23859544); selected commit 43eaa32d95ac: \"fix(concurrency): drain SSH workers on shutdown and bound authentication\". LICENSE file at pin 43eaa32d95ac detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T14:29Z; selected commit 43eaa32d95ac: \"fix(concurrency): drain SSH workers on shutdown and bound authentication\". LICENSE file at pin 43eaa32d95ac detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
    }
   }
  ]

@@ -15,8 +15,7 @@
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-11T18:03Z",
-    "consent_receipt": "9c001b73b044",
-    "note": "Inclusion consented by the commit author by email at 2026-10-11T18:03Z (receipt 9c001b73b044); selected commit 571f1194b814: \"Upgrade Prometheus-Grafana stack\". LICENSE file at pin 571f1194b814 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T18:03Z; selected commit 571f1194b814: \"Upgrade Prometheus-Grafana stack\". LICENSE file at pin 571f1194b814 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
    }
   }
  ]

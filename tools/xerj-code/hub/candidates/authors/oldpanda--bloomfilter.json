@@ -15,8 +15,7 @@
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-09T20:05Z",
-    "consent_receipt": "2ce30ec89bc6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-09T20:05Z (receipt 2ce30ec89bc6); selected commit 876620dafe33: \"fix: address medium-priority security findings (#27)\". LICENSE file at pin 876620dafe33 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T20:05Z; selected commit 876620dafe33: \"fix: address medium-priority security findings (#27)\". LICENSE file at pin 876620dafe33 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
    }
   }
  ]

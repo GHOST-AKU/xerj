@@ -15,8 +15,7 @@
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-17T14:45Z",
-    "consent_receipt": "d4a390a14c80",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T14:45Z (receipt d4a390a14c80); selected commit dbdc3f4cc4cf: \"feat: start minimized to system tray, comprehensive defensive shell s\u2026\". LICENSE file at pin dbdc3f4cc4cf detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T14:45Z; selected commit dbdc3f4cc4cf: \"feat: start minimized to system tray, comprehensive defensive shell s\u2026\". LICENSE file at pin dbdc3f4cc4cf detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
    }
   }
  ]

@@ -15,8 +15,7 @@
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T02:38Z",
-    "consent_receipt": "a6531bd3c9a7",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T02:38Z (receipt a6531bd3c9a7); selected commit 85770c2fb8a6: \"fix(xiaohongshu): \u4fee\u6b63\u767b\u5f55\u8df3\u8f6c\u8bef\u62a5\u5e76\u652f\u6301\u53ef\u9009 Cookie \u4f1a\u8bdd\". LICENSE file at pin 85770c2fb8a6 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T02:38Z; selected commit 85770c2fb8a6: \"fix(xiaohongshu): \u4fee\u6b63\u767b\u5f55\u8df3\u8f6c\u8bef\u62a5\u5e76\u652f\u6301\u53ef\u9009 Cookie \u4f1a\u8bdd\". LICENSE file at pin 85770c2fb8a6 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
    }
   }
  ]

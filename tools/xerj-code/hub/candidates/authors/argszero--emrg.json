@@ -15,8 +15,7 @@
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-10T11:55Z",
-    "consent_receipt": "2082ebf8a1e8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T11:55Z (receipt 2082ebf8a1e8); selected commit ee3e317d6f4b: \"emrg: compacts trim the retained tail to the gate's budget (#1993)\". LICENSE file at pin ee3e317d6f4b detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T11:55Z; selected commit ee3e317d6f4b: \"emrg: compacts trim the retained tail to the gate's budget (#1993)\". LICENSE file at pin ee3e317d6f4b detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
    }
   }
  ]

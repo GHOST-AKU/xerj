@@ -3,20 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on cli, composer, dependency-confusion queries this for how omni-line/omni-audit implements it: \ud83d\udee1\ufe0f A fast, zero-config CLI to audit your projects for Dependency Confusion and supply chain risks across multiple registries. Backed by Omni (selected work: internal/scan, internal/registry, internal/lockfile)",
+ "domain": "an agent working on cli, composer, dependency-confusion queries this for how omni-line/omni-audit implements it: \ud83d\udee1\ufe0f A fast, zero-config CLI to audit your projects for Dependency Confusion and supply chain risks across multiple registries. Backed by Omni (selected work: internal/report, internal/cli)",
  "repos": [
   {
    "repo": "omni-audit",
    "url": "https://github.com/omni-line/omni-audit",
-   "sha": "a5e7606c813c69f645a86e5aa76675625e0c7e08",
-   "licence": "MIT (LICENSE file at pin a5e7606c813c, GitHub licence API 2026-10-25)",
+   "sha": "fbe2ace2b593a6281de335e648d10fd291c78502",
+   "licence": "MIT (LICENSE file at pin fbe2ace2b593, GitHub licence API 2026-10-24)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
-    "at": "2026-10-10T09:46Z",
-    "consent_receipt": "347ef4496fd2",
-    "note": "Inclusion consented by the commit author by email at 2026-10-10T09:46Z (receipt 347ef4496fd2); selected commit a5e7606c813c: \"Harden scan I/O, URL redaction, and release assurance for v0.7.1\". LICENSE file at pin a5e7606c813c detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+    "at": "2026-10-22T11:33Z",
+    "consent_receipt": "1715ee48ac94",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T11:33Z (receipt 1715ee48ac94); selected commit fbe2ace2b593: \"report, cli: malicious findings in text and SARIF (OA004), --no-malic\u2026\". LICENSE file at pin fbe2ace2b593 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
    }
   }
  ]
