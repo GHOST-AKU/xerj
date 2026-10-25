@@ -278,8 +278,8 @@ fn degrade_search_fanout_inline(message: &str) {
 ///
 /// `use_current_thread` does not enter the worker loop, so without the
 /// `yield_now` poll a `par_iter` from any other thread waits forever.
-/// The 10 ms idle sleep is only taken when the pool could not be started
-/// at all; a healthy node never calls this.
+/// The 10 ms sleep runs only when that poll found no job. If `build_global`
+/// fails, this returns before the loop. A healthy node never calls this.
 fn occupy_global_pool(tx: std::sync::mpsc::Sender<Result<(), String>>) {
     match ThreadPoolBuilder::new()
         .num_threads(1)
