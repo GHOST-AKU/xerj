@@ -43,6 +43,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `xerj autoindex remove --root` also deletes indices an aborted or failed
+  build of that folder left behind when the build never wrote a catalog run.
+  The resume journal names the folder and the index names; a catalog walk
+  cannot see them. A cataloged index is left in place — the working copy the
+  abort preserved, and any index another folder still names. `xerj autoindex
+  status` marks a live leftover of any prefix `ORPHAN` and prints the remove
+  command
+  ([#2391](https://github.com/xerj-org/xerj/issues/2391)).
+
 - MCP calls to a loopback node (`127.0.0.1`, `localhost`, `::1`) no longer
   follow `ALL_PROXY`, `HTTP_PROXY`, or `HTTPS_PROXY`. reqwest sends those
   addresses through the proxy unless the client opts out, so a socks or HTTP
