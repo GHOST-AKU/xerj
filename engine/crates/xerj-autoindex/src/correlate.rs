@@ -70,14 +70,6 @@ impl KeyCorr {
     }
 }
 
-/// Key-like candidate filter. Deviations from the design draft (recorded):
-/// - keyword fields qualify at cardinality ≥ 20 regardless of distinct/n
-///   ratio (join keys like user ids have LOW sample ratios in big datasets);
-/// - numeric fields need ratio ≥ 0.5 AND must not look like a LOCAL ordinal
-///   or measurement: a dense integer set anchored near zero (auto-increment
-///   row ids, token counts, latencies) carries no cross-dataset identity and
-///   overlaps everything shaped like it. Business identifiers (e.g. ids
-///   starting at 500000) survive the guard.
 /// What end-of-run key correlation needs from one sampled field, kept in
 /// place of the field's full phase-A accumulator.
 #[derive(Debug, Clone, PartialEq)]
@@ -162,6 +154,14 @@ pub fn candidates(stats: &KeyStats, datasets: &[crate::state::PlanDataset]) -> V
     cands
 }
 
+/// Key-like candidate filter. Deviations from the design draft (recorded):
+/// - keyword fields qualify at cardinality ≥ 20 regardless of distinct/n
+///   ratio (join keys like user ids have LOW sample ratios in big datasets);
+/// - numeric fields need ratio ≥ 0.5 AND must not look like a LOCAL ordinal
+///   or measurement: a dense integer set anchored near zero (auto-increment
+///   row ids, token counts, latencies) carries no cross-dataset identity and
+///   overlaps everything shaped like it. Business identifiers (e.g. ids
+///   starting at 500000) survive the guard.
 pub fn is_candidate(
     es_type: &str,
     entity: Option<&str>,
