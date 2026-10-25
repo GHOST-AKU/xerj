@@ -223,37 +223,86 @@ fn global_pool_already_initialized(err: &rayon::ThreadPoolBuildError) -> bool {
 }
 
 /// Fan-out that goes through [`search_fanout`] must not touch the global
-/// pool. Occupy the once-only init with a spawn-free one-thread pool when
-/// this thread is not already a worker, so a later bare `par_iter` does not
-/// fall through to `std::thread::Builder` (that child panics, and
-/// `panic = "abort"` kills the node).
+/// pool. Occupy the once-only init on a fallback thread that keeps
+/// pulling work, so a later bare `par_iter` does not fall through to
+/// `std::thread::Builder` (that child panics, and `panic = "abort"` kills
+/// the node) and does not wait forever for a worker loop that never starts.
 ///
-/// That occupying pool does not run a worker loop (rayon-core 1.13
-/// `Registry::new`, the `use_current_thread` arm). A bare `par_iter` on
-/// some other thread injects into it and waits. Search, aggregation,
-/// full-text build, and the `xerj index` scan go through [`search_fanout`]
-/// or the full-text helper, which build their own calling-thread pool.
-/// A bare `par_iter` added later can still hang that caller.
+/// Occupying the global pool on *this* thread and returning would mark it
+/// as the only worker and then leave the worker loop (rayon-core 1.13
+/// `Registry::new`, the `use_current_thread` arm). A later `par_iter` on
+/// any other thread injects into that pool and waits forever
+/// (`Registry::in_worker_cold`). Search, aggregation, full-text build, and
+/// the `xerj index` scan go through [`search_fanout`] or the full-text
+/// helper. A missed `par_iter` is run by a fallback thread that stays in
+/// [`rayon::yield_now`], so the wait has a worker. If that thread cannot
+/// be started, the registry is left alone: the missed iterator can still
+/// abort, and it does not wedge every caller.
 fn degrade_search_fanout_inline(message: &str) {
     xerj_common::thread_spawn::set_parallelism_inline(true);
     tracing::error!("{message}");
-    if rayon::current_thread_index().is_some() {
-        // This thread is already a worker of some pool. `build_global`
-        // with `use_current_thread` would fail and, if it were the first
-        // init, leave the registry empty. Leave the once alone.
-        return;
+    let (tx, rx) = std::sync::mpsc::channel();
+    // Not `std::thread::Builder`: that panics in the child when the
+    // alternate signal stack cannot be mapped, which is the failure this
+    // path exists for. 8 MiB matches the in-process shard stack; the
+    // fallback thread executes injected jobs on its own stack.
+    match xerj_common::thread_spawn::spawn_detached(
+        "xerj-search-inline",
+        Some(8 * 1024 * 1024),
+        move || occupy_global_pool(tx),
+    ) {
+        Ok(()) => match rx.recv_timeout(std::time::Duration::from_secs(2)) {
+            Ok(Ok(())) => {}
+            Ok(Err(err)) => tracing::error!(
+                "could not occupy rayon's global pool ({err}); a parallel iterator that does \
+                 not go through search fan-out can still abort the process (#1122)"
+            ),
+            Err(std::sync::mpsc::RecvTimeoutError::Timeout) => tracing::error!(
+                "timed out waiting for the search-pool fallback thread; a parallel iterator \
+                 that does not go through search fan-out can still abort or wait (#1122)"
+            ),
+            Err(std::sync::mpsc::RecvTimeoutError::Disconnected) => tracing::error!(
+                "the search-pool fallback thread ended before occupying rayon's global pool; \
+                 a parallel iterator that does not go through search fan-out can still abort \
+                 the process (#1122)"
+            ),
+        },
+        Err(err) => tracing::error!(
+            "could not start a thread to occupy rayon's global pool ({err}); a parallel \
+             iterator that does not go through search fan-out can still abort the process (#1122)"
+        ),
     }
+}
+
+/// Become rayon's one global worker and keep pulling injected jobs.
+///
+/// `use_current_thread` does not enter the worker loop, so without the
+/// `yield_now` poll a `par_iter` from any other thread waits forever.
+/// The 10 ms idle sleep is only taken when the pool could not be started
+/// at all; a healthy node never calls this.
+fn occupy_global_pool(tx: std::sync::mpsc::Sender<Result<(), String>>) {
     match ThreadPoolBuilder::new()
         .num_threads(1)
         .use_current_thread()
         .build_global()
     {
-        Ok(()) => {}
-        Err(err) if global_pool_already_initialized(&err) => {}
-        Err(err) => tracing::error!(
-            "could not occupy rayon's global pool without spawning ({err}); a parallel \
-             iterator that does not go through search fan-out can still abort the process (#1122)"
-        ),
+        Ok(()) => {
+            let _ = tx.send(Ok(()));
+        }
+        Err(err) if global_pool_already_initialized(&err) => {
+            let _ = tx.send(Ok(()));
+            return;
+        }
+        Err(err) => {
+            let _ = tx.send(Err(err.to_string()));
+            return;
+        }
+    }
+    loop {
+        match rayon::yield_now() {
+            Some(rayon::Yield::Executed) => {}
+            _ => std::thread::sleep(std::time::Duration::from_millis(10)),
+        }
     }
 }
 
@@ -670,5 +719,80 @@ mod tests {
         assert_eq!(sum, (0..64u32).sum::<u32>());
         assert!(on_caller);
         assert_eq!(width, 1);
+    }
+
+    /// #1122: `build_global().use_current_thread()` on the caller, then
+    /// returning, leaves no worker loop. A `par_iter` on any other thread
+    /// injects and waits forever (measured: still blocked after 3s). The
+    /// fallback thread has to keep pulling that work. This runs in a child
+    /// process because it consumes rayon's once-only global init; the parent
+    /// kills the child if that wait comes back.
+    #[test]
+    fn a_degraded_search_pool_does_not_wait_forever() {
+        const CHILD: &str = "XERJ_TEST_DEGRADED_SEARCH_POOL_CHILD";
+        if std::env::var_os(CHILD).is_some() {
+            super::degrade_search_fanout_inline(
+                "probe: search pool cannot start; fan-out stays on the caller (#1122)",
+            );
+            let (tx, rx) = std::sync::mpsc::channel();
+            std::thread::spawn(move || {
+                use rayon::prelude::*;
+                let bare: u32 = (0..32u32).into_par_iter().sum();
+                let via_fanout: u32 = super::search_fanout(|| (0..32u32).into_par_iter().sum());
+                let _ = tx.send((bare, via_fanout));
+            });
+            let (bare, via_fanout) = rx
+                .recv_timeout(std::time::Duration::from_secs(5))
+                .expect("par_iter on another thread waited for a worker that never loops");
+            assert_eq!(bare, (0..32u32).sum::<u32>());
+            assert_eq!(via_fanout, (0..32u32).sum::<u32>());
+            return;
+        }
+
+        let log_path = std::env::temp_dir().join(format!(
+            "xerj-degraded-search-pool-{}.log",
+            std::process::id()
+        ));
+        let log = std::fs::File::create(&log_path).expect("create degrade-probe log");
+        let mut child = std::process::Command::new(std::env::current_exe().expect("test binary"))
+            .args([
+                "--exact",
+                "pools::tests::a_degraded_search_pool_does_not_wait_forever",
+                "--test-threads=1",
+                "--nocapture",
+            ])
+            .env(CHILD, "1")
+            .stdout(log.try_clone().expect("clone log"))
+            .stderr(log)
+            .spawn()
+            .expect("spawn degrade-probe child");
+        let started = std::time::Instant::now();
+        let status = loop {
+            match child.try_wait() {
+                Ok(Some(status)) => break status,
+                Ok(None) if started.elapsed() > std::time::Duration::from_secs(20) => {
+                    let _ = child.kill();
+                    let _ = child.wait();
+                    let logged = std::fs::read_to_string(&log_path).unwrap_or_default();
+                    let _ = std::fs::remove_file(&log_path);
+                    panic!(
+                        "degraded search pool still blocked after 20s; a par_iter waited \
+                         forever\n{logged}"
+                    );
+                }
+                Ok(None) => std::thread::sleep(std::time::Duration::from_millis(50)),
+                Err(err) => panic!("wait for degrade-probe child: {err}"),
+            }
+        };
+        let logged = std::fs::read_to_string(&log_path).unwrap_or_default();
+        let _ = std::fs::remove_file(&log_path);
+        assert!(
+            status.success(),
+            "degrade-probe child failed ({status}):\n{logged}"
+        );
+        assert!(
+            logged.contains("a_degraded_search_pool_does_not_wait_forever ... ok"),
+            "child did not run the probe:\n{logged}"
+        );
     }
 }

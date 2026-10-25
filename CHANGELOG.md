@@ -51,7 +51,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   child when the alternate signal stack cannot be mapped. The pool is
   probed on a local pool first and installed only at a width that just
   started. If even one thread cannot be started, that fan-out runs on the
-  calling thread. A host that can start the pool keeps the
+  calling thread. A parallel iterator that does not go through that fan-out
+  is run by a fallback thread, so it does not wait forever for a worker
+  loop that never starts. If that fallback thread cannot be started either,
+  the iterator can still abort. A host that can start the pool keeps the
   same pool and the same width (part of
   [#1122](https://github.com/xerj-org/xerj/issues/1122); the issue stays
   open).
