@@ -1,0 +1,22 @@
+{
+ "corpus": "tarekwasfy01--semantic-programming-language",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on programming-language, semantic, compiler queries this for how tarekwasfy01/Semantic-Programming-Language implements it: Universal semantic programming language with GUI, CLI, transpilation, decompilation, UAST, native compilation, and self-hosting support (selected work: crosscompiler)",
+ "repos": [
+  {
+   "repo": "Semantic-Programming-Language",
+   "url": "https://github.com/tarekwasfy01/Semantic-Programming-Language",
+   "sha": "9802b21d075ce006d57cc88971476efab9706c65",
+   "licence": "MIT (LICENSE file at pin 9802b21d075c, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T21:05Z",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T21:05Z; selected commit 9802b21d075c: \"Update SWC matrix-integrated selfhost compiler\". LICENSE file at pin 9802b21d075c detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

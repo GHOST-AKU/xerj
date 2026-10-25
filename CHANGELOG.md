@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Corpus Hub: restore `Yiming1997/agilePool` (`yiming1997--agilepool` @ f8ec741dfac7) from discussion #2383, and restore the other 199 #2171 drops whose repository is still public at the same pin with the same detected SPDX (200 rows). Four repositories have moved (`docling-project/docling-pipelines`, `ragleap/ragleap-core`, `flagmint/flagmint-js-sdk`, `Mehmoodqureshi/linkedin-browser-mcp`); the pin is unchanged and the ledger uses the current URL. The GitHub licence API matches the recorded SPDX at each pin, so those rows are marked reviewed. The audit is `tools/xerj-code/hub/audits/2171-drops.csv` (column `restored`). Not restored: 9 gone or archived repositories, 18 unidentified licence files, 9 repositories now listed under another contributor, and `jgangini` (the pin commit is gone).
 - Corpus Hub: `r2r-mcp` (Thneoly/r2r-jev @ 244ac9520db9), `r2r-enforce` (@ 10c2f8ff2fe0) and `admission-compare` (@ 7a439382d306), Apache-2.0 with attribution, from #2310.
 
 ### Fixed

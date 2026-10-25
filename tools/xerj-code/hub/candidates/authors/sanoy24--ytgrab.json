@@ -1,0 +1,22 @@
+{
+ "corpus": "sanoy24--ytgrab",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on go, golang, yt queries this for how Sanoy24/ytgrab implements it: Local video downloader for YouTube, Vimeo, X, Reddit, and Instagram with a clean browser UI. Paste a link, pick the exact quality, and downl (selected work: internal/api, web, internal/phone)",
+ "repos": [
+  {
+   "repo": "ytgrab",
+   "url": "https://github.com/Sanoy24/ytgrab",
+   "sha": "6eeafb23f76a5b797750fa01e5f0d9484a68344c",
+   "licence": "MIT (LICENSE file at pin 6eeafb23f76a, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T16:41Z",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T16:41Z; selected commit 6eeafb23f76a: \"Add podcast feeds for watched channels\". LICENSE file at pin 6eeafb23f76a detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

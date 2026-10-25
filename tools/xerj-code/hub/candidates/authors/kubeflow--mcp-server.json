@@ -1,0 +1,22 @@
+{
+ "corpus": "kubeflow--mcp-server",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how kubeflow/mcp-server implements it: MCP Server for AI-Assisted Development with Kubeflow Tools (selected work: kubeflow_mcp)",
+ "repos": [
+  {
+   "repo": "mcp-server",
+   "url": "https://github.com/kubeflow/mcp-server",
+   "sha": "0255571dbbd5a53973f316abdaf3b6aabc5ae079",
+   "licence": "Apache-2.0 (LICENSE file at pin 0255571dbbd5, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T20:40Z",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T20:40Z; selected commit 0255571dbbd5: \"feat(trainer): add since_line cursor for incremental log polling (#294)\". LICENSE file at pin 0255571dbbd5 detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}

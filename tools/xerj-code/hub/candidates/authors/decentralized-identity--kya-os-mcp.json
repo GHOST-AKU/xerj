@@ -1,0 +1,22 @@
+{
+ "corpus": "decentralized-identity--kya-os-mcp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on wg-ag queries this for how decentralized-identity/kya-os-mcp implements it: KYA-OS MCP protocol reference implementation \u2014 delegation, proof generation, session lifecycle, and cryptographic identity for the Model Con (selected work: conformance)",
+ "repos": [
+  {
+   "repo": "kya-os-mcp",
+   "url": "https://github.com/decentralized-identity/kya-os-mcp",
+   "sha": "6c61b9f78de3ad6df7dac057116e4cb905047506",
+   "licence": "MIT (LICENSE file at pin 6c61b9f78de3, GitHub licence API 2026-10-25)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T02:11Z",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T02:11Z; selected commit 6c61b9f78de3: \"fix(conformance): re-sign the status list and require its proof (suit\u2026\". LICENSE file at pin 6c61b9f78de3 detected as MIT by the GitHub licence API on 2026-10-25; used under that licence with attribution."
+   }
+  }
+ ]
+}
