@@ -83,6 +83,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   [#1122](https://github.com/xerj-org/xerj/issues/1122); the issue stays
   open).
 
+- `xerj autoindex remove --root` also deletes indices an aborted or failed
+  build of that folder left behind when the build never wrote a catalog run.
+  The resume journal names the folder and the index names; a catalog walk
+  cannot see them. A cataloged index is left in place — the working copy the
+  abort preserved, and any index another folder still names. `xerj autoindex
+  status` marks a live leftover of any prefix `ORPHAN` and prints the remove
+  command
+  ([#2391](https://github.com/xerj-org/xerj/issues/2391)).
+
 - `xerj mcp`: a proxied tool call whose response body cannot be read in
   full (the connection drops partway, or the request deadline fires
   mid-body) is now an error that names the URL and the cause. It used to
