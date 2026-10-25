@@ -162,6 +162,19 @@ console.log('── functions/get.js ──');
   }
 }
 
+// 5b. A deployment without the installer asset (the hub) redirects to
+//     xerj.org instead of answering 503; xerj.org itself never redirects.
+{
+  const noAsset = { async fetch() { return new Response('not found', { status: 404 }); } };
+  const INSTALLS = fakeR2();
+  const res = await call(new Request('https://hub.xerj.org/get.sh?v=1', { headers: { 'user-agent': 'curl/8.5.0' } }), { ASSETS: noAsset, INSTALLS });
+  ok(res.status === 301, 'asset missing on another host -> 301', `got ${res.status}`);
+  ok(res.headers.get('location') === 'https://xerj.org/get.sh?v=1', 'redirect keeps path and query', res.headers.get('location'));
+  ok(INSTALLS.store.size === 0, 'redirect writes no record');
+  const own = await call(new Request('https://xerj.org/get', { headers: { 'user-agent': 'curl/8.5.0' } }), { ASSETS: noAsset, INSTALLS });
+  ok(own.status === 503, 'asset missing on xerj.org -> 503, no loop', `got ${own.status}`);
+}
+
 // 6. Unknown paths and HEAD.
 {
   const INSTALLS = fakeR2();

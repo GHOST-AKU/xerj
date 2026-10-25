@@ -301,7 +301,7 @@ cargo run --release -p es-yaml-runner -- --dir tests/es-compat-yaml/yaml
 ## 文档
 
 - [指南与 API 参考](https://xerj.org/docs/)
-- [常见任务示例](https://xerj.org/recipes)
+- [常见任务示例](https://xerj.org/docs/recipes/)
 - [路线图](./ROADMAP.md)：对照发布的二进制程序核验已交付功能与计划。按版本查看[里程碑](https://github.com/xerj-org/xerj/milestones)，当前进展见[项目看板](https://github.com/users/xerj-org/projects/1)，固定入口为[置顶路线图 issue](https://github.com/xerj-org/xerj/issues/298)。
 - [更新日志](./CHANGELOG.md)
 

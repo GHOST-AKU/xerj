@@ -7,7 +7,16 @@ import { knownCorpora } from '../_lib/hub-hosted.js';
 
 const PAGE_RE = /^\/corpus\/([a-z0-9][a-z0-9._-]{0,99}?)(?:\.html)?\/?$/;
 
+// /corpus and /corpus/ have no page of their own; the hub home lists every
+// corpus. Handled here because _redirects rules do not apply to paths a
+// Function serves.
+const LIST_RE = /^\/corpus\/?$/;
+
 export async function onRequest(context) {
+  const u = new URL(context.request.url);
+  if (LIST_RE.test(u.pathname)) {
+    return new Response(null, { status: 301, headers: { location: `${u.origin}/${u.search}` } });
+  }
   const res = await context.next();
   try {
     const { request, env, waitUntil } = context;
