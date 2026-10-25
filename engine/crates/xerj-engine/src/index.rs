@@ -1836,6 +1836,162 @@ mod flush_publication_recovery_tests {
         assert_eq!(idx.search(&request).await.unwrap().hits[0].id, "survivor");
     }
 
+    fn topk_projection_schema() -> Schema {
+        let mut schema = Schema::empty();
+        for f in ["title", "body", "blob"] {
+            schema
+                .add_field(FieldConfig::new(f, FieldType::Text))
+                .unwrap();
+        }
+        schema
+    }
+
+    /// #2422/#2423: on a cold segment (after a restart, or evicted under the
+    /// cache budget) a top-k query that names its `_source` fields must read
+    /// only the winning rows and only the needed columns. Before the fix the
+    /// first query decoded the whole stored section — every column of every
+    /// document, ~3.2 s on a 300 MB corpus — to return 5 hits. The answer
+    /// must equal the full-decode answer, and the full stored caches must
+    /// stay cold.
+    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
+    async fn cold_topk_with_source_includes_reads_only_winning_rows() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut config = Config::default();
+        config.server.data_dir = dir.path().to_string_lossy().into_owned();
+        let engine = crate::Engine::new(config).unwrap();
+        engine
+            .create_index("topk-cold", topk_projection_schema())
+            .unwrap();
+        let idx = engine.get_index("topk-cold").unwrap();
+        idx.abort_background_tasks();
+        let blob = "0.125 33.9 -118.4 ".repeat(200);
+        for i in 0..4096u64 {
+            let body = if i % 97 == 0 {
+                format!("needle report {i} needle")
+            } else {
+                format!("hay stack {i}")
+            };
+            idx.index_document(
+                Some(format!("doc-{i}")),
+                json!({"title": format!("title {i}"), "body": body, "blob": blob}),
+            )
+            .await
+            .unwrap();
+        }
+        idx.flush().await.unwrap();
+        drop(idx);
+        drop(engine);
+
+        let reopen = || {
+            let mut c = Config::default();
+            c.server.data_dir = dir.path().to_string_lossy().into_owned();
+            let engine = crate::Engine::new(c).unwrap();
+            let idx = engine.get_index("topk-cold").unwrap();
+            idx.abort_background_tasks();
+            (engine, idx)
+        };
+        let all_cold = |idx: &Index| {
+            let snapshot = idx.store.snapshot();
+            let segs: Vec<_> = snapshot.segments.clone();
+            drop(snapshot);
+            assert!(!segs.is_empty());
+            segs.iter().all(|s| {
+                !idx.stored_slices_cache.contains_key(&s.id)
+                    && !idx.decoded_stored_cache.contains_key(&s.id)
+            })
+        };
+
+        let projected = xerj_query::parse_request(&json!({
+            "query": {"match": {"body": "needle"}},
+            "size": 5,
+            "_source": ["title"]
+        }))
+        .unwrap();
+        assert_eq!(projected.savings, xerj_query::ast::SavingsMode::Off);
+        assert!(
+            fts_row_hydration_keep(&projected, &projected.query).is_some(),
+            "the request shape must be eligible for column projection"
+        );
+
+        let (engine, idx) = reopen();
+        assert!(all_cold(&idx), "precondition: stored caches cold after restart");
+        let cold = idx.search(&projected).await.unwrap();
+        assert!(
+            all_cold(&idx),
+            "a 5-hit query must not decode the whole stored section"
+        );
+        assert_eq!(cold.hits.len(), 5);
+        for h in &cold.hits {
+            let n: u64 = h.id.trim_start_matches("doc-").parse().unwrap();
+            assert_eq!(n % 97, 0, "hit {} does not match the query", h.id);
+            assert_eq!(h.source, json!({"title": format!("title {n}")}));
+        }
+        drop(idx);
+        drop(engine);
+
+        // Same query, every column, warm full decode: same ids, order and
+        // scores.
+        let full = xerj_query::parse_request(&json!({
+            "query": {"match": {"body": "needle"}},
+            "size": 5
+        }))
+        .unwrap();
+        let (_engine, idx) = reopen();
+        let warm_full = idx.search(&full).await.unwrap();
+        let warm_projected = idx.search(&projected).await.unwrap();
+        let key = |r: &xerj_query::executor::SearchResult| {
+            r.hits
+                .iter()
+                .map(|h| (h.id.clone(), (h.score * 1e4).round() as i64))
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(key(&cold), key(&warm_full));
+        assert_eq!(key(&cold), key(&warm_projected));
+        for (c, w) in cold.hits.iter().zip(&warm_full.hits) {
+            assert_eq!(c.source["title"], w.source["title"]);
+            assert_eq!(w.source["blob"], json!(blob));
+        }
+    }
+
+    #[test]
+    fn row_projection_keep_set_covers_query_and_include_fields() {
+        let req = xerj_query::parse_request(&json!({
+            "query": {"bool": {
+                "must": [{"multi_match": {"query": "x", "fields": ["title^2", "body"]}}],
+                "filter": [{"term": {"kind": "a"}}]
+            }},
+            "_source": ["path"]
+        }))
+        .unwrap();
+        let keep = fts_row_hydration_keep(&req, &req.query).unwrap();
+        for f in ["body", "kind", "path", "title"] {
+            assert!(keep.iter().any(|k| k == f), "{f} missing from {keep:?}");
+        }
+        // A wildcard query field cannot be resolved to columns: no projection.
+        let wild = xerj_query::parse_request(&json!({
+            "query": {"multi_match": {"query": "x", "fields": ["*"]}},
+            "_source": ["path"]
+        }))
+        .unwrap();
+        assert!(fts_row_hydration_keep(&wild, &wild.query).is_none());
+        // `_savings` measures withheld bytes from the whole document.
+        let mut measured = req.clone();
+        measured.savings = xerj_query::ast::SavingsMode::Sampled;
+        assert!(fts_row_hydration_keep(&measured, &measured.query).is_none());
+        // No includes: the whole source is returned anyway.
+        let whole = xerj_query::parse_request(&json!({"query": {"match": {"body": "x"}}})).unwrap();
+        assert!(fts_row_hydration_keep(&whole, &whole.query).is_none());
+
+        let keep = vec!["meta".to_string(), "a.b".to_string(), "pre*".to_string()];
+        assert!(row_projection_keeps_column(&keep, "meta"));
+        assert!(row_projection_keeps_column(&keep, "meta.x"));
+        assert!(row_projection_keeps_column(&keep, "a"));
+        assert!(row_projection_keeps_column(&keep, "a.b"));
+        assert!(row_projection_keeps_column(&keep, "prefix"));
+        assert!(!row_projection_keeps_column(&keep, "metadata"));
+        assert!(!row_projection_keeps_column(&keep, "ab"));
+    }
+
     /// #950: building the id→position map must NOT materialise the full
     /// stored section.  Before the fix, `id_pos_map_for` ran the complete
     /// `stored_slices_for` decode — every column of every stored document
