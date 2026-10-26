@@ -173,6 +173,9 @@ def run_autoindex(a, env, node, sampler, res):
     res["autoindex"]["summary"] = {k: j.get(k) for k in keep if k in j}
     stderr_txt = open(err, errors="replace").read()
     res["autoindex"]["stderr_tail"] = stderr_txt[-2000:]
+    prog = re.findall(r"xerj-progress phase=index basis=bytes pct=[0-9.]+ items=\S+ bytes=(\d+)/(\d+)", stderr_txt)
+    if prog:
+        res["autoindex"]["progress_bytes_done"] = int(prog[-1][0])
     return stderr_txt
 
 
@@ -345,7 +348,12 @@ def cmd_run(a):
         sampler.stop = True
     ai = res.get("autoindex", {})
     if ai.get("wall_s"):
-        res["throughput_mb_s"] = round(res["source_bytes"] / MiB / ai["wall_s"], 2)
+        done = res["source_bytes"]
+        if ai.get("exit_code") not in (0, 3) or ai.get("timed_out"):
+            # incomplete run: count only bytes autoindex reported as indexed
+            done = min(done, ai.get("progress_bytes_done") or 0)
+        res["indexed_bytes"] = done
+        res["throughput_mb_s"] = round(done / MiB / ai["wall_s"], 2)
     res["state_to_source_ratio"] = round(res.get("state_bytes", 0) / max(1, res["source_bytes"]), 3)
     res["index_bytes"] = res.get("data_dir_bytes", 0)
     json.dump(res, open(a.out, "w"), indent=1)
@@ -378,7 +386,7 @@ def cmd_eval(a):
     add("autoindex completes (no OOM/abort/EAGAIN/timeout)", "yes" if completed else "NO", "exit 0/3, node alive", completed, "; ".join(note))
     tp = c.get("throughput_mb_s")
     add("autoindex throughput (MB/s)", tp, ">= %s" % t["min_throughput_mb_s"], completed and tp is not None and tp >= t["min_throughput_mb_s"],
-        "%.0f MB in %s s" % (c.get("source_bytes", 0) / MiB, ai.get("wall_s")))
+        "%.0f of %.0f MB indexed in %s s" % (c.get("indexed_bytes", c.get("source_bytes", 0)) / MiB, c.get("source_bytes", 0) / MiB, ai.get("wall_s")))
     add("node peak RSS (MB), cap %d" % t["node_memory_cap_mb"], c.get("node_peak_rss_mb"), "<= %d" % t["max_node_peak_rss_mb"],
         (c.get("node_peak_rss_mb") or 0) <= t["max_node_peak_rss_mb"],
         "XERJ_MAX_PROCESS_MEMORY_MB=%s" % c.get("cap_mb"))
