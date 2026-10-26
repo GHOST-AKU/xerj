@@ -95,7 +95,11 @@ fn raw_corpus() -> Vec<u8> {
     while out.len() < 40 * 1024 {
         let w = WORDS[(rng.next() % WORDS.len() as u64) as usize];
         out.extend_from_slice(w.as_bytes());
-        out.push(if rng.next() % 9 == 0 { b'\n' } else { b' ' });
+        out.push(if rng.next().is_multiple_of(9) {
+            b'\n'
+        } else {
+            b' '
+        });
     }
     let head = out[..16 * 1024].to_vec();
     out.extend_from_slice(&head);
@@ -123,7 +127,7 @@ fn to_hex(bytes: &[u8]) -> String {
 
 fn from_hex(s: &str) -> Vec<u8> {
     let s = s.trim();
-    assert!(s.len() % 2 == 0, "odd-length hex fixture");
+    assert!(s.len().is_multiple_of(2), "odd-length hex fixture");
     (0..s.len())
         .step_by(2)
         .map(|i| u8::from_str_radix(&s[i..i + 2], 16).unwrap())
