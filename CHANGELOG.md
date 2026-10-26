@@ -105,6 +105,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   the file's prepared records are safely on disk; resume and crash recovery
   still replay from the verified prepared records. On a 344 MB test corpus the
   state directory went from 503 MB to 242 MB after a sync (#2421).
+- `xerj search` checks whether the index is stale while the search runs
+  instead of after it. The check reads the autoindex catalog, which cost about
+  0.3 s on the first search after a restart, and that time was added to every
+  cold search (#2422).
 - The first searches after a restart, or after a segment left the cache,
   no longer read every stored document to return a page of hits. When the
   request names its `_source` fields (as `xerj search` does), only the
