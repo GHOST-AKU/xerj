@@ -9,14 +9,14 @@
    "repo": "opengrep",
    "url": "https://github.com/opengrep/opengrep",
    "sha": "566bdf9127762086d9616a465f8dff9025911379",
-   "licence": "hint only: LGPL-2.1 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 566bdf912776: NOASSERTION; repository: LGPL-2.1)",
    "review": {
-    "spdx": "LGPL-2.1",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-16T21:29Z",
     "consent_receipt": "3d0a14027300",
-    "note": "author consent by email 2026-10-16T21:29Z (receipt 3d0a14027300); selected commit 566bdf912776: \"frontends: represent switch value labels as values\"; LICENSE at pin: NOASSERTION vs repository LGPL-2.1 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T21:29Z (receipt 3d0a14027300); selected commit 566bdf912776: \"frontends: represent switch value labels as values\". LICENSE at pin 566bdf912776: NOASSERTION (repository: LGPL-2.1); used with the author's permission, with attribution."
    }
   }
  ]

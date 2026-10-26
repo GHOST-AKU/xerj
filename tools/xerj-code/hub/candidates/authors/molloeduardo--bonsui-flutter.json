@@ -1,0 +1,23 @@
+{
+ "corpus": "molloeduardo--bonsui-flutter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Dart queries this for how molloeduardo/bonsui-flutter implements it: A Flutter library that speeds up development with ready-to-use UI components, screens, and services to build high-quality iOS and Android ap (selected work: lib/widgets, lib, lib/enums)",
+ "repos": [
+  {
+   "repo": "bonsui-flutter",
+   "url": "https://github.com/molloeduardo/bonsui-flutter",
+   "sha": "3183824b791b2b3ce44684655b207acd031e1a5b",
+   "licence": "Apache-2.0 (LICENSE file at pin 3183824b791b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:11Z",
+    "consent_receipt": "4e5bd79b0d61",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:11Z (receipt 4e5bd79b0d61); selected commit 3183824b791b: \"feat: new chart types\". LICENSE file at pin 3183824b791b detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

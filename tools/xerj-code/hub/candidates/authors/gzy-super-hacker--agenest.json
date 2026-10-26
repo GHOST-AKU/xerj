@@ -1,0 +1,23 @@
+{
+ "corpus": "gzy-super-hacker--agenest",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, claude-code, codex queries this for how GZY-SUPER-HACKER/agenest implements it: Self-hosted, phone-first dashboard for Claude Code, Codex, DSH and Pi \u2014 watch every coding agent's session, and talk to a personal agent tha (selected work: sdk, backend)",
+ "repos": [
+  {
+   "repo": "agenest",
+   "url": "https://github.com/GZY-SUPER-HACKER/agenest",
+   "sha": "f4dee96ca62f7182caa83df87b2ea28801b52c3e",
+   "licence": "MIT (LICENSE file at pin f4dee96ca62f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T02:37Z",
+    "consent_receipt": "30d6f03fb872",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T02:37Z (receipt 30d6f03fb872); selected commit f4dee96ca62f: \"Add DeepSeek Harness as a coding agent (#9)\". LICENSE file at pin f4dee96ca62f detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

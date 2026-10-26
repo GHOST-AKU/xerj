@@ -1,0 +1,23 @@
+{
+ "corpus": "nurullahturkoglu--wordpress-jwt-auth",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on authentication, flutter, jwt queries this for how nurullahturkoglu/wordpress_jwt_auth implements it: Dart client for the JWT Authentication for WP REST API plugin, with a Flutter example app (selected work: example, lib/pages, test)",
+ "repos": [
+  {
+   "repo": "wordpress_jwt_auth",
+   "url": "https://github.com/nurullahturkoglu/wordpress_jwt_auth",
+   "sha": "8b5e805e8262407443abb278d1973502c5d0fde4",
+   "licence": "MIT (LICENSE file at pin 8b5e805e8262, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T21:40Z",
+    "consent_receipt": "fcee915e5091",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T21:40Z (receipt fcee915e5091); selected commit 8b5e805e8262: \"Rewrite as wordpress_jwt_auth package with example app\". LICENSE file at pin 8b5e805e8262 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

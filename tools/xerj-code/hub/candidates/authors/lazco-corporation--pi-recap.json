@@ -1,0 +1,23 @@
+{
+ "corpus": "lazco-corporation--pi-recap",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how Lazco-Corporation/pi-recap implements it: Pi extension: /recap and /summary show where the conversation stands, in a popup, without adding to the session (selected work: src, test)",
+ "repos": [
+  {
+   "repo": "pi-recap",
+   "url": "https://github.com/Lazco-Corporation/pi-recap",
+   "sha": "e7fdfe5f7c023230bc8c10e8cbd4cfb606fb4884",
+   "licence": "AGPL-3.0 (LICENSE file at pin e7fdfe5f7c02, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T19:37Z",
+    "consent_receipt": "bd16f6d21f4d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T19:37Z (receipt bd16f6d21f4d); selected commit e7fdfe5f7c02: \"feat: show the thinking line and warn about what the model does not get\". LICENSE file at pin e7fdfe5f7c02 detected as AGPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

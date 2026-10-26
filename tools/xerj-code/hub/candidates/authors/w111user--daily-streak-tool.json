@@ -1,0 +1,23 @@
+{
+ "corpus": "w111user--daily-streak-tool",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on fun, social-media, no-code-scanning queries this for how w111user/daily-streak-tool implements it: T\u1ef1 \u0111\u1ed9ng g\u1eedi video TikTok h\u00e0ng ng\u00e0y \u0111\u1ec3 duy tr\u00ec streak | Cross-platform (Linux/Windows/macOS) (selected work: tests, daily_streak)",
+ "repos": [
+  {
+   "repo": "daily-streak-tool",
+   "url": "https://github.com/w111user/daily-streak-tool",
+   "sha": "5d53797dce4bb3bd91ff05bbbd0f633617ba6dc4",
+   "licence": "MIT (LICENSE file at pin 5d53797dce4b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T12:49Z",
+    "consent_receipt": "df91c563e1b9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T12:49Z (receipt df91c563e1b9); selected commit 5d53797dce4b: \"Harden recipient recovery and delivery safety\". LICENSE file at pin 5d53797dce4b detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

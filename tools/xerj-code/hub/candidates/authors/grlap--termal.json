@@ -8,15 +8,15 @@
   {
    "repo": "TermAl",
    "url": "https://github.com/grlap/TermAl",
-   "sha": "cde926c4d4bd93e652d8ef642166da752569bef1",
-   "licence": "Apache-2.0 (LICENSE file at pin cde926c4d4bd, GitHub licence API 2026-10-25)",
+   "sha": "0a63d3a5ce0341ed6a67e3f64ba1724740f71601",
+   "licence": "Apache-2.0 (LICENSE file at pin 0a63d3a5ce03, GitHub licence API 2026-10-26)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T18:06Z",
     "consent_receipt": "82646a50e3bc",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T18:06Z (receipt 82646a50e3bc); selected commit cde926c4d4bd: \"Add durable admission fence for queued prompts\". LICENSE file at pin cde926c4d4bd detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution. Pinned to head cde926c4d4bd (contains the selected commit): the LICENSE at the selected commit was NONE."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T18:06Z (receipt 82646a50e3bc); selected commit 0a63d3a5ce03: \"Add durable admission fence for queued prompts\". LICENSE file at pin 0a63d3a5ce03 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 0a63d3a5ce03 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

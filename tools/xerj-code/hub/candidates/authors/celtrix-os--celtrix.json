@@ -1,0 +1,23 @@
+{
+ "corpus": "celtrix-os--celtrix",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on npm, javascript, nodejs queries this for how celtrix-os/Celtrix implements it: Set up your web app first. Then build it with AI (selected work: utils, scripts, the project root)",
+ "repos": [
+  {
+   "repo": "Celtrix",
+   "url": "https://github.com/celtrix-os/Celtrix",
+   "sha": "31ba82fd3d53994c199265e2ac9b678db7ff84fc",
+   "licence": "MIT (LICENSE file at pin 31ba82fd3d53, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:01Z",
+    "consent_receipt": "e305acc3e0d6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:01Z (receipt e305acc3e0d6); selected commit 31ba82fd3d53: \"wireframe cooked\". LICENSE file at pin 31ba82fd3d53 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

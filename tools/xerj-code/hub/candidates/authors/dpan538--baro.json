@@ -1,0 +1,23 @@
+{
+ "corpus": "dpan538--baro",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on android, bilingual, open-meteo queries this for how dpan538/baro implements it: Today's weather on the left, a living pixel sky on the right. Bilingual, built for the big screen. Data by Open-Meteo (selected work: feedback-service)",
+ "repos": [
+  {
+   "repo": "baro",
+   "url": "https://github.com/dpan538/baro",
+   "sha": "ae1e0ad2d120c043a5be9b8b470495c261280672",
+   "licence": "MIT (LICENSE file at pin ae1e0ad2d120, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T07:53Z",
+    "consent_receipt": "e926ccdacff9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T07:53Z (receipt e926ccdacff9); selected commit ae1e0ad2d120: \"Add an independent Vercel relay with verified BARO Issue receipts\". LICENSE file at pin ae1e0ad2d120 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

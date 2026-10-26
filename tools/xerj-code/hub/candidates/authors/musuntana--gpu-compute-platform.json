@@ -1,0 +1,23 @@
+{
+ "corpus": "musuntana--gpu-compute-platform",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Go queries this for how musuntana/gpu-compute-platform implements it: musuntana/gpu-compute-platform (Go) (selected work: frontend, cmd/management-e2e-fixture, scripts)",
+ "repos": [
+  {
+   "repo": "gpu-compute-platform",
+   "url": "https://github.com/avaargsh/gpu-compute-platform",
+   "sha": "5b26eee61202ab657d42763e350a1e414e16c527",
+   "licence": "Apache-2.0 (LICENSE file at pin 5b26eee61202, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T09:57Z",
+    "consent_receipt": "902459e17b2c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:57Z (receipt 902459e17b2c); selected commit 5b26eee61202: \"test(management): real Chromium to Go Management and disposable Postg\u2026\". LICENSE file at pin 5b26eee61202 detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

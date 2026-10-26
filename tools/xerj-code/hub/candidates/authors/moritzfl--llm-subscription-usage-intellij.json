@@ -1,0 +1,23 @@
+{
+ "corpus": "moritzfl--llm-subscription-usage-intellij",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Kotlin queries this for how moritzfl/llm-subscription-usage-intellij implements it: Plugin for IntelliJ IDEA that shows usage quota for ChatGPT subscriptions (selected work: src/main, src/test)",
+ "repos": [
+  {
+   "repo": "llm-subscription-usage-intellij",
+   "url": "https://github.com/moritzfl/llm-subscription-usage-intellij",
+   "sha": "9807a05af09a36f6d3be9c080235ab5e5a3bf651",
+   "licence": "MIT (LICENSE file at pin 9807a05af09a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T06:50Z",
+    "consent_receipt": "fc1aaa1a9d89",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T06:50Z (receipt fc1aaa1a9d89); selected commit 9807a05af09a: \"fix(popup): close each section with extra usage and credit balance\". LICENSE file at pin 9807a05af09a detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

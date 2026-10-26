@@ -1,0 +1,23 @@
+{
+ "corpus": "dilsonzm--android-ps4-ps5-pkg-sender-app",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Kotlin queries this for how DilsonZM/Android-PS4-PS5-PKG-sender-app implements it: \ud83c\udfae RemoteSend Android \u2014 Open-source PS4/PS5 PKG sender. Transfer and manage PKG files directly from Android without a PC. Built with Kotlin,  (selected work: app/src, app, scripts)",
+ "repos": [
+  {
+   "repo": "Android-PS4-PS5-PKG-sender-app",
+   "url": "https://github.com/DilsonZM/Android-PS4-PS5-PKG-sender-app",
+   "sha": "abade7a9cecbdc5a5aee924dc7b6314191d4b411",
+   "licence": "MIT (LICENSE file at pin abade7a9cecb, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:47Z",
+    "consent_receipt": "9bc225c6d8a8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:47Z (receipt 9bc225c6d8a8); selected commit abade7a9cecb: \"feat: cr\u00e9ditos PS4RPI, detecci\u00f3n 12801 y APK RemoteSend\". LICENSE file at pin abade7a9cecb detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

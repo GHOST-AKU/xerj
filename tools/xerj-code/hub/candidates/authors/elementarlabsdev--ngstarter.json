@@ -1,0 +1,23 @@
+{
+ "corpus": "elementarlabsdev--ngstarter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on angular, angular-components, angular-library queries this for how elementarlabsdev/ngstarter implements it: A premium collection of high-performance, strictly-typed Angular components and templates. Built with signals, standalone components, and mo (selected work: projects, src/app, public)",
+ "repos": [
+  {
+   "repo": "ngstarter",
+   "url": "https://github.com/elementarlabsdev/ngstarter",
+   "sha": "8a1b8af48ff381a333b6bf063c2f9860235eac29",
+   "licence": "MIT (LICENSE file at pin 8a1b8af48ff3, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:14Z",
+    "consent_receipt": "9a2cfb486bf5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:14Z (receipt 9a2cfb486bf5); selected commit 8a1b8af48ff3: \"refactor(layout)!: merge panel into layout and migrate consumers\". LICENSE file at pin 8a1b8af48ff3 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

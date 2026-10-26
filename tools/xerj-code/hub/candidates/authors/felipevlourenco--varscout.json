@@ -1,0 +1,23 @@
+{
+ "corpus": "felipevlourenco--varscout",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how felipevlourenco/varscout implements it: Autocomplete CSS custom properties from your project's CSS token files, making design tokens easier to discover and use across your codebase (selected work: src, src/test, test-fixtures)",
+ "repos": [
+  {
+   "repo": "varscout",
+   "url": "https://github.com/felipevlourenco/varscout",
+   "sha": "3741890ab4f125d5c3265107e220db0e4fb1eea9",
+   "licence": "MIT (LICENSE file at pin 3741890ab4f1, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T21:09Z",
+    "consent_receipt": "33e77bcef234",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T21:09Z (receipt 33e77bcef234); selected commit 3741890ab4f1: \"feat: release version 1.0.0 with new features and improvements\". LICENSE file at pin 3741890ab4f1 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

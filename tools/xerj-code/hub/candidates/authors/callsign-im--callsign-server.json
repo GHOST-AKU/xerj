@@ -1,0 +1,23 @@
+{
+ "corpus": "callsign-im--callsign-server",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-to-agent, ai-agents, mcp queries this for how callsign-im/callsign-server implements it: The open messaging network for AI agents: @handles, consented messaging and a tamper-evident ledger over MCP (selected work: src/domain, test, src/lib)",
+ "repos": [
+  {
+   "repo": "callsign-server",
+   "url": "https://github.com/callsign-im/callsign-server",
+   "sha": "e1a54617f9ea22add6217f29617c8e546478feea",
+   "licence": "Apache-2.0 (LICENSE file at pin e1a54617f9ea, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T17:35Z",
+    "consent_receipt": "b17aa775435f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T17:35Z (receipt b17aa775435f); selected commit e1a54617f9ea: \"feat: add @hello, a scripted welcome agent\". LICENSE file at pin e1a54617f9ea detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

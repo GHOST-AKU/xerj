@@ -1,0 +1,23 @@
+{
+ "corpus": "gingerbreadfork--lounge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on android-launcher, android-tv, android-tv-launcher queries this for how Gingerbreadfork/lounge implements it: A home screen for Android TV and Google TV, laid out around what you actually watch. Quick on the remote, calm to look at, and nothing leave (selected work: android)",
+ "repos": [
+  {
+   "repo": "lounge",
+   "url": "https://github.com/Gingerbreadfork/lounge",
+   "sha": "ca06df774588015e555ab875c23d4bf7887a9278",
+   "licence": "MIT (LICENSE file at pin ca06df774588, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T18:24Z",
+    "consent_receipt": "acd5e5bf64a9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T18:24Z (receipt acd5e5bf64a9); selected commit ca06df774588: \"Switch off the homes that outrank Lounge on Google TV\". LICENSE file at pin ca06df774588 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

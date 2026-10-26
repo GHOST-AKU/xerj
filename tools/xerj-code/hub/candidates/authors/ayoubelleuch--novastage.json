@@ -2,8 +2,8 @@
  "corpus": "ayoubelleuch--novastage",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how AyoubElleuch/NovaStage implements it: AyoubElleuch/NovaStage (TypeScript) (selected work: src/lib, src/components, scripts)",
+ "shelf": "DB",
+ "domain": "an agent working on aws-architecture, gemini-ai, nextjs queries this for how AyoubElleuch/NovaStage implements it: Real-time collaborative canvas for engineering roadmaps and AWS architecture diagrams. Next.js, Supabase PostgreSQL Row-Level Security, Upst (selected work: src/lib, src/components, scripts)",
  "repos": [
   {
    "repo": "NovaStage",

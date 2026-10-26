@@ -9,14 +9,14 @@
    "repo": "InvokeAI",
    "url": "https://github.com/invoke-ai/InvokeAI",
    "sha": "f128d584a9bf6efed5eec5f2d050e497ca02ace9",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin f128d584a9bf: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T00:32Z",
     "consent_receipt": "561d0c73296c",
-    "note": "author consent by email 2026-10-16T00:32Z (receipt 561d0c73296c); selected commit f128d584a9bf: \"fix(models): record pipeline components relative to the model folder\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T00:32Z (receipt 561d0c73296c); selected commit f128d584a9bf: \"fix(models): record pipeline components relative to the model folder\". LICENSE at pin f128d584a9bf: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

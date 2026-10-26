@@ -1,0 +1,23 @@
+{
+ "corpus": "eidolon2003--jawengine",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how Eidolon2003/JawEngine implements it: A game engine for building simple 2D games in C++ (selected work: jawengine, examples)",
+ "repos": [
+  {
+   "repo": "JawEngine",
+   "url": "https://github.com/Eidolon2003/JawEngine",
+   "sha": "837f3697e1f955f22c6df5ed8d4228cf1604a5d0",
+   "licence": "MPL-2.0 (LICENSE file at pin 837f3697e1f9, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-15T22:28Z",
+    "consent_receipt": "ebba93500340",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T22:28Z (receipt ebba93500340); selected commit 837f3697e1f9: \"Add ABC synth example; split ui.h implementation into ui.cpp\". LICENSE file at pin 837f3697e1f9 detected as MPL-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

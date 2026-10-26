@@ -1,0 +1,23 @@
+{
+ "corpus": "flowalchs--redmine-wiki-approval",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on Ruby queries this for how flowalchs/redmine_wiki_approval implements it: A Redmine plugin that adds an approval workflow to the wiki, including drafts to ensure content quality before publication (selected work: test, app/models, app/helpers)",
+ "repos": [
+  {
+   "repo": "redmine_wiki_approval",
+   "url": "https://github.com/flowalchs/redmine_wiki_approval",
+   "sha": "654842565c253ec9a1db0cd5a6f1edc1ee6d0554",
+   "licence": "MIT (LICENSE file at pin 654842565c25, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T20:42Z",
+    "consent_receipt": "fc810e78fdb9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:42Z (receipt fc810e78fdb9); selected commit 654842565c25: \"feat: wiki list with Redmine query (filter, sort, group, save) #20\". LICENSE file at pin 654842565c25 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "karthickcjx--optic",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how Karthickcjx/Optic implements it: Karthickcjx/Optic (TypeScript) (selected work: src/main, tests, src/renderer)",
+ "repos": [
+  {
+   "repo": "Optic",
+   "url": "https://github.com/Karthickcjx/Optic",
+   "sha": "89c9f5af3eec1f6eca61d5b63015428f66a512e2",
+   "licence": "MIT (LICENSE file at pin 89c9f5af3eec, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T18:33Z",
+    "consent_receipt": "f882bfecf9af",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T18:33Z (receipt f882bfecf9af); selected commit 89c9f5af3eec: \"Add Helm management with Helm 4 compatibility and collapsible navigation\". LICENSE file at pin 89c9f5af3eec detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

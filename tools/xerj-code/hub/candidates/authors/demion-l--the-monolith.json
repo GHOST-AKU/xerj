@@ -1,0 +1,23 @@
+{
+ "corpus": "demion-l--the-monolith",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how Demion-L/the_monolith implements it: A cognitive operating system for AI-native projects (selected work: src/brief)",
+ "repos": [
+  {
+   "repo": "the_monolith",
+   "url": "https://github.com/Demion-L/the_monolith",
+   "sha": "ac85bf58b18d00458e317cd809562bd4de2ce32f",
+   "licence": "MIT (LICENSE file at pin ac85bf58b18d, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T18:58Z",
+    "consent_receipt": "64b198c2082a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T18:58Z (receipt 64b198c2082a); selected commit ac85bf58b18d: \"fix(CONTEXT-001A): remediate review findings F-1..F-7 in monolith brief\". LICENSE file at pin ac85bf58b18d detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

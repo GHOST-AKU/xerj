@@ -1,0 +1,23 @@
+{
+ "corpus": "nimbalyst--nimbalyst",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ide, wysiwyg-editor, agentic-ai queries this for how nimbalyst/nimbalyst implements it: Nimbalyst - The open-source visual workspace for Claude Code, Codex, and OpenCode. Run multiple coding agents in parallel, edit their work v (selected work: packages/electron)",
+ "repos": [
+  {
+   "repo": "nimbalyst",
+   "url": "https://github.com/nimbalyst/nimbalyst",
+   "sha": "d649672109a9670110431e0fb1646f5330252376",
+   "licence": "MIT (LICENSE file at pin d649672109a9, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T16:03Z",
+    "consent_receipt": "0c37cb5a9acd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T16:03Z (receipt 0c37cb5a9acd); selected commit d649672109a9: \"fix: stream ripgrep output so file search works in large repos\". LICENSE file at pin d649672109a9 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

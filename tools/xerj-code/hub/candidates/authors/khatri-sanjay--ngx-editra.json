@@ -1,0 +1,23 @@
+{
+ "corpus": "khatri-sanjay--ngx-editra",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how Khatri-Sanjay/ngx-editra implements it: Custom Angular rich text editor library inspired by CKEditor, featuring text formatting, customizable toolbar, tables, images, links, and ex (selected work: the project root, scripts, apps/compatibility)",
+ "repos": [
+  {
+   "repo": "ngx-editra",
+   "url": "https://github.com/Khatri-Sanjay/ngx-editra",
+   "sha": "601773efd2e86b8b2ff1248e8df33715fabec573",
+   "licence": "MIT (LICENSE file at pin 601773efd2e8, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:09Z",
+    "consent_receipt": "1956158944ba",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:09Z (receipt 1956158944ba); selected commit 601773efd2e8: \"fix: stabilize validation toolchains and dependency audit baseline\". LICENSE file at pin 601773efd2e8 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

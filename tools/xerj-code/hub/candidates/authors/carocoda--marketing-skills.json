@@ -1,0 +1,23 @@
+{
+ "corpus": "carocoda--marketing-skills",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how carocoda/marketing_skills implements it: Hi, I'm Caro \ud83d\udc4b Free marketing skills for Claude and ChatGPT. AI & marketing on YouTube: youtube.com/@CarolinaPosma \u00b7 All things Postiv: yout (selected work: youtube-shorts)",
+ "repos": [
+  {
+   "repo": "marketing_skills",
+   "url": "https://github.com/carocoda/marketing_skills",
+   "sha": "c4cda1ba57e45b6c5786061a4474e0e702a5f41b",
+   "licence": "MIT (LICENSE file at pin c4cda1ba57e4, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T05:34Z",
+    "consent_receipt": "fab533791e9a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T05:34Z (receipt fab533791e9a); selected commit c4cda1ba57e4: \"Add YouTube shorts skill\". LICENSE file at pin c4cda1ba57e4 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

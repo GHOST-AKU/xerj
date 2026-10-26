@@ -1,0 +1,23 @@
+{
+ "corpus": "hakanserce--agentic-task-manager",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how hakanserce/agentic-task-manager implements it: A simple, light weight task manager for agentic project development (selected work: atm-cli, plugin, tests)",
+ "repos": [
+  {
+   "repo": "agentic-task-manager",
+   "url": "https://github.com/hakanserce/agentic-task-manager",
+   "sha": "cca9cb008dc083030e8fffc705445024aadf1c6d",
+   "licence": "MIT (LICENSE file at pin cca9cb008dc0, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T19:58Z",
+    "consent_receipt": "7da83b280c74",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T19:58Z (receipt 7da83b280c74); selected commit cca9cb008dc0: \"feat(T-204): Share blocked and in-review tasks across worktrees\". LICENSE file at pin cca9cb008dc0 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "corpus": "maszyna-reloaded--libmaszyna",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how MaSzyna-Reloaded/libmaszyna implements it: MaSzyna API wrapper for Godot Engine written in C++ as GDExtension (selected work: doc_classes, src/engines, demo)",
+ "repos": [
+  {
+   "repo": "libmaszyna",
+   "url": "https://github.com/MaSzyna-Reloaded/libmaszyna",
+   "sha": "aedf44ca9ef9848571ef70368d63d49fbe94b877",
+   "licence": "MPL-2.0 (LICENSE file at pin aedf44ca9ef9, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T10:46Z",
+    "consent_receipt": "73458661a22b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T10:46Z (receipt 73458661a22b); selected commit aedf44ca9ef9: \"Add missing train subsystems\". LICENSE file at pin aedf44ca9ef9 detected as MPL-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head aedf44ca9ef9 (contains the selected commit): the LICENSE at the selected commit was NONE.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "a2473502562be5cb2ce98427f5366cdd31f6ef0f",
+     "at": "2026-10-26T10:46Z",
+     "receipt": "73458661a22b"
+    }
+   }
+  }
+ ]
+}

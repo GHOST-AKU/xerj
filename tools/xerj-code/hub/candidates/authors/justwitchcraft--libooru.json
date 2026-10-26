@@ -1,0 +1,23 @@
+{
+ "corpus": "justwitchcraft--libooru",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on PHP queries this for how justwitchcraft/libooru implements it: justwitchcraft/libooru (PHP) (selected work: the project root, pages, app)",
+ "repos": [
+  {
+   "repo": "libooru",
+   "url": "https://github.com/JustLivvu/libooru",
+   "sha": "ccb727c847b2e5ab569a806672be63ee011fb9b5",
+   "licence": "MIT (LICENSE file at pin ccb727c847b2, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T18:05Z",
+    "consent_receipt": "5f351e3a5b20",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T18:05Z (receipt 5f351e3a5b20); selected commit ccb727c847b2: \"Split monolithic index into page modules\". LICENSE file at pin ccb727c847b2 detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

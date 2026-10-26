@@ -1,0 +1,23 @@
+{
+ "corpus": "gustavobaranda--chatflow-agent",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, anthorpic, asyncio queries this for how GustavoBaranda/chatflow-agent implements it: Lightweight, async multi-agent framework with native SQLite persistence and handoffs for WhatsApp, Telegram, Webhooks, and CLI. Production-h (selected work: tests, src/chatflow_agent, the project root)",
+ "repos": [
+  {
+   "repo": "chatflow-agent",
+   "url": "https://github.com/GustavoBaranda/chatflow-agent",
+   "sha": "308fbfc414b3b8197378eaaf5f5043d0ced7c669",
+   "licence": "MIT (LICENSE file at pin 308fbfc414b3, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T04:44Z",
+    "consent_receipt": "18d9038228c2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T04:44Z (receipt 18d9038228c2); selected commit 308fbfc414b3: \"refactor(gemini)!: replace google-genai with native httpx REST client\u2026\". LICENSE file at pin 308fbfc414b3 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

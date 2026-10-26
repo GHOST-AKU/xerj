@@ -1,0 +1,23 @@
+{
+ "corpus": "codewithtayyab96--optimus-bot",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on anti-links, baileys, baileys-whatsapp queries this for how CodeWithTayyab96/Optimus-Bot implements it: whatsApp group management bot on Baileys. Tag all members, warn users, block links, make stickers, play games. Multi-device, pairing-code lo (selected work: lib, scripts, commands)",
+ "repos": [
+  {
+   "repo": "Optimus-Bot",
+   "url": "https://github.com/CodeWithTayyab96/Optimus-Bot",
+   "sha": "c4f2cf735321c70a474d76ab92c346f997323f84",
+   "licence": "ISC (LICENSE file at pin c4f2cf735321, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "ISC",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T08:34Z",
+    "consent_receipt": "586670d6dddd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T08:34Z (receipt 586670d6dddd); selected commit c4f2cf735321: \"fix: debounce download-source alerts so a flapping probe cannot spam\". LICENSE file at pin c4f2cf735321 detected as ISC by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

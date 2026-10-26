@@ -1,0 +1,23 @@
+{
+ "corpus": "abe-junwei--research-connected",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how Abe-Junwei/research-connected implements it: Obsidian plugin: OpenAlex similarity map (Connected Papers\u2013style) for a seed paper (selected work: src, scripts, preview)",
+ "repos": [
+  {
+   "repo": "research-connected",
+   "url": "https://github.com/Abe-Junwei/research-connected",
+   "sha": "3960537ba17e7b5714ad23d53060da4089a76705",
+   "licence": "MIT (LICENSE file at pin 3960537ba17e, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T00:20Z",
+    "consent_receipt": "35d124cfb86f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T00:20Z (receipt 35d124cfb86f); selected commit 3960537ba17e: \"Treat confirmed duplicate OpenAlex records as one paper.\". LICENSE file at pin 3960537ba17e detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

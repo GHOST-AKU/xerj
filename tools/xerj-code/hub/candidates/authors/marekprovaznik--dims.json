@@ -1,0 +1,23 @@
+{
+ "corpus": "marekprovaznik--dims",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on debugger, debugpy, numpy queries this for how marekprovaznik/dims implements it: VS Code extension: tensor/array shapes in the Python debugger's Variables view (selected work: src/test, the project root)",
+ "repos": [
+  {
+   "repo": "dims",
+   "url": "https://github.com/marekprovaznik/dims",
+   "sha": "ab470d1ab0bdf5059519f4cdb054c71d39fe2889",
+   "licence": "MIT (LICENSE file at pin ab470d1ab0bd, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T05:11Z",
+    "consent_receipt": "0341d03aee61",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T05:11Z (receipt 0341d03aee61); selected commit ab470d1ab0bd: \"Add end-to-end test for the Variables view\". LICENSE file at pin ab470d1ab0bd detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

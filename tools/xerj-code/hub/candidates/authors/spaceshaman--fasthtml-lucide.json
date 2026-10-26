@@ -1,0 +1,23 @@
+{
+ "corpus": "spaceshaman--fasthtml-lucide",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on fasthtml, lucide, lucide-icon queries this for how SpaceShaman/fasthtml-lucide implements it: Lucide SVG icons for FastHTML. Icons are bundled in the Python package: no Node.js, JavaScript, CDN or static-file setup is needed in your a (selected work: the project root, scripts, tests)",
+ "repos": [
+  {
+   "repo": "fasthtml-lucide",
+   "url": "https://github.com/SpaceShaman/fasthtml-lucide",
+   "sha": "b1a12faf279b3d543d3cbd4ae687746ee0c6070f",
+   "licence": "MIT (LICENSE file at pin b1a12faf279b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:52Z",
+    "consent_receipt": "182a2f6b6b52",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:52Z (receipt 182a2f6b6b52); selected commit b1a12faf279b: \"\u2728 (release): add GitHub Actions workflow for automated releases to st\u2026\". LICENSE file at pin b1a12faf279b detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

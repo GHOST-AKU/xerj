@@ -1,0 +1,23 @@
+{
+ "corpus": "kiru-sama--kiru-progress-bar",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on deepseek, deepseek-harness, dsh-plugin queries this for how Kiru-Sama/kiru-progress-bar implements it: DeepSeek Harness \u8fdb\u5ea6\u6c47\u62a5\u63d0\u9192\u63d2\u4ef6\uff1a\u7d2f\u8ba1\u6bcf N \u6b65\u6216\u6bcf N \u79d2\u63d0\u9192 Agent \u6c47\u62a5\u4e00\u6b21\u8fdb\u5ea6\uff0c\u4fa7\u680f\u5b9e\u65f6\u663e\u793a\u8ba1\u6570\uff0c\u804a\u5929\u533a\u6a2a\u5e45\u663e\u793a\u4e0a\u6b21\u63d0\u9192\u65f6\u523b\u3002\u9644\u5e26\u4f59\u989d\u4f4e\u989d\u63d0\u9192\u4e0e DeepSeek \u5cf0\u8c37\u65f6\u6bb5\u6307\u793a\u3002 (selected work: the project root, test)",
+ "repos": [
+  {
+   "repo": "kiru-progress-bar",
+   "url": "https://github.com/Kiru-Sama/kiru-progress-bar",
+   "sha": "4f3415f7036e26596c0b61dc68fbc0a530b31cf1",
+   "licence": "MIT (LICENSE file at pin 4f3415f7036e, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T04:59Z",
+    "consent_receipt": "c5f44b236938",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T04:59Z (receipt c5f44b236938); selected commit 4f3415f7036e: \"feat: \u8fdb\u5ea6\u6c47\u62a5\u63d0\u9192\u63d2\u4ef6\uff08\u6bcf N \u6b65 / \u6bcf N \u79d2\u63d0\u9192 Agent \u6c47\u62a5\u8fdb\u5ea6\uff09\". LICENSE file at pin 4f3415f7036e detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

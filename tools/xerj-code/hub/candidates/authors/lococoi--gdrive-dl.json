@@ -1,0 +1,23 @@
+{
+ "corpus": "lococoi--gdrive-dl",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how lococoi/gdrive-dl implements it: CLI/API for downloading private Google Drive videos without any headaches (selected work: scripts, the project root, gdrive_dl)",
+ "repos": [
+  {
+   "repo": "gdrive-dl",
+   "url": "https://github.com/lococoi/gdrive-dl",
+   "sha": "622ae124eace76a89f4b1e22d0612f525e856e38",
+   "licence": "Apache-2.0 (LICENSE file at pin 622ae124eace, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T03:13Z",
+    "consent_receipt": "d576622663d0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T03:13Z (receipt d576622663d0); selected commit 622ae124eace: \"build: slim executable with embedded yt-dlp package\". LICENSE file at pin 622ae124eace detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

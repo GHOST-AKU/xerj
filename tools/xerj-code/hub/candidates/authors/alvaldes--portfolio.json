@@ -8,15 +8,15 @@
   {
    "repo": "portfolio",
    "url": "https://github.com/alvaldes/portfolio",
-   "sha": "2d16d12756ce47dd874b851bda94c85859e616bd",
-   "licence": "MIT (LICENSE file at pin 2d16d12756ce, GitHub licence API 2026-10-24)",
+   "sha": "404998fe1306134c18dd84e5f4fad4432615b223",
+   "licence": "MIT (LICENSE file at pin 404998fe1306, GitHub licence API 2026-10-26)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-23T15:51Z",
     "consent_receipt": "55ec56112df8",
-    "note": "Inclusion consented by the commit author by email at 2026-10-23T15:51Z (receipt 55ec56112df8); selected commit 2d16d12756ce: \"feat(footer): port footer with contact form, socials and go-to-top bu\u2026\". LICENSE file at pin 2d16d12756ce detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head 2d16d12756ce (contains the selected commit): the LICENSE at the selected commit was NONE."
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T15:51Z (receipt 55ec56112df8); selected commit 404998fe1306: \"feat(footer): port footer with contact form, socials and go-to-top bu\u2026\". LICENSE file at pin 404998fe1306 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 404998fe1306 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

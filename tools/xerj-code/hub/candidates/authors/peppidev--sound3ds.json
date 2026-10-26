@@ -1,0 +1,23 @@
+{
+ "corpus": "peppidev--sound3ds",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on C queries this for how PeppiDev/sound3ds implements it: SoundCloud and local music player for the Nintendo 3DS. Stream, search and download tracks, browse your likes and playlists, and play your o (selected work: source)",
+ "repos": [
+  {
+   "repo": "sound3ds",
+   "url": "https://github.com/PeppiDev/sound3ds",
+   "sha": "45ab945ee1aa85b9411a92cfc400a33178ac7c2a",
+   "licence": "MIT (LICENSE file at pin 45ab945ee1aa, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T05:21Z",
+    "consent_receipt": "4db595db39ba",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T05:21Z (receipt 4db595db39ba); selected commit 45ab945ee1aa: \"Aud\u00edfonos (diagn\u00f3stico): esc\u00e1ner de registros del c\u00f3dec y grabaci\u00f3n d\u2026\". LICENSE file at pin 45ab945ee1aa detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

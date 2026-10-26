@@ -1,0 +1,23 @@
+{
+ "corpus": "rafiimam--agent-capture-bench",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on agent-auditing, audit, benchmark queries this for how rafiimam/agent-capture-bench implements it: Ground-truth benchmark for process capture on Linux \u2014 an independent eBPF oracle scores tracers, audit pipelines, and agent recorders agains (selected work: workflow, adapters, tests)",
+ "repos": [
+  {
+   "repo": "agent-capture-bench",
+   "url": "https://github.com/rafiimam/agent-capture-bench",
+   "sha": "d0c7f4952bab4a7418398d3e529dd19cd68f4c36",
+   "licence": "MIT (LICENSE file at pin d0c7f4952bab, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T08:50Z",
+    "consent_receipt": "58ea9924579a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T08:50Z (receipt 58ea9924579a); selected commit d0c7f4952bab: \"feat: capture-evasion scenario suite, execsnoop+auditd adapters, macO\u2026\". LICENSE file at pin d0c7f4952bab detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

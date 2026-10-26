@@ -8,15 +8,15 @@
   {
    "repo": "modvet",
    "url": "https://github.com/joergmichno/modvet",
-   "sha": "ca827c3be31f420bd2de7d7c173c2a6b8566bc42",
-   "licence": "Apache-2.0 (LICENSE file at pin ca827c3be31f, GitHub licence API 2026-10-25)",
+   "sha": "99410cc6e4bfa2813e3b2a632ee11a0750222b85",
+   "licence": "Apache-2.0 (LICENSE file at pin 99410cc6e4bf, GitHub licence API 2026-10-26)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-22T10:25Z",
     "consent_receipt": "ef7536d024e7",
-    "note": "Inclusion consented by the commit author by email at 2026-10-22T10:25Z (receipt ef7536d024e7); selected commit ca827c3be31f: \"A1-Pattern-Audit-Doku + neue Primitive: Committed Env File (MCP08), n\u2026\". LICENSE file at pin ca827c3be31f detected as Apache-2.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution. Pinned to head ca827c3be31f (contains the selected commit): the LICENSE at the selected commit was NONE."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T10:25Z (receipt ef7536d024e7); selected commit 99410cc6e4bf: \"A1-Pattern-Audit-Doku + neue Primitive: Committed Env File (MCP08), n\u2026\". LICENSE file at pin 99410cc6e4bf detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 99410cc6e4bf (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

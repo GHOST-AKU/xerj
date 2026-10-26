@@ -1,0 +1,23 @@
+{
+ "corpus": "tryskilly--skilly",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, apache-2-0, byok queries this for how tryskilly/skilly implements it: Skilly : A voice-first AI tutor that watches your screen (selected work: apps/web-backend)",
+ "repos": [
+  {
+   "repo": "skilly",
+   "url": "https://github.com/tryskilly/skilly",
+   "sha": "4f6b2428b85e3c48fef4055d143d5629c33b6c24",
+   "licence": "Apache-2.0 (LICENSE file at pin 4f6b2428b85e, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T23:03Z",
+    "consent_receipt": "63d9fea8933e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T23:03Z (receipt 63d9fea8933e); selected commit 4f6b2428b85e: \"Point every Studio screen at the builder's next step\". LICENSE file at pin 4f6b2428b85e detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

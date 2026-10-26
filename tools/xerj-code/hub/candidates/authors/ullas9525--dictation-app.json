@@ -1,0 +1,23 @@
+{
+ "corpus": "ullas9525--dictation-app",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Dart queries this for how ullas9525/Dictation_App implements it: An AI-powered Flutter app that turns voice notes into clear, structured text. Record audio, get raw transcription, cleaned text, and polishe (selected work: lib, android, test)",
+ "repos": [
+  {
+   "repo": "Dictation_App",
+   "url": "https://github.com/ullas9525/Dictation_App",
+   "sha": "3540e0a1b83e540a893595cc859d77933a08c94b",
+   "licence": "MIT (LICENSE file at pin 3540e0a1b83e, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T04:33Z",
+    "consent_receipt": "a6d00be3064d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T04:33Z (receipt a6d00be3064d); selected commit 3540e0a1b83e: \"V2.0.0: Beta Version: Overlay on other apps\". LICENSE file at pin 3540e0a1b83e detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

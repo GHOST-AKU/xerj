@@ -1,0 +1,23 @@
+{
+ "corpus": "electricrcaircraftguy--kawasaki",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Python queries this for how ElectricRCAircraftGuy/Kawasaki implements it: A program to download the user manuals page by page from their interactive websites (selected work: copilot_implementation, manuals, the project root)",
+ "repos": [
+  {
+   "repo": "Kawasaki",
+   "url": "https://github.com/ElectricRCAircraftGuy/Kawasaki",
+   "sha": "f2992fcbf6e5e2c16857d2a95a1b332066d62feb",
+   "licence": "GPL-3.0 (LICENSE file at pin f2992fcbf6e5, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T20:59Z",
+    "consent_receipt": "ac27cc96bcca",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:59Z (receipt ac27cc96bcca); selected commit f2992fcbf6e5: \"Fix Copilot implementation; keep it as the verified backup/cross-chec\u2026\". LICENSE file at pin f2992fcbf6e5 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

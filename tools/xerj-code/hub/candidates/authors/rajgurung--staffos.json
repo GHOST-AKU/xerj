@@ -1,0 +1,23 @@
+{
+ "corpus": "rajgurung--staffos",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Ruby queries this for how rajgurung/staffOS implements it: The trust, review, and documentation layer for AI-assisted engineering work \u2014 staffos.rajgurung.me (selected work: app/controllers, cli, app/views)",
+ "repos": [
+  {
+   "repo": "staffOS",
+   "url": "https://github.com/rajgurung/staffOS",
+   "sha": "e1e3a066d615f074882a1124e64de08785b9219d",
+   "licence": "MIT (LICENSE file at pin e1e3a066d615, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T20:53Z",
+    "consent_receipt": "2d9c29b4896e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T20:53Z (receipt 2d9c29b4896e); selected commit e1e3a066d615: \"Setup pages install command hooks; CLI keeps hooks out of git\". LICENSE file at pin e1e3a066d615 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

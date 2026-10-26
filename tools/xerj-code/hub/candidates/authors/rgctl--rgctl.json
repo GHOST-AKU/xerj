@@ -1,0 +1,23 @@
+{
+ "corpus": "rgctl--rgctl",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent, c, cfg queries this for how rgctl/rgctl implements it: A code knowledge graph built for LLM agents \u2014 accurate answers, minimal tokens, maximum speed (selected work: dashboard, crates/rgctl-dashboard, scripts)",
+ "repos": [
+  {
+   "repo": "rgctl",
+   "url": "https://github.com/rgctl/rgctl",
+   "sha": "5bcefdf96d6d315908d50e5d7226a123d60a9a86",
+   "licence": "MIT (LICENSE file at pin 5bcefdf96d6d, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:26Z",
+    "consent_receipt": "ba15c8970502",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:26Z (receipt ba15c8970502); selected commit 5bcefdf96d6d: \"add the v2 dashboard: a separate app, its own bundle, and the gates t\u2026\". LICENSE file at pin 5bcefdf96d6d detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "germolinal--forma",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Rust queries this for how germolinal/forma implements it: The coolest and best AI Agent framework for production (selected work: forma)",
+ "repos": [
+  {
+   "repo": "forma",
+   "url": "https://github.com/germolinal/forma",
+   "sha": "8c2561f9882f52073c1466462ad8e33bac5288dd",
+   "licence": "MIT (LICENSE file at pin 8c2561f9882f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T19:42Z",
+    "consent_receipt": "a701a77e2dbb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T19:42Z (receipt a701a77e2dbb); selected commit 8c2561f9882f: \"API\". LICENSE file at pin 8c2561f9882f detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

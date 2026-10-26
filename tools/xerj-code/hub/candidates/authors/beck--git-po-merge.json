@@ -1,0 +1,23 @@
+{
+ "corpus": "beck--git-po-merge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Shell queries this for how beck/git-po-merge implements it: A git merge driver for .PO files (selected work: the project root, test)",
+ "repos": [
+  {
+   "repo": "git-po-merge",
+   "url": "https://github.com/beck/git-po-merge",
+   "sha": "cb3d7c5d5384787e71558c647f5193e5dcb317f8",
+   "licence": "MIT (LICENSE file at pin cb3d7c5d5384, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T21:13Z",
+    "consent_receipt": "77165cdfc126",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T21:13Z (receipt 77165cdfc126); selected commit cb3d7c5d5384: \"fix(git-po-merge): add backwards compatibility\". LICENSE file at pin cb3d7c5d5384 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "lautsevich--my-env",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Shell queries this for how lautsevich/my-env implements it: lautsevich/my-env (Shell) (selected work: playbooks)",
+ "repos": [
+  {
+   "repo": "my-env",
+   "url": "https://github.com/lautsevich/my-env",
+   "sha": "e83f672fdf3e39290725332167f5e095eca4010a",
+   "licence": "MIT (LICENSE file at pin e83f672fdf3e, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T10:52Z",
+    "consent_receipt": "2d6fb54fa3a3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T10:52Z (receipt 2d6fb54fa3a3); selected commit e83f672fdf3e: \"Replace hardcoded Google Chrome signing key URL with a file lookup fo\u2026\". LICENSE file at pin e83f672fdf3e detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

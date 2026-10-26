@@ -1,0 +1,23 @@
+{
+ "corpus": "juanmarboledao2304--dual-agent-nexus",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how juanmarboledao2304/dual-agent-nexus implements it: DualAgent Nexus: real-time 3-pool agy-cascade waterfall and cross-CLI subagent mission control for Claude Code and Google Antigravity (selected work: client, server)",
+ "repos": [
+  {
+   "repo": "dual-agent-nexus",
+   "url": "https://github.com/juanmarboledao2304/dual-agent-nexus",
+   "sha": "e345643c4d89f3a5bfb7622aa75b472da200f67e",
+   "licence": "MIT (LICENSE file at pin e345643c4d89, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:13Z",
+    "consent_receipt": "00e628eaa9ac",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:13Z (receipt 00e628eaa9ac); selected commit e345643c4d89: \"fix(ui): fix dock undefined logs, default dock to compact mode, clean\u2026\". LICENSE file at pin e345643c4d89 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

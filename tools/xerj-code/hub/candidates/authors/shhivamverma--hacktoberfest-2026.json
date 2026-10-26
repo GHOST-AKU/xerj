@@ -1,0 +1,23 @@
+{
+ "corpus": "shhivamverma--hacktoberfest-2026",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on HTML queries this for how shhivamverma/Hacktoberfest-2026 implements it: shhivamverma/Hacktoberfest-2026 (HTML) (selected work: src/trailhead, tests, the project root)",
+ "repos": [
+  {
+   "repo": "Hacktoberfest-2026",
+   "url": "https://github.com/shhivamverma/Hacktoberfest-2026",
+   "sha": "6d6dcc28adada6ef3bee96f7333f593a70401bb9",
+   "licence": "MIT (LICENSE file at pin 6d6dcc28adad, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:10Z",
+    "consent_receipt": "165041c9145a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:10Z (receipt 165041c9145a); selected commit 6d6dcc28adad: \"phase 4: LLM layer with schema-constrained reranking, query rewrite, \u2026\". LICENSE file at pin 6d6dcc28adad detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

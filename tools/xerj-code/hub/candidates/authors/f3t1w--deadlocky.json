@@ -1,0 +1,23 @@
+{
+ "corpus": "f3t1w--deadlocky",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on deadlock-soft, deadlock-tool, deadlock-utility queries this for how F3T1W/DeadLocky implements it: MacOs DeadLock launcher & mod manager (selected work: src/DeadLocky, tests, scripts)",
+ "repos": [
+  {
+   "repo": "DeadLocky",
+   "url": "https://github.com/F3T1W/DeadLocky",
+   "sha": "9a74f3cb4a2237b6bfb1f032aaa639251185f766",
+   "licence": "MIT (LICENSE file at pin 9a74f3cb4a22, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T12:25Z",
+    "consent_receipt": "2ab782fb3535",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T12:25Z (receipt 2ab782fb3535); selected commit 9a74f3cb4a22: \"feat: Added logging and bug report\". LICENSE file at pin 9a74f3cb4a22 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

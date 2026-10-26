@@ -1,0 +1,23 @@
+{
+ "corpus": "rioktss--rioos",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on aarch64, arm64, bare-metal queries this for how rioktss/RioOS implements it: A simple ARM64 bare-metal operating system powered by MyKernel (selected work: kernel, tests, net)",
+ "repos": [
+  {
+   "repo": "RioOS",
+   "url": "https://github.com/rioktss/RioOS",
+   "sha": "7773dc8df079f70984cc1a7ee1e3c32561df24e0",
+   "licence": "author's permission (LICENSE at pin 7773dc8df079: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T18:13Z",
+    "consent_receipt": "2c7acbd66147",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:13Z (receipt 2c7acbd66147); selected commit 7773dc8df079: \"update\". LICENSE at pin 7773dc8df079: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

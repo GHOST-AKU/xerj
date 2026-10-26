@@ -1,0 +1,23 @@
+{
+ "corpus": "chaltik--market-data",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how chaltik/market_data implements it: Downloading and saving market data used in various projects (selected work: the project root, tests)",
+ "repos": [
+  {
+   "repo": "market_data",
+   "url": "https://github.com/chaltik/market_data",
+   "sha": "c7aae6bae08372acd7d7adfa71b0b8a90f5c3f64",
+   "licence": "GPL-3.0 (LICENSE file at pin c7aae6bae083, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T20:49Z",
+    "consent_receipt": "8981326a405b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:49Z (receipt 8981326a405b); selected commit c7aae6bae083: \"Backfill and refresh FRED high-yield OAS with availability dates\". LICENSE file at pin c7aae6bae083 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -9,14 +9,14 @@
    "repo": "brazier",
    "url": "https://github.com/brazier-tech/brazier",
    "sha": "8a54876deaffdca3036dd37dbf43b20b292d9d00",
-   "licence": "hint only: LGPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 8a54876deaff: NOASSERTION; repository: LGPL-3.0)",
    "review": {
-    "spdx": "LGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-14T10:34Z",
     "consent_receipt": "f13244b23ead",
-    "note": "author consent by email 2026-10-14T10:34Z (receipt f13244b23ead); selected commit 8a54876deaff: \"refactor: module structure of https server\"; LICENSE at pin: NOASSERTION vs repository LGPL-3.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T10:34Z (receipt f13244b23ead); selected commit 8a54876deaff: \"refactor: module structure of https server\". LICENSE at pin 8a54876deaff: NOASSERTION (repository: LGPL-3.0); used with the author's permission, with attribution."
    }
   }
  ]

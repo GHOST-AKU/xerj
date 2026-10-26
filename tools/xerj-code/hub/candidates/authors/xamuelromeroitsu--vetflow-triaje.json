@@ -1,0 +1,23 @@
+{
+ "corpus": "xamuelromeroitsu--vetflow-triaje",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Dart queries this for how xamuelromeroitsu/Vetflow_Triaje implements it: App m\u00f3vil (Flutter + Firebase) que sugiere un nivel de triaje veterinario \u2014Emergencia / Urgencia / Consulta\u2014 a partir de s\u00edntomas y signos v (selected work: vetflow_triaje)",
+ "repos": [
+  {
+   "repo": "Vetflow_Triaje",
+   "url": "https://github.com/xamuelromeroitsu/Vetflow_Triaje",
+   "sha": "3d2f494b667b202297fc734607bd1d7c5ca6c3c4",
+   "licence": "Apache-2.0 (LICENSE file at pin 3d2f494b667b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T21:14Z",
+    "consent_receipt": "9b4a96c56cc9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T21:14Z (receipt 9b4a96c56cc9); selected commit 3d2f494b667b: \"ajustes de arquitectura\". LICENSE file at pin 3d2f494b667b detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

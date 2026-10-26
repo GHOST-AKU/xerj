@@ -1,0 +1,23 @@
+{
+ "corpus": "jingxiang-z--csknowledgehub",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on computerscience, knowledgesharing queries this for how jingxiang-z/CSKnowledgeHub implements it: An open-source hub for sharing fundamental computer science knowledge (selected work: labs)",
+ "repos": [
+  {
+   "repo": "CSKnowledgeHub",
+   "url": "https://github.com/jingxiang-z/CSKnowledgeHub",
+   "sha": "c5b2a72742be678a5a3c273b0cc9118922fab0f6",
+   "licence": "author's permission (LICENSE at pin c5b2a72742be: NOASSERTION; repository: CC-BY-4.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T00:31Z",
+    "consent_receipt": "a31ff90da285",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T00:31Z (receipt a31ff90da285); selected commit c5b2a72742be: \"feat: add Python NVML GPU inspection CLI\". LICENSE at pin c5b2a72742be: NOASSERTION (repository: CC-BY-4.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

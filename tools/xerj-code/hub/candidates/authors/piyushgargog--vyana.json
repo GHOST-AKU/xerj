@@ -1,0 +1,23 @@
+{
+ "corpus": "piyushgargog--vyana",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on ai, expo, healthcare queries this for how piyushgargog/vyana implements it: Vyana: your health, in one calm place. Prescriptions and reminders, lab reports in plain words, the best medicine prices, hospital tokens an (selected work: apps/web, apps/mobile)",
+ "repos": [
+  {
+   "repo": "vyana",
+   "url": "https://github.com/piyushgargog/vyana",
+   "sha": "7f1ee399619d80f31c7ef77fb25e8c12c805db07",
+   "licence": "MIT (LICENSE file at pin 7f1ee399619d, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T16:20Z",
+    "consent_receipt": "c25c906c08dc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T16:20Z (receipt c25c906c08dc); selected commit 7f1ee399619d: \"feat: Liquid Glass design system for web and mobile\". LICENSE file at pin 7f1ee399619d detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

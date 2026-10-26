@@ -1,0 +1,23 @@
+{
+ "corpus": "skoppisetty--cli-agents-rs",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent, ai, claude queries this for how skoppisetty/cli-agents-rs implements it: Unified AI CLI framework for Claude, Codex, and Gemini CLIs in Rust (selected work: src/adapters, src)",
+ "repos": [
+  {
+   "repo": "cli-agents-rs",
+   "url": "https://github.com/skoppisetty/cli-agents-rs",
+   "sha": "143da440288832d311d282cec85f765504667110",
+   "licence": "MIT (LICENSE file at pin 143da4402888, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T16:49Z",
+    "consent_receipt": "0a37ff728072",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T16:49Z (receipt 0a37ff728072); selected commit 143da4402888: \"Support stdin runtime configuration and exact Codex turn inspection\". LICENSE file at pin 143da4402888 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

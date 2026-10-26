@@ -1,0 +1,23 @@
+{
+ "corpus": "matkier--flipperzero-wavehound",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on 2-4ghz, esp32-s2, flipper-zero-app queries this for how MatKier/flipperzero-wavehound implements it: WiFi fox hunting for the Flipper Zero WiFi dev board (selected work: firmware, flipper_app)",
+ "repos": [
+  {
+   "repo": "flipperzero-wavehound",
+   "url": "https://github.com/MatKier/flipperzero-wavehound",
+   "sha": "d928261f4808237ebdc18949336e4317ca5c5ffb",
+   "licence": "MIT (LICENSE file at pin d928261f4808, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T19:02Z",
+    "consent_receipt": "17e502056c9b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T19:02Z (receipt 17e502056c9b); selected commit d928261f4808: \"AP login + elicitation ping for silent-target hunting (v1.14) (#29)\". LICENSE file at pin d928261f4808 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

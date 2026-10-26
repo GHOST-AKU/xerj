@@ -1,0 +1,23 @@
+{
+ "corpus": "kidkender--archmind",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, architecture, developer-tools queries this for how Kidkender/archMind implements it: Give AI a semantic understanding of your codebase (selected work: packages/mcp-server)",
+ "repos": [
+  {
+   "repo": "archMind",
+   "url": "https://github.com/Kidkender/archMind",
+   "sha": "ba1bc9d7ce2434756ca35b2b84837db91a879257",
+   "licence": "MIT (LICENSE file at pin ba1bc9d7ce24, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T06:16Z",
+    "consent_receipt": "3ad712bad374",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T06:16Z (receipt 3ad712bad374); selected commit ba1bc9d7ce24: \"feat(mcp): add archmind_symbol_context for Go call-graph lookups\". LICENSE file at pin ba1bc9d7ce24 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

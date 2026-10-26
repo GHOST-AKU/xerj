@@ -1,0 +1,30 @@
+{
+ "corpus": "metehankaygsz--dashline",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on android, android-auto-alternative, android-launcher queries this for how metehankaygsz/dashline implements it: A minimal Android launcher for car head units \u2014 clock, weather, media controls and app shortcuts. Works down to Android 4.4, no Google Play  (selected work: app/src)",
+ "repos": [
+  {
+   "repo": "dashline",
+   "url": "https://github.com/metehankaygsz/dashline",
+   "sha": "b02357bb3f38e68187972e8d282c2d348d4cb593",
+   "licence": "GPL-3.0 (LICENSE file at pin b02357bb3f38, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T20:31Z",
+    "consent_receipt": "b581360f66b1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:31Z (receipt b581360f66b1); selected commit b02357bb3f38: \"List every launcher icon an app has, not one per app\". LICENSE file at pin b02357bb3f38 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "b02357bb3f38e68187972e8d282c2d348d4cb593",
+     "at": "2026-10-24T20:31Z",
+     "receipt": "b581360f66b1"
+    }
+   }
+  }
+ ]
+}

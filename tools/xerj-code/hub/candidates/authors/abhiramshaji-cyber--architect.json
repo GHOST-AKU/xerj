@@ -1,0 +1,23 @@
+{
+ "corpus": "abhiramshaji-cyber--architect",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, architecture, desktop-app queries this for how abhiramshaji-cyber/Architect implements it: An Electron canvas for your architecture, with an MCP gate that blocks an AI agent's change until you approve it (selected work: electron, src/view, src/model)",
+ "repos": [
+  {
+   "repo": "Architect",
+   "url": "https://github.com/abhiramshaji-cyber/Architect",
+   "sha": "f87c48bd2bd8a10f623020cb5a90f25e3675e374",
+   "licence": "Apache-2.0 (LICENSE file at pin f87c48bd2bd8, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T20:19Z",
+    "consent_receipt": "fe58aef7057c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T20:19Z (receipt fe58aef7057c); selected commit f87c48bd2bd8: \"feat(worktrees): browse local Claude Code worktrees and open one live\u2026\". LICENSE file at pin f87c48bd2bd8 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

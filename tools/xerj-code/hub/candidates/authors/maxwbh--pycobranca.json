@@ -1,0 +1,23 @@
+{
+ "corpus": "maxwbh--pycobranca",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on boleto, boleto-bancario, boleto-pix queries this for how Maxwbh/pyCobranca implements it: Engine de cobran\u00e7a banc\u00e1ria brasileira em Python: boleto (PDF), CNAB 240/400, Pix QR e OFX para 19 bancos. Biblioteca pura, sem servidor e s (selected work: tests, pycobranca, the project root)",
+ "repos": [
+  {
+   "repo": "pyCobranca",
+   "url": "https://github.com/Maxwbh/pyCobranca",
+   "sha": "98cc02dd61877d85424fe3044ad48ba462aa6ed6",
+   "licence": "BSD-3-Clause (LICENSE file at pin 98cc02dd6187, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "BSD-3-Clause",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T11:59Z",
+    "consent_receipt": "8108e5786317",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T11:59Z (receipt 8108e5786317); selected commit 98cc02dd6187: \"Promover hml para produ\u00e7\u00e3o: sequencial do header do Inter, sdist sem \u2026\". LICENSE file at pin 98cc02dd6187 detected as BSD-3-Clause by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "blaze-cache--blaze-cache",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on Rust queries this for how blaze-cache/blaze-cache implements it: Blazingly fast client-side caching library powered by Rust \u2192 WebAssembly (selected work: crates/blaze-cache-core)",
+ "repos": [
+  {
+   "repo": "blaze-cache",
+   "url": "https://github.com/blaze-cache/blaze-cache",
+   "sha": "a286a7562dc102d09bb2047edb51cbf65206704f",
+   "licence": "MIT (LICENSE file at pin a286a7562dc1, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T11:11Z",
+    "consent_receipt": "75abc6964cfc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T11:11Z (receipt 75abc6964cfc); selected commit a286a7562dc1: \"perf: skip the expiry clock when no entry holds a TTL\". LICENSE file at pin a286a7562dc1 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

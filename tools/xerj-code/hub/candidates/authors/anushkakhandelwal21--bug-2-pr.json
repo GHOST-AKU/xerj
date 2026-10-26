@@ -1,0 +1,23 @@
+{
+ "corpus": "anushkakhandelwal21--bug-2-pr",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on TypeScript queries this for how anushkakhandelwal21/BUG_2_PR implements it: Bug2PR turns a GitHub issue URL into a verified pull request. LangGraph agents on Groq write a failing pytest test, patch the code, and run  (selected work: frontend, the project root)",
+ "repos": [
+  {
+   "repo": "BUG_2_PR",
+   "url": "https://github.com/anushkakhandelwal21/BUG_2_PR",
+   "sha": "329242f4022fffafbe677c49673e5ec6a06832eb",
+   "licence": "MIT (LICENSE file at pin 329242f4022f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T17:24Z",
+    "consent_receipt": "4169f3e7addd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T17:24Z (receipt 4169f3e7addd); selected commit 329242f4022f: \"fix(deploy): add netlify and vercel spa rewrites, 404 fallback, and a\u2026\". LICENSE file at pin 329242f4022f detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "corpus": "marx1--hp-powersupply-esp8266-breakout",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on code queries this for how Marx1/HP_PowerSupply_ESP8266_Breakout implements it: HP Common slot breakout board controlled by ESPhome (selected work: the project root, CSPS)",
+ "repos": [
+  {
+   "repo": "HP_PowerSupply_ESP8266_Breakout",
+   "url": "https://github.com/Marx1/HP_PowerSupply_ESP8266_Breakout",
+   "sha": "b0ec00964eb9be872942aac4a6bfc5d6ca3865d3",
+   "licence": "GPL-3.0 (LICENSE file at pin b0ec00964eb9, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T06:40Z",
+    "consent_receipt": "69d2de67eab8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T06:40Z (receipt 69d2de67eab8); selected commit b0ec00964eb9: \"Updated code to work with new ESPhome\". LICENSE file at pin b0ec00964eb9 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "b0ec00964eb9be872942aac4a6bfc5d6ca3865d3",
+     "at": "2026-10-26T06:40Z",
+     "receipt": "69d2de67eab8"
+    }
+   }
+  }
+ ]
+}

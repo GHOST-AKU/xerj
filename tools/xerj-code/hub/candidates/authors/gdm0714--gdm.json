@@ -1,0 +1,23 @@
+{
+ "corpus": "gdm0714--gdm",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how Gdm0714/gdm implements it: Gdm0714/gdm (TypeScript) (selected work: src/runtime, src, src/device)",
+ "repos": [
+  {
+   "repo": "gdm",
+   "url": "https://github.com/Gdm0714/gdm",
+   "sha": "7c0cb0250a0c609b898a8fc9181ce0dd9de2f471",
+   "licence": "MIT (LICENSE file at pin 7c0cb0250a0c, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T01:40Z",
+    "consent_receipt": "8f261e12e78d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T01:40Z (receipt 8f261e12e78d); selected commit 7c0cb0250a0c: \"feat: \ud558\ub124\uc2a4\uc640 \uc124\uce58 \ud504\ub85c\uadf8\ub7a8 \ub2e4\uad6d\uc5b4 \uc9c0\uc6d0 (#44)\". LICENSE file at pin 7c0cb0250a0c detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

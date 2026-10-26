@@ -1,0 +1,23 @@
+{
+ "corpus": "antonioromano--argus",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how antonioromano/argus implements it: antonioromano/argus (TypeScript) (selected work: electron, scripts, the project root)",
+ "repos": [
+  {
+   "repo": "argus",
+   "url": "https://github.com/antonioromano/argus",
+   "sha": "6ead7cf4251a4062be14387802893728563ae01f",
+   "licence": "MIT (LICENSE file at pin 6ead7cf4251a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T16:29Z",
+    "consent_receipt": "42069a5dae6a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T16:29Z (receipt 42069a5dae6a); selected commit 6ead7cf4251a: \"feat(icon): layered macOS app icon with Dark/Tinted/Clear variants (A\u2026\". LICENSE file at pin 6ead7cf4251a detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

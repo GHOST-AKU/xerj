@@ -1,0 +1,23 @@
+{
+ "corpus": "smolcan--ag-grid-jpa-adapter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on ag-grid, java, jpa queries this for how smolcan/ag-grid-jpa-adapter implements it: JPA Adapter for AG Grid Server-Side Mode (selected work: src/test, src/main)",
+ "repos": [
+  {
+   "repo": "ag-grid-jpa-adapter",
+   "url": "https://github.com/smolcan/ag-grid-jpa-adapter",
+   "sha": "6dc21866382cb9263d9417320ca8c427721e7238",
+   "licence": "MIT (LICENSE file at pin 6dc21866382c, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T15:22Z",
+    "consent_receipt": "32008a24d864",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T15:22Z (receipt 32008a24d864); selected commit 6dc21866382c: \"Feature/fix findings (#14)\". LICENSE file at pin 6dc21866382c detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

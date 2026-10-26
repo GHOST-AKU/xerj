@@ -2,8 +2,8 @@
  "corpus": "terleckimaciej--menu-courier",
  "cloned_at": null,
  "status": "draft",
- "shelf": "DB",
- "domain": "an agent working on Python queries this for how terleckimaciej/menu-courier implements it: A production-grade service that scrapes Facebook posts and delivers them via Messenger. Built with Docker, CI, and a scheduled Postgres-back (selected work: tests, src/menu_courier, the project root)",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how terleckimaciej/menu-courier implements it: A production-grade service that scrapes Facebook posts and delivers them via Messenger (selected work: tests, src/menu_courier, the project root)",
  "repos": [
   {
    "repo": "menu-courier",

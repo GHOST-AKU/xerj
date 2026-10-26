@@ -1,0 +1,23 @@
+{
+ "corpus": "trincaxt--nc-snapshot",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on Rust queries this for how trincaxt/nc-snapshot implements it: \u26a1 Fast Nine Chronicles blockchain snapshot tool (selected work: src, examples)",
+ "repos": [
+  {
+   "repo": "nc-snapshot",
+   "url": "https://github.com/trincaxt/nc-snapshot",
+   "sha": "9304bce7d7ba8c5834a9dc3327f646f573c891bb",
+   "licence": "MIT (LICENSE file at pin 9304bce7d7ba, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T10:27Z",
+    "consent_receipt": "08eefacacda2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T10:27Z (receipt 08eefacacda2); selected commit 9304bce7d7ba: \"feat(gc_index): BFS indexado por n\u00edvel com \u00edndice hash\u2192offset e bitset\". LICENSE file at pin 9304bce7d7ba detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

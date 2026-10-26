@@ -1,0 +1,23 @@
+{
+ "corpus": "rylieweaver--alphagenome-pytorch",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how RylieWeaver/AlphaGenome_PyTorch implements it: RylieWeaver/AlphaGenome_PyTorch (Python) (selected work: tests, src/alphagenome_pt, the project root)",
+ "repos": [
+  {
+   "repo": "AlphaGenome_PyTorch",
+   "url": "https://github.com/RylieWeaver/AlphaGenome_PyTorch",
+   "sha": "69fa994a13f66b49d9df99380a13764f997fb391",
+   "licence": "Apache-2.0 (LICENSE file at pin 69fa994a13f6, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:22Z",
+    "consent_receipt": "ddb63daef6f7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:22Z (receipt ddb63daef6f7); selected commit 69fa994a13f6: \"Add safetensors\". LICENSE file at pin 69fa994a13f6 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

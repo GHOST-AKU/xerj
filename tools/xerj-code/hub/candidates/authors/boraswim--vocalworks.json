@@ -1,0 +1,30 @@
+{
+ "corpus": "boraswim--vocalworks",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on audio-processing, autotune, cover-songs queries this for how boraswim/vocalworks implements it: Windows app for singing covers that sound like the original: records your vocal, matches its production automatically, and mixes your cover (selected work: app, tools, setup)",
+ "repos": [
+  {
+   "repo": "vocalworks",
+   "url": "https://github.com/boraswim/vocalworks",
+   "sha": "320240feb8701a3f86556f13e1f35543f2deac58",
+   "licence": "MIT (LICENSE file at pin 320240feb870, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T18:42Z",
+    "consent_receipt": "c5af18f0ad41",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:42Z (receipt c5af18f0ad41); selected commit 320240feb870: \"Optional AI assistant, vocoder check, reverb fix, Windows installer\". LICENSE file at pin 320240feb870 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 320240feb870 (contains the selected commit): the LICENSE at the selected commit was NONE.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "65febf3b7e26ff356573cd82253a5de1bbaa1682",
+     "at": "2026-10-25T18:42Z",
+     "receipt": "c5af18f0ad41"
+    }
+   }
+  }
+ ]
+}

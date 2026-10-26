@@ -1,0 +1,23 @@
+{
+ "corpus": "jorge262007--fftarecomp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on emulator, final-fantasy, game queries this for how Jorge262007/FFTARecomp implements it: Native Windows port of Final Fantasy Tactics Advance with widescreen, video/audio options and a one-click installer (selected work: crates/installer)",
+ "repos": [
+  {
+   "repo": "FFTARecomp",
+   "url": "https://github.com/Jorge262007/FFTARecomp",
+   "sha": "479ba3843ee703a62d843318a77e0f1c7542dbbc",
+   "licence": "author's permission (LICENSE at pin 479ba3843ee7: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T00:19Z",
+    "consent_receipt": "edfb3be0c732",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T00:19Z (receipt edfb3be0c732); selected commit 479ba3843ee7: \"Add files via upload\". LICENSE at pin 479ba3843ee7: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

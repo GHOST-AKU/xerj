@@ -1,0 +1,23 @@
+{
+ "corpus": "siddardhashayini--olaiedge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how SiddardhaShayini/OlaiEdge implements it: OlaiEdge (pronounced Oh-lai Edge, standing for Optimizing Local AI at the Edge) is a lightweight, headless inference and agent engine built  (selected work: olaiedge, fast_agent_pkg, sdks)",
+ "repos": [
+  {
+   "repo": "OlaiEdge",
+   "url": "https://github.com/SiddardhaShayini/OlaiEdge",
+   "sha": "b8351919f207d989570c619c6ab9fd71d6042536",
+   "licence": "author's permission (LICENSE at pin b8351919f207: NOASSERTION; repository: MIT)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T00:00Z",
+    "consent_receipt": "37c7c42a8e00",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T00:00Z (receipt 37c7c42a8e00); selected commit b8351919f207: \"feat: OlaiEdge v1.0 - Embeddable Edge Agent Engine for Desktop Apps\". LICENSE at pin b8351919f207: NOASSERTION (repository: MIT); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

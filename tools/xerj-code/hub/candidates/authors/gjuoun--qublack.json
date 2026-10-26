@@ -1,0 +1,23 @@
+{
+ "corpus": "gjuoun--qublack",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cjk, font, monospace queries this for how gjuoun/qublack implements it: \u9ee2\u9ed1 QuBlack \u2014 a strict 2:1 bilingual programming font family (SIL OFL 1.1) (selected work: tools)",
+ "repos": [
+  {
+   "repo": "qublack",
+   "url": "https://github.com/gjuoun/qublack",
+   "sha": "8a5f0bd6ea6cd6a2204ac283479df5c8c8f9f35e",
+   "licence": "author's permission (LICENSE at pin 8a5f0bd6ea6c: NOASSERTION; repository: MIT)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T21:03Z",
+    "consent_receipt": "384bb7cd7f50",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T21:03Z (receipt 384bb7cd7f50); selected commit 8a5f0bd6ea6c: \"feat(vf): build the wght-axis variable faces\". LICENSE at pin 8a5f0bd6ea6c: NOASSERTION (repository: MIT); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

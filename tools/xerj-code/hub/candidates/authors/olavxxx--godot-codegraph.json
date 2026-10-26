@@ -1,0 +1,23 @@
+{
+ "corpus": "olavxxx--godot-codegraph",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on code-analysis, developer-tools, editor-plugin queries this for how olavxxx/godot-codegraph implements it: Lightning-fast architecture indexer and code graph for Godot 4. Cross-references .gd scripts, .tscn scene signals, and @rpc calls for develo (selected work: addons)",
+ "repos": [
+  {
+   "repo": "godot-codegraph",
+   "url": "https://github.com/olavxxx/godot-codegraph",
+   "sha": "5218360f8805f98ea8b3a861b58ceee33954670f",
+   "licence": "MIT (LICENSE file at pin 5218360f8805, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:21Z",
+    "consent_receipt": "eb540ffae5d7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:21Z (receipt eb540ffae5d7); selected commit 5218360f8805: \"feat(ui): add dedicated Visual Graph tab with 3 graph modes and viewe\u2026\". LICENSE file at pin 5218360f8805 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

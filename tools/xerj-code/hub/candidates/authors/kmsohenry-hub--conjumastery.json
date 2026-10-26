@@ -1,0 +1,23 @@
+{
+ "corpus": "kmsohenry-hub--conjumastery",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on conjugation, education, english-learning queries this for how kmsohenry-hub/conjumastery implements it: Ma\u00eetrise la conjugaison anglaise : entra\u00eenement interactif, suivi de progression et r\u00e9p\u00e9tition espac\u00e9e. Vite + Vitest (selected work: __tests__, src/ui, src/core)",
+ "repos": [
+  {
+   "repo": "conjumastery",
+   "url": "https://github.com/kmsohenry-hub/conjumastery",
+   "sha": "6214bbf73233d206569b8418c4dbc44a4fcbb40c",
+   "licence": "MIT (LICENSE file at pin 6214bbf73233, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T18:42Z",
+    "consent_receipt": "b83d6f8b45db",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:42Z (receipt b83d6f8b45db); selected commit 6214bbf73233: \"feat(progression,ui): lock mobile background scroll & enforce 75% seq\u2026\". LICENSE file at pin 6214bbf73233 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

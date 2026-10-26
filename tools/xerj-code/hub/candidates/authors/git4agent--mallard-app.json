@@ -8,15 +8,15 @@
   {
    "repo": "mallard-app",
    "url": "https://github.com/Git4Agent/mallard-app",
-   "sha": "4a9d8dff56bb9aeac8ba81e99990e71833a3201f",
-   "licence": "MIT (LICENSE file at pin 4a9d8dff56bb, GitHub licence API 2026-10-24)",
+   "sha": "5e1ca05d50f7fc76badaab81cbe2d15400d70fd0",
+   "licence": "MIT (LICENSE file at pin 5e1ca05d50f7, GitHub licence API 2026-10-26)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-18T04:02Z",
     "consent_receipt": "00a48804ef9a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T04:02Z (receipt 00a48804ef9a); selected commit 4a9d8dff56bb: \"add auto update feature\". LICENSE file at pin 4a9d8dff56bb detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head 4a9d8dff56bb (contains the selected commit): the LICENSE at the selected commit was Apache-2.0."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T04:02Z (receipt 00a48804ef9a); selected commit 5e1ca05d50f7: \"add auto update feature\". LICENSE file at pin 5e1ca05d50f7 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 5e1ca05d50f7 (contains the selected commit): the LICENSE at the selected commit was Apache-2.0."
    }
   }
  ]

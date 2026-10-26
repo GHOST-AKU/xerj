@@ -1,0 +1,23 @@
+{
+ "corpus": "seismicgear--voynich-mcmc-annealer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on cipher, statistical-analysis, voynich queries this for how seismicgear/voynich-mcmc-annealer implements it: An advanced computational cryptanalysis framework for the Voynich Manuscript. It implements a positional polyalphabetic decoder optimized vi (selected work: tests, voynich, electron)",
+ "repos": [
+  {
+   "repo": "voynich-mcmc-annealer",
+   "url": "https://github.com/seismicgear/voynich-mcmc-annealer",
+   "sha": "fce960d3ddddf9abebe3bdfcf8440e6531cda6d9",
+   "licence": "MIT (LICENSE file at pin fce960d3dddd, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T23:18Z",
+    "consent_receipt": "bab6e8de2e03",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T23:18Z (receipt bab6e8de2e03); selected commit fce960d3dddd: \"Preserve completed run history and clarify handover packaging\". LICENSE file at pin fce960d3dddd detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "kalkulatorrk--atom-memory-postgres",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent, embeddings, hermes queries this for how KalkulatorRK/atom-memory-postgres implements it: Precise long-term memory for LLM agents on PostgreSQL: documents stored as atoms, answers always cited. Hermes skill (schema + scripts + dep (selected work: scripts, the project root)",
+ "repos": [
+  {
+   "repo": "atom-memory-postgres",
+   "url": "https://github.com/KalkulatorRK/atom-memory-postgres",
+   "sha": "ac5618fddb7724b7e140ec6820281f0784651442",
+   "licence": "MIT (LICENSE file at pin ac5618fddb77, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:05Z",
+    "consent_receipt": "9242c036d5b5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:05Z (receipt 9242c036d5b5); selected commit ac5618fddb77: \"fix: P0 \u0431\u0430\u0433\u0438 \u0440\u0435\u0432\u044c\u044e v7 + JSON-RPC, \u0432\u0435\u0440\u0441\u0438\u044f \u0438 N+1\". LICENSE file at pin ac5618fddb77 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

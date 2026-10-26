@@ -1,0 +1,23 @@
+{
+ "corpus": "chawla-1--feedbackxlr8",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Chawla-1/FeedbackXLR8 implements it: Chawla-1/FeedbackXLR8 (Python) (selected work: benchmark, pipeline, the project root)",
+ "repos": [
+  {
+   "repo": "FeedbackXLR8",
+   "url": "https://github.com/Chawla-1/FeedbackXLR8",
+   "sha": "be548f26d1602d6a7fb69b6e6aff3e595f8100a9",
+   "licence": "MIT (LICENSE file at pin be548f26d160, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T18:18Z",
+    "consent_receipt": "895f07d223eb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T18:18Z (receipt 895f07d223eb); selected commit be548f26d160: \"feat(v3.0): complete engine upgrade with transformer sentiment, c-TF-\u2026\". LICENSE file at pin be548f26d160 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head be548f26d160 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

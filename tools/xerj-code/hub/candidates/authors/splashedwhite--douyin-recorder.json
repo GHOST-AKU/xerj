@@ -9,14 +9,14 @@
    "repo": "douyin-recorder",
    "url": "https://github.com/SplashedWhite/douyin-recorder",
    "sha": "9ac807f564244d98338a2281912c46f75ef6a20a",
-   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 9ac807f56424: NOASSERTION; repository: MIT)",
    "review": {
-    "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T05:07Z",
     "consent_receipt": "aae08b036786",
-    "note": "author consent by email 2026-10-12T05:07Z (receipt aae08b036786); selected commit 9ac807f56424: \"\u589e\u52a0\u65ad\u6d41\u6062\u590d\u529f\u80fd,ffmpeg\u548c\u8f6f\u4ef6\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T05:07Z (receipt aae08b036786); selected commit 9ac807f56424: \"\u589e\u52a0\u65ad\u6d41\u6062\u590d\u529f\u80fd,ffmpeg\u548c\u8f6f\u4ef6\". LICENSE at pin 9ac807f56424: NOASSERTION (repository: MIT); used with the author's permission, with attribution."
    }
   }
  ]

@@ -9,14 +9,14 @@
    "repo": "Decache",
    "url": "https://github.com/mike22890/Decache",
    "sha": "55f6569b0c9e7cfedcb07f75c93fdc89ce5fb665",
-   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 55f6569b0c9e: NOASSERTION; repository: MIT)",
    "review": {
-    "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T02:05Z",
     "consent_receipt": "de576a9fdc61",
-    "note": "author consent by email 2026-10-22T02:05Z (receipt de576a9fdc61); selected commit 55f6569b0c9e: \"v6.14: \u4e09\u8def\u5ba1\u8ba1\u5168\u9762\u52a0\u56fa(\u6570\u636e\u5b89\u5168\u4f18\u5148) + logo \u91cd\u8bbe\u8ba1 + \u9759\u6001\u95f8\u6269\u5230 7 \u9053\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T02:05Z (receipt de576a9fdc61); selected commit 55f6569b0c9e: \"v6.14: \u4e09\u8def\u5ba1\u8ba1\u5168\u9762\u52a0\u56fa(\u6570\u636e\u5b89\u5168\u4f18\u5148) + logo \u91cd\u8bbe\u8ba1 + \u9759\u6001\u95f8\u6269\u5230 7 \u9053\". LICENSE at pin 55f6569b0c9e: NOASSERTION (repository: MIT); used with the author's permission, with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "chenjie1219--swiftscankit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on swift, xcode, scanner queries this for how chenjie1219/SwiftScanKit implements it: A barcode and qr code scanner( \u4e8c\u7ef4\u7801/\u6761\u5f62\u7801\u626b\u63cf\u3001\u751f\u6210\uff0c\u4eff\u5fae\u4fe1\u3001\u652f\u4ed8\u5b9d) (selected work: SwiftScanner, Sources, Tests)",
+ "repos": [
+  {
+   "repo": "SwiftScan",
+   "url": "https://github.com/chenjie1219/SwiftScan",
+   "sha": "d8da19d9883b48d888b5f4054c3c4772026beb3d",
+   "licence": "MIT (LICENSE file at pin d8da19d9883b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T04:03Z",
+    "consent_receipt": "5d10973d394f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T04:03Z (receipt 5d10973d394f); selected commit d8da19d9883b: \"Modernize SwiftScan and prepare 2.0.0 distribution\". LICENSE file at pin d8da19d9883b detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

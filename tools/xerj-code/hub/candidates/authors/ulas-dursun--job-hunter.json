@@ -1,0 +1,23 @@
+{
+ "corpus": "ulas-dursun--job-hunter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on ai-agents, ats-resume, career-automation queries this for how Ulas-Dursun/job-hunter implements it: Autonomous event-driven AI job aggregator, ATS resume tailor & Kanban CRM built with Go, Python, Redis Streams & PostgreSQL (Gemini + Groq f (selected work: web, internal/analyzer, internal/api)",
+ "repos": [
+  {
+   "repo": "job-hunter",
+   "url": "https://github.com/Ulas-Dursun/job-hunter",
+   "sha": "48b79a8228080936c49fd2683ea06861c27bc255",
+   "licence": "MIT (LICENSE file at pin 48b79a822808, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T09:43Z",
+    "consent_receipt": "d5ce8916d273",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T09:43Z (receipt d5ce8916d273); selected commit 48b79a822808: \"feat: calibrate human-tone ATS prompt and add AI Interview Prep Kit (\u2026\". LICENSE file at pin 48b79a822808 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

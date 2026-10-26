@@ -1,0 +1,23 @@
+{
+ "corpus": "abrahamelviento--retrolauncher",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Kotlin queries this for how AbrahamElviento/RetroLauncher implements it: An android front end with capability to only use some portion of the screen (selected work: app/src)",
+ "repos": [
+  {
+   "repo": "RetroLauncher",
+   "url": "https://github.com/AbrahamElviento/RetroLauncher",
+   "sha": "fedb71efd2983816926cfd8981332d14988a2445",
+   "licence": "GPL-3.0 (LICENSE file at pin fedb71efd298, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T00:55Z",
+    "consent_receipt": "ce6f9cfbcde2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T00:55Z (receipt ce6f9cfbcde2); selected commit fedb71efd298: \"feat: add system navigation keys and improve DraStic launch\". LICENSE file at pin fedb71efd298 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

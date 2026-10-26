@@ -9,14 +9,14 @@
    "repo": "midnight-node",
    "url": "https://github.com/midnightntwrk/midnight-node",
    "sha": "ef0ed5898ad1f77ad1ddc0516ca3a819812dd547",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin ef0ed5898ad1: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T20:41Z",
     "consent_receipt": "567922a57025",
-    "note": "author consent by email 2026-10-12T20:41Z (receipt 567922a57025); selected commit ef0ed5898ad1: \"feat(node): add midnight_ledgerStats RPC for ledger collection sizes \u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T20:41Z (receipt 567922a57025); selected commit ef0ed5898ad1: \"feat(node): add midnight_ledgerStats RPC for ledger collection sizes \u2026\". LICENSE at pin ef0ed5898ad1: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

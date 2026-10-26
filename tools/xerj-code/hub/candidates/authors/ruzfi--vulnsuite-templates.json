@@ -1,0 +1,23 @@
+{
+ "corpus": "ruzfi--vulnsuite-templates",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on cve, detection-engineering, docker queries this for how ruzfi/vulnsuite-templates implements it: Reproducible vulnerable/patched targets for vulnsuite (selected work: web-apps)",
+ "repos": [
+  {
+   "repo": "vulnsuite-templates",
+   "url": "https://github.com/ruzfi/vulnsuite-templates",
+   "sha": "0d6d726403d6f768a4f459ec4241a1f349a310f0",
+   "licence": "MIT (LICENSE file at pin 0d6d726403d6, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T18:40Z",
+    "consent_receipt": "5ac6ce8f276b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:40Z (receipt 5ac6ce8f276b); selected commit 0d6d726403d6: \"feat: add Nextcloud Collabora CODE RCE target (CVE-2026-110447)  Real\u2026\". LICENSE file at pin 0d6d726403d6 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

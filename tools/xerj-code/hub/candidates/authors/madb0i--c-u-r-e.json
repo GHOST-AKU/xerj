@@ -1,0 +1,23 @@
+{
+ "corpus": "madb0i--c-u-r-e",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on cdrive, local-first, virus-scanning queries this for how MadB0i/C.U.R.E implements it: Portable Windows security toolkit \u2014 detects malware persistence, verifies file signatures, auto-launches from a trusted USB, and cleans your (selected work: testing, gui, tools)",
+ "repos": [
+  {
+   "repo": "C.U.R.E",
+   "url": "https://github.com/MadB0i/C.U.R.E",
+   "sha": "bbc5c3a3fbf7ee6dcc785e0e7af7df284671b002",
+   "licence": "MIT (LICENSE file at pin bbc5c3a3fbf7, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T02:19Z",
+    "consent_receipt": "9455c9f6d6c6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T02:19Z (receipt 9455c9f6d6c6); selected commit bbc5c3a3fbf7: \"test: add the native end-to-end and release verification gates\". LICENSE file at pin bbc5c3a3fbf7 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

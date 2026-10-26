@@ -1,0 +1,23 @@
+{
+ "corpus": "ybtopaz8--flowhub-maui",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on android, cross-platform, dotnet queries this for how YBTopaz8/FlowHub-MAUI implements it: MAUI Cross Platform App to manage Expenditures and Savings (selected work: FlowHub, FlowHub-MAUI)",
+ "repos": [
+  {
+   "repo": "FlowHub-MAUI",
+   "url": "https://github.com/YBTopaz8/FlowHub-MAUI",
+   "sha": "da1d59890cf0370e92520cbd8d765f01ff947f7b",
+   "licence": "GPL-3.0 (LICENSE file at pin da1d59890cf0, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-22T10:13Z",
+    "consent_receipt": "736070e0ad8c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T10:13Z (receipt 736070e0ad8c); selected commit da1d59890cf0: \"Integrate Material Components and crash logging\". LICENSE file at pin da1d59890cf0 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

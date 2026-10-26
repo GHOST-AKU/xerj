@@ -1,0 +1,23 @@
+{
+ "corpus": "aplatogg--chess-assistant",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on chess, chess-com, overlay queries this for how aplatogg/chess-assistant implements it: Real-time Chess.com assistant powered by Stockfish \u2014 live board reading via CDP, floating overlay UI, top 5 moves, auto-play with human-like (selected work: the project root, tests)",
+ "repos": [
+  {
+   "repo": "chess-assistant",
+   "url": "https://github.com/aplatogg/chess-assistant",
+   "sha": "35e0905345c3ce46e771f83a1ad7726d57fc4724",
+   "licence": "MIT (LICENSE file at pin 35e0905345c3, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T18:01Z",
+    "consent_receipt": "ebe5741e0175",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T18:01Z (receipt ebe5741e0175); selected commit 35e0905345c3: \"fix: make the assistant portable and safe to run\". LICENSE file at pin 35e0905345c3 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "corpus": "sortmerna--sortmerna",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "HEALTH",
+ "domain": "an agent working on cpp, python, alignment queries this for how sortmerna/sortmerna implements it: SortMeRNA: next-generation sequence filtering and alignment tool (selected work: include, src/sortmerna, the project root)",
+ "repos": [
+  {
+   "repo": "sortmerna",
+   "url": "https://github.com/sortmerna/sortmerna",
+   "sha": "f2e368793edaac471be35ef278fbc19e4ab3badc",
+   "licence": "author's permission (LICENSE at pin f2e368793eda: NOASSERTION; repository: GPL-3.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T19:07Z",
+    "consent_receipt": "78245ccf22d4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:07Z (receipt 78245ccf22d4); selected commit f2e368793eda: \"Using cxxopts library for option processing.\". LICENSE at pin f2e368793eda: NOASSERTION (repository: GPL-3.0); used with the author's permission, with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "f2e368793edaac471be35ef278fbc19e4ab3badc",
+     "at": "2026-10-24T19:07Z",
+     "receipt": "78245ccf22d4"
+    }
+   }
+  }
+ ]
+}

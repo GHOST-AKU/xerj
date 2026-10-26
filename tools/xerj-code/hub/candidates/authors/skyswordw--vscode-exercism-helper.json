@@ -1,0 +1,23 @@
+{
+ "corpus": "skyswordw--vscode-exercism-helper",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how skyswordw/vscode-exercism-helper implements it: VS Code extension for Exercism \u2014 browse, download, test, and submit exercises with learning progress sync (selected work: src/test, src/commands, src)",
+ "repos": [
+  {
+   "repo": "vscode-exercism-helper",
+   "url": "https://github.com/skyswordw/vscode-exercism-helper",
+   "sha": "3b4b6acb0424c6f38e8108cde71f33c3ad652972",
+   "licence": "MIT (LICENSE file at pin 3b4b6acb0424, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T08:37Z",
+    "consent_receipt": "33b35e61ec58",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T08:37Z (receipt 33b35e61ec58); selected commit 3b4b6acb0424: \"Fix join-track polling timeouts and cancellation\". LICENSE file at pin 3b4b6acb0424 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

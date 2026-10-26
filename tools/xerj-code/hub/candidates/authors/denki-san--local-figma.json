@@ -1,0 +1,23 @@
+{
+ "corpus": "denki-san--local-figma",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cli, figma, local-first queries this for how denki-san/local-figma implements it: Edit Figma designs with a local AI Agent. | \u7528\u81ea\u7136\u8bed\u8a00\u6279\u91cf\u4fee\u6539 Figma \u8bbe\u8ba1\u7a3f\uff0c\u4fdd\u7559\u539f\u6709\u6837\u5f0f\u548c\u53ef\u7f16\u8f91\u56fe\u5c42\u3002 (selected work: src, tests, plugin)",
+ "repos": [
+  {
+   "repo": "local-figma",
+   "url": "https://github.com/denki-san/local-figma",
+   "sha": "e64b8aeb86d50cc12948680b949092b75cabda4c",
+   "licence": "Apache-2.0 (LICENSE file at pin e64b8aeb86d5, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T04:15Z",
+    "consent_receipt": "882f13d1004d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T04:15Z (receipt 882f13d1004d); selected commit e64b8aeb86d5: \"feat(plugin): add Chinese and English UI localization\". LICENSE file at pin e64b8aeb86d5 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

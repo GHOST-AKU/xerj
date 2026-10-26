@@ -1,0 +1,30 @@
+{
+ "corpus": "mwolf76--yasmv",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C queries this for how mwolf76/yasmv implements it: yasmv - Yet Another Symbolic Model Verifier (selected work: 3rdparty, tools, tests)",
+ "repos": [
+  {
+   "repo": "yasmv",
+   "url": "https://github.com/mwolf76/yasmv",
+   "sha": "f6bd0bcedf3b5eb16e6479a90c46147bf91e2684",
+   "licence": "GPL-3.0 (LICENSE file at pin f6bd0bcedf3b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T19:56Z",
+    "consent_receipt": "8a6a89c8b727",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T19:56Z (receipt 8a6a89c8b727); selected commit f6bd0bcedf3b: \"Rewrite smv-mode for the yasmv language and drop the legacy mode\". LICENSE file at pin f6bd0bcedf3b detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "f6bd0bcedf3b5eb16e6479a90c46147bf91e2684",
+     "at": "2026-10-26T19:56Z",
+     "receipt": "8a6a89c8b727"
+    }
+   }
+  }
+ ]
+}

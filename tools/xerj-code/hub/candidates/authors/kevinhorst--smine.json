@@ -1,0 +1,23 @@
+{
+ "corpus": "kevinhorst--smine",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Go queries this for how kevinhorst/smine implements it: Take back control. smine is THE authority Claude Code and Codex need to function correctly without breaking your mind or your pockets: no mo (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "smine",
+   "url": "https://github.com/kevinhorst/smine",
+   "sha": "bcec15fc72427caae98e08f31249017c2edce778",
+   "licence": "author's permission (LICENSE at pin bcec15fc7242: MIT; repository: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:30Z",
+    "consent_receipt": "4592f30d7285",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:30Z (receipt 4592f30d7285); selected commit bcec15fc7242: \"global: Release sync \u2014 install scripts, Makefile redact target, golan\u2026\". LICENSE at pin bcec15fc7242: MIT (repository: NOASSERTION); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

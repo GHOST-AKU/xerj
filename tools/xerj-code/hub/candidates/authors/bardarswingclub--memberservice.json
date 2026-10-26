@@ -1,0 +1,23 @@
+{
+ "corpus": "bardarswingclub--memberservice",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C# queries this for how bardarswingclub/MemberService implements it: A system for handling members, registration and payment (selected work: src/MemberService, tests)",
+ "repos": [
+  {
+   "repo": "MemberService",
+   "url": "https://github.com/bardarswingclub/MemberService",
+   "sha": "f92345078a48f4eaf17fa23dca5311f0288e7beb",
+   "licence": "MIT (LICENSE file at pin f92345078a48, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T17:56Z",
+    "consent_receipt": "da9b8f938f44",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T17:56Z (receipt da9b8f938f44); selected commit f92345078a48: \"Kursplanlegging (#137)\". LICENSE file at pin f92345078a48 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

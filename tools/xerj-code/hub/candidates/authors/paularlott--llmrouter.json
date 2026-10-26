@@ -9,14 +9,14 @@
    "repo": "llmrouter",
    "url": "https://github.com/paularlott/llmrouter",
    "sha": "a56ac10179c53929bcddc2912b8abdb2d0adbe2a",
-   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin a56ac10179c5: NOASSERTION; repository: MIT)",
    "review": {
-    "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T03:30Z",
     "consent_receipt": "6f34ff7dead7",
-    "note": "author consent by email 2026-10-11T03:30Z (receipt 6f34ff7dead7); selected commit a56ac10179c5: \"Support for gork and improved responses\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T03:30Z (receipt 6f34ff7dead7); selected commit a56ac10179c5: \"Support for gork and improved responses\". LICENSE at pin a56ac10179c5: NOASSERTION (repository: MIT); used with the author's permission, with attribution."
    }
   }
  ]

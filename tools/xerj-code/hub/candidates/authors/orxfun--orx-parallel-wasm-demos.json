@@ -9,14 +9,14 @@
    "repo": "orx-parallel-wasm-demos",
    "url": "https://github.com/orxfun/orx-parallel-wasm-demos",
    "sha": "420f43acb462ac277b865dadd146edc5eb0385b4",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 420f43acb462: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:12Z",
     "consent_receipt": "de084fd6435e",
-    "note": "author consent by email 2026-10-23T21:12Z (receipt de084fd6435e); selected commit 420f43acb462: \"Fix  documentation (#3)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:12Z (receipt de084fd6435e); selected commit 420f43acb462: \"Fix  documentation (#3)\". LICENSE at pin 420f43acb462: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

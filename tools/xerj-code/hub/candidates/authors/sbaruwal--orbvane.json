@@ -9,14 +9,14 @@
    "repo": "orbvane",
    "url": "https://github.com/sbaruwal/orbvane",
    "sha": "9e054aebe272bab3030e951cf5421f48d366d781",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 9e054aebe272: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T23:47Z",
     "consent_receipt": "ccf50275d636",
-    "note": "author consent by email 2026-10-12T23:47Z (receipt ccf50275d636); selected commit 9e054aebe272: \"Accessibility: Settings, Run and Debug, and the Assistant\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T23:47Z (receipt ccf50275d636); selected commit 9e054aebe272: \"Accessibility: Settings, Run and Debug, and the Assistant\". LICENSE at pin 9e054aebe272: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

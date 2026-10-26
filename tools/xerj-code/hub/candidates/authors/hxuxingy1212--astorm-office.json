@@ -1,0 +1,23 @@
+{
+ "corpus": "hxuxingy1212--astorm-office",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Rust queries this for how hxuxingy1212/astorm-office implements it: ai-office\u5de5\u5177 (selected work: ai-excel, office-core, ai-word)",
+ "repos": [
+  {
+   "repo": "astorm-office",
+   "url": "https://github.com/hxuxingy1212/astorm-office",
+   "sha": "b8eb20ecd5a46a4fb4be4737490065bad1de745f",
+   "licence": "MIT (LICENSE file at pin b8eb20ecd5a4, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T17:25Z",
+    "consent_receipt": "612b334a23bd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T17:25Z (receipt 612b334a23bd); selected commit b8eb20ecd5a4: \"Improve Office text and resource exports\". LICENSE file at pin b8eb20ecd5a4 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

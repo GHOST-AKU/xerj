@@ -1,0 +1,23 @@
+{
+ "corpus": "hydope--shortsmash",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, cli, content-creation queries this for how hydope/shortsmash implements it: \u2692\ufe0f Prompt in, finished short out. AI video studio with eyes: CLIP-verified footage, neural voice, karaoke captions, 50-language dubbing, tre (selected work: shortsmash, tests)",
+ "repos": [
+  {
+   "repo": "shortsmash",
+   "url": "https://github.com/hydope/shortsmash",
+   "sha": "a5e7a97e320c55484bb3c240f1e639162cdff468",
+   "licence": "MIT (LICENSE file at pin a5e7a97e320c, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:57Z",
+    "consent_receipt": "a66f5aab10de",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:57Z (receipt a66f5aab10de); selected commit a5e7a97e320c: \"ShortSmash Social 0.4 gap fixes: distinct platform openers, real LLM \u2026\". LICENSE file at pin a5e7a97e320c detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on beir, bm25, evaluation queries this for how Oussama-zbir/retrieval-evaluation-lab implements it: Retrieval pipelines for RAG measured on public relevance judgements: BM25 baseline, trec_eval-verified metrics, and versioned run records th (selected work: src/retrieval_lab, tests)",
+ "domain": "an agent working on beir, bm25, evaluation queries this for how Oussama-zbir/retrieval-evaluation-lab implements it: Retrieval pipelines for RAG measured on public relevance judgements: BM25, dense, RRF hybrid, reranking and chunking on BEIR, with paired si (selected work: src/retrieval_lab, tests)",
  "repos": [
   {
    "repo": "retrieval-evaluation-lab",

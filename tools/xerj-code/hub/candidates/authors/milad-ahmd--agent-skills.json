@@ -1,0 +1,23 @@
+{
+ "corpus": "milad-ahmd--agent-skills",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-skills, ai-agents, claude-code queries this for how milad-ahmd/agent-skills implements it: \ud83e\uddf0 51 Agent Skills: roast your GitHub, an AI agent for every social platform, senior-engineer dev workflows. Role packs + one-line install. C (selected work: skills, scripts, the project root)",
+ "repos": [
+  {
+   "repo": "agent-skills",
+   "url": "https://github.com/milad-ahmd/agent-skills",
+   "sha": "7c7d700359e1d04d01ef82db3b3617710c2a4a25",
+   "licence": "MIT (LICENSE file at pin 7c7d700359e1, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T18:29Z",
+    "consent_receipt": "05c4cdc31f3b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:29Z (receipt 05c4cdc31f3b); selected commit 7c7d700359e1: \"feat: all 51 skills in one repo (skills/), Claude Code plugin marketp\u2026\". LICENSE file at pin 7c7d700359e1 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

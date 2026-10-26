@@ -1,0 +1,23 @@
+{
+ "corpus": "free-ink--freeink-sdk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how Free-Ink/freeink-sdk implements it: A hardware-independent SDK for building e-paper reader firmware (selected work: libs)",
+ "repos": [
+  {
+   "repo": "freeink-sdk",
+   "url": "https://github.com/Free-Ink/freeink-sdk",
+   "sha": "3038a6ed2ec1b95e5ea6e33c1220d65369677286",
+   "licence": "MIT (LICENSE file at pin 3038a6ed2ec1, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T20:39Z",
+    "consent_receipt": "add97f58afc7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T20:39Z (receipt add97f58afc7); selected commit 3038a6ed2ec1: \"feat: support the BMI270 IMU on Paper Mono\". LICENSE file at pin 3038a6ed2ec1 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

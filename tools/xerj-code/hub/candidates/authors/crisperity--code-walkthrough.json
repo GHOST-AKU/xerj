@@ -1,0 +1,23 @@
+{
+ "corpus": "crisperity--code-walkthrough",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-skills, claude-code, code-review queries this for how crisperity/code-walkthrough implements it: Claude Code plugin that turns a PR, diff or any part of a codebase into a page you read top down, from overview to exact lines. Annotated di (selected work: skills)",
+ "repos": [
+  {
+   "repo": "crisperit-skills",
+   "url": "https://github.com/crisperit/crisperit-skills",
+   "sha": "2081e2390d6e5796176394c3b2bd03e24ab5a325",
+   "licence": "MIT (LICENSE file at pin 2081e2390d6e, GitHub licence API 2026-10-24)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T11:15Z",
+    "consent_receipt": "9c8db750392e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T11:15Z (receipt 9c8db750392e); selected commit 2081e2390d6e: \"feat(code-walkthrough): comment threads with streaming replies and re\u2026\". LICENSE file at pin 2081e2390d6e detected as MIT by the GitHub licence API on 2026-10-24; used under that licence with attribution."
+   }
+  }
+ ]
+}

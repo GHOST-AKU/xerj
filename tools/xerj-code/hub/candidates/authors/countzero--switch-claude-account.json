@@ -1,0 +1,23 @@
+{
+ "corpus": "countzero--switch-claude-account",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, anthropic, claude-code queries this for how countzero/switch_claude_account implements it: A zero-dependency cross-platform PowerShell script to switch between multiple Anthropic Claude accounts (selected work: integrations, the project root)",
+ "repos": [
+  {
+   "repo": "switch_claude_account",
+   "url": "https://github.com/countzero/switch_claude_account",
+   "sha": "ec16691fb927a70dbcd64549104bafec7dc9d389",
+   "licence": "MIT (LICENSE file at pin ec16691fb927, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T20:41Z",
+    "consent_receipt": "3e6e4cec3254",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:41Z (receipt 3e6e4cec3254); selected commit ec16691fb927: \"feat(omp): add an omp extension that follows .credentials.json\". LICENSE file at pin ec16691fb927 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "trendysloth1001--wordseed",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on language-model, lstm, markov-chain queries this for how TrendySloth1001/wordseed implements it: Type a word, get any number of sentences. N-gram and LSTM language models built from scratch, with every sentence explained mathematically (selected work: src/app, src/components, src/lib)",
+ "repos": [
+  {
+   "repo": "wordseed",
+   "url": "https://github.com/TrendySloth1001/wordseed",
+   "sha": "f81ad4267dad4217a81540c2c3f12a8633f0b122",
+   "licence": "MIT (LICENSE file at pin f81ad4267dad, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:13Z",
+    "consent_receipt": "b4f26bb77c4f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:13Z (receipt b4f26bb77c4f); selected commit f81ad4267dad: \"okk\". LICENSE file at pin f81ad4267dad detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

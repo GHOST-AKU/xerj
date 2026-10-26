@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on abstention, calibration, decision-model queries this for how Gjusev/mk-sh-v implements it: MK-SH-V: a 260M visual decision model. Calibrated probabilities, a choice, and a refusal below a validated gate, over document pages and scr (selected work: demo, assets, scripts)",
+ "domain": "an agent working on abstention, calibration, decision-model queries this for how Gjusev/MK-SH-V implements it: MK-SH-V: a 260M visual decision model. Calibrated probabilities, a choice, and a refusal below a validated gate, over document pages and scr (selected work: demo, assets, scripts)",
  "repos": [
   {
    "repo": "mk-sh-v",

@@ -1,0 +1,23 @@
+{
+ "corpus": "xyruscode--ai-sync",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how XyrusCode/ai-sync implements it: Sync skills, memory, MCP servers and chat history across Claude Code, OpenCode, Codex, Gemini/Antigravity, Cursor and Devin. Daily, non-secr (selected work: skills)",
+ "repos": [
+  {
+   "repo": "ai-sync",
+   "url": "https://github.com/XyrusCode/ai-sync",
+   "sha": "9251bc3f8adcef00671778d8ec52926a357a8b9b",
+   "licence": "MIT (LICENSE file at pin 9251bc3f8adc, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T00:08Z",
+    "consent_receipt": "73d75a1a35f9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T00:08Z (receipt 73d75a1a35f9); selected commit 9251bc3f8adc: \"feat(skills): add screencast-tutorial skill\". LICENSE file at pin 9251bc3f8adc detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "bugkeep--ai-draw",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agent, ai-drawing, drawing-tools queries this for how bugkeep/ai-draw implements it: Create and edit drawings through conversation (selected work: studio, tests)",
+ "repos": [
+  {
+   "repo": "ai-draw",
+   "url": "https://github.com/bugkeep/ai-draw",
+   "sha": "1cf2d4903e343debefeec1ee31e482728ff14ab4",
+   "licence": "MIT (LICENSE file at pin 1cf2d4903e34, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T00:14Z",
+    "consent_receipt": "172f45bce2fe",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T00:14Z (receipt 172f45bce2fe); selected commit 1cf2d4903e34: \"perf: streamline child drawing checkpoints and state memory\". LICENSE file at pin 1cf2d4903e34 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

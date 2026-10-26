@@ -1,0 +1,23 @@
+{
+ "corpus": "apache--datafusion",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on arrow, big-data, dataframe queries this for how apache/datafusion implements it: Apache DataFusion SQL Query Engine (selected work: datafusion)",
+ "repos": [
+  {
+   "repo": "datafusion",
+   "url": "https://github.com/apache/datafusion",
+   "sha": "e640ae03b423d8ec3a2122e5383f5c74ec2861a4",
+   "licence": "Apache-2.0 (LICENSE file at pin e640ae03b423, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T04:27Z",
+    "consent_receipt": "c1bba11496f5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T04:27Z (receipt c1bba11496f5); selected commit e640ae03b423: \"fix: avoid full listings for cached pruned partitions (#23402)\". LICENSE file at pin e640ae03b423 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

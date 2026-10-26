@@ -1,0 +1,23 @@
+{
+ "corpus": "teddy563--realworldmc",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on 3d-tiles, cesium, fabric queries this for how Teddy563/realworldmc implements it: Explore real cities, mountains and streets in Minecraft. RealWorldMC brings Google 3D maps and Street View to Java Edition with Fabric. Reco (selected work: service)",
+ "repos": [
+  {
+   "repo": "realworldmc",
+   "url": "https://github.com/Teddy563/realworldmc",
+   "sha": "b5f73ebfc51e0409257bbcc1d3b5e57c921e9a61",
+   "licence": "Apache-2.0 (LICENSE file at pin b5f73ebfc51e, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T11:41Z",
+    "consent_receipt": "593892e2461d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T11:41Z (receipt 593892e2461d); selected commit b5f73ebfc51e: \"feat: add 2GB SSD disk cache, improved material classification, and c\u2026\". LICENSE file at pin b5f73ebfc51e detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "panagiotisbellias--e-mesitis",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on ant, ci-cd, cli queries this for how panagiotisbellias/e-mesitis implements it: e-mesitis: Java CLI real estate management app with CI/CD and testing (selected work: the project root, test, src/java)",
+ "repos": [
+  {
+   "repo": "e-mesitis",
+   "url": "https://github.com/panagiotisbellias/e-mesitis",
+   "sha": "f4849c774d7de09b05c3524aaadcff746383a160",
+   "licence": "Apache-2.0 (LICENSE file at pin f4849c774d7d, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T20:00Z",
+    "consent_receipt": "5bc570bae7b2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T20:00Z (receipt 5bc570bae7b2); selected commit f4849c774d7d: \"fix: validate values in fields (#10)\". LICENSE file at pin f4849c774d7d detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

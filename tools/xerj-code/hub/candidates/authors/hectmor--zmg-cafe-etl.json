@@ -1,0 +1,23 @@
+{
+ "corpus": "hectmor--zmg-cafe-etl",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how hectmor/zmg-cafe-etl implements it: coffee shops position in zmg (selected work: src/zmg_cafes_etl, tests, config)",
+ "repos": [
+  {
+   "repo": "zmg-cafe-etl",
+   "url": "https://github.com/hectmor/zmg-cafe-etl",
+   "sha": "470e18de96a441fc95481817bc1713015ca1f11a",
+   "licence": "MIT (LICENSE file at pin 470e18de96a4, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T18:27Z",
+    "consent_receipt": "9aefd625d383",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T18:27Z (receipt 9aefd625d383); selected commit 470e18de96a4: \"feat(extract): add inegi denue source with establishment_kind classif\u2026\". LICENSE file at pin 470e18de96a4 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

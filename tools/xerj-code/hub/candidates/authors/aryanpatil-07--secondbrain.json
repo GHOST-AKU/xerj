@@ -1,0 +1,23 @@
+{
+ "corpus": "aryanpatil-07--secondbrain",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how aryanpatil-07/SecondBrain implements it: aryanpatil-07/SecondBrain (JavaScript) (selected work: backend, frontend)",
+ "repos": [
+  {
+   "repo": "SecondBrain",
+   "url": "https://github.com/aryanpatil-07/SecondBrain",
+   "sha": "de8a24605de9a25c84513d55d3dc07195dcf6a2c",
+   "licence": "MIT (LICENSE file at pin de8a24605de9, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T16:02Z",
+    "consent_receipt": "8176800e3256",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T16:02Z (receipt 8176800e3256); selected commit de8a24605de9: \"fix(ai): implement low-latency synthesis fallback and resolve note le\u2026\". LICENSE file at pin de8a24605de9 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

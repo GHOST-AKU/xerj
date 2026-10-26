@@ -1,0 +1,23 @@
+{
+ "corpus": "fajfer--chronowarden",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on monitoring, observability, openbao queries this for how fajfer/chronowarden implements it: Monitor and track expiring secrets across your Vault infrastructure (selected work: frontend)",
+ "repos": [
+  {
+   "repo": "chronowarden",
+   "url": "https://github.com/fajfer/chronowarden",
+   "sha": "780b7ec4c236e5137071dc478b9e98dda5568605",
+   "licence": "EUPL-1.2 (LICENSE file at pin 780b7ec4c236, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "EUPL-1.2",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-14T22:05Z",
+    "consent_receipt": "34a074602bc1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T22:05Z (receipt 34a074602bc1); selected commit 780b7ec4c236: \"feat(frontend): Manage webhook routes and see alerts and deliveries i\u2026\". LICENSE file at pin 780b7ec4c236 detected as EUPL-1.2 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

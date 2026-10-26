@@ -1,0 +1,23 @@
+{
+ "corpus": "volkermauel--open-websandbox",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on agent-sandbox, gvisor, helm queries this for how volkermauel/open-websandbox implements it: k8s backed agentic sandbox for open-webui via k8s-sig agent-sandboxes and gVisor (selected work: rust, tests, open-websandbox-platform)",
+ "repos": [
+  {
+   "repo": "open-websandbox",
+   "url": "https://github.com/volkermauel/open-websandbox",
+   "sha": "840b4ae5886bb26182cf742998fd525401ae43cd",
+   "licence": "AGPL-3.0 (LICENSE file at pin 840b4ae5886b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-25T07:48Z",
+    "consent_receipt": "7fa966adf12f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T07:48Z (receipt 7fa966adf12f); selected commit 840b4ae5886b: \"feat: OWUI v0.11.4 surface + RustFS CI backend + restore hardening (#\u2026\". LICENSE file at pin 840b4ae5886b detected as AGPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

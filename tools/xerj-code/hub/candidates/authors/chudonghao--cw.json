@@ -1,0 +1,23 @@
+{
+ "corpus": "chudonghao--cw",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how chudonghao/cw implements it: CW(C Wonder) Language (selected work: unittest, src/cw)",
+ "repos": [
+  {
+   "repo": "cw",
+   "url": "https://github.com/chudonghao/cw",
+   "sha": "d675f95576ed26050d4d25fe1680912214690e1f",
+   "licence": "Apache-2.0 (LICENSE file at pin d675f95576ed, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T13:42Z",
+    "consent_receipt": "acf37b3aa6fa",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T13:42Z (receipt acf37b3aa6fa); selected commit d675f95576ed: \"feat: add numeric literal suffixes and explicit conversions\". LICENSE file at pin d675f95576ed detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

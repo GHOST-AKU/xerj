@@ -1,0 +1,23 @@
+{
+ "corpus": "sebasclarkv--baseball-analyzer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on baseball, data-analysis, gui queries this for how sebasclarkv/baseball-analyzer implements it: \u26be Herramienta profesional para analizar probabilidades de bateo de jugadores de MLB con predicciones basadas en datos de Statcast (selected work: baseball_analyzer_v2, the project root)",
+ "repos": [
+  {
+   "repo": "baseball-analyzer",
+   "url": "https://github.com/sebasclarkv/baseball-analyzer",
+   "sha": "cd36770893a6de65176d2c6f6b19d5c9c31fdee5",
+   "licence": "MIT (LICENSE file at pin cd36770893a6, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T20:33Z",
+    "consent_receipt": "94a7795d89f0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:33Z (receipt 94a7795d89f0); selected commit cd36770893a6: \"Upgrade Baseball Analyzer to Diamond IQ 2.0\". LICENSE file at pin cd36770893a6 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

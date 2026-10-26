@@ -1,0 +1,23 @@
+{
+ "corpus": "rcarball--auctions-server-1",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on auctions, design-patterns, distributed-systems queries this for how rcarball/auctions-server-1 implements it: Educational auctions server v1: Spring Boot REST API and core design patterns (selected work: src/test, the project root, src/main)",
+ "repos": [
+  {
+   "repo": "auctions-server-1",
+   "url": "https://github.com/rcarball/auctions-server-1",
+   "sha": "d17a8e39da470a86382a25ed007a8f5108b5b994",
+   "licence": "MIT (LICENSE file at pin d17a8e39da47, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T07:00Z",
+    "consent_receipt": "ff53fefefa70",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T07:00Z (receipt ff53fefefa70); selected commit d17a8e39da47: \"Upgrade Spring stack and harden auctions\". LICENSE file at pin d17a8e39da47 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "qwertukg--gravity",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Kotlin queries this for how qwertukg/Gravity implements it: A fullscreen two-dimensional N-body simulator built with Kotlin/JVM and OpenGL 4.3. Gravity, collisions, integration, and trajectory predict (selected work: src/main, src/test, the project root)",
+ "repos": [
+  {
+   "repo": "Gravity",
+   "url": "https://github.com/qwertukg/Gravity",
+   "sha": "8a6a11192cdecb7a1eb80cc89b7cc4584a27911a",
+   "licence": "MIT (LICENSE file at pin 8a6a11192cde, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T03:22Z",
+    "consent_receipt": "416324ba1450",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T03:22Z (receipt 416324ba1450); selected commit 8a6a11192cde: \"fixes block bugs\". LICENSE file at pin 8a6a11192cde detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

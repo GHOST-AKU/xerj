@@ -1,0 +1,23 @@
+{
+ "corpus": "pslmodels--og-usa",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "LAW",
+ "domain": "an agent working on og-usa, python, usa queries this for how PSLmodels/OG-USA implements it: Overlapping-generations macroeconomic model for evaluating fiscal policy in the United States (selected work: ogusa)",
+ "repos": [
+  {
+   "repo": "OG-USA",
+   "url": "https://github.com/PSLmodels/OG-USA",
+   "sha": "49906188292a39fcacb0f22984b5176b8c307ee1",
+   "licence": "CC0-1.0 (LICENSE file at pin 49906188292a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "CC0-1.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T02:43Z",
+    "consent_receipt": "e6c32361d480",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T02:43Z (receipt e6c32361d480); selected commit 49906188292a: \"Fixed docstrings that threw warnings and errors in docs\". LICENSE file at pin 49906188292a detected as CC0-1.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

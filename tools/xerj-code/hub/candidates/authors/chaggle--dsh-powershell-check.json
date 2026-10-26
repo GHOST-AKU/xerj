@@ -1,0 +1,23 @@
+{
+ "corpus": "chaggle--dsh-powershell-check",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cordis, deepseek-harness, dsh-plugin queries this for how chaggle/dsh-powershell-check implements it: Native DeepSeek Harness plugin: gates pwsh tool calls against PowerShell pitfalls via the official tools/pre-execute interception point, bun (selected work: lib, src, tests)",
+ "repos": [
+  {
+   "repo": "dsh-powershell-check",
+   "url": "https://github.com/chaggle/dsh-powershell-check",
+   "sha": "3c79225a7537ab1c6d94822728ebb1d001ae6267",
+   "licence": "MIT (LICENSE file at pin 3c79225a7537, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T04:20Z",
+    "consent_receipt": "f295ccfc5c06",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T04:20Z (receipt f295ccfc5c06); selected commit 3c79225a7537: \"feat: v0.6.0 \u2014 \u65b0\u589e R20\u2013R23 \u5e76\u4fee\u590d R10 \u8bef\u62a5\uff1b\u540c\u6279\u5165\u5e93 0.5.3\uff08dsh 0.2.0-rc.2 \u517c\u5bb9\uff09\". LICENSE file at pin 3c79225a7537 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

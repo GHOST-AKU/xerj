@@ -1,0 +1,23 @@
+{
+ "corpus": "nikola66--bonsai2-splash",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how nikola66/bonsai2-splash implements it: Serve Bonsai 2 27B on Apple Silicon as an OpenAI-compatible local API \u2014 Splash engine, vision, tool calling, reasoning, Ollama bridge (selected work: the project root, scripts)",
+ "repos": [
+  {
+   "repo": "bonsai2-splash",
+   "url": "https://github.com/nikola66/bonsai2-splash",
+   "sha": "734511600d3ee440482045f771dbe3225e0be8e1",
+   "licence": "MIT (LICENSE file at pin 734511600d3e, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T18:26Z",
+    "consent_receipt": "30a429f5d886",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T18:26Z (receipt 30a429f5d886); selected commit 734511600d3e: \"Serve /v1/embeddings via an MLX EmbeddingGemma 2 service (no llama.cpp)\". LICENSE file at pin 734511600d3e detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

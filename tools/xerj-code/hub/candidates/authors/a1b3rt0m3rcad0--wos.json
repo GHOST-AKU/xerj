@@ -1,0 +1,23 @@
+{
+ "corpus": "a1b3rt0m3rcad0--wos",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Go queries this for how A1b3rt0M3rcad0/wos implements it: Work Outcome System (selected work: tests, packages/wos-sdk-go)",
+ "repos": [
+  {
+   "repo": "wos",
+   "url": "https://github.com/A1b3rt0M3rcad0/wos",
+   "sha": "58dba142ee10e567b1199f102e7251cfbcc077e6",
+   "licence": "author's permission (LICENSE at pin 58dba142ee10: Apache-2.0; repository: NOASSERTION)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T14:36Z",
+    "consent_receipt": "569cae07ca3a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T14:36Z (receipt 569cae07ca3a); selected commit 58dba142ee10: \"fix(sdk): preserve explicit mutation recovery and compact commit rece\u2026\". LICENSE at pin 58dba142ee10: Apache-2.0 (repository: NOASSERTION); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

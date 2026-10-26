@@ -9,14 +9,14 @@
    "repo": "Whale",
    "url": "https://github.com/wavefnd/Whale",
    "sha": "ff38baf14dc5076ae5eea8ac78e8bc422d00b8c2",
-   "licence": "hint only: MPL-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin ff38baf14dc5: NOASSERTION; repository: MPL-2.0)",
    "review": {
-    "spdx": "MPL-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-12T02:20Z",
     "consent_receipt": "eba871a12f4d",
-    "note": "author consent by email 2026-10-12T02:20Z (receipt eba871a12f4d); selected commit ff38baf14dc5: \"feat(ir): execute tracked stack memory and enforce initialized reads \u2026\"; LICENSE at pin: NOASSERTION vs repository MPL-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T02:20Z (receipt eba871a12f4d); selected commit ff38baf14dc5: \"feat(ir): execute tracked stack memory and enforce initialized reads \u2026\". LICENSE at pin ff38baf14dc5: NOASSERTION (repository: MPL-2.0); used with the author's permission, with attribution."
    }
   }
  ]

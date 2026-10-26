@@ -1,0 +1,23 @@
+{
+ "corpus": "acads-iit-jammu--diffusion-models-f26",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Jupyter Notebook queries this for how acads-iit-jammu/diffusion-models-f26 implements it: Mathematical Foundations of Diffusion Models (selected work: tutorials, the project root, scripts)",
+ "repos": [
+  {
+   "repo": "diffusion-models-f26",
+   "url": "https://github.com/acads-iit-jammu/diffusion-models-f26",
+   "sha": "89d053b57f36ce67b31fcfabdf7198a736c67a40",
+   "licence": "CC0-1.0 (LICENSE file at pin 89d053b57f36, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "CC0-1.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T04:52Z",
+    "consent_receipt": "b6ff932c7d80",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T04:52Z (receipt b6ff932c7d80); selected commit 89d053b57f36: \"Clarify DDPM derivations and empirical-score interpolation\". LICENSE file at pin 89d053b57f36 detected as CC0-1.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

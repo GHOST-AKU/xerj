@@ -9,14 +9,14 @@
    "repo": "mux-media",
    "url": "https://github.com/nujievik/mux-media",
    "sha": "b8298054a0bcd604489db7085f966fc883dad409",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin b8298054a0bc: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T17:30Z",
     "consent_receipt": "6e2190d32536",
-    "note": "author consent by email 2026-10-12T17:30Z (receipt 6e2190d32536); selected commit b8298054a0bc: \"Update Linux prebuilds building\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T17:30Z (receipt 6e2190d32536); selected commit b8298054a0bc: \"Update Linux prebuilds building\". LICENSE at pin b8298054a0bc: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

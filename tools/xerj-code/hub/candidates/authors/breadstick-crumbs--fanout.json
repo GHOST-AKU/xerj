@@ -1,0 +1,23 @@
+{
+ "corpus": "breadstick-crumbs--fanout",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, claude-code, claude-code-skills queries this for how Breadstick-Crumbs/fanout implements it: Run several Claude Code and Codex sessions on one repo: they don't do the same work twice, and each hears when another's commit changes its  (selected work: bench, test, skills)",
+ "repos": [
+  {
+   "repo": "fanout",
+   "url": "https://github.com/Breadstick-Crumbs/fanout",
+   "sha": "54f7a54123ce44526376e406e011c90dac41d3ba",
+   "licence": "MIT (LICENSE file at pin 54f7a54123ce, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T22:24Z",
+    "consent_receipt": "bb3547bc35f1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T22:24Z (receipt bb3547bc35f1); selected commit 54f7a54123ce: \"v0.14: cheaper session models, safer lean agents, more tests\". LICENSE file at pin 54f7a54123ce detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

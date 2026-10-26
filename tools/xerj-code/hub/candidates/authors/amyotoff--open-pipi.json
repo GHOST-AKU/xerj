@@ -1,0 +1,23 @@
+{
+ "corpus": "amyotoff--open-pipi",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-runtime, ai-agents, nodejs queries this for how amyotoff/open-pipi implements it: Open-source, token-frugal agents for real teams \u2014 private memory, shared packs, your hardware (selected work: src/core, src/skills, src/scripts)",
+ "repos": [
+  {
+   "repo": "open-pipi",
+   "url": "https://github.com/amyotoff/open-pipi",
+   "sha": "06c1a9035b013be552104011c280dcc2554c7918",
+   "licence": "MIT (LICENSE file at pin 06c1a9035b01, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T23:55Z",
+    "consent_receipt": "af568edb4c8e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T23:55Z (receipt af568edb4c8e); selected commit 06c1a9035b01: \"feat(memory): add validated structured state and state-first retrieva\u2026\". LICENSE file at pin 06c1a9035b01 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

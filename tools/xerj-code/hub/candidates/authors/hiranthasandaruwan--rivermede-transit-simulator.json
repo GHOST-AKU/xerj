@@ -1,0 +1,23 @@
+{
+ "corpus": "hiranthasandaruwan--rivermede-transit-simulator",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C queries this for how HiranthaSandaruwan/rivermede_transit_simulator implements it: HiranthaSandaruwan/rivermede_transit_simulator (C) (selected work: src, the project root)",
+ "repos": [
+  {
+   "repo": "rivermede_transit_simulator",
+   "url": "https://github.com/HiranthaSandaruwan/rivermede_transit_simulator",
+   "sha": "a9408dc0be70425b3796088b7c0cfeeaf47ce7c1",
+   "licence": "MIT (LICENSE file at pin a9408dc0be70, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T03:43Z",
+    "consent_receipt": "f0658ffdb57b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T03:43Z (receipt f0658ffdb57b); selected commit a9408dc0be70: \"Add Rivermede Transit simulator\". LICENSE file at pin a9408dc0be70 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head a9408dc0be70 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

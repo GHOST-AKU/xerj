@@ -1,0 +1,23 @@
+{
+ "corpus": "smarthomewithme--librus-home-assistant",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how smarthomewithme/librus-home-assistant implements it: Home Assistant integration for Librus Synergia by Smart Home With Me \u2014 grades, messages, timetable, homework, attendance, behaviour and scho (selected work: custom_components)",
+ "repos": [
+  {
+   "repo": "librus-home-assistant",
+   "url": "https://github.com/smarthomewithme/librus-home-assistant",
+   "sha": "b946eb4215f13415877e72180e1ecd9123eed382",
+   "licence": "MIT (LICENSE file at pin b946eb4215f1, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T20:56Z",
+    "consent_receipt": "92177710d5ac",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T20:56Z (receipt 92177710d5ac); selected commit b946eb4215f1: \"v1.7.0 \u2014 persistent read state and point-grade details\". LICENSE file at pin b946eb4215f1 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "tkasperczyk--thunderbird-mcp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how TKasperczyk/thunderbird-mcp implements it: MCP server for Thunderbird - enables AI assistants to access email, contacts, and calendars (selected work: test, extension)",
+ "repos": [
+  {
+   "repo": "thunderbird-mcp",
+   "url": "https://github.com/TKasperczyk/thunderbird-mcp",
+   "sha": "585d07356d21ee8b3750218182023a3c275513b3",
+   "licence": "MIT (LICENSE file at pin 585d07356d21, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T12:23Z",
+    "consent_receipt": "e129b1ae0e32",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T12:23Z (receipt e129b1ae0e32); selected commit 585d07356d21: \"fix(access): load shared tool access through a trusted URI\". LICENSE file at pin 585d07356d21 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

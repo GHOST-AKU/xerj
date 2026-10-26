@@ -1,0 +1,30 @@
+{
+ "corpus": "daxiaamu--mudl-c",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on c, download-manager, downloader queries this for how daxiaamu/mudl-c implements it: MUDL-C - Nano CLI download manager for Windows. Multi-threaded, resumable, dependency-free (selected work: the project root, tests)",
+ "repos": [
+  {
+   "repo": "mudl-c",
+   "url": "https://github.com/daxiaamu/mudl-c",
+   "sha": "ae372c12bc08f6a799107322b2049f0bf7cae2ac",
+   "licence": "GPL-3.0 (LICENSE file at pin ae372c12bc08, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-25T19:15Z",
+    "consent_receipt": "d0b5d07cbe67",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:15Z (receipt d0b5d07cbe67); selected commit ae372c12bc08: \"Add network interface selection\". LICENSE file at pin ae372c12bc08 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "ae372c12bc08f6a799107322b2049f0bf7cae2ac",
+     "at": "2026-10-25T19:15Z",
+     "receipt": "d0b5d07cbe67"
+    }
+   }
+  }
+ ]
+}

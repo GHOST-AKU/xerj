@@ -1,0 +1,23 @@
+{
+ "corpus": "dianewhiddon--silent-type-desktop",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how dianewhiddon/silent-type-desktop implements it: Windows camera-only silent typing, powered by Auto-AVSR. Inspired by Lipflow (selected work: silent_type, tests, the project root)",
+ "repos": [
+  {
+   "repo": "silent-type-desktop",
+   "url": "https://github.com/dianewhiddon/silent-type-desktop",
+   "sha": "3edd2f54731acd81776efb9015db34585082a580",
+   "licence": "MIT (LICENSE file at pin 3edd2f54731a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:45Z",
+    "consent_receipt": "7f5e24d0b4e7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:45Z (receipt 7f5e24d0b4e7); selected commit 3edd2f54731a: \"Prepare neutral public desktop release with bounded recognition and e\u2026\". LICENSE file at pin 3edd2f54731a detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

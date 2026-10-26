@@ -1,0 +1,23 @@
+{
+ "corpus": "borisarm--basalt",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on avalonia, cross-platform, csharp queries this for how borisarm/Basalt implements it: Local-first Markdown editor for Obsidian vaults, one GitHub repo per vault. .NET 10 + Avalonia, spec-driven development (selected work: src/Basalt.Adapters.GitHub, tests, src/Basalt.Application)",
+ "repos": [
+  {
+   "repo": "Basalt",
+   "url": "https://github.com/borisarm/Basalt",
+   "sha": "83bafacb2208eeeade7d1fe63b30cf17778cd543",
+   "licence": "MIT (LICENSE file at pin 83bafacb2208, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T10:10Z",
+    "consent_receipt": "a27176fedf3f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T10:10Z (receipt a27176fedf3f); selected commit 83bafacb2208: \"feat(github): add resilient REST client with redaction and error mapp\u2026\". LICENSE file at pin 83bafacb2208 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "chrilleweb--dotenv-diff",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cli, dotenv-cli, open-source queries this for how Chrilleweb/dotenv-diff implements it: Validate environment variable usage in codebase (selected work: packages/cli, the project root, packages/@repo)",
+ "repos": [
+  {
+   "repo": "dotenv-diff",
+   "url": "https://github.com/Chrilleweb/dotenv-diff",
+   "sha": "861d1314d05f1437a50d3bcdaaf9e6441ae093c6",
+   "licence": "MIT (LICENSE file at pin 861d1314d05f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T09:29Z",
+    "consent_receipt": "40398c1555bd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T09:29Z (receipt 40398c1555bd); selected commit 861d1314d05f: \"fix: sveltekit env rules for sveltev3 (#607)\". LICENSE file at pin 861d1314d05f detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

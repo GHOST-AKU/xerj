@@ -1,0 +1,23 @@
+{
+ "corpus": "ravindra-dot--seeder-package",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on HTML queries this for how ravindra-dot/seeder-package implements it: Static Laravel diagnostics for Eloquent model and factory mappings, with source locations and actionable findings (selected work: src/Analysis, tests, src/Resolution)",
+ "repos": [
+  {
+   "repo": "seeder-package",
+   "url": "https://github.com/ravindra-dot/seeder-package",
+   "sha": "d844d9d49c21bb808b4ccc31d687d08701805b6a",
+   "licence": "MIT (LICENSE file at pin d844d9d49c21, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:15Z",
+    "consent_receipt": "4e644a5d93c0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:15Z (receipt 4e644a5d93c0); selected commit d844d9d49c21: \"feat: refactor package namespace and enhance factory model analysis w\u2026\". LICENSE file at pin d844d9d49c21 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

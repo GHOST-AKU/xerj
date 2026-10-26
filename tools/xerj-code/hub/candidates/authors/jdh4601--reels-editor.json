@@ -1,0 +1,23 @@
+{
+ "corpus": "jdh4601--reels-editor",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ffmpeg, llm, macos queries this for how jdh4601/reels-editor implements it: Turn long-form founder interviews on YouTube into vertical short-form reels, on your own machine (selected work: reels_editor, tests, desktop)",
+ "repos": [
+  {
+   "repo": "reels-editor",
+   "url": "https://github.com/jdh4601/reels-editor",
+   "sha": "4ca626f5b4895c195508ed4b0b1bad91356afcff",
+   "licence": "MIT (LICENSE file at pin 4ca626f5b489, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T01:47Z",
+    "consent_receipt": "024a169f19a0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T01:47Z (receipt 024a169f19a0); selected commit 4ca626f5b489: \"Add audio-aligned reel quality review and improve generation\". LICENSE file at pin 4ca626f5b489 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

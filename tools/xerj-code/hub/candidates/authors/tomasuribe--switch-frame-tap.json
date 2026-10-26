@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on atmosphere, homebrew, nintendo-switch queries this for how TomasUribe/switch-frame-tap implements it: Play your Nintendo Switch or Switch Lite on your PC: stream games at up to 1080p60 with sound over USB-C or the network, no dock or capture  (selected work: tools)",
+ "domain": "an agent working on atmosphere, homebrew, screen-capture queries this for how TomasUribe/switch-frame-tap implements it: Play your Nintendo Switch or Switch Lite on your PC: stream games at up to 1080p60 with sound over USB-C or the network, no dock or capture  (selected work: tools)",
  "repos": [
   {
    "repo": "switch-frame-tap",

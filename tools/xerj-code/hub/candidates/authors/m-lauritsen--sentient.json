@@ -1,0 +1,23 @@
+{
+ "corpus": "m-lauritsen--sentient",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how M-Lauritsen/sentient implements it: M-Lauritsen/sentient (JavaScript) (selected work: tests, the project root)",
+ "repos": [
+  {
+   "repo": "sentient",
+   "url": "https://github.com/M-Lauritsen/sentient",
+   "sha": "93b2f43cc0ae2faeb93486cf1d04159aa65b99da",
+   "licence": "MIT (LICENSE file at pin 93b2f43cc0ae, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:30Z",
+    "consent_receipt": "2c0fc5e845c3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:30Z (receipt 2c0fc5e845c3); selected commit 93b2f43cc0ae: \"Add visual settings preview functionality and associated tests\". LICENSE file at pin 93b2f43cc0ae detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 93b2f43cc0ae (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

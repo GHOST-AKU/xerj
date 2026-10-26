@@ -1,0 +1,23 @@
+{
+ "corpus": "get-bb--bb",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ade, agent-ide, claude-code queries this for how get-bb/bb implements it: The agent IDE that builds itself (selected work: apps/desktop, apps/cli, packages/host-daemon-contract)",
+ "repos": [
+  {
+   "repo": "bb",
+   "url": "https://github.com/get-bb/bb",
+   "sha": "b3d7d1247cef207f41f6fd1145858a3f5d2a6231",
+   "licence": "MIT (LICENSE file at pin b3d7d1247cef, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:31Z",
+    "consent_receipt": "f5d88033de81",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:31Z (receipt f5d88033de81); selected commit b3d7d1247cef: \"Support Dia and discover compatible browser cookie stores (#4092)\". LICENSE file at pin b3d7d1247cef detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "matarmariajose-tech--enterprise-agent-walkthrough",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on authorization, fastapi, idempotency queries this for how matarmariajose-tech/enterprise-agent-walkthrough implements it: Interactive architecture walkthrough with a Python API demonstrating authorization, scoped tools, idempotency, and audit traces (selected work: backend, src/ui, tests)",
+ "repos": [
+  {
+   "repo": "enterprise-agent-walkthrough",
+   "url": "https://github.com/matarmariajose-tech/enterprise-agent-walkthrough",
+   "sha": "50f02338f6ea720f06853de27f250cc99782df7a",
+   "licence": "MIT (LICENSE file at pin 50f02338f6ea, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T01:52Z",
+    "consent_receipt": "b4670732dac2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T01:52Z (receipt b4670732dac2); selected commit 50f02338f6ea: \"Corregir simulaci\u00f3n e idempotencia; reforzar permisos, trazabilidad y\u2026\". LICENSE file at pin 50f02338f6ea detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

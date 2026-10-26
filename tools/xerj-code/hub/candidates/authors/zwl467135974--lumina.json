@@ -9,14 +9,14 @@
    "repo": "lumina",
    "url": "https://github.com/zwl467135974/lumina",
    "sha": "83bf6364e1f5e6f8237e3aab796741dcc8f05ca8",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 83bf6364e1f5: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T06:01Z",
     "consent_receipt": "492dae53854c",
-    "note": "author consent by email 2026-10-11T06:01Z (receipt 492dae53854c); selected commit 83bf6364e1f5: \"feat(memory,schedule): \u8bb0\u5fc6\u6574\u7406\u4ee3\u7406\u4e0e\u6279\u6b21 4 \u5236\u5ea6\u6536\u53e3\u2014\u2014v3.14 \u6279\u6b21 4\uff08ZCode/DSH\uff09\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T06:01Z (receipt 492dae53854c); selected commit 83bf6364e1f5: \"feat(memory,schedule): \u8bb0\u5fc6\u6574\u7406\u4ee3\u7406\u4e0e\u6279\u6b21 4 \u5236\u5ea6\u6536\u53e3\u2014\u2014v3.14 \u6279\u6b21 4\uff08ZCode/DSH\uff09\". LICENSE at pin 83bf6364e1f5: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

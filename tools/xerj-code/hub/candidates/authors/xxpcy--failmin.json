@@ -1,0 +1,23 @@
+{
+ "corpus": "xxpcy--failmin",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, ai-infrastructure, debugging-tool queries this for how xxPcy/failmin implements it: Minimize AI and Agent failures into minimal reproducible traces (selected work: failmin, tests)",
+ "repos": [
+  {
+   "repo": "failmin",
+   "url": "https://github.com/xxPcy/failmin",
+   "sha": "af40d9b7cd7846afb225cafaab19670edc8759e9",
+   "licence": "MIT (LICENSE file at pin af40d9b7cd78, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T17:51Z",
+    "consent_receipt": "9c3e2ff16062",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T17:51Z (receipt 9c3e2ff16062); selected commit af40d9b7cd78: \"Growth polish + experimental framework adapters (#1)\". LICENSE file at pin af40d9b7cd78 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

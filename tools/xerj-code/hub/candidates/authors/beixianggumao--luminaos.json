@@ -1,0 +1,23 @@
+{
+ "corpus": "beixianggumao--luminaos",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how BeiXiangGuMao/LuminaOS implements it: BeiXiangGuMao/LuminaOS (Rust) (selected work: crates/kernel, scripts)",
+ "repos": [
+  {
+   "repo": "LuminaOS",
+   "url": "https://github.com/BeiXiangGuMao/LuminaOS",
+   "sha": "2ae63db736fe8f419efeba002f239945c3c3ae41",
+   "licence": "MIT (LICENSE file at pin 2ae63db736fe, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T05:11Z",
+    "consent_receipt": "7e8bb516e7f6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T05:11Z (receipt 7e8bb516e7f6); selected commit 2ae63db736fe: \"M23-C1 virtio-net \u5e26\u7f51\u9996\u6bb5\uff1amodern \u63a2\u6d4b/bring-up + t68 \u7535\u6c14\u6d3b\u4f53\uff08vnet.rs\uff09\". LICENSE file at pin 2ae63db736fe detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

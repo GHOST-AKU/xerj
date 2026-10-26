@@ -1,0 +1,23 @@
+{
+ "corpus": "inesin1--tandelocrm",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on angular, crm, nestjs queries this for how inesin1/TandeloCRM implements it: Self-hosted CRM for sales workflows, built with Angular, NestJS, PostgreSQL, and Nx (selected work: apps/api, apps/web, apps/web-e2e)",
+ "repos": [
+  {
+   "repo": "TandeloCRM",
+   "url": "https://github.com/inesin1/TandeloCRM",
+   "sha": "c9e4a02194d9a626ebca166ca8050404ec1320ad",
+   "licence": "MIT (LICENSE file at pin c9e4a02194d9, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T20:30Z",
+    "consent_receipt": "85c75dfc7892",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T20:30Z (receipt 85c75dfc7892); selected commit c9e4a02194d9: \"feat: configure Copilot providers from admin settings\". LICENSE file at pin c9e4a02194d9 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

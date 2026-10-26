@@ -1,0 +1,23 @@
+{
+ "corpus": "xxxpabloxxx---discord-rpc",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on C# queries this for how xxxpabloxxx/-Discord-RPC implements it: xxxpabloxxx/-Discord-RPC (C#) (selected work: the project root, tests)",
+ "repos": [
+  {
+   "repo": "-Discord-RPC",
+   "url": "https://github.com/xxxpabloxxx/-Discord-RPC",
+   "sha": "0139a34958ca283460fba334583865fd2f474741",
+   "licence": "MIT (LICENSE file at pin 0139a34958ca, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:42Z",
+    "consent_receipt": "74d99914a26f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:42Z (receipt 74d99914a26f); selected commit 0139a34958ca: \"Add files via upload\". LICENSE file at pin 0139a34958ca detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

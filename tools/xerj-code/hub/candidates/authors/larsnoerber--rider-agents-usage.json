@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on C# queries this for how LarsNoerber/Rider_Agents_Usage implements it: Monitor Codex, JetBrains AI, and GitHub Copilot usage directly in IntelliJ Platform IDEs and Rider (selected work: src/main, tools, the project root)",
+ "domain": "an agent working on ai-usage, browser-extension, codex queries this for how LarsNoerber/Rider_Agents_Usage implements it: AgentMeter: AI quotas and usage for Rider/JetBrains, Windows desktop, Chrome/Edge, VS Code and Visual Studio (selected work: src/main, tools, the project root)",
  "repos": [
   {
    "repo": "Rider_Agents_Usage",

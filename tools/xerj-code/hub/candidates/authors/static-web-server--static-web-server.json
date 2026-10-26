@@ -9,14 +9,14 @@
    "repo": "static-web-server",
    "url": "https://github.com/static-web-server/static-web-server",
    "sha": "2dd0a8d92663a0ecfe3f11d9bcde12d081c3a84e",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 2dd0a8d92663: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T03:59Z",
     "consent_receipt": "65cece5f13bb",
-    "note": "author consent by email 2026-10-15T03:59Z (receipt 65cece5f13bb); selected commit 2dd0a8d92663: \"feat(custom_headers): add optional status filter to custom headers (#\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T03:59Z (receipt 65cece5f13bb); selected commit 2dd0a8d92663: \"feat(custom_headers): add optional status filter to custom headers (#\u2026\". LICENSE at pin 2dd0a8d92663: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

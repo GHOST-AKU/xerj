@@ -1,0 +1,23 @@
+{
+ "corpus": "neosoda--nettools",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on HTML queries this for how neosoda/NetTools implements it: NetTools - Application desktop de gestion r\u00e9seau et d'audit. Scan SNMP, backup SSH, conformit\u00e9, comparateur de configuration (selected work: frontend, the project root, internal/playbook)",
+ "repos": [
+  {
+   "repo": "NetTools",
+   "url": "https://github.com/neosoda/NetTools",
+   "sha": "97dd6b756fba17ae094a3f2d52c071d1a946faf2",
+   "licence": "Apache-2.0 (LICENSE file at pin 97dd6b756fba, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T18:58Z",
+    "consent_receipt": "7df75efbedb9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T18:58Z (receipt 7df75efbedb9); selected commit 97dd6b756fba: \"feat: real-time playbook monitoring, inventory groups and operation c\u2026\". LICENSE file at pin 97dd6b756fba detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

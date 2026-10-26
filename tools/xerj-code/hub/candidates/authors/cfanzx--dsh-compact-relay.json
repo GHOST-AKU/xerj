@@ -1,0 +1,23 @@
+{
+ "corpus": "cfanzx--dsh-compact-relay",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on compaction, context-management, context-window queries this for how cfanzx/dsh-compact-relay implements it: DeepSeek Harness \u8f93\u5165\u6846\u4e0a\u4e0b\u6587\u72b6\u6001\u6307\u793a\u4e0e\u7ba1\u7406\u63d2\u4ef6\uff1a\u5b9e\u65f6\u663e\u793a\u5bb9\u91cf\u5360\u7528\uff0c\u652f\u6301\u538b\u7f29\u524d\u9884\u89c8\u786e\u8ba4\u3001\u4e5d\u6bb5\u5f0f\u4f1a\u8bdd\u4ea4\u63a5\u4e0e\u5173\u952e\u6d88\u606f\u9501\u5b9a\u3002 \u00b7 Context indicator plugin for DSH: occupancy monitoring, preview-then-c (selected work: lib, lib/client, test)",
+ "repos": [
+  {
+   "repo": "dsh-compact-relay",
+   "url": "https://github.com/cfanzx/dsh-compact-relay",
+   "sha": "435601bd1a8abf3bc8068709ae74343434a20f86",
+   "licence": "MIT (LICENSE file at pin 435601bd1a8a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T18:20Z",
+    "consent_receipt": "bdd862fd4eae",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:20Z (receipt bdd862fd4eae); selected commit 435601bd1a8a: \"fix(client): \u539f\u751f\u538b\u7f29\u7ebf\u663e\u793a\u53e3\u5f84\u7edf\u4e00\u5230\u5b9e\u9645\u89e6\u53d1\u7ebf\uff080.4.1 \u00b7 dev-god \u5ba1\u67e5\u540e\u6536\u53e3\uff09\". LICENSE file at pin 435601bd1a8a detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

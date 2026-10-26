@@ -1,0 +1,30 @@
+{
+ "corpus": "ibnuard--sleepingdogs-nx",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on dxvk, fex-emu, homebrew queries this for how Ibnuard/sleepingdogs_nx implements it: Experimental Nintendo Switch wrapper for the original Sleeping Dogs PC game (x86), using FEXTendo, Wine, FEX-Emu and DXVK (selected work: reports, tools, tests)",
+ "repos": [
+  {
+   "repo": "sleepingdogs_nx",
+   "url": "https://github.com/Ibnuard/sleepingdogs_nx",
+   "sha": "0668c4c57be4416c4943fb03bd2c52013fc4ccb0",
+   "licence": "LGPL-2.1 (LICENSE file at pin 0668c4c57be4, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "LGPL-2.1",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-25T18:17Z",
+    "consent_receipt": "f9980d358216",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:17Z (receipt f9980d358216); selected commit 0668c4c57be4: \"Reduce native H4 bridge memory work and enable bounded batching\". LICENSE file at pin 0668c4c57be4 detected as LGPL-2.1 by the GitHub licence API on 2026-10-26; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "0668c4c57be4416c4943fb03bd2c52013fc4ccb0",
+     "at": "2026-10-25T18:17Z",
+     "receipt": "f9980d358216"
+    }
+   }
+  }
+ ]
+}

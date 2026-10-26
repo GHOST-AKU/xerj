@@ -1,0 +1,23 @@
+{
+ "corpus": "ontolith--ontolith",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, bitemporal, knowledge-graph queries this for how ontolith/ontolith implements it: Governed knowledge bases that humans and AI agents write together: append-only, bitemporal, conflict-aware (selected work: conformance, src/ontolith, tests)",
+ "repos": [
+  {
+   "repo": "ontolith",
+   "url": "https://github.com/ontolith/ontolith",
+   "sha": "3e66f0b34ed4d5163f1c2606e8186d051e9d1161",
+   "licence": "Apache-2.0 (LICENSE file at pin 3e66f0b34ed4, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T01:39Z",
+    "consent_receipt": "05bebc630f30",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T01:39Z (receipt 05bebc630f30); selected commit 3e66f0b34ed4: \"fix(core): reject ref writes whose target is not the declared concept\u2026\". LICENSE file at pin 3e66f0b34ed4 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

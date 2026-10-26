@@ -1,0 +1,23 @@
+{
+ "corpus": "yuwangzhi--claude-codex-loop",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, automation, claude-code queries this for how Yuwangzhi/claude-codex-loop implements it: Claude plans, Codex executes: a two-mode local workflow with verification, repair loops, and shared project memory (selected work: tests, the project root, desktop-plugin)",
+ "repos": [
+  {
+   "repo": "claude-codex-loop",
+   "url": "https://github.com/Yuwangzhi/claude-codex-loop",
+   "sha": "64391eece51fe639f6502d9c4a10a8cbd3aec613",
+   "licence": "MIT (LICENSE file at pin 64391eece51f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T02:01Z",
+    "consent_receipt": "5d6fdd2e3399",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T02:01Z (receipt 5d6fdd2e3399); selected commit 64391eece51f: \"Fix desktop hooks and reuse the last execution mode\". LICENSE file at pin 64391eece51f detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

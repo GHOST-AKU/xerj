@@ -1,0 +1,23 @@
+{
+ "corpus": "apache--skywalking-banyandb",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on skywalking, observability, apm queries this for how apache/skywalking-banyandb implements it: An observability database aims to ingest, analyze and store Metrics, Tracing and Logging data (selected work: pkg/query)",
+ "repos": [
+  {
+   "repo": "skywalking-banyandb",
+   "url": "https://github.com/apache/skywalking-banyandb",
+   "sha": "016ffa76d1fb7b0091a0e1667204bd8741f4a1dc",
+   "licence": "Apache-2.0 (LICENSE file at pin 016ffa76d1fb, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T05:06Z",
+    "consent_receipt": "62bdad37444e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T05:06Z (receipt 62bdad37444e); selected commit 016ffa76d1fb: \"Fix multi-group Measure aggregation across schema-evolved groups (#1416)\". LICENSE file at pin 016ffa76d1fb detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

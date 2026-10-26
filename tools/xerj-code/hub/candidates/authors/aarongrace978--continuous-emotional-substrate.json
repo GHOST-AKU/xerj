@@ -1,0 +1,23 @@
+{
+ "corpus": "aarongrace978--continuous-emotional-substrate",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how AaronGrace978/continuous-emotional-substrate implements it: continuous-emotional-substrate (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "continuous-emotional-substrate",
+   "url": "https://github.com/AaronGrace978/continuous-emotional-substrate",
+   "sha": "b9b9faa7fee446c1757731121f6961f9b978387d",
+   "licence": "GPL-3.0 (LICENSE file at pin b9b9faa7fee4, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T20:38Z",
+    "consent_receipt": "811a7569fe73",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T20:38Z (receipt 811a7569fe73); selected commit b9b9faa7fee4: \"Tiered vector memory: SQLite hot/cold store, MiniLM semantic recall, \u2026\". LICENSE file at pin b9b9faa7fee4 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head b9b9faa7fee4 (contains the selected commit): the LICENSE at the selected commit was MIT."
+   }
+  }
+ ]
+}

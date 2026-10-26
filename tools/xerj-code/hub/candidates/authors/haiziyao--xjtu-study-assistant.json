@@ -1,0 +1,23 @@
+{
+ "corpus": "haiziyao--xjtu-study-assistant",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how haiziyao/XJTU-Study-Assistant implements it: haiziyao/XJTU-Study-Assistant (JavaScript) (selected work: app/src)",
+ "repos": [
+  {
+   "repo": "XJTU-Study-Assistant",
+   "url": "https://github.com/haiziyao/XJTU-Study-Assistant",
+   "sha": "02d32b5833921d15c9b5ff3ff5346272cff80027",
+   "licence": "MIT (LICENSE file at pin 02d32b583392, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T17:34Z",
+    "consent_receipt": "da7189328e0b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T17:34Z (receipt da7189328e0b); selected commit 02d32b583392: \"feat(mobile): AI \u9875\u6362\u6210\u624b\u673a\u5916\u58f3\u7684\u6837\u5f0f\". LICENSE file at pin 02d32b583392 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

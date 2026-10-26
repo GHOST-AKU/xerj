@@ -1,0 +1,23 @@
+{
+ "corpus": "guyvdn--agentaquarium",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on C# queries this for how guyvdn/AgentAquarium implements it: A live aquarium of your AI coding agents: each Claude Code session is a school of fish (selected work: src/AgentAquarium, tests, the project root)",
+ "repos": [
+  {
+   "repo": "AgentAquarium",
+   "url": "https://github.com/guyvdn/AgentAquarium",
+   "sha": "762e76bb2fc1e6a3f0f991c2a61a67f7d6519c72",
+   "licence": "MIT (LICENSE file at pin 762e76bb2fc1, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T18:48Z",
+    "consent_receipt": "a686da4d7b0a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T18:48Z (receipt a686da4d7b0a); selected commit 762e76bb2fc1: \"Add Codex sessions and usage with demand-driven rendering\". LICENSE file at pin 762e76bb2fc1 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

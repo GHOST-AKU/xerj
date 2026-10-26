@@ -9,14 +9,14 @@
    "repo": "prod-code",
    "url": "https://github.com/alex09x/prod-code",
    "sha": "5db473fe8b85bb3416dcfa73a00f6e481cf1e84b",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 5db473fe8b85: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T00:07Z",
     "consent_receipt": "ab5134245d11",
-    "note": "author consent by email 2026-10-13T00:07Z (receipt ab5134245d11); selected commit 5db473fe8b85: \"fix(mcp, gateway): resolve type aliases, stdlib symbols, swift call s\u2026\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T00:07Z (receipt ab5134245d11); selected commit 5db473fe8b85: \"fix(mcp, gateway): resolve type aliases, stdlib symbols, swift call s\u2026\". LICENSE at pin 5db473fe8b85: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

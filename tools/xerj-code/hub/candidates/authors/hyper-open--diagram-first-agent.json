@@ -1,0 +1,23 @@
+{
+ "corpus": "hyper-open--diagram-first-agent",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent, agent-architecture, agentic-ai queries this for how hyper-open/diagram-first-agent implements it: Agent \u5b66\u4e60\u624b\u518c\uff1a\u4e00\u5957\u4ee5\u67b6\u6784\u56fe\u4e3a\u4e3b\u7ebf\u7684\u4e2d\u6587 Agent \u6559\u7a0b\uff0c\u5b83\u5148\u7ed9\u51fa Agent \u5e73\u53f0\u7684\u5206\u5c42\u603b\u89c8\uff0c\u518d\u6cbf\u516b\u7ea7\u6f14\u8fdb\u9010\u5c42\u5c55\u5f00\uff1aReAct \u2192 \u5de5\u5177\u8c03\u7528 \u2192 \u6a21\u578b\u7f51\u5173 \u2192 \u5de5\u5177\u7f51\u5173 \u2192 RAG \u2192 \u610f\u56fe\u8bc6\u522b \u2192 \u591a Agent \u2192 \u5e73\u53f0\u5316\u3002\u6bcf\u4e00\u7ae0\u4ee5\u67b6\u6784\u56fe\u5f00\u7bc7\uff0c\u914d\u8bfb\u56fe\u6b65\u9aa4\u3001\u8bf7\u6c42\u65f6\u5e8f\u3001 (selected work: examples, tests, the project root)",
+ "repos": [
+  {
+   "repo": "diagram-first-agent",
+   "url": "https://github.com/hyper-open/diagram-first-agent",
+   "sha": "e4f72d08228ce73bcd499841959c4948f4f62418",
+   "licence": "MIT (LICENSE file at pin e4f72d08228c, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T03:04Z",
+    "consent_receipt": "c2674ffb4e82",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T03:04Z (receipt c2674ffb4e82); selected commit e4f72d08228c: \"feat(code): Mini Agent v2 \u4e0e v3\uff0c\u4ece\u5355\u5faa\u73af\u5230\u53ef\u4e0a\u7ebf\u5e73\u53f0\". LICENSE file at pin e4f72d08228c detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

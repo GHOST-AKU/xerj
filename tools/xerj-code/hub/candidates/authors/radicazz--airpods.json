@@ -1,0 +1,23 @@
+{
+ "corpus": "radicazz--airpods",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on ai, model, ollama queries this for how radicazz/airpods implements it: Local AI service orchestration (selected work: plugins, tests)",
+ "repos": [
+  {
+   "repo": "airpods",
+   "url": "https://github.com/radicazz/airpods",
+   "sha": "ba0062deb8e6bdb021d6037ac114f914d60085da",
+   "licence": "MIT (LICENSE file at pin ba0062deb8e6, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T06:21Z",
+    "consent_receipt": "5b4cd978e7e5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T06:21Z (receipt 5b4cd978e7e5); selected commit ba0062deb8e6: \"fix: modernize bundled open webui functions\". LICENSE file at pin ba0062deb8e6 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

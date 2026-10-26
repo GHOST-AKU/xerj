@@ -8,15 +8,15 @@
   {
    "repo": "SurfSense",
    "url": "https://github.com/MODSetter/SurfSense",
-   "sha": "e3de9e0d293b2ebb1fb813628ecc1d6f26909396",
-   "licence": "Apache-2.0 (LICENSE file at pin e3de9e0d293b, GitHub licence API 2026-10-24)",
+   "sha": "ee60eb402d800a5d5f4a2cdf5fadb3abc22c531c",
+   "licence": "Apache-2.0 (LICENSE file at pin ee60eb402d80, GitHub licence API 2026-10-26)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-21T21:26Z",
     "consent_receipt": "600723940eb6",
-    "note": "Inclusion consented by the commit author by email at 2026-10-21T21:26Z (receipt 600723940eb6); selected commit e3de9e0d293b: \"fix(plugins): name the host and the server a sign-in failed on\". LICENSE file at pin e3de9e0d293b detected as Apache-2.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head e3de9e0d293b (contains the selected commit): the LICENSE at the selected commit was NOASSERTION."
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T21:26Z (receipt 600723940eb6); selected commit ee60eb402d80: \"fix(plugins): name the host and the server a sign-in failed on\". LICENSE file at pin ee60eb402d80 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head ee60eb402d80 (contains the selected commit): the LICENSE at the selected commit was NOASSERTION."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "birapjr--cp32",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C queries this for how birapjr/cp32 implements it: CP32 OS - M5Stack Cardputer Adv ESP32-S3 Unix like OS (selected work: tests, src/fs, src/apps)",
+ "repos": [
+  {
+   "repo": "cp32",
+   "url": "https://github.com/birapjr/cp32",
+   "sha": "e59e3a2e8876b63c17b2807a3e4c03bbcd198f29",
+   "licence": "GPL-3.0 (LICENSE file at pin e59e3a2e8876, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-25T21:18Z",
+    "consent_receipt": "e90864693cdc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:18Z (receipt e90864693cdc); selected commit e59e3a2e8876: \"more file system features added (#15)\". LICENSE file at pin e59e3a2e8876 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

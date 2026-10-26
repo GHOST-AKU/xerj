@@ -1,0 +1,23 @@
+{
+ "corpus": "frappeforge--frappeforge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on api-client, codegen, doctype queries this for how frappeforge/frappeforge implements it: TypeScript-first tooling for Frappe Framework and ERPNext: a zero-dependency, fetch-native API client and a DocType type generator (selected work: packages/codegen)",
+ "repos": [
+  {
+   "repo": "frappeforge",
+   "url": "https://github.com/frappeforge/frappeforge",
+   "sha": "4f32292dea6ae1868fc946c51482240905595231",
+   "licence": "MIT (LICENSE file at pin 4f32292dea6a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T09:55Z",
+    "consent_receipt": "6bfcc76fe5cf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T09:55Z (receipt 6bfcc76fe5cf); selected commit 4f32292dea6a: \"feat(codegen): generate types from the bench's app source without a r\u2026\". LICENSE file at pin 4f32292dea6a detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

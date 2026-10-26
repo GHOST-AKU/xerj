@@ -1,0 +1,23 @@
+{
+ "corpus": "sodam-ai--sodam-persona-codex",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-assistant, ai-persona, apache-2-0 queries this for how sodam-ai/SoDam-Persona-Codex implements it: OpenAI Codex\uc6a9 \ud55c\uad6d\uc5b4 \ud398\ub974\uc18c\ub098 \ud50c\ub7ec\uadf8\uc778. 45\uac1c \uc5ed\ud560\u00b739\uac1c \uc2a4\ud0ac, \uc758\ub3c4 \uae30\ubc18 \uad00\uc810 \uc120\ud0dd, Windows \ud6c5, \uc124\uce58 \ubb34\uacb0\uc131 \uc9c4\ub2e8\u00b7\ud589\ub3d9 \uc2dc\ud5d8 \ubc0f \ud55c\u00b7\uc601 \uc0ac\uc6a9 \uac00\uc774\ub4dc\ub97c \uc81c\uacf5\ud569\ub2c8\ub2e4 (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "SoDam-Persona-Codex",
+   "url": "https://github.com/sodam-ai/SoDam-Persona-Codex",
+   "sha": "599d7e132499c6e4d0fd77a5b25f3e9aeed1394c",
+   "licence": "Apache-2.0 (LICENSE file at pin 599d7e132499, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T16:58Z",
+    "consent_receipt": "7bcc2037fc95",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T16:58Z (receipt 7bcc2037fc95); selected commit 599d7e132499: \"test: verify installed cache integrity and candidate behavior with re\u2026\". LICENSE file at pin 599d7e132499 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

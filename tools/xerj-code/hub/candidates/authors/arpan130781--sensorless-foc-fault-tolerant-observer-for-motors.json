@@ -1,0 +1,23 @@
+{
+ "corpus": "arpan130781--sensorless-foc-fault-tolerant-observer-for-motors",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how arpan130781/Sensorless_FOC_Fault_Tolerant_Observer_for_Motors implements it: Sensorless FOC for PMSM/BLDC with fault-tolerant observer and sensor-fault detection (selected work: simulation, the project root)",
+ "repos": [
+  {
+   "repo": "Sensorless_FOC_Fault_Tolerant_Observer_for_Motors",
+   "url": "https://github.com/arpan130781/Sensorless_FOC_Fault_Tolerant_Observer_for_Motors",
+   "sha": "1e3ef1868e74892fa4b215e72b114d10baba495a",
+   "licence": "MIT (LICENSE file at pin 1e3ef1868e74, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:29Z",
+    "consent_receipt": "5534f8db9619",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:29Z (receipt 5534f8db9619); selected commit 1e3ef1868e74: \"Round-8 evidence integrity: source fingerprinting, JUnit de-duplicati\u2026\". LICENSE file at pin 1e3ef1868e74 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

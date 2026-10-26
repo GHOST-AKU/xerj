@@ -1,0 +1,23 @@
+{
+ "corpus": "miko997--metriplane",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on computer-vision, deterministic-replay, digital-twin queries this for how Miko997/metriplane implements it: Open-source physical observability for robotics workcells: deterministic replay, verifiable incident evidence, and generated regression test (selected work: metriplane, tests, tools)",
+ "repos": [
+  {
+   "repo": "metriplane",
+   "url": "https://github.com/Miko997/metriplane",
+   "sha": "79a57ae691a2cb893c4963ecb926da59ef4093dc",
+   "licence": "MIT (LICENSE file at pin 79a57ae691a2, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T12:24Z",
+    "consent_receipt": "2f4cec971624",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T12:24Z (receipt 2f4cec971624); selected commit 79a57ae691a2: \"Eliminate checkout-relative configuration defaults\". LICENSE file at pin 79a57ae691a2 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

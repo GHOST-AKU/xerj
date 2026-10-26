@@ -1,0 +1,23 @@
+{
+ "corpus": "bochengyao--lyricisland",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on desktop-lyrics, dynamic-island, lyrics queries this for how BochengYao/LyricIsland implements it: Lyric Island \u6b4c\u8bcd\u5c9b \u2014 a modular top-edge desktop lyrics companion for Windows with multi-player SMTC support, synced lyrics, translations, and  (selected work: LyricHover.App, LyricHover.Tests)",
+ "repos": [
+  {
+   "repo": "LyricIsland",
+   "url": "https://github.com/BochengYao/LyricIsland",
+   "sha": "807b7e71caa2150175ccb5b6b9dd3e4ae6b49fcf",
+   "licence": "GPL-3.0 (LICENSE file at pin 807b7e71caa2, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T15:07Z",
+    "consent_receipt": "c68c9fb0c6d9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T15:07Z (receipt c68c9fb0c6d9); selected commit 807b7e71caa2: \"fix(ui): correct secondary monitor placement\". LICENSE file at pin 807b7e71caa2 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

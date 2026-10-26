@@ -1,0 +1,23 @@
+{
+ "corpus": "aecx--ts-cli",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how AECX/ts-cli implements it: Independent TeamSpeak terminal client written in C++ (selected work: audio, client-gtk, client)",
+ "repos": [
+  {
+   "repo": "ts-cli",
+   "url": "https://github.com/AECX/ts-cli",
+   "sha": "93153c018dbb2333ae385a491552c3548bd67687",
+   "licence": "GPL-3.0 (LICENSE file at pin 93153c018dbb, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T19:50Z",
+    "consent_receipt": "2a810b9f02bc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T19:50Z (receipt 2a810b9f02bc); selected commit 93153c018dbb: \"Pace audio playback by the output device clock (#3)\". LICENSE file at pin 93153c018dbb detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "melizeche--dolarpy",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on python, scraper, beautifulsoup4 queries this for how melizeche/dolarPy implements it: Checks USD/PYG exchange rate from several sites, with a calculator, RESTful API and a twitter bot (selected work: tests, the project root)",
+ "repos": [
+  {
+   "repo": "dolarPy",
+   "url": "https://github.com/melizeche/dolarPy",
+   "sha": "f9c00f445043340a760036e9b3f3105879415e2f",
+   "licence": "Apache-2.0 (LICENSE file at pin f9c00f445043, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T16:09Z",
+    "consent_receipt": "cf166a0324d1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T16:09Z (receipt cf166a0324d1); selected commit f9c00f445043: \"Add comprehensive test suite with offline and live checks (#83)\". LICENSE file at pin f9c00f445043 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "uwussimo--vibex",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Swift queries this for how uwussimo/vibex implements it: Native macOS workstation: terminal, embedded iOS Simulator and side browser in one window, driven by Claude Code over MCP (selected work: Vibex, VibexTests)",
+ "repos": [
+  {
+   "repo": "vibex",
+   "url": "https://github.com/uwussimo/vibex",
+   "sha": "41aab95ff5ac4cc98a7c569fb060153e9713c906",
+   "licence": "MIT (LICENSE file at pin 41aab95ff5ac, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T21:33Z",
+    "consent_receipt": "d9908ad008cd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T21:33Z (receipt d9908ad008cd); selected commit 41aab95ff5ac: \"Add AI Agents usage dashboard and a Skills sidebar with the skills.sh\u2026\". LICENSE file at pin 41aab95ff5ac detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 41aab95ff5ac (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}
