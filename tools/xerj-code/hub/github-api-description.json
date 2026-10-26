@@ -1,12 +1,12 @@
 {
- "corpus": "github-api-description",
+ "corpus": "github-api-description","pin_date":"2026-10-26",
  "cloned_at": "2026-10-02T16:02:50Z",
  "repos": [
   {
    "repo": "github-api-description",
    "url": "https://github.com/github/rest-api-description",
    "licence": "MIT",
-   "sha": "7bdf5f00553689c2dabb027685cf29081093767e",
+   "sha": "755ee33b4a81d51f6f07a902cce26cbec3b822f2",
    "files": 419,
    "bytes": 7866761214,
    "review": {
