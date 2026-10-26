@@ -1210,7 +1210,11 @@ mod section_tests {
                     84.4,
                     1,
                     null,
-                    if i == 0 { serde_json::json!({"flight": "N3CEGE", "nic": 8}) } else { Value::Null },
+                    if i == 0 {
+                        serde_json::json!({"flight": "N3CEGE", "nic": 8})
+                    } else {
+                        Value::Null
+                    },
                     "adsb_icao",
                     null
                 ])
@@ -1220,7 +1224,10 @@ mod section_tests {
         obj.insert("icao".into(), Value::from("04200a"));
         obj.insert("trace".into(), Value::Array(rows));
         let flat = flatten_object(obj);
-        assert!(!flat.contains_key("trace"), "trace must not become a JSON string field");
+        assert!(
+            !flat.contains_key("trace"),
+            "trace must not become a JSON string field"
+        );
         assert_eq!(flat.get("trace_count"), Some(&Value::from(200u64)));
         assert_eq!(flat.get("icao"), Some(&Value::from("04200a")));
     }
@@ -1236,11 +1243,16 @@ mod section_tests {
             .collect();
         obj.insert("pairs".into(), Value::Array(words));
         let flat = flatten_object(obj);
-        assert_eq!(flat.get("ring"), Some(&Value::from("[[1.0,2.0],[3.0,4.0]]")));
-        assert!(flat.get("pairs").and_then(Value::as_str).is_some_and(|s| s.starts_with("[[\"alpha0\"")));
+        assert_eq!(
+            flat.get("ring"),
+            Some(&Value::from("[[1.0,2.0],[3.0,4.0]]"))
+        );
+        assert!(flat
+            .get("pairs")
+            .and_then(Value::as_str)
+            .is_some_and(|s| s.starts_with("[[\"alpha0\"")));
         assert!(!flat.contains_key("ring_count") && !flat.contains_key("pairs_count"));
     }
-
 
     fn doc(paras: usize, para_chars: usize) -> String {
         (0..paras)

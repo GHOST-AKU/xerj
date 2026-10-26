@@ -1914,7 +1914,10 @@ mod flush_publication_recovery_tests {
         );
 
         let (engine, idx) = reopen();
-        assert!(all_cold(&idx), "precondition: stored caches cold after restart");
+        assert!(
+            all_cold(&idx),
+            "precondition: stored caches cold after restart"
+        );
         // Hold the background warm back so the query is observed alone.
         let held: Vec<String> = {
             let snapshot = idx.store.snapshot();
@@ -1942,7 +1945,10 @@ mod flush_publication_recovery_tests {
         assert_eq!(again.hits.len(), 5);
         let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
         while all_cold(&idx) || !idx.cold_stored_warms.is_empty() {
-            assert!(std::time::Instant::now() < deadline, "background warm never landed");
+            assert!(
+                std::time::Instant::now() < deadline,
+                "background warm never landed"
+            );
             tokio::time::sleep(std::time::Duration::from_millis(20)).await;
         }
         assert_eq!(cold.hits.len(), 5);
@@ -25043,7 +25049,7 @@ impl Index {
                                         let candidates: Vec<u32> = seg_hits
                                             .iter()
                                             .take_while(|sh| {
-                                                entry_worst.map_or(true, |worst| sh.score >= worst)
+                                                entry_worst.is_none_or(|worst| sh.score >= worst)
                                             })
                                             .map(|sh| sh.doc_id)
                                             .collect();
@@ -42968,7 +42974,11 @@ fn fts_row_hydration_keep(request: &SearchRequest, query: &QueryNode) -> Option<
         return None;
     }
     if passage_requested(request) {
-        keep.extend(ROW_PROJECTION_PASSAGE_FIELDS.iter().map(|f| (*f).to_string()));
+        keep.extend(
+            ROW_PROJECTION_PASSAGE_FIELDS
+                .iter()
+                .map(|f| (*f).to_string()),
+        );
     }
     keep.sort();
     keep.dedup();

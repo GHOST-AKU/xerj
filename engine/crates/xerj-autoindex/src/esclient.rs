@@ -2306,10 +2306,13 @@ impl Es {
         self.with_retry(
             "search",
             || {
-                self.req(reqwest::Method::POST, &format!("/{index}/_search{query_string}"))
-                    .json(body)
-                    .send()
-                    .map_err(|e| anyhow!("search: {e}"))
+                self.req(
+                    reqwest::Method::POST,
+                    &format!("/{index}/_search{query_string}"),
+                )
+                .json(body)
+                .send()
+                .map_err(|e| anyhow!("search: {e}"))
             },
             |resp| {
                 let status = resp.status();
