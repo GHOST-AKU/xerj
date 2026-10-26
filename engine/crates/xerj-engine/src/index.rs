@@ -1968,6 +1968,133 @@ mod flush_publication_recovery_tests {
         schema
     }
 
+    /// #2422: a broad query (most rows of a segment match) on a cold
+    /// segment used to decode the whole stored section inline, because the
+    /// first segment a page meets has no score floor and every matching row
+    /// was a candidate. It must read only a bounded row window, and a walk
+    /// that runs past the window (here: every row in it is deleted) must
+    /// still see every row, so both answers equal the warm answer.
+    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
+    async fn cold_broad_topk_reads_a_row_window_and_falls_back_past_it() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut config = Config::default();
+        config.server.data_dir = dir.path().to_string_lossy().into_owned();
+        let engine = crate::Engine::new(config).unwrap();
+        engine
+            .create_index("broad-cold", topk_projection_schema())
+            .unwrap();
+        let idx = engine.get_index("broad-cold").unwrap();
+        idx.abort_background_tasks();
+        for i in 0..4096u64 {
+            let body = if i % 2 == 0 {
+                format!("needle stack report {i} needle")
+            } else {
+                format!("hay stack {i}")
+            };
+            idx.index_document(
+                Some(format!("doc-{i}")),
+                json!({"title": format!("title {i}"), "body": body, "blob": "x"}),
+            )
+            .await
+            .unwrap();
+        }
+        idx.flush().await.unwrap();
+        // Delete the best-scoring needle rows, more than the row window
+        // holds, so the walk rejects every row in the window and must read
+        // the live needle rows past it.
+        for i in (0..4000u64).step_by(2) {
+            assert!(idx.delete_document(&format!("doc-{i}")).await.unwrap());
+        }
+        idx.flush().await.unwrap();
+        drop(idx);
+        drop(engine);
+
+        let reopen = || {
+            let mut c = Config::default();
+            c.server.data_dir = dir.path().to_string_lossy().into_owned();
+            let engine = crate::Engine::new(c).unwrap();
+            let idx = engine.get_index("broad-cold").unwrap();
+            idx.abort_background_tasks();
+            // Hold the background warm back so each query is observed alone.
+            let snapshot = idx.store.snapshot();
+            let segs: Vec<_> = snapshot.segments.clone();
+            drop(snapshot);
+            assert!(
+                segs.iter().any(|s| s.doc_count > 1024),
+                "precondition: a segment large enough to exceed the row window"
+            );
+            for s in &segs {
+                idx.cold_stored_warms.insert(s.id.to_string(), ());
+            }
+            (engine, idx, segs)
+        };
+        let all_cold = |idx: &Index, segs: &[xerj_storage::segment::SegmentMeta]| {
+            segs.iter().all(|s| {
+                !idx.stored_slices_cache.contains_key(&s.id)
+                    && !idx.decoded_stored_cache.contains_key(&s.id)
+            })
+        };
+        let key = |r: &xerj_query::executor::SearchResult| -> Vec<(String, u32, Value)> {
+            r.hits
+                .iter()
+                .map(|h| (h.id.clone(), h.score.to_bits(), h.source.clone()))
+                .collect()
+        };
+        let request = |q: &str| {
+            xerj_query::parse_request(&json!({
+                "query": {"match": {"body": q}},
+                "size": 5,
+                "_source": ["title"]
+            }))
+            .unwrap()
+        };
+        // Every document matches; the live hay rows score highest.
+        let broad = request("hay stack");
+        // Matches the needle rows only. The best ~2000 of them are deleted,
+        // so the window holds only rejected rows.
+        let past = request("needle report");
+
+        let (engine, idx, segs) = reopen();
+        let cold_broad = idx.search(&broad).await.unwrap();
+        assert!(
+            all_cold(&idx, &segs),
+            "a 5-hit broad query must not decode the whole stored section"
+        );
+        assert!(idx.cold_row_hydrations.load(Ordering::Relaxed) > 0);
+        let cold_past = idx.search(&past).await.unwrap();
+        assert!(
+            !all_cold(&idx, &segs),
+            "a walk that rejects the whole row window reads the full decode"
+        );
+        drop(idx);
+        drop(engine);
+
+        let (engine, idx, segs) = reopen();
+        for s in &segs {
+            assert!(idx.stored_slices_for(&s.id, s.doc_count).is_some());
+        }
+        let warm_broad = idx.search(&broad).await.unwrap();
+        let warm_past = idx.search(&past).await.unwrap();
+        assert_eq!(cold_broad.hits.len(), 5);
+        assert_eq!(cold_past.hits.len(), 5);
+        assert_eq!(key(&cold_broad), key(&warm_broad));
+        assert_eq!(key(&cold_past), key(&warm_past));
+        for h in &cold_past.hits {
+            let n: u64 = h.id.trim_start_matches("doc-").parse().unwrap();
+            assert!(n >= 4000 && n % 2 == 0, "live needle rows only: {}", h.id);
+        }
+        assert_eq!(
+            cold_broad
+                .hits
+                .iter()
+                .filter(|h| h.source["title"].is_string())
+                .count(),
+            5
+        );
+        drop(idx);
+        drop(engine);
+    }
+
     /// #2422/#2423: on a cold segment (after a restart, or evicted under the
     /// cache budget) a top-k query that names its `_source` fields must read
     /// only the winning rows and only the needed columns. Before the fix the
@@ -25159,6 +25286,11 @@ impl Index {
                                     // threshold only tightens, so this is a
                                     // superset) — and only the columns the
                                     // request can observe.
+                                    // #2422: set when the cold row window
+                                    // below was cut short; the walk then
+                                    // falls back to the full decode for any
+                                    // row past it instead of skipping it.
+                                    let mut cold_window_truncated = false;
                                     let cold_rows: Option<HashMap<u32, Value>> = if self
                                         .stored_slices_cache
                                         .contains_key(seg_id.as_str())
@@ -25171,15 +25303,33 @@ impl Index {
                                         } else {
                                             None
                                         };
-                                        let candidates: Vec<u32> = seg_hits
+                                        let mut candidates: Vec<u32> = seg_hits
                                             .iter()
                                             .take_while(|sh| {
                                                 entry_worst.is_none_or(|worst| sh.score >= worst)
                                             })
                                             .map(|sh| sh.doc_id)
                                             .collect();
-                                        let bounded = candidates.len()
-                                            <= materialisation_limit.saturating_mul(4).max(256);
+                                        // #2422: the first segment a page
+                                        // meets has no entry worst, so a broad
+                                        // query (an OR over common words)
+                                        // makes every matching row a
+                                        // candidate, and the whole segment
+                                        // used to be decoded inline: ~1.1 s
+                                        // on a 30k-doc autoindex segment.
+                                        // The walk stops once the page is
+                                        // full, so decode the score-ordered
+                                        // window it almost always stays in;
+                                        // a walk that runs past the window
+                                        // (many rejected rows or a long tie)
+                                        // reads the rest from the full
+                                        // decode, so no row is skipped.
+                                        let window =
+                                            materialisation_limit.saturating_mul(4).max(256);
+                                        if candidates.len() > window {
+                                            candidates.truncate(window);
+                                            cold_window_truncated = true;
+                                        }
                                         // Only with a column projection: the
                                         // stored columns are whole-stream
                                         // zstd, so an unprojected row decode
@@ -25192,7 +25342,7 @@ impl Index {
                                         // 2.3 s -> 6.6 s). The full decode
                                         // below caches for the next query.
                                         let worth_it = fts_row_keep.is_some();
-                                        if bounded && worth_it && !candidates.is_empty() {
+                                        if worth_it && !candidates.is_empty() {
                                             let rows = self.hydrate_fts_rows_cold(
                                                 seg_id.as_str(),
                                                 &candidates,
@@ -25258,9 +25408,31 @@ impl Index {
                                         // slice arm parses one object on demand;
                                         // the fallback clones from the fully
                                         // decoded Vec.
+                                        let past_window: std::cell::OnceCell<
+                                            Option<Resident<StoredSlices>>,
+                                        > = std::cell::OnceCell::new();
                                         let fetch_doc = |pos: u32| -> Option<Value> {
                                             if let Some(rows) = cold_rows.as_ref() {
-                                                rows.get(&pos).cloned()
+                                                if let Some(doc) = rows.get(&pos) {
+                                                    return Some(doc.clone());
+                                                }
+                                                if !cold_window_truncated {
+                                                    return None;
+                                                }
+                                                let slices = past_window
+                                                    .get_or_init(|| {
+                                                        self.stored_slices_for(
+                                                            seg_id.as_str(),
+                                                            meta.doc_count,
+                                                        )
+                                                    })
+                                                    .as_deref()?;
+                                                let &(start, end) =
+                                                    slices.offsets.get(pos as usize)?;
+                                                let slice = slices
+                                                    .bytes
+                                                    .get(start as usize..end as usize)?;
+                                                serde_json::from_slice::<Value>(slice).ok()
                                             } else if let Some(slices) = slices_opt.as_deref() {
                                                 let &(start, end) =
                                                     slices.offsets.get(pos as usize)?;
