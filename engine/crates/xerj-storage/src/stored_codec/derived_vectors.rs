@@ -26,7 +26,10 @@
 //!   stripped when a merge rewrites them.
 //!
 //! `XERJ_STORE_SEMANTIC_VECTORS=true` keeps the vectors in newly written
-//! segments (e.g. before a planned downgrade to a binary without this code).
+//! segments, and merges then rebuild the vectors of already-stripped rows
+//! ([`super::decode_stored_for_rewrite`]), so a `force_merge` under the
+//! opt-out leaves every segment with full vectors before a downgrade to a
+//! binary without this code.
 
 use serde_json::{Map, Value};
 pub use xerj_ai::semantic_lexical::LexicalSemanticVectors;
@@ -43,18 +46,41 @@ const CHUNKS_SUFFIX: &str = "_chunks";
 /// Byte pattern a canonical serialisation contains iff some row is stripped.
 pub(super) const MARKER_BYTES: &[u8] = br#""derived":"lexical-v1""#;
 
-fn store_vectors_opt_out() -> bool {
-    static OPT_OUT: std::sync::OnceLock<bool> = std::sync::OnceLock::new();
-    *OPT_OUT.get_or_init(|| {
-        std::env::var("XERJ_STORE_SEMANTIC_VECTORS")
-            .map(|v| {
-                matches!(
-                    v.trim().to_ascii_lowercase().as_str(),
-                    "1" | "true" | "yes" | "on"
-                )
-            })
-            .unwrap_or(false)
-    })
+/// 0 = read `XERJ_STORE_SEMANTIC_VECTORS` on first use, 1 = strip, 2 = store.
+static STORE_VECTORS: std::sync::atomic::AtomicU8 = std::sync::atomic::AtomicU8::new(0);
+
+/// `XERJ_STORE_SEMANTIC_VECTORS` is set: write full vectors, and have merges
+/// put back the vectors of rows an earlier write stripped.
+pub fn store_vectors_opt_out() -> bool {
+    use std::sync::atomic::Ordering;
+    match STORE_VECTORS.load(Ordering::Relaxed) {
+        1 => false,
+        2 => true,
+        _ => {
+            let on = std::env::var("XERJ_STORE_SEMANTIC_VECTORS")
+                .map(|v| {
+                    matches!(
+                        v.trim().to_ascii_lowercase().as_str(),
+                        "1" | "true" | "yes" | "on"
+                    )
+                })
+                .unwrap_or(false);
+            let _ = STORE_VECTORS.compare_exchange(
+                0,
+                if on { 2 } else { 1 },
+                Ordering::Relaxed,
+                Ordering::Relaxed,
+            );
+            STORE_VECTORS.load(Ordering::Relaxed) == 2
+        }
+    }
+}
+
+/// Override `XERJ_STORE_SEMANTIC_VECTORS` for the rest of the process.
+/// For tests that model "restart with the opt-out set" in one process.
+#[doc(hidden)]
+pub fn set_store_vectors_opt_out(on: bool) {
+    STORE_VECTORS.store(if on { 2 } else { 1 }, std::sync::atomic::Ordering::Relaxed);
 }
 
 pub(super) fn chunks_name(target: &str) -> String {

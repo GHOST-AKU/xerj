@@ -120,4 +120,86 @@ mod tests {
         assert_eq!(pooled, mean_pool_normalize(&chunks));
         assert!(lexical_semantic_vectors(&text, 0).is_none());
     }
+
+    /// FNV-1a 64 over the f32 bit patterns of the pooled vector, then each
+    /// passage vector (none for single-passage text).
+    fn fingerprint((pooled, chunks): &LexicalSemanticVectors) -> u64 {
+        let mut h: u64 = 0xcbf2_9ce4_8422_2325;
+        let mut feed = |v: &[f32]| {
+            for f in v {
+                for b in f.to_bits().to_le_bytes() {
+                    h ^= u64::from(b);
+                    h = h.wrapping_mul(0x0000_0100_0000_01b3);
+                }
+            }
+            // Separator so passage boundaries are part of the hash.
+            h ^= 0xff;
+            h = h.wrapping_mul(0x0000_0100_0000_01b3);
+        };
+        feed(pooled);
+        for c in chunks.iter().flatten() {
+            feed(c);
+        }
+        h
+    }
+
+    /// Stored segments drop these vectors and rebuild them on read, tagged
+    /// `lexical-v1` (#1122/#2433). If tokenization, case folding, Unicode
+    /// tables (a toolchain bump), hashing or chunking change their output,
+    /// already-written segments would read back different vectors than the
+    /// HNSW index holds. A change here needs a new marker version, not a
+    /// re-pinned hash.
+    #[test]
+    fn lexical_v1_vectors_are_pinned() {
+        let long_mixed = "Grüße aus Köln. Ünïcödé façade naïve café. Ελληνικά κείμενα. \
+                          Кириллица текст. 日本語のテキスト。中文文本。한국어 텍스트. \
+                          עברית العربية हिन्दी ไทย. İstanbul ß ǅ ﬁ Ⅻ 𝔘𝔫𝔦𝔠𝔬𝔡𝔢 🚀🎉 "
+            .repeat(12);
+        let corpus: Vec<(&str, String, usize)> = vec![
+            (
+                "ascii",
+                "Quarterly revenue grew in the storage ledger".into(),
+                32,
+            ),
+            (
+                "latin1",
+                "Grüße aus Köln — façade, naïve café, ÆØÅ æøå".into(),
+                32,
+            ),
+            ("turkic", "İstanbul ISTANBUL istanbul ıi Iİ".into(), 16),
+            ("sharp_s", "STRASSE straße Straße ß ẞ".into(), 16),
+            (
+                "greek_cyrillic",
+                "ΣΊΣΥΦΟΣ σίσυφος Ελληνικά — Москва МОСКВА ёЁ".into(),
+                64,
+            ),
+            ("cjk", "日本語のテキスト 中文文本 한국어 텍스트".into(), 64),
+            ("rtl_indic_thai", "עברית العربية हिन्दी ไทย".into(), 32),
+            ("compat_marks", "ǅ ﬁ Ⅻ e\u{301} é Å Å 𝔘𝔫𝔦𝔠𝔬𝔡𝔢".into(), 32),
+            ("emoji_digits", "🚀🎉 👩‍👩‍👧 ١٢٣ ４５６ 123".into(), 16),
+            ("multi_passage_mixed", long_mixed, 32),
+        ];
+        let got: Vec<(&str, u64)> = corpus
+            .iter()
+            .map(|(name, text, dims)| {
+                let v = lexical_semantic_vectors(text, *dims).unwrap();
+                (*name, fingerprint(&v))
+            })
+            .collect();
+        let multi = lexical_semantic_vectors(&corpus[9].1, 32).unwrap();
+        assert!(multi.1.as_ref().is_some_and(|c| c.len() > 1));
+        let want: &[(&str, u64)] = &[
+            ("ascii", 0xb18dc7157381c097),
+            ("latin1", 0x5c3d6b7e97441622),
+            ("turkic", 0xdbd5eb2aec430f62),
+            ("sharp_s", 0x2ddf8010c6cf313d),
+            ("greek_cyrillic", 0x67d0ea0cf16331cc),
+            ("cjk", 0xf2f4de163e1b3b89),
+            ("rtl_indic_thai", 0x08493924a0bb30aa),
+            ("compat_marks", 0x36bc49586424f6e8),
+            ("emoji_digits", 0x40d6b03c9056dd2b),
+            ("multi_passage_mixed", 0x2337850d5df9865d),
+        ];
+        assert_eq!(got, want, "lexical-v1 embeddings drifted");
+    }
 }

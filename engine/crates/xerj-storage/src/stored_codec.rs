@@ -954,6 +954,16 @@ pub fn decode_stored_preserving_derived(bytes: &[u8]) -> Result<Vec<u8>> {
     decode_stored_inner(bytes, false)
 }
 
+/// Decode for a merge that re-encodes the documents (#1122/#2433).
+///
+/// By default stripped rows stay stripped ([`decode_stored_preserving_derived`]).
+/// With `XERJ_STORE_SEMANTIC_VECTORS` set the rows are rehydrated instead, so
+/// the merged segment stores full vectors: that is how `force_merge` restores
+/// vectors written before the opt-out was turned on.
+pub fn decode_stored_for_rewrite(bytes: &[u8]) -> Result<Vec<u8>> {
+    decode_stored_inner(bytes, derived_vectors::store_vectors_opt_out())
+}
+
 fn decode_stored_inner(bytes: &[u8], rehydrate: bool) -> Result<Vec<u8>> {
     if bytes.len() >= 4 && &bytes[..4] == STORED_V3_MAGIC {
         let (present_nulls, inner) = split_stored_v3(bytes)?;

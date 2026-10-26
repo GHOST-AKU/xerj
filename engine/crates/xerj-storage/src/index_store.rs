@@ -4631,7 +4631,8 @@ impl IndexStore {
                 Ok(Some(b)) => b,
                 _ => continue,
             };
-            // Only (id, seq_no) are read: skip rebuilding derived vectors.
+            // Only (id, seq_no) are read and nothing is re-encoded, so the
+            // opt-out does not apply: skip rebuilding derived vectors.
             let stored_bytes =
                 match crate::stored_codec::decode_stored_preserving_derived(stored_bytes_raw) {
                     Ok(b) => b,

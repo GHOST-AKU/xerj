@@ -14713,9 +14713,10 @@ impl Index {
                         };
                         let stored_bytes =
                             // #1122/#2433: keep stripped semantic vectors
-                                // stripped; the merged encode would only
-                                // re-derive and drop them again.
-                            match xerj_storage::stored_codec::decode_stored_preserving_derived(
+                                // stripped (the merged encode would only
+                                // re-derive and drop them again), unless
+                                // XERJ_STORE_SEMANTIC_VECTORS restores them.
+                            match xerj_storage::stored_codec::decode_stored_for_rewrite(
                                 stored_bytes_raw,
                             ) {
                                 Ok(b) => b,
