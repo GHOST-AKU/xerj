@@ -86,9 +86,10 @@ use std::io::{Cursor, Read, Write};
 
 mod row_hydration;
 pub use row_hydration::{
-    decode_stored_v2_rows, decode_stored_v2_rows_controlled, decode_stored_v2_rows_projected,
-    decode_stored_v2_rows_projected_controlled, decode_stored_v2_rows_projected_parallel,
-    StoredV2HydratedRow, StoredV2RowHydrationResult, StoredV2RowHydrationStats,
+    decode_stored_v2_ids, decode_stored_v2_rows, decode_stored_v2_rows_controlled,
+    decode_stored_v2_rows_projected, decode_stored_v2_rows_projected_controlled,
+    decode_stored_v2_rows_projected_parallel, StoredV2HydratedRow, StoredV2RowHydrationResult,
+    StoredV2RowHydrationStats,
 };
 
 pub const STORED_DECODE_CHECK_INTERVAL: usize = 128;

@@ -111,6 +111,28 @@ pub(super) fn decode_v2_identity_columns_controlled(
     ))))
 }
 
+/// `_id` of every row of a columnar (ZBS2/ZBS3) stored section, in row
+/// order, decoded from the identity columns alone: no `_source` column is
+/// read. `Ok(None)` for a non-columnar section or an identity shape that
+/// cannot be read selectively; the caller decodes the whole section instead.
+pub fn decode_stored_v2_ids(bytes: &[u8]) -> Result<Option<Vec<serde_json::Value>>> {
+    let bytes = if bytes.len() >= 4 && &bytes[..4] == STORED_V3_MAGIC {
+        split_stored_v3(bytes)?.1
+    } else {
+        bytes
+    };
+    if !is_columnar_stored_magic(bytes) {
+        return Ok(None);
+    }
+    let mut no_cancel = |_| std::ops::ControlFlow::Continue(());
+    match decode_v2_identity_columns_controlled(bytes, &mut no_cancel)? {
+        StoredDecodeRun::Complete(Some((num_docs, ids, _))) if ids.len() == num_docs => {
+            Ok(Some(ids))
+        }
+        StoredDecodeRun::Complete(_) | StoredDecodeRun::Cancelled => Ok(None),
+    }
+}
+
 struct SelectedRowsVisitor<'a> {
     selected: &'a [usize],
     expected_rows: usize,
@@ -1086,6 +1108,76 @@ mod tests {
             ],
         );
         assert!(decode_stored_v2_rows(&bad, &[0]).is_err());
+    }
+
+    /// The parallel hydration parses each JSON column as an in-memory slice;
+    /// its rows must equal the streaming path's, and it must still reject a
+    /// column with trailing JSON or a row count other than the directory's.
+    #[test]
+    fn parallel_hydration_matches_streaming_and_validates_columns() {
+        for codec in [ColCodec::RawJson, ColCodec::Lz4Json] {
+            let encoded = fixture(300, codec);
+            let ordinals = [299, 0, 7, 7, 128];
+            for fields in [None, Some(&["body"][..]), Some(&[][..])] {
+                let serial = match fields {
+                    Some(fields) => decode_stored_v2_rows_projected(&encoded, &ordinals, fields),
+                    None => decode_stored_v2_rows(&encoded, &ordinals),
+                }
+                .unwrap();
+                let parallel =
+                    decode_stored_v2_rows_projected_parallel(&encoded, &ordinals, fields).unwrap();
+                let (
+                    StoredV2RowHydrationResult::Hydrated { rows: a, .. },
+                    StoredV2RowHydrationResult::Hydrated { rows: b, .. },
+                ) = (serial, parallel)
+                else {
+                    panic!("expected hydration")
+                };
+                assert_eq!(a.len(), 4);
+                assert_eq!(a.len(), b.len());
+                for (a, b) in a.iter().zip(&b) {
+                    assert_eq!(
+                        (a.ordinal, &a.id, &a.seq_no, &a.source),
+                        (b.ordinal, &b.id, &b.seq_no, &b.source)
+                    );
+                }
+            }
+        }
+        for tail in [&b"[]"[..], &b""[..]] {
+            let mut values = serde_json::to_vec(&vec![json!("x"); 4]).unwrap();
+            values.extend_from_slice(tail);
+            let rows = if tail.is_empty() { 3 } else { 4 };
+            let bad = assemble(
+                rows,
+                &[
+                    ("__id", ColCodec::RawJson, raw(&vec![json!("x"); rows])),
+                    ("__seq_no", ColCodec::RawJson, raw(&vec![json!(0); rows])),
+                    (
+                        "bad",
+                        ColCodec::RawJson,
+                        zstd::encode_all(Cursor::new(values), 3).unwrap(),
+                    ),
+                    ("other", ColCodec::RawJson, raw(&vec![json!(1); rows])),
+                ],
+            );
+            assert!(decode_stored_v2_rows_projected_parallel(&bad, &[0], None).is_err());
+        }
+    }
+
+    /// The identity-only id list equals the `_id`s of the full decode.
+    #[test]
+    fn identity_ids_match_the_full_decode() {
+        for codec in [ColCodec::RawJson, ColCodec::Lz4Json] {
+            let encoded = fixture(200, codec);
+            let ids = decode_stored_v2_ids(&encoded).unwrap().unwrap();
+            let full: Vec<serde_json::Value> =
+                serde_json::from_slice(&super::super::decode_stored(&encoded).unwrap()).unwrap();
+            assert_eq!(ids.len(), full.len());
+            for (id, doc) in ids.iter().zip(&full) {
+                assert_eq!(id, &doc["_id"]);
+            }
+        }
+        assert!(decode_stored_v2_ids(b"not columnar").unwrap().is_none());
     }
 
     #[test]

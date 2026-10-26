@@ -2074,8 +2074,11 @@ mod flush_publication_recovery_tests {
         drop(engine);
 
         let (engine, idx, segs) = reopen();
+        // Warm every segment that can be warmed; the large one (the walk
+        // under test) must be, so the reference takes the full-decode path.
         for s in &segs {
-            assert!(idx.stored_slices_for(&s.id, s.doc_count).is_some());
+            let warmed = idx.stored_slices_for(&s.id, s.doc_count).is_some();
+            assert!(warmed || s.doc_count <= 1024, "segment {} must warm", s.id);
         }
         for (r, cold) in requests.iter().zip(&cold) {
             let warm = idx.search(r).await.unwrap();
@@ -34210,6 +34213,16 @@ impl Index {
         ))
     }
 
+    /// `_id` of every row of a segment's columnar stored section, read from
+    /// its identity columns only. `None` (legacy layout, read error, a row
+    /// count other than `expect_docs`) sends the caller to the full decode.
+    fn cold_segment_ids(&self, seg_id: &str, expect_docs: u64) -> Option<Vec<Value>> {
+        let reader = self.store.open_segment_arc(seg_id).ok()?;
+        let bytes = reader.section(SectionType::Stored).ok()??;
+        let ids = xerj_storage::stored_codec::decode_stored_v2_ids(bytes).ok()??;
+        (ids.len() as u64 == expect_docs).then_some(ids)
+    }
+
     /// Per-segment GHOST-position bitmap (b7 DEFECT 1c): bit `pos` set ⇔
     /// the stored doc at `pos` is tombstoned or superseded — its live
     /// version resides in another segment or the memtable per the version
@@ -34230,21 +34243,39 @@ impl Index {
                 return Some(Arc::clone(&entry.value().1));
             }
         }
-        let slices = self.stored_slices_for(seg_id, expect_docs)?;
-        let mut bm = vec![0u64; slices.offsets.len().div_ceil(64)];
-        for (pos, &(start, end)) in slices.offsets.iter().enumerate() {
-            let slice = slices.bytes.get(start as usize..end as usize)?;
-            let doc: Value = serde_json::from_slice(slice).ok()?;
-            let id = doc.get("_id").and_then(Value::as_str).unwrap_or("");
-            let ghost = match self.store.version_map.get(id) {
-                Some(ver) => ver.deleted || ver.segment_id.as_ref() != seg_id,
-                // Not in the version map → nothing has ever superseded it.
-                None => false,
-            };
-            if ghost {
-                bm[pos / 64] |= 1u64 << (pos % 64);
+        let is_ghost = |id: &str| match self.store.version_map.get(id) {
+            Some(ver) => ver.deleted || ver.segment_id.as_ref() != seg_id,
+            // Not in the version map → nothing has ever superseded it.
+            None => false,
+        };
+        // A cold segment reads its `_id` column alone: decoding (and
+        // caching) the whole stored section here made the first query
+        // under deletes pay for every row's `_source`.
+        let cold = !self.stored_slices_cache.contains_key(seg_id)
+            && !self.decoded_stored_cache.contains_key(seg_id);
+        let cold_ids = cold
+            .then(|| self.cold_segment_ids(seg_id, expect_docs))
+            .flatten();
+        let bm = if let Some(ids) = cold_ids {
+            let mut bm = vec![0u64; ids.len().div_ceil(64)];
+            for (pos, id) in ids.iter().enumerate() {
+                if is_ghost(id.as_str().unwrap_or("")) {
+                    bm[pos / 64] |= 1u64 << (pos % 64);
+                }
             }
-        }
+            bm
+        } else {
+            let slices = self.stored_slices_for(seg_id, expect_docs)?;
+            let mut bm = vec![0u64; slices.offsets.len().div_ceil(64)];
+            for (pos, &(start, end)) in slices.offsets.iter().enumerate() {
+                let slice = slices.bytes.get(start as usize..end as usize)?;
+                let doc: Value = serde_json::from_slice(slice).ok()?;
+                if is_ghost(doc.get("_id").and_then(Value::as_str).unwrap_or("")) {
+                    bm[pos / 64] |= 1u64 << (pos % 64);
+                }
+            }
+            bm
+        };
         let bm = Arc::new(bm);
         // Bounded like `shortcut_count_cache`: wholesale clear — entries
         // are per-segment (not query-shaped) so the cap is generous.
