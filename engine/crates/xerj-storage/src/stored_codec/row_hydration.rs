@@ -80,6 +80,7 @@ pub(super) fn decode_v2_identity_columns_controlled(
                 &mut stats,
                 &mut dict_ids,
                 checkpoint,
+                false,
             )?;
             if result.is_ok()
                 && decode_cancelled(
@@ -176,6 +177,38 @@ fn select_json_rows<R: std::io::Read>(
 ) -> Result<std::result::Result<Vec<serde_json::Value>, ()>> {
     let cancelled = Cell::new(false);
     let mut deserializer = serde_json::Deserializer::from_reader(buffered_json_stream(reader));
+    let values = match deserializer.deserialize_seq(SelectedRowsVisitor {
+        selected,
+        expected_rows,
+        column_index,
+        checkpoint,
+        cancelled: &cancelled,
+    }) {
+        Ok(values) => values,
+        Err(_) if cancelled.get() => return Ok(Err(())),
+        Err(error) => {
+            return Err(StorageError::Other(anyhow::anyhow!("{context}: {error}")));
+        }
+    };
+    deserializer
+        .end()
+        .map_err(|error| StorageError::Other(anyhow::anyhow!("{context}: {error}")))?;
+    Ok(Ok(values))
+}
+
+/// [`select_json_rows`] over a column already decompressed in memory. The
+/// slice parser skips unselected rows several times faster than the
+/// byte-at-a-time reader parser; validation is the same.
+fn select_json_rows_slice(
+    bytes: &[u8],
+    selected: &[usize],
+    expected_rows: usize,
+    context: &str,
+    column_index: usize,
+    checkpoint: &mut dyn FnMut(StoredDecodeCheckpoint) -> std::ops::ControlFlow<()>,
+) -> Result<std::result::Result<Vec<serde_json::Value>, ()>> {
+    let cancelled = Cell::new(false);
+    let mut deserializer = serde_json::Deserializer::from_slice(bytes);
     let values = match deserializer.deserialize_seq(SelectedRowsVisitor {
         selected,
         expected_rows,
@@ -489,6 +522,11 @@ fn repeat_constant_rows_controlled(
     Ok(Ok(values))
 }
 
+/// `in_memory`: decompress a JSON column whole and parse it as a slice
+/// (faster) instead of streaming it. Only the non-cancellable parallel
+/// hydration asks for it, so cancellation still never waits on a whole
+/// column's decompression.
+#[allow(clippy::too_many_arguments)]
 fn select_column_rows(
     column_index: usize,
     directory: &V2Directory<'_>,
@@ -496,9 +534,28 @@ fn select_column_rows(
     stats: &mut StoredV2RowHydrationStats,
     dict_ids: &mut HashMap<usize, Vec<u32>>,
     checkpoint: &mut dyn FnMut(StoredDecodeCheckpoint) -> std::ops::ControlFlow<()>,
+    in_memory: bool,
 ) -> Result<std::result::Result<Vec<serde_json::Value>, Option<String>>> {
     let column = &directory.columns[column_index];
     let values = match column.codec {
+        ColCodec::RawJson if in_memory => {
+            stats.encoded_rows_visited += directory.num_docs;
+            let frame = decode_raw_payload(column.payload)?;
+            let raw = zstd::stream::decode_all(frame)
+                .map_err(|error| StorageError::Other(anyhow::anyhow!("raw zstd: {error}")))?;
+            stats.decompressed_buffer_bytes += raw.len();
+            match select_json_rows_slice(
+                &raw,
+                selected,
+                directory.num_docs,
+                "raw json",
+                column_index,
+                checkpoint,
+            )? {
+                Ok(values) => values,
+                Err(()) => return Ok(Err(None)),
+            }
+        }
         ColCodec::RawJson => {
             stats.encoded_rows_visited += directory.num_docs;
             let frame = decode_raw_payload(column.payload)?;
@@ -590,6 +647,7 @@ fn select_column_rows(
                 stats,
                 dict_ids,
                 checkpoint,
+                in_memory,
             );
         }
         ColCodec::CrossDep => {
@@ -812,6 +870,7 @@ where
                     &mut local_stats,
                     &mut local_dict_ids,
                     &mut noop,
+                    true,
                 )
                 .map(|values| (index, values, local_stats))
             })
@@ -847,6 +906,7 @@ where
             &mut stats,
             &mut dict_ids,
             &mut checkpoint,
+            false,
         )? {
             Ok(values) => columns[index] = Some(values),
             Err(Some(column)) => {
