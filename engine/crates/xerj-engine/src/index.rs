@@ -14396,11 +14396,11 @@ impl Index {
                 let Some(governor) = crate::governor::global() else {
                     return true;
                 };
-                // #2468 (open) lets a small background batch run to
-                // completion after a streak of yields with nothing merged.
-                // When it lands, pass whether its rule waived this batch's
-                // yield, so refusing the write does not bring the stall back.
-                let exempt = false;
+                // #2468 lets a small background batch run to completion
+                // after a streak of yields with nothing merged. When that
+                // rule is what waived this batch's yield, the write runs
+                // too, or refusing it would bring the stall back.
+                let exempt = governor.merge_write_exempt(forced_for_task, input_bytes_for_task);
                 if governor.admit_merge_write(reservation, held, extra, forced_for_task, exempt) {
                     return true;
                 }

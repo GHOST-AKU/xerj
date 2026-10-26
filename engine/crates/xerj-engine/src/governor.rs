@@ -769,6 +769,19 @@ impl ResourceGovernor {
             .pressure_cap
     }
 
+    /// Whether a batch's output-write step is exempt from
+    /// [`Self::admit_merge_write`]'s hard-limit refusal (#2427, #2468).
+    ///
+    /// True exactly when #2468's streak rule is what keeps this batch
+    /// running: the plain rule ([`Self::merge_must_yield`]) says yield, and
+    /// the streak-aware rule ([`Self::merge_must_yield_for`]) waives it for
+    /// a small batch after a streak of yields with nothing merged. Refusing
+    /// that batch's write would bring back the stall the rule exists to
+    /// break.
+    pub fn merge_write_exempt(&self, forced: bool, input_bytes: u64) -> bool {
+        self.merge_must_yield(forced) && !self.merge_must_yield_for(forced, input_bytes)
+    }
+
     /// Charge a merge batch's output-write step to the merge budget before
     /// it runs (#2427).
     ///
@@ -4196,6 +4209,67 @@ mod tests {
         drop(reservation);
         assert_eq!(g.merge_reserved_bytes(), 0);
         assert_eq!(g.merges_in_flight(), 0);
+    }
+
+    /// #2427 x #2468: a small background batch that the yield-streak rule
+    /// lets run to completion is not refused at its output write, even with
+    /// RSS at the hard limit. A large batch, a batch before the streak, and
+    /// a batch the plain rule never stopped get no exemption. A completed
+    /// batch ends it.
+    #[test]
+    fn a_streak_exempt_batch_is_not_refused_at_its_write() {
+        const MIB: u64 = 1024 * 1024;
+        let mut cfg = Config::default();
+        cfg.limits.max_total_memtable_mb = 0;
+        cfg.limits.memory_watermark_percent = 95;
+        let g = build(&cfg);
+        let wm = g.memory_watermark_bytes.load(Ordering::Relaxed);
+        let limit = g.process_memory_limit_bytes();
+        assert!(wm > 0 && limit > wm, "this test needs a live RSS watermark");
+        let small = 49 * MIB;
+        let large = crate::merge_budget::MERGE_YIELD_STREAK_MAX_INPUT_BYTES + 1;
+        let write = 256 * MIB;
+
+        // Below the limit the plain rule never stops a batch: no exemption,
+        // and the write decision is the hard-limit check alone.
+        g.refresh(0, wm / 2, 0);
+        assert!(!g.merge_write_exempt(false, small));
+
+        // Engaged at the limit, before the streak: the small batch yields at
+        // its checkpoints and its write would be refused.
+        g.refresh(0, limit, 0);
+        assert!(g.memory_breaker_engaged());
+        assert!(!g.merge_write_exempt(false, small));
+        let exempt = g.merge_write_exempt(false, small);
+        assert!(!g.admit_merge_write(None, small, write, false, exempt));
+
+        // After the streak, #2468 lets the small batch run, and so does its
+        // write. The large batch still yields and its write is still refused.
+        for _ in 0..crate::merge_budget::MERGE_YIELD_STREAK_LIMIT {
+            g.note_merge_yield(small);
+        }
+        assert!(!g.merge_must_yield_for(false, small));
+        assert!(g.merge_write_exempt(false, small));
+        let exempt = g.merge_write_exempt(false, small);
+        let mut reservation = g.try_reserve_merge(small, true).expect("forced admission");
+        let held = reservation.bytes();
+        assert!(g.admit_merge_write(Some(&mut reservation), held, write, false, exempt));
+        // The exempt write is still charged to the ledger.
+        assert_eq!(reservation.bytes(), held + write);
+        assert_eq!(g.merge_reserved_bytes(), held + write);
+        drop(reservation);
+        assert!(!g.merge_write_exempt(false, large));
+        let exempt = g.merge_write_exempt(false, large);
+        assert!(!g.admit_merge_write(None, large, write, false, exempt));
+
+        // `_forcemerge` is never stopped by either rule, so it needs no
+        // exemption; its write runs on `forced` alone.
+        assert!(!g.merge_write_exempt(true, small));
+        assert!(g.admit_merge_write(None, small, write, true, false));
+
+        // A completed batch resets the streak: no exemption again.
+        g.note_merge_completed(small);
+        assert!(!g.merge_write_exempt(false, small));
     }
 
     /// #2427: the 1 GB release gate released at rss=5,121MB against a

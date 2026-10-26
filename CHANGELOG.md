@@ -88,7 +88,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   they completed. The step is estimated at 6x the merged stored JSON or 2x
   the FTS build input, whichever is larger. An admitted step grows the
   batch's merge reservation, so concurrent merge admission sees it.
-  `_forcemerge` batches are charged but never refused.
+  `_forcemerge` batches are charged but never refused, and neither is a
+  small batch that the yield-streak rule (#2468) lets run to completion.
 
 - The parent memory breaker no longer flaps, and background merges and flush
   finalizes are bounded while it is engaged (#2427). A 3,000 MB autoindex run
