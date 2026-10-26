@@ -17,6 +17,7 @@ min_throughput_mb_s           = 1.5
 max_node_peak_rss_mb          = 2048
 max_client_peak_rss_mb        = 768
 max_state_to_source_ratio     = 1.2
+max_index_plus_state_mb       = 250
 max_indices_per_prefix        = 40
 max_search_p95_ms             = 1000
 max_search_max_ms             = 2000
@@ -50,6 +51,11 @@ max_client_peak_rss_mb        = 1024
 # (8.4 GB for 5 GB, #2421). Resume metadata + journal must stay well under
 # a full copy; 1.2x is the ceiling the release issue asks for.
 max_state_to_source_ratio     = 1.2
+# Absolute backstop on (node data dir + autoindex state dir) in MiB:
+# 1.3 GB, about 1.2x the 1 GB source. ES 9.5.5 force-merged = 1.42x source on
+# this corpus (perf-floor results.md), so this is stricter than ES. It holds
+# even when no engine baseline is available.
+max_index_plus_state_mb       = 1300
 # rc.99 made 454 indices for one folder (#2422). #2430 adds a run cap of
 # 32 datasets plus docs/code indices; 40 leaves slack for those.
 max_indices_per_prefix        = 40
@@ -80,14 +86,20 @@ max_regression_pct            = 20
 [tier.5gb]
 # The pre-release tier (v* tags). Mirrors the 5 GB folder of #2421-#2428.
 corpus_mb                     = 5120
-# #2423 ask: "node RSS under 4 GB" for 5 GB on a 16 GB box.
-node_memory_cap_mb            = 4096
+# Same 3 GB cap as 1gb (the #2427 cap). #2423 asked "under 4 GB" for 5 GB;
+# the floor review (2026-10-25) holds the release to 3 GB. rc.99 reached
+# 5.6 GB RSS under a 3072 MB cap in bulk ingest (#2427).
+node_memory_cap_mb            = 3072
 # #2423 ask: "finish in under 20 min"; 30 min is the hard stop.
 autoindex_timeout_min         = 30
-min_throughput_mb_s           = 4.0
-max_node_peak_rss_mb          = 4096
+# Absolute backstop. ES default mapping is estimated at 6-9 MiB/s on a 4-vCPU
+# runner, so 3.0 sits at about 0.5x of its low end. The ES ratio below is the real floor.
+min_throughput_mb_s           = 3.0
+max_node_peak_rss_mb          = 3072
 max_client_peak_rss_mb        = 1536
 max_state_to_source_ratio     = 1.2
+# 6.4 GB, about 1.2x of 5 GB source.
+max_index_plus_state_mb       = 6400
 max_indices_per_prefix        = 40
 max_search_p95_ms             = 1000
 max_search_max_ms             = 2000
@@ -114,29 +126,36 @@ max_regression_pct            = 20
 #
 # Each ratio is xerj / baseline. Values are per tier below; a key left out
 # (or the whole table) disables that check.
+# Measured floor (perf-floor results.md, 2026-10-25, 1 GB seed 2421, 4 cores):
+#   ES 9.5.5 default dynamic mapping, 4 GB heap: 9.05 MiB/s, 1.77x source
+#   refreshed, 1.42x source after force-merge to 1 segment.
+#   Lucene 10.5.1 stored fields on: 25.4 MiB/s, 0.78x source.
+#   xerj rc.99: 0.37-0.59 MiB/s, about 0.04-0.07x ES.
+# index_bytes of the baseline MUST be measured after a force-merge to one
+# segment (es_baseline.py does that). The pre-merge size swings with the
+# segment count.
 [ratio.default]
-# xerj_index_bytes <= k * es_index_bytes. xerj stores BM25 postings plus
-# keyword doc-values, FTS side-cars and (default) lexical semantic vectors,
-# so it is allowed to be larger than a plain Lucene index - but not
-# unboundedly: 2.0x keeps "an index costs about the data" true.
-max_index_bytes_vs_baseline   = 2.0
-# xerj_ingest_MBps >= k * es_ingest_MBps. autoindex does discovery,
-# sniffing and schema inference that a pre-mapped ES bulk load does not, so
-# parity is not required; less than half of ES's rate is a regression.
+# xerj_index_bytes (node data dir) <= k * es_index_bytes (force-merged).
+# 1.0: an index may not cost more disk than ES on the same data.
+max_index_bytes_vs_baseline   = 1.0
+# xerj_ingest_MBps >= k * es_ingest_MBps (ES default mapping, to refreshed
+# and flushed). autoindex does discovery and inference that a bulk load does not,
+# so parity is not required. Stretch goal is 0.8.
 min_ingest_mb_s_vs_baseline   = 0.5
 # xerj search p95 <= k * es search p95 (only if the baseline reports it).
 max_search_p95_vs_baseline    = 1.5
 
 [ratio.smoke]
-max_index_bytes_vs_baseline   = 2.5
+# Fixed per-index overhead weighs more at 200 MB.
+max_index_bytes_vs_baseline   = 1.25
 min_ingest_mb_s_vs_baseline   = 0.3
 
 [ratio."1gb"]
-max_index_bytes_vs_baseline   = 2.0
+max_index_bytes_vs_baseline   = 1.0
 min_ingest_mb_s_vs_baseline   = 0.5
 max_search_p95_vs_baseline    = 1.5
 
 [ratio."5gb"]
-max_index_bytes_vs_baseline   = 2.0
+max_index_bytes_vs_baseline   = 1.0
 min_ingest_mb_s_vs_baseline   = 0.5
 max_search_p95_vs_baseline    = 1.5

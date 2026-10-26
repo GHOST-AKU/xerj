@@ -74,29 +74,33 @@ See `scripts/perf/budgets.toml` for the numbers and the reasoning behind each on
 | check | smoke (200 MB) | 1gb | 5gb (release) | why |
 |---|---|---|---|---|
 | autoindex completes (exit 0/3, node alive, no OOM/abort/EAGAIN, within timeout) | 6 min | 15 min | 30 min | #2423, #2427, #2428 |
-| throughput MB/s ≥ | 1.5 | 3.0 | 4.0 | #2423 asks 5 GB in 20 min ≈ 4.3 MB/s; rc.99 did about 0.2 |
-| node peak RSS ≤ memory cap (MB) | 2048 | 3072 | 4096 | #2427: 3.9 GB under a 3 GB cap |
+| throughput MB/s ≥ (absolute backstop) | 1.5 | 3.0 | 3.0 | about 0.5x the low end of ES on a 4-vCPU runner; rc.99 did 0.2–0.6 |
+| node peak RSS ≤ memory cap (MB) | 2048 | 3072 | 3072 | #2427: rc.99 hit 3.9 GB (autoindex) / 5.6 GB (`_bulk`) under a 3 GB cap |
 | client peak RSS (MB) ≤ | 768 | 1024 | 1536 | #2424, #2428 |
 | state dir / source ≤ | 1.2 | 1.2 | 1.2 | #2421: 8.4 GB state for 5 GB |
+| index + state on disk ≤ (MB) | 250 | 1300 | 6400 | about 1.2x source, stricter than ES force-merged (1.42x) |
 | indices per prefix ≤ | 40 | 40 | 40 | #2422: 454; #2430 caps a run at 32 |
 | uncached search p95 / max (ms) | 1000 / 2000 | 1000 / 2000 | 1000 / 2000 | #2422: 13–23 s |
+| search errors | 0 | 0 | 0 | |
 | queries with hits ≥ | 90% | 90% | 90% | catches "fast because it found nothing" |
 | parent-breaker trips | 0 | 0 | 0 | #2427 |
 | bulk retries / 429s ≤ | 20 | 20 | 50 | #2427 |
 | node restart (s) ≤ | 60 | 60 | 120 | |
 | regression vs `--baseline` binary | 20% | 20% | 20% | throughput, p95, node/client RSS, state ratio, index bytes |
-| index bytes vs ES ≤ | 2.5x | 2.0x | 2.0x | Lucene floor (`[ratio.*]`) |
-| ingest MB/s vs ES ≥ | 0.3x | 0.5x | 0.5x | Lucene floor |
-| search p95 vs ES ≤ | — | 1.5x | 1.5x | Lucene floor |
+| index bytes vs ES (force-merged) ≤ | 1.25x | 1.0x | 1.0x | ES floor (`[ratio.*]`) |
+| ingest MB/s vs ES (default mapping) ≥ | 0.3x | 0.5x | 0.5x | ES floor; stretch goal 0.8x |
+| search p95 vs ES ≤ | — | 1.5x | 1.5x | ES floor |
 
 ### Lucene / Elasticsearch floor
 
 Absolute budgets drift with runner hardware, so index size and indexing speed are
 also held against Elasticsearch on the same corpus and the same machine.
 `scripts/perf/es_baseline.py` bulk-loads the corpus into a throwaway ES. It writes
-one doc per line for jsonl/csv/log and one doc per file otherwise, using default
-analyzers, 1 shard and 0 replicas. It then refreshes and flushes, runs the same 60
-queries uncached, and writes:
+one doc per line for jsonl/csv/log and one doc per file otherwise, using the default
+dynamic mapping, 1 shard and 0 replicas. Ingest time runs until the index is refreshed
+and flushed. It then **force-merges to one segment**, and `index_bytes` is the merged
+size, because the unmerged size swings with the segment count (1.77x vs 1.42x source).
+Finally it runs the same 60 queries uncached and writes:
 
 ```json
 {"engine": "elasticsearch-9.x (lucene 10.x)", "corpus_mb": 1024, "seed": 2421,
@@ -105,15 +109,33 @@ queries uncached, and writes:
 
 Pass that file as `--engine-baseline` and the `[ratio.<tier>]` keys apply:
 `xerj_index_bytes ≤ k·es_index_bytes`, `xerj_ingest_MBps ≥ k·es_ingest_MBps`,
-and `xerj_p95 ≤ k·es_p95`. In CI the ES service container runs on the same runner,
-so the floor scales with the runner automatically. The `k` values are provisional
-until the ES/Lucene measurements on the reference corpus land (perf-floor work).
-Tighten them there.
+and `xerj_p95 ≤ k·es_p95`. In CI, ES runs on the same runner, so the floor scales with
+the runner automatically. ES always runs **before** xerj and is stopped before xerj
+starts, never at the same time: ES uses about 5.5 GB RSS with a 4 GB heap, and xerj has a 3 GB cap.
+The last good baseline is cached and used as a fallback when the live ES step fails.
+
+Reference floor, 1 GB corpus with seed 2421, 4 pinned cores on a heavily loaded shared box,
+single noisy run (perf-floor `results.md`, 2026-10-25):
+
+| engine | MiB/s | index bytes / source | peak RSS MB |
+|---|---|---|---|
+| ES 9.5.5 default dynamic mapping, 4 GB heap (refreshed, 28 segments) | 9.05 | 1.77 | 5,551 |
+| same, after force-merge to 1 segment (+48.7 s) | | 1.42 | |
+| Lucene 10.5.1 StandardAnalyzer, stored fields on, 4 threads | 25.4 | 0.78 | 3,036 |
+| Lucene 10.5.1 StandardAnalyzer, stored fields off, 4 threads | 36.0 | 0.30 | 2,518 |
+| xerj rc.99 `_bulk` text-only (cap 3072 MB; died at about 900 s) | 0.37 | n/a | 5,643 |
+| xerj rc.99 autoindex (stopped at 38% after 661 s) | 0.59 | about 0.92 (est.) | about 2,960 |
+
+So rc.99 runs at about 0.04–0.07x of ES and misses the 0.5x floor by an order of magnitude.
+
+Runner sizing: public-repo `ubuntu-latest` has 4 vCPU, 16 GB and a 14 GB SSD, which is what the budgets
+assume. Private repos get 2 vCPU and 8 GB there, so use the `smoke` tier with a 2 GB ES heap,
+or a larger runner.
 
 ```bash
 python3 scripts/perf/gen_corpus.py --out /tmp/c1g --size-mb 1024 --seed 2421
 docker run -d --name es -p 9200:9200 -e discovery.type=single-node \
-  -e xpack.security.enabled=false -e ES_JAVA_OPTS="-Xms2g -Xmx2g" \
+  -e xpack.security.enabled=false -e ES_JAVA_OPTS="-Xms4g -Xmx4g" \
   docker.elastic.co/elasticsearch/elasticsearch:9.5.5
 python3 scripts/perf/es_baseline.py --es http://127.0.0.1:9200 --corpus /tmp/c1g \
   --queries /tmp/c1g.queries.json --out es-baseline.json

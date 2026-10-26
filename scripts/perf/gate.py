@@ -387,6 +387,10 @@ def cmd_eval(a):
     sr = c.get("state_to_source_ratio", 0)
     add("state dir / source", sr, "<= %s" % t["max_state_to_source_ratio"], sr <= t["max_state_to_source_ratio"],
         "%.0f MB state" % (c.get("state_bytes", 0) / MiB))
+    if "max_index_plus_state_mb" in t:
+        tot = (c.get("index_bytes") or 0) + (c.get("state_bytes") or 0)
+        add("index + state on disk (MB)", round(tot / MiB), "<= %d" % t["max_index_plus_state_mb"],
+            tot / MiB <= t["max_index_plus_state_mb"], "%.2fx source" % (tot / max(1, c.get("source_bytes", 1))))
     add("indices per prefix", c.get("indices"), "<= %d" % t["max_indices_per_prefix"],
         0 < (c.get("indices") or 0) <= t["max_indices_per_prefix"], "%s docs" % c.get("docs"))
     s = c.get("search", {})
@@ -424,6 +428,10 @@ def cmd_eval(a):
         reg("index bytes", lambda r: r.get("index_bytes"), False)
     if eng and ratio:
         en = eng.get("engine", "baseline engine")
+        eb = eng.get("source_bytes") or (eng.get("corpus_mb", 0) * MiB)
+        if eb and abs(eb - c.get("source_bytes", 0)) > 0.05 * eb:
+            add("engine baseline is for this corpus", "%.0f MB" % (eb / MiB), "%.0f MB" % (c.get("source_bytes", 0) / MiB), False,
+                "re-measure the baseline on the same corpus")
         if "max_index_bytes_vs_baseline" in ratio and eng.get("index_bytes"):
             r_ = c.get("index_bytes", 0) / eng["index_bytes"]
             add("index bytes vs %s" % en, round(r_, 2), "<= %sx" % ratio["max_index_bytes_vs_baseline"],

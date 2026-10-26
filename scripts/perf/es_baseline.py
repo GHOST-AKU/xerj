@@ -6,8 +6,9 @@
 
 Bulk-loads the SAME corpus produced by gen_corpus.py into one ES index with
 default dynamic mappings (one doc per line for .jsonl/.csv/.log/.ndjson,
-one doc per file otherwise, path stored as keyword), refreshes + flushes,
-then runs the corpus' search queries uncached. Writes the JSON that
+one doc per file otherwise, ES default dynamic mapping), refreshes + flushes
+(ingest time stops here), force-merges to ONE segment (index_bytes is the
+merged size), then runs the corpus' search queries uncached. Writes the JSON that
 `gate.py eval --engine-baseline` consumes:
 
   {"engine", "corpus_mb", "seed", "source_bytes", "docs", "index_bytes",
@@ -67,8 +68,7 @@ def main():
         http("DELETE", "%s/%s" % (a.es, a.index))
     except Exception:
         pass
-    http("PUT", "%s/%s" % (a.es, a.index), {"settings": {"number_of_shards": 1, "number_of_replicas": 0},
-         "mappings": {"properties": {"path": {"type": "keyword"}, "body": {"type": "text"}}}})
+    http("PUT", "%s/%s" % (a.es, a.index), {"settings": {"number_of_shards": 1, "number_of_replicas": 0, "refresh_interval": "-1"}})  # default dynamic mapping, as the floor was measured
     src = sum(os.path.getsize(os.path.join(r, f)) for r, _, fs in os.walk(a.corpus) for f in fs)
     q = queue.Queue(maxsize=a.workers * 2)
     errs = []
@@ -106,6 +106,12 @@ def main():
     [t.join() for t in th]
     http("POST", "%s/%s/_refresh" % (a.es, a.index)); http("POST", "%s/%s/_flush" % (a.es, a.index))
     wall = time.time() - t0
+    unmerged = http("GET", "%s/%s/_stats/store" % (a.es, a.index))["_all"]["primaries"]["store"]["size_in_bytes"]
+    # index_bytes is defined AFTER a force-merge to one segment: the refreshed
+    # size swings with the segment count (1.77x vs 1.42x source on 1 GB).
+    t1 = time.time()
+    http("POST", "%s/%s/_forcemerge?max_num_segments=1&flush=true" % (a.es, a.index), timeout=3600)
+    fm_s = time.time() - t1
     st = http("GET", "%s/%s/_stats/store,docs" % (a.es, a.index))["_all"]["primaries"]
     qs = json.load(open(a.queries))
     allq = [x for k in ("cli", "raw", "mcp") for x in qs.get(k, [])]
@@ -119,6 +125,7 @@ def main():
     p95 = lat[min(len(lat) - 1, int(round(0.95 * (len(lat) - 1))))] if lat else None
     res = {"engine": engine, "corpus_mb": round(src / MiB), "seed": a.seed, "source_bytes": src,
            "docs": st["docs"]["count"], "index_bytes": st["store"]["size_in_bytes"],
+           "index_bytes_refreshed_unmerged": unmerged, "forcemerge_s": round(fm_s, 1),
            "ingest_mb_s": round(src / MiB / wall, 2), "search_p95_ms": round(p95, 1) if p95 else None,
            "wall_s": round(wall, 1), "bulk_errors": len(errs), "first_error": errs[0] if errs else None}
     json.dump(res, open(a.out, "w"), indent=1)
