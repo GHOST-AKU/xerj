@@ -112,6 +112,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **`DELETE /<index>` no longer wedges near the memory cap** (refs issue
+  [#2405](https://github.com/xerj-org/xerj/issues/2405) item 1, PR
+  [#PRNUM](https://github.com/xerj-org/xerj/pull/PRNUM)). The ES-compat
+  handler resolved its selector through `list_indices`, which computes stats
+  for every open index and so waited on any sibling whose schema or memtable
+  lock was busy; it now uses the name list. Listings, the health check and
+  the flush sweeps no longer await while holding the index map's shard lock,
+  which blocked the delete's map removal on a worker thread. The deleted
+  index is quiesced first: merge scheduling stops, an in-flight merge batch
+  yields at its next checkpoint (inputs kept, no output written), flushes are
+  skipped and the read caches are dropped. The directory is removed on the
+  blocking pool, retrying briefly on Windows sharing violations. A removal
+  that fails puts the index back in service as before.
+
 - A segment merge's output-write step (doc-values build, stored encode, FTS
   side-car build) is now charged to the merge budget before it starts, and a
   background batch yields instead of starting it when it would take RSS to
