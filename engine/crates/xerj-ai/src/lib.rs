@@ -28,6 +28,7 @@ pub mod decide;
 pub mod embed;
 pub mod embedder;
 pub mod local;
+pub mod semantic_lexical;
 #[cfg(any(
     feature = "neural",
     feature = "onnx-experimental",

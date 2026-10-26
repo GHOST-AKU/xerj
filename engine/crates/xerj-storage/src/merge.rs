@@ -340,7 +340,9 @@ impl MergeExecutor {
             if let Some(stored_bytes_raw) = reader.section(SectionType::Stored)? {
                 rate_limiter.consume(stored_bytes_raw.len() as u64);
 
-                let stored_bytes = crate::stored_codec::decode_stored(stored_bytes_raw)?;
+                // #1122/#2433: re-encoded below; stripped rows stay stripped.
+                let stored_bytes =
+                    crate::stored_codec::decode_stored_preserving_derived(stored_bytes_raw)?;
                 let docs: Vec<Json> = serde_json::from_slice(&stored_bytes)?;
                 for doc in docs {
                     let doc_id = doc.get("_id").and_then(|v| v.as_str()).unwrap_or("");

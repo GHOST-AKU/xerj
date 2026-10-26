@@ -4631,7 +4631,10 @@ impl IndexStore {
                 Ok(Some(b)) => b,
                 _ => continue,
             };
-            let stored_bytes = match crate::stored_codec::decode_stored(stored_bytes_raw) {
+            // Only (id, seq_no) are read: skip rebuilding derived vectors.
+            let stored_bytes = match crate::stored_codec::decode_stored_preserving_derived(
+                stored_bytes_raw,
+            ) {
                 Ok(b) => b,
                 Err(e) => {
                     warn!(segment = %meta.id, error = %e, "cannot decode stored section");

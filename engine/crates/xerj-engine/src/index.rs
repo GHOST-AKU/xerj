@@ -14712,7 +14712,12 @@ impl Index {
                             }
                         };
                         let stored_bytes =
-                            match xerj_storage::stored_codec::decode_stored(stored_bytes_raw) {
+                            // #1122/#2433: keep stripped semantic vectors
+                                // stripped; the merged encode would only
+                                // re-derive and drop them again.
+                            match xerj_storage::stored_codec::decode_stored_preserving_derived(
+                                stored_bytes_raw,
+                            ) {
                                 Ok(b) => b,
                                 Err(e) => {
                                     tracing::error!(
@@ -58196,12 +58201,12 @@ fn scored_fast_plan(
     }
 }
 
-/// Default chunk size (characters) for auto-embed-on-ingest chunking.
-/// `EmbeddingConfig` has no per-field chunk parameter yet, so this is a
-/// sensible fixed default (roughly a paragraph).
-const SEMANTIC_CHUNK_SIZE: usize = 512;
-/// Default overlap (characters) between consecutive chunks.
-const SEMANTIC_CHUNK_OVERLAP: usize = 64;
+// #1122/#2433: the lexical chunk/embed/pool recipe lives in xerj-ai so the
+// stored-section codec can regenerate the derived vectors bit-identically
+// instead of persisting them in every stored `_source`.
+#[cfg(test)]
+use xerj_ai::semantic_lexical::SEMANTIC_CHUNK_SIZE;
+use xerj_ai::semantic_lexical::{local_chunk_vectors, mean_pool_normalize, semantic_chunker};
 
 /// Select one order-preserving caller-side embedding window. One oversized
 /// document-field job remains whole so the planner always makes progress.
@@ -58539,67 +58544,6 @@ mod semantic_embedding_window_tests {
             );
         }
     }
-}
-
-/// The chunker used by the auto-embed-on-ingest path.
-fn semantic_chunker() -> xerj_ai::TextChunker {
-    xerj_ai::TextChunker::new(SEMANTIC_CHUNK_SIZE, SEMANTIC_CHUNK_OVERLAP)
-}
-
-/// L2-normalize each input vector, mean-pool across all of them, then
-/// re-normalize the pooled result. Produces a unit-norm vector of the same
-/// dimensionality as the inputs (empty input => empty vec). Vectors whose
-/// length differs from the first are skipped.
-fn mean_pool_normalize(vectors: &[Vec<f32>]) -> Vec<f32> {
-    let dims = match vectors.first() {
-        Some(v) => v.len(),
-        None => return Vec::new(),
-    };
-    let mut acc = vec![0.0f32; dims];
-    let mut used = 0usize;
-    for v in vectors {
-        if v.len() != dims {
-            continue;
-        }
-        let norm = v.iter().map(|x| x * x).sum::<f32>().sqrt();
-        if norm > 0.0 {
-            for (a, x) in acc.iter_mut().zip(v.iter()) {
-                *a += x / norm;
-            }
-            used += 1;
-        }
-    }
-    if used > 0 {
-        let inv = 1.0 / used as f32;
-        for a in acc.iter_mut() {
-            *a *= inv;
-        }
-    }
-    // Re-normalize the pooled vector to unit length.
-    let norm = acc.iter().map(|x| x * x).sum::<f32>().sqrt();
-    if norm > 0.0 {
-        for a in acc.iter_mut() {
-            *a /= norm;
-        }
-    }
-    acc
-}
-
-/// Chunk `text` and embed each overlapping chunk with the built-in *local*
-/// embedder, returning one unit-norm vector per passage. Short text
-/// (<= chunk_size) produces a single chunk, so the result is
-/// `vec![local_embed(text, dims)]`. This is the per-chunk primitive used by
-/// the auto-embed-on-ingest path to persist passage vectors for max-sim
-/// semantic scoring.
-fn local_chunk_vectors(text: &str, dims: usize) -> Vec<Vec<f32>> {
-    let chunks = semantic_chunker().chunk(text, None);
-    if chunks.len() <= 1 {
-        return vec![xerj_ai::local::local_embed(text, dims)];
-    }
-    chunks
-        .iter()
-        .map(|c| xerj_ai::local::local_embed(&c.text, dims))
-        .collect()
 }
 
 /// Chunk `text` and mean-pool the per-chunk *local* embeddings into a single
