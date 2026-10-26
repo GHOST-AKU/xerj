@@ -129,6 +129,19 @@ where
     .is_break()
 }
 
+/// Read buffer for the streaming JSON column parsers (#2422).
+pub(crate) const JSON_STREAM_READ_BUFFER: usize = 64 * 1024;
+
+/// Buffer a reader before `serde_json::Deserializer::from_reader`, which
+/// pulls ONE byte per `read` call. Over zstd's streaming `Decoder` that was
+/// one `ZSTD_decompressStream` call per byte of column JSON: hydrating one
+/// row of a 20k-row, 87 MB stored section took ~1.3 s, five times the full
+/// decode it exists to avoid. Buffering keeps the bounded memory of
+/// streaming (one 64 KiB buffer) and drops that cost to the parse itself.
+pub(crate) fn buffered_json_stream<R: std::io::Read>(reader: R) -> std::io::BufReader<R> {
+    std::io::BufReader::with_capacity(JSON_STREAM_READ_BUFFER, reader)
+}
+
 // ── V1: flat LZ4 over JSON (legacy) ───────────────────────────────────────
 
 /// Magic prefix for LZ4-compressed stored sections (v1, pre-columnar).
@@ -1657,7 +1670,7 @@ fn parse_typed_vector_reader<R: std::io::Read>(
 ) -> Result<std::result::Result<Option<StoredVectorRows>, ()>> {
     use serde::de::Deserializer as _;
     let cancelled = std::cell::Cell::new(false);
-    let mut deserializer = serde_json::Deserializer::from_reader(reader);
+    let mut deserializer = serde_json::Deserializer::from_reader(buffered_json_stream(reader));
     let value = match deserializer.deserialize_seq(TypedVectorRowsVisitor {
         expected_rows: num_docs,
         column_index,
@@ -1799,7 +1812,7 @@ fn parse_typed_chunk_reader<R: std::io::Read>(
         }
     }
     let cancelled = std::cell::Cell::new(false);
-    let mut deserializer = serde_json::Deserializer::from_reader(reader);
+    let mut deserializer = serde_json::Deserializer::from_reader(buffered_json_stream(reader));
     let value = match deserializer.deserialize_seq(Visitor {
         rows: num_docs,
         column: column_index,

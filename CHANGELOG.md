@@ -109,6 +109,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   instead of after it. The check reads the autoindex catalog, which cost about
   0.3 s on the first search after a restart, and that time was added to every
   cold search (#2422).
+- Cold searches read stored fields about 6x faster. Picking a few hits
+  out of a stored segment read the compressed data one byte at a time; it
+  now reads it in 64 KB chunks. Loading one hit from a 20,000-document
+  segment went from 1.3 s to 0.2 s, with the same results (#2422).
 - The first searches after a restart, or after a segment left the cache,
   no longer read every stored document to return a page of hits. When the
   request names its `_source` fields (as `xerj search` does), only the
