@@ -2184,8 +2184,6 @@ fn parse_byte_size(s: &str) -> Option<u64> {
 // Small formatting helpers
 // ─────────────────────────────────────────────────────────────────────────
 
-/// Releases an analyze reservation when the batch's tokens exist (#1122).
-#[derive(Debug)]
 /// Process-wide merge accounting behind [`MergeReservation`] (#2427).
 #[derive(Debug, Default)]
 struct MergeLedger {
@@ -2225,6 +2223,8 @@ impl Drop for MergeReservation {
     }
 }
 
+/// Releases an analyze reservation when the batch's tokens exist (#1122).
+#[derive(Debug)]
 pub(crate) struct AnalyzeReservation {
     slot: Option<Arc<AtomicU64>>,
     bytes: u64,
