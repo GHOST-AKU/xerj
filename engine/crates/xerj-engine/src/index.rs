@@ -1971,11 +1971,12 @@ mod flush_publication_recovery_tests {
     /// #2422: a broad query (most rows of a segment match) on a cold
     /// segment used to decode the whole stored section inline, because the
     /// first segment a page meets has no score floor and every matching row
-    /// was a candidate. It must read only a bounded row window, and a walk
-    /// that runs past the window (here: every row in it is deleted) must
-    /// still see every row, so both answers equal the warm answer.
+    /// was a candidate. The walk must read only identities and hydrate the
+    /// page's winners, with or without a `_source` projection, and a walk
+    /// that rejects thousands of rows (here: the best ones are deleted) must
+    /// still see every row, so every answer equals the warm answer.
     #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
-    async fn cold_broad_topk_reads_a_row_window_and_falls_back_past_it() {
+    async fn cold_broad_topk_reads_identities_and_hydrates_only_winners() {
         let dir = tempfile::tempdir().unwrap();
         let mut config = Config::default();
         config.server.data_dir = dir.path().to_string_lossy().into_owned();
@@ -2040,32 +2041,35 @@ mod flush_publication_recovery_tests {
                 .map(|h| (h.id.clone(), h.score.to_bits(), h.source.clone()))
                 .collect()
         };
-        let request = |q: &str| {
-            xerj_query::parse_request(&json!({
+        let request = |q: &str, projected: bool| {
+            let mut body = json!({
                 "query": {"match": {"body": q}},
                 "size": 5,
-                "_source": ["title"]
-            }))
-            .unwrap()
+            });
+            if projected {
+                body["_source"] = json!(["title"]);
+            }
+            xerj_query::parse_request(&body).unwrap()
         };
-        // Every document matches; the live hay rows score highest.
-        let broad = request("hay stack");
-        // Matches the needle rows only. The best ~2000 of them are deleted,
-        // so the window holds only rejected rows.
-        let past = request("needle report");
+        let mut requests = Vec::new();
+        for projected in [true, false] {
+            // Every document matches; the live hay rows score highest.
+            requests.push(request("hay stack", projected));
+            // Matches the needle rows only. The best ~2000 of them are
+            // deleted, so the walk rejects thousands of rows first.
+            requests.push(request("needle report", projected));
+        }
 
         let (engine, idx, segs) = reopen();
-        let cold_broad = idx.search(&broad).await.unwrap();
-        assert!(
-            all_cold(&idx, &segs),
-            "a 5-hit broad query must not decode the whole stored section"
-        );
+        let mut cold = Vec::new();
+        for r in &requests {
+            cold.push(idx.search(r).await.unwrap());
+            assert!(
+                all_cold(&idx, &segs),
+                "a 5-hit query must not decode the whole stored section"
+            );
+        }
         assert!(idx.cold_row_hydrations.load(Ordering::Relaxed) > 0);
-        let cold_past = idx.search(&past).await.unwrap();
-        assert!(
-            !all_cold(&idx, &segs),
-            "a walk that rejects the whole row window reads the full decode"
-        );
         drop(idx);
         drop(engine);
 
@@ -2073,24 +2077,33 @@ mod flush_publication_recovery_tests {
         for s in &segs {
             assert!(idx.stored_slices_for(&s.id, s.doc_count).is_some());
         }
-        let warm_broad = idx.search(&broad).await.unwrap();
-        let warm_past = idx.search(&past).await.unwrap();
-        assert_eq!(cold_broad.hits.len(), 5);
-        assert_eq!(cold_past.hits.len(), 5);
-        assert_eq!(key(&cold_broad), key(&warm_broad));
-        assert_eq!(key(&cold_past), key(&warm_past));
-        for h in &cold_past.hits {
-            let n: u64 = h.id.trim_start_matches("doc-").parse().unwrap();
-            assert!(n >= 4000 && n % 2 == 0, "live needle rows only: {}", h.id);
+        for (r, cold) in requests.iter().zip(&cold) {
+            let warm = idx.search(r).await.unwrap();
+            assert_eq!(cold.hits.len(), 5);
+            assert_eq!(key(cold), key(&warm));
+            assert_eq!(cold.total.value, warm.total.value);
+            assert_eq!(
+                cold.hits
+                    .iter()
+                    .filter(|h| h.source["title"].is_string())
+                    .count(),
+                5
+            );
         }
-        assert_eq!(
-            cold_broad
-                .hits
-                .iter()
-                .filter(|h| h.source["title"].is_string())
-                .count(),
-            5
-        );
+        for (i, h) in [&cold[1], &cold[3]]
+            .iter()
+            .flat_map(|r| r.hits.iter())
+            .enumerate()
+        {
+            let n: u64 = h.id.trim_start_matches("doc-").parse().unwrap();
+            assert!(
+                n >= 4000 && n % 2 == 0,
+                "live needle rows only: {i} {}",
+                h.id
+            );
+        }
+        // Unprojected hits carry the whole source.
+        assert!(cold[2].hits.iter().all(|h| h.source["body"].is_string()));
         drop(idx);
         drop(engine);
     }
@@ -17528,12 +17541,14 @@ impl Index {
         keep: Option<&[String]>,
     ) -> Option<HashMap<u32, Value>> {
         use xerj_storage::stored_codec::{
-            decode_stored_v2_rows, decode_stored_v2_rows_projected, stored_v2_source_column_names,
+            decode_stored_v2_rows_projected_parallel, stored_v2_source_column_names,
             StoredV2RowHydrationResult,
         };
         let reader = self.store.open_segment_arc(segment_id).ok()?;
         let bytes = reader.section(SectionType::Stored).ok()??;
         let ordinals: Vec<usize> = positions.iter().map(|&p| p as usize).collect();
+        // Columns decode concurrently: a handful of rows still streams every
+        // wanted column, so the serial sum was the cost of a cold page.
         let hydrated = match keep {
             Some(keep) => {
                 let names = stored_v2_source_column_names(bytes).ok()??;
@@ -17542,9 +17557,9 @@ impl Index {
                     .map(String::as_str)
                     .filter(|column| row_projection_keeps_column(keep, column))
                     .collect();
-                decode_stored_v2_rows_projected(bytes, &ordinals, &include).ok()?
+                decode_stored_v2_rows_projected_parallel(bytes, &ordinals, Some(&include)).ok()?
             }
-            None => decode_stored_v2_rows(bytes, &ordinals).ok()?,
+            None => decode_stored_v2_rows_projected_parallel(bytes, &ordinals, None).ok()?,
         };
         let StoredV2RowHydrationResult::Hydrated { rows, .. } = hydrated else {
             return None;
@@ -17564,6 +17579,138 @@ impl Index {
             return None;
         }
         Some(out)
+    }
+
+    /// `_id` per row for `positions` of a cold segment, decoded from the
+    /// identity columns alone (no `_source` column is read). `None` (legacy
+    /// layout, open/decode error, a missing row) sends the caller back to
+    /// the full decode.
+    fn cold_fts_row_ids(
+        &self,
+        segment_id: &str,
+        positions: &[u32],
+    ) -> Option<HashMap<u32, String>> {
+        use xerj_storage::stored_codec::{
+            decode_stored_v2_rows_projected, StoredV2RowHydrationResult,
+        };
+        let reader = self.store.open_segment_arc(segment_id).ok()?;
+        let bytes = reader.section(SectionType::Stored).ok()??;
+        let ordinals: Vec<usize> = positions.iter().map(|&p| p as usize).collect();
+        let StoredV2RowHydrationResult::Hydrated { rows, .. } =
+            decode_stored_v2_rows_projected(bytes, &ordinals, &[]).ok()?
+        else {
+            return None;
+        };
+        let mut out: HashMap<u32, String> = HashMap::with_capacity(rows.len());
+        for row in rows {
+            out.insert(
+                u32::try_from(row.ordinal).ok()?,
+                row.id.as_str()?.to_string(),
+            );
+        }
+        if positions.iter().any(|p| !out.contains_key(p)) {
+            return None;
+        }
+        Some(out)
+    }
+
+    /// Fill the `_source` of the cold FTS hits the segment loop kept with
+    /// identity only (`deferred`: `_id` -> (segment, row, doc count)). Only
+    /// the page's winners are read, row-selectively and per segment in
+    /// parallel. A segment whose rows cannot be hydrated that way falls back
+    /// to the full decode, as the walk itself used to; a hit whose document
+    /// cannot be read at all is dropped, as the walk skipped an unreadable
+    /// row. Projected hits are recorded in `row_projected` so the TF-IDF
+    /// fallback can restore their whole source.
+    fn hydrate_deferred_cold_sources(
+        &self,
+        hits: Vec<Hit>,
+        deferred: &HashMap<String, (String, u32, u64)>,
+        keep: Option<&[String]>,
+        row_projected: &mut HashMap<String, (String, u32)>,
+    ) -> Vec<Hit> {
+        use rayon::prelude::*;
+        let mut by_segment: HashMap<&str, (Vec<u32>, u64)> = HashMap::new();
+        for hit in &hits {
+            if let Some((seg, pos, doc_count)) = deferred.get(&hit.id) {
+                by_segment
+                    .entry(seg.as_str())
+                    .or_insert_with(|| (Vec::new(), *doc_count))
+                    .0
+                    .push(*pos);
+            }
+        }
+        if by_segment.is_empty() {
+            return hits;
+        }
+        let segments: Vec<(&str, Vec<u32>, u64)> = by_segment
+            .into_iter()
+            .map(|(seg, (positions, doc_count))| (seg, positions, doc_count))
+            .collect();
+        // (segment, docs by row, projected?)
+        let loaded: Vec<(&str, HashMap<u32, Value>, bool)> = segments
+            .par_iter()
+            .map(|(seg, positions, doc_count)| {
+                if let Some(rows) = self.hydrate_fts_rows_cold(seg, positions, keep) {
+                    return (*seg, rows, keep.is_some());
+                }
+                let mut docs: HashMap<u32, Value> = HashMap::with_capacity(positions.len());
+                if let Some(slices) = self.stored_slices_for(seg, *doc_count) {
+                    for &pos in positions {
+                        let doc = slices
+                            .offsets
+                            .get(pos as usize)
+                            .and_then(|&(start, end)| {
+                                slices.bytes.get(start as usize..end as usize)
+                            })
+                            .and_then(|slice| serde_json::from_slice::<Value>(slice).ok());
+                        if let Some(doc) = doc {
+                            docs.insert(pos, doc);
+                        }
+                    }
+                } else if let Some(all) = self.store.open_segment_arc(seg).ok().and_then(|reader| {
+                    match reader.section(SectionType::Stored) {
+                        Ok(Some(raw)) => xerj_storage::stored_codec::decode_stored(raw)
+                            .ok()
+                            .and_then(|b| serde_json::from_slice::<Vec<Value>>(&b).ok()),
+                        _ => None,
+                    }
+                }) {
+                    for &pos in positions {
+                        if let Some(doc) = all.get(pos as usize) {
+                            docs.insert(pos, doc.clone());
+                        }
+                    }
+                }
+                (*seg, docs, false)
+            })
+            .collect();
+        let mut docs_by_segment: HashMap<&str, (HashMap<u32, Value>, bool)> = loaded
+            .into_iter()
+            .map(|(seg, docs, projected)| (seg, (docs, projected)))
+            .collect();
+        let mut out = Vec::with_capacity(hits.len());
+        for mut hit in hits {
+            let Some((seg, pos, _)) = deferred.get(&hit.id) else {
+                out.push(hit);
+                continue;
+            };
+            let Some((docs, projected)) = docs_by_segment.get_mut(seg.as_str()) else {
+                continue;
+            };
+            let Some(mut doc) = docs.remove(pos) else {
+                continue;
+            };
+            hit.source = doc
+                .get_mut("_source")
+                .map(Value::take)
+                .unwrap_or(Value::Null);
+            if *projected {
+                row_projected.insert(hit.id.clone(), (seg.clone(), *pos));
+            }
+            out.push(hit);
+        }
+        out
     }
 
     #[allow(clippy::too_many_arguments)]
@@ -24311,6 +24458,9 @@ impl Index {
         // position), so the one post-page reader that looks at the WHOLE
         // document (the TF-IDF fallback below) can restore it.
         let mut row_projected: HashMap<String, (String, u32)> = HashMap::new();
+        // Cold score-ordered FTS hits whose `_source` is read only once the
+        // segment loop has settled the page: `_id` -> (segment, row).
+        let mut deferred_sources: HashMap<String, (String, u32, u64)> = HashMap::new();
         let materialisation_limit: usize = if mem_doc_count == 0
             && !deletes_present
             && size > 0
@@ -25291,39 +25441,58 @@ impl Index {
                                     // falls back to the full decode for any
                                     // row past it instead of skipping it.
                                     let mut cold_window_truncated = false;
+                                    // Cold score-ordered top-k: the walk
+                                    // reads only each candidate's `_id`
+                                    // (version-map check, dedup, page key),
+                                    // so decode the identity columns for
+                                    // every candidate and defer `_source`
+                                    // until the segment loop has picked the
+                                    // page's winners (see the hydration
+                                    // after the loop). The first segment a
+                                    // page meets has no score floor, so
+                                    // without this a broad query decoded the
+                                    // whole stored section inline to show
+                                    // five hits (~1.45 s on a 131 MB
+                                    // section).
+                                    let mut cold_ids: Option<HashMap<u32, String>> = None;
                                     let cold_rows: Option<HashMap<u32, Value>> = if self
                                         .stored_slices_cache
                                         .contains_key(seg_id.as_str())
                                         || self.decoded_stored_cache.contains_key(seg_id.as_str())
                                     {
                                         None
-                                    } else {
-                                        let entry_worst = if sort_topk.is_none() {
-                                            page_worst.as_ref().map(|worst| worst.0)
-                                        } else {
-                                            None
-                                        };
-                                        let mut candidates: Vec<u32> = seg_hits
+                                    } else if sort_topk.is_none() {
+                                        let entry_worst = page_worst.as_ref().map(|worst| worst.0);
+                                        // A superset of the rows the walk can
+                                        // visit: the threshold only tightens.
+                                        let candidates: Vec<u32> = seg_hits
                                             .iter()
                                             .take_while(|sh| {
                                                 entry_worst.is_none_or(|worst| sh.score >= worst)
                                             })
                                             .map(|sh| sh.doc_id)
                                             .collect();
-                                        // #2422: the first segment a page
-                                        // meets has no entry worst, so a broad
-                                        // query (an OR over common words)
-                                        // makes every matching row a
-                                        // candidate, and the whole segment
-                                        // used to be decoded inline: ~1.1 s
-                                        // on a 30k-doc autoindex segment.
-                                        // The walk stops once the page is
-                                        // full, so decode the score-ordered
-                                        // window it almost always stays in;
-                                        // a walk that runs past the window
-                                        // (many rejected rows or a long tie)
-                                        // reads the rest from the full
-                                        // decode, so no row is skipped.
+                                        if !candidates.is_empty() {
+                                            cold_ids =
+                                                self.cold_fts_row_ids(seg_id.as_str(), &candidates);
+                                        }
+                                        if cold_ids.is_some() {
+                                            self.cold_row_hydrations
+                                                .fetch_add(1, Ordering::Relaxed);
+                                            self.schedule_cold_stored_warm(
+                                                seg_id.as_str(),
+                                                meta.doc_count,
+                                            );
+                                        }
+                                        None
+                                    } else {
+                                        // A field sort offers every match to
+                                        // the top-N heap, so its candidates
+                                        // are all matches: decode a bounded
+                                        // score-ordered window and read any
+                                        // row past it from the full decode.
+                                        let mut candidates: Vec<u32> =
+                                            seg_hits.iter().map(|sh| sh.doc_id).collect();
                                         let window =
                                             materialisation_limit.saturating_mul(4).max(256);
                                         if candidates.len() > window {
@@ -25361,7 +25530,7 @@ impl Index {
                                             None
                                         }
                                     };
-                                    let slices_opt = if cold_rows.is_some() {
+                                    let slices_opt = if cold_rows.is_some() || cold_ids.is_some() {
                                         None
                                     } else {
                                         self.stored_slices_for(seg_id.as_str(), meta.doc_count)
@@ -25377,6 +25546,7 @@ impl Index {
                                     // real corruption.
                                     let whole_fallback: Option<Vec<Value>> = if slices_opt.is_some()
                                         || cold_rows.is_some()
+                                        || cold_ids.is_some()
                                     {
                                         None
                                     } else {
@@ -25400,6 +25570,7 @@ impl Index {
                                         }
                                     };
                                     if cold_rows.is_some()
+                                        || cold_ids.is_some()
                                         || slices_opt.is_some()
                                         || whole_fallback.is_some()
                                     {
@@ -25412,6 +25583,18 @@ impl Index {
                                             Option<Resident<StoredSlices>>,
                                         > = std::cell::OnceCell::new();
                                         let fetch_doc = |pos: u32| -> Option<Value> {
+                                            if let Some(ids) = cold_ids.as_ref() {
+                                                // Identity only: `_source` is
+                                                // hydrated for the winners
+                                                // after the segment loop.
+                                                let id = ids.get(&pos)?;
+                                                let mut doc = serde_json::Map::with_capacity(1);
+                                                doc.insert(
+                                                    "_id".to_string(),
+                                                    Value::String(id.clone()),
+                                                );
+                                                return Some(Value::Object(doc));
+                                            }
                                             if let Some(rows) = cold_rows.as_ref() {
                                                 if let Some(doc) = rows.get(&pos) {
                                                     return Some(doc.clone());
@@ -25571,7 +25754,13 @@ impl Index {
                                             let source =
                                                 doc.get("_source").cloned().unwrap_or(Value::Null);
                                             seen_ids.insert(id.clone());
-                                            if cold_rows.is_some() && fts_row_keep.is_some() {
+                                            if cold_ids.is_some() {
+                                                deferred_sources.insert(
+                                                    id.clone(),
+                                                    (seg_id.to_string(), sh.doc_id, meta.doc_count),
+                                                );
+                                            } else if cold_rows.is_some() && fts_row_keep.is_some()
+                                            {
                                                 row_projected.insert(
                                                     id.clone(),
                                                     (seg_id.to_string(), sh.doc_id),
@@ -26290,6 +26479,14 @@ impl Index {
                     all_hits = decorated.into_iter().map(|(_, h)| h).collect();
                 }
             }
+        }
+        if !deferred_sources.is_empty() {
+            all_hits = self.hydrate_deferred_cold_sources(
+                all_hits,
+                &deferred_sources,
+                fts_row_keep.as_deref(),
+                &mut row_projected,
+            );
         }
         drop(snap);
 
