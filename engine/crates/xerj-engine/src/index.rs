@@ -2100,7 +2100,7 @@ mod flush_publication_recovery_tests {
         {
             let n: u64 = h.id.trim_start_matches("doc-").parse().unwrap();
             assert!(
-                n >= 4000 && n % 2 == 0,
+                n >= 4000 && n.is_multiple_of(2),
                 "live needle rows only: {i} {}",
                 h.id
             );
