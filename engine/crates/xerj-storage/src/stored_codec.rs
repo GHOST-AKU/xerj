@@ -5166,14 +5166,17 @@ mod tests {
                 )
             })
             .collect();
-        let docs: Vec<serde_json::Value> = (0..6000u64)
+        // More distinct bodies than DICT_MAX_CARDINALITY, so `body` is a
+        // JSON fallback column rather than a dict.
+        let docs: Vec<serde_json::Value> = (0..(DICT_MAX_CARDINALITY as u64 + 2000))
             .map(|i| {
                 let a = &pool[(i * 37 % 400) as usize];
                 let b = &pool[(i * 101 % 400) as usize];
+                let c = &pool[(i * 211 % 400) as usize];
                 json!({
                     "_id": format!("doc-{i}"),
                     "_seq_no": i,
-                    "_source": { "body": format!("{a} {b}"), "n": i }
+                    "_source": { "body": format!("{a} {b} {c} doc {i}"), "n": i }
                 })
             })
             .collect();
