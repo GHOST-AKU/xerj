@@ -2080,7 +2080,7 @@ mod flush_publication_recovery_tests {
         assert_eq!(key(&cold), key(&warm));
         for h in &cold.hits {
             let n: u64 = h.id.trim_start_matches("doc-").parse().unwrap();
-            assert!(n < 1000 && n % 31 == 0, "hit {} does not match", h.id);
+            assert!(n < 1000 && n.is_multiple_of(31), "hit {} does not match", h.id);
             assert_eq!(h.source["blob"], json!("x"));
         }
         drop(idx);
