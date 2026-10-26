@@ -4398,12 +4398,16 @@ mod tests {
     /// #2421: a committed generation's snapshot used to hold a full copy of
     /// every source byte (`blobs/`) next to the prepared NDJSON, so the state
     /// dir was larger than the corpus it indexed. With prepared blobs released
-    /// at seal, the on-disk footprint of the protected snapshots — counted per
-    /// inode, so hardlinked reuse is not double-counted — stays under 1x the
-    /// source after a commit and after the next generation's gc.
+    /// at seal, nothing under `blobs/` survives, and what the protected
+    /// snapshots hold beyond the prepared records a resume replays from —
+    /// counted per inode, so hardlinked reuse is not double-counted — stays
+    /// under 1x the source after a commit and after the next generation's gc.
+    /// (The prepared records themselves are the replay authority; their size
+    /// depends on the corpus: overlapping text chunks run above the source,
+    /// compacted JSON below it.)
     #[cfg(unix)]
     #[test]
-    fn committed_snapshot_footprint_stays_below_the_source_size() {
+    fn committed_snapshot_keeps_no_source_copy_beside_its_prepared_records() {
         use std::os::unix::fs::MetadataExt;
         let _guard = SNAPSHOT_TEST_LOCK
             .lock()
@@ -4416,17 +4420,30 @@ mod tests {
                 .collect();
             std::fs::write(corpus.path().join(format!("f{file}.md")), body).unwrap();
         }
-        let footprint = |state: &Path| -> u64 {
+        // (bytes beyond the prepared records, prepared bytes)
+        let footprint = |state: &Path| -> (u64, u64) {
             let mut seen = std::collections::HashSet::new();
-            let mut total = 0;
+            let mut other = 0;
+            let mut prepared = 0;
             for entry in walkdir::WalkDir::new(state.join("sync-snapshots")) {
                 let entry = entry.unwrap();
                 let metadata = entry.metadata().unwrap();
                 if metadata.is_file() && seen.insert(metadata.ino()) {
-                    total += metadata.len();
+                    let parts: Vec<_> = entry.path().components().collect();
+                    let under = |dir: &str| parts.iter().any(|part| part.as_os_str() == dir);
+                    assert!(
+                        !under("blobs"),
+                        "a released snapshot keeps no source copy: {}",
+                        entry.path().display()
+                    );
+                    if under("prepared") {
+                        prepared += metadata.len();
+                    } else {
+                        other += metadata.len();
+                    }
                 }
             }
-            total
+            (other, prepared)
         };
         let seal = |tx: &str, prior: Option<&SourceSnapshot>| {
             let inventory = inventory(corpus.path());
@@ -4448,10 +4465,12 @@ mod tests {
             (snapshot, source)
         };
         let (first, source) = seal("tx-g1", None);
-        let used = footprint(state.path());
+        let (used, prepared) = footprint(state.path());
+        assert!(prepared > 0);
         assert!(
             used < source,
-            "snapshot footprint {used} bytes must stay below the {source}-byte source"
+            "snapshot bytes beyond the prepared records ({used}) must stay below the \
+             {source}-byte source"
         );
         assert!(first.files.iter().all(|file| file.blob_released));
 
@@ -4459,10 +4478,11 @@ mod tests {
         let (second, source) = seal("tx-g2", Some(&first));
         // What gc does once g2 is the committed authority.
         std::fs::remove_dir_all(state.path().join("sync-snapshots/tx-g1")).unwrap();
-        let used = footprint(state.path());
+        let (used, _) = footprint(state.path());
         assert!(
             used < source,
-            "after gc the footprint {used} bytes must stay below the {source}-byte source"
+            "after gc the bytes beyond the prepared records ({used}) must stay below the \
+             {source}-byte source"
         );
         assert_eq!(open_snapshot(state.path(), "tx-g2").unwrap(), second);
     }
