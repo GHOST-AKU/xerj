@@ -95,7 +95,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   request names its `_source` fields (as `xerj search` does), only the
   winning rows and only the needed fields are read, and the full document
   cache is filled in the background. On a 344 MB autoindexed corpus the
-  first `xerj search` went from 3.2 s to about 1 s. `fields: ["_passage"]`
+  first `xerj search` after a restart went from about 2.6 s to about 1.4 s. `fields: ["_passage"]`
   no longer makes a filtered `_source` load the whole document. (#2422,
   #2423)
 
