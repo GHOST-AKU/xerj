@@ -79,6 +79,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- The parent memory breaker no longer flaps, and background merges and flush
+  finalizes are bounded while it is engaged (#2427). A 3,000 MB autoindex run
+  engaged the breaker 20 times in 16 minutes, often releasing 100-500 ms
+  later, and RSS still reached 3,808 MB because merges, FST builds and flush
+  buffers kept allocating after writes were getting 429s. The breaker now
+  releases below 85% of the watermark (`XERJ_MEMORY_BREAKER_RELEASE_PCT`,
+  50-99) and only after it has been engaged for 2 s
+  (`XERJ_MEMORY_BREAKER_MIN_ENGAGED_MS`). RSS that stays flat inside that
+  band for 30 s still releases, so a live set no drain can shrink does not
+  block writes forever. The breaker never releases while RSS is at or above
+  the watermark: the 1 GB release gate (watermark 2,918 MB) released at
+  5,121 MB through the old flat-footprint release (#1981), re-engaged 100 ms
+  later and was OOM-killed at 8.4 GB. A footprint that climbs while the
+  breaker is engaged is drained again within 2 s instead of waiting out the
+  drain backoff. While the breaker is engaged, searches run one at a time,
+  and at or above the process memory limit new searches get a 429
+  `circuit_breaking_exception`. Every segment merge reserves its estimated working
+  set (8x its inputs) against the watermark in one process-wide ledger.
+  Background merges wait while the breaker is engaged or when the
+  reservation does not fit, and run on the next merge check. One merge
+  always runs when nothing else is merging and the breaker is not engaged.
+  `_forcemerge` may run alone while engaged. While the breaker is engaged,
+  flush finalizes (segment, FST and doc-values builds) run one at a time.
+  A background merge batch that is already running stops once the breaker is
+  engaged and RSS reaches the process limit, keeps its inputs, and halves the
+  input cap of later batches until batches complete again. On the 1 GB gate
+  corpus one admitted batch (JSON segments that compress 10-20x) grew a
+  3,072 MB `xerj autoindex` node to 8,122 MB in 18 s while writes were
+  getting 429s; plain `_bulk` into one index peaked at 4,967 MB.
+
 - `xerj autoindex` no longer aborts a long run with `Resource temporarily
   unavailable (os error 11)` when the machine refuses to start a thread. The
   sync replay used to start a new thread for every operation (hundreds of
@@ -87,6 +117,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   indexing worker now retries with a short backoff when thread creation is
   refused, and the replay finishes on the calling thread if no worker can be
   started, so a refusal is no longer fatal (#2428).
+- `_bulk` now checks the memory limiter before it parses the request, not
+  only when each index's batch is written. A bulk that arrived while the memory
+  or memtable breaker was engaged still split and copied its whole body first.
+  Several concurrent bulks between two RSS samples were each admitted on the
+  same old sample, which could carry the node past its memory cap. Each
+  request now counts its body against live RSS plus every other in-flight
+  reservation until its parse ends, and is answered with one HTTP 429 per action (top-level 429,
+  `Retry-After: 1`) when that would reach the watermark or a breaker is
+  engaged, so clients back off and re-offer every record (part of #2427).
 - `xerj autoindex` no longer runs out of memory while planning a large folder.
   It used to keep the sampled values of every file in memory at once before
   grouping them into datasets, and kept them all until the end of the run;
@@ -98,6 +137,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   long path (for example a Go module path) is over the 255-character index name
   limit. Names longer than 128 characters are shortened and end in a short
   hash, so they stay the same on every run and never clash (part of #1122).
+- `xerj autoindex` no longer keeps a second full copy of your files in its
+  state directory. Each sync used to keep every indexed file's bytes under
+  `sync-snapshots/` next to the prepared records, so the state directory grew
+  larger than the folder it indexed. Those copies are now deleted as soon as
+  the file's prepared records are safely on disk; resume and crash recovery
+  still replay from the verified prepared records. On a 344 MB test corpus the
+  state directory went from 503 MB to 242 MB after a sync (#2421).
+- `xerj search` checks whether the index is stale while the search runs
+  instead of after it. The check reads the autoindex catalog, which cost about
+  0.3 s on the first search after a restart, and that time was added to every
+  cold search (#2422).
+- Cold searches read stored fields about 6x faster. Picking a few hits
+  out of a stored segment read the compressed data one byte at a time; it
+  now reads it in 64 KB chunks. Loading one hit from a 20,000-document
+  segment went from 1.3 s to 0.2 s, with the same results (#2422).
+- Loading a whole segment's stored documents, which a search that returns
+  full `_source` does the first time it touches a segment, is about 1.7x
+  faster. The stored columns are now unpacked side by side instead of one
+  after another, and the documents are rebuilt in parallel. On a 100 MB
+  segment with embeddings this went from 0.41 s to 0.24 s, with identical
+  output (#2422).
 - The first searches after a restart, or after a segment left the cache,
   no longer read every stored document to return a page of hits. When the
   request names its `_source` fields (as `xerj search` does), only the
@@ -138,6 +198,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     counted in full for this, not only the 500 rows read as a sample.
   - A file is moved whole or not at all, so a dataset that stays never
     loses rows.
+
+- **Indexing is fast again under a memory cap** (issue
+  [#2438](https://github.com/xerj-org/xerj/issues/2438), part of
+  [#2423](https://github.com/xerj-org/xerj/issues/2423)). Since rc.78 every
+  background merge also tried a very slow, very small compression (zstd level
+  19) on the stored documents. That made each merge ~35x slower in that step,
+  kept memory at the limit for the whole merge, and made `_bulk` answer 429
+  until it ended, so indexing was about 5x slower and a loader could give up
+  and drop documents. Background merges now use the normal compression level.
+  An explicit `_forcemerge` still uses the slow, small one, so the force-merged
+  size is unchanged; set `XERJ_MERGE_MAX_EFFORT=true` to use it for every
+  merge. No data format change.
+- **The helper thread that frees memory now starts when memory is high.**
+  `xerj-drain-free` was refused with "memory is at the governor watermark",
+  which is exactly when it is needed.
+- **`_forcemerge?max_num_segments=1` now reaches one segment** when every
+  segment is larger than half the per-merge size cap (it used to stop at two).
 
 - Server startup now reports the resolved data directory, its configuration
   source and whether this launch created it. New-directory guidance points
