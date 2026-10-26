@@ -1,0 +1,23 @@
+{
+ "corpus": "theraghavraman--omni-suite-light",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how theraghavraman/omni_suite_light implements it: theraghavraman/omni_suite_light (JavaScript) (selected work: the project root, social-resolver, omni-cloud-engine)",
+ "repos": [
+  {
+   "repo": "omni_suite_light",
+   "url": "https://github.com/theraghavraman/omni_suite_light",
+   "sha": "ca075c15a88189858472bae246fe1b55cf2d6cea",
+   "licence": "MIT (LICENSE file at pin ca075c15a881, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T13:59Z",
+    "consent_receipt": "fa34b5050ca1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T13:59Z (receipt fa34b5050ca1); selected commit ca075c15a881: \"Apply security remediation handoff\". LICENSE file at pin ca075c15a881 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

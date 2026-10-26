@@ -1,0 +1,23 @@
+{
+ "corpus": "kryvea--kryvea",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on penetration-testing, penetration-testing-framework, penetration-testing-tools queries this for how Kryvea/Kryvea implements it: A penetration testing reporting platform for offensive security professionals (selected work: app/internal, app/cmd, app)",
+ "repos": [
+  {
+   "repo": "Kryvea",
+   "url": "https://github.com/Kryvea/Kryvea",
+   "sha": "c08ec51a67b7f93d46d312d4d6ba811208e7e07d",
+   "licence": "AGPL-3.0 (LICENSE file at pin c08ec51a67b7, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T01:45Z",
+    "consent_receipt": "2bfe7206e249",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T01:45Z (receipt 2bfe7206e249); selected commit c08ec51a67b7: \"implemented postgres migrations\". LICENSE file at pin c08ec51a67b7 detected as AGPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "errusso--pipeduck",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on audio, cpp, ducking queries this for how ErRusso/pipeduck implements it: Automatic audio ducking for PipeWire with smooth return fades and microphone-triggered ducking (selected work: tests, src, include)",
+ "repos": [
+  {
+   "repo": "pipeduck",
+   "url": "https://github.com/ErRusso/pipeduck",
+   "sha": "b90ed2c858a8487d079d78b1fc70b569dade131a",
+   "licence": "MIT (LICENSE file at pin b90ed2c858a8, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T18:22Z",
+    "consent_receipt": "816c2a82fa81",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T18:22Z (receipt 816c2a82fa81); selected commit b90ed2c858a8: \"routing: add failure-injection seam and link diagnostics\". LICENSE file at pin b90ed2c858a8 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

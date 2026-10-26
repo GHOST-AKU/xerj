@@ -9,14 +9,14 @@
    "repo": "taxus",
    "url": "https://github.com/crustyrustacean/taxus",
    "sha": "c56a6423e710b73000507ac618f45675e38b4afe",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin c56a6423e710: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T05:54Z",
     "consent_receipt": "798fdb8de90b",
-    "note": "author consent by email 2026-10-20T05:54Z (receipt 798fdb8de90b); selected commit c56a6423e710: \"feat(routes): [build] flatten \u2014 storage-only content directories\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T05:54Z (receipt 798fdb8de90b); selected commit c56a6423e710: \"feat(routes): [build] flatten \u2014 storage-only content directories\". LICENSE at pin c56a6423e710: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

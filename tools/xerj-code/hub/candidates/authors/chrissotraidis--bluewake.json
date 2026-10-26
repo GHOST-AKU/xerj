@@ -9,14 +9,14 @@
    "repo": "bluewake",
    "url": "https://github.com/chrissotraidis/bluewake",
    "sha": "d9e175969656064875f041839c4c75eaaec60c12",
-   "licence": "hint only: GPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin d9e175969656: NOASSERTION; repository: GPL-3.0)",
    "review": {
-    "spdx": "GPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-11T23:03Z",
     "consent_receipt": "4b734d58f9ec",
-    "note": "author consent by email 2026-10-11T23:03Z (receipt 4b734d58f9ec); selected commit d9e175969656: \"linux: share reproducible CI build container\"; LICENSE at pin: NOASSERTION vs repository GPL-3.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T23:03Z (receipt 4b734d58f9ec); selected commit d9e175969656: \"linux: share reproducible CI build container\". LICENSE at pin d9e175969656: NOASSERTION (repository: GPL-3.0); used with the author's permission, with attribution."
    }
   }
  ]

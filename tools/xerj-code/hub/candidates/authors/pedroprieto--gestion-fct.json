@@ -1,0 +1,23 @@
+{
+ "corpus": "pedroprieto--gestion-fct",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how pedroprieto/gestion-fct implements it: API REST basada en COLLECTION+JSON para gesti\u00f3n de la documentaci\u00f3n de calidad de FCT (Formaci\u00f3n Centros Trabajo) (selected work: the project root, auth, db)",
+ "repos": [
+  {
+   "repo": "gestion-fct",
+   "url": "https://github.com/pedroprieto/gestion-fct",
+   "sha": "ec590745bbfaf3227ad47d99647eb696e3007ff2",
+   "licence": "LGPL-3.0 (LICENSE file at pin ec590745bbfa, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "LGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T17:32Z",
+    "consent_receipt": "481670592256",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T17:32Z (receipt 481670592256); selected commit ec590745bbfa: \"Autenticaci\u00f3n con cognito\". LICENSE file at pin ec590745bbfa detected as LGPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

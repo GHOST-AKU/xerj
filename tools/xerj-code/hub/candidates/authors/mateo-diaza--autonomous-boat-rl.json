@@ -1,0 +1,23 @@
+{
+ "corpus": "mateo-diaza--autonomous-boat-rl",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how mateo-diaza/autonomous-boat-rl implements it: mateo-diaza/autonomous-boat-rl (TypeScript) (selected work: training, backend, frontend)",
+ "repos": [
+  {
+   "repo": "autonomous-boat-rl",
+   "url": "https://github.com/mateo-diaza/autonomous-boat-rl",
+   "sha": "53e01791be01ba1b0b6ab8c5128174a73d15fbf7",
+   "licence": "MIT (LICENSE file at pin 53e01791be01, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T18:07Z",
+    "consent_receipt": "8e002bf9ead5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:07Z (receipt 8e002bf9ead5); selected commit 53e01791be01: \"Unifica los mares que solo cambian la recompensa y a\u00f1ade las rocas a \u2026\". LICENSE file at pin 53e01791be01 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 53e01791be01 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

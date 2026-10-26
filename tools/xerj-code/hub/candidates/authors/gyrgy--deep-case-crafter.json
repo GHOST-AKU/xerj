@@ -1,0 +1,23 @@
+{
+ "corpus": "gyrgy--deep-case-crafter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how gyrgy/deep-case-crafter implements it: Transform deeply nested object, array, Map, and Set keys between common case formats while preserving TypeScript type safety (selected work: src/types, src/transform, src/dataTransformers)",
+ "repos": [
+  {
+   "repo": "deep-case-crafter",
+   "url": "https://github.com/gyrgy/deep-case-crafter",
+   "sha": "9299f844d2907bb97f904b3fc0c3089a40fb120d",
+   "licence": "MIT (LICENSE file at pin 9299f844d290, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:06Z",
+    "consent_receipt": "09352dfd18eb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:06Z (receipt 09352dfd18eb); selected commit 9299f844d290: \"feat!: exact result types, acronym-aware keys and faster transforms (#4)\". LICENSE file at pin 9299f844d290 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "volynetstyle--reflex",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on declarative, fine-grained, framework queries this for how volynetstyle/Reflex implements it: Reflex explores how far a JavaScript reactive graph can be pushed before framework abstractions are added (selected work: packages/reflex-runtime)",
+ "repos": [
+  {
+   "repo": "Reflex",
+   "url": "https://github.com/volynetstyle/Reflex",
+   "sha": "e855e062d91b6b477ad6794b07f953e9dd9883cb",
+   "licence": "MIT (LICENSE file at pin e855e062d91b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T16:40Z",
+    "consent_receipt": "2268cbe84dda",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T16:40Z (receipt 2268cbe84dda); selected commit e855e062d91b: \"refactor(runtime): improve tracking epoch handling and clarify docume\u2026\". LICENSE file at pin e855e062d91b detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

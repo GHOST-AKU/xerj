@@ -1,0 +1,23 @@
+{
+ "corpus": "amirhaghani-brain--neuro-lab",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on computational-neuroscience, neuroscience queries this for how amirhaghani-brain/neuro-lab implements it: Terminal-native workspace for computational neuroscience \u2014 Brian 2, NEURON, Nengo, snnTorch and Neo/Elephant in one command (selected work: tests, src/neurolab)",
+ "repos": [
+  {
+   "repo": "neuro-lab",
+   "url": "https://github.com/amirhaghani-brain/neuro-lab",
+   "sha": "b83b9969db0ed78b0af1eeab96fbb4b3e167d6f7",
+   "licence": "MIT (LICENSE file at pin b83b9969db0e, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T03:00Z",
+    "consent_receipt": "f6ced8c6d15f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T03:00Z (receipt f6ced8c6d15f); selected commit b83b9969db0e: \"feat: pre-flight dependency check for run + honest exit codes\". LICENSE file at pin b83b9969db0e detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

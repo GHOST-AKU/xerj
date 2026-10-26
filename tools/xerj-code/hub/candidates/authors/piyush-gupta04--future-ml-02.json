@@ -1,0 +1,23 @@
+{
+ "corpus": "piyush-gupta04--future-ml-02",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how Piyush-Gupta04/FUTURE_ML_02 implements it: Support Ticket Classification & Prioritization using NLP and Machine Learning (selected work: src/data, the project root)",
+ "repos": [
+  {
+   "repo": "FUTURE_ML_02",
+   "url": "https://github.com/Piyush-Gupta04/FUTURE_ML_02",
+   "sha": "ae0cb380c3c281e70eb777dfce9d95dcc158850c",
+   "licence": "MIT (LICENSE file at pin ae0cb380c3c2, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:53Z",
+    "consent_receipt": "40b90525d73c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:53Z (receipt 40b90525d73c); selected commit ae0cb380c3c2: \"Finalize support ticket classification project\". LICENSE file at pin ae0cb380c3c2 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

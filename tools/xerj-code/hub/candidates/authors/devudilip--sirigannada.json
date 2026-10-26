@@ -1,0 +1,23 @@
+{
+ "corpus": "devudilip--sirigannada",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on books, dictionary, kannada queries this for how devudilip/sirigannada implements it: One home for Kannada (selected work: data, scripts, public)",
+ "repos": [
+  {
+   "repo": "sirigannada",
+   "url": "https://github.com/devudilip/sirigannada",
+   "sha": "5462aac82ca5fc04cc2effdd030242d8ea429e3e",
+   "licence": "AGPL-3.0 (LICENSE file at pin 5462aac82ca5, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T16:20Z",
+    "consent_receipt": "2b9cb1dc4e8e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T16:20Z (receipt 2b9cb1dc4e8e); selected commit 5462aac82ca5: \"feat(children): \u0c9c\u0cbe\u0ca8\u0caa\u0ca6 \u0c95\u0ca5\u0cc6\u0c97\u0cb3\u0cc1 section with three 3D-illustrated folk t\u2026\". LICENSE file at pin 5462aac82ca5 detected as AGPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

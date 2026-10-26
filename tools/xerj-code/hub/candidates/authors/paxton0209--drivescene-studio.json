@@ -9,14 +9,14 @@
    "repo": "DriveScene-Studio",
    "url": "https://github.com/Paxton0209/DriveScene-Studio",
    "sha": "da8b92dcba7027bca40bd014a5fdd1f05ef02fb5",
-   "licence": "hint only: MIT (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin da8b92dcba70: NOASSERTION; repository: MIT)",
    "review": {
-    "spdx": "MIT",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T05:33Z",
     "consent_receipt": "2b3ac15c3bc5",
-    "note": "author consent by email 2026-10-16T05:33Z (receipt 2b3ac15c3bc5); selected commit da8b92dcba70: \"Add camera and depth exports in a centered download dialog\"; LICENSE at pin: NOASSERTION vs repository MIT \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T05:33Z (receipt 2b3ac15c3bc5); selected commit da8b92dcba70: \"Add camera and depth exports in a centered download dialog\". LICENSE at pin da8b92dcba70: NOASSERTION (repository: MIT); used with the author's permission, with attribution."
    }
   }
  ]

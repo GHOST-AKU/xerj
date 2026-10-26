@@ -1,0 +1,30 @@
+{
+ "corpus": "nwish--rerun",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on checklist, checklist-app, checklists queries this for how nwish/rerun implements it: Rerun turns repeatable activities into checklists. Build a list for each thing you do more than once \u2014 kayaking, road trips, campouts, yard  (selected work: src, server)",
+ "repos": [
+  {
+   "repo": "rerun",
+   "url": "https://github.com/nwish/rerun",
+   "sha": "4972a3fddf1a2a82f3a357f73ac170fba63e2500",
+   "licence": "GPL-3.0 (LICENSE file at pin 4972a3fddf1a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-25T21:47Z",
+    "consent_receipt": "37e1a46a79a3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:47Z (receipt 37e1a46a79a3); selected commit 4972a3fddf1a: \"Delete accounts from the admin panel with a blast-radius modal\". LICENSE file at pin 4972a3fddf1a detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "4972a3fddf1a2a82f3a357f73ac170fba63e2500",
+     "at": "2026-10-25T21:47Z",
+     "receipt": "37e1a46a79a3"
+    }
+   }
+  }
+ ]
+}

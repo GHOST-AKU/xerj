@@ -9,14 +9,14 @@
    "repo": "hivey",
    "url": "https://github.com/alyssaaa11/hivey",
    "sha": "3e1054336130843aaba67b3e356eef0dfcf4842f",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 3e1054336130: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T09:25Z",
     "consent_receipt": "b300c9edb79a",
-    "note": "author consent by email 2026-10-14T09:25Z (receipt b300c9edb79a); selected commit 3e1054336130: \"feat: set quiet mode's schedule to any start and end time\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T09:25Z (receipt b300c9edb79a); selected commit 3e1054336130: \"feat: set quiet mode's schedule to any start and end time\". LICENSE at pin 3e1054336130: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "mohammed-taha-zubair--uptime-monitor",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on backend, docker, docker-compose queries this for how Mohammed-Taha-Zubair/uptime-monitor implements it: Website uptime monitor: checks URLs on a schedule, records history, tracks incidents. TypeScript, Express, PostgreSQL, Docker (selected work: frontend)",
+ "repos": [
+  {
+   "repo": "uptime-monitor",
+   "url": "https://github.com/Mohammed-Taha-Zubair/uptime-monitor",
+   "sha": "30ff3203a80c6d4b3d4d7a23a8edb4a6f52fc46c",
+   "licence": "MIT (LICENSE file at pin 30ff3203a80c, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T06:05Z",
+    "consent_receipt": "ed9241fbf11b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T06:05Z (receipt ed9241fbf11b); selected commit 30ff3203a80c: \"feat(frontend): implement minimal dashboard with React, TypeScript, a\u2026\". LICENSE file at pin 30ff3203a80c detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 30ff3203a80c (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

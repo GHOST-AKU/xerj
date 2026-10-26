@@ -1,0 +1,23 @@
+{
+ "corpus": "ecklein--modeldiff-ml",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how ecklein/modeldiff-ml implements it: ModelDiff-ML is a behavioral regression testing framework for machine learning models (selected work: src/modeldiff, tests, examples)",
+ "repos": [
+  {
+   "repo": "modeldiff-ml",
+   "url": "https://github.com/ecklein/modeldiff-ml",
+   "sha": "a37826ff319eb374f8873de752d3a1f63cc88a46",
+   "licence": "MIT (LICENSE file at pin a37826ff319e, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T18:36Z",
+    "consent_receipt": "6f6dfeaabd54",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T18:36Z (receipt 6f6dfeaabd54); selected commit a37826ff319e: \"Feature: saved regression slices\". LICENSE file at pin a37826ff319e detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

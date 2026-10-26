@@ -1,0 +1,23 @@
+{
+ "corpus": "deonspengler--akp02d",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ajaz, arch-lin, linu queries this for how deonspengler/akp02d implements it: Live system stats, audio visualiser and now-playing for the Ajazz AKP02 Universal Secondary Screen on Linux, with a drag-and-drop theme edit (selected work: akp02d, tests)",
+ "repos": [
+  {
+   "repo": "akp02d",
+   "url": "https://github.com/deonspengler/akp02d",
+   "sha": "5c89dde089f80ea9bc2a2afdbba622545351d9e5",
+   "licence": "GPL-3.0 (LICENSE file at pin 5c89dde089f8, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T17:38Z",
+    "consent_receipt": "765136eaf5f9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T17:38Z (receipt 765136eaf5f9); selected commit 5c89dde089f8: \"Editor: snap on both axes, for moving and resizing alike\". LICENSE file at pin 5c89dde089f8 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "hypernylium--mdnx-auto-dl",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on crunchyroll, crunchyroll-downloader, downloader queries this for how HyperNylium/mdnx-auto-dl implements it: Automatically download newly released episodes using multi-downloader-nx or CardinalDL (selected work: app/appdata, the project root)",
+ "repos": [
+  {
+   "repo": "mdnx-auto-dl",
+   "url": "https://github.com/HyperNylium/mdnx-auto-dl",
+   "sha": "94bc5976b380f9a4273b2d1630a7f68c176e4c07",
+   "licence": "MIT (LICENSE file at pin 94bc5976b380, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T15:19Z",
+    "consent_receipt": "962512de583a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T15:19Z (receipt 962512de583a); selected commit 94bc5976b380: \"Make season_override and year integers\". LICENSE file at pin 94bc5976b380 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

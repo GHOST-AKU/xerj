@@ -1,0 +1,23 @@
+{
+ "corpus": "shakthi-bala--devresearchflow",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how Shakthi-Bala/DevResearchFlow implements it: An agent-neutral research workflow that coordinates seven specialized roles to plan experiments, implement methods, verify results, and pres (selected work: workflows, bin)",
+ "repos": [
+  {
+   "repo": "DevResearchFlow",
+   "url": "https://github.com/Shakthi-Bala/DevResearchFlow",
+   "sha": "dabc8602d6150d7dd89f9c62dd6eff366f9955ba",
+   "licence": "MIT (LICENSE file at pin dabc8602d615, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:56Z",
+    "consent_receipt": "2ff50f8a9036",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:56Z (receipt 2ff50f8a9036); selected commit dabc8602d615: \"Add record helpers and optional staged and CI validation\". LICENSE file at pin dabc8602d615 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

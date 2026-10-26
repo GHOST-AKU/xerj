@@ -1,0 +1,23 @@
+{
+ "corpus": "theinhumaneme--activity-visualizer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how theinhumaneme/activity-visualizer implements it: Turn any GPX or TCX activity into a 3D terrain flyover, a full analysis, and a shareable video, all in your browser. Pace, heart-rate zones, (selected work: src/lib, src, src/state)",
+ "repos": [
+  {
+   "repo": "activity-visualizer",
+   "url": "https://github.com/theinhumaneme/activity-visualizer",
+   "sha": "5d0c2bc127083fd7a7a069d601e0ea8203a9561d",
+   "licence": "MIT (LICENSE file at pin 5d0c2bc12708, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T22:35Z",
+    "consent_receipt": "9cfbac8733ed",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T22:35Z (receipt 9cfbac8733ed); selected commit 5d0c2bc12708: \"performance improvements\". LICENSE file at pin 5d0c2bc12708 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

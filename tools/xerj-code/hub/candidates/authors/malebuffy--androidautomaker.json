@@ -1,0 +1,23 @@
+{
+ "corpus": "malebuffy--androidautomaker",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Kotlin queries this for how malebuffy/AndroidAutoMaker implements it: Make any app run on Android Auto (selected work: android, lib, tools)",
+ "repos": [
+  {
+   "repo": "AndroidAutoMaker",
+   "url": "https://github.com/malebuffy/AndroidAutoMaker",
+   "sha": "0d5a8a00af0f77fb4dc4eda5791f5577b6c2b492",
+   "licence": "GPL-3.0 (LICENSE file at pin 0d5a8a00af0f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T22:11Z",
+    "consent_receipt": "a402d7565f4f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T22:11Z (receipt a402d7565f4f); selected commit 0d5a8a00af0f: \"Add the website and Android app sources.\". LICENSE file at pin 0d5a8a00af0f detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 0d5a8a00af0f (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

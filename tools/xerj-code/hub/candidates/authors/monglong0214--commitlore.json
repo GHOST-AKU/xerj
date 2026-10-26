@@ -1,0 +1,23 @@
+{
+ "corpus": "monglong0214--commitlore",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on claude-code, git, mcp queries this for how MongLong0214/commitlore implements it: Git-native decision memory for Claude Code, Codex, Cursor and other coding agents. Preserve constraints and rejected alternatives; surface o (selected work: test, src/core, src/commands)",
+ "repos": [
+  {
+   "repo": "commitlore",
+   "url": "https://github.com/MongLong0214/commitlore",
+   "sha": "2dbe3050117e6e48a6ac795fc9c8b7c6fafbeb83",
+   "licence": "MIT (LICENSE file at pin 2dbe3050117e, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T22:50Z",
+    "consent_receipt": "20a0c72959bc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T22:50Z (receipt 20a0c72959bc); selected commit 2dbe3050117e: \"fix(capture): withdraw a staged capture, and call a replaced one repl\u2026\". LICENSE file at pin 2dbe3050117e detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "kevindarioiguaran--nativax",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Dart queries this for how KevinDarioIguaran/nativax implements it: NativaX is a lightweight, cross-platform framework for running HTML, CSS, and JavaScript applications natively on Android, iOS, Linux, and W (selected work: tools)",
+ "repos": [
+  {
+   "repo": "nativax",
+   "url": "https://github.com/KevinDarioIguaran/nativax",
+   "sha": "6669f18d45d2a48132e7deecc0d7fa7aa4b899fa",
+   "licence": "MIT (LICENSE file at pin 6669f18d45d2, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T00:01Z",
+    "consent_receipt": "fd782583c9ad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T00:01Z (receipt fd782583c9ad); selected commit 6669f18d45d2: \"feat: quality dashboard, recommendation engine, conformance view\". LICENSE file at pin 6669f18d45d2 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

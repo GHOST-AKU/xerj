@@ -1,0 +1,23 @@
+{
+ "corpus": "resolve-web--resolve-app",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on nextjs, prediction-markets, soroban queries this for how resolve-web/resolve-app implements it: Live Stellar testnet app for Resolve binary prediction markets and on-chain settlement (selected work: src/lib, src/app, tests)",
+ "repos": [
+  {
+   "repo": "resolve-app",
+   "url": "https://github.com/resolve-web/resolve-app",
+   "sha": "79da35fe3f8655c9913b5f5c79702349d2703065",
+   "licence": "Apache-2.0 (LICENSE file at pin 79da35fe3f86, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T13:35Z",
+    "consent_receipt": "1c6f425a5c8d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T13:35Z (receipt 1c6f425a5c8d); selected commit 79da35fe3f86: \"fix: fail over indexer requests (#11)\". LICENSE file at pin 79da35fe3f86 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

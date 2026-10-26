@@ -1,0 +1,23 @@
+{
+ "corpus": "hnkatze--swagger-extractor-mcp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-tooling, claude, go queries this for how hnkatze/swagger-extractor-mcp implements it: MCP server (Model Context Protocol) in Go \u2014 exposes OpenAPI/Swagger operations as tools for AI assistants like Claude and Copilot (selected work: internal/tools, internal/store, cmd/swagger-mcp)",
+ "repos": [
+  {
+   "repo": "swagger-extractor-mcp",
+   "url": "https://github.com/hnkatze/swagger-extractor-mcp",
+   "sha": "017db21ab7ccf607068f978a4a57b81272f3473d",
+   "licence": "MIT (LICENSE file at pin 017db21ab7cc, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T16:24Z",
+    "consent_receipt": "525daba4c74e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T16:24Z (receipt 525daba4c74e); selected commit 017db21ab7cc: \"fix(store): refuse name collisions, never write from a query, reject url\". LICENSE file at pin 017db21ab7cc detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

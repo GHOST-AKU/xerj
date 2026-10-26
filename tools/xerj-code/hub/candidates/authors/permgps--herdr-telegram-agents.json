@@ -1,0 +1,23 @@
+{
+ "corpus": "permgps--herdr-telegram-agents",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on claude-code, coding-agents, go queries this for how permgps/herdr-telegram-agents implements it: Drive your coding agents from Telegram like from the terminal. A topic per agent, live status in the topic icon, two-way chat with inline bu (selected work: internal/app, internal/adapters, internal/domain)",
+ "repos": [
+  {
+   "repo": "herdr-telegram-agents",
+   "url": "https://github.com/permgps/herdr-telegram-agents",
+   "sha": "3b58748bb162a3696629bfa3b541c29219914032",
+   "licence": "MIT (LICENSE file at pin 3b58748bb162, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T18:11Z",
+    "consent_receipt": "192cb56b4c73",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T18:11Z (receipt 192cb56b4c73); selected commit 3b58748bb162: \"fix(quiet): classify definitive no-source answers and gate at-desk de\u2026\". LICENSE file at pin 3b58748bb162 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

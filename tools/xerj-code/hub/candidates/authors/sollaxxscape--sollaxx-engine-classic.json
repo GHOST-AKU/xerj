@@ -1,0 +1,23 @@
+{
+ "corpus": "sollaxxscape--sollaxx-engine-classic",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Haxe queries this for how SollaxxScape/Sollaxx-Engine-Classic implements it: This Engine brings the OLD FNF to have new features! (selected work: source, assets)",
+ "repos": [
+  {
+   "repo": "Sollaxx-Engine-Classic",
+   "url": "https://github.com/SollaxxScape/Sollaxx-Engine-Classic",
+   "sha": "4c75a11419f77851a2b21f0aa11518b2e3db0aab",
+   "licence": "Apache-2.0 (LICENSE file at pin 4c75a11419f7, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:38Z",
+    "consent_receipt": "b5e4d15b9ab8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:38Z (receipt b5e4d15b9ab8); selected commit 4c75a11419f7: \"the 0.3.0 stuff lol\". LICENSE file at pin 4c75a11419f7 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "paweltraczynski--matrix-orbital",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on lcd, matrixorbital, vfd queries this for how paweltraczynski/matrix-orbital implements it: A python library to drive Matrix Orbital LK and VK series displays (selected work: weather_clock, the project root)",
+ "repos": [
+  {
+   "repo": "matrix-orbital",
+   "url": "https://github.com/paweltraczynski/matrix-orbital",
+   "sha": "b29230686b588812ce917d2494bd13a174535657",
+   "licence": "MIT (LICENSE file at pin b29230686b58, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T10:49Z",
+    "consent_receipt": "ed4b6361dc89",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T10:49Z (receipt ed4b6361dc89); selected commit b29230686b58: \"Split date and weather fetching to separate class. Implemented night \u2026\". LICENSE file at pin b29230686b58 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

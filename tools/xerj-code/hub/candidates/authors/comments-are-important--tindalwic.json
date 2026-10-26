@@ -9,14 +9,14 @@
    "repo": "tindalwic",
    "url": "https://github.com/comments-are-important/tindalwic",
    "sha": "30f1caed7444b2abb634b27df0bd7a9cef6797fe",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 30f1caed7444: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T13:13Z",
     "consent_receipt": "08cd8aedffd9",
-    "note": "author consent by email 2026-10-18T13:13Z (receipt 08cd8aedffd9); selected commit 30f1caed7444: \"started macros to catch inconsistencies early\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T13:13Z (receipt 08cd8aedffd9); selected commit 30f1caed7444: \"started macros to catch inconsistencies early\". LICENSE at pin 30f1caed7444: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "cdwiegand--go-curling",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on Go queries this for how cdwiegand/go-curling implements it: My recreation of curl in golang, mostly for use in Docker images due to Microsoft removing curl from their dotnet images (selected work: context, the project root, cli)",
+ "repos": [
+  {
+   "repo": "go-curling",
+   "url": "https://github.com/cdwiegand/go-curling",
+   "sha": "7dd9cb19d3bbcaf29976fb215a347c0b62b79a2e",
+   "licence": "MIT (LICENSE file at pin 7dd9cb19d3bb, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T18:11Z",
+    "consent_receipt": "659f06e056a7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T18:11Z (receipt 659f06e056a7); selected commit 7dd9cb19d3bb: \"Improve scripting reliability and add HTTP client features\". LICENSE file at pin 7dd9cb19d3bb detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

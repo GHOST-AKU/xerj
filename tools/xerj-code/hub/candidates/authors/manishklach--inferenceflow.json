@@ -1,0 +1,23 @@
+{
+ "corpus": "manishklach--inferenceflow",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on asynchronous, developer-tools, docker queries this for how manishklach/InferenceFlow implements it: Prepaid asynchronous LLM inference platform: FastAPI, PostgreSQL-backed queues, deadline-aware scheduling, modular GPU workers, vLLM integra (selected work: scripts, tests)",
+ "repos": [
+  {
+   "repo": "InferenceFlow",
+   "url": "https://github.com/manishklach/InferenceFlow",
+   "sha": "be0b3c489b656c4e8ceea7cd6af9514e9abb8a07",
+   "licence": "Apache-2.0 (LICENSE file at pin be0b3c489b65, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T20:26Z",
+    "consent_receipt": "0357e1ca0d7f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T20:26Z (receipt 0357e1ca0d7f); selected commit be0b3c489b65: \"Add hosted mock pipeline audit and owner-encrypted evidence export\". LICENSE file at pin be0b3c489b65 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

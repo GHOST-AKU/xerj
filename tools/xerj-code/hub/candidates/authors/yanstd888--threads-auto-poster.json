@@ -1,0 +1,23 @@
+{
+ "corpus": "yanstd888--threads-auto-poster",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agent, ai-agents, hermes queries this for how yanstd888/threads-auto-poster implements it: Self-hosted, source-backed Threads scheduler with AI-assisted drafting, human approval, and safe publishing (selected work: lib, app/api, app/dashboard)",
+ "repos": [
+  {
+   "repo": "threads-auto-poster",
+   "url": "https://github.com/yanstd888/threads-auto-poster",
+   "sha": "d0d4ee06f11c525f5c4e4acd50bca6adb61cdd45",
+   "licence": "Apache-2.0 (LICENSE file at pin d0d4ee06f11c, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T16:29Z",
+    "consent_receipt": "5cab64e7ebe8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T16:29Z (receipt 5cab64e7ebe8); selected commit d0d4ee06f11c: \"feat: add safe Threads reply agent and source fallback\". LICENSE file at pin d0d4ee06f11c detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

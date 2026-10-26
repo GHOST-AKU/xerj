@@ -1,0 +1,23 @@
+{
+ "corpus": "israelalagbe--s3-test-server",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how israelalagbe/s3-test-server implements it: An amazon S3 emulator for local development and testing (selected work: lib/controllers)",
+ "repos": [
+  {
+   "repo": "s3-test-server",
+   "url": "https://github.com/israelalagbe/s3-test-server",
+   "sha": "8d564061f1e8d1337836e6487ef8ca9254422a91",
+   "licence": "MIT (LICENSE file at pin 8d564061f1e8, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T20:15Z",
+    "consent_receipt": "58fab4eb3ccb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T20:15Z (receipt 58fab4eb3ccb); selected commit 8d564061f1e8: \"Split the object controller into focused modules\". LICENSE file at pin 8d564061f1e8 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "ezedike-evan--corridor-in-a-box",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cross-border-payments, fintech, sep-31 queries this for how ezedike-evan/corridor-in-a-box implements it: Manifest-driven engine for Stellar SEP-31 cross-border corridors - a corridor is config, not code (selected work: packages/stellar, tests, packages/service)",
+ "repos": [
+  {
+   "repo": "corridor-in-a-box",
+   "url": "https://github.com/ezedike-evan/corridor-in-a-box",
+   "sha": "3bc1cc550e5f7b3d08b3f3f5fbf7e3b683b4e0a8",
+   "licence": "Apache-2.0 (LICENSE file at pin 3bc1cc550e5f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T11:45Z",
+    "consent_receipt": "8989cb25485e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T11:45Z (receipt 8989cb25485e); selected commit 3bc1cc550e5f: \"feat(stellar): chain.destination gate check - refuse before signing w\u2026\". LICENSE file at pin 3bc1cc550e5f detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

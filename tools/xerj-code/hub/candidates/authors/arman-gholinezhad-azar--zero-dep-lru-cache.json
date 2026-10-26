@@ -1,0 +1,23 @@
+{
+ "corpus": "arman-gholinezhad-azar--zero-dep-lru-cache",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on code queries this for how Arman-Gholinezhad-Azar/zero-dep-lru-cache implements it: memory cache management impelementing lru algorithm using generic with pure java (selected work: src/test, the project root, src/main)",
+ "repos": [
+  {
+   "repo": "zero-dep-lru-cache",
+   "url": "https://github.com/Arman-Gholinezhad-Azar/zero-dep-lru-cache",
+   "sha": "f96b2acdeadfe72d9dada7a803a6081fd894a4ef",
+   "licence": "Apache-2.0 (LICENSE file at pin f96b2acdeadf, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T20:25Z",
+    "consent_receipt": "981f7cea68f0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T20:25Z (receipt 981f7cea68f0); selected commit f96b2acdeadf: \"maven configuration\". LICENSE file at pin f96b2acdeadf detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "apauldev--yotara",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how apauldev/Yotara implements it: Yotara \u2014 Delightful open-source tasks. Simple for you, seamless for small teams. Self-host with Angular + Fastify (selected work: apps/api, apps/frontend)",
+ "repos": [
+  {
+   "repo": "Yotara",
+   "url": "https://github.com/apauldev/Yotara",
+   "sha": "344399424ff64b1eaad65ecdb7df5357f75a0c75",
+   "licence": "MIT (LICENSE file at pin 344399424ff6, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T10:55Z",
+    "consent_receipt": "2eb6a8515975",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T10:55Z (receipt 2eb6a8515975); selected commit 344399424ff6: \"fix(labels): enforce Unicode-aware name uniqueness\". LICENSE file at pin 344399424ff6 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

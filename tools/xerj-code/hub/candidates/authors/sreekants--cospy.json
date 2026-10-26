@@ -1,0 +1,23 @@
+{
+ "corpus": "sreekants--cospy",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how sreekants/cospy implements it: COS - Core packages (selected work: src/maritime, config, src/rules)",
+ "repos": [
+  {
+   "repo": "cospy",
+   "url": "https://github.com/sreekants/cospy",
+   "sha": "026b997b2d8a8533f35e3c68c39a0d90fba2b5b0",
+   "licence": "Apache-2.0 (LICENSE file at pin 026b997b2d8a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T06:54Z",
+    "consent_receipt": "d1ea06db194a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:54Z (receipt d1ea06db194a); selected commit 026b997b2d8a: \"Upgrade to COLREG compatibility\". LICENSE file at pin 026b997b2d8a detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

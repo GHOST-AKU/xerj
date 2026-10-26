@@ -1,0 +1,23 @@
+{
+ "corpus": "rouchant--zenit-tauri",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on hardware-telemetry, kiosk-mode, retail-tech queries this for how Rouchant/Zenit-Tauri implements it: Secure Showcase Terminal Framework. Auto hardware specs, dynamic retail branding, and kiosk lockdown. Powered by Rust & Vue 3 (selected work: tests, src-tauri, src/components)",
+ "repos": [
+  {
+   "repo": "Zenit-Tauri",
+   "url": "https://github.com/Rouchant/Zenit-Tauri",
+   "sha": "95f1b6f4b3b3b875d32c9e319d649a2c7d658341",
+   "licence": "MIT (LICENSE file at pin 95f1b6f4b3b3, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T23:12Z",
+    "consent_receipt": "f4302d123d0e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T23:12Z (receipt f4302d123d0e); selected commit 95f1b6f4b3b3: \"Se desacopl\u00f3 y corrigi\u00f3 el reconocimiento de marcas mediante expresio\u2026\". LICENSE file at pin 95f1b6f4b3b3 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

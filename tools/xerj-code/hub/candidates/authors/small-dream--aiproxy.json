@@ -1,0 +1,23 @@
+{
+ "corpus": "small-dream--aiproxy",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on charles-alternative, cross-platform, debugging queries this for how small-dream/AIProxy implements it: A modern, cross-platform proxy debugging tool for developers (selected work: apps/desktop, the project root, packages/shared-types)",
+ "repos": [
+  {
+   "repo": "AIProxy",
+   "url": "https://github.com/small-dream/AIProxy",
+   "sha": "26f0d41080aa7fa6de254f1841213de8635693e8",
+   "licence": "MIT (LICENSE file at pin 26f0d41080aa, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T09:00Z",
+    "consent_receipt": "21182194daf4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T09:00Z (receipt 21182194daf4); selected commit 26f0d41080aa: \"feat(agent-access): use global Claude Code MCP config\". LICENSE file at pin 26f0d41080aa detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

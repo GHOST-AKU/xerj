@@ -1,0 +1,23 @@
+{
+ "corpus": "thiagovespa--clivcut",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cpp, ffmpeg, gpu queries this for how thiagovespa/clivcut implements it: ClivCut is a free, open-source, cross-platform video editor for Linux, Windows and macOS, with a fast and intuitive editing flow. Create, ed (selected work: src/app, src/core, tests)",
+ "repos": [
+  {
+   "repo": "clivcut",
+   "url": "https://github.com/thiagovespa/clivcut",
+   "sha": "fddc83caee4fb1bef2e57da5a964543ba0833b7c",
+   "licence": "GPL-3.0 (LICENSE file at pin fddc83caee4f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-22T11:21Z",
+    "consent_receipt": "a9f4ed078f28",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T11:21Z (receipt a9f4ed078f28); selected commit fddc83caee4f: \"feat(app): create and break compound clips\". LICENSE file at pin fddc83caee4f detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

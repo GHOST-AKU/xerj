@@ -1,0 +1,23 @@
+{
+ "corpus": "irozon--irozon-dot",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how irozon/irozon-dot implements it: irozon/irozon-dot (Python) (selected work: src, scripts, include)",
+ "repos": [
+  {
+   "repo": "irozon-dot",
+   "url": "https://github.com/irozon/irozon-dot",
+   "sha": "bd31a5b91b9cf15ec6500a2dfe6eaca4e5454f4a",
+   "licence": "MIT (LICENSE file at pin bd31a5b91b9c, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T20:50Z",
+    "consent_receipt": "468640ac157e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T20:50Z (receipt 468640ac157e); selected commit bd31a5b91b9c: \"Finalize Irozon Dot v1.1\". LICENSE file at pin bd31a5b91b9c detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

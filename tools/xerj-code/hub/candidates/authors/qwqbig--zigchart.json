@@ -1,0 +1,23 @@
+{
+ "corpus": "qwqbig--zigchart",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how QwQBiG/ZigChart implements it: ZigChart (Under development) (selected work: web, tests)",
+ "repos": [
+  {
+   "repo": "ZigChart",
+   "url": "https://github.com/QwQBiG/ZigChart",
+   "sha": "44da0dcecac6787f7fd7f618d04b9ddea2b03ccf",
+   "licence": "Apache-2.0 (LICENSE file at pin 44da0dcecac6, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T08:49Z",
+    "consent_receipt": "378a8cd0f062",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T08:49Z (receipt 378a8cd0f062); selected commit 44da0dcecac6: \"feat(web): expand chart controls and independent study settings\". LICENSE file at pin 44da0dcecac6 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

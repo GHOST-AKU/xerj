@@ -1,0 +1,23 @@
+{
+ "corpus": "wavekat--wavekat-sip",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on rtp, rust, sdp queries this for how wavekat/wavekat-sip implements it: SIP signaling and RTP transport library for Rust, built on rsipstack. Provides REGISTER, INVITE, dialog tracking, SDP offer/answer, and RTP  (selected work: crates/wavekat-sip)",
+ "repos": [
+  {
+   "repo": "wavekat-sip",
+   "url": "https://github.com/wavekat/wavekat-sip",
+   "sha": "08ecc96fd948c570129257b375923c50604ae809",
+   "licence": "Apache-2.0 (LICENSE file at pin 08ecc96fd948, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T01:30Z",
+    "consent_receipt": "d5ac6e6e1906",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T01:30Z (receipt d5ac6e6e1906); selected commit 08ecc96fd948: \"fix: ping idle TCP/TLS connections (#66)\". LICENSE file at pin 08ecc96fd948 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

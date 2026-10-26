@@ -1,0 +1,23 @@
+{
+ "corpus": "cuiyixin555--cv-cuda-pipeline",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on C++ queries this for how cuiyixin555/cv-cuda-pipeline implements it: cv-cuda-pipe is a C++ and Python computer-vision pipeline for desktop PCs. The repository uses Bazel to build the framework and run unit tes (selected work: cv-cuda-pipeline, the project root)",
+ "repos": [
+  {
+   "repo": "cv-cuda-pipeline",
+   "url": "https://github.com/cuiyixin555/cv-cuda-pipeline",
+   "sha": "811b1d15589b7f5d18a17c3fee2ba6f07a226b19",
+   "licence": "MIT (LICENSE file at pin 811b1d15589b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T04:56Z",
+    "consent_receipt": "018f8f135953",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T04:56Z (receipt 018f8f135953); selected commit 811b1d15589b: \"Add image process demos\". LICENSE file at pin 811b1d15589b detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

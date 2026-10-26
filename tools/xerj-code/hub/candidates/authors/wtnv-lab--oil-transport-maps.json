@@ -1,0 +1,23 @@
+{
+ "corpus": "wtnv-lab--oil-transport-maps",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wtnv-lab/oil-transport-maps implements it: \u4e2d\u6771\u304a\u3088\u3073\u65e5\u672c\u5411\u3051\u306e\u539f\u6cb9\u8f38\u9001\u30eb\u30fc\u30c8\u5730\u56f3\uff1a\u518d\u73fe\u53ef\u80fd\u306a\u4f5c\u56f3\u30b9\u30af\u30ea\u30d7\u30c8\u30fb\u5730\u7406\u30c7\u30fc\u30bf\u30fb\u51fa\u5178 (selected work: examples, maps)",
+ "repos": [
+  {
+   "repo": "oil-transport-maps",
+   "url": "https://github.com/wtnv-lab/oil-transport-maps",
+   "sha": "1128d47c9436e8cd1eda3d0f3cefab24e335a70d",
+   "licence": "CC-BY-4.0 (LICENSE file at pin 1128d47c9436, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "CC-BY-4.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T00:23Z",
+    "consent_receipt": "2e8dc7a31e32",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T00:23Z (receipt 2e8dc7a31e32); selected commit 1128d47c9436: \"Add concise risk callouts to global route overview\". LICENSE file at pin 1128d47c9436 detected as CC-BY-4.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

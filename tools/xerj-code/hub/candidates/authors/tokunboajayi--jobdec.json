@@ -1,0 +1,23 @@
+{
+ "corpus": "tokunboajayi--jobdec",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, automation, cyberdeck queries this for how tokunboajayi/jobdec implements it: Autonomous multi-agent internship application engine with local neural embeddings, Playwright Chromium, self-healing rules, and Cyberdeck TU (selected work: brain, dashboard, tests)",
+ "repos": [
+  {
+   "repo": "jobdec",
+   "url": "https://github.com/tokunboajayi/jobdec",
+   "sha": "f823e7db89f5cb14e8da9e2bae699f2a17e896e1",
+   "licence": "MIT (LICENSE file at pin f823e7db89f5, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T22:25Z",
+    "consent_receipt": "9c344ba4574e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T22:25Z (receipt 9c344ba4574e); selected commit f823e7db89f5: \"feat(graph): integrate multi-dimensional Knowledge Graph and Graph-RA\u2026\". LICENSE file at pin f823e7db89f5 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

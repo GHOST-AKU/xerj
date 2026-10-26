@@ -1,0 +1,23 @@
+{
+ "corpus": "greenscreens-io--webcomponents",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on bootstrap5, css, custom-elements queries this for how greenscreens-io/webcomponents implements it: WebComponents for Bootstrap 5 (selected work: demos, modules/components, modules/base)",
+ "repos": [
+  {
+   "repo": "webcomponents",
+   "url": "https://github.com/greenscreens-io/webcomponents",
+   "sha": "2d6842a4edc8dd05791c4ecae2714ab93da435e3",
+   "licence": "MIT (LICENSE file at pin 2d6842a4edc8, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T06:33Z",
+    "consent_receipt": "0e124fd477da",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T06:33Z (receipt 0e124fd477da); selected commit 2d6842a4edc8: \"FormElements controllers handling improvements\". LICENSE file at pin 2d6842a4edc8 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

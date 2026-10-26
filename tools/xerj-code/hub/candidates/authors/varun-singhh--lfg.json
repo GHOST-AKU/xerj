@@ -1,0 +1,23 @@
+{
+ "corpus": "varun-singhh--lfg",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-orchestration, agent-skills, agentic-workflow queries this for how varun-singhh/lfg implements it: An engineering pipeline for Claude Code (selected work: plugin, tests)",
+ "repos": [
+  {
+   "repo": "lfg",
+   "url": "https://github.com/varun-singhh/lfg",
+   "sha": "eedafda984630bc53a22ccd7a835e6eb068b243a",
+   "licence": "MIT (LICENSE file at pin eedafda98463, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T01:08Z",
+    "consent_receipt": "a105cc43bd68",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T01:08Z (receipt a105cc43bd68); selected commit eedafda98463: \"Fix bugs, improved ui and skills\". LICENSE file at pin eedafda98463 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

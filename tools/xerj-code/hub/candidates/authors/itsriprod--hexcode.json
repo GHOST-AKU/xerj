@@ -1,0 +1,30 @@
+{
+ "corpus": "itsriprod--hexcode",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on hytale, hytale-modding, hytale-plugin queries this for how ItsRiprod/Hexcode implements it: Magic by Design (selected work: src/main)",
+ "repos": [
+  {
+   "repo": "Hexcode",
+   "url": "https://github.com/ItsRiprod/Hexcode",
+   "sha": "5260e7afb4a0c4ba992c5a3908cdc91f61c72356",
+   "licence": "AGPL-3.0 (LICENSE file at pin 5260e7afb4a0, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-25T19:21Z",
+    "consent_receipt": "82c3aba989c9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:21Z (receipt 82c3aba989c9); selected commit 5260e7afb4a0: \"fix: variables\". LICENSE file at pin 5260e7afb4a0 detected as AGPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "5260e7afb4a0c4ba992c5a3908cdc91f61c72356",
+     "at": "2026-10-25T19:21Z",
+     "receipt": "82c3aba989c9"
+    }
+   }
+  }
+ ]
+}

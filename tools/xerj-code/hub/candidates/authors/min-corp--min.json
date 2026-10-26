@@ -1,0 +1,23 @@
+{
+ "corpus": "min-corp--min",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on messenger, network, port-forwarding queries this for how MIN-Corp/MIN implements it: Distributed Messenger (selected work: Infrastructure, Desktop, Core/Transport)",
+ "repos": [
+  {
+   "repo": "MIN",
+   "url": "https://github.com/MIN-Corp/MIN",
+   "sha": "ab000265dc67bc13ded16ce39f3bc831565bd5f6",
+   "licence": "MIT (LICENSE file at pin ab000265dc67, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:01Z",
+    "consent_receipt": "5e0dc78bb21a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:01Z (receipt 5e0dc78bb21a); selected commit ab000265dc67: \"Port-Tunnel: generic TCP-tunnel \u0434\u043b\u044f \u0437\u0430\u043f\u0443\u0441\u043a\u0430 \u043d\u0435\u043c\u043e\u0434\u0438\u0444\u0438\u0446\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0445 \u043c\u0443\u043b\u044c\u0442\u0438\u2026\". LICENSE file at pin ab000265dc67 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

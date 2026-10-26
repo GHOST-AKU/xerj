@@ -1,0 +1,23 @@
+{
+ "corpus": "tuhin-snapd--pricepilot-intelligent-pricing-dashboard",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how Tuhin-SnapD/PricePilot-Intelligent-Pricing-Dashboard implements it: PricePilot is a comprehensive pricing optimization platform that leverages cutting-edge machine learning algorithms to help businesses make  (selected work: price-optimiser-frontend)",
+ "repos": [
+  {
+   "repo": "PricePilot-Intelligent-Pricing-Dashboard",
+   "url": "https://github.com/Tuhin-SnapD/PricePilot-Intelligent-Pricing-Dashboard",
+   "sha": "d598d4b995eb55dc5963a31d5b0e78fa2d3e53a6",
+   "licence": "MIT (LICENSE file at pin d598d4b995eb, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:39Z",
+    "consent_receipt": "f233a7c8bf5b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:39Z (receipt f233a7c8bf5b); selected commit d598d4b995eb: \"final touchups\". LICENSE file at pin d598d4b995eb detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

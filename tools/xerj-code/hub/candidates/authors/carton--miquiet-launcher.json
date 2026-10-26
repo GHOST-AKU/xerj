@@ -1,0 +1,23 @@
+{
+ "corpus": "carton--miquiet-launcher",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on accessibility, adb, android-tv queries this for how Carton/miquiet-launcher implements it: \u7b80\u51c0\u684c\u9762\uff08MiQuiet Launcher\uff09\uff1a\u9762\u5411\u5c0f\u7c73\u7535\u89c6 / \u5c0f\u7c73TV\uff08Xiaomi TV / Mi TV\uff09\u7684\u8f7b\u91cf\u5f00\u6e90\u684c\u9762\uff0c\u652f\u6301\u53ef\u914d\u7f6e\u5e94\u7528\u680f\u3001\u4fe1\u53f7\u6e90\u5165\u53e3\u3001\u5929\u6c14\u65b0\u95fb\u4e0e\u672c\u5730\u56fe\u7247\u5c4f\u4fdd\uff0c\u53ef\u901a\u8fc7 ADB \u90e8\u7f72\u5e76\u6062\u590d\u539f\u5382\u684c\u9762\u3002 (selected work: tools, tests, the project root)",
+ "repos": [
+  {
+   "repo": "miquiet-launcher",
+   "url": "https://github.com/Carton/miquiet-launcher",
+   "sha": "37c1b3745674dc0f13c06b65bb53e5041ddd44d8",
+   "licence": "MIT (LICENSE file at pin 37c1b3745674, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T13:37Z",
+    "consent_receipt": "381951cf5027",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T13:37Z (receipt 381951cf5027); selected commit 37c1b3745674: \"feat(tooling): prepare public release and agent deployment guidance\". LICENSE file at pin 37c1b3745674 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

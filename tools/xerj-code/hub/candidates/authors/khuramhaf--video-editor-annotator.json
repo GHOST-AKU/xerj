@@ -9,14 +9,14 @@
    "repo": "Video-Editor-Annotator",
    "url": "https://github.com/khuramhaf/Video-Editor-Annotator",
    "sha": "28adada25b16729c90b556a75a871e12cee182a6",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 28adada25b16: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T12:52Z",
     "consent_receipt": "138fc9e6a2c0",
-    "note": "author consent by email 2026-10-22T12:52Z (receipt 138fc9e6a2c0); selected commit 28adada25b16: \"drawing changed\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T12:52Z (receipt 138fc9e6a2c0); selected commit 28adada25b16: \"drawing changed\". LICENSE at pin 28adada25b16: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "2177866--dns-checker",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on dns-lookup, dns-record-checker, laravel-package queries this for how 2177866/dns-checker implements it: DNS Checker for Laravel (selected work: tests, src, src/Contracts)",
+ "repos": [
+  {
+   "repo": "dns-checker",
+   "url": "https://github.com/2177866/dns-checker",
+   "sha": "41b606db19a291e928595a2d9d15235189d4a232",
+   "licence": "MIT (LICENSE file at pin 41b606db19a2, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T21:03Z",
+    "consent_receipt": "5d73b926a74e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T21:03Z (receipt 5d73b926a74e); selected commit 41b606db19a2: \"feat(dns): add native response lookup and prepare 2.2.0\". LICENSE file at pin 41b606db19a2 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

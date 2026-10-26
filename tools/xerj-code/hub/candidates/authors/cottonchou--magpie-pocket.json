@@ -1,0 +1,23 @@
+{
+ "corpus": "cottonchou--magpie-pocket",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Kotlin queries this for how CottonChou/magpie-pocket implements it: Native Android client for Magpie AI Gateway with Liquid Glass design (selected work: app/src)",
+ "repos": [
+  {
+   "repo": "magpie-pocket",
+   "url": "https://github.com/CottonChou/magpie-pocket",
+   "sha": "8d353e1fb5fb892d41f103fe52f9ee2fd0fc4ebb",
+   "licence": "MIT (LICENSE file at pin 8d353e1fb5fb, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T04:00Z",
+    "consent_receipt": "3bddf951bd0a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T04:00Z (receipt 3bddf951bd0a); pinned to the default-branch head. LICENSE file at pin 8d353e1fb5fb detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

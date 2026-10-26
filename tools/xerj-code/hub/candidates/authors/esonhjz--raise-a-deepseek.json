@@ -1,0 +1,23 @@
+{
+ "corpus": "esonhjz--raise-a-deepseek",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how esonhjz/raise-a-deepseek implements it: Character-side modules for a memory-aware AI companion, built alongside DSH (selected work: src, src/internal, tests)",
+ "repos": [
+  {
+   "repo": "raise-a-deepseek",
+   "url": "https://github.com/esonhjz/raise-a-deepseek",
+   "sha": "c7222767d68681ea66b4c87e335bf38c958934bb",
+   "licence": "MIT (LICENSE file at pin c7222767d686, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:08Z",
+    "consent_receipt": "19b570174aa1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:08Z (receipt 19b570174aa1); selected commit c7222767d686: \"feat: extract SQLite memory core and update companion progress\". LICENSE file at pin c7222767d686 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

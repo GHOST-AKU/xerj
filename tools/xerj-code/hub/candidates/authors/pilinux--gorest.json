@@ -1,0 +1,23 @@
+{
+ "corpus": "pilinux--gorest",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on restful-api, rest-api, restful queries this for how pilinux/gorest implements it: Go RESTful API starter kit with Gin, JWT, GORM (MySQL, PostgreSQL, SQLite), Redis, Mongo, 2FA, email verification, password recovery (selected work: example3, the project root)",
+ "repos": [
+  {
+   "repo": "gorest",
+   "url": "https://github.com/pilinux/gorest",
+   "sha": "83f8e578490f083f2200fc868c1c73ad766f570a",
+   "licence": "MIT (LICENSE file at pin 83f8e578490f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:41Z",
+    "consent_receipt": "542195ad9a70",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:41Z (receipt 542195ad9a70); selected commit 83f8e578490f: \"fix(example3): seal record name/size, drop sha256\". LICENSE file at pin 83f8e578490f detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

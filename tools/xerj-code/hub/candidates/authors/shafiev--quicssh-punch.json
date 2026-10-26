@@ -1,0 +1,30 @@
+{
+ "corpus": "shafiev--quicssh-punch",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on nat, p2p-network, traversal queries this for how shafiev/quicssh-punch implements it: The software to make a udp punch hole to connect to device via quicshh if you don't have a Public IPv4 address (selected work: the project root, configurations_examples)",
+ "repos": [
+  {
+   "repo": "quicssh-punch",
+   "url": "https://github.com/shafiev/quicssh-punch",
+   "sha": "33ec6447e8fe4bc564b6c282cfed7496eb311f3f",
+   "licence": "AGPL-3.0 (LICENSE file at pin 33ec6447e8fe, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-25T18:23Z",
+    "consent_receipt": "ef5a6cbc40e7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:23Z (receipt ef5a6cbc40e7); selected commit 33ec6447e8fe: \"Adding the base\". LICENSE file at pin 33ec6447e8fe detected as AGPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "33ec6447e8fe4bc564b6c282cfed7496eb311f3f",
+     "at": "2026-10-25T18:23Z",
+     "receipt": "ef5a6cbc40e7"
+    }
+   }
+  }
+ ]
+}

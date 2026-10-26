@@ -1,0 +1,23 @@
+{
+ "corpus": "shivam7977--docquery",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Shivam7977/DocQuery implements it: Shivam7977/DocQuery (Python) (selected work: app/services, app/api, evaluation)",
+ "repos": [
+  {
+   "repo": "privatedoc",
+   "url": "https://github.com/Shivam7977/privatedoc",
+   "sha": "c1320e4b28634007ca28a83e742bc71d8e168fed",
+   "licence": "MIT (LICENSE file at pin c1320e4b2863, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T01:34Z",
+    "consent_receipt": "8e70db2e840b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T01:34Z (receipt 8e70db2e840b); selected commit c1320e4b2863: \"Improve visual processing, progress UI, retrieval\". LICENSE file at pin c1320e4b2863 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

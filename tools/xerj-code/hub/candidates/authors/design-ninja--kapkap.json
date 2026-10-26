@@ -1,0 +1,23 @@
+{
+ "corpus": "design-ninja--kapkap",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on apple-silicon, gif, kap queries this for how design-ninja/KapKap implements it: Native macOS screen recorder for Apple Silicon, written in Swift (selected work: Sources, Tests)",
+ "repos": [
+  {
+   "repo": "KapKap",
+   "url": "https://github.com/design-ninja/KapKap",
+   "sha": "926c62e31fbb6fc43997510f11cc1b676646de7b",
+   "licence": "MIT (LICENSE file at pin 926c62e31fbb, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T22:42Z",
+    "consent_receipt": "c92f95cd04ba",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T22:42Z (receipt c92f95cd04ba); selected commit 926c62e31fbb: \"feat: refine recorder controls and export UI\". LICENSE file at pin 926c62e31fbb detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 926c62e31fbb (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

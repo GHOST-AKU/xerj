@@ -1,0 +1,23 @@
+{
+ "corpus": "langchain-ai--langchain-litellm",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on langchain, litellm queries this for how langchain-ai/langchain-litellm implements it: \ud83e\udd9c\ud83d\udd17 LangChain interface to LiteLLM (selected work: tests, langchain_litellm)",
+ "repos": [
+  {
+   "repo": "langchain-litellm",
+   "url": "https://github.com/langchain-ai/langchain-litellm",
+   "sha": "f94c52e63a78ce887cfb45883c756c34fa0c449c",
+   "licence": "MIT (LICENSE file at pin f94c52e63a78, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:38Z",
+    "consent_receipt": "c43519de2886",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:38Z (receipt c43519de2886); selected commit f94c52e63a78: \"fix(chat_models)!: stream response-level provider_specific_fields in \u2026\". LICENSE file at pin f94c52e63a78 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

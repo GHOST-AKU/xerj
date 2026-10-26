@@ -1,0 +1,23 @@
+{
+ "corpus": "zelin652-creator--niri-better-animation",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how zelin652-creator/niri-better-animation implements it: zelin652-creator/niri-better-animation (Rust) (selected work: src/layout)",
+ "repos": [
+  {
+   "repo": "niri-better-action",
+   "url": "https://github.com/zelin652-creator/niri-better-action",
+   "sha": "722e228778cc8e73d0e909f9a4433d9f4ba40339",
+   "licence": "GPL-3.0 (LICENSE file at pin 722e228778cc, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T02:39Z",
+    "consent_receipt": "7b2569c6d7fa",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T02:39Z (receipt 7b2569c6d7fa); selected commit 722e228778cc: \"layout:\u4f18\u5316\u4e0a\u4e0b\u79fb\u52a8\u7684\u7a97\u53e3\u8fde\u8d2f\u6027\". LICENSE file at pin 722e228778cc detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

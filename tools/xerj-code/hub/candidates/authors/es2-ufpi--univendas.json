@@ -1,0 +1,23 @@
+{
+ "corpus": "es2-ufpi--univendas",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how ES2-UFPI/UniVendas implements it: Plataforma que conecta estudantes universit\u00e1rios a vendedores locais \u2014 quiosques, ambulantes e prestadores de servi\u00e7o \u2014 facilitando o com\u00e9rc (selected work: src/features)",
+ "repos": [
+  {
+   "repo": "UniVendas",
+   "url": "https://github.com/ES2-UFPI/UniVendas",
+   "sha": "88fa13dbf3e39a85bfdce1debc675a90dc67148d",
+   "licence": "MIT (LICENSE file at pin 88fa13dbf3e3, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:39Z",
+    "consent_receipt": "41071378a4d6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:39Z (receipt 41071378a4d6); selected commit 88fa13dbf3e3: \"feat: cria o painel do vendedor com o bot\u00e3o Estou no campus\". LICENSE file at pin 88fa13dbf3e3 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

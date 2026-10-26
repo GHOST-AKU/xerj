@@ -1,0 +1,23 @@
+{
+ "corpus": "rullerzhou-afk--clawd-on-desk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on claude-code, codex, copilot queries this for how rullerzhou-afk/clawd-on-desk implements it: A pixel desktop pet that watches Claude Code, Codex, Cursor & other AI coding agents \u2014 so you don't have to (selected work: src, test)",
+ "repos": [
+  {
+   "repo": "clawd-on-desk",
+   "url": "https://github.com/rullerzhou-afk/clawd-on-desk",
+   "sha": "a86f96e6f4c44beb3c47b219aaee1c1b2ac6cd0c",
+   "licence": "AGPL-3.0 (LICENSE file at pin a86f96e6f4c4, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-25T01:08Z",
+    "consent_receipt": "13e0dc522180",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T01:08Z (receipt 13e0dc522180); selected commit a86f96e6f4c4: \"fix(settings): stabilize subpage switching and recap interaction\". LICENSE file at pin a86f96e6f4c4 detected as AGPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

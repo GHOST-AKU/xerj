@@ -1,0 +1,23 @@
+{
+ "corpus": "saisakthim--honeypot-harness",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how SaisakthiM/Honeypot-Harness implements it: SaisakthiM/Honeypot-Harness (Python) (selected work: src/honeypot_ai, tests, examples)",
+ "repos": [
+  {
+   "repo": "Honeypot-Harness",
+   "url": "https://github.com/SaisakthiM/Honeypot-Harness",
+   "sha": "e68e23c5bab1d47f62080d95dfd0face36ee73b2",
+   "licence": "MIT (LICENSE file at pin e68e23c5bab1, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T13:16Z",
+    "consent_receipt": "9d67e634183d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T13:16Z (receipt 9d67e634183d); selected commit e68e23c5bab1: \"Changes v2\". LICENSE file at pin e68e23c5bab1 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

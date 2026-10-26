@@ -1,0 +1,23 @@
+{
+ "corpus": "fahadbinhussain--boi",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on admin-dashboard, book-library, next-auth queries this for how FahadBinHussain/boi implements it: Modern full-stack book discovery and management platform built with Next.js, Prisma, and NextAuth (selected work: dataset, src/lib, src/app)",
+ "repos": [
+  {
+   "repo": "boi",
+   "url": "https://github.com/FahadBinHussain/boi",
+   "sha": "0c79b01747e24b720feae97fe06be80826a4b1b4",
+   "licence": "MIT (LICENSE file at pin 0c79b01747e2, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T07:30Z",
+    "consent_receipt": "bf2aef3b1f07",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T07:30Z (receipt bf2aef3b1f07); selected commit 0c79b01747e2: \"serve the dataset live from a turso database\". LICENSE file at pin 0c79b01747e2 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

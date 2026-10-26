@@ -1,0 +1,23 @@
+{
+ "corpus": "i-melnichenko--8088-homebrew-computer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Assembly queries this for how i-melnichenko/8088-homebrew-computer implements it: An open-source modular computer built around the Intel 8088 CPU (selected work: firmware, tools, the project root)",
+ "repos": [
+  {
+   "repo": "8088-homebrew-computer",
+   "url": "https://github.com/i-melnichenko/8088-homebrew-computer",
+   "sha": "f3fd9cc9a3a1469b297bce765f2a81e99967bcd0",
+   "licence": "MIT (LICENSE file at pin f3fd9cc9a3a1, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T20:26Z",
+    "consent_receipt": "433e00921a6e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T20:26Z (receipt 433e00921a6e); selected commit f3fd9cc9a3a1: \"Add MS-DOS 2.0 support (#10)\". LICENSE file at pin f3fd9cc9a3a1 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

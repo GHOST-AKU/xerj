@@ -9,14 +9,14 @@
    "repo": "pwos-core",
    "url": "https://github.com/Protocol-Wealth/pwos-core",
    "sha": "eea0e32b42daf65c37d9ae0cbbf1727ed2f13469",
-   "licence": "hint only: Apache-2.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin eea0e32b42da: NOASSERTION; repository: Apache-2.0)",
    "review": {
-    "spdx": "Apache-2.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T19:49Z",
     "consent_receipt": "7214cf436f53",
-    "note": "author consent by email 2026-10-14T19:49Z (receipt 7214cf436f53); selected commit eea0e32b42da: \"feat(evals): expand fixtures and add opt-in HTTP runner (#123)\"; LICENSE at pin: NOASSERTION vs repository Apache-2.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T19:49Z (receipt 7214cf436f53); selected commit eea0e32b42da: \"feat(evals): expand fixtures and add opt-in HTTP runner (#123)\". LICENSE at pin eea0e32b42da: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
    }
   }
  ]

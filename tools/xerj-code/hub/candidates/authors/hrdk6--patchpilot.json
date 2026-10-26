@@ -1,0 +1,23 @@
+{
+ "corpus": "hrdk6--patchpilot",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how hrdk6/PatchPilot implements it: hrdk6/PatchPilot (Python) (selected work: apps/web)",
+ "repos": [
+  {
+   "repo": "PatchPilot",
+   "url": "https://github.com/hrdk6/PatchPilot",
+   "sha": "8d71daa71e3cb99882429cb44cdf08009c065e0a",
+   "licence": "MIT (LICENSE file at pin 8d71daa71e3c, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T18:45Z",
+    "consent_receipt": "08bb5888befd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T18:45Z (receipt 08bb5888befd); selected commit 8d71daa71e3c: \"Redesign the dashboard around a flight-path metaphor\". LICENSE file at pin 8d71daa71e3c detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

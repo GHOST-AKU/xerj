@@ -1,0 +1,23 @@
+{
+ "corpus": "cblackler19--shox-rr-decomp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how cblackler19/shox-rr-decomp implements it: Byte-matched decompilation of Shox: Rally Reinvented for the PS2 (selected work: tools, the project root, config)",
+ "repos": [
+  {
+   "repo": "shox-rr-decomp",
+   "url": "https://github.com/cblackler19/shox-rr-decomp",
+   "sha": "c2e1424882b207d2b41f4c789b499d7311ea4685",
+   "licence": "MIT (LICENSE file at pin c2e1424882b2, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T15:01Z",
+    "consent_receipt": "612db9889058",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T15:01Z (receipt 612db9889058); selected commit c2e1424882b2: \"build: migrate SN Systems toolchain to Linux via Docker and Wine\". LICENSE file at pin c2e1424882b2 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

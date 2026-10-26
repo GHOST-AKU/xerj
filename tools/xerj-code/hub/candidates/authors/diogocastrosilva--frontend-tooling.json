@@ -1,0 +1,23 @@
+{
+ "corpus": "diogocastrosilva--frontend-tooling",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on JavaScript queries this for how DiogoCastroSilva/frontend-tooling implements it: DiogoCastroSilva/frontend-tooling (JavaScript) (selected work: packages/eslint-config)",
+ "repos": [
+  {
+   "repo": "frontend-tooling",
+   "url": "https://github.com/DiogoCastroSilva/frontend-tooling",
+   "sha": "6a87e5e6400a88206c1721d0bdfc62a108808b49",
+   "licence": "MIT (LICENSE file at pin 6a87e5e6400a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T22:27Z",
+    "consent_receipt": "df82afdd4cb9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T22:27Z (receipt df82afdd4cb9); selected commit 6a87e5e6400a: \"improve: add type-checked preset, negative tests, and docs\". LICENSE file at pin 6a87e5e6400a detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

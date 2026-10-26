@@ -1,0 +1,23 @@
+{
+ "corpus": "hossam9k--masaudit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on android, flutter, ios queries this for how hossam9k/masaudit implements it: Free mobile security scanner that scales its advice to your app's risk. Android, iOS, React Native, Kotlin Multiplatform, or Flutter app (selected work: src/masaudit, tests)",
+ "repos": [
+  {
+   "repo": "masaudit",
+   "url": "https://github.com/hossam9k/masaudit",
+   "sha": "632f8775bcd92825dccd53b01829fef6ecc1f301",
+   "licence": "Apache-2.0 (LICENSE file at pin 632f8775bcd9, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T02:10Z",
+    "consent_receipt": "522ad18a688f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T02:10Z (receipt 522ad18a688f); selected commit 632f8775bcd9: \"Harden 0.5.0 from code review: crashes, linear time, React Native docs\". LICENSE file at pin 632f8775bcd9 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

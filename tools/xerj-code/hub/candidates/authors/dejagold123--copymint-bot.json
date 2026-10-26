@@ -1,0 +1,23 @@
+{
+ "corpus": "dejagold123--copymint-bot",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how dejagold123/copymint-bot implements it: dejagold123/copymint-bot (Python) (selected work: the project root, tests)",
+ "repos": [
+  {
+   "repo": "copymint-bot",
+   "url": "https://github.com/dejagold123/copymint-bot",
+   "sha": "74bca5729aab156ef5c0e372b1f7acaea0859876",
+   "licence": "MIT (LICENSE file at pin 74bca5729aab, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T18:39Z",
+    "consent_receipt": "51f6a6d3abc4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:39Z (receipt 51f6a6d3abc4); selected commit 74bca5729aab: \"Check each wallet's own drop phase instead of the source signature.\". LICENSE file at pin 74bca5729aab detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

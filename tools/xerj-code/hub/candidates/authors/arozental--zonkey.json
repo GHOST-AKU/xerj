@@ -1,0 +1,23 @@
+{
+ "corpus": "arozental--zonkey",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how ARozental/Zonkey implements it: ARozental/Zonkey (Python) (selected work: configs, tests, models)",
+ "repos": [
+  {
+   "repo": "Zonkey",
+   "url": "https://github.com/ARozental/Zonkey",
+   "sha": "54462b3e307b3a98a148fa1fd26e4d9ff712454c",
+   "licence": "MIT (LICENSE file at pin 54462b3e307b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:52Z",
+    "consent_receipt": "fdd493cdb2d5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:52Z (receipt fdd493cdb2d5); selected commit 54462b3e307b: \"Hard negatives at every level >= 1 without the O(batch^2) memory; 3-l\u2026\". LICENSE file at pin 54462b3e307b detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

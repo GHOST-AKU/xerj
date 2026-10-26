@@ -1,0 +1,23 @@
+{
+ "corpus": "rupertgermann--ai-image-aura",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on image-generation, react, typescript queries this for how rupertgermann/ai-image-aura implements it: Local-first AI image studio with OpenAI, Google, and local models. Batch generation, Autopilot prompt refinement, layered editing, cost trac (selected work: e2e, src/archive, src/lineage)",
+ "repos": [
+  {
+   "repo": "ai-image-aura",
+   "url": "https://github.com/rupertgermann/ai-image-aura",
+   "sha": "efb38afcafc4ae4c5e5e0c888672785748abeaa6",
+   "licence": "MIT (LICENSE file at pin efb38afcafc4, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T15:54Z",
+    "consent_receipt": "c868d52e197e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T15:54Z (receipt c868d52e197e); selected commit efb38afcafc4: \"fix: preserve image work and replay across failures (#166)\". LICENSE file at pin efb38afcafc4 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

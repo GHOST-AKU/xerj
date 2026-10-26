@@ -1,0 +1,23 @@
+{
+ "corpus": "seshakiran--bookorbit-reading-stack",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on audiobooks, audiobookshelf, bookorbit queries this for how seshakiran/bookorbit-reading-stack implements it: Self-hosted reading stack: native Apple Silicon Mac, Linux Compose, audiobooks, KOReader handwriting guides, and a roadmap for ink sync and  (selected work: scripts, patches)",
+ "repos": [
+  {
+   "repo": "bookorbit-reading-stack",
+   "url": "https://github.com/seshakiran/bookorbit-reading-stack",
+   "sha": "b7ef0922bc28511e250090e54d93cb445fd03dcf",
+   "licence": "MIT (LICENSE file at pin b7ef0922bc28, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T03:33Z",
+    "consent_receipt": "b2d096ff76eb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T03:33Z (receipt b2d096ff76eb); selected commit b7ef0922bc28: \"Add reproducible BookOrbit dashboard Z-Library search integration\". LICENSE file at pin b7ef0922bc28 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

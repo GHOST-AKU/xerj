@@ -1,0 +1,23 @@
+{
+ "corpus": "yanmasharski--macspacetidy",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on developer-tools, disk-space, external-drive queries this for how yanmasharski/MacSpaceTidy implements it: Free up disk space on a Mac with small storage: clean caches, move big folders to an external SSD behind a link. SwiftUI app and terminal UI (selected work: Sources, Tests)",
+ "repos": [
+  {
+   "repo": "MacSpaceTidy",
+   "url": "https://github.com/yanmasharski/MacSpaceTidy",
+   "sha": "4c474acbb3c4a2125b8122ffab065c7862ba8fd6",
+   "licence": "MIT (LICENSE file at pin 4c474acbb3c4, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T20:50Z",
+    "consent_receipt": "0d4e4fb655e0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T20:50Z (receipt 0d4e4fb655e0); selected commit 4c474acbb3c4: \"Find build folders of projects and send them to the Trash with checks\". LICENSE file at pin 4c474acbb3c4 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

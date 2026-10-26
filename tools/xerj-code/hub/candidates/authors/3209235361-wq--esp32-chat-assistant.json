@@ -1,0 +1,23 @@
+{
+ "corpus": "3209235361-wq--esp32-chat-assistant",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on C queries this for how 3209235361-wq/Esp32-chat-assistant implements it: AI chat assitant:talk to microphone,and ai will able to reply to you in multiple voices as well as you can control some devices(like motor,l (selected work: components, main)",
+ "repos": [
+  {
+   "repo": "Esp32-chat-assistant",
+   "url": "https://github.com/3209235361-wq/Esp32-chat-assistant",
+   "sha": "bb34f698b427d1f6f6caae212007d2c16b5aab11",
+   "licence": "MIT (LICENSE file at pin bb34f698b427, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T17:40Z",
+    "consent_receipt": "54207b32fc24",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T17:40Z (receipt 54207b32fc24); selected commit bb34f698b427: \"Refine\". LICENSE file at pin bb34f698b427 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head bb34f698b427 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

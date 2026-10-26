@@ -1,0 +1,23 @@
+{
+ "corpus": "sameeralam3127--llm-dev-kit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on chromadb, docker-compose, fastapi queries this for how sameeralam3127/llm-dev-kit implements it: Local-first, self-hosted LLM workspace: Next.js chat, RAG over your PDFs, Ollama offline or cloud models via LiteLLM, MCP tools, and a plugi (selected work: web)",
+ "repos": [
+  {
+   "repo": "llm-dev-kit",
+   "url": "https://github.com/sameeralam3127/llm-dev-kit",
+   "sha": "759dd05a8bbbbb10924ecf17186186b06ab5aa53",
+   "licence": "MIT (LICENSE file at pin 759dd05a8bbb, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T18:26Z",
+    "consent_receipt": "bfe6919567d1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T18:26Z (receipt bfe6919567d1); selected commit 759dd05a8bbb: \"feat(admin): add overview and API key management features\". LICENSE file at pin 759dd05a8bbb detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

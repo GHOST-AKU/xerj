@@ -1,0 +1,23 @@
+{
+ "corpus": "vafabara--photograde",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how vafabara/Photograde implements it: A modern Python desktop application for organizing student photos, reviewing EXIF metadata, and building a foundation for smart photography  (selected work: app/gui)",
+ "repos": [
+  {
+   "repo": "Photograde",
+   "url": "https://github.com/vafabara/Photograde",
+   "sha": "07736e34364ccc9a00cba7b9d6346b9cf3efbbb9",
+   "licence": "MIT (LICENSE file at pin 07736e34364c, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:40Z",
+    "consent_receipt": "97b35e4ccd0b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:40Z (receipt 97b35e4ccd0b); selected commit 07736e34364c: \"new GUI\". LICENSE file at pin 07736e34364c detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 07736e34364c (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

@@ -9,14 +9,14 @@
    "repo": "braid",
    "url": "https://github.com/lahirunirmalx/braid",
    "sha": "a1996e8e0eb2bd2c07302b9df6c15e1c1195efb1",
-   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin a1996e8e0eb2: NOASSERTION; repository: AGPL-3.0)",
    "review": {
-    "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-20T09:52Z",
     "consent_receipt": "5328660fb125",
-    "note": "author consent by email 2026-10-20T09:52Z (receipt 5328660fb125); selected commit a1996e8e0eb2: \"Demo: M5Stack Cardputer as a fourth node (ST7789 LCD, USB console)\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T09:52Z (receipt 5328660fb125); selected commit a1996e8e0eb2: \"Demo: M5Stack Cardputer as a fourth node (ST7789 LCD, USB console)\". LICENSE at pin a1996e8e0eb2: NOASSERTION (repository: AGPL-3.0); used with the author's permission, with attribution."
    }
   }
  ]

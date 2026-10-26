@@ -1,0 +1,23 @@
+{
+ "corpus": "adanwilliamdev--burger-pizza-house",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how adanwilliamdev/Burger-Pizza-House implements it: O Burger & Pizza House ERP \u00e9 uma aplica\u00e7\u00e3o full stack desenvolvida para centralizar a opera\u00e7\u00e3o de pizzarias e hamburguerias (selected work: src/test, src/main, the project root)",
+ "repos": [
+  {
+   "repo": "Burger-Pizza-House",
+   "url": "https://github.com/adanwilliamdev/Burger-Pizza-House",
+   "sha": "a675b147afa176f9888b3c4e3ace7a00bb751fde",
+   "licence": "MIT (LICENSE file at pin a675b147afa1, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T20:26Z",
+    "consent_receipt": "f3427060f6d7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T20:26Z (receipt f3427060f6d7); selected commit a675b147afa1: \"Atualiza\u00e7\u00e3o\". LICENSE file at pin a675b147afa1 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

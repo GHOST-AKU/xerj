@@ -1,0 +1,23 @@
+{
+ "corpus": "zidan44--mailcraft",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on artcraft, egui, email queries this for how ZIDAN44/mailcraft implements it: An open-source, clean-room, local-first alternative to Microsoft Outlook in pure Rust (selected work: crates/mime, crates/ui-egui, crates/engine)",
+ "repos": [
+  {
+   "repo": "mailcraft",
+   "url": "https://github.com/ZIDAN44/mailcraft",
+   "sha": "249b9f7e7142fd44bd2e4b35c975b3a995828ebc",
+   "licence": "author's permission (LICENSE at pin 249b9f7e7142: NOASSERTION; repository: Apache-2.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T20:19Z",
+    "consent_receipt": "21c5d58ad22a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:19Z (receipt 21c5d58ad22a); selected commit 249b9f7e7142: \"Reading: bring out the text a message hides from its reader\". LICENSE at pin 249b9f7e7142: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

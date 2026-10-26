@@ -1,0 +1,23 @@
+{
+ "corpus": "theammarngp-makes--monthly-revenue-growth-analysis",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on Jupyter Notebook queries this for how theammarngp-makes/monthly-revenue-growth-analysis implements it: Monthly revenue growth analysis using SQL, Python validation, and Tableau to track monthly performance, MoM, and decline diagnostics (selected work: sql, python, dashboard)",
+ "repos": [
+  {
+   "repo": "monthly-revenue-growth-analysis",
+   "url": "https://github.com/theammarngp-makes/monthly-revenue-growth-analysis",
+   "sha": "9bac1c57c44777e95410ce74f900d90536961557",
+   "licence": "MIT (LICENSE file at pin 9bac1c57c447, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:04Z",
+    "consent_receipt": "378fbf3180d6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:04Z (receipt 378fbf3180d6); selected commit 9bac1c57c447: \"feat: publish monthly revenue growth analysis\". LICENSE file at pin 9bac1c57c447 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "ilyasbozdemir--workdesk-360",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on desktop-app, electron, electron-vite queries this for how ilyasbozdemir/workdesk-360 implements it: Do\u011frudan temin, ihale ve hakedi\u015f s\u00fcre\u00e7lerinin matbu belgelerini tek t\u0131kla haz\u0131rlayan, a\u00e7\u0131k kaynakl\u0131 masa\u00fcst\u00fc uygulamas\u0131 (selected work: apps/app-desktop, packages/document-templates, packages/database)",
+ "repos": [
+  {
+   "repo": "temin-360-app",
+   "url": "https://github.com/ilyasbozdemir/temin-360-app",
+   "sha": "7ad1b0a05c2891c466a1fc0ec3b928a18031ae19",
+   "licence": "author's permission (LICENSE at pin 7ad1b0a05c28: AGPL-3.0; repository: NOASSERTION)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T05:19Z",
+    "consent_receipt": "b3e2b297e77c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T05:19Z (receipt b3e2b297e77c); selected commit 7ad1b0a05c28: \"feat: add commission assignment components and document workflow sett\u2026\". LICENSE at pin 7ad1b0a05c28: AGPL-3.0 (repository: NOASSERTION); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

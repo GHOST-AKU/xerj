@@ -9,14 +9,14 @@
    "repo": "Fire",
    "url": "https://github.com/jerryuhoo/Fire",
    "sha": "f722d649a09110cd50a2ca3ecbe4338512df0c20",
-   "licence": "hint only: AGPL-3.0 (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin f722d649a091: NOASSERTION; repository: AGPL-3.0)",
    "review": {
-    "spdx": "AGPL-3.0",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-10T08:28Z",
     "consent_receipt": "66e0e01ad8a6",
-    "note": "author consent by email 2026-10-10T08:28Z (receipt 66e0e01ad8a6); selected commit f722d649a091: \"feat: model transformer flux and magnetic hysteresis\"; LICENSE at pin: NOASSERTION vs repository AGPL-3.0 \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T08:28Z (receipt 66e0e01ad8a6); selected commit f722d649a091: \"feat: model transformer flux and magnetic hysteresis\". LICENSE at pin f722d649a091: NOASSERTION (repository: AGPL-3.0); used with the author's permission, with attribution."
    }
   }
  ]

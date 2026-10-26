@@ -1,0 +1,23 @@
+{
+ "corpus": "felipecrs--volume-locker",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on mic, rust, volume queries this for how felipecrs/volume-locker implements it: A tray icon app that keeps the volume of your audio devices locked and manages your default audio devices based on a priority list (selected work: src/ui, src/audio, src/config)",
+ "repos": [
+  {
+   "repo": "volume-locker",
+   "url": "https://github.com/felipecrs/volume-locker",
+   "sha": "f0763beeb3fcb0cd8c7674263a2046333b4980ab",
+   "licence": "MIT (LICENSE file at pin f0763beeb3fc, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T19:55Z",
+    "consent_receipt": "d305e94b5dc2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T19:55Z (receipt d305e94b5dc2); selected commit f0763beeb3fc: \"feat: independent communication priorities for output and input (#176)\". LICENSE file at pin f0763beeb3fc detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

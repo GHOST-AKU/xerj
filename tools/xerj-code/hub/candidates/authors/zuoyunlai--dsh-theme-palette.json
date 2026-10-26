@@ -1,0 +1,23 @@
+{
+ "corpus": "zuoyunlai--dsh-theme-palette",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on deepseek-harness, dsh-plugin, oklch queries this for how zuoyunlai/dsh-theme-palette implements it: DSH \u4e3b\u9898\u914d\u8272\u63d2\u4ef6\uff1a4 \u5957\u914d\u8272 \u00d7 \u660e\u6697\u4e24\u6a21\u5f0f\uff0cOKLCH \u8272\u57df\u94b3\u4f4d + \u771f\u5b9e\u627f\u8f7d\u9762\u5bf9\u6bd4\u5ea6\u6c42\u89e3 (selected work: the project root, tools)",
+ "repos": [
+  {
+   "repo": "dsh-theme-palette",
+   "url": "https://github.com/zuoyunlai/dsh-theme-palette",
+   "sha": "10fe0a729ce9bccb3dce65fd713b27788164e4f2",
+   "licence": "MIT (LICENSE file at pin 10fe0a729ce9, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T03:59Z",
+    "consent_receipt": "be4d104f424d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T03:59Z (receipt be4d104f424d); selected commit 10fe0a729ce9: \"feat(ui): \u5bf9\u6bd4\u5ea6\u77e9\u9635\u9762\u677f\uff08\u7ade\u54c1\u5dee\u8ddd R1\uff09\u2014\u2014\u628a\u62a4\u57ce\u6cb3\u53d8\u6210\u754c\u9762\". LICENSE file at pin 10fe0a729ce9 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

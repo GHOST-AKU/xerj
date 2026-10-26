@@ -3,20 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on android, jetpack-compose, kotlin queries this for how JulenCasajus/RankOffline implements it: A private, customizable Android app for rating and ranking your favorite media \u2014 without an account or cloud-stored ratings (selected work: app/src, app/schemas)",
+ "domain": "an agent working on android, jetpack-compose, kotlin queries this for how JulenCasajus/RankOffline implements it: A privacy-friendly, open-source Android app to rate and rank anime, manga, movies, TV series and books offline (selected work: app/src, app/schemas)",
  "repos": [
   {
    "repo": "RankOffline",
    "url": "https://github.com/JulenCasajus/RankOffline",
-   "sha": "3f0ee57161b5e44f9fbc6ccd6358e456ce1a5565",
-   "licence": "GPL-3.0 (LICENSE file at pin 3f0ee57161b5, GitHub licence API 2026-10-26)",
+   "sha": "6253c1f4ac9ab77f70de40608183bab77a2bb4f9",
+   "licence": "GPL-3.0 (LICENSE file at pin 6253c1f4ac9a, GitHub licence API 2026-10-26)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-23T10:31Z",
     "consent_receipt": "cac3250cc552",
-    "note": "Inclusion consented by the commit author by email at 2026-10-23T10:31Z (receipt cac3250cc552); selected commit 3f0ee57161b5: \"Sixth commit: Add configurable elaborate rating profiles\". LICENSE file at pin 3f0ee57161b5 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 3f0ee57161b5 (contains the selected commit): the LICENSE at the selected commit was MIT."
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T10:31Z (receipt cac3250cc552); selected commit 6253c1f4ac9a: \"Sixth commit: Add configurable elaborate rating profiles\". LICENSE file at pin 6253c1f4ac9a detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 6253c1f4ac9a (contains the selected commit): the LICENSE at the selected commit was MIT."
    }
   }
  ]

@@ -1,0 +1,23 @@
+{
+ "corpus": "bujosa--uso",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, claude, cursor queries this for how bujosa/uso implements it: Uso, a macOS menu bar app that shows remaining usage for Grok, Cursor, Codex, Claude, and OpenCode (selected work: Sources, Tests, the project root)",
+ "repos": [
+  {
+   "repo": "uso",
+   "url": "https://github.com/bujosa/uso",
+   "sha": "c77f8872284061ebba1fea3fb00cab3d305e06cf",
+   "licence": "MIT (LICENSE file at pin c77f88722840, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T04:11Z",
+    "consent_receipt": "845c1c4dabad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T04:11Z (receipt 845c1c4dabad); selected commit c77f88722840: \"feat: add Muse Code and account settings for Uso 1.1.0\". LICENSE file at pin c77f88722840 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

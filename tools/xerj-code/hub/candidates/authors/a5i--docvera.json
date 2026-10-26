@@ -1,0 +1,23 @@
+{
+ "corpus": "a5i--docvera",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent, agentic-workflow, claude-code queries this for how a5i/docvera implements it: Use docvera as a document-validation layer in an AI agent harness: check generated Markdown against schemas, validate cross-document referen (selected work: crates/md-engine, npm, crates/md-cli)",
+ "repos": [
+  {
+   "repo": "docvera",
+   "url": "https://github.com/a5i/docvera",
+   "sha": "a596bf1e0bbb72b105ac7aa71c8d4d9ab1b84fd9",
+   "licence": "MIT (LICENSE file at pin a596bf1e0bbb, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T22:56Z",
+    "consent_receipt": "b004a5d7046a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T22:56Z (receipt b004a5d7046a); selected commit a596bf1e0bbb: \"feat: add reusable checker and generated JSON Schema contracts\". LICENSE file at pin a596bf1e0bbb detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

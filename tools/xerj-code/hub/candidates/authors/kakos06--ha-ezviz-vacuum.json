@@ -1,0 +1,23 @@
+{
+ "corpus": "kakos06--ha-ezviz-vacuum",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on ezviz, hacs, home-assistant queries this for how KAkos06/ha-ezviz-vacuum implements it: Home Assistant integration for EZVIZ robot vacuums with cloud polling, cleaning controls and maintenance counters (selected work: custom_components, tests)",
+ "repos": [
+  {
+   "repo": "ha-ezviz-vacuum",
+   "url": "https://github.com/KAkos06/ha-ezviz-vacuum",
+   "sha": "aab63e53cc60b0df869b4e63a31d3e2703c49110",
+   "licence": "MIT (LICENSE file at pin aab63e53cc60, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T17:35Z",
+    "consent_receipt": "6be44fb8e764",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T17:35Z (receipt 6be44fb8e764); selected commit aab63e53cc60: \"Fix live vacuum control and add verified accessory settings (v0.6.0) \u2026\". LICENSE file at pin aab63e53cc60 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

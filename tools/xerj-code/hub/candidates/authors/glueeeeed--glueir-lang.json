@@ -1,0 +1,23 @@
+{
+ "corpus": "glueeeeed--glueir-lang",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how Glueeeeed/GlueIR_Lang implements it: A minimalist procedural programming language compiled to LLVM IR (selected work: src/codegen)",
+ "repos": [
+  {
+   "repo": "GlueIR_Lang",
+   "url": "https://github.com/Glueeeeed/GlueIR_Lang",
+   "sha": "ae674adfc5fae8e057ec36fba292ae90cefd5653",
+   "licence": "MIT (LICENSE file at pin ae674adfc5fa, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T20:41Z",
+    "consent_receipt": "b813bf8345e2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T20:41Z (receipt b813bf8345e2); selected commit ae674adfc5fa: \"feat: add codegen support for nullable variables and expressions\". LICENSE file at pin ae674adfc5fa detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "zm-bad--dag-chat",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on deepseek, fastapi, kimi queries this for how ZM-BAD/DAG-chat implements it: Chat applications that use DAG to build question-answer relationships (selected work: backend)",
+ "repos": [
+  {
+   "repo": "DAG-chat",
+   "url": "https://github.com/ZM-BAD/DAG-chat",
+   "sha": "86cb95768d483adf5526f2fd9c33f7a9b2caf429",
+   "licence": "MIT (LICENSE file at pin 86cb95768d48, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T06:59Z",
+    "consent_receipt": "3f1773bd12a4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T06:59Z (receipt 3f1773bd12a4); selected commit 86cb95768d48: \"feat(llm): update models and provider adapters\". LICENSE file at pin 86cb95768d48 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

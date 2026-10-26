@@ -1,0 +1,23 @@
+{
+ "corpus": "xioaisolutions--crumb-format",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agent-tools, ai-agents, ai-handbook queries this for how XioAISolutions/crumb-format implements it: CRUMB is the copy-paste AI handoff format. Switch AIs without losing the plot (selected work: experiments)",
+ "repos": [
+  {
+   "repo": "crumb-format",
+   "url": "https://github.com/XioAISolutions/crumb-format",
+   "sha": "29f96d8f4f809285f4b558bbdd7b72ebb97a6b36",
+   "licence": "MIT (LICENSE file at pin 29f96d8f4f80, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T03:27Z",
+    "consent_receipt": "02f30b475a79",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T03:27Z (receipt 02f30b475a79); selected commit 29f96d8f4f80: \"wavefield: c01s 180 s + c01t 300 s receipts \u2014 prompt-chunk patch GPU-\u2026\". LICENSE file at pin 29f96d8f4f80 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

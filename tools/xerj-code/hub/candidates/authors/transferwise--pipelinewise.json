@@ -1,0 +1,23 @@
+{
+ "corpus": "transferwise--pipelinewise",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how transferwise/pipelinewise implements it: Data Pipeline Framework using the singer.io spec (selected work: tests, pipelinewise)",
+ "repos": [
+  {
+   "repo": "pipelinewise",
+   "url": "https://github.com/transferwise/pipelinewise",
+   "sha": "d236c8b759ca7a5319678883f073dac02d2cfc95",
+   "licence": "Apache-2.0 (LICENSE file at pin d236c8b759ca, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T08:33Z",
+    "consent_receipt": "492284b65580",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T08:33Z (receipt 492284b65580); selected commit d236c8b759ca: \"[AP-3450] add tap_info command to get some information about the tap \u2026\". LICENSE file at pin d236c8b759ca detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

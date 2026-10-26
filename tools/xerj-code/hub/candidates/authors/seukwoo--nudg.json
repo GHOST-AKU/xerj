@@ -1,0 +1,23 @@
+{
+ "corpus": "seukwoo--nudg",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-native, animation, interaction-design queries this for how seukwoo/nudg implements it: The interaction format your AI can nudge (selected work: examples, demo, src/core)",
+ "repos": [
+  {
+   "repo": "nudg",
+   "url": "https://github.com/seukwoo/nudg",
+   "sha": "4f094f4999908a8e08a7643dd7f303e6ffbb2dd5",
+   "licence": "MIT (LICENSE file at pin 4f094f499990, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T04:24Z",
+    "consent_receipt": "2e2ec428c6d7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T04:24Z (receipt 2e2ec428c6d7); selected commit 4f094f499990: \"fix: make video call recover from device denial (#55)\". LICENSE file at pin 4f094f499990 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

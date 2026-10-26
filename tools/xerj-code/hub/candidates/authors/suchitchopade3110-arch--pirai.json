@@ -1,0 +1,23 @@
+{
+ "corpus": "suchitchopade3110-arch--pirai",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on Python queries this for how suchitchopade3110-arch/PIRAI-- implements it: **Vulnerability Description:** The system addresses **prompt injection and jailbreak vulnerabilities in AI agents**, where a malicious user  (selected work: governance, tests, the project root)",
+ "repos": [
+  {
+   "repo": "PIRAI--",
+   "url": "https://github.com/suchitchopade3110-arch/PIRAI--",
+   "sha": "150bdca41ce786e7b87964c80048c2405becabe0",
+   "licence": "Apache-2.0 (LICENSE file at pin 150bdca41ce7, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T14:10Z",
+    "consent_receipt": "c93b1772a570",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T14:10Z (receipt c93b1772a570); selected commit 150bdca41ce7: \"Complete accountability and governance layer\". LICENSE file at pin 150bdca41ce7 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

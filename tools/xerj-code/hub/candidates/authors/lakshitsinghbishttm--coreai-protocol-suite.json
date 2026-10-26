@@ -1,0 +1,23 @@
+{
+ "corpus": "lakshitsinghbishttm--coreai-protocol-suite",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on artificial-intelligence, large-language-models queries this for how LakshitSinghBishtTM/CoreAI-Protocol-Suite implements it: Enterprise-grade LLM routing and agent orchestration framework for production AI systems! (selected work: tests, coreai, deploy)",
+ "repos": [
+  {
+   "repo": "CoreAI-Protocol-Suite",
+   "url": "https://github.com/LakshitSinghBishtTM/CoreAI-Protocol-Suite",
+   "sha": "d13154e1d9407fb7b8d84721d3577a4d6d6d6c12",
+   "licence": "GPL-3.0 (LICENSE file at pin d13154e1d940, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-25T09:25Z",
+    "consent_receipt": "3de50e9930ed",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T09:25Z (receipt 3de50e9930ed); selected commit d13154e1d940: \"Patch 3\". LICENSE file at pin d13154e1d940 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

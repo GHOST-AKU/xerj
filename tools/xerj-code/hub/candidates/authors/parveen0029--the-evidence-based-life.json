@@ -1,0 +1,23 @@
+{
+ "corpus": "parveen0029--the-evidence-based-life",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "HEALTH",
+ "domain": "an agent working on claude-code, decision-making, ebook queries this for how parveen0029/The-Evidence-Based-Life implements it: Stop guessing with your life. 765 peer-reviewed rules for health, money, legal boundaries, and emergency survival with zero fluff (selected work: the project root, tools)",
+ "repos": [
+  {
+   "repo": "The-Evidence-Based-Life",
+   "url": "https://github.com/parveen0029/The-Evidence-Based-Life",
+   "sha": "09476305b4c2c0f0b8ec4018da3904918a9c217f",
+   "licence": "author's permission (LICENSE at pin 09476305b4c2: NOASSERTION; repository: CC-BY-4.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T01:57Z",
+    "consent_receipt": "c0e76f647887",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T01:57Z (receipt c0e76f647887); selected commit 09476305b4c2: \"feat(webapp): add updates tracking engine, recently updated badges, a\u2026\". LICENSE at pin 09476305b4c2: NOASSERTION (repository: CC-BY-4.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

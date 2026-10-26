@@ -1,0 +1,23 @@
+{
+ "corpus": "memexpert--umcub",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on C queries this for how memExpert/umcub implements it: Portable MCUboot-based bootloader for STM32. A single config header selects the series, upgrade mode and transports (UART, USB CDC/DFU via t (selected work: tests, src/image)",
+ "repos": [
+  {
+   "repo": "umcub",
+   "url": "https://github.com/memExpert/umcub",
+   "sha": "4dda6a5930539ccd7d0064cb28c9df190c7bd682",
+   "licence": "Apache-2.0 (LICENSE file at pin 4dda6a593053, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T09:03Z",
+    "consent_receipt": "36151e3c8225",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T09:03Z (receipt 36151e3c8225); selected commit 4dda6a593053: \"Encrypted upload into image 1's primary slot refused\". LICENSE file at pin 4dda6a593053 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

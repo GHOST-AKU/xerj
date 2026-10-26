@@ -2,8 +2,8 @@
  "corpus": "momenkamalx--remember-me",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on Rust queries this for how momenkamalx/remember-me- implements it: momenkamalx/remember-me- (Rust) (selected work: ui, src-tauri, the project root)",
+ "shelf": "WEB",
+ "domain": "an agent working on Rust queries this for how momenkamalx/remember-me- implements it: A reminder app for windows and linux with browser extensions TRY IT :) (selected work: ui, src-tauri, the project root)",
  "repos": [
   {
    "repo": "remember-me-",

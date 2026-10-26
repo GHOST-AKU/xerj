@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on dart, either-monad, either queries this for how hoc081098/dart_either implements it: Type-safe, lightweight Either monad for Dart and Flutter with railway-oriented error handling, sync/async monad comprehensions, and async ma (selected work: test, lib/src, example)",
+ "domain": "an agent working on dart, either-monad, either queries this for how hoc081098/dart_either implements it: [\ud83d\udfe2 ACTIVE] Type-safe, lightweight Either monad for Dart and Flutter with railway-oriented error handling, sync/async monad comprehensions, a (selected work: test, lib/src, example)",
  "repos": [
   {
    "repo": "dart_either",

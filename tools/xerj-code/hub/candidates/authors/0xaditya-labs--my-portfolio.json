@@ -1,0 +1,23 @@
+{
+ "corpus": "0xaditya-labs--my-portfolio",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how 0xAditya-Labs/My_Portfolio implements it: Making my portfolio website (selected work: src/components, src/hooks)",
+ "repos": [
+  {
+   "repo": "My_Portfolio",
+   "url": "https://github.com/0xAditya-Labs/My_Portfolio",
+   "sha": "4c18ca9098eddea822ccc547b2032f9fe9e36fa7",
+   "licence": "MIT (LICENSE file at pin 4c18ca9098ed, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T01:57Z",
+    "consent_receipt": "374a85f1034b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T01:57Z (receipt 374a85f1034b); selected commit 4c18ca9098ed: \"placing globe at right position\". LICENSE file at pin 4c18ca9098ed detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

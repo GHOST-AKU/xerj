@@ -1,0 +1,23 @@
+{
+ "corpus": "shvirlok--tokenguard",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agent, ai-agents, anthropic queries this for how Shvirlok/TokenGuard implements it: Zero-config local proxy and circuit breaker for LLM agents. Stops runaway loops, tracks micro-costs and prevents API credit drains. 100% loc (selected work: tokenguard, tests, proxy)",
+ "repos": [
+  {
+   "repo": "TokenGuard",
+   "url": "https://github.com/Shvirlok/TokenGuard",
+   "sha": "769830a92e3a08d909aee3433a9c73bb548921c7",
+   "licence": "MIT (LICENSE file at pin 769830a92e3a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T21:50Z",
+    "consent_receipt": "ec804266e4ae",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T21:50Z (receipt ec804266e4ae); selected commit 769830a92e3a: \"Add zero-latency streaming and burn-rate circuit breaker\". LICENSE file at pin 769830a92e3a detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

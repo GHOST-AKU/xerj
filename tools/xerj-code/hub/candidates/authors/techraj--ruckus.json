@@ -1,0 +1,23 @@
+{
+ "corpus": "techraj--ruckus",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how TechRaj/ruckus implements it: Share a reel, get a pin. An iOS app that turns the places your friends send you into plans on a shared map (selected work: apps/mobile, supabase, packages/api)",
+ "repos": [
+  {
+   "repo": "ruckus",
+   "url": "https://github.com/TechRaj/ruckus",
+   "sha": "3d24e975fce0e8eea4e538fb6ad0af6bdc827f83",
+   "licence": "MIT (LICENSE file at pin 3d24e975fce0, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T20:15Z",
+    "consent_receipt": "133308f6ba8b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:15Z (receipt 133308f6ba8b); selected commit 3d24e975fce0: \"Launch fixes from the pre-TestFlight bug hunt, and the new app icon\". LICENSE file at pin 3d24e975fce0 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

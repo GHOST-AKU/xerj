@@ -1,0 +1,30 @@
+{
+ "corpus": "sdcirri--src",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Java queries this for how sdcirri/src implements it: \ud835\udc46pring \ud835\udc45eact \ud835\udc36hat - an E2EE, cross-device chat that runs (almost) entirely in your browser (selected work: src/test, src/main)",
+ "repos": [
+  {
+   "repo": "src",
+   "url": "https://github.com/sdcirri/src",
+   "sha": "05b121593665dc2ecec12294941891b1c396e9b8",
+   "licence": "GPL-3.0 (LICENSE file at pin 05b121593665, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T09:56Z",
+    "consent_receipt": "c163d40805c6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T09:56Z (receipt c163d40805c6); selected commit 05b121593665: \"hibp lookup outside bean validation\". LICENSE file at pin 05b121593665 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "05b121593665dc2ecec12294941891b1c396e9b8",
+     "at": "2026-10-26T09:56Z",
+     "receipt": "c163d40805c6"
+    }
+   }
+  }
+ ]
+}

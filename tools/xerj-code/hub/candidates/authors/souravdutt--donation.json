@@ -1,0 +1,23 @@
+{
+ "corpus": "souravdutt--donation",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on charity, charity-donation-system, donation queries this for how souravdutt/donation implements it: Charity/Donation System in PHP/Laravel (selected work: tests, app/Http, the project root)",
+ "repos": [
+  {
+   "repo": "donation",
+   "url": "https://github.com/souravdutt/donation",
+   "sha": "21574ca3952d9ba05fe46c370e2327ba4e232422",
+   "licence": "MIT (LICENSE file at pin 21574ca3952d, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T03:36Z",
+    "consent_receipt": "70fd5af93740",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T03:36Z (receipt 70fd5af93740); selected commit 21574ca3952d: \"Upgrade Donation to patched Laravel 12 with billing compatibility tests\". LICENSE file at pin 21574ca3952d detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

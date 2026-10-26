@@ -9,14 +9,14 @@
    "repo": "cdors",
    "url": "https://github.com/koldunovn/cdors",
    "sha": "4d068989bdad9ab0f37f5b1852f10ceda7754a44",
-   "licence": "hint only: BSD-3-Clause (LICENSE at pin: NOASSERTION)",
+   "licence": "author's permission (LICENSE at pin 4d068989bdad: NOASSERTION; repository: BSD-3-Clause)",
    "review": {
-    "spdx": "BSD-3-Clause",
-    "use": "UNREVIEWED",
-    "by": "",
-    "at": "",
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:15Z",
     "consent_receipt": "dbb9bbba8929",
-    "note": "author consent by email 2026-10-22T07:15Z (receipt dbb9bbba8929); selected commit 4d068989bdad: \"Agent check, long-script task H2: the volume transport through Drake \u2026\"; LICENSE at pin: NOASSERTION vs repository BSD-3-Clause \u2014 needs a human licence review."
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:15Z (receipt dbb9bbba8929); selected commit 4d068989bdad: \"Agent check, long-script task H2: the volume transport through Drake \u2026\". LICENSE at pin 4d068989bdad: NOASSERTION (repository: BSD-3-Clause); used with the author's permission, with attribution."
    }
   }
  ]

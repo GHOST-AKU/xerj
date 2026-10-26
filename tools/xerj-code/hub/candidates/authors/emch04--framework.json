@@ -1,0 +1,23 @@
+{
+ "corpus": "emch04--framework",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how emch04/framework implements it: Astratra: a framework and a set of SDKs for building apps with AI built in (selected work: packages/agent, packages/conscience)",
+ "repos": [
+  {
+   "repo": "framework",
+   "url": "https://github.com/emch04/framework",
+   "sha": "f2e9d5cef31a16b5606188b42d4d8ed9a22d8f6d",
+   "licence": "MIT (LICENSE file at pin f2e9d5cef31a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T22:17Z",
+    "consent_receipt": "ebc46ee0d440",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T22:17Z (receipt ebc46ee0d440); selected commit f2e9d5cef31a: \"@astratra/agent 1.3.0 et @astratra/conscience 1.4.0 : intervalle alig\u2026\". LICENSE file at pin f2e9d5cef31a detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "ali-han-kaya--leibniz2",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how ali-han-kaya/leibniz2 implements it: ali-han-kaya/leibniz2 (Python) (selected work: _calisma)",
+ "repos": [
+  {
+   "repo": "leibniz2",
+   "url": "https://github.com/ali-han-kaya/leibniz2",
+   "sha": "5380ed06001eafb8dd7b385f05df5e7b8ca6fd55",
+   "licence": "author's permission (LICENSE at pin 5380ed06001e: NOASSERTION; repository: MIT)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T05:27Z",
+    "consent_receipt": "41860c979bea",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T05:27Z (receipt 41860c979bea); selected commit 5380ed06001e: \"feat(docker): PR-triggered Trivy scan with SARIF diff comment\". LICENSE at pin 5380ed06001e: NOASSERTION (repository: MIT); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

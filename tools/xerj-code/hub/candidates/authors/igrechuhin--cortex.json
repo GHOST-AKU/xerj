@@ -1,0 +1,23 @@
+{
+ "corpus": "igrechuhin--cortex",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how igrechuhin/Cortex implements it: igrechuhin/Cortex (Python) (selected work: tests, src/cortex, scripts)",
+ "repos": [
+  {
+   "repo": "Cortex",
+   "url": "https://github.com/igrechuhin/Cortex",
+   "sha": "4bac16949a8bca3d63fce50603ce3c90b20630c2",
+   "licence": "MIT (LICENSE file at pin 4bac16949a8b, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T09:34Z",
+    "consent_receipt": "8fab9782fc42",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T09:34Z (receipt 8fab9782fc42); selected commit 4bac16949a8b: \"feat: harden plan pipeline integrity and scoped context evidence\". LICENSE file at pin 4bac16949a8b detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

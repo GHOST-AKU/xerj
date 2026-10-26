@@ -1,0 +1,23 @@
+{
+ "corpus": "endymi0n74--koharu",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how Endymi0n74/Koharu implements it: Endymi0n74/Koharu (Rust) (selected work: crates/koharu-pipeline, crates/koharu-ml)",
+ "repos": [
+  {
+   "repo": "Koharu",
+   "url": "https://github.com/Endymi0n74/Koharu",
+   "sha": "50ff5f84660f8c2b39d29777a2b56e305e51f2e4",
+   "licence": "author's permission (LICENSE at pin 50ff5f84660f: NOASSERTION; repository: Apache-2.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:09Z",
+    "consent_receipt": "2922f4634ec0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:09Z (receipt 2922f4634ec0); selected commit 50ff5f84660f: \"perf(batch): rendu en parall\u00e8le, d\u00e9tection acc\u00e9l\u00e9r\u00e9e, mod\u00e8les \u00e9chauff\u2026\". LICENSE at pin 50ff5f84660f: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

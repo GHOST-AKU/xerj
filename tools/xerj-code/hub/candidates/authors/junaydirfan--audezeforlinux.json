@@ -1,0 +1,23 @@
+{
+ "corpus": "junaydirfan--audezeforlinux",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how junaydirfan/audezeforlinux implements it: The definitive native Linux companion and studio control suite for Audeze Maxwell 2 & 1 gaming headsets (selected work: maxwell2, the project root, tests)",
+ "repos": [
+  {
+   "repo": "audezeforlinux",
+   "url": "https://github.com/junaydirfan/audezeforlinux",
+   "sha": "b9ec94fe1e758d5536deded002697c75ab94152d",
+   "licence": "MIT (LICENSE file at pin b9ec94fe1e75, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T22:54Z",
+    "consent_receipt": "6718a51c0fb4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T22:54Z (receipt 6718a51c0fb4); selected commit b9ec94fe1e75: \"Implement complete firmware subsystem: container TLV parser, LZMA par\u2026\". LICENSE file at pin b9ec94fe1e75 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

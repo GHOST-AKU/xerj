@@ -1,0 +1,23 @@
+{
+ "corpus": "414226297--yugioh-md-calculator",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how 414226297/yugioh-md-calculator implements it: \u6e38\u620f\u738bMD\u8ba1\u7b97\u5668 (selected work: src/ui, src/desktop, scripts)",
+ "repos": [
+  {
+   "repo": "yugioh-md-calculator",
+   "url": "https://github.com/414226297/yugioh-md-calculator",
+   "sha": "dd122cb95f88fec7c69c24e304ae1f84e76d1444",
+   "licence": "MIT (LICENSE file at pin dd122cb95f88, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T02:28Z",
+    "consent_receipt": "f22fd7e3fa24",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T02:28Z (receipt f22fd7e3fa24); selected commit dd122cb95f88: \"feat: release v0.3.0 overlays, native card reports and tray support\". LICENSE file at pin dd122cb95f88 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

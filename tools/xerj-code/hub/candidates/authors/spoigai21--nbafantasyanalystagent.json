@@ -1,0 +1,23 @@
+{
+ "corpus": "spoigai21--nbafantasyanalystagent",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on R queries this for how spoigai21/NBAFantasyAnalystAgent implements it: spoigai21/NBAFantasyAnalystAgent (R) (selected work: fantasy)",
+ "repos": [
+  {
+   "repo": "NBAFantasyAnalystAgent",
+   "url": "https://github.com/spoigai21/NBAFantasyAnalystAgent",
+   "sha": "8a181a98e914e8f9a0593f2c257b409d0ead2d2b",
+   "licence": "MIT (LICENSE file at pin 8a181a98e914, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T20:05Z",
+    "consent_receipt": "30f2fa79e233",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T20:05Z (receipt 30f2fa79e233); selected commit 8a181a98e914: \"SQLite for storing data\". LICENSE file at pin 8a181a98e914 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

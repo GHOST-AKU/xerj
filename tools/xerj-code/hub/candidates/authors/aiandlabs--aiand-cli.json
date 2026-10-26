@@ -1,0 +1,23 @@
+{
+ "corpus": "aiandlabs--aiand-cli",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how aiandlabs/aiand-cli implements it: ai& CLI (selected work: src/agents, test)",
+ "repos": [
+  {
+   "repo": "aiand-cli",
+   "url": "https://github.com/aiandlabs/aiand-cli",
+   "sha": "6501fd6b6a6ff9544eb31ec374fa78d736542b0b",
+   "licence": "Apache-2.0 (LICENSE file at pin 6501fd6b6a6f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T01:29Z",
+    "consent_receipt": "b89d97fa6827",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T01:29Z (receipt b89d97fa6827); selected commit 6501fd6b6a6f: \"refactor(claude): split the settings it writes from the adapter's fil\u2026\". LICENSE file at pin 6501fd6b6a6f detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "constructorfleet--conduit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how constructorfleet/conduit implements it: constructorfleet/conduit (Rust) (selected work: crates/conduit-mcp, crates/conduit-api, crates/conduit-provider)",
+ "repos": [
+  {
+   "repo": "conduit",
+   "url": "https://github.com/constructorfleet/conduit",
+   "sha": "da2fa421a95351da736e06ad548140034df6b705",
+   "licence": "author's permission (LICENSE at pin da2fa421a953: NOASSERTION; repository: Apache-2.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T22:19Z",
+    "consent_receipt": "3a9f9b497fd7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T22:19Z (receipt 3a9f9b497fd7); selected commit da2fa421a953: \"feat(mcp): refresh tools from server notifications (#300)\". LICENSE at pin da2fa421a953: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

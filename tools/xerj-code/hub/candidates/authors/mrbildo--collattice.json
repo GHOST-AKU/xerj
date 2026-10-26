@@ -1,0 +1,23 @@
+{
+ "corpus": "mrbildo--collattice",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, dotnet, kanban queries this for how MrBildo/collattice implements it: Collattice \u2014 a lightweight, self-hosted kanban board built for human-agent collaboration. Single executable, embedded SQLite, real-time SSE, (selected work: backend)",
+ "repos": [
+  {
+   "repo": "collattice",
+   "url": "https://github.com/MrBildo/collattice",
+   "sha": "2287b54f26b680165d297ef4e79ff552530b2b94",
+   "licence": "MIT (LICENSE file at pin 2287b54f26b6, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T03:37Z",
+    "consent_receipt": "dbc2573bf05c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T03:37Z (receipt dbc2573bf05c); selected commit 2287b54f26b6: \"fix: stop logging the admin auth key on every start; add --reset-admi\u2026\". LICENSE file at pin 2287b54f26b6 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

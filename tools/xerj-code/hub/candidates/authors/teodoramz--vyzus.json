@@ -1,0 +1,23 @@
+{
+ "corpus": "teodoramz--vyzus",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how teodoramz/Vyzus implements it: teodoramz/Vyzus (TypeScript) (selected work: apps/api, packages/shared, apps/dashboard)",
+ "repos": [
+  {
+   "repo": "Vyzus",
+   "url": "https://github.com/teodoramz/Vyzus",
+   "sha": "8d43d02e571f9014dc42e982b97bc78596e31de6",
+   "licence": "MIT (LICENSE file at pin 8d43d02e571f, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:37Z",
+    "consent_receipt": "740e7da76caa",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:37Z (receipt 740e7da76caa); selected commit 8d43d02e571f: \"Add Mattermost channels and custom webhook payloads\". LICENSE file at pin 8d43d02e571f detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

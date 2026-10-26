@@ -1,0 +1,23 @@
+{
+ "corpus": "jefersonguzman--swiftcraft",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how JefersonGuzman/swiftcraft implements it: swiftcraft: structured vibe-coding harness (ODD workflow, architecture guardrails, TDD, memory, PR review) for Claude Code (selected work: scripts, tests)",
+ "repos": [
+  {
+   "repo": "swiftcraft",
+   "url": "https://github.com/JefersonGuzman/swiftcraft",
+   "sha": "52612a37c342b8164ab903c1918fd462495e287d",
+   "licence": "MIT (LICENSE file at pin 52612a37c342, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:56Z",
+    "consent_receipt": "eed28776b0aa",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:56Z (receipt eed28776b0aa); selected commit 52612a37c342: \"feat(pr-review): add PR review command with dry run and confirmed pos\u2026\". LICENSE file at pin 52612a37c342 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

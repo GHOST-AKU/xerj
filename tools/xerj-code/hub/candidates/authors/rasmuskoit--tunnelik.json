@@ -1,0 +1,23 @@
+{
+ "corpus": "rasmuskoit--tunnelik",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on boringtun, msix, rust queries this for how RasmusKoit/tunnelik implements it: A client for WireGuard tunnels that plugs into Windows 11\u2019s own VPN settings: add a tunnel once, then connect from Settings, the network fly (selected work: crates/manage, crates/cli)",
+ "repos": [
+  {
+   "repo": "tunnelik",
+   "url": "https://github.com/RasmusKoit/tunnelik",
+   "sha": "f5b50a45a18ce0af66f2abcea0c4291a305bb495",
+   "licence": "author's permission (LICENSE at pin f5b50a45a18c: NOASSERTION; repository: Apache-2.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T18:18Z",
+    "consent_receipt": "369eba44178d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T18:18Z (receipt 369eba44178d); selected commit f5b50a45a18c: \"manage, cli: helper-service robustness, option consistency, encodings\". LICENSE at pin f5b50a45a18c: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "zyfou--proceduralterrains",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on glb-export, heightmap, noise queries this for how ZyFou/ProceduralTerrains implements it: Three.js procedural terrain generator with tile, infinite world, planet mode, volumetric clouds, realistic water and GLB export (selected work: tests, src/engine, tools)",
+ "repos": [
+  {
+   "repo": "ProceduralTerrains",
+   "url": "https://github.com/ZyFou/ProceduralTerrains",
+   "sha": "c3b8bf0391360e01fe3cc3b2d7dffc00f625feed",
+   "licence": "MIT (LICENSE file at pin c3b8bf039136, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T15:28Z",
+    "consent_receipt": "766d7dc6551a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T15:28Z (receipt 766d7dc6551a); selected commit c3b8bf039136: \"more fixes\". LICENSE file at pin c3b8bf039136 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

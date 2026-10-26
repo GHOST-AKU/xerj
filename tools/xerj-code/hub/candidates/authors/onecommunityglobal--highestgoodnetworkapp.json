@@ -1,0 +1,23 @@
+{
+ "corpus": "onecommunityglobal--highestgoodnetworkapp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on community, project-management, react queries this for how OneCommunityGlobal/HighestGoodNetworkApp implements it: An open-source platform designed to help individuals and teams organize and collaborate on projects focused on community-driven positive cha (selected work: src/components)",
+ "repos": [
+  {
+   "repo": "HighestGoodNetworkApp",
+   "url": "https://github.com/OneCommunityGlobal/HighestGoodNetworkApp",
+   "sha": "de8be3f9f739faff159a9d24914797d31e372f6c",
+   "licence": "GPL-2.0 (LICENSE file at pin de8be3f9f739, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T17:03Z",
+    "consent_receipt": "49bbf1125937",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T17:03Z (receipt 49bbf1125937); selected commit de8be3f9f739: \"fix: address Total Org Summary donut review feedback (#5608)\". LICENSE file at pin de8be3f9f739 detected as GPL-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

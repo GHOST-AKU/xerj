@@ -1,0 +1,23 @@
+{
+ "corpus": "stsaria--p4pcore",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on p2p, socket-programming queries this for how stsaria/P4PCore implements it: P4PCore is library for secure p2p communication (selected work: examples)",
+ "repos": [
+  {
+   "repo": "P4PCore",
+   "url": "https://github.com/stsaria/P4PCore",
+   "sha": "7c02ea176e79ddbd2a60519b99b59ab967f1428c",
+   "licence": "Unlicense (LICENSE file at pin 7c02ea176e79, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Unlicense",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T23:04Z",
+    "consent_receipt": "bb90ac993a94",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T23:04Z (receipt bb90ac993a94); selected commit 7c02ea176e79: \"Add autonomous social network components: GUI, node, and party scripts\". LICENSE file at pin 7c02ea176e79 detected as Unlicense by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

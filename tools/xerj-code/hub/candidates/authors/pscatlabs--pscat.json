@@ -1,0 +1,23 @@
+{
+ "corpus": "pscatlabs--pscat",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on generative-art, interpreter, mcp queries this for how PSCatLabs/pscat implements it: A PostScript interpreter, written in Rust, for watching PostScript programs draw live (selected work: src, src/subcmd, tests)",
+ "repos": [
+  {
+   "repo": "pscat",
+   "url": "https://github.com/PSCatLabs/pscat",
+   "sha": "59358c50f1f72c1421128b3a71d9f1b4918d47a6",
+   "licence": "author's permission (LICENSE at pin 59358c50f1f7: NOASSERTION; repository: Apache-2.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T17:40Z",
+    "consent_receipt": "6ad343e2c297",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T17:40Z (receipt 6ad343e2c297); selected commit 59358c50f1f7: \"pscat sheet: labelled review sheets with mixed cell sizes (#693) (#696)\". LICENSE at pin 59358c50f1f7: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

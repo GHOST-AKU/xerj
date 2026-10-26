@@ -1,0 +1,23 @@
+{
+ "corpus": "boffincoders--durable-queue",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Dart queries this for how boffincoders/durable_queue implements it: A lightweight, backend-agnostic, persistent task queue for Dart and Flutter (selected work: examples, the project root)",
+ "repos": [
+  {
+   "repo": "durable_queue",
+   "url": "https://github.com/boffincoders/durable_queue",
+   "sha": "92ebb6d3ccfb81d08bfa26a51435a4d3b297eea8",
+   "licence": "MIT (LICENSE file at pin 92ebb6d3ccfb, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T04:46Z",
+    "consent_receipt": "6b9c548e0216",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T04:46Z (receipt 6b9c548e0216); selected commit 92ebb6d3ccfb: \"Add guarantees page and cookbook; kill tests must kill with uploads i\u2026\". LICENSE file at pin 92ebb6d3ccfb detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

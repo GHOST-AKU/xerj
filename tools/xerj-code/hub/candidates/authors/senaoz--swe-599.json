@@ -1,0 +1,23 @@
+{
+ "corpus": "senaoz--swe-599",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on Jupyter Notebook queries this for how senaoz/SWE-599 implements it: This project aims to build an automated recommendation and matching system for academic publications. The system monitors a predefined list  (selected work: frontend, backend)",
+ "repos": [
+  {
+   "repo": "SWE-599",
+   "url": "https://github.com/senaoz/SWE-599",
+   "sha": "d52e9894c8ac0b9500b9a0f9cb4d82bcf20f498a",
+   "licence": "MIT (LICENSE file at pin d52e9894c8ac, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T18:01Z",
+    "consent_receipt": "3c5841326949",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:01Z (receipt 3c5841326949); selected commit d52e9894c8ac: \"Let users follow any institution from OpenAlex\". LICENSE file at pin d52e9894c8ac detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

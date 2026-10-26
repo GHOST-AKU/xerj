@@ -1,0 +1,23 @@
+{
+ "corpus": "cgartlab--men",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agents, opencode, plugins queries this for how cgartlab/men implements it: \u5185\u5bb9\u521b\u4f5c\u5ba2\u5236\u5316 Agent \u56e2\u961f (selected work: config, scripts, the project root)",
+ "repos": [
+  {
+   "repo": "men",
+   "url": "https://github.com/cgartlab/men",
+   "sha": "c908d35374279c7a01844f9f668f659aefddf13a",
+   "licence": "MIT (LICENSE file at pin c908d3537427, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T16:45Z",
+    "consent_receipt": "ce364db95a37",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T16:45Z (receipt ce364db95a37); selected commit c908d3537427: \"fix(models): \u7edf\u4e00\u5207\u6362\u5230 OpenCode free \u7cfb\u5217\u2014\u2014free \u9884\u8bbe\u6b64\u524d 100% \u4e0d\u53ef\u7528\uff08provider \u524d\u7f00\u5199\u9519\uff09\". LICENSE file at pin c908d3537427 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

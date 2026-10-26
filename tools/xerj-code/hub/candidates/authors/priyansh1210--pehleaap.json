@@ -1,0 +1,23 @@
+{
+ "corpus": "priyansh1210--pehleaap",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how priyansh1210/pehleaap implements it: priyansh1210/pehleaap (Python) (selected work: scripts, tests, demo)",
+ "repos": [
+  {
+   "repo": "pehleaap",
+   "url": "https://github.com/priyansh1210/pehleaap",
+   "sha": "2b357531fa602370c32b00c620a1f6afe09c07b8",
+   "licence": "BSD-2-Clause (LICENSE file at pin 2b357531fa60, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "BSD-2-Clause",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:06Z",
+    "consent_receipt": "a6d55e5fc31f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:06Z (receipt a6d55e5fc31f); selected commit 2b357531fa60: \"v1: README for strangers, eot_v1 download, licence, every baseline on\u2026\". LICENSE file at pin 2b357531fa60 detected as BSD-2-Clause by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

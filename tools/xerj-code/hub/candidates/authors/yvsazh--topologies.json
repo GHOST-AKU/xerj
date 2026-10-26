@@ -1,0 +1,23 @@
+{
+ "corpus": "yvsazh--topologies",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Python queries this for how yvsazh/topologies implements it: A PyTorch framework for quick, convenient experiments with different neural-network architectures (selected work: src/topologies)",
+ "repos": [
+  {
+   "repo": "topologies",
+   "url": "https://github.com/yvsazh/topologies",
+   "sha": "05031597b6e55e188fa5eb0c6a3d32a5a54a3bd6",
+   "licence": "Apache-2.0 (LICENSE file at pin 05031597b6e5, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T09:57Z",
+    "consent_receipt": "26297f079993",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T09:57Z (receipt 26297f079993); selected commit 05031597b6e5: \"v0.0.3\". LICENSE file at pin 05031597b6e5 detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

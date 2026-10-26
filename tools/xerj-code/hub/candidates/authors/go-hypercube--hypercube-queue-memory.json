@@ -1,0 +1,23 @@
+{
+ "corpus": "go-hypercube--hypercube-queue-memory",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on goalng, job-queue, memory queries this for how go-hypercube/hypercube-queue-memory implements it: Concurrent in-memory queue driver for go-hypercube with delayed delivery, visibility timeouts, retries, dead-letter redrive, and queue stati (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "hypercube-queue-memory",
+   "url": "https://github.com/go-hypercube/hypercube-queue-memory",
+   "sha": "851cf943d0341ba166247adc273d731f101a58d6",
+   "licence": "MIT (LICENSE file at pin 851cf943d034, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T19:24Z",
+    "consent_receipt": "c141d00d2380",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T19:24Z (receipt c141d00d2380); selected commit 851cf943d034: \"feat: implement in memory queue support for hypercube/queue interface\". LICENSE file at pin 851cf943d034 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

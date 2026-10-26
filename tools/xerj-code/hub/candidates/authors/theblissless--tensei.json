@@ -1,0 +1,23 @@
+{
+ "corpus": "theblissless--tensei",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on android, anilist, anime queries this for how TheBlissless/tensei implements it: Android anime and manga tracker with AniList and MyAnimeList integration (selected work: app/src, app)",
+ "repos": [
+  {
+   "repo": "tensei",
+   "url": "https://github.com/TheBlissless/tensei",
+   "sha": "6f66b48f8cce99004c10ac503dc1c4f37a9a4f48",
+   "licence": "MIT (LICENSE file at pin 6f66b48f8cce, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T13:03Z",
+    "consent_receipt": "8c720febb47f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T13:03Z (receipt 8c720febb47f); selected commit 6f66b48f8cce: \"minor improvements\". LICENSE file at pin 6f66b48f8cce detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "basjohn--shittyrandomphotoscreensaver",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on media, media-control, screensaver queries this for how Basjohn/ShittyRandomPhotoScreenSaver implements it: Supports folders, rss feeds, major music players, reddit, gmail inbox control, steam achievements/friends/news/guilt, weather, four displays (selected work: tools)",
+ "repos": [
+  {
+   "repo": "ShittyRandomPhotoScreenSaver",
+   "url": "https://github.com/Basjohn/ShittyRandomPhotoScreenSaver",
+   "sha": "33e4837298471efc5af5162fcfca882873a621a8",
+   "licence": "MIT (LICENSE file at pin 33e483729847, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T21:50Z",
+    "consent_receipt": "28d04e93ca28",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T21:50Z (receipt 28d04e93ca28); selected commit 33e483729847: \"Investigate Extruded Bubble with native recorded-audio evidence\". LICENSE file at pin 33e483729847 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

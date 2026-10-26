@@ -1,0 +1,23 @@
+{
+ "corpus": "amal-kphilip--geekify",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on fastapi, full-stack, music-player queries this for how Amal-kphilip/Geekify implements it: Full-stack music streaming app built with Next.js and FastAPI, with search, playback, playlists, and personalised recommendations (selected work: frontend, the project root)",
+ "repos": [
+  {
+   "repo": "Geekify",
+   "url": "https://github.com/Amal-kphilip/Geekify",
+   "sha": "d4010e601f988308eeb7b0945dd2832543e0f6aa",
+   "licence": "MIT (LICENSE file at pin d4010e601f98, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T02:13Z",
+    "consent_receipt": "b86d82c731b0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T02:13Z (receipt b86d82c731b0); selected commit d4010e601f98: \"Save albums/playlists, account settings, avatar GIFs, memory fixes\". LICENSE file at pin d4010e601f98 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

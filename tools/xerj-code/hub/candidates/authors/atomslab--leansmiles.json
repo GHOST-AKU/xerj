@@ -1,0 +1,23 @@
+{
+ "corpus": "atomslab--leansmiles",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Lean queries this for how ATOMSLab/LeanSMILES implements it: Formalizing molecular representations in Lean (selected work: client, server)",
+ "repos": [
+  {
+   "repo": "LeanSMILES",
+   "url": "https://github.com/ATOMSLab/LeanSMILES",
+   "sha": "c313442acbfa56dc653fb5138d64b1241d0066b2",
+   "licence": "Apache-2.0 (LICENSE file at pin c313442acbfa, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T17:11Z",
+    "consent_receipt": "67da8e13bf41",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T17:11Z (receipt 67da8e13bf41); selected commit c313442acbfa: \"adding client\". LICENSE file at pin c313442acbfa detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

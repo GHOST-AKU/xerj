@@ -1,0 +1,23 @@
+{
+ "corpus": "irsyad-gh--muxplayer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Go queries this for how Irsyad-gh/muxplayer implements it: Simple TUI universal music player for Linux, Mac, and Windows (selected work: internal/debugmode, the project root, internal/app)",
+ "repos": [
+  {
+   "repo": "muxplayer",
+   "url": "https://github.com/Irsyad-gh/muxplayer",
+   "sha": "6305ed6d7478b9b94d15c4c2c91a415371695aa6",
+   "licence": "MIT (LICENSE file at pin 6305ed6d7478, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T07:44Z",
+    "consent_receipt": "580667960f15",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T07:44Z (receipt 580667960f15); selected commit 6305ed6d7478: \"added debug mode for troubleshooting bugs and crashes\". LICENSE file at pin 6305ed6d7478 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

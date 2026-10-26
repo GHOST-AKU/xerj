@@ -1,0 +1,23 @@
+{
+ "corpus": "hirolau--fillxl",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how hirolau/fillxl implements it: Excel Template Filler (selected work: tests, src/fillxl, typings)",
+ "repos": [
+  {
+   "repo": "fillxl",
+   "url": "https://github.com/hirolau/fillxl",
+   "sha": "43f3618c6f9c3fbddab36af99e4027d7ea06ae10",
+   "licence": "MIT (LICENSE file at pin 43f3618c6f9c, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T10:05Z",
+    "consent_receipt": "3a0180ecaabb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T10:05Z (receipt 3a0180ecaabb); selected commit 43f3618c6f9c: \"V050 (#4)\". LICENSE file at pin 43f3618c6f9c detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}

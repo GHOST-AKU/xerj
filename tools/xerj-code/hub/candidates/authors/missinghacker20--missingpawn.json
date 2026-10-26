@@ -1,0 +1,23 @@
+{
+ "corpus": "missinghacker20--missingpawn",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on chess-engine, experimental queries this for how MissingHacker20/MissingPawn implements it: UCI chess engine written in C++ designed for tactical pawn play (selected work: Source Code)",
+ "repos": [
+  {
+   "repo": "MissingPawn",
+   "url": "https://github.com/MissingHacker20/MissingPawn",
+   "sha": "d61f2571964a28103cdaa638c310fe939df67b3a",
+   "licence": "GPL-3.0 (LICENSE file at pin d61f2571964a, GitHub licence API 2026-10-26)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-24T20:23Z",
+    "consent_receipt": "0bb01f7f7aef",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:23Z (receipt 0bb01f7f7aef); selected commit d61f2571964a: \"Texel Tuning v2\". LICENSE file at pin d61f2571964a detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution."
+   }
+  }
+ ]
+}
