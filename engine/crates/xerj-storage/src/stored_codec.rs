@@ -284,7 +284,6 @@ impl ColCodec {
 const RAW_LONG_LEVEL: i32 = 19;
 const RAW_LONG_WINDOW_LOG_MAX: u32 = 24;
 
-
 /// Encode a stored section written as a JSON array of
 /// `{"_id", "_seq_no", "_source"}` objects using the v2 columnar format.
 ///

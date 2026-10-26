@@ -105,7 +105,6 @@ async fn await_publication_barrier<T>(rx: tokio::sync::oneshot::Receiver<T>, wha
     }
 }
 
-
 /// Forcemerge batch selection over segments sorted smallest first: chunks
 /// of at most `chunk_len` segments whose input stays under `cap` bytes
 /// (`0` = no cap, #948). Returns index lists into `sizes`.
@@ -150,7 +149,10 @@ mod forcemerge_chunks_tests {
     #[test]
     fn segments_over_the_cap_still_converge_to_one() {
         // The corpus200 case: two segments, each over half a 32 MiB cap.
-        assert_eq!(forcemerge_chunks(&[16 * MIB, 27 * MIB], 16, 32 * MIB), vec![vec![0, 1]]);
+        assert_eq!(
+            forcemerge_chunks(&[16 * MIB, 27 * MIB], 16, 32 * MIB),
+            vec![vec![0, 1]]
+        );
         // Three oversized segments: merge the two smallest this pass.
         assert_eq!(
             forcemerge_chunks(&[40 * MIB, 50 * MIB, 60 * MIB], 16, 32 * MIB),
@@ -161,7 +163,10 @@ mod forcemerge_chunks_tests {
     #[test]
     fn cap_and_count_still_split_batches() {
         let sizes = [MIB; 5];
-        assert_eq!(forcemerge_chunks(&sizes, 2, 0), vec![vec![0, 1], vec![2, 3]]);
+        assert_eq!(
+            forcemerge_chunks(&sizes, 2, 0),
+            vec![vec![0, 1], vec![2, 3]]
+        );
         assert_eq!(
             forcemerge_chunks(&[10 * MIB, 10 * MIB, 10 * MIB, 10 * MIB], 16, 25 * MIB),
             vec![vec![0, 1], vec![2, 3]]
