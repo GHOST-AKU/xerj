@@ -14095,6 +14095,29 @@ impl Index {
                     .map(|chunk| chunk.into_iter().map(|i| ids[i].clone()).collect())
                     .collect()
             }
+            // #1122/#2433: at the target count, a forcemerge under
+            // XERJ_STORE_SEMANTIC_VECTORS still rewrites each segment that
+            // holds rows stored without their derived semantic vectors, so
+            // the documented pre-downgrade `_forcemerge` restores them on an
+            // index that is already one segment.
+            Some(_) if xerj_storage::stored_codec::derived_vectors::store_vectors_opt_out() => {
+                let segments_dir = self.data_dir.join("segments");
+                segments_snapshot_init
+                    .iter()
+                    .filter(|meta| {
+                        let Ok(reader) = SegmentReader::open(&segments_dir.join(&meta.seg_path))
+                        else {
+                            return false;
+                        };
+                        matches!(
+                            reader.section(SectionType::Stored),
+                            Ok(Some(raw)) if xerj_storage::stored_codec::stored_has_derived_rows(raw)
+                                .unwrap_or(false)
+                        )
+                    })
+                    .map(|meta| vec![meta.id.clone()])
+                    .collect()
+            }
             Some(_) => Vec::new(),
             None => policy.select_merges(&segments_snapshot_init),
         };

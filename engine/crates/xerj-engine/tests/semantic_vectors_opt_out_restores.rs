@@ -182,19 +182,47 @@ async fn opt_out_force_merge_restores_stripped_vectors_on_disk() {
 
     bulk(&engine, 0..1000).await;
     idx.flush().await.unwrap();
+    idx.force_merge(1).await.unwrap();
+    assert_eq!(idx.store_snapshot().segments.len(), 1);
     assert!(
         check_segments(&dir, true) > 0,
         "default write is not columnar"
     );
-
-    // "Restart with XERJ_STORE_SEMANTIC_VECTORS=1".
-    xerj_storage::stored_codec::derived_vectors::set_store_vectors_opt_out(true);
-    bulk(&engine, 1000..1600).await;
-    idx.flush().await.unwrap();
-    let before_docs = snapshot(&idx, &probe).await;
+    let before_docs = snapshot(&idx, &probe[..5]).await;
     let before_hits = semantic_hits(&idx).await;
     assert!(!before_hits.is_empty());
 
+    // "Restart with XERJ_STORE_SEMANTIC_VECTORS=1", then the documented
+    // `_forcemerge?max_num_segments=1` on an index that is already one
+    // segment: the stripped segment must still be rewritten.
+    xerj_storage::stored_codec::derived_vectors::set_store_vectors_opt_out(true);
+    assert!(
+        idx.force_merge(1).await.unwrap() > 0,
+        "single segment not rewritten"
+    );
+    assert_eq!(idx.store_snapshot().segments.len(), 1);
+    assert!(
+        check_segments(&dir, false) > 0,
+        "rewritten section is not columnar"
+    );
+    assert_eq!(
+        snapshot(&idx, &probe[..5]).await,
+        before_docs,
+        "rewrite changed a document"
+    );
+    let hits = |h: &[(String, f32, Value)]| {
+        h.iter()
+            .map(|h| (h.0.clone(), h.2.clone()))
+            .collect::<Vec<_>>()
+    };
+    assert_eq!(hits(&semantic_hits(&idx).await), hits(&before_hits));
+    // Nothing left to restore: a second forcemerge is a no-op.
+    assert_eq!(idx.force_merge(1).await.unwrap(), 0);
+
+    // New docs under the opt-out, merged with the restored segment.
+    bulk(&engine, 1000..1600).await;
+    idx.flush().await.unwrap();
+    let before_docs = snapshot(&idx, &probe).await;
     idx.force_merge(1).await.unwrap();
     assert!(
         check_segments(&dir, false) > 0,
@@ -204,11 +232,6 @@ async fn opt_out_force_merge_restores_stripped_vectors_on_disk() {
         snapshot(&idx, &probe).await,
         before_docs,
         "merge changed a document"
-    );
-    let after_hits = semantic_hits(&idx).await;
-    assert_eq!(
-        after_hits.iter().map(|h| (&h.0, &h.2)).collect::<Vec<_>>(),
-        before_hits.iter().map(|h| (&h.0, &h.2)).collect::<Vec<_>>()
     );
     drop(idx);
     drop(engine);

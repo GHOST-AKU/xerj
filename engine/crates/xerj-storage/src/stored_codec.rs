@@ -964,6 +964,16 @@ pub fn decode_stored_for_rewrite(bytes: &[u8]) -> Result<Vec<u8>> {
     decode_stored_inner(bytes, derived_vectors::store_vectors_opt_out())
 }
 
+/// Whether a stored section holds rows whose derived `semantic_text`
+/// vectors were stripped (#1122/#2433). `force_merge` under
+/// `XERJ_STORE_SEMANTIC_VECTORS` rewrites such a segment even when the
+/// index is already at its target segment count.
+pub fn stored_has_derived_rows(bytes: &[u8]) -> Result<bool> {
+    Ok(derived_vectors::contains_marker(
+        &decode_stored_preserving_derived(bytes)?,
+    ))
+}
+
 fn decode_stored_inner(bytes: &[u8], rehydrate: bool) -> Result<Vec<u8>> {
     if bytes.len() >= 4 && &bytes[..4] == STORED_V3_MAGIC {
         let (present_nulls, inner) = split_stored_v3(bytes)?;
