@@ -4512,7 +4512,10 @@ mod tests {
         std::fs::write(&artifact, &corrupt).unwrap();
         assert!(open_snapshot(state.path(), "tx-released").is_err());
         std::fs::write(&artifact, &original).unwrap();
-        assert_eq!(open_snapshot(state.path(), "tx-released").unwrap(), snapshot);
+        assert_eq!(
+            open_snapshot(state.path(), "tx-released").unwrap(),
+            snapshot
+        );
     }
 
     /// #971: gc removes the prior snapshot's directory entries after a new
