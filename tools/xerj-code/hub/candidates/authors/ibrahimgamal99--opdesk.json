@@ -3,20 +3,20 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on Python queries this for how Ibrahimgamal99/OpDesk implements it: A modern, real-time operator panel for Asterisk PBX systems, similar to FOP2 but built with modern technologies (selected work: frontend, the project root, nginx)",
+ "domain": "an agent working on TypeScript queries this for how Ibrahimgamal99/OpDesk implements it: A modern, real-time operator panel for Asterisk PBX systems, similar to FOP2 but built with modern technologies (selected work: frontend, the project root, nginx)",
  "repos": [
   {
    "repo": "OpDesk",
    "url": "https://github.com/Ibrahimgamal99/OpDesk",
-   "sha": "176c5d0dc3d633a64383ad0b2d72406e94c24a51",
-   "licence": "GPL-3.0 (LICENSE file at pin 176c5d0dc3d6, GitHub licence API 2026-10-25)",
+   "sha": "00d85c007cb638e8fbdbf8d203baa4ee03875fd9",
+   "licence": "GPL-3.0 (LICENSE file at pin 00d85c007cb6, GitHub licence API 2026-10-26)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-17T19:49Z",
     "consent_receipt": "8b2ad2baa30a",
-    "note": "Inclusion consented by the commit author by email at 2026-10-17T19:49Z (receipt 8b2ad2baa30a); selected commit 176c5d0dc3d6: \"fix ports and certs\". LICENSE file at pin 176c5d0dc3d6 detected as GPL-3.0 by the GitHub licence API on 2026-10-25; used under that licence with attribution. Pinned to head 176c5d0dc3d6 (contains the selected commit): the LICENSE at the selected commit was NONE."
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T19:49Z (receipt 8b2ad2baa30a); selected commit 00d85c007cb6: \"fix ports and certs\". LICENSE file at pin 00d85c007cb6 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 00d85c007cb6 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

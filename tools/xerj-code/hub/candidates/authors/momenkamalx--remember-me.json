@@ -8,15 +8,15 @@
   {
    "repo": "remember-me-",
    "url": "https://github.com/momenkamalx/remember-me-",
-   "sha": "bf385b0d1f0f7cb190d798723ab2890a369f89b0",
-   "licence": "GPL-3.0 (LICENSE file at pin bf385b0d1f0f, GitHub licence API 2026-10-24)",
+   "sha": "40360d06795904398163fe3d689891910bd86b75",
+   "licence": "GPL-3.0 (LICENSE file at pin 40360d067959, GitHub licence API 2026-10-26)",
    "review": {
     "spdx": "GPL-3.0",
     "use": "approach-only",
     "by": "author-consent",
     "at": "2026-10-18T13:29Z",
     "consent_receipt": "e2a97b008e63",
-    "note": "Inclusion consented by the commit author by email at 2026-10-18T13:29Z (receipt e2a97b008e63); selected commit bf385b0d1f0f: \"v0.1.4: Linux fix (notifications and sound, time picker,) UIfix also \u2026\". LICENSE file at pin bf385b0d1f0f detected as GPL-3.0 by the GitHub licence API on 2026-10-24; used under that licence with attribution. Pinned to head bf385b0d1f0f (contains the selected commit): the LICENSE at the selected commit was NONE."
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T13:29Z (receipt e2a97b008e63); selected commit 40360d067959: \"v0.1.4: Linux fix (notifications and sound, time picker,) UIfix also \u2026\". LICENSE file at pin 40360d067959 detected as GPL-3.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 40360d067959 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

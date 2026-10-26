@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on Rust queries this for how iBobX/RapidR implements it: RapidQ-compatible BASIC, built new in Rust: native, interpreted and web, with RapidR Studio (selected work: crates/rapidr-ui-kernel, crates/rapidr-value, tests)",
+ "domain": "an agent working on basic, basic-interpreter, basic-programming queries this for how iBobX/RapidR implements it: A modern BASIC with its own IDE, RapidR Studio, and RAI, an AI assistant that builds with you. Native apps for Windows, macOS and Linux, and (selected work: crates/rapidr-ui-kernel, crates/rapidr-value, tests)",
  "repos": [
   {
    "repo": "RapidR",

@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on attestation, audit, cryptography queries this for how Aqta-ai/attestation-spec implements it: Open specification and reference verifiers for Seal records: ATTESTATION-v1 for AI model-call decisions, ACTION-v1 for agent actions. Ed2551 (selected work: test-vectors, packages/verify-receipt-py, packages/verify-receipt)",
+ "domain": "an agent working on attestation, audit, cryptography queries this for how Aqta-ai/attestation-spec implements it: Open specification and reference verifiers for Seal records: ATTESTATION-v1 for AI model calls, ACTION-v1 for agent actions, and GRANT-v1 ap (selected work: test-vectors, packages/verify-receipt-py, packages/verify-receipt)",
  "repos": [
   {
    "repo": "attestation-spec",

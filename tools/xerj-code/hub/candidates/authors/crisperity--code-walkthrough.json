@@ -1,9 +1,9 @@
 {
- "corpus": "crisperity--crisperity-skills",
+ "corpus": "crisperity--code-walkthrough",
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on agent-skills, claude-code, code-review queries this for how crisperity/crisperity-skills implements it: My agent skills for Claude Code and other harnesses. First: code-walkthrough, which turns a PR, diff, or any part of a codebase into a top-d (selected work: skills)",
+ "domain": "an agent working on agent-skills, claude-code, code-review queries this for how crisperity/code-walkthrough implements it: Claude Code plugin that turns a PR, diff or any part of a codebase into a page you read top down, from overview to exact lines. Annotated di (selected work: skills)",
  "repos": [
   {
    "repo": "crisperit-skills",

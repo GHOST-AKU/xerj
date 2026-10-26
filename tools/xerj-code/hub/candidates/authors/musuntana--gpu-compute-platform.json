@@ -1,9 +1,9 @@
 {
- "corpus": "avaargsh--gpu-compute-platform",
+ "corpus": "musuntana--gpu-compute-platform",
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on Go queries this for how avaargsh/gpu-compute-platform implements it: avaargsh/gpu-compute-platform (Go) (selected work: frontend, cmd/management-e2e-fixture, scripts)",
+ "domain": "an agent working on Go queries this for how musuntana/gpu-compute-platform implements it: musuntana/gpu-compute-platform (Go) (selected work: frontend, cmd/management-e2e-fixture, scripts)",
  "repos": [
   {
    "repo": "gpu-compute-platform",

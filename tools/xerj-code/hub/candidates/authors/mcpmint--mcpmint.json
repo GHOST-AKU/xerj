@@ -2,8 +2,8 @@
  "corpus": "mcpmint--mcpmint",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how mcpmint/mcpmint implements it: Turn OpenAPI and Postman specs into MCP servers in your browser. Compact mode, token meter, and Trust Scan. Free and open source (selected work: src/app, src/lib, src/store)",
+ "shelf": "AI",
+ "domain": "an agent working on claude, code-generator, cursor queries this for how mcpmint/mcpmint implements it: Turn OpenAPI and Postman specs into MCP servers in your browser. Compact mode, token meter, and Trust Scan. Free and open source (selected work: src/app, src/lib, src/store)",
  "repos": [
   {
    "repo": "mcpmint",

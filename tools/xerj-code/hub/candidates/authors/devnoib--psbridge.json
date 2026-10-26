@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on Python queries this for how DevNoib/PSBridge implements it: a compatibility and recompilation project that aims to bring PSP software to the PlayStation 2 by translating Allegrex code to the R5900 arc (selected work: tools)",
+ "domain": "an agent working on C queries this for how DevNoib/PSBridge implements it: a compatibility and recompilation project that aims to bring PSP software to the PlayStation 2 by translating Allegrex code to the R5900 arc (selected work: tools)",
  "repos": [
   {
    "repo": "PSBridge",

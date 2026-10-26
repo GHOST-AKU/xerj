@@ -2,7 +2,7 @@
  "corpus": "nessli420--aurora",
  "cloned_at": null,
  "status": "draft",
- "shelf": "WEB",
+ "shelf": "OPS",
  "domain": "an agent working on android, android-app, audio-player queries this for how nessli420/aurora implements it: A highly advanced and customizable native Android, Windows and Linux music player that supports playback from Navidrome, Jellyfin, Plex, Loc (selected work: desktop, core/src, gradle)",
  "repos": [
   {

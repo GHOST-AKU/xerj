@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on coding-agent, docker, geology queries this for how EigenformAI/geocluster-research-harness implements it: A browser IDE with a geology research agent built in: a Cline fork plus a 50-tool geological MCP server and a multi-layer specialist agent,  (selected work: docker, the project root)",
+ "domain": "an agent working on coding-agent, geology, web-ide queries this for how EigenformAI/geocluster-research-harness implements it: A browser IDE with a geology research agent built in: a Cline fork plus a 50-tool geological MCP server and a multi-layer specialist agent,  (selected work: docker, the project root)",
  "repos": [
   {
    "repo": "geocluster-research-harness",

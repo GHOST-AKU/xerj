@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on ai, ai-tools, llm queries this for how ashhart/TensorFold implements it: LLM Inference Engine for Metal and CUDA (selected work: zig, tools, the project root)",
+ "domain": "an agent working on ai, ai-tools, llm queries this for how ashhart/TensorFold implements it: LLM Inference Engine for Metal, CUDA and Vulkan (selected work: zig, tools, the project root)",
  "repos": [
   {
    "repo": "TensorFold",

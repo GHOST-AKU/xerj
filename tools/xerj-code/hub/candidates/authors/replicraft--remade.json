@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on clean-room, clean-room-reimplementation, community queries this for how replicraft/remade implements it: Discover open-source software reimplementations. A community-curated directory for exploring, requesting, and supporting independently recre (selected work: apps/frontend, apps/backend)",
+ "domain": "an agent working on clean-room, clean-room-reimplementation, community queries this for how replicraft/remade implements it: A community-curated directory for exploring, requesting, and supporting independently recreated software (selected work: apps/frontend, apps/backend)",
  "repos": [
   {
    "repo": "remade",

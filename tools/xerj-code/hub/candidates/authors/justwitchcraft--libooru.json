@@ -1,9 +1,9 @@
 {
- "corpus": "justlivvu--libooru",
+ "corpus": "justwitchcraft--libooru",
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on PHP queries this for how JustLivvu/libooru implements it: JustLivvu/libooru (PHP) (selected work: the project root, pages, app)",
+ "domain": "an agent working on PHP queries this for how justwitchcraft/libooru implements it: justwitchcraft/libooru (PHP) (selected work: the project root, pages, app)",
  "repos": [
   {
    "repo": "libooru",
