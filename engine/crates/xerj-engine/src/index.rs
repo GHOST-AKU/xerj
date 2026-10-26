@@ -2306,8 +2306,8 @@ mod flush_publication_recovery_tests {
         }
     }
 
-    /// #2427: a query the segment FTS declines (here a clause on a field no
-    /// document has, the shape the multi-index code-search CLI sends) walks
+    /// #2427: a query the segment FTS declines (here a `term` on a mapped
+    /// text field, which the FTS projection cannot express) walks
     /// every cold segment through the brute stored scan. That scan decoded
     /// every column — on a semantic_text corpus ~85% embedding companions —
     /// although the page can only observe the `_source` includes plus the
@@ -2369,7 +2369,11 @@ mod flush_publication_recovery_tests {
                 "query": {"bool": {
                     "should": [
                         {"match": {"body": "needle"}},
-                        {"match_phrase": {"defs": "no such field"}}
+                        // A `term` on a mapped TEXT field is not projectable
+                        // to FTS, so the segment FTS still declines this body.
+                        // (An unmapped `match_phrase` no longer does: #2467
+                        // skips unmapped should leaves, see #2481.)
+                        {"term": {"body": "needle"}}
                     ],
                     "minimum_should_match": 1
                 }},
