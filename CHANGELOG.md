@@ -79,6 +79,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `xerj autoindex` no longer keeps a second full copy of your files in its
+  state directory. Each sync used to keep every indexed file's bytes under
+  `sync-snapshots/` next to the prepared records, so the state directory grew
+  larger than the folder it indexed. Those copies are now deleted as soon as
+  the file's prepared records are safely on disk; resume and crash recovery
+  still replay from the verified prepared records. On a 344 MB test corpus the
+  state directory went from 503 MB to 242 MB after a sync (#2421).
+
 - Server startup now reports the resolved data directory, its configuration
   source and whether this launch created it. New-directory guidance points
   operators back to their previous `--data-dir` or `--config` when they expected
