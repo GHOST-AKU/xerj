@@ -2306,9 +2306,10 @@ mod flush_publication_recovery_tests {
         }
     }
 
-    /// #2427: a query the segment FTS declines (here a clause on a field no
-    /// document has, the shape the multi-index code-search CLI sends) walks
-    /// every cold segment through the brute stored scan. That scan decoded
+    /// #2427: a query the segment FTS declines (here a `range` should-clause
+    /// on a field no document has; #2467 lets the FTS skip unmapped
+    /// term/phrase leaves, but not `range`/`exists`) walks every cold
+    /// segment through the brute stored scan. That scan decoded
     /// every column — on a semantic_text corpus ~85% embedding companions —
     /// although the page can only observe the `_source` includes plus the
     /// fields the query reads. With an include list the cold decode must
@@ -2369,7 +2370,7 @@ mod flush_publication_recovery_tests {
                 "query": {"bool": {
                     "should": [
                         {"match": {"body": "needle"}},
-                        {"match_phrase": {"defs": "no such field"}}
+                        {"range": {"defs": {"gte": "a"}}}
                     ],
                     "minimum_should_match": 1
                 }},
