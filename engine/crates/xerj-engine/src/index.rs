@@ -25049,14 +25049,18 @@ impl Index {
                                             .collect();
                                         let bounded = candidates.len()
                                             <= materialisation_limit.saturating_mul(4).max(256);
-                                        // Without a column projection, a walk
-                                        // that reaches most of the segment is
-                                        // no cheaper by row, and the full
-                                        // decode at least leaves the offset
-                                        // index behind for the next query.
-                                        let worth_it = fts_row_keep.is_some()
-                                            || (candidates.len() as u64).saturating_mul(2)
-                                                < meta.doc_count;
+                                        // Only with a column projection: the
+                                        // stored columns are whole-stream
+                                        // zstd, so an unprojected row decode
+                                        // decompresses every column anyway —
+                                        // the full cost — without leaving the
+                                        // offset index behind, and the
+                                        // background warm then pays it a
+                                        // second time (measured: a `_savings`
+                                        // request's first cold query went
+                                        // 2.3 s -> 6.6 s). The full decode
+                                        // below caches for the next query.
+                                        let worth_it = fts_row_keep.is_some();
                                         if bounded && worth_it && !candidates.is_empty() {
                                             let rows = self.hydrate_fts_rows_cold(
                                                 seg_id.as_str(),
