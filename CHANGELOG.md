@@ -119,6 +119,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   after another, and the documents are rebuilt in parallel. On a 100 MB
   segment with embeddings this went from 0.41 s to 0.24 s, with identical
   output (#2422).
+- A cold search that returns full `_source` no longer loads an index's
+  segments one after another. When it has to load one, it starts loading
+  the index's other unloaded segments at the same time, so the slowest
+  segment sets the wait instead of the sum of all of them (#2422).
 - The first searches after a restart, or after a segment left the cache,
   no longer read every stored document to return a page of hits. When the
   request names its `_source` fields (as `xerj search` does), only the

@@ -1984,6 +1984,109 @@ mod flush_publication_recovery_tests {
         }
     }
 
+    /// #2422: a cold query that returns whole `_source` decodes each
+    /// segment's stored section in full, and the walk used to do that one
+    /// segment after another — five ~0.3 s decodes in a row on a 134 MB
+    /// autoindex index. The first cold decode now starts the later uncached
+    /// segments warming beside it. Here only the oldest segment matches, so
+    /// the walk itself never decodes the others: they turn warm only through
+    /// that lookahead. The answer must equal the warm answer.
+    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
+    async fn cold_full_source_query_warms_later_segments_beside_the_first() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut config = Config::default();
+        config.server.data_dir = dir.path().to_string_lossy().into_owned();
+        let engine = crate::Engine::new(config).unwrap();
+        engine
+            .create_index("cold-lookahead", topk_projection_schema())
+            .unwrap();
+        let idx = engine.get_index("cold-lookahead").unwrap();
+        idx.abort_background_tasks();
+        for segment in 0..4u64 {
+            for i in 0..300u64 {
+                let n = segment * 1000 + i;
+                let body = if segment == 0 && i % 31 == 0 {
+                    format!("needle report {n}")
+                } else {
+                    format!("hay stack {n}")
+                };
+                idx.index_document(
+                    Some(format!("doc-{n}")),
+                    json!({"title": format!("title {n}"), "body": body, "blob": "x"}),
+                )
+                .await
+                .unwrap();
+            }
+            idx.flush().await.unwrap();
+        }
+        drop(idx);
+        drop(engine);
+
+        let reopen = || {
+            let mut c = Config::default();
+            c.server.data_dir = dir.path().to_string_lossy().into_owned();
+            let engine = crate::Engine::new(c).unwrap();
+            let idx = engine.get_index("cold-lookahead").unwrap();
+            idx.abort_background_tasks();
+            (engine, idx)
+        };
+        let warm_ids = |idx: &Index| -> Vec<String> {
+            let snapshot = idx.store.snapshot();
+            snapshot
+                .segments
+                .iter()
+                .filter(|s| idx.stored_slices_cache.contains_key(&s.id))
+                .map(|s| s.id.to_string())
+                .collect()
+        };
+        let full = xerj_query::parse_request(&json!({
+            "query": {"match": {"body": "needle"}},
+            "size": 5
+        }))
+        .unwrap();
+        assert!(fts_row_hydration_keep(&full, &full.query).is_none());
+
+        let (engine, idx) = reopen();
+        let segment_count = idx.store.snapshot().segments.len();
+        assert!(segment_count >= 4, "fixture needs several segments");
+        assert!(
+            warm_ids(&idx).is_empty(),
+            "precondition: cold after restart"
+        );
+        let cold = idx.search(&full).await.unwrap();
+        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+        while warm_ids(&idx).len() < segment_count || !idx.cold_stored_warms.is_empty() {
+            assert!(
+                std::time::Instant::now() < deadline,
+                "later segments were never warmed: {} of {segment_count} warm",
+                warm_ids(&idx).len()
+            );
+            tokio::time::sleep(std::time::Duration::from_millis(20)).await;
+        }
+        let warm = idx.search(&full).await.unwrap();
+        let key = |r: &xerj_query::executor::SearchResult| {
+            r.hits
+                .iter()
+                .map(|h| {
+                    (
+                        h.id.clone(),
+                        (h.score * 1e4).round() as i64,
+                        h.source.clone(),
+                    )
+                })
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(cold.hits.len(), 5);
+        assert_eq!(key(&cold), key(&warm));
+        for h in &cold.hits {
+            let n: u64 = h.id.trim_start_matches("doc-").parse().unwrap();
+            assert!(n < 1000 && n % 31 == 0, "hit {} does not match", h.id);
+            assert_eq!(h.source["blob"], json!("x"));
+        }
+        drop(idx);
+        drop(engine);
+    }
+
     #[test]
     fn row_projection_keep_set_covers_query_and_include_fields() {
         let req = xerj_query::parse_request(&json!({
@@ -17242,7 +17345,8 @@ impl Index {
     /// projected decode, and the query that found the segment cold no longer
     /// waits for the whole-section decompress. One warm per segment at a
     /// time; `stored_slices_for` keeps its single-flight, budget and
-    /// retirement rules.
+    /// retirement rules. A full-`_source` query that decodes a segment cold
+    /// also uses it to warm the segments its walk reaches next.
     fn schedule_cold_stored_warm(&self, segment_id: &str, doc_count: u64) {
         let Some(index) = self.self_ref.get().and_then(std::sync::Weak::upgrade) else {
             return;
@@ -24332,7 +24436,10 @@ impl Index {
                 });
                 v
             };
-            for meta in ordered_segments {
+            // #2422: set once this query has started warming the segments
+            // after the one it is about to decode cold (see below).
+            let mut cold_lookahead_started = false;
+            for (seg_pos, meta) in ordered_segments.iter().copied().enumerate() {
                 dbg_segs += 1;
                 // F1: once the exact total is authoritative AND the bounded
                 // collector is full, remaining segments can neither add a
@@ -25089,6 +25196,33 @@ impl Index {
                                     let slices_opt = if cold_rows.is_some() {
                                         None
                                     } else {
+                                        // #2422: this query pays a full cold
+                                        // decode here, one segment at a time.
+                                        // Start the later uncached segments
+                                        // decoding on the blocking pool now,
+                                        // so by the time the walk reaches
+                                        // them they are warm (or their
+                                        // single-flight build is underway)
+                                        // instead of queued behind this one.
+                                        if !cold_lookahead_started
+                                            && !self
+                                                .stored_slices_cache
+                                                .contains_key(seg_id.as_str())
+                                        {
+                                            cold_lookahead_started = true;
+                                            for later in &ordered_segments[seg_pos + 1..] {
+                                                if later.doc_count > 0
+                                                    && !self
+                                                        .stored_slices_cache
+                                                        .contains_key(later.id.as_str())
+                                                {
+                                                    self.schedule_cold_stored_warm(
+                                                        later.id.as_str(),
+                                                        later.doc_count,
+                                                    );
+                                                }
+                                            }
+                                        }
                                         self.stored_slices_for(seg_id.as_str(), meta.doc_count)
                                     };
                                     // Legacy whole-section fallback ONLY when the
