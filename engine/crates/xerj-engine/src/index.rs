@@ -14105,7 +14105,7 @@ impl Index {
                 segments_snapshot_init
                     .iter()
                     .filter(|meta| {
-                        let Ok(reader) = SegmentReader::open(&segments_dir.join(&meta.seg_path))
+                        let Ok(reader) = SegmentReader::open(segments_dir.join(&meta.seg_path))
                         else {
                             return false;
                         };
