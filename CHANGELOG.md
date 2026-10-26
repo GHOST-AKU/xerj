@@ -79,6 +79,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- A search clause on a field the target index does not map (for example
+  the `term name` and `match_phrase defs` clauses that `xerj search` and the
+  MCP search tool send to a docs index together with a code index) is now
+  treated as matching nothing before the engine picks a plan, as in ES.
+  Before, that one clause stopped the whole `bool` from using the segment
+  inverted index. The search then decoded every stored row of every cold
+  segment instead, which took 716 MB and 1.1 s on a 20,076-document
+  segment, with or without `_source`, highlight or `multi_match` over `*`.
+  Hit sets do not change. On an index that lacks the field, scores now come
+  from BM25 instead of the stored-scan scorer. Indices that map the field
+  run the same query as before. `dynamic: runtime` indices and empty schemas
+  are not affected. (Refs #2427)
+
 - The parent memory breaker no longer flaps, and background merges and flush
   finalizes are bounded while it is engaged (#2427). A 3,000 MB autoindex run
   engaged the breaker 20 times in 16 minutes, often releasing 100-500 ms

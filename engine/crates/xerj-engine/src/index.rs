@@ -2168,6 +2168,144 @@ mod flush_publication_recovery_tests {
         drop(engine);
     }
 
+    /// #2427: one CLI/MCP code-search query goes to the code index and the
+    /// docs index together, so it carries `term name` and `match_phrase defs`
+    /// for the code index. On an index that maps neither field, those leaves
+    /// used to decline FTS for the whole `bool`. The search then took the
+    /// brute stored scan, which decodes every stored row of a cold segment
+    /// whatever the request shape (`_source: false`, a `_source` list,
+    /// highlight, `multi_match` over `*`). Now the unmapped leaves lower to
+    /// `match_none` before projection. Each request must stay on the FTS cold
+    /// path (identities, then hydrate only the winners). Each answer must be
+    /// exactly the answer to the query the CLI would have built had it known
+    /// the target maps only `title` and `body`.
+    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
+    async fn unmapped_cli_lookup_clauses_keep_cold_segments_on_the_fts_path() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut config = Config::default();
+        config.server.data_dir = dir.path().to_string_lossy().into_owned();
+        let engine = crate::Engine::new(config).unwrap();
+        engine
+            .create_index("docs-cold", topk_projection_schema())
+            .unwrap();
+        let idx = engine.get_index("docs-cold").unwrap();
+        idx.abort_background_tasks();
+        // Each memtable shard flushes its own segment; give at least one of
+        // them more rows than the cold row window.
+        let n_docs = (1100 * idx.memtable.shard_count().max(1) as u64).max(4096);
+        for i in 0..n_docs {
+            let body = if i % 3 == 0 {
+                format!("needle stack report {i} needle")
+            } else {
+                format!("hay stack {i}")
+            };
+            idx.index_document(
+                Some(format!("doc-{i}")),
+                json!({"title": format!("title {i}"), "body": body, "blob": "x"}),
+            )
+            .await
+            .unwrap();
+        }
+        idx.flush().await.unwrap();
+        drop(idx);
+        drop(engine);
+
+        let mut c = Config::default();
+        c.server.data_dir = dir.path().to_string_lossy().into_owned();
+        let engine = crate::Engine::new(c).unwrap();
+        let idx = engine.get_index("docs-cold").unwrap();
+        idx.abort_background_tasks();
+        let snapshot = idx.store.snapshot();
+        let segs: Vec<_> = snapshot.segments.clone();
+        drop(snapshot);
+        assert!(segs.iter().any(|s| s.doc_count > 1024));
+        // Hold the background warm back so each query is observed alone.
+        for s in &segs {
+            idx.cold_stored_warms.insert(s.id.to_string(), ());
+        }
+        let all_cold = |idx: &Index| {
+            segs.iter().all(|s| {
+                !idx.stored_slices_cache.contains_key(&s.id)
+                    && !idx.decoded_stored_cache.contains_key(&s.id)
+            })
+        };
+
+        let names = |v: &[&str]| -> std::collections::BTreeSet<String> {
+            v.iter().map(|s| s.to_string()).collect()
+        };
+        // The CLI searches the code and docs indices in one request, so its
+        // mapping union names the code fields too.
+        let union = names(&["name", "code", "body", "defs", "title"]);
+        let docs_only = names(&["body", "title"]);
+        let cli = |mapped: &std::collections::BTreeSet<String>| {
+            xerj_common::code_query::search_query_body_for_mapping(
+                "needle stack report",
+                10,
+                Some(mapped),
+                None,
+            )
+        };
+        let union_body = cli(&union);
+        let docs_body = cli(&docs_only);
+        assert!(
+            union_body.to_string().contains("\"defs\"")
+                && union_body.to_string().contains("\"name\""),
+            "precondition: the CLI query names the code-only fields: {union_body}"
+        );
+        assert!(!docs_body.to_string().contains("\"name\""));
+
+        let shapes = |body: &Value| -> Vec<Value> {
+            let q = body["query"].clone();
+            let mut star = body.clone();
+            star["query"]["bool"]["should"]
+                .as_array_mut()
+                .unwrap()
+                .push(json!({"multi_match": {"query": "needle", "fields": ["*"]}}));
+            vec![
+                body.clone(),
+                json!({"query": q, "size": 10, "_source": false}),
+                json!({"query": q, "size": 10, "highlight": {"fields": {"body": {}}}}),
+                star,
+            ]
+        };
+        let key = |r: &xerj_query::executor::SearchResult| -> Vec<(String, u32, Value)> {
+            r.hits
+                .iter()
+                .map(|h| (h.id.clone(), h.score.to_bits(), h.source.clone()))
+                .collect()
+        };
+        for (i, (with_unmapped, reference)) in shapes(&union_body)
+            .into_iter()
+            .zip(shapes(&docs_body))
+            .enumerate()
+        {
+            let before = idx.cold_row_hydrations.load(Ordering::Relaxed);
+            let got = idx
+                .search(&xerj_query::parse_request(&with_unmapped).unwrap())
+                .await
+                .unwrap();
+            assert!(
+                all_cold(&idx),
+                "shape {i}: a query naming unmapped fields must not decode the whole stored section"
+            );
+            assert!(
+                idx.cold_row_hydrations.load(Ordering::Relaxed) > before,
+                "shape {i}: the FTS cold path hydrates its winners"
+            );
+            let want = idx
+                .search(&xerj_query::parse_request(&reference).unwrap())
+                .await
+                .unwrap();
+            assert_eq!(got.hits.len(), 10, "shape {i}");
+            assert_eq!(key(&got), key(&want), "shape {i}");
+            assert_eq!(got.total.value, want.total.value, "shape {i}");
+            // Every row has `stack`, so every row matches.
+            assert_eq!(got.total.value, n_docs, "shape {i}");
+        }
+        drop(idx);
+        drop(engine);
+    }
+
     /// #2422/#2423: on a cold segment (after a restart, or evicted under the
     /// cache budget) a top-k query that names its `_source` fields must read
     /// only the winning rows and only the needed columns. Before the fix the
@@ -21474,7 +21612,7 @@ impl Index {
                 &rewrite_query_aliases(query, &schema.schema),
                 &schema.schema,
             );
-            let typeless = crate::memtable::lexically_typeless_fields(&schema.schema);
+            let typeless = dead_lookup_fields(&resolved, &schema);
             let lowered = if typeless.is_empty() {
                 resolved
             } else {
@@ -22702,7 +22840,13 @@ impl Index {
             // field is `indexed`, so it is not "unsearchable" — and without
             // the lowering the missing postings hand the clause to the
             // stored-doc scan. See `lower_lexically_typeless_clauses`.
-            let typeless = crate::memtable::lexically_typeless_fields(&schema.schema);
+            //
+            // #2427: a leaf on a field THIS index does not map is lowered the
+            // same way (ES: an unmapped field matches nothing), so one
+            // multi-index query's clause on another index's field cannot
+            // decline FTS here and decode every stored row. See
+            // `dead_lookup_fields`.
+            let typeless = dead_lookup_fields(&resolved, &schema);
             let lowered = if typeless.is_empty() {
                 resolved
             } else {
@@ -46137,6 +46281,332 @@ fn numeric_field_matches(schema: &Schema, field: &str) -> bool {
         any_match(&schema.fields, "", field)
     } else {
         declared_field(schema, field).is_some_and(is_numeric)
+    }
+}
+
+/// #2427: the field names a query's lexical leaves look up that this index
+/// does NOT map, unioned with `memtable::lexically_typeless_fields`. This is
+/// the set `lower_lexically_typeless_clauses` turns into `MatchNone` before
+/// projection is decided.
+///
+/// Why: one request often goes to several indices that have different field
+/// sets. The code-search CLI and MCP query (`code_query::build_search_query`)
+/// carry `term name` and `match_phrase defs`, which exist on the code index
+/// but not on the docs index. On the docs index those leaves cannot project
+/// onto the inverted index (`query_node_to_fts_projected` returns `None` for
+/// a field with no FTS type), and one `None` child declines the whole `Bool`.
+/// The search then runs a brute stored scan, which decodes every stored row
+/// of every segment: 716 MB peak and 1.1 s on a 20,076-doc segment. That
+/// happens for every query shape, including `_source: false`, highlight, and
+/// `multi_match` over `*`.
+///
+/// Lowering is exact under ES semantics, where a clause on an unmapped field
+/// matches no document. The evaluator agrees: a field that is not in a
+/// document's `_source` matches no leaf, and with `dynamic: true` (the
+/// default) every field in an indexed `_source` is added to the engine schema
+/// (`evolve_schema_from_docs`). The `dynamic: false` the API accepts is kept
+/// only in the display mappings, so it does not remove fields from this
+/// schema. The `MatchNone` fold then:
+///  * drops the clause from `should` (when `minimum_should_match` is unset or
+///    fixed),
+///  * sinks the bool when the clause is in `must`/`filter`, and
+///  * drops the clause from `must_not`.
+/// Hit sets do not change. Only `_score` on the index that lacks the field
+/// changes: BM25 over the inverted index replaces the stored-doc scorer.
+/// That is the same trade-off `lower_lexically_typeless_clauses` documents.
+/// Indices that map the field get back exactly the input query.
+///
+/// A name is lowered only when the schema provably does not cover it (see
+/// `field_provably_unmapped`). The pass is skipped entirely when:
+///  * the schema is empty (a fresh index, where an empty field list says
+///    nothing yet), or
+///  * the policy is `dynamic: runtime`, where unmapped fields are kept in
+///    `_source` and the stored scan can still match them.
+/// Known cases where `_source` holds a field this schema lacks:
+///  * A dynamic batch rejected by `max_fields_per_index`. The documents are
+///    still stored. Segment FTS already treats such a field as matching
+///    nothing (`prune_missing_should_fields`).
+///  * The short window in which a single-document write is visible before its
+///    schema evolution lands. The memtable FTS postings for such a document
+///    are built against the same older schema, so they also lack the field.
+fn dead_lookup_fields(q: &QueryNode, managed: &ManagedSchema) -> HashSet<String> {
+    let mut dead = crate::memtable::lexically_typeless_fields(&managed.schema);
+    if managed.schema.fields.is_empty()
+        || matches!(
+            managed.dynamic,
+            xerj_common::schema::DynamicMapping::Runtime
+        )
+    {
+        return dead;
+    }
+    let mut names: Vec<&str> = Vec::new();
+    collect_lookup_field_names(q, &mut names);
+    for name in names {
+        if !dead.contains(name) && field_provably_unmapped(&managed.schema, name) {
+            dead.insert(name.to_string());
+        }
+    }
+    dead
+}
+
+/// The field names that `lower_lexically_typeless_clauses` can lower: those on
+/// its one-field leaves, plus the non-pattern entries of `multi_match` /
+/// `simple_query_string` field lists and a `query_string` `default_field`.
+/// It walks the same wrappers the lowering walks, except `Nested` (whose names
+/// resolve against the element) and `Knn` filters (which are only ever pruned
+/// less, never wrongly).
+fn collect_lookup_field_names<'q>(q: &'q QueryNode, out: &mut Vec<&'q str>) {
+    let spec_name = |spec: &'q String| -> Option<&'q str> {
+        let (name, _boost) = parse_field_boost(spec);
+        (!name.contains('*')).then_some(name)
+    };
+    match q {
+        QueryNode::Term { field, .. }
+        | QueryNode::Terms { field, .. }
+        | QueryNode::Range { field, .. }
+        | QueryNode::Prefix { field, .. }
+        | QueryNode::Wildcard { field, .. }
+        | QueryNode::Match { field, .. }
+        | QueryNode::MatchPhrase { field, .. }
+        | QueryNode::MatchPhrasePrefix { field, .. }
+        | QueryNode::Fuzzy { field, .. }
+        | QueryNode::Regexp { field, .. }
+        | QueryNode::Intervals { field, .. }
+        | QueryNode::SpanTerm { field, .. } => out.push(field),
+        QueryNode::MultiMatch { fields, .. } | QueryNode::SimpleQueryString { fields, .. } => {
+            out.extend(fields.iter().filter_map(spec_name));
+        }
+        QueryNode::QueryString {
+            default_field: Some(f),
+            ..
+        } => out.extend(spec_name(f)),
+        QueryNode::Bool {
+            must,
+            should,
+            must_not,
+            filter,
+            ..
+        } => {
+            for c in must.iter().chain(should).chain(must_not).chain(filter) {
+                collect_lookup_field_names(c, out);
+            }
+        }
+        QueryNode::Constant { query, .. }
+        | QueryNode::Boosted { query, .. }
+        | QueryNode::Named { query, .. }
+        | QueryNode::FunctionScore { query, .. } => collect_lookup_field_names(query, out),
+        QueryNode::Pinned { organic, .. } => collect_lookup_field_names(organic, out),
+        QueryNode::Boosting {
+            positive, negative, ..
+        } => {
+            collect_lookup_field_names(positive, out);
+            collect_lookup_field_names(negative, out);
+        }
+        QueryNode::DisMax { queries, .. } => {
+            for c in queries {
+                collect_lookup_field_names(c, out);
+            }
+        }
+        _ => {}
+    }
+}
+
+/// True only when nothing in `schema` could account for `name` in a stored
+/// document. A name is not lowered when:
+///  * it is empty,
+///  * it is a meta field (leading `_`),
+///  * it is a pattern,
+///  * it is a passage-metadata key,
+///  * it is the `_chunks` companion of a declared vector,
+///  * it is declared under either the flat or the nested spelling,
+///  * any declared field is a dot-ancestor of it (`title` for `title.keyword`,
+///    `meta` for `meta.a`), or
+///  * any declared field is a dot-descendant of it (`passages.vec` for
+///    `passages`).
+fn field_provably_unmapped(schema: &Schema, name: &str) -> bool {
+    if name.is_empty()
+        || name.starts_with('_')
+        || name.contains('*')
+        || name.starts_with(xerj_query::executor::PASSAGE_METADATA_PREFIX)
+    {
+        return false;
+    }
+    if let Some(base) = name.strip_suffix(crate::memtable::MULTI_VECTOR_COMPANION_SUFFIX) {
+        if !base.is_empty() && declares_dense_vector(schema, base) {
+            return false;
+        }
+    }
+    if declared_field(schema, name).is_some() {
+        return false;
+    }
+    let dotted_under = |long: &str, short: &str| {
+        long.len() > short.len() && long.starts_with(short) && long.as_bytes()[short.len()] == b'.'
+    };
+    !schema.fields.iter().any(|fc| {
+        let declared = fc.name.as_str();
+        declared == name || dotted_under(name, declared) || dotted_under(declared, name)
+    })
+}
+
+#[cfg(test)]
+mod unmapped_lookup_lowering_tests {
+    use super::*;
+    use serde_json::json;
+    use xerj_common::schema::DynamicMapping;
+
+    fn managed(fields: &[(&str, FieldType)], dynamic: DynamicMapping) -> ManagedSchema {
+        let mut schema = Schema::empty();
+        for (name, ty) in fields {
+            schema
+                .add_field(FieldConfig::new(*name, ty.clone()))
+                .unwrap();
+        }
+        ManagedSchema { schema, dynamic }
+    }
+
+    fn docs_schema() -> ManagedSchema {
+        managed(
+            &[
+                ("title", FieldType::Text),
+                ("body", FieldType::Text),
+                ("passages.vec", FieldType::Keyword),
+            ],
+            DynamicMapping::Dynamic,
+        )
+    }
+
+    fn q(v: Value) -> QueryNode {
+        xerj_query::parse_request(&json!({ "query": v }))
+            .unwrap()
+            .query
+    }
+
+    fn lower(query: &QueryNode, m: &ManagedSchema) -> QueryNode {
+        lower_lexically_typeless_clauses(query, &dead_lookup_fields(query, m))
+    }
+
+    /// The code-search CLI shape on an index without `name`/`defs`: the two
+    /// lookups go, the `multi_match` keeps only the mapped entries, and the
+    /// result is what the CLI builds for the docs mapping alone.
+    #[test]
+    fn cli_lookup_clauses_on_unmapped_fields_are_dropped_from_should() {
+        let cli = q(json!({"bool": {"should": [
+            {"multi_match": {"query": "x y", "fields": ["name^4", "code^2", "body", "defs^3", "title"], "type": "most_fields"}},
+            {"match_phrase": {"defs": {"query": "x y", "boost": 8}}},
+            {"term": {"name": {"value": "x y", "boost": 10}}},
+            {"match_phrase": {"body": {"query": "x y", "boost": 2}}}
+        ]}}));
+        let want = q(json!({"bool": {"should": [
+            {"multi_match": {"query": "x y", "fields": ["body", "title"], "type": "most_fields"}},
+            {"match_phrase": {"body": {"query": "x y", "boost": 2}}}
+        ]}}));
+        let dead = dead_lookup_fields(&cli, &docs_schema());
+        assert!(dead.contains("name") && dead.contains("defs") && dead.contains("code"));
+        assert!(!dead.contains("body") && !dead.contains("title"));
+        assert_eq!(lower(&cli, &docs_schema()), want);
+    }
+
+    /// Where the fields exist the query is returned unchanged, so results on
+    /// the code index cannot move.
+    #[test]
+    fn mapped_fields_leave_the_query_untouched() {
+        let code = managed(
+            &[
+                ("name", FieldType::Keyword),
+                ("code", FieldType::Keyword),
+                ("defs", FieldType::Text),
+                ("body", FieldType::Text),
+                ("title", FieldType::Keyword),
+            ],
+            DynamicMapping::Dynamic,
+        );
+        let cli = q(json!({"bool": {"should": [
+            {"multi_match": {"query": "x", "fields": ["name^4", "code^2", "body", "defs^3", "title"]}},
+            {"match_phrase": {"defs": {"query": "x", "boost": 8}}},
+            {"term": {"name": {"value": "x", "boost": 10}}}
+        ]}}));
+        assert!(dead_lookup_fields(&cli, &code).is_empty());
+        assert_eq!(lower(&cli, &code), cli);
+    }
+
+    /// ES occur semantics through the existing fold: an unmapped REQUIRED
+    /// clause matches nothing, an unmapped `must_not` excludes nothing.
+    #[test]
+    fn required_and_negated_unmapped_clauses_fold_like_es() {
+        let m = docs_schema();
+        let must = q(json!({"bool": {
+            "must": [{"term": {"name": "x"}}],
+            "should": [{"match": {"body": "x"}}]
+        }}));
+        assert_eq!(lower(&must, &m), QueryNode::MatchNone);
+        let filter = q(json!({"bool": {
+            "must": [{"match": {"body": "x"}}],
+            "filter": [{"range": {"size": {"gte": 1}}}]
+        }}));
+        assert_eq!(lower(&filter, &m), QueryNode::MatchNone);
+        let not = q(json!({"bool": {
+            "must": [{"match": {"body": "x"}}],
+            "must_not": [{"term": {"name": "x"}}]
+        }}));
+        assert_eq!(
+            lower(&not, &m),
+            q(json!({"bool": {"must": [{"match": {"body": "x"}}]}}))
+        );
+        // A percentage `minimum_should_match` is left exactly as written.
+        let pct = q(json!({"bool": {
+            "should": [{"term": {"name": "x"}}, {"match": {"body": "x"}}],
+            "minimum_should_match": "50%"
+        }}));
+        let lowered = lower(&pct, &m);
+        assert!(matches!(lowered, QueryNode::Bool { ref should, .. } if should.len() == 2));
+    }
+
+    /// Names the schema can account for are never lowered.
+    #[test]
+    fn covered_names_are_not_lowered() {
+        let mut m = docs_schema();
+        m.schema
+            .add_field(FieldConfig::new("emb", FieldType::Vector))
+            .unwrap();
+        let s = &m.schema;
+        for name in [
+            "body",
+            "title.keyword", // multi-field under a declared parent
+            "passages",      // parent of a flat dotted declaration
+            "passages.vec",
+            "passages.vec.x",
+            "_id",
+            "_index",
+            "*",
+            "body*",
+            "emb_chunks", // undeclared multi-vector companion
+            "",
+        ] {
+            assert!(
+                !field_provably_unmapped(s, name),
+                "{name} must not be lowered"
+            );
+        }
+        for name in ["name", "defs", "titles", "passage", "bodyx"] {
+            assert!(field_provably_unmapped(s, name), "{name} is unmapped");
+        }
+    }
+
+    /// `dynamic: runtime` keeps unmapped fields in `_source` where the stored
+    /// scan can match them, and an empty schema says nothing yet: neither is
+    /// lowered.
+    #[test]
+    fn runtime_and_empty_schemas_are_not_lowered() {
+        let term = q(json!({"bool": {"should": [
+            {"term": {"name": "x"}},
+            {"match": {"body": "x"}}
+        ]}}));
+        let runtime = managed(&[("body", FieldType::Text)], DynamicMapping::Runtime);
+        assert!(dead_lookup_fields(&term, &runtime).is_empty());
+        let empty = managed(&[], DynamicMapping::Dynamic);
+        assert!(dead_lookup_fields(&term, &empty).is_empty());
+        let strict = managed(&[("body", FieldType::Text)], DynamicMapping::Strict);
+        assert!(dead_lookup_fields(&term, &strict).contains("name"));
     }
 }
 
