@@ -699,6 +699,38 @@ pub fn decode_stored_v2_rows_projected_controlled<F>(
     bytes: &[u8],
     ordinals: &[usize],
     source_fields: Option<&[&str]>,
+    checkpoint: F,
+) -> Result<StoredDecodeRun<StoredV2RowHydrationResult>>
+where
+    F: FnMut(StoredDecodeCheckpoint) -> std::ops::ControlFlow<()>,
+{
+    hydrate_v2_rows(bytes, ordinals, source_fields, false, checkpoint)
+}
+
+/// Like [`decode_stored_v2_rows_projected`] (`None` = every field), but
+/// decodes the wanted columns concurrently on the rayon pool. Each column is
+/// an independent stream, so a cold top-k hydration that must walk every
+/// column of a segment for a handful of rows costs roughly its largest
+/// column instead of the sum of all of them. Output is identical to the
+/// serial decoder.
+pub fn decode_stored_v2_rows_projected_parallel(
+    bytes: &[u8],
+    ordinals: &[usize],
+    source_fields: Option<&[&str]>,
+) -> Result<StoredV2RowHydrationResult> {
+    match hydrate_v2_rows(bytes, ordinals, source_fields, true, |_| {
+        std::ops::ControlFlow::Continue(())
+    })? {
+        StoredDecodeRun::Complete(result) => Ok(result),
+        StoredDecodeRun::Cancelled => unreachable!("non-cancelling parallel wrapper"),
+    }
+}
+
+fn hydrate_v2_rows<F>(
+    bytes: &[u8],
+    ordinals: &[usize],
+    source_fields: Option<&[&str]>,
+    parallel: bool,
     mut checkpoint: F,
 ) -> Result<StoredDecodeRun<StoredV2RowHydrationResult>>
 where
@@ -753,14 +785,56 @@ where
     let mut columns: Vec<Option<Vec<serde_json::Value>>> =
         (0..directory.columns.len()).map(|_| None).collect();
     let mut dict_ids = HashMap::new();
-    for index in 0..directory.columns.len() {
-        let column = &directory.columns[index];
-        let wanted = index == id_index
-            || index == seq_index
-            || requested
-                .as_ref()
-                .is_none_or(|fields| fields.contains(column.name));
-        if !wanted {
+    let wanted_columns: Vec<usize> = (0..directory.columns.len())
+        .filter(|&index| {
+            index == id_index
+                || index == seq_index
+                || requested
+                    .as_ref()
+                    .is_none_or(|fields| fields.contains(directory.columns[index].name))
+        })
+        .collect();
+    if parallel && wanted_columns.len() > 1 {
+        use rayon::prelude::*;
+        // Each task gets its own stats and dictionary-id scratch: a CROSS_DEP
+        // column re-derives its DICT source ids locally, which is the same
+        // work the serial path does once and shares.
+        let decoded: Vec<_> = wanted_columns
+            .par_iter()
+            .map(|&index| {
+                let mut local_stats = StoredV2RowHydrationStats::default();
+                let mut local_dict_ids = HashMap::new();
+                let mut noop = |_: StoredDecodeCheckpoint| std::ops::ControlFlow::Continue(());
+                select_column_rows(
+                    index,
+                    &directory,
+                    &selected,
+                    &mut local_stats,
+                    &mut local_dict_ids,
+                    &mut noop,
+                )
+                .map(|values| (index, values, local_stats))
+            })
+            .collect();
+        for result in decoded {
+            let (index, values, local_stats) = result?;
+            stats.encoded_rows_visited += local_stats.encoded_rows_visited;
+            stats.selected_json_values += local_stats.selected_json_values;
+            stats.selected_dictionary_entries += local_stats.selected_dictionary_entries;
+            stats.decompressed_buffer_bytes += local_stats.decompressed_buffer_bytes;
+            match values {
+                Ok(values) => columns[index] = Some(values),
+                Err(Some(column)) => {
+                    return Ok(StoredDecodeRun::Complete(
+                        StoredV2RowHydrationResult::UnsupportedDependencyShape { column },
+                    ));
+                }
+                Err(None) => return Ok(StoredDecodeRun::Cancelled),
+            }
+        }
+    }
+    for index in wanted_columns {
+        if columns[index].is_some() {
             continue;
         }
         if decode_cancelled(&mut checkpoint, StoredDecodePhase::BeforeColumn, index, 0) {
