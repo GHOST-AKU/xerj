@@ -77,14 +77,18 @@ fn assert_segments_stripped(dir: &TempDir) {
     let mut files = Vec::new();
     seg_files(dir.path(), &mut files);
     assert!(!files.is_empty(), "no segment written");
+    let mut columnar = 0;
     for path in files {
         let reader = SegmentReader::open(&path).unwrap();
         let Some(raw) = reader.section(SectionType::Stored).unwrap() else {
             continue;
         };
-        let names = xerj_storage::stored_codec::stored_v2_source_column_names(raw)
-            .unwrap()
-            .expect("columnar stored section");
+        // Small sections stay row-oriented LZ4 and keep their vectors.
+        let Some(names) = xerj_storage::stored_codec::stored_v2_source_column_names(raw).unwrap()
+        else {
+            continue;
+        };
+        columnar += 1;
         assert!(names.iter().any(|n| n == "content_vector"), "virtual column listed");
         let preserved =
             xerj_storage::stored_codec::decode_stored_preserving_derived(raw).unwrap();
@@ -98,6 +102,7 @@ fn assert_segments_stripped(dir: &TempDir) {
         assert!(full.contains("\"content_vector_chunks\":"));
         assert!(!full.contains(r#""derived""#), "marker never reaches readers");
     }
+    assert!(columnar > 0, "no columnar stored section to check");
 }
 
 async fn snapshot(idx: &xerj_engine::Index, ids: &[usize]) -> Vec<Value> {
@@ -125,7 +130,7 @@ async fn semantic_hits(idx: &xerj_engine::Index) -> Vec<(String, f32, Value)> {
 
 async fn knn_top(idx: &xerj_engine::Index, vector: &Value) -> String {
     let request = parse_request(&json!({
-        "knn": {"field": "content_vector", "query_vector": vector, "k": 3, "num_candidates": 50},
+        "query": {"knn": {"field": "content_vector", "query_vector": vector, "k": 3, "num_candidates": 50}},
         "size": 3
     }))
     .unwrap();
@@ -144,13 +149,13 @@ fn assert_same_hits(got: &[(String, f32, Value)], want: &[(String, f32, Value)],
 #[tokio::test]
 async fn lexical_semantic_vectors_are_rebuilt_not_stored() {
     let dir = TempDir::new().unwrap();
-    let probe = [0usize, 1, 10, 137, 250, 299];
+    let probe = [0usize, 1, 10, 137, 250, 1999];
     let engine = make_engine(&dir);
     engine.create_index(INDEX, schema()).unwrap();
     let idx = engine.get_index(INDEX).unwrap();
 
-    bulk(&engine, 0..150).await;
-    bulk(&engine, 150..300).await;
+    bulk(&engine, 0..1000).await;
+    bulk(&engine, 1000..2000).await;
     let before_docs = snapshot(&idx, &probe).await;
     for doc in &before_docs {
         assert_eq!(doc["content_vector"].as_array().unwrap().len(), 32);
@@ -165,7 +170,7 @@ async fn lexical_semantic_vectors_are_rebuilt_not_stored() {
     assert_same_hits(&semantic_hits(&idx).await, &before_hits, "flush");
     assert_eq!(knn_top(&idx, &before_docs[3]["content_vector"]).await, "137");
 
-    bulk(&engine, 300..450).await;
+    bulk(&engine, 2000..2600).await;
     idx.flush().await.unwrap();
     idx.force_merge(1).await.unwrap();
     assert_segments_stripped(&dir);
