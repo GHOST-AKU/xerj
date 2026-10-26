@@ -13655,7 +13655,21 @@ impl Index {
     /// 16 GiB host does not merge in smaller pieces. A 4 GiB budget
     /// (the AUTO cap on an 8 GiB host) is 64 MiB.
     /// `XERJ_MERGE_BATCH_MAX_INPUT_MB` overrides (0 disables the bound).
+    ///
+    /// #2427: a batch that had to yield under memory pressure narrows this
+    /// for every index through the governor's adaptive cap
+    /// (`merge_budget::effective_batch_cap_bytes`).
     fn merge_batch_cap_bytes() -> u64 {
+        let pressure_cap = crate::governor::global()
+            .map(|governor| governor.merge_pressure_cap_bytes())
+            .unwrap_or(0);
+        crate::merge_budget::effective_batch_cap_bytes(
+            Self::merge_static_batch_cap_bytes(),
+            pressure_cap,
+        )
+    }
+
+    fn merge_static_batch_cap_bytes() -> u64 {
         const MB: u64 = 1024 * 1024;
         if let Ok(raw) = std::env::var("XERJ_MERGE_BATCH_MAX_INPUT_MB") {
             if let Ok(mb) = raw.trim().parse::<u64>() {
@@ -13944,6 +13958,11 @@ impl Index {
         // pass returns an ERROR so callers (forcemerge HTTP → 500, background
         // task → error log) hear about it loudly instead of losing data.
         let failed_batches = Arc::new(std::sync::atomic::AtomicUsize::new(0));
+        // #2427 — background batches that stopped because the breaker was
+        // engaged with RSS at the process limit. Not a failure: inputs stay,
+        // the pass is flagged deferred, and the governor narrows the next
+        // batches (`merge_budget::merge_must_yield`).
+        let yielded_batches = Arc::new(std::sync::atomic::AtomicUsize::new(0));
 
         // #2427 — process-wide admission. Every launch reserves the batch's
         // estimated working set against the RSS watermark through the
@@ -13995,6 +14014,30 @@ impl Index {
             let batch_for_task = batch;
             let metas_for_task = metas;
             let failed_for_task = Arc::clone(&failed_batches);
+            let yielded_for_task = Arc::clone(&yielded_batches);
+            let forced_for_task = force_max_segments.is_some();
+            let input_bytes_for_task: u64 = metas_for_task.iter().map(|meta| meta.size_bytes).sum();
+            // Checked at each input segment, every 8192 surviving docs, and
+            // before the output segment is created — never after, so a
+            // yielded batch leaves no partial output behind.
+            let must_yield = move || -> bool {
+                let Some(governor) = crate::governor::global() else {
+                    return false;
+                };
+                if !governor.merge_must_yield(forced_for_task) {
+                    return false;
+                }
+                let cap = governor.note_merge_yield(input_bytes_for_task);
+                tracing::warn!(
+                    input_mb = input_bytes_for_task / (1024 * 1024),
+                    rss_mb = governor.observed_rss_bytes() / (1024 * 1024),
+                    limit_mb = governor.process_memory_limit_bytes() / (1024 * 1024),
+                    next_batch_cap_mb = cap / (1024 * 1024),
+                    "merge batch yielded: breaker engaged with RSS at the process limit; \
+                     inputs kept, later batches narrowed"
+                );
+                true
+            };
             #[cfg(test)]
             let hold_merge_encode = Arc::clone(&self.test_hold_merge_encode);
             #[cfg(test)]
@@ -14212,6 +14255,10 @@ impl Index {
                     let mut tomb_union: HashMap<String, u64> = HashMap::new();
 
                     for (source_index, meta) in metas_for_task.iter().enumerate() {
+                        if must_yield() {
+                            yielded_for_task.fetch_add(1, Ordering::Relaxed);
+                            return None;
+                        }
                         min_seq = min_seq.min(meta.min_seq_no);
                         max_seq = max_seq.max(meta.max_seq_no);
                         let seg_path = segments_dir_for_task.join(&meta.seg_path);
@@ -14538,6 +14585,10 @@ impl Index {
                         // stored-side peak.
                         drain_checkpoint += 1;
                         if drain_checkpoint.is_multiple_of(8192) {
+                            if must_yield() {
+                                yielded_for_task.fetch_add(1, Ordering::Relaxed);
+                                return None;
+                            }
                             crate::ingest_memory::observe_checkpoint(
                                 crate::ingest_memory::Category::MergeJsonBuffer,
                                 merged_json_buf.len(),
@@ -14573,6 +14624,10 @@ impl Index {
                         fts_input_bytes,
                     );
 
+                    if must_yield() {
+                        yielded_for_task.fetch_add(1, Ordering::Relaxed);
+                        return None;
+                    }
                     // Write merged stored section using the columnar v2 codec.
                     let mut writer = match SegmentWriter::new(&segments_dir_for_task, 1, 0, 0) {
                         Ok(w) => w,
@@ -14876,7 +14931,14 @@ impl Index {
                 // decode, FST and doc-values build) has finished.
                 let _reservation = reservation;
                 match encode_rx.await {
-                    Ok(Ok(value)) => value,
+                    Ok(Ok(value)) => {
+                        if value.is_some() && !forced_for_task {
+                            if let Some(governor) = crate::governor::global() {
+                                governor.note_merge_completed(input_bytes_for_task);
+                            }
+                        }
+                        value
+                    }
                     Ok(Err(payload)) => std::panic::resume_unwind(payload),
                     // The encode task vanished without a result. Panic so the
                     // driver counts a failed batch (the `JoinError` arm)
@@ -15249,6 +15311,16 @@ impl Index {
             }
             // Top up in_flight.
             launch_next!();
+        }
+        let yielded = yielded_batches.load(AtomicOrdering::Relaxed);
+        if yielded > 0 {
+            self.merge_batches_deferred
+                .store(true, AtomicOrdering::Relaxed);
+            tracing::info!(
+                index = %self.name,
+                yielded,
+                "merge batches yielded under memory pressure; inputs kept"
+            );
         }
         if governor_deferred > 0 {
             self.merge_batches_deferred

@@ -175,9 +175,120 @@ pub fn decide_merge_admission(
         < watermark
 }
 
+/// Whether an in-flight background merge batch must stop (#2427).
+///
+/// Admission checks a batch against `input * MERGE_WORKING_SET_NUMERATOR`
+/// before it starts. On the 1 GB gate corpus that estimate was several
+/// times too small: JSON-heavy segments compress 10–20×, and a merge holds
+/// the decoded survivors plus a parsed `Value` per document. One admitted
+/// batch took a 3,072 MB node to 8,122 MB in 18 s while the breaker was
+/// engaged and writes were already getting 429s. Nothing else could free
+/// that memory, because the merge was the thing allocating it.
+///
+/// A batch stops when the breaker is engaged and RSS has reached the full
+/// process limit (past the 95% watermark). A stopped batch commits nothing
+/// and keeps its inputs, like any aborted merge. `forced` (`_forcemerge`)
+/// batches are not stopped. `limit == 0` or `rss == 0` (unknown) never
+/// stops a batch.
+pub fn merge_must_yield(rss: u64, limit: u64, breaker_engaged: bool, forced: bool) -> bool {
+    !forced && breaker_engaged && limit > 0 && rss > 0 && rss >= limit
+}
+
+/// The adaptive batch input cap after a batch of `input_bytes` stopped
+/// under memory pressure (#2427). `current == 0` means no adaptive cap yet.
+/// The next batch may use at most half of what did not fit. Never below 1.
+pub fn pressure_cap_after_yield(current: u64, input_bytes: u64) -> u64 {
+    let halved = (input_bytes / 2).max(1);
+    if current == 0 {
+        halved
+    } else {
+        current.min(halved)
+    }
+}
+
+/// The adaptive batch input cap after a background batch of `input_bytes`
+/// completed (#2427). A batch that used at least half of the cap doubles
+/// it. Once the cap reaches [`HISTORICAL_BATCH_CAP_BYTES`] it is removed
+/// (`0`), and the static cap applies again.
+pub fn pressure_cap_after_success(current: u64, input_bytes: u64) -> u64 {
+    if current == 0 {
+        return 0;
+    }
+    if input_bytes.saturating_mul(2) < current {
+        return current;
+    }
+    let doubled = current.saturating_mul(2);
+    if doubled >= HISTORICAL_BATCH_CAP_BYTES {
+        0
+    } else {
+        doubled
+    }
+}
+
+/// The batch input cap to plan with: the static cap, narrowed by the
+/// adaptive pressure cap when one is set. A static cap of `0` (the
+/// `XERJ_MERGE_BATCH_MAX_INPUT_MB=0` opt-out) still takes a pressure cap.
+pub fn effective_batch_cap_bytes(static_cap: u64, pressure_cap: u64) -> u64 {
+    match (static_cap, pressure_cap) {
+        (s, 0) => s,
+        (0, p) => p,
+        (s, p) => s.min(p),
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn a_background_merge_yields_only_when_engaged_at_the_limit() {
+        const MIB: u64 = 1024 * 1024;
+        let limit = 1024 * MIB;
+        assert!(merge_must_yield(1024 * MIB, limit, true, false));
+        assert!(merge_must_yield(1600 * MIB, limit, true, false));
+        // Watermark band (95%..100%) and below: keep going.
+        assert!(!merge_must_yield(1000 * MIB, limit, true, false));
+        // Not engaged: keep going (the sampler will engage first).
+        assert!(!merge_must_yield(1600 * MIB, limit, false, false));
+        // `_forcemerge` is never stopped.
+        assert!(!merge_must_yield(1600 * MIB, limit, true, true));
+        // Unknown limit or RSS.
+        assert!(!merge_must_yield(1600 * MIB, 0, true, false));
+        assert!(!merge_must_yield(0, limit, true, false));
+    }
+
+    #[test]
+    fn the_pressure_cap_halves_on_yield_and_recovers_on_success() {
+        const MIB: u64 = 1024 * 1024;
+        let cap = pressure_cap_after_yield(0, 66 * MIB);
+        assert_eq!(cap, 33 * MIB);
+        // A second, larger yield never widens it.
+        assert_eq!(pressure_cap_after_yield(cap, 200 * MIB), 33 * MIB);
+        let cap = pressure_cap_after_yield(cap, 30 * MIB);
+        assert_eq!(cap, 15 * MIB);
+        // A tiny batch's success does not widen it.
+        assert_eq!(pressure_cap_after_success(cap, MIB), cap);
+        // Batches that use the cap double it until it is removed.
+        let mut cap = cap;
+        let mut rounds = 0;
+        while cap != 0 {
+            cap = pressure_cap_after_success(cap, cap);
+            rounds += 1;
+            assert!(rounds < 16);
+        }
+        assert_eq!(pressure_cap_after_success(0, 512 * MIB), 0);
+        assert_eq!(pressure_cap_after_yield(0, 0), 1);
+    }
+
+    #[test]
+    fn the_pressure_cap_narrows_the_static_cap() {
+        const MIB: u64 = 1024 * 1024;
+        assert_eq!(effective_batch_cap_bytes(32 * MIB, 0), 32 * MIB);
+        assert_eq!(effective_batch_cap_bytes(32 * MIB, 8 * MIB), 8 * MIB);
+        assert_eq!(effective_batch_cap_bytes(32 * MIB, 64 * MIB), 32 * MIB);
+        assert_eq!(effective_batch_cap_bytes(0, 8 * MIB), 8 * MIB);
+        assert_eq!(effective_batch_cap_bytes(0, 0), 0);
+    }
 
     const GIB: u64 = 1024 * 1024 * 1024;
     const MIB: u64 = 1024 * 1024;
