@@ -1915,11 +1915,36 @@ mod flush_publication_recovery_tests {
 
         let (engine, idx) = reopen();
         assert!(all_cold(&idx), "precondition: stored caches cold after restart");
+        // Hold the background warm back so the query is observed alone.
+        let held: Vec<String> = {
+            let snapshot = idx.store.snapshot();
+            snapshot.segments.iter().map(|s| s.id.to_string()).collect()
+        };
+        for id in &held {
+            idx.cold_stored_warms.insert(id.clone(), ());
+        }
         let cold = idx.search(&projected).await.unwrap();
         assert!(
             all_cold(&idx),
             "a 5-hit query must not decode the whole stored section"
         );
+        assert!(idx.cold_row_hydrations.load(Ordering::Relaxed) > 0);
+        // Released, the next cold visit warms the segment off the query path,
+        // so later queries with other winners read the warm cache.
+        idx.cold_stored_warms.clear();
+        let other = xerj_query::parse_request(&json!({
+            "query": {"match": {"body": "report"}},
+            "size": 5,
+            "_source": ["title"]
+        }))
+        .unwrap();
+        let again = idx.search(&other).await.unwrap();
+        assert_eq!(again.hits.len(), 5);
+        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(30);
+        while all_cold(&idx) || !idx.cold_stored_warms.is_empty() {
+            assert!(std::time::Instant::now() < deadline, "background warm never landed");
+            tokio::time::sleep(std::time::Duration::from_millis(20)).await;
+        }
         assert_eq!(cold.hits.len(), 5);
         for h in &cold.hits {
             let n: u64 = h.id.trim_start_matches("doc-").parse().unwrap();
@@ -9954,6 +9979,15 @@ pub struct Index {
     /// decompress — one 30 ms decode became a ~1 s, 64-query stall
     /// episode at every flush/merge publish the warm hadn't reached yet.
     stored_slices_build_locks: Arc<dashmap::DashMap<String, Arc<std::sync::Mutex<()>>>>,
+    /// #2422/#2423: a weak handle to this index, so a query that answered a
+    /// cold segment from its winning rows alone can warm that segment's
+    /// stored slices off the query path (see `schedule_cold_stored_warm`).
+    self_ref: std::sync::OnceLock<std::sync::Weak<Index>>,
+    /// Segments with a background stored-slices warm queued or running.
+    cold_stored_warms: dashmap::DashMap<String, ()>,
+    /// Cold segments answered by row-selective hydration (observability and
+    /// tests).
+    cold_row_hydrations: AtomicU64,
     /// Per-(segment, field, bounds) Range pre-filter position sets.
     /// `build_range_prefilter_cached` was cached in name only — it re-ran
     /// the O(matches) `range_doc_ids` walk + HashSet build per query per
@@ -10647,7 +10681,11 @@ impl Index {
             merge_fts_reanalysed_docs: Arc::new(AtomicU64::new(0)),
             merge_batches_deferred: std::sync::atomic::AtomicBool::new(false),
             schema_persist_failures: AtomicU64::new(0),
+            self_ref: std::sync::OnceLock::new(),
+            cold_stored_warms: dashmap::DashMap::new(),
+            cold_row_hydrations: AtomicU64::new(0),
         });
+        let _ = index.self_ref.set(Arc::downgrade(&index));
         // #871 — event-driven merge scheduling: the store fires this hook on
         // every segment-set change (flush publication, merge application,
         // tombstone-only segment, orphan recovery) and the debounced check
@@ -11108,7 +11146,11 @@ impl Index {
             merge_fts_reanalysed_docs: Arc::new(AtomicU64::new(0)),
             merge_batches_deferred: std::sync::atomic::AtomicBool::new(false),
             schema_persist_failures: AtomicU64::new(0),
+            self_ref: std::sync::OnceLock::new(),
+            cold_stored_warms: dashmap::DashMap::new(),
+            cold_row_hydrations: AtomicU64::new(0),
         });
+        let _ = index.self_ref.set(Arc::downgrade(&index));
         // #871 — event-driven merge scheduling (see `Index::create` and
         // `request_merge_check`): wire the store's segments-changed hook.
         let merge_hook_index = Arc::downgrade(&index);
@@ -17188,6 +17230,39 @@ impl Index {
     /// positions yields the same document; `None` (legacy LZ4 layout,
     /// unsupported column shape, open/decode error, a missing row) sends the
     /// caller back to the full decode, so nothing is lost.
+    /// Warm a segment's full stored slices on the blocking pool after a query
+    /// answered it from its winning rows (#2422/#2423). Later queries with
+    /// other winners then read the warm cache instead of each paying a
+    /// projected decode, and the query that found the segment cold no longer
+    /// waits for the whole-section decompress. One warm per segment at a
+    /// time; `stored_slices_for` keeps its single-flight, budget and
+    /// retirement rules.
+    fn schedule_cold_stored_warm(&self, segment_id: &str, doc_count: u64) {
+        let Some(index) = self.self_ref.get().and_then(std::sync::Weak::upgrade) else {
+            return;
+        };
+        let Ok(runtime) = tokio::runtime::Handle::try_current() else {
+            return;
+        };
+        if crate::governor::global().is_some_and(|g| g.memory_breaker_engaged()) {
+            return;
+        }
+        if self
+            .cold_stored_warms
+            .insert(segment_id.to_string(), ())
+            .is_some()
+        {
+            return;
+        }
+        let segment_id = segment_id.to_string();
+        runtime.spawn_blocking(move || {
+            if !index.stored_slices_cache.contains_key(segment_id.as_str()) {
+                let _ = index.stored_slices_for(&segment_id, doc_count);
+            }
+            index.cold_stored_warms.remove(segment_id.as_str());
+        });
+    }
+
     fn hydrate_fts_rows_cold(
         &self,
         segment_id: &str,
@@ -24983,11 +25058,20 @@ impl Index {
                                             || (candidates.len() as u64).saturating_mul(2)
                                                 < meta.doc_count;
                                         if bounded && worth_it && !candidates.is_empty() {
-                                            self.hydrate_fts_rows_cold(
+                                            let rows = self.hydrate_fts_rows_cold(
                                                 seg_id.as_str(),
                                                 &candidates,
                                                 fts_row_keep.as_deref(),
-                                            )
+                                            );
+                                            if rows.is_some() {
+                                                self.cold_row_hydrations
+                                                    .fetch_add(1, Ordering::Relaxed);
+                                                self.schedule_cold_stored_warm(
+                                                    seg_id.as_str(),
+                                                    meta.doc_count,
+                                                );
+                                            }
+                                            rows
                                         } else {
                                             None
                                         }
