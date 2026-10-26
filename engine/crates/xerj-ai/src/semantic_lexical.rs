@@ -72,17 +72,17 @@ pub fn local_chunk_vectors(text: &str, dims: usize) -> Vec<Vec<f32>> {
     if chunks.len() <= 1 {
         return vec![local_embed(text, dims)];
     }
-    chunks
-        .iter()
-        .map(|c| local_embed(&c.text, dims))
-        .collect()
+    chunks.iter().map(|c| local_embed(&c.text, dims)).collect()
 }
+
+/// A pooled vector plus, for multi-passage text, the per-passage vectors.
+pub type LexicalSemanticVectors = (Vec<f32>, Option<Vec<Vec<f32>>>);
 
 /// The vectors ingest persists for one lexical `semantic_text` value: the
 /// pooled vector, plus the per-passage vectors when there is more than one
 /// passage. Mirrors `apply_semantic_embeddings_batch`: one passage is used
 /// as-is, several are mean-pooled and re-normalized. `None` for `dims == 0`.
-pub fn lexical_semantic_vectors(text: &str, dims: usize) -> Option<(Vec<f32>, Option<Vec<Vec<f32>>>)> {
+pub fn lexical_semantic_vectors(text: &str, dims: usize) -> Option<LexicalSemanticVectors> {
     if dims == 0 {
         return None;
     }

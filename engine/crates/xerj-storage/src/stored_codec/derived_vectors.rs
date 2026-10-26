@@ -29,6 +29,7 @@
 //! segments (e.g. before a planned downgrade to a binary without this code).
 
 use serde_json::{Map, Value};
+pub use xerj_ai::semantic_lexical::LexicalSemanticVectors;
 
 /// Must equal `xerj_query::executor::PASSAGE_METADATA_PREFIX` (asserted by an
 /// engine test; storage cannot depend on the query crate).
@@ -46,7 +47,12 @@ fn store_vectors_opt_out() -> bool {
     static OPT_OUT: std::sync::OnceLock<bool> = std::sync::OnceLock::new();
     *OPT_OUT.get_or_init(|| {
         std::env::var("XERJ_STORE_SEMANTIC_VECTORS")
-            .map(|v| matches!(v.trim().to_ascii_lowercase().as_str(), "1" | "true" | "yes" | "on"))
+            .map(|v| {
+                matches!(
+                    v.trim().to_ascii_lowercase().as_str(),
+                    "1" | "true" | "yes" | "on"
+                )
+            })
             .unwrap_or(false)
     })
 }
@@ -64,10 +70,9 @@ pub(super) fn metadata_target(name: &str) -> Option<&str> {
 pub(super) fn vector_f32(value: &Value) -> Option<Vec<f32>> {
     match value {
         Value::String(s) => xerj_common::packed_f32::unpack_f32_vector(s),
-        Value::Array(items) if !items.is_empty() => items
-            .iter()
-            .map(|v| v.as_f64().map(|f| f as f32))
-            .collect(),
+        Value::Array(items) if !items.is_empty() => {
+            items.iter().map(|v| v.as_f64().map(|f| f as f32)).collect()
+        }
         _ => None,
     }
 }
@@ -87,7 +92,7 @@ fn vector_value(vector: &[f32]) -> Value {
 
 /// Typed vectors for a stripped row: `(pooled, chunks)`. `None` when the
 /// metadata carries no marker or the text is missing.
-pub(super) fn regenerate(meta: &Value, text: Option<&str>) -> Option<(Vec<f32>, Option<Vec<Vec<f32>>>)> {
+pub(super) fn regenerate(meta: &Value, text: Option<&str>) -> Option<LexicalSemanticVectors> {
     let meta = meta.as_object()?;
     if meta.get(MARKER_KEY).and_then(Value::as_str) != Some(MARKER_LEXICAL_V1) {
         return None;
@@ -121,7 +126,10 @@ pub fn strip_source(source: &Value) -> Option<Value> {
         if is_stripped(meta) {
             continue;
         }
-        let Some(text) = metadata_field(meta).and_then(|f| obj.get(f)).and_then(Value::as_str) else {
+        let Some(text) = metadata_field(meta)
+            .and_then(|f| obj.get(f))
+            .and_then(Value::as_str)
+        else {
             continue;
         };
         let Some(stored) = obj.get(target).and_then(vector_f32) else {
@@ -141,10 +149,9 @@ pub fn strip_source(source: &Value) -> Option<Value> {
             (None, None) => true,
             (Some(expected), Some(Value::Array(items))) => {
                 items.len() == expected.len()
-                    && items
-                        .iter()
-                        .zip(expected)
-                        .all(|(item, want)| vector_f32(item).is_some_and(|got| same_bits(&got, want)))
+                    && items.iter().zip(expected).all(|(item, want)| {
+                        vector_f32(item).is_some_and(|got| same_bits(&got, want))
+                    })
             }
             _ => false,
         };
@@ -184,7 +191,7 @@ pub fn strip_source(source: &Value) -> Option<Value> {
 /// whether anything changed. Order matches ingest: `<target>`, metadata,
 /// `<target>_chunks`.
 pub fn rehydrate_source_map(map: &mut Map<String, Value>) -> bool {
-    let mut regenerated: Vec<(String, Vec<f32>, Option<Vec<Vec<f32>>>)> = Vec::new();
+    let mut regenerated: Vec<(String, LexicalSemanticVectors)> = Vec::new();
     for (key, meta) in map.iter() {
         let Some(target) = metadata_target(key) else {
             continue;
@@ -192,9 +199,11 @@ pub fn rehydrate_source_map(map: &mut Map<String, Value>) -> bool {
         if !is_stripped(meta) {
             continue;
         }
-        let text = metadata_field(meta).and_then(|f| map.get(f)).and_then(Value::as_str);
+        let text = metadata_field(meta)
+            .and_then(|f| map.get(f))
+            .and_then(Value::as_str);
         if let Some((pooled, chunks)) = regenerate(meta, text) {
-            regenerated.push((target.to_string(), pooled, chunks));
+            regenerated.push((target.to_string(), (pooled, chunks)));
         }
     }
     // A marker whose text is gone (cannot happen for an ingested doc) is
@@ -213,8 +222,8 @@ pub fn rehydrate_source_map(map: &mut Map<String, Value>) -> bool {
                     meta.remove(MARKER_KEY);
                     meta.remove(DIMS_KEY);
                 }
-                if let Some(ix) = regenerated.iter().position(|(t, _, _)| t == target) {
-                    let (target, pooled, chunks) = regenerated.swap_remove(ix);
+                if let Some(ix) = regenerated.iter().position(|(t, _)| t == target) {
+                    let (target, (pooled, chunks)) = regenerated.swap_remove(ix);
                     map.insert(target.clone(), vector_value(&pooled));
                     map.insert(key, value);
                     if let Some(chunks) = chunks {
@@ -293,13 +302,18 @@ pub(crate) mod tests {
 
     #[test]
     fn strip_then_rehydrate_round_trips_short_and_long_text() {
-        for text in ["a short note about rust", &"lorem ipsum dolor sit amet ".repeat(60)] {
+        for text in [
+            "a short note about rust",
+            &"lorem ipsum dolor sit amet ".repeat(60),
+        ] {
             let original = ingested(text, 24);
             let stripped = strip_source(&original).expect("lexical vectors are stripped");
             let obj = stripped.as_object().unwrap();
             assert!(!obj.contains_key("body_vector"));
             assert!(!obj.contains_key("body_vector_chunks"));
-            assert!(is_stripped(&obj[&format!("{PASSAGE_METADATA_PREFIX}body_vector")]));
+            assert!(is_stripped(
+                &obj[&format!("{PASSAGE_METADATA_PREFIX}body_vector")]
+            ));
             let mut back = obj.clone();
             assert!(rehydrate_source_map(&mut back));
             assert_eq!(Value::Object(back), original);

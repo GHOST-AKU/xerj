@@ -28,7 +28,6 @@ pub mod decide;
 pub mod embed;
 pub mod embedder;
 pub mod local;
-pub mod semantic_lexical;
 #[cfg(any(
     feature = "neural",
     feature = "onnx-experimental",
@@ -39,6 +38,7 @@ pub mod microbatch;
 pub mod neural;
 #[cfg(feature = "onnx-experimental")]
 pub mod onnx;
+pub mod semantic_lexical;
 
 pub use chunker::{Chunk, TextChunker};
 pub use embed::{EmbeddingProxy, EmbeddingProxyConfig};

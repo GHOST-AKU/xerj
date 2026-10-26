@@ -14,8 +14,22 @@ use xerj_storage::{SectionType, SegmentReader};
 
 const INDEX: &str = "sem-derived";
 const WORDS: &[&str] = &[
-    "liquidity", "quarterly", "revenue", "storage", "vector", "merge", "segment", "harbor",
-    "orchard", "glacier", "copper", "lantern", "meadow", "compiler", "kernel", "ledger",
+    "liquidity",
+    "quarterly",
+    "revenue",
+    "storage",
+    "vector",
+    "merge",
+    "segment",
+    "harbor",
+    "orchard",
+    "glacier",
+    "copper",
+    "lantern",
+    "meadow",
+    "compiler",
+    "kernel",
+    "ledger",
 ];
 
 fn make_engine(dir: &TempDir) -> Engine {
@@ -40,9 +54,11 @@ fn schema() -> Schema {
 }
 
 fn text(i: usize) -> String {
-    let base: Vec<&str> = (0..12).map(|k| WORDS[(i * 7 + k * 3) % WORDS.len()]).collect();
+    let base: Vec<&str> = (0..12)
+        .map(|k| WORDS[(i * 7 + k * 3) % WORDS.len()])
+        .collect();
     let base = base.join(" ");
-    if i % 10 == 0 {
+    if i.is_multiple_of(10) {
         // Several passages: exercises `<target>_chunks`.
         format!("doc {i} {}", format!("{base} ").repeat(20))
     } else {
@@ -53,12 +69,18 @@ fn text(i: usize) -> String {
 async fn bulk(engine: &Engine, range: std::ops::Range<usize>) {
     let mut body = String::new();
     for i in range {
-        body.push_str(&format!("{{\"index\":{{\"_index\":\"{INDEX}\",\"_id\":\"{i}\"}}}}\n"));
+        body.push_str(&format!(
+            "{{\"index\":{{\"_index\":\"{INDEX}\",\"_id\":\"{i}\"}}}}\n"
+        ));
         body.push_str(&serde_json::to_string(&json!({"content": text(i), "n": i})).unwrap());
         body.push('\n');
     }
     let result = xerj_engine::bulk::process_bulk(engine, None, &body).await;
-    assert!(!result.errors, "{:?}", result.items.iter().find(|i| i.error.is_some()));
+    assert!(
+        !result.errors,
+        "{:?}",
+        result.items.iter().find(|i| i.error.is_some())
+    );
 }
 
 fn seg_files(dir: &std::path::Path, out: &mut Vec<std::path::PathBuf>) {
@@ -89,18 +111,29 @@ fn assert_segments_stripped(dir: &TempDir) {
             continue;
         };
         columnar += 1;
-        assert!(names.iter().any(|n| n == "content_vector"), "virtual column listed");
-        let preserved =
-            xerj_storage::stored_codec::decode_stored_preserving_derived(raw).unwrap();
+        assert!(
+            names.iter().any(|n| n == "content_vector"),
+            "virtual column listed"
+        );
+        let preserved = xerj_storage::stored_codec::decode_stored_preserving_derived(raw).unwrap();
         let preserved = String::from_utf8(preserved).unwrap();
-        assert!(!preserved.contains("\"content_vector\":"), "{path:?} stores vectors");
+        assert!(
+            !preserved.contains("\"content_vector\":"),
+            "{path:?} stores vectors"
+        );
         assert!(!preserved.contains("\"content_vector_chunks\":"));
         assert!(preserved.contains(r#""derived":"lexical-v1""#));
         let full = xerj_storage::stored_codec::decode_stored(raw).unwrap();
         let full = String::from_utf8(full).unwrap();
-        assert!(full.contains("\"content_vector\":"), "decode rebuilds vectors");
+        assert!(
+            full.contains("\"content_vector\":"),
+            "decode rebuilds vectors"
+        );
         assert!(full.contains("\"content_vector_chunks\":"));
-        assert!(!full.contains(r#""derived""#), "marker never reaches readers");
+        assert!(
+            !full.contains(r#""derived""#),
+            "marker never reaches readers"
+        );
     }
     assert!(columnar > 0, "no columnar stored section to check");
 }
@@ -141,7 +174,10 @@ fn assert_same_hits(got: &[(String, f32, Value)], want: &[(String, f32, Value)],
     let ids = |hits: &[(String, f32, Value)]| hits.iter().map(|h| h.0.clone()).collect::<Vec<_>>();
     assert_eq!(ids(got), ids(want), "{step} changed semantic ranking");
     for (g, w) in got.iter().zip(want) {
-        assert!((g.1 - w.1).abs() < 1e-4, "{step} changed a score: {g:?} vs {w:?}");
+        assert!(
+            (g.1 - w.1).abs() < 1e-4,
+            "{step} changed a score: {g:?} vs {w:?}"
+        );
         assert_eq!(g.2, w.2, "{step} changed a hit source");
     }
 }
@@ -166,22 +202,37 @@ async fn lexical_semantic_vectors_are_rebuilt_not_stored() {
 
     idx.flush().await.unwrap();
     assert_segments_stripped(&dir);
-    assert_eq!(snapshot(&idx, &probe).await, before_docs, "flush changed a document");
+    assert_eq!(
+        snapshot(&idx, &probe).await,
+        before_docs,
+        "flush changed a document"
+    );
     assert_same_hits(&semantic_hits(&idx).await, &before_hits, "flush");
-    assert_eq!(knn_top(&idx, &before_docs[3]["content_vector"]).await, "137");
+    assert_eq!(
+        knn_top(&idx, &before_docs[3]["content_vector"]).await,
+        "137"
+    );
 
     bulk(&engine, 2000..2600).await;
     idx.flush().await.unwrap();
     idx.force_merge(1).await.unwrap();
     assert_segments_stripped(&dir);
-    assert_eq!(snapshot(&idx, &probe).await, before_docs, "merge changed a document");
+    assert_eq!(
+        snapshot(&idx, &probe).await,
+        before_docs,
+        "merge changed a document"
+    );
     let merged_hits = semantic_hits(&idx).await;
     drop(idx);
     drop(engine);
 
     let reopened = make_engine(&dir);
     let idx = reopened.get_index(INDEX).unwrap();
-    assert_eq!(snapshot(&idx, &probe).await, before_docs, "reopen changed a document");
+    assert_eq!(
+        snapshot(&idx, &probe).await,
+        before_docs,
+        "reopen changed a document"
+    );
     assert_same_hits(&semantic_hits(&idx).await, &merged_hits, "reopen");
     assert_eq!(knn_top(&idx, &before_docs[1]["content_vector"]).await, "1");
 }

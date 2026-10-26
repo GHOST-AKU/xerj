@@ -361,9 +361,7 @@ fn encode_stored_v2_at_level_inner(
     {
         use rayon::prelude::*;
         docs.par_iter_mut().for_each(|doc| {
-            let stripped = doc
-                .get("_source")
-                .and_then(derived_vectors::strip_source);
+            let stripped = doc.get("_source").and_then(derived_vectors::strip_source);
             if let (Some(stripped), Some(obj)) = (stripped, doc.as_object_mut()) {
                 obj.insert("_source".into(), stripped);
             }
@@ -2131,12 +2129,15 @@ fn fill_derived_knn_rows(
     vectors: &mut StoredVectorRows,
     vector_chunks: &mut Option<StoredVectorChunkRows>,
 ) -> Result<bool> {
-    let ordinals: Vec<usize> = (0..vectors.len()).filter(|&row| vectors[row].is_none()).collect();
+    let ordinals: Vec<usize> = (0..vectors.len())
+        .filter(|&row| vectors[row].is_none())
+        .collect();
     if ordinals.is_empty() {
         return Ok(true);
     }
-    let StoredV2RowHydrationResult::Hydrated { rows: meta_rows, .. } =
-        decode_stored_v2_rows_projected(bytes, &ordinals, &[metadata_column])?
+    let StoredV2RowHydrationResult::Hydrated {
+        rows: meta_rows, ..
+    } = decode_stored_v2_rows_projected(bytes, &ordinals, &[metadata_column])?
     else {
         return Ok(false);
     };
@@ -2157,8 +2158,9 @@ fn fill_derived_knn_rows(
         return Ok(true);
     }
     let field_refs: Vec<&str> = fields.iter().map(String::as_str).collect();
-    let StoredV2RowHydrationResult::Hydrated { rows: text_rows, .. } =
-        decode_stored_v2_rows_projected(bytes, &ordinals, &field_refs)?
+    let StoredV2RowHydrationResult::Hydrated {
+        rows: text_rows, ..
+    } = decode_stored_v2_rows_projected(bytes, &ordinals, &field_refs)?
     else {
         return Ok(false);
     };
@@ -2166,7 +2168,7 @@ fn fill_derived_knn_rows(
         .into_iter()
         .map(|row| (row.ordinal, row.source))
         .collect();
-    let rebuilt: Vec<(usize, Option<(Vec<f32>, Option<Vec<Vec<f32>>>)>)> = {
+    let rebuilt: Vec<(usize, Option<derived_vectors::LexicalSemanticVectors>)> = {
         use rayon::prelude::*;
         meta_rows
             .par_iter()
@@ -2224,7 +2226,6 @@ fn knn_projection_with_identity(
         }),
     ))
 }
-
 
 /// Decode a stored section like [`decode_stored`], but emit only the
 /// `_source` columns `keep` accepts (`_id` and `_seq_no` are always
@@ -3651,7 +3652,7 @@ mod tests {
     fn semantic_docs(n: usize) -> Vec<serde_json::Value> {
         (0..n)
             .map(|i| {
-                let text = if i % 9 == 0 {
+                let text = if i.is_multiple_of(9) {
                     format!("doc {i} {}", "storage vectors merge segment ".repeat(40))
                 } else {
                     format!("doc {i} quarterly liquidity ledger {}", i * 31)
@@ -3697,7 +3698,10 @@ mod tests {
                 ));
             }
         }
-        assert_eq!(decode_stored(&from_json).unwrap(), decode_stored(&from_values).unwrap());
+        assert_eq!(
+            decode_stored(&from_json).unwrap(),
+            decode_stored(&from_values).unwrap()
+        );
     }
 
     #[test]
@@ -3714,7 +3718,9 @@ mod tests {
             assert_eq!(got.as_object().unwrap().len(), 2, "{got}");
             assert_eq!(got["body_vector"], want["body_vector"]);
         }
-        let without = decode_stored_keeping(&encoded, &|n| n == "n").unwrap().unwrap();
+        let without = decode_stored_keeping(&encoded, &|n| n == "n")
+            .unwrap()
+            .unwrap();
         for got in sources(&without) {
             assert_eq!(got.as_object().unwrap().len(), 1, "{got}");
         }
@@ -3731,8 +3737,12 @@ mod tests {
             }
             other => panic!("unexpected {other:?}"),
         }
-        match row_hydration::decode_stored_v2_rows_projected(&encoded, &ordinals, &["body_vector_chunks"])
-            .unwrap()
+        match row_hydration::decode_stored_v2_rows_projected(
+            &encoded,
+            &ordinals,
+            &["body_vector_chunks"],
+        )
+        .unwrap()
         {
             row_hydration::StoredV2RowHydrationResult::Hydrated { rows, .. } => {
                 for row in rows {
@@ -3789,12 +3799,13 @@ mod tests {
         let lz4 = encode_stored_v2(&small);
         assert_eq!(decode_stored(&lz4).unwrap(), small);
         // A marked LZ4 section (merge output of stripped rows) rehydrates.
-        let marked: Vec<serde_json::Value> = sources(&decode_stored_preserving_derived(&encoded).unwrap())
-            .into_iter()
-            .take(3)
-            .enumerate()
-            .map(|(i, s)| json!({"_id": i.to_string(), "_seq_no": i, "_source": s}))
-            .collect();
+        let marked: Vec<serde_json::Value> =
+            sources(&decode_stored_preserving_derived(&encoded).unwrap())
+                .into_iter()
+                .take(3)
+                .enumerate()
+                .map(|(i, s)| json!({"_id": i.to_string(), "_seq_no": i, "_source": s}))
+                .collect();
         let marked_lz4 = encode_stored_lz4(&serde_json::to_vec(&marked).unwrap());
         let want: Vec<serde_json::Value> = sources(&raw).into_iter().take(3).collect();
         assert_eq!(sources(&decode_stored(&marked_lz4).unwrap()), want);
