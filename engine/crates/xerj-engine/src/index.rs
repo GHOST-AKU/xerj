@@ -13945,8 +13945,25 @@ impl Index {
         // task → error log) hear about it loudly instead of losing data.
         let failed_batches = Arc::new(std::sync::atomic::AtomicUsize::new(0));
 
+        // #2427 — process-wide admission. Every launch reserves the batch's
+        // estimated working set against the RSS watermark through the
+        // governor's merge ledger, so concurrent merges across indices see
+        // each other before they allocate, and background merges wait while
+        // the breaker is engaged. `None` = defer; `Some(None)` = no governor.
+        let forced_merge = force_max_segments.is_some();
+        let admit_merge = |metas: &[xerj_storage::segment::SegmentMeta]|
+         -> Option<Option<crate::governor::MergeReservation>> {
+            let Some(governor) = crate::governor::global() else {
+                return Some(None);
+            };
+            let input: u64 = metas.iter().map(|meta| meta.size_bytes).sum();
+            governor.try_reserve_merge(input, forced_merge).map(Some)
+        };
+        let mut governor_deferred = 0usize;
+
         let spawn_one = |batch: Vec<xerj_storage::segment::SegmentId>,
-                         metas: Vec<xerj_storage::segment::SegmentMeta>|
+                         metas: Vec<xerj_storage::segment::SegmentMeta>,
+                         reservation: Option<crate::governor::MergeReservation>|
          -> JoinHandle<Option<MergeOutput>> {
             let store_for_task = Arc::clone(&self.store);
             let registry_for_task = Arc::clone(&self.registry);
@@ -14855,6 +14872,9 @@ impl Index {
                 let _ = encode_tx.send(encoded);
             });
             tokio::spawn(async move {
+                // Held until the encode (the allocation-heavy part: stored
+                // decode, FST and doc-values build) has finished.
+                let _reservation = reservation;
                 match encode_rx.await {
                     Ok(Ok(value)) => value,
                     Ok(Err(payload)) => std::panic::resume_unwind(payload),
@@ -14867,15 +14887,33 @@ impl Index {
             })
         };
 
+        // Launch the pending batch if the governor admits it (#2427). A
+        // refusal leaves it and every later batch of this pass unmerged and
+        // flags the pass deferred, so the scheduler retries after the drain.
+        macro_rules! launch_next {
+            () => {
+                match pending.take() {
+                    Some((batch, metas)) => match admit_merge(&metas) {
+                        Some(reservation) => {
+                            in_flight.push(spawn_one(batch, metas, reservation));
+                            pending = queue_iter.next();
+                            true
+                        }
+                        None => {
+                            governor_deferred += 1 + queue_iter.by_ref().count();
+                            false
+                        }
+                    },
+                    None => false,
+                }
+            };
+        }
+
         // Fill in_flight up to the cap, then drain one-by-one as they
         // complete, launching replacements from `queue_iter`.
         while in_flight.len() < merge_parallelism {
-            match pending.take() {
-                Some((batch, metas)) => {
-                    in_flight.push(spawn_one(batch, metas));
-                    pending = queue_iter.next();
-                }
-                None => break,
+            if !launch_next!() {
+                break;
             }
         }
         while !in_flight.is_empty() {
@@ -15082,10 +15120,7 @@ impl Index {
                         // `continue` bypasses the common top-up below. Launch
                         // the next disjoint batch first so one failed apply
                         // does not silently suppress the rest of this pass.
-                        if let Some((batch, metas)) = pending.take() {
-                            in_flight.push(spawn_one(batch, metas));
-                            pending = queue_iter.next();
-                        }
+                        launch_next!();
                         continue;
                     }
                     // `apply_merge` has made the output authoritative. No
@@ -15147,10 +15182,7 @@ impl Index {
                             // Same pipeline rule as the failed-apply path: the
                             // `continue` below bypasses the loop's bottom
                             // top-up, so launch the next disjoint batch here.
-                            if let Some((batch, metas)) = pending.take() {
-                                in_flight.push(spawn_one(batch, metas));
-                                pending = queue_iter.next();
-                            }
+                            launch_next!();
                             continue;
                         }
                         // Disk-space fix (2026-07): the input segments are
@@ -15216,9 +15248,22 @@ impl Index {
                 }
             }
             // Top up in_flight.
-            if let Some((batch, metas)) = pending.take() {
-                in_flight.push(spawn_one(batch, metas));
-                pending = queue_iter.next();
+            launch_next!();
+        }
+        if governor_deferred > 0 {
+            self.merge_batches_deferred
+                .store(true, AtomicOrdering::Relaxed);
+            if let Some(governor) = crate::governor::global() {
+                tracing::info!(
+                    index = %self.name,
+                    deferred = governor_deferred,
+                    rss_mb = governor.observed_rss_bytes() / (1024 * 1024),
+                    watermark_mb = governor.memory_watermark_bytes() / (1024 * 1024),
+                    merge_reserved_mb = governor.merge_reserved_bytes() / (1024 * 1024),
+                    merges_in_flight = governor.merges_in_flight(),
+                    breaker_engaged = governor.memory_breaker_engaged(),
+                    "merge batches deferred by the memory governor; inputs kept"
+                );
             }
         }
 
@@ -35518,6 +35563,30 @@ async fn do_flush_shard(
             }
         }
     };
+    // #2427 — while the parent RSS breaker is engaged, finalizes run one at
+    // a time (see `flush_pressure_gate`). Same deadline and same
+    // before-the-freeze failure as the finalize gate above.
+    let pressure_permit = if !bypass_finalize_gate
+        && crate::governor::global().is_some_and(|g| g.memory_breaker_engaged())
+    {
+        match wait_for_flush_permit(
+            &index_name,
+            "the memory-pressure flush gate",
+            admit_timeout,
+            crate::flush_pressure_gate().acquire(),
+        )
+        .await
+        {
+            Ok(permit) => permit,
+            Err(error) => {
+                drop(fin_permit);
+                on_drained();
+                return Err(error);
+            }
+        }
+    } else {
+        None
+    };
     // #1015 — NO collection-publication guard here.  The drain below is a
     // FREEZE, not a removal: the claimed docs stay reader-visible in the
     // shard's frozen generations for the whole segment build, so there is
@@ -35912,6 +35981,7 @@ async fn do_flush_shard(
         }
         let joined = tokio::task::spawn_blocking(move || {
             let _fin_permit = fin_permit;
+            let _pressure_permit = pressure_permit;
             // This lease lives in the blocking worker, not either async waiter.
             // It spans build→publish exactly as before: it tracks the caches
             // `build_fts` warms so a failed publication can evict them.

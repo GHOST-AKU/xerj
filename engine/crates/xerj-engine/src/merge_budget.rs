@@ -125,6 +125,56 @@ pub fn throttle_merge_batches(
     start
 }
 
+/// Estimated peak working set of a merge batch whose inputs total
+/// `input_bytes`: the same `input * MERGE_WORKING_SET_NUMERATOR` that
+/// [`decide_merge_batch`] uses.
+pub fn merge_working_set_bytes(input_bytes: u64) -> u64 {
+    input_bytes.saturating_mul(MERGE_WORKING_SET_NUMERATOR)
+}
+
+/// Process-wide merge admission against the RSS watermark (#2427).
+///
+/// [`throttle_merge_batches`] plans one index's pass from an RSS snapshot
+/// and always lets that index's first batch start. With hundreds of indices
+/// (autoindex) every index started one, and none of them saw the others'
+/// working sets until they had allocated. This is checked under the
+/// governor's merge ledger at launch time instead:
+///
+/// * `watermark == 0` (breaker off) or `observed_rss == 0` (no probe):
+///   start.
+/// * No merge in flight anywhere in the process: start one, so merging can
+///   always make progress, unless the breaker is engaged and the merge is a
+///   background one. A `forced` merge (`_forcemerge`) is still allowed as
+///   the single in-flight merge while engaged; it is a deliberate operator
+///   request and it waits on its own.
+/// * Breaker engaged: defer. Background merges are the one memory consumer
+///   the node can postpone, so they wait for the drain.
+/// * Otherwise start only if `observed_rss + reserved + request` stays under
+///   the watermark.
+pub fn decide_merge_admission(
+    watermark: u64,
+    observed_rss: u64,
+    reserved: u64,
+    in_flight: u64,
+    breaker_engaged: bool,
+    request: u64,
+    forced: bool,
+) -> bool {
+    if watermark == 0 || observed_rss == 0 {
+        return true;
+    }
+    if in_flight == 0 {
+        return !breaker_engaged || forced;
+    }
+    if breaker_engaged {
+        return false;
+    }
+    observed_rss
+        .saturating_add(reserved)
+        .saturating_add(request)
+        < watermark
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -201,5 +251,130 @@ mod tests {
     fn the_batch_cap_floors_at_thirty_two_mebibytes() {
         assert_eq!(merge_batch_input_cap_bytes(GIB), MIN_BATCH_CAP_BYTES);
         assert_eq!(merge_batch_input_cap_bytes(2 * GIB), MIN_BATCH_CAP_BYTES);
+    }
+
+    #[test]
+    fn merge_admission_is_open_when_the_breaker_is_off_or_rss_is_unknown() {
+        assert!(decide_merge_admission(
+            0,
+            10_000 * MIB,
+            0,
+            5,
+            true,
+            4_000 * MIB,
+            false
+        ));
+        assert!(decide_merge_admission(
+            2_850 * MIB,
+            0,
+            0,
+            5,
+            true,
+            4_000 * MIB,
+            false
+        ));
+    }
+
+    #[test]
+    fn merge_admission_always_lets_one_merge_run_when_not_engaged() {
+        // Even an estimate that alone exceeds the watermark starts when no
+        // other merge is in flight: merging must make progress.
+        assert!(decide_merge_admission(
+            2_850 * MIB,
+            2_700 * MIB,
+            0,
+            0,
+            false,
+            400 * MIB,
+            false
+        ));
+    }
+
+    #[test]
+    fn merge_admission_counts_other_in_flight_reservations() {
+        let wm = 2_850 * MIB;
+        // One 47 MiB batch (376 MiB working set) already reserved.
+        let reserved = merge_working_set_bytes(47 * MIB);
+        assert!(decide_merge_admission(
+            wm,
+            2_000 * MIB,
+            reserved,
+            1,
+            false,
+            reserved,
+            false
+        ));
+        // At 2,200 MiB RSS a second one would cross the watermark.
+        assert!(!decide_merge_admission(
+            wm,
+            2_200 * MIB,
+            reserved,
+            1,
+            false,
+            reserved,
+            false
+        ));
+        // And a third does not fit at all once two are reserved.
+        assert!(!decide_merge_admission(
+            wm,
+            2_000 * MIB,
+            2 * reserved,
+            2,
+            false,
+            reserved,
+            false
+        ));
+    }
+
+    #[test]
+    fn merge_admission_defers_background_merges_while_engaged() {
+        let wm = 2_850 * MIB;
+        // Engaged: no background merge starts, not even the first.
+        assert!(!decide_merge_admission(
+            wm,
+            2_900 * MIB,
+            0,
+            0,
+            true,
+            8 * MIB,
+            false
+        ));
+        assert!(!decide_merge_admission(
+            wm,
+            1_000 * MIB,
+            0,
+            1,
+            true,
+            8 * MIB,
+            false
+        ));
+        // A forced merge may run alone while engaged, but not beside another.
+        assert!(decide_merge_admission(
+            wm,
+            2_900 * MIB,
+            0,
+            0,
+            true,
+            8 * MIB,
+            true
+        ));
+        assert!(!decide_merge_admission(
+            wm,
+            2_900 * MIB,
+            64 * MIB,
+            1,
+            true,
+            8 * MIB,
+            true
+        ));
+    }
+
+    #[test]
+    fn merge_working_set_matches_the_batch_decision() {
+        assert_eq!(
+            merge_working_set_bytes(10),
+            10 * MERGE_WORKING_SET_NUMERATOR
+        );
+        assert_eq!(merge_working_set_bytes(u64::MAX), u64::MAX);
     }
 }

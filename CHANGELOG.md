@@ -79,6 +79,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- The parent memory breaker no longer flaps, and background merges and flush
+  finalizes are bounded while it is engaged (#2427). A 3,000 MB autoindex run
+  engaged the breaker 20 times in 16 minutes, often releasing 100-500 ms
+  later, and RSS still reached 3,808 MB because merges, FST builds and flush
+  buffers kept allocating after writes were getting 429s. The breaker now
+  releases below 85% of the watermark (`XERJ_MEMORY_BREAKER_RELEASE_PCT`,
+  50-99) and only after it has been engaged for 2 s
+  (`XERJ_MEMORY_BREAKER_MIN_ENGAGED_MS`). RSS that stays flat inside that
+  band for 10 s still releases, so a live set no drain can shrink does not
+  block writes forever. Every segment merge reserves its estimated working
+  set (8x its inputs) against the watermark in one process-wide ledger.
+  Background merges wait while the breaker is engaged or when the
+  reservation does not fit, and run on the next merge check. One merge
+  always runs when nothing else is merging and the breaker is not engaged.
+  `_forcemerge` may run alone while engaged. While the breaker is engaged,
+  flush finalizes (segment, FST and doc-values builds) run one at a time.
+
 - `xerj autoindex` no longer aborts a long run with `Resource temporarily
   unavailable (os error 11)` when the machine refuses to start a thread. The
   sync replay used to start a new thread for every operation (hundreds of
