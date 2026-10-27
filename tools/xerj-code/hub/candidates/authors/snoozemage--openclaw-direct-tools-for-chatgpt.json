@@ -1,9 +1,9 @@
 {
- "corpus": "snoozemage--chatgpt-openclaw-direct-tools",
+ "corpus": "snoozemage--openclaw-direct-tools-for-chatgpt",
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on browser-automation, chatgpt, computer-use queries this for how Snoozemage/chatgpt-openclaw-direct-tools implements it: Local MCP bridge connecting ChatGPT to OpenClaw, with browser and desktop automation, file operations, project search, command/process contr (selected work: src/mcp, tests, src)",
+ "domain": "an agent working on browser-automation, chatgpt, computer-use queries this for how Snoozemage/openclaw-direct-tools-for-chatgpt implements it: Local MCP bridge connecting ChatGPT to OpenClaw, with browser and desktop automation, file operations, project search, command/process contr (selected work: src/mcp, tests, src)",
  "repos": [
   {
    "repo": "chatgpt-openclaw-direct-tools",

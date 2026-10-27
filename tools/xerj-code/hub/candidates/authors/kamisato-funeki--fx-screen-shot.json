@@ -1,0 +1,23 @@
+{
+ "corpus": "kamisato-funeki--fx-screen-shot",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on game-capture, rust, screenshot queries this for how kamisato-funeki/fx-screen-shot implements it: Windows 11 \u5e38\u9a7b\u622a\u56fe\u5de5\u5177\uff1aShift+F2 \u6e38\u620f\u9759\u9ed8\u622a\u56fe\uff0cShift+F1 \u9009\u533a\u622a\u56fe (selected work: src/overlay, src/capture, src)",
+ "repos": [
+  {
+   "repo": "fx-screen-shot",
+   "url": "https://github.com/kamisato-funeki/fx-screen-shot",
+   "sha": "c5364e05141586ab59fb78ef743de4fd15253ba3",
+   "licence": "MIT (LICENSE file at pin c5364e051415, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T16:23Z",
+    "consent_receipt": "8718ca7d170f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T16:23Z (receipt 8718ca7d170f); selected commit c5364e051415: \"feat: add color picking and coordinates to selection overlay\". LICENSE file at pin c5364e051415 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

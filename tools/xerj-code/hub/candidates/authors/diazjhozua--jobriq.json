@@ -1,0 +1,23 @@
+{
+ "corpus": "diazjhozua--jobriq",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, cli, openai queries this for how diazjhozua/jobriq implements it: AI-powered resume builder CLI. Fill a plain-text template, let AI enhance your bullets and summary, pick a design, export .md + .docx (selected work: web)",
+ "repos": [
+  {
+   "repo": "jobriq",
+   "url": "https://github.com/diazjhozua/jobriq",
+   "sha": "f928d543812ef3e55e0c8b96e7974fe2800205f7",
+   "licence": "MIT (LICENSE file at pin f928d543812e, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T13:06Z",
+    "consent_receipt": "709d00107d55",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T13:06Z (receipt 709d00107d55); selected commit f928d543812e: \"feat: import profile from resume template\". LICENSE file at pin f928d543812e detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
