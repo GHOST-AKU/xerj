@@ -1,0 +1,23 @@
+{
+ "corpus": "yasuss--agent-reliability-runtime",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how yasuss/agent-reliability-runtime implements it: Durable, inspectable runtime for reliable tool-using AI agents with approvals, recovery, memory, audit, and deterministic evaluation (selected work: scripts, tests)",
+ "repos": [
+  {
+   "repo": "agent-reliability-runtime",
+   "url": "https://github.com/yasuss/agent-reliability-runtime",
+   "sha": "8d3cb5d9e1ef00e2a5065bed681c93895ada85bf",
+   "licence": "Apache-2.0 (LICENSE file at pin 8d3cb5d9e1ef, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:43Z",
+    "consent_receipt": "c57a0f58ba4f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:43Z (receipt c57a0f58ba4f); selected commit 8d3cb5d9e1ef: \"Harden release behavior provenance evidence\". LICENSE file at pin 8d3cb5d9e1ef detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

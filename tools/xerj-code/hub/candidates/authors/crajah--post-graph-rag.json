@@ -1,0 +1,23 @@
+{
+ "corpus": "crajah--post-graph-rag",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how crajah/post-graph-rag implements it: High-Precision GraphRAG. Native to PostgreSQL (selected work: tests, post_graph_rag, the project root)",
+ "repos": [
+  {
+   "repo": "post-graph-rag",
+   "url": "https://github.com/crajah/post-graph-rag",
+   "sha": "fa68da0bda09c39a2029e447e2e0cc4167190589",
+   "licence": "Apache-2.0 (LICENSE file at pin fa68da0bda09, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:48Z",
+    "consent_receipt": "3cdf4fed81a1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:48Z (receipt 3cdf4fed81a1); selected commit fa68da0bda09: \"feat: bring your own connection, so retrieval can reach a tenant schema\". LICENSE file at pin fa68da0bda09 detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

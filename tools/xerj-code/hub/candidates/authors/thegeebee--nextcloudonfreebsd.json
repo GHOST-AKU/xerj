@@ -1,0 +1,23 @@
+{
+ "corpus": "thegeebee--nextcloudonfreebsd",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on Python queries this for how theGeeBee/NextCloudOnFreeBSD implements it: A guided Nextcloud installer for FreeBSD, featuring ZFS-backed jails, optional ONLYOFFICE, Euro-Office and Collabora integrations, and compa (selected work: tests, the project root, tools)",
+ "repos": [
+  {
+   "repo": "NextCloudOnFreeBSD",
+   "url": "https://github.com/theGeeBee/NextCloudOnFreeBSD",
+   "sha": "532e2745de0cacef59306d14300e5576a4d53ac3",
+   "licence": "BSD-3-Clause (LICENSE file at pin 532e2745de0c, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "BSD-3-Clause",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:20Z",
+    "consent_receipt": "586c484bf900",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:20Z (receipt 586c484bf900); selected commit 532e2745de0c: \"Provide a standalone verified release bootstrap\". LICENSE file at pin 532e2745de0c detected as BSD-3-Clause by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

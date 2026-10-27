@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how anhedral/anhedral-cli implements it: Anhedral CLI for scaffolding, provider setup and application delivery (selected work: src/platforms, assets, src/scaffold)",
+ "domain": "an agent working on JavaScript queries this for how anhedral/anhedral-cli implements it: Anhedral CLI for scaffolding, provider setup and application delivery (selected work: src/platforms, assets, src/scaffold)",
  "repos": [
   {
    "repo": "anhedral-cli",

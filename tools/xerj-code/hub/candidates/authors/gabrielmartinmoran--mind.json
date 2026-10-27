@@ -1,0 +1,23 @@
+{
+ "corpus": "gabrielmartinmoran--mind",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-memory, ai-agents, antigravity queries this for how GabrielMartinMoran/mind implements it: Persistent local memory for AI coding agents. Preserve decisions and project context across sessions, compaction, and tools (selected work: benchmarks)",
+ "repos": [
+  {
+   "repo": "mind",
+   "url": "https://github.com/GabrielMartinMoran/mind",
+   "sha": "b1e41202f42fd3195dabaa2c726523c2eb22e800",
+   "licence": "MIT (LICENSE file at pin b1e41202f42f, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:30Z",
+    "consent_receipt": "f9d5b8bf4a60",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:30Z (receipt f9d5b8bf4a60); selected commit b1e41202f42f: \"bench: OmniMemEval RAG A/B and GPT-6 Luna low evaluation (#19)\". LICENSE file at pin b1e41202f42f detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

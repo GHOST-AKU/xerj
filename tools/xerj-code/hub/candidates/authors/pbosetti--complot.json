@@ -1,0 +1,23 @@
+{
+ "corpus": "pbosetti--complot",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on console, plotting, realtime queries this for how pbosetti/complot implements it: Quick realtime plotter for your console (selected work: src)",
+ "repos": [
+  {
+   "repo": "complot",
+   "url": "https://github.com/pbosetti/complot",
+   "sha": "ead80bc1842cc6bb933d84e8285805a9d93278b0",
+   "licence": "author's permission (LICENSE at pin ead80bc1842c: NOASSERTION; repository: Apache-2.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:56Z",
+    "consent_receipt": "93787cb01dab",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:56Z (receipt 93787cb01dab); selected commit ead80bc1842c: \"Add support for --exec option to run commands and read output as CSV\". LICENSE at pin ead80bc1842c: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

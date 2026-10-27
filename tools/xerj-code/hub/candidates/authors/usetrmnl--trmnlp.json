@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on Ruby queries this for how usetrmnl/trmnlp implements it: a local dev server for building TRMNL plugins (selected work: lib/trmnlp, spec)",
+ "domain": "an agent working on epaper, trmnl queries this for how usetrmnl/trmnlp implements it: a local dev server for building TRMNL plugins (selected work: lib/trmnlp, spec)",
  "repos": [
   {
    "repo": "trmnlp",

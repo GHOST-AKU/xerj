@@ -1,0 +1,23 @@
+{
+ "corpus": "scorelabus--sphere",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on saas, ipricing, pricing-driven-devops queries this for how SCORELabUS/SPHERE implements it: SCORELabUS/SPHERE (HTML) (selected work: api, frontend)",
+ "repos": [
+  {
+   "repo": "SPHERE",
+   "url": "https://github.com/SCORELabUS/SPHERE",
+   "sha": "5fda34a46409105e33ea83ef9cdc0c70ac069f67",
+   "licence": "MIT (LICENSE file at pin 5fda34a46409, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:50Z",
+    "consent_receipt": "6f0f8dab87a5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:50Z (receipt 6f0f8dab87a5); selected commit 5fda34a46409: \"feat:  image publishing workflow, updated README and pricing4ts, and \u2026\". LICENSE file at pin 5fda34a46409 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

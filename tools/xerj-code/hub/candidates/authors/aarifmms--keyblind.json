@@ -1,0 +1,23 @@
+{
+ "corpus": "aarifmms--keyblind",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how aarifmms/keyblind implements it: keyblind (selected work: scripts, src/rotation, tests)",
+ "repos": [
+  {
+   "repo": "keyblind",
+   "url": "https://github.com/aarifmms/keyblind",
+   "sha": "3896ac05cf6cbf66971ce6d5b4dd0c0c9ceff88a",
+   "licence": "MIT (LICENSE file at pin 3896ac05cf6c, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:08Z",
+    "consent_receipt": "3069da5860c6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:08Z (receipt 3069da5860c6); selected commit 3896ac05cf6c: \"fix: AWS rotation verify \u2014 drop empty profile, retry on IAM propagation\". LICENSE file at pin 3896ac05cf6c detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

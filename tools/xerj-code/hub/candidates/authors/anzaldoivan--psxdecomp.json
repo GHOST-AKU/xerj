@@ -1,0 +1,23 @@
+{
+ "corpus": "anzaldoivan--psxdecomp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on claude-code, claude-code-plugin, decompilation queries this for how anzaldoivan/psxdecomp implements it: Claude Code plugin that bootstraps PlayStation 1 (PS1/PSX) matching decompilation projects: disc identification, prior-art research, splat/m (selected work: scripts, evals, tests)",
+ "repos": [
+  {
+   "repo": "psxdecomp",
+   "url": "https://github.com/anzaldoivan/psxdecomp",
+   "sha": "327cdf44cd5b0a7b17a09be6de93d417143fe5a1",
+   "licence": "MIT (LICENSE file at pin 327cdf44cd5b, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:04Z",
+    "consent_receipt": "b958db9337c3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:04Z (receipt b958db9337c3); selected commit 327cdf44cd5b: \"psxdecomp 0.7.0 (#18)\". LICENSE file at pin 327cdf44cd5b detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

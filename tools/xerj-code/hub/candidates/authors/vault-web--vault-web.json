@@ -1,0 +1,23 @@
+{
+ "corpus": "vault-web--vault-web",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on angular, docker-compose, java queries this for how Vault-Web/vault-web implements it: Central web portal uniting all Vault-Web applications - secure access to cloud, password manager, chats, and more within a private VPN. Disc (selected work: backend)",
+ "repos": [
+  {
+   "repo": "vault-web",
+   "url": "https://github.com/Vault-Web/vault-web",
+   "sha": "99471c70836312791a33153a90c6621b2bb675b8",
+   "licence": "MIT (LICENSE file at pin 99471c708363, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:46Z",
+    "consent_receipt": "25bf9b65a521",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:46Z (receipt 25bf9b65a521); selected commit 99471c708363: \"fix(chat): enforce group WebSocket authorization and revoke stale acc\u2026\". LICENSE file at pin 99471c708363 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

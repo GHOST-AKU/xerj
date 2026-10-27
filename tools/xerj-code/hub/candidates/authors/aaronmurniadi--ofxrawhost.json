@@ -1,0 +1,23 @@
+{
+ "corpus": "aaronmurniadi--ofxrawhost",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how aaronmurniadi/ofxrawhost implements it: Minimal still-image OpenFX host: open RAW photos, run OFX plugins, export (selected work: src/services, src/codecs, src/ui)",
+ "repos": [
+  {
+   "repo": "ofxrawhost",
+   "url": "https://github.com/aaronmurniadi/ofxrawhost",
+   "sha": "66848eedd8bcb368ed4941e9d10750539765316c",
+   "licence": "BSD-3-Clause (LICENSE file at pin 66848eedd8bc, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "BSD-3-Clause",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:52Z",
+    "consent_receipt": "11da2f893f99",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:52Z (receipt 11da2f893f99); selected commit 66848eedd8bc: \"Decode on a thread and show a spinner while a RAW develops\". LICENSE file at pin 66848eedd8bc detected as BSD-3-Clause by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

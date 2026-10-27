@@ -1,0 +1,23 @@
+{
+ "corpus": "samuelezoncada--monad",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on PHP queries this for how samuelezoncada/monad implements it: samuelezoncada/monad (PHP) (selected work: the project root, tests)",
+ "repos": [
+  {
+   "repo": "monad",
+   "url": "https://github.com/samuelezoncada/monad",
+   "sha": "568aea2f8c5e9b2f85d4e0d212e49690b53c498d",
+   "licence": "MIT (LICENSE file at pin 568aea2f8c5e, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:21Z",
+    "consent_receipt": "b30a2ba54c2d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:21Z (receipt b30a2ba54c2d); selected commit 568aea2f8c5e: \"feat: complete the 0.1.0 request and app edges\". LICENSE file at pin 568aea2f8c5e detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "ryangustav--offheap",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on JavaScript queries this for how ryangustav/OffHeap implements it: High-performance, off-heap L1 cache for Node.js written in Rust. Eliminates V8 GC pauses by storing data in native memory via NAPI-RS. Power (selected work: src/algorithms, the project root, src)",
+ "repos": [
+  {
+   "repo": "OffHeap",
+   "url": "https://github.com/ryangustav/OffHeap",
+   "sha": "738437330e0531a3feff6249112c3a7ed7a5a311",
+   "licence": "author's permission (LICENSE at pin 738437330e05: NOASSERTION; repository: Apache-2.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:33Z",
+    "consent_receipt": "db87109498f7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:33Z (receipt db87109498f7); selected commit 738437330e05: \"feat: release 0.5.0 - TTL-aware L1, cross-thread L1 invalidation, fas\u2026\". LICENSE at pin 738437330e05: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

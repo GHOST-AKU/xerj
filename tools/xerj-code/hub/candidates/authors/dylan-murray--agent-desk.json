@@ -1,0 +1,23 @@
+{
+ "corpus": "dylan-murray--agent-desk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-orchestration, agentic-coding, ai-agents queries this for how dylan-murray/agent-desk implements it: Local agent development workspace with coordinators, terminals, task automation, and annotation feedback (selected work: tests, desktop, agent_desk)",
+ "repos": [
+  {
+   "repo": "agent-desk",
+   "url": "https://github.com/dylan-murray/agent-desk",
+   "sha": "c925e6d140f63232b98ca068ebea62ee63458de7",
+   "licence": "Apache-2.0 (LICENSE file at pin c925e6d140f6, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:10Z",
+    "consent_receipt": "a4212b69a94d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:10Z (receipt a4212b69a94d); selected commit c925e6d140f6: \"Preserve desktop sessions on quit and refine native controls\". LICENSE file at pin c925e6d140f6 detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

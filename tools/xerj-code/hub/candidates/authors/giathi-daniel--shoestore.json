@@ -1,0 +1,23 @@
+{
+ "corpus": "giathi-daniel--shoestore",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on aws-ec2, ecommerce-website, fullstack-development queries this for how Giathi-Daniel/ShoeStore implements it: Full-stack E-commerce Tutorial (selected work: shoe-ecommerce-backend, shoe-ecommerce-frontend)",
+ "repos": [
+  {
+   "repo": "ShoeStore",
+   "url": "https://github.com/Giathi-Daniel/ShoeStore",
+   "sha": "a5d9cafec8648ded038388264b511620cf4a7b3d",
+   "licence": "MIT (LICENSE file at pin a5d9cafec864, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:40Z",
+    "consent_receipt": "20bc1a05f333",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:40Z (receipt 20bc1a05f333); selected commit a5d9cafec864: \"feat: security hardening for auth, API and storefront\". LICENSE file at pin a5d9cafec864 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

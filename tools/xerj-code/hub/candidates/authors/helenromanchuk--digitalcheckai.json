@@ -1,0 +1,23 @@
+{
+ "corpus": "helenromanchuk--digitalcheckai",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on Python queries this for how helenromanchuk/DigitalCheckAI implements it: Local receipt analytics: imports your purchase history, decodes cryptic item names with Gemini, and tracks spending by category (selected work: static, app/scraper, tests)",
+ "repos": [
+  {
+   "repo": "DigitalCheckAI",
+   "url": "https://github.com/helenromanchuk/DigitalCheckAI",
+   "sha": "050fb521c10922bc40968c6d366d767d84493b10",
+   "licence": "MIT (LICENSE file at pin 050fb521c109, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:18Z",
+    "consent_receipt": "fc5d8efbaed1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:18Z (receipt fc5d8efbaed1); selected commit 050fb521c109: \"Fix sync data corruption, translate docs, add RU/EN UI (#1)\". LICENSE file at pin 050fb521c109 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
