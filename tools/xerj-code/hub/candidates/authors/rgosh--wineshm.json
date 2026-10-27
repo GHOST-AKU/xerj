@@ -1,0 +1,23 @@
+{
+ "corpus": "rgosh--wineshm",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on assetto-corsa, linux, proton queries this for how Rgosh/wineshm implements it: Expose a Windows program's named shared memory to Linux, from inside a Wine or Proton prefix. Zero-copy where it can, and costs nothing when (selected work: src, the project root)",
+ "repos": [
+  {
+   "repo": "wineshm",
+   "url": "https://github.com/Rgosh/wineshm",
+   "sha": "f3baf2f09ae8922aa106fe858412038453fb5c0a",
+   "licence": "MIT (LICENSE file at pin f3baf2f09ae8, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:22Z",
+    "consent_receipt": "be8fa2c3a658",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:22Z (receipt be8fa2c3a658); selected commit f3baf2f09ae8: \"feat: --window follows a program's window and says where it is\". LICENSE file at pin f3baf2f09ae8 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

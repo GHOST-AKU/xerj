@@ -2,8 +2,8 @@
  "corpus": "zwony--ecotrace",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on carbon-footprint, climate, co2 queries this for how Zwony/ecotrace implements it: A lightweight Python library to measure the carbon footprint of your code (selected work: ecotrace, tests)",
+ "shelf": "AI",
+ "domain": "an agent working on carbon-footprint, climate, co2 queries this for how Zwony/ecotrace implements it: Lightweight, process-scoped energy and carbon instrumentation for Python applications, AI models, and LLM pipelines (selected work: ecotrace, tests)",
  "repos": [
   {
    "repo": "ecotrace",

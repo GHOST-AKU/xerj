@@ -1,0 +1,23 @@
+{
+ "corpus": "universalrepository--packages",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on linux, packages, archlinux queries this for how UniversalRepository/packages implements it: Source repository for URepo Packages (selected work: chimera)",
+ "repos": [
+  {
+   "repo": "packages",
+   "url": "https://github.com/UniversalRepository/packages",
+   "sha": "edb05dfcdfb4a8ecc7bd8e50e6513fd512c2f606",
+   "licence": "MIT (LICENSE file at pin edb05dfcdfb4, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:35Z",
+    "consent_receipt": "b93c151ea4e1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:35Z (receipt b93c151ea4e1); selected commit edb05dfcdfb4: \"chimera/xlibre: new metapackage at 25.1.0\". LICENSE file at pin edb05dfcdfb4 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "cloudandcapital--ai-cost-lens",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-cost, ccac, cli queries this for how cloudandcapital/ai-cost-lens implements it: Evidence-aware AI and LLM usage-cost analysis with price provenance and CCAC output (selected work: web, tests, scripts)",
+ "repos": [
+  {
+   "repo": "ai-cost-lens",
+   "url": "https://github.com/cloudandcapital/ai-cost-lens",
+   "sha": "10730361529f4eef5ae65e2ba46071d52388a9b5",
+   "licence": "MIT (LICENSE file at pin 10730361529f, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:27Z",
+    "consent_receipt": "2442f585f30b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:27Z (receipt 2442f585f30b); selected commit 10730361529f: \"Add controlled API cost tests with repeated quality evidence\". LICENSE file at pin 10730361529f detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

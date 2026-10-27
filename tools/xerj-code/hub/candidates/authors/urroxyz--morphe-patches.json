@@ -8,15 +8,15 @@
   {
    "repo": "morphe-patches",
    "url": "https://github.com/urroxyz/morphe-patches",
-   "sha": "9902de189ed8a31595ce72e492e126b35348d1cf",
-   "licence": "CC-BY-4.0 (LICENSE file at pin 9902de189ed8, GitHub licence API 2026-10-27)",
+   "sha": "75646368ee8a2a127dcfcfb944cd0ef573ccc376",
+   "licence": "CC-BY-4.0 (LICENSE file at pin 75646368ee8a, GitHub licence API 2026-10-27)",
    "review": {
     "spdx": "CC-BY-4.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-26T23:36Z",
     "consent_receipt": "b8a8340812fb",
-    "note": "Inclusion consented by the commit author by email at 2026-10-26T23:36Z (receipt b8a8340812fb); selected commit 9902de189ed8: \"feat: add universal physical activity receiver and Transit transmitter\". LICENSE file at pin 9902de189ed8 detected as CC-BY-4.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution. Pinned to head 9902de189ed8 (contains the selected commit): the LICENSE at the selected commit was GPL-3.0.",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T23:36Z (receipt b8a8340812fb); selected commit 75646368ee8a: \"feat: add universal physical activity receiver and Transit transmitter\". LICENSE file at pin 75646368ee8a detected as CC-BY-4.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution. Pinned to head 75646368ee8a (contains the selected commit): the LICENSE at the selected commit was GPL-3.0.",
     "author_grant": {
      "terms": "MIT",
      "scope": "the author's own changes in the selected commit",

@@ -1,0 +1,23 @@
+{
+ "corpus": "pablo-legeren--checkmodel",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on data-science, easystats, model-diagnostics queries this for how pablo-legeren/checkmodel implements it: One-call diagnostics for statistical models in Python, a port of R's easystats/performance (selected work: src/checkmodel, tests)",
+ "repos": [
+  {
+   "repo": "checkmodel",
+   "url": "https://github.com/pablo-legeren/checkmodel",
+   "sha": "d6d9c2679a659478c44e04c3a190716a2fa98c4c",
+   "licence": "MIT (LICENSE file at pin d6d9c2679a65, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:11Z",
+    "consent_receipt": "692b89508b85",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:11Z (receipt 692b89508b85); selected commit d6d9c2679a65: \"Add simulated residuals, more model families, and fix binary-model R2\". LICENSE file at pin d6d9c2679a65 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "biswajit-sahoo-13--muisc2math",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Biswajit-Sahoo-13/Muisc2Math implements it: Convert Music to Maths Eqautions (selected work: the project root, tests, src)",
+ "repos": [
+  {
+   "repo": "Muisc2Math",
+   "url": "https://github.com/Biswajit-Sahoo-13/Muisc2Math",
+   "sha": "0fd8d9314fd994917056ef10db942af1a4cf5c5f",
+   "licence": "MIT (LICENSE file at pin 0fd8d9314fd9, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:42Z",
+    "consent_receipt": "653bf47a03a1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:42Z (receipt 653bf47a03a1); selected commit 0fd8d9314fd9: \"feat(ui): base64 audio players and RES model toggles\". LICENSE file at pin 0fd8d9314fd9 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

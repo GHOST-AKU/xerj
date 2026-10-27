@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "OPS",
- "domain": "an agent working on esp32, esp32-c3, esp32-p4 queries this for how bahguta/bahguta-Homelab implements it: bahguta Homelab (selected work: spring, bahguta-display, the project root)",
+ "domain": "an agent working on 18650, angular, dht22 queries this for how bahguta/bahguta-Homelab implements it: bahguta Homelab (selected work: spring, bahguta-display, the project root)",
  "repos": [
   {
    "repo": "bahguta-Homelab",

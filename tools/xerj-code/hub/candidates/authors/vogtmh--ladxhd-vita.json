@@ -1,0 +1,23 @@
+{
+ "corpus": "vogtmh--ladxhd-vita",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C# queries this for how vogtmh/ladxhd-vita implements it: A LADXHD port for the PS Vita (selected work: vita)",
+ "repos": [
+  {
+   "repo": "ladxhd-vita",
+   "url": "https://github.com/vogtmh/ladxhd-vita",
+   "sha": "36bfe0564293326a7440da5537e848a3dc268b84",
+   "licence": "MIT (LICENSE file at pin 36bfe0564293, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:06Z",
+    "consent_receipt": "a1aa74acc5d4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:06Z (receipt a1aa74acc5d4); selected commit 36bfe0564293: \"add new performance overlay\". LICENSE file at pin 36bfe0564293 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

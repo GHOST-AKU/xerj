@@ -1,0 +1,23 @@
+{
+ "corpus": "epulla--patio",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, ai-agents, claude-code queries this for how epulla/patio implements it: Your agents. Your work. One place. Open-source desktop workspace for AI chats, kanban boards, and automation. Works with Claude Code, Codex, (selected work: internal/api, internal/mcp)",
+ "repos": [
+  {
+   "repo": "patio",
+   "url": "https://github.com/epulla/patio",
+   "sha": "9d4a94400de3117dfac7423d70c3c824e91db518",
+   "licence": "MIT (LICENSE file at pin 9d4a94400de3, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:35Z",
+    "consent_receipt": "372b0f287f62",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:35Z (receipt 372b0f287f62); selected commit 9d4a94400de3: \"feat(tickets): @Bot in descriptions and comments opens bot chats\". LICENSE file at pin 9d4a94400de3 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

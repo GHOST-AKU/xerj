@@ -1,0 +1,23 @@
+{
+ "corpus": "orgoca--compileml",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on cobol, credit-risk, credit-scoring queries this for how orgoca/CompileML implements it: Compile tree-ensemble models into deterministic, auditable decision artifacts \u2014 score, calibrated PD, risk bands, and adverse-action reason  (selected work: tests, src/compileml)",
+ "repos": [
+  {
+   "repo": "CompileML",
+   "url": "https://github.com/orgoca/CompileML",
+   "sha": "9eda1f9500f9261268fdaea5d3aa90d69204efd3",
+   "licence": "Apache-2.0 (LICENSE file at pin 9eda1f9500f9, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T20:53Z",
+    "consent_receipt": "eb69fc8f0101",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T20:53Z (receipt eb69fc8f0101); selected commit 9eda1f9500f9: \"Refuse missing values instead of compiling a model the artifact canno\u2026\". LICENSE file at pin 9eda1f9500f9 detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

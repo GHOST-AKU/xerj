@@ -1,0 +1,23 @@
+{
+ "corpus": "pochihh--obsidian-better-edit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how pochihh/obsidian-better-edit implements it: pochihh/obsidian-better-edit (TypeScript) (selected work: src/features, tests, the project root)",
+ "repos": [
+  {
+   "repo": "obsidian-better-edit",
+   "url": "https://github.com/pochihh/obsidian-better-edit",
+   "sha": "2d9a806eea68bf54fa50bdcb3905ac290a9ab56f",
+   "licence": "MIT (LICENSE file at pin 2d9a806eea68, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:48Z",
+    "consent_receipt": "b989e973670f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:48Z (receipt b989e973670f); selected commit 2d9a806eea68: \"fix(text-styling): simplify link creation and edit existing links\". LICENSE file at pin 2d9a806eea68 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
