@@ -1,0 +1,23 @@
+{
+ "corpus": "red-eyed--stackformers",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Red-Eyed/stackformers implements it: Red-Eyed/stackformers (Python) (selected work: stackformers, the project root)",
+ "repos": [
+  {
+   "repo": "stackformers",
+   "url": "https://github.com/Red-Eyed/stackformers",
+   "sha": "a09f3a0d188bfa9d531ea25ca7de296f6bf525f2",
+   "licence": "MIT (LICENSE file at pin a09f3a0d188b, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T05:25Z",
+    "consent_receipt": "080b1edaeae6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T05:25Z (receipt 080b1edaeae6); selected commit a09f3a0d188b: \"Expand transformer branches into named steps\". LICENSE file at pin a09f3a0d188b detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

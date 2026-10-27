@@ -1,0 +1,23 @@
+{
+ "corpus": "negm711--rag-system",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on Python queries this for how Negm711/RAG-System implements it: Document question answering with FastAPI, Celery, pgvector, local cross-encoder reranking, and a web interface with source passages (selected work: src/retrieval, tests, src/routes)",
+ "repos": [
+  {
+   "repo": "RAG-System",
+   "url": "https://github.com/Negm711/RAG-System",
+   "sha": "2ed52f5e2ca5c3c155e3a0090dc9e450856e6d8f",
+   "licence": "Apache-2.0 (LICENSE file at pin 2ed52f5e2ca5, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T06:55Z",
+    "consent_receipt": "0fdf539a8a2f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T06:55Z (receipt 0fdf539a8a2f); selected commit 2ed52f5e2ca5: \"Add optional reranking, source-aware chunking and retrieval evaluation\". LICENSE file at pin 2ed52f5e2ca5 detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
