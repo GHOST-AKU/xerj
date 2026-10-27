@@ -171,7 +171,6 @@
 
   <div class="stat-band">
     <div class="stat"><div class="v">3.50x → 1.80x</div><div class="k">index size per indexed byte</div><div class="s">Bytes on disk for each byte of source indexed, between two gate runs on the same corpus.</div></div>
-    <div class="stat"><div class="v">1.51x → 0.82x</div><div class="k">index size against Elasticsearch</div><div class="s">The gate's size check on the same 1 GB corpus, between the same two runs.</div></div>
     <div class="stat"><div class="v">−74%</div><div class="k">client memory</div><div class="s">Peak autoindex client memory, 732 MB against 2,830 MB for rc.99.</div></div>
     <div class="stat"><div class="v">≤ 32</div><div class="k">datasets per autoindex run</div><div class="s">The previous release split one 5 GB folder into 454 indices, and every search opened all of them.</div></div>
   </div>
