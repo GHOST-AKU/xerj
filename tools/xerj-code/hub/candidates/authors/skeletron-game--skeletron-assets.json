@@ -1,9 +1,9 @@
 {
- "corpus": "wakeslip-game--wakeslip-assets",
+ "corpus": "skeletron-game--skeletron-assets",
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on code queries this for how wakeslip-game/wakeslip-assets implements it: [GITHUB] [WIP] Assets for wakeslip \u2014 sprites, music, and sounds and more (selected work: sprites, fonts, audio)",
+ "domain": "an agent working on code queries this for how skeletron-game/skeletron-assets implements it: [GITHUB] [WIP] (selected work: sprites, fonts, audio)",
  "repos": [
   {
    "repo": "wakeslip-assets",

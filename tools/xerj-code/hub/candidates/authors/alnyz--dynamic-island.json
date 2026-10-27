@@ -1,0 +1,23 @@
+{
+ "corpus": "alnyz--dynamic-island",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on dynamic-island, kde, kde-plasma queries this for how Alnyz/dynamic-island implements it: A Dynamic Island for KDE Plasma 6 on Wayland: now playing, volume and notification alerts, and a small panel with calendar, weather, timer a (selected work: qml, tests)",
+ "repos": [
+  {
+   "repo": "dynamic-island",
+   "url": "https://github.com/Alnyz/dynamic-island",
+   "sha": "88fd2001aeabda0b7531c7800799104ccf077689",
+   "licence": "MIT (LICENSE file at pin 88fd2001aeab, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T00:03Z",
+    "consent_receipt": "1d1812892e54",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T00:03Z (receipt 1d1812892e54); selected commit 88fd2001aeab: \"feat: show new notifications on the idle pill and add history settings\". LICENSE file at pin 88fd2001aeab detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

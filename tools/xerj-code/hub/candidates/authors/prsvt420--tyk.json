@@ -1,0 +1,23 @@
+{
+ "corpus": "prsvt420--tyk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on alembic, asyncpg, clean-architecture queries this for how prsvt420/tyk implements it: Tyk is a high-performance URL shortening service built to handle large volumes of link creation and redirect traffic (selected work: tests, src/infrastructure, the project root)",
+ "repos": [
+  {
+   "repo": "tyk",
+   "url": "https://github.com/prsvt420/tyk",
+   "sha": "bf79e68298c6596eba3de5b19ae0e8a84ba68bdf",
+   "licence": "MIT (LICENSE file at pin bf79e68298c6, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T00:42Z",
+    "consent_receipt": "26a6c642ba87",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T00:42Z (receipt 26a6c642ba87); selected commit bf79e68298c6: \"feat(config): add cache timeout and TTL settings\". LICENSE file at pin bf79e68298c6 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "thegarty--ad-driven-game-skills",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on admob, agent-skills, ai-agents queries this for how thegarty/ad-driven-game-skills implements it: Portable AI skills for designing, building, monetising and optimising mobile games (selected work: skills, tests, evals)",
+ "repos": [
+  {
+   "repo": "ad-driven-game-skills",
+   "url": "https://github.com/thegarty/ad-driven-game-skills",
+   "sha": "849d7bc94b94f8b28333b89699fa8eca7f2208dc",
+   "licence": "MIT (LICENSE file at pin 849d7bc94b94, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T23:15Z",
+    "consent_receipt": "d99c4bc07f41",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T23:15Z (receipt d99c4bc07f41); selected commit 849d7bc94b94: \"Expand game library with evidence-led UX, progression and native serv\u2026\". LICENSE file at pin 849d7bc94b94 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

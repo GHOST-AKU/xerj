@@ -1,0 +1,23 @@
+{
+ "corpus": "jelius-sama--libmailer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on c, ffi, go queries this for how jelius-sama/libmailer implements it: Simple Email Sending library for linux that can be used in C and Go (selected work: api, the project root)",
+ "repos": [
+  {
+   "repo": "libmailer",
+   "url": "https://github.com/jelius-sama/libmailer",
+   "sha": "a46eb3af637c074c0338708376844f05a537e2ed",
+   "licence": "MIT (LICENSE file at pin a46eb3af637c, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T00:58Z",
+    "consent_receipt": "ce18dbbea3a6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T00:58Z (receipt ce18dbbea3a6); selected commit a46eb3af637c: \"gnupg: add support for signed email\". LICENSE file at pin a46eb3af637c detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

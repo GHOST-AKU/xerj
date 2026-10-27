@@ -1,0 +1,23 @@
+{
+ "corpus": "nebulino--scrobblenaut",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on lastfm, dart, lastfm-api queries this for how Nebulino/Scrobblenaut implements it: A deadly simple LastFM API Wrapper for Dart. So deadly simple that it's gonna hit the mark (selected work: test, lib/src, example)",
+ "repos": [
+  {
+   "repo": "Scrobblenaut",
+   "url": "https://github.com/Nebulino/Scrobblenaut",
+   "sha": "38f169c0a9c29138e39a003cf47b3a9ac8fccf5c",
+   "licence": "MIT (LICENSE file at pin 38f169c0a9c2, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T00:15Z",
+    "consent_receipt": "1d2faf06701d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T00:15Z (receipt 1d2faf06701d); selected commit 38f169c0a9c2: \"feat: chunked scrobbling, retry with backoff, a working proxy\". LICENSE file at pin 38f169c0a9c2 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
