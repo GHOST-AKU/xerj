@@ -1,0 +1,30 @@
+{
+ "corpus": "galpt--scx-flow-new",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cpu-scheduling, linux, sched-ext queries this for how galpt/scx_flow_new implements it: The new scx_flow scheduler (v4.0.0 or newer). The \"main\" branch can be unstable. Stable versions will use \"archive/*\" branch names (selected work: scx, tools)",
+ "repos": [
+  {
+   "repo": "scx_flow_new",
+   "url": "https://github.com/galpt/scx_flow_new",
+   "sha": "7332c56e63775882c433a2a5a68ea399945f7e55",
+   "licence": "GPL-2.0 (LICENSE file at pin 7332c56e6377, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "GPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-27T09:27Z",
+    "consent_receipt": "343520c137f8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T09:27Z (receipt 343520c137f8); selected commit 7332c56e6377: \"scx_flow: separate s2idle clamp from S3 boot-gap reseed\". LICENSE file at pin 7332c56e6377 detected as GPL-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "7332c56e63775882c433a2a5a68ea399945f7e55",
+     "at": "2026-10-27T09:27Z",
+     "receipt": "343520c137f8"
+    }
+   }
+  }
+ ]
+}

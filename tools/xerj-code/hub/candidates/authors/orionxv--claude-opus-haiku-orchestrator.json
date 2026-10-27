@@ -1,0 +1,23 @@
+{
+ "corpus": "orionxv--claude-opus-haiku-orchestrator",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how OrionXV/claude-opus-haiku-orchestrator implements it: Claude Code profiles: Opus/Fable orchestrator with Haiku subagents and an independent reviewer. Port of codex-astra-luna-orchestrator (selected work: templates, scripts, profiles)",
+ "repos": [
+  {
+   "repo": "claude-opus-haiku-orchestrator",
+   "url": "https://github.com/OrionXV/claude-opus-haiku-orchestrator",
+   "sha": "b4e32d5b44c9e5b8ccd8b5ff8ea1d8a9f87c9e0d",
+   "licence": "Apache-2.0 (LICENSE file at pin b4e32d5b44c9, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T09:40Z",
+    "consent_receipt": "060d1e111c4f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T09:40Z (receipt 060d1e111c4f); selected commit b4e32d5b44c9: \"feat: add profile templates and generator\". LICENSE file at pin b4e32d5b44c9 detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "meiming2019-web--github-activity-agent",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-evaluation, deepseek, deepseek-api queries this for how meiming2019-web/github-activity-agent implements it: Verifiable NL2SQL agent: self-hosted MCP server, 3-config A/B/C experiment, deterministic offline grading, re-run noise audit (DeepSeek + Du (selected work: eval, tests, the project root)",
+ "repos": [
+  {
+   "repo": "github-activity-agent",
+   "url": "https://github.com/meiming2019-web/github-activity-agent",
+   "sha": "0cb852162dbec8293d6898aa3e91758fed364806",
+   "licence": "MIT (LICENSE file at pin 0cb852162dbe, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T09:39Z",
+    "consent_receipt": "dc119933f0a2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T09:39Z (receipt dc119933f0a2); selected commit 0cb852162dbe: \"eval: exploratory A/B run on v4 question set (600/600, 0 API errors; \u2026\". LICENSE file at pin 0cb852162dbe detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

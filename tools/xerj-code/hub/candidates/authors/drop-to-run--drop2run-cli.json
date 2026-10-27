@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on ai-agents, claude, cli queries this for how Drop-to-run/drop2run-cli implements it: Source for the drop2run CLI and MCP server \u2014 publish a static site or an agent's output to an HTTPS link, no git and no build config (selected work: packages/node, packages/mcp, packages/cli)",
+ "domain": "an agent working on ai-agents, claude, cli queries this for how Drop-to-run/drop2run-cli implements it: Source for the drop2run CLI and MCP server \u2014 publish what an AI made, a page, a folder of documents or a built site, to an HTTPS link (selected work: packages/node, packages/mcp, packages/cli)",
  "repos": [
   {
    "repo": "drop2run-cli",

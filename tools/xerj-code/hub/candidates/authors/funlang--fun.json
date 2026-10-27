@@ -1,0 +1,23 @@
+{
+ "corpus": "funlang--fun",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on embeddable, ffi, interpreter queries this for how funlang/fun implements it: A lightweight, embeddable, data-centric scripting language whose reach extends from JSON/FD data all the way down to runtime-compiled C and  (selected work: fun)",
+ "repos": [
+  {
+   "repo": "fun",
+   "url": "https://github.com/Funlang/fun",
+   "sha": "559b9b4e940a0fdc47d5ba195ec8db2072f05d95",
+   "licence": "author's permission (LICENSE at pin 559b9b4e940a: NOASSERTION; repository: MIT)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T09:30Z",
+    "consent_receipt": "ae0a626c63c8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T09:30Z (receipt ae0a626c63c8); selected commit 559b9b4e940a: \"lib-asm-a64: range-check offsets/immediates; signed imm9/imm7; fix sl\u2026\". LICENSE at pin 559b9b4e940a: NOASSERTION (repository: MIT); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}
