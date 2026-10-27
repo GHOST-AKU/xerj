@@ -1,0 +1,23 @@
+{
+ "corpus": "beetrain--archivist",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how BeeTrain/archivist implements it: Claude Code plugin that learns from each agent task and records commands, pitfalls and decisions as project docs (selected work: test, plugin, src/core)",
+ "repos": [
+  {
+   "repo": "archivist",
+   "url": "https://github.com/BeeTrain/archivist",
+   "sha": "c0966991409e89417f562c05e2e24c155cb61405",
+   "licence": "MIT (LICENSE file at pin c0966991409e, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T14:01Z",
+    "consent_receipt": "43519cb9f968",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T14:01Z (receipt 43519cb9f968); selected commit c0966991409e: \"v1.4.0: entries in external memory, OpenViking first\". LICENSE file at pin c0966991409e detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

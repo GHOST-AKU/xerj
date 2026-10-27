@@ -1,0 +1,23 @@
+{
+ "corpus": "ghisdw--voxelplus",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how GHisDW/voxelplus implements it: GHisDW/voxelplus (TypeScript) (selected work: tests, electron, scripts)",
+ "repos": [
+  {
+   "repo": "voxelplus",
+   "url": "https://github.com/GHisDW/voxelplus",
+   "sha": "0b1c73f18b03404dd19d3d4912d4bbd9ded4003d",
+   "licence": "MIT (LICENSE file at pin 0b1c73f18b03, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T14:58Z",
+    "consent_receipt": "8f9fc771a372",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T14:58Z (receipt 8f9fc771a372); selected commit 0b1c73f18b03: \"feat(core): complete multi-loader runtime (Fabric, Quilt, Forge, NeoF\u2026\". LICENSE file at pin 0b1c73f18b03 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
