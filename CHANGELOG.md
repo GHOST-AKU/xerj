@@ -114,7 +114,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **`DELETE /<index>` no longer wedges near the memory cap** (refs issue
   [#2405](https://github.com/xerj-org/xerj/issues/2405) item 1, PR
-  [#2489](https://github.com/xerj-org/xerj/pull/PRNUM)). The ES-compat
+  [#2489](https://github.com/xerj-org/xerj/pull/2489)). The ES-compat
   handler resolved its selector through `list_indices`, which computes stats
   for every open index and so waited on any sibling whose schema or memtable
   lock was busy; it now uses the name list. Listings, the health check and
