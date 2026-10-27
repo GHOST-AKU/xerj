@@ -1,0 +1,23 @@
+{
+ "corpus": "junensai--chessgraph-mcp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-skill, chess, neo4j queries this for how JunENSAI/ChessGraph-MCP implements it: Building a chess Agentic setup that bridges the gap between deterministic game-tree calculation and semantic coaching. Permit the agent to a (selected work: backend, ui, chess_mcp)",
+ "repos": [
+  {
+   "repo": "ChessGraph-MCP",
+   "url": "https://github.com/JunENSAI/ChessGraph-MCP",
+   "sha": "f1d7efed2f9aca5964293613e233098d72d88247",
+   "licence": "MIT (LICENSE file at pin f1d7efed2f9a, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T07:45Z",
+    "consent_receipt": "89147e40d7c7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T07:45Z (receipt 89147e40d7c7); selected commit f1d7efed2f9a: \"separate the logic to backend [for all the question that require resp\u2026\". LICENSE file at pin f1d7efed2f9a detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

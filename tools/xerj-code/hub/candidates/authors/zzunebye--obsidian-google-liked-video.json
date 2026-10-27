@@ -1,0 +1,23 @@
+{
+ "corpus": "zzunebye--obsidian-google-liked-video",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how zzunebye/obsidian-google-liked-video implements it: Geulo \u2014 an Obsidian plugin for pulling and syncing your liked YouTube videos to your Obsidian vault (selected work: the project root, src/ui, scripts)",
+ "repos": [
+  {
+   "repo": "obsidian-google-liked-video",
+   "url": "https://github.com/zzunebye/obsidian-google-liked-video",
+   "sha": "34ab03d56c9f22591e53beb7fe56d46acd7ddff7",
+   "licence": "MIT (LICENSE file at pin 34ab03d56c9f, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T08:24Z",
+    "consent_receipt": "b5c7ced69ff2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T08:24Z (receipt b5c7ced69ff2); selected commit 34ab03d56c9f: \"fix: simplify transcript reader controls in narrow panes\". LICENSE file at pin 34ab03d56c9f detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

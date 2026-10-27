@@ -1,0 +1,23 @@
+{
+ "corpus": "palashkurkute--limap",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how PalashKurkute/LiMap implements it: PalashKurkute/LiMap (TypeScript) (selected work: dashboard)",
+ "repos": [
+  {
+   "repo": "LiMap",
+   "url": "https://github.com/PalashKurkute/LiMap",
+   "sha": "097459b0ee86888dac1bee2c51374e7306911692",
+   "licence": "Apache-2.0 (LICENSE file at pin 097459b0ee86, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T08:59Z",
+    "consent_receipt": "18e4e5b31177",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T08:59Z (receipt 18e4e5b31177); selected commit 097459b0ee86: \"Try your own scan: upload a .bin and see it gridded\". LICENSE file at pin 097459b0ee86 detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution. Pinned to head 097459b0ee86 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

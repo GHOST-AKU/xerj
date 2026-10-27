@@ -1,0 +1,23 @@
+{
+ "corpus": "ozyab09--iptv-hub",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how ozyab09/iptv-hub implements it: Self-hosted IPTV web player (M3U + EPG + PWA) \u2014 \u0441\u0442\u0430\u0442\u0438\u043a\u0430 \u043d\u0430 GitHub Pages, \u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442\u044b \u0438\u0437 \u0432\u0430\u0448\u0435\u0433\u043e S3 (selected work: src, src/styles, tests)",
+ "repos": [
+  {
+   "repo": "iptv-hub",
+   "url": "https://github.com/ozyab09/iptv-hub",
+   "sha": "6775ccc5e3f054d4596c0dbe6e1af40640278f32",
+   "licence": "MIT (LICENSE file at pin 6775ccc5e3f0, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T08:37Z",
+    "consent_receipt": "71edd529f592",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T08:37Z (receipt 71edd529f592); selected commit 6775ccc5e3f0: \"feat: redesign programme guide grid (#476)\". LICENSE file at pin 6775ccc5e3f0 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
