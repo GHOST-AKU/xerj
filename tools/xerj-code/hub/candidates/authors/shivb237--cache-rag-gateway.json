@@ -1,0 +1,23 @@
+{
+ "corpus": "shivb237--cache-rag-gateway",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on aws-fargate, benchmarking, caching queries this for how Shivb237/cache-rag-gateway implements it: Layered LLM caches (exact, semantic, retrieval, prompt) behind a RAG gateway, plus an eval harness measuring cost, latency and wrong answers (selected work: scripts)",
+ "repos": [
+  {
+   "repo": "cache-rag-gateway",
+   "url": "https://github.com/Shivb237/cache-rag-gateway",
+   "sha": "6d96d93acc59a93236e7f7c838d0d4ced5e7f3c6",
+   "licence": "MIT (LICENSE file at pin 6d96d93acc59, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T08:48Z",
+    "consent_receipt": "7bf5e7e25bf6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T08:48Z (receipt 7bf5e7e25bf6); selected commit 6d96d93acc59: \"Add charts, story card and dev.to cover, drawn from the logged runs\". LICENSE file at pin 6d96d93acc59 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "angelo-lesniak--token-crate",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how angelo-lesniak/token-crate implements it: angelo-lesniak/token-crate (Python) (selected work: tokencrate, tests, services)",
+ "repos": [
+  {
+   "repo": "token-crate",
+   "url": "https://github.com/angelo-lesniak/token-crate",
+   "sha": "2bd27700037352efcbcefd5511663dd024cc4b6b",
+   "licence": "MIT (LICENSE file at pin 2bd277000373, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T08:10Z",
+    "consent_receipt": "ea415bc7c7e1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T08:10Z (receipt ea415bc7c7e1); selected commit 2bd277000373: \"feat: give browser UIs egress and cloud providers (#2)\". LICENSE file at pin 2bd277000373 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

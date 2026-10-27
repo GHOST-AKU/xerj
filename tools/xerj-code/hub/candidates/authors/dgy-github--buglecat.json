@@ -1,0 +1,23 @@
+{
+ "corpus": "dgy-github--buglecat",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how dgy-github/BugleCat implements it: \u6211\u7684\u5c0f\u5c0f\u5999\u8106\u89d2\u732b\u54aa (selected work: rust)",
+ "repos": [
+  {
+   "repo": "BugleCat",
+   "url": "https://github.com/dgy-github/BugleCat",
+   "sha": "5db67b51ede0876c61cbe130db2c8b89686fabdc",
+   "licence": "MIT (LICENSE file at pin 5db67b51ede0, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T07:53Z",
+    "consent_receipt": "535debb8b1a6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T07:53Z (receipt 535debb8b1a6); selected commit 5db67b51ede0: \"feat(outcome,memory,gui): complete ACR telemetry closed-loop, candida\u2026\". LICENSE file at pin 5db67b51ede0 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

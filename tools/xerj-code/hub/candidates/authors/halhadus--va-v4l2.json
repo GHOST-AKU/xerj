@@ -1,0 +1,30 @@
+{
+ "corpus": "halhadus--va-v4l2",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on dmabuf, hardware-acceleration, linux queries this for how Halhadus/va-v4l2 implements it: VA-API driver for stateful and stateless Linux V4L2 codecs, video processing and DMA-BUF sharing (selected work: src/memory, tests, the project root)",
+ "repos": [
+  {
+   "repo": "va-v4l2",
+   "url": "https://github.com/Halhadus/va-v4l2",
+   "sha": "31492a92c4461c3490a5832191a46524a64e17f8",
+   "licence": "GPL-3.0 (LICENSE file at pin 31492a92c446, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-27T07:14Z",
+    "consent_receipt": "77159ff6ee92",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T07:14Z (receipt 77159ff6ee92); selected commit 31492a92c446: \"memory: add an optional EGL copy path for decoder surfaces\". LICENSE file at pin 31492a92c446 detected as GPL-3.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "31492a92c4461c3490a5832191a46524a64e17f8",
+     "at": "2026-10-27T07:14Z",
+     "receipt": "77159ff6ee92"
+    }
+   }
+  }
+ ]
+}

@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on Go queries this for how Irsyad-gh/muxplayer implements it: Simple TUI universal music player for Linux, Mac, and Windows (selected work: internal/debugmode, the project root, internal/app)",
+ "domain": "an agent working on Go queries this for how Irsyad-gh/muxplayer implements it: Universal lightweight TUI music player for Linux, Mac, and Windows (selected work: internal/debugmode, the project root, internal/app)",
  "repos": [
   {
    "repo": "muxplayer",

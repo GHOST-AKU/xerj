@@ -1,0 +1,23 @@
+{
+ "corpus": "darksider4all--homelab-netatmo-integration",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on hacs, home-assistant, home-assistant-integration queries this for how darksider4all/homelab-netatmo-integration implements it: personal version of netatmo integration using webhooks for faster response and state updates (selected work: custom_components, tests)",
+ "repos": [
+  {
+   "repo": "homelab-netatmo-integration",
+   "url": "https://github.com/darksider4all/homelab-netatmo-integration",
+   "sha": "78b02bd0c0d4c9f36f9ab72625a247aca935057a",
+   "licence": "MIT (LICENSE file at pin 78b02bd0c0d4, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T07:27Z",
+    "consent_receipt": "78d330821a9b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T07:27Z (receipt 78d330821a9b); selected commit 78b02bd0c0d4: \"fix(climate): send an explicit endtime for manual setpoints (#8)\". LICENSE file at pin 78b02bd0c0d4 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
