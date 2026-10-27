@@ -1,0 +1,23 @@
+{
+ "corpus": "shyjun--git-interactive-rebase-gui-tool",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on git, git-rebase, git-workflow queries this for how shyjun/git-interactive-rebase-gui-tool implements it: User-friendly GUI for git interactive rebasing, based on Python. A Python-based GUI tool for Git interactive rebase to streamline commit his (selected work: lib/dialogs, tests, lib/app_window)",
+ "repos": [
+  {
+   "repo": "git-interactive-rebase-gui-tool",
+   "url": "https://github.com/shyjun/git-interactive-rebase-gui-tool",
+   "sha": "145e6247ab94823351a2853ca84323ffca996660",
+   "licence": "MIT (LICENSE file at pin 145e6247ab94, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T15:26Z",
+    "consent_receipt": "b669d17ae7f1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T15:26Z (receipt b669d17ae7f1); selected commit 145e6247ab94: \"feat(push): dialogue enhanced with force,force-with-lease options\". LICENSE file at pin 145e6247ab94 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

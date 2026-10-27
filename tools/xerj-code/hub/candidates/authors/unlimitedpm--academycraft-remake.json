@@ -2,8 +2,8 @@
  "corpus": "unlimitedpm--academycraft-remake",
  "cloned_at": null,
  "status": "draft",
- "shelf": "NET",
- "domain": "an agent working on academycraft, anime, forge queries this for how UnlimitedPM/AcademyCraft-Remake implements it: AcademyCraft for Minecraft 1.20.1: abilities, an Imag energy network, ten machines and a skill tree. A port of the 1.12.2 classic. / Portage (selected work: src/main, src/test)",
+ "shelf": "API",
+ "domain": "an agent working on academycraft, anime, forge queries this for how UnlimitedPM/AcademyCraft-Remake implements it: Remake of AcademyCraft (Minecraft 1.12.2) for 1.20.1 / Forge, GPLv3. Original mod (c) Lambda Innovation, by WeAthFolD and contributors: http (selected work: src/main, src/test)",
  "repos": [
   {
    "repo": "AcademyCraft-Remake",
