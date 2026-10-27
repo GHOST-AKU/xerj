@@ -1,0 +1,23 @@
+{
+ "corpus": "rootandsource--dsh-preset-four-images-model",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how RootAndSource/dsh-preset-four-images-model implements it: \u56db\u8c61\u6a21\u578b\u00b7DSH\u667a\u80fd\u4f53 (selected work: scripts)",
+ "repos": [
+  {
+   "repo": "dsh-preset-four-images-model",
+   "url": "https://github.com/RootAndSource/dsh-preset-four-images-model",
+   "sha": "43c28c5214511083c8bc38411ad4ff24d308e893",
+   "licence": "MIT (LICENSE file at pin 43c28c521451, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T12:13Z",
+    "consent_receipt": "2fe27152eac9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T12:13Z (receipt 2fe27152eac9); selected commit 43c28c521451: \"build(scripts): add deterministic pack and checksum scripts\". LICENSE file at pin 43c28c521451 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
