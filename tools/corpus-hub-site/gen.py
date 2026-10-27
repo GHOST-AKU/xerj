@@ -594,6 +594,10 @@ padding:var(--sp-2) 0;display:flex;flex-direction:column;z-index:60;box-shadow:0
 .authbox .menu a:hover{background:var(--z-faint);color:var(--z-ink)}
 .mystars{width:100%;border-collapse:collapse;margin-top:var(--sp-6);background:#fff}
 .mystars th,.mystars td{border:1px solid var(--z-line);padding:var(--sp-2) var(--sp-3);text-align:left}
+button.cta{border:0;cursor:pointer}button.cta:disabled{opacity:.45;cursor:default}
+.addrepos td:first-child{width:28px;text-align:center}.addrepos .why{color:var(--z-mute);font-size:var(--fs-13)}
+.addbar{display:flex;flex-wrap:wrap;gap:var(--sp-3);align-items:center;margin-top:var(--sp-5)}
+.addagree{display:flex;gap:var(--sp-3);align-items:flex-start;max-width:760px;margin-top:var(--sp-5)}
 .spark{width:160px;height:32px;display:block}.spark polyline{fill:none;stroke:var(--z-accent);stroke-width:1.5}
 .authnote{position:fixed;bottom:var(--sp-5);right:var(--sp-5);background:var(--z-ink);color:#fff;padding:var(--sp-3) var(--sp-5);
 font-family:var(--font-data);font-size:var(--fs-13);z-index:70}
@@ -1241,6 +1245,98 @@ ME_JS = """<script>
 </script>"""
 
 
+# /add: a signed-in GitHub owner picks their own public repositories and adds them to
+# the hub (user, 2026-10-27: "github auth then show repos they own, add to corpus hub
+# entirely"). The repository list comes from the public GitHub API in the visitor's
+# browser; the choice and the agreement go to /api/v1/me/repos
+# (functions/api/v1/me/repos.js), and the outreach pipeline checks ownership on
+# GitHub before the 2-hourly publish. Static shell, like /me: nothing personal in the site.
+ADD_BODY = """<main class="cwrap"><section class="whead"><h1>Add your repositories</h1>
+<p id="add-lead">Sign in with GitHub to see the public repositories you own and add any of them to the Corpus Hub, with attribution to you.</p></section>
+<div id="add-box"></div></main>"""
+
+ADD_JS = """<script>
+(function(){
+  var lead=document.getElementById('add-lead'),box=document.getElementById('add-box');
+  function el(t,a,txt){var e=document.createElement(t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;return e}
+  function api(body){return fetch('/api/v1/me/repos',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json()})}
+  function signin(){var a=el('a',{'class':'cta',href:'/auth/github/login?return=%2Fadd',rel:'nofollow'},'Sign in with GitHub');box.appendChild(a)}
+  function gh(login,page,acc){ // public repos the account owns, newest push first; 60 requests/hour per browser
+    return fetch('https://api.github.com/users/'+encodeURIComponent(login)+'/repos?type=owner&sort=pushed&per_page=100&page='+page,{headers:{accept:'application/vnd.github+json'}})
+      .then(function(r){if(!r.ok)throw new Error(r.status===403||r.status===429?'limit':'gh');return r.json()})
+      .then(function(rs){acc=acc.concat(rs);return rs.length===100&&page<10?gh(login,page+1,acc):acc});
+  }
+  (window.hubMe=window.hubMe||fetch('/api/me',{credentials:'same-origin'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})).then(function(me){
+    if(!me||!me.enabled){lead.textContent='Sign-in is not enabled on this hub yet.';return}
+    if(!me.user){signin();return}
+    if(me.user.provider!=='github'){lead.textContent='You are signed in with Hugging Face. Repositories are added from a GitHub account.';signin();return}
+    var login=me.user.login;
+    lead.textContent='Signed in as '+login+'. Loading your public repositories\u2026';
+    fetch('/api/v1/me/repos',{credentials:'same-origin'}).then(function(r){return r.json()}).then(function(st){
+      if(!st||!st.ok){lead.textContent='Could not load this page right now. Try again in a minute.';return}
+      if(!st.enabled){lead.textContent='Adding repositories is not enabled on this hub yet.';return}
+      var req={},hub={};
+      st.requested.forEach(function(r){req[r.repo.toLowerCase()]=r});
+      st.on_hub.forEach(function(r){hub[r.toLowerCase()]=1});
+      return gh(login,1,[]).then(function(repos){render(st,repos,req,hub)},function(e){
+        lead.textContent=e.message==='limit'?'GitHub limits how often a browser can list repositories. Try again in an hour.':'Could not list your repositories on GitHub right now. Try again in a minute.';
+      });
+    }).catch(function(){lead.textContent='Could not load this page right now. Try again in a minute.'});
+
+    function render(st,repos,req,hub){
+      repos=repos.filter(function(r){return !r.private&&r.owner&&r.owner.login.toLowerCase()===login.toLowerCase()});
+      if(!repos.length){lead.textContent='Signed in as '+login+'. GitHub lists no public repositories owned by this account.';return}
+      lead.textContent='Signed in as '+login+'. Tick the repositories you want on the Corpus Hub. Each becomes a corpus of the whole repository, credited to you on your contributor page.';
+      var t=el('table',{'class':'mystars addrepos'}),hd=el('tr'),boxes=[];
+      ['','repository','language','stars','status'].forEach(function(x){hd.appendChild(el('th',{},x))});t.appendChild(hd);
+      repos.forEach(function(r){
+        var k=r.full_name.toLowerCase(),q=req[k],tr=el('tr'),c=el('td'),why=null;
+        if(hub[k])why='on the hub';
+        else if(q&&!q.withdrawn)why='added '+(q.at||'').slice(0,10)+'; goes live after the checks';
+        else if(r.fork)why='fork: add the original instead';
+        else if(r.archived)why='archived';
+        else if(!r.size)why='empty';
+        if(!why){var cb=el('input',{type:'checkbox',value:r.full_name,'aria-label':'add '+r.full_name});c.appendChild(cb);boxes.push(cb)}
+        tr.appendChild(c);
+        var n=el('td');n.appendChild(el('a',{href:r.html_url,rel:'noopener'},r.full_name));
+        if(r.description)n.appendChild(el('div',{'class':'why'},r.description.slice(0,140)));tr.appendChild(n);
+        tr.appendChild(el('td',{'class':'mono'},r.language||''));
+        tr.appendChild(el('td',{'class':'mono'},'\u2605 '+Number(r.stargazers_count||0).toLocaleString('en-US')));
+        var s=el('td',{'class':'why'},why||'');
+        if(hub[k])s.appendChild(document.createTextNode(' \u00b7 ')),s.appendChild(el('a',{href:'/contributors/'+login},'your page'));
+        if(q&&!q.withdrawn||hub[k]){var w=el('button',{type:'button','class':'copy'},'withdraw');w.onclick=function(){
+          w.disabled=true;api({withdraw:[r.full_name]}).then(function(x){s.textContent=x&&x.ok?'withdrawn: it will be removed from the hub':(x&&x.error)||'could not withdraw';},function(){s.textContent='could not withdraw';w.disabled=false})};
+          s.appendChild(document.createTextNode(' '));s.appendChild(w)}
+        tr.appendChild(s);t.appendChild(tr);
+      });
+      var bar=el('div',{'class':'addbar'}),all=el('button',{type:'button','class':'copy'},'select all'),none=el('button',{type:'button','class':'copy'},'select none');
+      all.onclick=function(){boxes.forEach(function(b){b.checked=true});upd()};none.onclick=function(){boxes.forEach(function(b){b.checked=false});upd()};
+      bar.appendChild(all);bar.appendChild(none);
+      var ag=el('label',{'class':'addagree'}),agc=el('input',{type:'checkbox'});ag.appendChild(agc);ag.appendChild(el('span',{},st.consent.text));
+      var go=el('button',{type:'button','class':'cta'},'Add repositories'),msg=el('p',{'class':'note',role:'status'});
+      function sel(){return boxes.filter(function(b){return b.checked&&!b.disabled}).map(function(b){return b.value})}
+      function upd(){var n=sel().length;go.textContent=n?'Add '+n+' repositor'+(n===1?'y':'ies'):'Add repositories';go.disabled=!n||!agc.checked}
+      boxes.forEach(function(b){b.onchange=upd});agc.onchange=upd;upd();
+      go.onclick=function(){
+        var list=sel(),done=0;if(!list.length||!agc.checked)return;go.disabled=true;msg.textContent='Adding\u2026';
+        (function next(){ // the API takes up to 100 per request
+          var part=list.slice(done,done+100);if(!part.length){
+            msg.textContent='Added '+done+' repositor'+(done===1?'y':'ies')+'. Each goes through the same checks as every hub corpus and usually shows on your contributor page within a few hours.';upd();return}
+          api({repos:part,agree:true,consent:st.consent.version}).then(function(x){
+            if(!x||!x.ok){msg.textContent=(x&&x.error)||'Could not add them right now.';go.disabled=false;return}
+            boxes.forEach(function(b){if(part.indexOf(b.value)>=0){b.checked=false;b.disabled=true;b.parentNode.parentNode.lastChild.textContent='added; goes live after the checks'}});
+            done+=part.length;next();
+          },function(){msg.textContent='Could not add them right now.';go.disabled=false});
+        })();
+      };
+      box.appendChild(t);box.appendChild(bar);box.appendChild(ag);box.appendChild(go);box.appendChild(msg);
+      box.appendChild(el('p',{'class':'note'},'Only repositories under your own account are listed. For organisation repositories, write to founders@xerj.org.'));
+    }
+  });
+})();
+</script>"""
+
+
 NOT_FOUND_BODY = """<section class="hero"><h1>Not found</h1>
 <p>There is no page at this address. Corpus pages live at <code>/corpus/&lt;slug&gt;</code>;
 <a href="/">the corpus list</a> and <a href="/llms.txt">llms.txt</a> name every live slug.</p></section>"""
@@ -1764,6 +1860,7 @@ def contribute_body():
 reference memory that any agent can search, so your domain knowledge makes everyone's agents
 better, not just yours.</p>
 <section class="detail"><h2>Contribute a corpus</h2>
+<p>Own a repository on GitHub? <a href="/add">Sign in with GitHub and add it</a>: no agent or pull request needed.</p>
 <p class="note" style="margin-bottom:var(--sp-4)">Paste this into your coding agent. It explains itself.</p>
 <div class="promptbox"><div class="pbh"><button class="copy" data-copy="{prompt}" title="Copy this prompt">Copy the prompt</button></div>
 <pre class="prompt">{prompt}</pre></div>
@@ -1854,6 +1951,8 @@ def main():
     (OUT / "_redirects").write_text(REDIRECTS)
     (OUT / "_headers").write_text(HEADERS)
     (OUT / "me.html").write_text(page("Your hub: XERJ Corpus Hub", "Your hub stars, after you sign in", ME_BODY + ME_JS, rel="", path="/me", noindex=True))
+    (OUT / "add.html").write_text(page("Add your repositories: XERJ Corpus Hub", "Sign in with GitHub and add the repositories you own to the Corpus Hub",
+                                       ADD_BODY + ADD_JS, rel="", path="/add"))
     # 404.html: Cloudflare Pages serves it, with status 404, for any path that
     # has no file. Without it Pages falls back to index.html with a 200, so a
     # mistyped corpus URL, a link checker or an agent probing /corpus/<slug>

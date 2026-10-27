@@ -473,7 +473,9 @@ def repo_body(f, esc, people, cats, related, fetched, rel="../"):
     # Email rows keep the historical sentence. A written consent that names
     # another channel (a GitHub discussion, an issue) must not be called email.
     if agreed and channel and "email" not in channel.lower():
-        if "discussion" in channel.lower():
+        if "sign-in" in channel.lower():
+            how = f"The owner added it on hub.xerj.org after signing in with GitHub, on {esc(agreed)}. "
+        elif "discussion" in channel.lower():
             how = f"The author agreed in a GitHub discussion on {esc(agreed)}. "
         else:
             how = f"The author agreed on {esc(agreed)}. "

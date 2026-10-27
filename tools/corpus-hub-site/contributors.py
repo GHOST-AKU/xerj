@@ -245,6 +245,8 @@ def volume(pp, live_slugs=()):
         "repos": len({w["repo_url"].lower() for w in work}),
         "gh_stars": sum(stars_by_repo.values()),
         "since": min(pp["agreed"]) if pp["agreed"] else "",
+        # every repo added by the owner on /add (GitHub sign-in), none by email reply
+        "web_only": bool(work) and all("sign-in" in (w.get("channel") or "") for w in work),
     }
 
 
@@ -377,8 +379,9 @@ When an agent meets the same problem, it gets this implementation back as a work
 {more_block("contributor", login, esc)}
 <div class="badgebox"><img src="{esc(login)}/badge.svg" alt="XERJ Corpus Hub contributor badge">
 <pre id="badge-{esc(login)}">{esc(md)}</pre></div>
-<p style="color:var(--z-mute);font-size:var(--fs-13)">Included with the author's permission (email, {esc(v["since"][:10])}), under each repository's own licence, with attribution.
-Want it removed? Reply to the email or open an issue on <a href="https://github.com/xerj-org/xerj">xerj-org/xerj</a>.</p>
+<p style="color:var(--z-mute);font-size:var(--fs-13)">{f'Added by @{esc(login)} on hub.xerj.org after signing in with GitHub ({esc(v["since"][:10])})' if v.get("web_only") else f'Included with the author&#39;s permission (email, {esc(v["since"][:10])})'}, under each repository's own licence, with attribution.
+Own more repositories? <a href="/add">Sign in with GitHub and add them</a>.
+Want something removed? {"Withdraw it on <a href=\"/add\">the same page</a>" if v.get("web_only") else "Reply to the email, withdraw it on <a href=\"/add\">/add</a>,"} or open an issue on <a href="https://github.com/xerj-org/xerj">xerj-org/xerj</a>.</p>
 </main>{COPY_BADGE_JS}{STARS_JS}{MORE_JS}"""
 
 

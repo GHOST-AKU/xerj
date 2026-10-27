@@ -31,6 +31,12 @@
 #              separate from hub stars). R2 bucket `xerj-corpus-feedback`
 #              (created 2026-10-19). Raw IP and raw install id never stored.
 #
+#   HUB_REPO_REQUESTS — functions/api/v1/me/repos.js: repositories a signed-in
+#              GitHub owner adds to the hub from /add (one object per repo: repo,
+#              login, GitHub user id, time, consent version; no email, no IP).
+#              Read by the outreach pipeline. Bucket `xerj-hub-repo-requests`
+#              (created 2026-10-27).
+#
 # Hub sign-in (hub.xerj.org only; functions/auth/*, functions/api/me.js, helpers
 # in functions/_lib/): no binding, only Pages SECRETS on the xerj-hub project:
 #   HUB_SESSION_SECRET (>= 32 chars; signs the session cookie),
@@ -69,3 +75,8 @@ bucket_name = "xerj-hub-usage"
 [[r2_buckets]]
 binding = "CORPUS_FEEDBACK"
 bucket_name = "xerj-corpus-feedback"
+
+# Repositories added by their owners on hub.xerj.org/add (functions/api/v1/me/repos.js).
+[[r2_buckets]]
+binding = "HUB_REPO_REQUESTS"
+bucket_name = "xerj-hub-repo-requests"
