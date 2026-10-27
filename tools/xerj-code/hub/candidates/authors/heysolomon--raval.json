@@ -1,0 +1,23 @@
+{
+ "corpus": "heysolomon--raval",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on browser-extension, chrome-extension, design-tools queries this for how heysolomon/raval implements it: Chrome extension to measure pixel distances, inspect element dimensions, check alignment, and verify spacing on any webpage (selected work: apps/web)",
+ "repos": [
+  {
+   "repo": "raval",
+   "url": "https://github.com/heysolomon/raval",
+   "sha": "c91716672159ea3365116243a570f8fb8de6607f",
+   "licence": "MIT (LICENSE file at pin c91716672159, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T23:09Z",
+    "consent_receipt": "0445a2555354",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T23:09Z (receipt 0445a2555354); selected commit c91716672159: \"refactor: simplify Open Graph image generation by utilizing a dedicat\u2026\". LICENSE file at pin c91716672159 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

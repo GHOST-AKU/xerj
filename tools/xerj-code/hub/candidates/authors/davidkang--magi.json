@@ -1,0 +1,23 @@
+{
+ "corpus": "davidkang--magi",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how DavidKang/magi implements it: DavidKang/magi (Python) (selected work: tests, magi, scripts)",
+ "repos": [
+  {
+   "repo": "magi",
+   "url": "https://github.com/DavidKang/magi",
+   "sha": "d9a44dcea0fb39d8620899e4ae59edc7595bcd8e",
+   "licence": "MIT (LICENSE file at pin d9a44dcea0fb, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T22:17Z",
+    "consent_receipt": "7d5d0274c56a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T22:17Z (receipt 7d5d0274c56a); selected commit d9a44dcea0fb: \"show a pr's timeline in the changes detail\". LICENSE file at pin d9a44dcea0fb detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

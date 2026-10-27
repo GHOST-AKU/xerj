@@ -1,0 +1,23 @@
+{
+ "corpus": "darkstussy--aioscraper",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on asyncio, python, scraper queries this for how DarkStussy/aioscraper implements it: Async Python framework for large-scale API data collection: JSON/REST fan-out with adaptive rate limiting, retries, priority queues and pipe (selected work: aioscraper, tests)",
+ "repos": [
+  {
+   "repo": "aioscraper",
+   "url": "https://github.com/DarkStussy/aioscraper",
+   "sha": "a77246573f86f61c1505126dd377ab3c36804e00",
+   "licence": "MIT (LICENSE file at pin a77246573f86, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T22:00Z",
+    "consent_receipt": "720a9aabde42",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T22:00Z (receipt 720a9aabde42); selected commit a77246573f86: \"refactor!: remove deprecated request aliases and narrow the public API\". LICENSE file at pin a77246573f86 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

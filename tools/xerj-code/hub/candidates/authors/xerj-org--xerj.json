@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on elasticsearch, hybrid-search, search-engine queries this for how xerj-org/xerj implements it: Local-first search engine and MCP server for AI agents. One Rust binary indexes code, docs, logs, JSONL/CSV and PDFs for BM25 full-text, vec (selected work: engine)",
+ "domain": "an agent working on elasticsearch, hybrid-search, search-engine queries this for how xerj-org/xerj implements it: AI search engine and MCP server for bots and agents. One Rust binary indexes code, docs, logs, JSONL/CSV and PDFs for BM25 full-text, vector (selected work: engine)",
  "repos": [
   {
    "repo": "xerj",

@@ -1,0 +1,23 @@
+{
+ "corpus": "timothyf--ninelens",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on baseball, baseball-analytics, baseball-statistics queries this for how timothyf/ninelens implements it: NineLens is an open-source baseball intelligence platform combining schedules, rosters, player profiles, box scores, season stats, and Statc (selected work: backend)",
+ "repos": [
+  {
+   "repo": "ninelens",
+   "url": "https://github.com/timothyf/ninelens",
+   "sha": "afb03d9f717e3cc2d2d1d419c1ba95b09cbf268f",
+   "licence": "MIT (LICENSE file at pin afb03d9f717e, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T22:05Z",
+    "consent_receipt": "648f5b3e8b72",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T22:05Z (receipt 648f5b3e8b72); selected commit afb03d9f717e: \"Refactored innings to outs calculations\". LICENSE file at pin afb03d9f717e detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

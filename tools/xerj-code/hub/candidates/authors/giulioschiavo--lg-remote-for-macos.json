@@ -1,0 +1,23 @@
+{
+ "corpus": "giulioschiavo--lg-remote-for-macos",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on apple-silicon, lg-tv, lg-webos queries this for how giulioschiavo/lg-remote-for-macos implements it: Native macOS menu bar remote for LG webOS TVs. Control volume, channels, inputs and pointer, with local Wake-on-LAN and optional update noti (selected work: LGRemote)",
+ "repos": [
+  {
+   "repo": "lg-remote-for-macos",
+   "url": "https://github.com/giulioschiavo/lg-remote-for-macos",
+   "sha": "c16ae4b3874cce0787e7e899c1d8f73f9f3bca36",
+   "licence": "MIT (LICENSE file at pin c16ae4b3874c, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T22:52Z",
+    "consent_receipt": "cc586197bce4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T22:52Z (receipt cc586197bce4); selected commit c16ae4b3874c: \"Launch 1.0 with optional GitHub update checks and macOS notifications\". LICENSE file at pin c16ae4b3874c detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
