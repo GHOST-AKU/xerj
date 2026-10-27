@@ -1,9 +1,9 @@
 {
- "corpus": "zhipenggui--cqu-huxi-campus-3d",
+ "corpus": "zhipenggui--cqu-campus-3d",
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how zhipengGui/cqu-huxi-campus-3d implements it: 3D interactive map of Chongqing University Huxi Campus (Three.js + Blender) (selected work: src, scripts, the project root)",
+ "domain": "an agent working on TypeScript queries this for how zhipengGui/cqu-campus-3d implements it: 3D interactive map of Chongqing University Huxi Campus (Three.js + Blender) (selected work: src, scripts, the project root)",
  "repos": [
   {
    "repo": "cqu-huxi-campus-3d",

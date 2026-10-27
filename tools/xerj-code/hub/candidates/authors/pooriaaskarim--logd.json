@@ -1,0 +1,23 @@
+{
+ "corpus": "pooriaaskarim--logd",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on dart, flutter, logger queries this for how pooriaaskarim/logd implements it: High-performance hierarchical logging engine for Dart & Flutter. Zero-jank isolate offloading, ambient async tracing, and LLM token-optimize (selected work: packages/logd_network)",
+ "repos": [
+  {
+   "repo": "logd",
+   "url": "https://github.com/pooriaaskarim/logd",
+   "sha": "19a6ce3cc84af7d6ab4e04d17d851fe3c383156f",
+   "licence": "BSD-3-Clause (LICENSE file at pin 19a6ce3cc84a, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "BSD-3-Clause",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T04:30Z",
+    "consent_receipt": "016a3d31c5fb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T04:30Z (receipt 016a3d31c5fb); selected commit 19a6ce3cc84a: \"feat(network): release logd_network v0.2.0 (#80)\". LICENSE file at pin 19a6ce3cc84a detected as BSD-3-Clause by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

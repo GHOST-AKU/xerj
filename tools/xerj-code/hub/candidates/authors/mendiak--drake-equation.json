@@ -1,0 +1,23 @@
+{
+ "corpus": "mendiak--drake-equation",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WRITE",
+ "domain": "an agent working on astrobiology, chartjs, drake-equation queries this for how Mendiak/drake.equation implements it: This project is an interactive web tool that visualizes the Drake Equation, used to estimate the number of technologically advanced extrater (selected work: src/js, src/css, scripts)",
+ "repos": [
+  {
+   "repo": "drake.equation",
+   "url": "https://github.com/Mendiak/drake.equation",
+   "sha": "b9a8bc74fe6018ab94b68fb6dc877096eba0e33a",
+   "licence": "CC0-1.0 (LICENSE file at pin b9a8bc74fe60, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "CC0-1.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T04:30Z",
+    "consent_receipt": "e630261e45e2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T04:30Z (receipt e630261e45e2); selected commit b9a8bc74fe60: \"feat: add science provenance, methodology pages and technical SEO\". LICENSE file at pin b9a8bc74fe60 detected as CC0-1.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

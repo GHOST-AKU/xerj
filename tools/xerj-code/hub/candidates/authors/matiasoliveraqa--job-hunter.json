@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on Python queries this for how matiasoliveraqa/job-hunter implements it: A human-in-the-loop AI job search copilot. Streamlines discovery across 15,000+ tech companies, tailors ATS-friendly resumes, and pre-fills  (selected work: src/automation, src, tests)",
+ "domain": "an agent working on Python queries this for how matiasoliveraqa/job-hunter implements it: A human-in-the-loop AI job search copilot. Streamlines discovery across 20,000+ tech companies, tailors ATS-friendly resumes, and pre-fills  (selected work: src/automation, src, tests)",
  "repos": [
   {
    "repo": "job-hunter",

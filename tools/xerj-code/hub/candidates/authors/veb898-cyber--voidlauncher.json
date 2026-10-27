@@ -1,0 +1,23 @@
+{
+ "corpus": "veb898-cyber--voidlauncher",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Rust queries this for how veb898-cyber/VoidLauncher implements it: VoidLauncher \u2014 a open-source Minecraft launcher for Windows. Tauri 2 (Rust + React 19), per-user install, no telemetry. Microsoft / Ely.by / (selected work: src/pages, src-tauri, src/stores)",
+ "repos": [
+  {
+   "repo": "VoidLauncher",
+   "url": "https://github.com/veb898-cyber/VoidLauncher",
+   "sha": "db39957361bdb487d514acd59d0b4952d68f34c9",
+   "licence": "MIT (LICENSE file at pin db39957361bd, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T03:12Z",
+    "consent_receipt": "a567f99ae867",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T03:12Z (receipt a567f99ae867); selected commit db39957361bd: \"feat(settings): split settings into pages and harden loader, cape and\u2026\". LICENSE file at pin db39957361bd detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

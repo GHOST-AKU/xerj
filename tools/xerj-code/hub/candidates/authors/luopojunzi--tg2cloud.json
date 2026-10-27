@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "OPS",
- "domain": "an agent working on clouddrive2, docker, openlist queries this for how LuoPoJunZi/TG2Cloud implements it: \u81ea\u6258\u7ba1\u7684 Telegram \u6587\u4ef6\u8f6c\u5b58\u5de5\u5177\uff0c\u652f\u6301 Linux AMD64/ARM64 \u4e00\u952e\u90e8\u7f72\uff0c\u901a\u8fc7 rclone \u548c CloudDrive2/OpenList WebDAV \u5c06\u6587\u4ef6\u4fdd\u5b58\u5230\u81ea\u6709\u4e91\u5b58\u50a8\u3002 (selected work: tests, the project root, scripts)",
+ "domain": "an agent working on clouddrive2, docker, openlist queries this for how LuoPoJunZi/TG2Cloud implements it: \u81ea\u6258\u7ba1\u7684 Telegram \u6587\u4ef6\u8f6c\u5b58\u5de5\u5177\uff0c\u652f\u6301 Linux \u4e00\u952e\u90e8\u7f72\uff0c\u901a\u8fc7 rclone \u548c CloudDrive2/OpenList WebDAV \u5c06\u6587\u4ef6\u4fdd\u5b58\u5230\u81ea\u6709\u4e91\u5b58\u50a8\u3002 (selected work: tests, the project root, scripts)",
  "repos": [
   {
    "repo": "TG2Cloud",
