@@ -117,7 +117,7 @@ POSTS: list[dict[str, str]] = [
          og_alt="Cover: “rc.99” in display type beside the post’s square-matrix art, labelled 8 GiB and 2 GiB. The art: eight large squares for the 8 GiB tier, the first two yellow for the 2 GiB memtable budget, beside eight small squares for the 8 MiB document ceiling and one outlined square for JSON streamed past 64 MiB"),
     dict(slug="autoindex-search-performance-improvements", date="2026-10-26", motif="fieldgate",
          title="Faster autoindex",
-         subtitle="Leaner indexes and quicker search, guided by your field reports.",
+         subtitle="Leaner indexes and lighter memory, guided by your field reports.",
          alt="Cover art: 28 filled squares and 217 small empty rings scattered on grid paper, the filled ones joined by hairlines to a wide block of 454 empty cells, beside 32 yellow cells at the same pitch, then a gate of ink posts around two grey-blue columns and one empty yellow cell at its base",
          og_alt="Cover: “Faster autoindex” in display type beside the post’s square-matrix art, labelled 28 people + 217 agent reports, 454 indices, 32, and ES 9.05 · Lucene 25.4 MiB/s. The art: 28 filled squares and 217 small empty rings scattered on grid paper, the filled ones joined by hairlines to a wide block of 454 empty cells, beside 32 yellow cells at the same pitch, then a gate of ink posts around two grey-blue columns and one empty yellow cell at its base"),
 ]
