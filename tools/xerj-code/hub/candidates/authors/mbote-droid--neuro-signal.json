@@ -2,7 +2,7 @@
  "corpus": "mbote-droid--neuro-signal",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
+ "shelf": "AI",
  "domain": "an agent working on eeg-signals-processing, neuroscience, reproducibility queries this for how mbote-droid/Neuro-signal implements it: Drop an EEG file, get a validated report: QC, 1/f-aware spectra, volume-conduction-robust coupling and seizure-like event candidates, with e (selected work: src/neurosignal, tests)",
  "repos": [
   {

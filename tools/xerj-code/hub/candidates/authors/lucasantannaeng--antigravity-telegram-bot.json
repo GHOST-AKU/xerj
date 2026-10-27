@@ -1,0 +1,23 @@
+{
+ "corpus": "lucasantannaeng--antigravity-telegram-bot",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how lucasantannaeng/Antigravity-Telegram-Bot implements it: High-resilience 24/7 Always-On daemon integrating Google Antigravity CLI (agy) with bidirectional multi-agent communication to Hermes Agent, (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "Antigravity-Telegram-Bot",
+   "url": "https://github.com/lucasantannaeng/Antigravity-Telegram-Bot",
+   "sha": "ff28495d82a37ae724261d40c779e29e74ed577e",
+   "licence": "MIT (LICENSE file at pin ff28495d82a3, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T22:46Z",
+    "consent_receipt": "418169387c95",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T22:46Z (receipt 418169387c95); selected commit ff28495d82a3: \"fix(persistence): harden 24/7 watchdog, voice delivery and linkedin c\u2026\". LICENSE file at pin ff28495d82a3 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on ai-agents, claude-code, claude-code-skills queries this for how Breadstick-Crumbs/fanout implements it: Run several Claude Code and Codex sessions on one repo: they don't do the same work twice, and each hears when another's commit changes its  (selected work: bench, test, skills)",
+ "domain": "an agent working on ai-agents, claude-code, claude-code-skills queries this for how Breadstick-Crumbs/fanout implements it: Fewer broken merges from parallel Claude Code and Codex sessions: tests every branch merged together before main, and tells each session whe (selected work: bench, test, skills)",
  "repos": [
   {
    "repo": "fanout",

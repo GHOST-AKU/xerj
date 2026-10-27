@@ -1,9 +1,9 @@
 {
- "corpus": "medmaha--githubrewind",
+ "corpus": "medmaha--github-activity-rewind",
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how medmaha/githubrewind implements it: Get your GitHub activity for any year (selected work: lib, components)",
+ "domain": "an agent working on TypeScript queries this for how medmaha/github-activity-rewind implements it: Get your GitHub activity for any year (selected work: lib, components)",
  "repos": [
   {
    "repo": "github-activity-rewind",

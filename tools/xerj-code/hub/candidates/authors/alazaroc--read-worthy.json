@@ -1,0 +1,23 @@
+{
+ "corpus": "alazaroc--read-worthy",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on aws, aws-cdk, bedrock queries this for how alazaroc/read-worthy implements it: Aggressively reduce your reading backlog. Paste a pile of URLs and get the small subset that deserves your attention \u2014 with a per-document e (selected work: frontend, backend, mcp-server)",
+ "repos": [
+  {
+   "repo": "knowledge-inbox-zero",
+   "url": "https://github.com/alazaroc/knowledge-inbox-zero",
+   "sha": "0c658edca33d3964977b6caed6acfa27d14de133",
+   "licence": "MIT (LICENSE file at pin 0c658edca33d, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T22:20Z",
+    "consent_receipt": "94e0449526a7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T22:20Z (receipt 94e0449526a7); selected commit 0c658edca33d: \"feat: weekly email digest, to-read queue and notifications\". LICENSE file at pin 0c658edca33d detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

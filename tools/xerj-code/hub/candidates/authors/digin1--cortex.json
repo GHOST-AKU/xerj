@@ -1,0 +1,23 @@
+{
+ "corpus": "digin1--cortex",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, anthropic, auto-generation queries this for how digin1/cortex implements it: Cortex \u2014 self-evolving memory and agent fleet for Claude Code (selected work: tests, lib, the project root)",
+ "repos": [
+  {
+   "repo": "cortex",
+   "url": "https://github.com/digin1/cortex",
+   "sha": "3c480b9440823f563606183ce143e53928933fee",
+   "licence": "MIT (LICENSE file at pin 3c480b944082, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T21:47Z",
+    "consent_receipt": "dace7a6912a4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T21:47Z (receipt dace7a6912a4); selected commit 3c480b944082: \"plans: a full notes log moves its oldest notes to a per-plan archive \u2026\". LICENSE file at pin 3c480b944082 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution. Pinned to head 3c480b944082 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

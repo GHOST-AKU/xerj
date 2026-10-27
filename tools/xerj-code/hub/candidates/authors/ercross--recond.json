@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "OPS",
- "domain": "an agent working on automation, container, continuous-delivery queries this for how ercross/reconD implements it: A lightweight container deployment agent that continuously reconciles desired and observed state, inspired by Kubernetes controllers and Git (selected work: deployment, state, config)",
+ "domain": "an agent working on continuous-delivery, deployment, gitops queries this for how ercross/reconD implements it: A lightweight container deployment agent that continuously reconciles desired and observed state, inspired by Kubernetes controllers and Git (selected work: deployment, state, config)",
  "repos": [
   {
    "repo": "reconD",

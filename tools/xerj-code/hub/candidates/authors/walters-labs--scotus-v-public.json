@@ -1,0 +1,23 @@
+{
+ "corpus": "walters-labs--scotus-v-public",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on supreme-court, supreme-court-cases, opinion-polls queries this for how walters-labs/scotus-v-public implements it: Plots SCOTUS vs. public opinion polarity over time given keywords (selected work: data, scvpublic, scripts)",
+ "repos": [
+  {
+   "repo": "scotus-v-public",
+   "url": "https://github.com/jacksonwalters/scotus-v-public",
+   "sha": "f4f7e1e3980cffde775bc43fb4182e8ea79d78b0",
+   "licence": "MIT (LICENSE file at pin f4f7e1e3980c, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T22:19Z",
+    "consent_receipt": "ddb5977446ad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T22:19Z (receipt ddb5977446ad); selected commit f4f7e1e3980c: \"modernize\". LICENSE file at pin f4f7e1e3980c detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
