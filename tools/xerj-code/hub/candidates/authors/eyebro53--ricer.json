@@ -1,0 +1,23 @@
+{
+ "corpus": "eyebro53--ricer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, automation, desktop-customization queries this for how EyEbRo53/ricer implements it: AI-powered Linux ricing via natural language (selected work: ricer-mcp, UI, tests)",
+ "repos": [
+  {
+   "repo": "ricer",
+   "url": "https://github.com/EyEbRo53/ricer",
+   "sha": "74765dab63d149432193b08a76a45571bef35c11",
+   "licence": "GPL-3.0 (LICENSE file at pin 74765dab63d1, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-27T07:06Z",
+    "consent_receipt": "d8aefcfbd689",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T07:06Z (receipt d8aefcfbd689); selected commit 74765dab63d1: \"-codex cli set as mcp client\". LICENSE file at pin 74765dab63d1 detected as GPL-3.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

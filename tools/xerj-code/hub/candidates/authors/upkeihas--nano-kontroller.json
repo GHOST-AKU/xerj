@@ -1,0 +1,23 @@
+{
+ "corpus": "upkeihas--nano-kontroller",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how upkeihas/nano-kontroller implements it: Arduino Nano 6 channel LED controller with IR remote control support (selected work: NanoKontroller)",
+ "repos": [
+  {
+   "repo": "nano-kontroller",
+   "url": "https://github.com/upkeihas/nano-kontroller",
+   "sha": "f03c4e98e0e2e0ab6cf003bd2cde7982580aef34",
+   "licence": "MIT (LICENSE file at pin f03c4e98e0e2, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T06:12Z",
+    "consent_receipt": "a1ce608c333c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T06:12Z (receipt a1ce608c333c); selected commit f03c4e98e0e2: \"Stash changes\". LICENSE file at pin f03c4e98e0e2 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

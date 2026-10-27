@@ -1,0 +1,23 @@
+{
+ "corpus": "bluenekozkm--strata-fabric",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on C++ queries this for how bluenekozkm/strata-fabric implements it: Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localho (selected work: tools, serve, src/program)",
+ "repos": [
+  {
+   "repo": "strata-fabric",
+   "url": "https://github.com/bluenekozkm/strata-fabric",
+   "sha": "6f88a04d6b19543871114eb37ae75823edbf2851",
+   "licence": "MIT (LICENSE file at pin 6f88a04d6b19, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T05:42Z",
+    "consent_receipt": "24e463821525",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T05:42Z (receipt 24e463821525); selected commit 6f88a04d6b19: \"feat(kv-cache): gate tiered kv behind --exp-tiered-kv flag and fix li\u2026\". LICENSE file at pin 6f88a04d6b19 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

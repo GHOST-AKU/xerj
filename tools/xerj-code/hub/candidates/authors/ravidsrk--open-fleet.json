@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on agent-skills, autonomous-agents, claude-code queries this for how ravidsrk/open-fleet implements it: Outcome-named autonomous fleets for the Orca runtime \u2014 SHA-bound evidence definition of done, best-of-breed worker recipes, one router per w (selected work: scripts, tests, evals)",
+ "domain": "an agent working on agent-skills, autonomous-agents, claude-code queries this for how ravidsrk/open-fleet implements it: Outcome-named autonomous fleets for coding agents across Orca, POSIX, and multi-runtime orchestrators \u2014 SHA-bound evidence definition of don (selected work: scripts, tests, evals)",
  "repos": [
   {
    "repo": "orca-fleet",

@@ -1,9 +1,9 @@
 {
- "corpus": "csr1010--wappy-kit",
+ "corpus": "csr1010--whatsapp-ai-agent-sdk",
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on agent-framework, ai-agent, chatbot queries this for how csr1010/wappy-kit implements it: Wappy: the open-source AI agent SDK for WhatsApp. Bring your own model, your own number, your own data. Local-first, no forced cloud, no ven (selected work: packages/connector-cognee)",
+ "domain": "an agent working on agent-framework, ai-agent, chatbot queries this for how csr1010/whatsapp-ai-agent-sdk implements it: The open-source AI agent SDK for WhatsApp. Bring your own model, your own number, your own data. Local-first, no forced cloud, no vendor loc (selected work: packages/connector-cognee)",
  "repos": [
   {
    "repo": "wappy-kit",

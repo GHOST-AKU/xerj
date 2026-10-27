@@ -1,0 +1,23 @@
+{
+ "corpus": "arivan-amin--maya-cbs-microservices",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on api, api-gateway, eureka queries this for how arivan-amin/maya-cbs-microservices implements it: Modern microservices backend, built with Java 25 and Spring Boot 4. Designed using Clean Architecture, SOLID principles and DDD, it demonstr (selected work: cbs-ledger-service)",
+ "repos": [
+  {
+   "repo": "maya-cbs-microservices",
+   "url": "https://github.com/arivan-amin/maya-cbs-microservices",
+   "sha": "da5812bf87b8bc0568e53a28bb932928aeaa3283",
+   "licence": "MIT (LICENSE file at pin da5812bf87b8, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T06:18Z",
+    "consent_receipt": "6717a8a0b38d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T06:18Z (receipt 6717a8a0b38d); selected commit da5812bf87b8: \"Add journal basee classes\". LICENSE file at pin da5812bf87b8 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
