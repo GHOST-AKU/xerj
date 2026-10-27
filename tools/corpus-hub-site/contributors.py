@@ -319,11 +319,16 @@ def person_body(pp, esc, live_slugs, pages=(), agent="", xposts=""):
     cards = []
     for w in work:
         live = [c for c in w["corpora"] if c in live_slugs]
+        # licence cleared (ledger licence.reviewed: author consent + LICENSE at the pin) is not "in licence review":
+        # the only step left is the registry entry + pack build (2026-10-27, a contributor read it as a licence problem)
         status = ('<span class="chip ok">live in the hub</span>' if live
+                  else '<span class="chip ok">selected for the XERJ Corpus Hub · licence cleared</span>' if w.get("reviewed")
                   else '<span class="chip warn">selected · in licence review</span>')
-        # issue #1890: a corpus still in review has no manifest in the registry, so
+        # issue #1890: a corpus not in the registry has no manifest there, so
         # the documented install path (llms.txt step 3) 404s. Say so on the card.
-        pending = ("" if live else
+        # no warning on licence-cleared work: "not installable" made contributors think something was wrong and
+        # stopped them sharing the page (user, 2026-10-27)
+        pending = ("" if live or w.get("reviewed") else
                    '<p class="note pending">Not installable yet: this corpus is not in the hub registry until its '
                    'licence review passes, so <code>xerj corpus add</code> and <code>xerj ask</code> cannot fetch it. '
                    'It becomes installable when this card says live in the hub.</p>')
@@ -667,7 +672,7 @@ MORE_JS = """<script>
       var me=add(body,el('div',{'class':'thisisme'}));
       add(me,el('h2',{},'This is you'));
       var live=0,review=0;c.work.forEach(function(w){(w.corpora||[]).forEach(function(x){if(x.status==='live')live++;else review++})});
-      add(me,el('p',{},'You are signed in as @'+c.login+'. '+c.work.length+' of your commits are selected; '+live+' corpus entr'+(live===1?'y is':'ies are')+' live and '+review+' '+(review===1?'is':'are')+' still in licence review. Each card below shows where your work is and its last pack build.'));
+      add(me,el('p',{},'You are signed in as @'+c.login+'. '+c.work.length+' of your commits are selected; '+live+' corpus entr'+(live===1?'y is':'ies are')+' live and '+review+' '+(review===1?'is':'are')+' still waiting for their pack build. Each card below shows where your work is and its last pack build.'));
       var a=add(me,el('p',{}));
       add(a,link('https://github.com/xerj-org/xerj/issues/new?title='+encodeURIComponent('Corpus Hub: change or remove my work (@'+c.login+')'),'Ask for a change or removal'));
       a.appendChild(document.createTextNode(' · '));add(a,link('/me','Your hub stars'));
@@ -1021,7 +1026,7 @@ def wall_body(people, esc, live_slugs=(), pages=()):
     sort_opts = '<label class="tsort" id="tsort">Sort by <select></select></label>'
     return f"""<main class="cwrap"><section class="whead"><h1>The people behind the hub</h1>
 <p>{len(people):,} developers agreed to let AI agents learn from their work: {n_repos:,} repositories across {corpora:,} corpora, each included with the author's permission,
-under its own licence, with attribution. Ranked by GitHub stars on their repositories; hub stars are the ones visitors give here. Every source is still in licence review; none is live yet unless its card says so.</p>
+under its own licence, with attribution. Ranked by GitHub stars on their repositories; hub stars are the ones visitors give here. Each card shows the selected work and its licence.</p>
 <a class="cta" href="../contribute">Add yours</a></section>
 <div class="vbar" id="vbar" hidden><div class="seg" role="group" aria-label="Map tiles"><button type="button" data-mode="people" aria-pressed="true">People</button><button type="button" data-mode="repos" aria-pressed="false">Repos</button></div>
 <div class="seg" role="group" aria-label="View"><button type="button" data-view="map" aria-pressed="true">Treemap</button><button type="button" data-view="table" aria-pressed="false">Table</button></div></div>
@@ -1219,11 +1224,15 @@ def candidate_body(slug, e, esc, people):
                      f'<td>{esc((r.get("review") or {}).get("spdx") or r.get("licence") or "?")}</td></tr>' for r in e["repos"])
     pins = (f'<section class="detail"><h2>Pinned sources ({len(e["repos"])})</h2><table><tr><th>source</th><th>pin</th><th>licence</th></tr>{pinned}</table></section>'
             if pinned else "")
-    return (f'<main><p><a class="backlink" href="../contributors/">&larr; all contributors</a></p>'
-            f'<h1 class="slug">{esc(slug)}</h1>'
+    cleared = bool(e["works"]) and all(w.get("reviewed") for _, w in e["works"])
+    head = (f'<p class="note">{esc(e["kind"])} · <b>selected for the XERJ Corpus Hub · licence cleared</b></p>'
+            f'<div class="kbox">The corpus is each whole repository at its pinned commit, included with the author\'s permission and attribution.</div>'
+            if cleared else
             f'<p class="note">{esc(e["kind"])} · status <b>selected · in licence review</b> · not in the hub registry yet</p>'
             f'<div class="kbox"><b>Not installable yet</b><br>This corpus is a candidate: it is not in the hub registry until its licence review passes, '
-            f'so <code>xerj corpus add</code> and <code>xerj ask</code> cannot fetch it. The corpus is each whole repository at its pinned commit.</div>'
+            f'so <code>xerj corpus add</code> and <code>xerj ask</code> cannot fetch it. The corpus is each whole repository at its pinned commit.</div>')
+    return (f'<main><p><a class="backlink" href="../contributors/">&larr; all contributors</a></p>'
+            f'<h1 class="slug">{esc(slug)}</h1>' + head +
             f'<section class="detail"><h2>Selected work ({len(rows)})</h2><table><tr><th>repository</th><th>contributor</th><th>selected commit</th><th>licence</th></tr>'
             f'{"".join(rows)}</table></section>{pins}{corpus_section(logins, esc, people)}</main>')
 
