@@ -1,9 +1,9 @@
 {
- "corpus": "l1871276598-dotcom--research-agent-memory",
+ "corpus": "l1871276598-dotcom--laos",
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on agent-memory, ai-agents, codex queries this for how l1871276598-dotcom/research-agent-memory implements it: Local-first, auditable, human-governed memory and learning layer for AI agents (selected work: tests, src/models, src/learning_loop)",
+ "domain": "an agent working on agent-memory, ai-agents, codex queries this for how l1871276598-dotcom/Laos implements it: Local-first, auditable, human-governed memory and learning layer for AI agents (selected work: tests, src/models, src/learning_loop)",
  "repos": [
   {
    "repo": "research-agent-memory",

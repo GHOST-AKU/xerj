@@ -1,0 +1,23 @@
+{
+ "corpus": "xienda--dsh-jev-verify",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, decision-model, deepseek-harness queries this for how xienda/dsh-jev-verify implements it: TypeSafe Jev (System One) for DeepSeek Harness: 7 tools (decide, choose, batch), a two-tier auto-guard with metered verdicts, a settings car (selected work: lib, test, client)",
+ "repos": [
+  {
+   "repo": "dsh-jev-verify",
+   "url": "https://github.com/xienda/dsh-jev-verify",
+   "sha": "792f0f23010916e378cd2b8b87fc74e9317138a1",
+   "licence": "MIT (LICENSE file at pin 792f0f230109, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T01:34Z",
+    "consent_receipt": "b3a80e0367a9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T01:34Z (receipt b3a80e0367a9); selected commit 792f0f230109: \"v0.9.0: multi-provider decision backends (one adapter for both decisi\u2026\". LICENSE file at pin 792f0f230109 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "SEC",
- "domain": "an agent working on Python queries this for how Kajahkura/RSAT_Project implements it: Remote Security Audit Tool (selected work: web, scripts, src/rsat)",
+ "domain": "an agent working on endpoint-security, local-first, mcp queries this for how Kajahkura/RSAT_Project implements it: Read-only endpoint security assessment with inspectable evidence, portable reports and a local-first browser workspace. Python and React (selected work: web, scripts, src/rsat)",
  "repos": [
   {
    "repo": "RSAT_Project",
