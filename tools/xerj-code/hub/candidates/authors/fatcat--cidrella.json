@@ -1,0 +1,23 @@
+{
+ "corpus": "fatcat--cidrella",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on dhcp, dns, dnsmasq queries this for how fatcat/cidrella implements it: A simple IPAM suitable for a home lab and small to medium commercial environments (selected work: server, scripts)",
+ "repos": [
+  {
+   "repo": "cidrella",
+   "url": "https://github.com/fatcat/cidrella",
+   "sha": "8d514af39ef4133a256e7c9d723801a660eec79d",
+   "licence": "Apache-2.0 (LICENSE file at pin 8d514af39ef4, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T11:10Z",
+    "consent_receipt": "02145a258261",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T11:10Z (receipt 02145a258261); selected commit 8d514af39ef4: \"test(cidr): fast-check property tests; pin npm installs to the lockfile\". LICENSE file at pin 8d514af39ef4 detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

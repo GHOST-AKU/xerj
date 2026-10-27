@@ -1,9 +1,9 @@
 {
- "corpus": "wzaielamri--claude-status-vscode",
+ "corpus": "wzaielamri--talpy-den-vscode",
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on ai-coding, ai-coding-agent, claude queries this for how wzaielamri/claude-status-vscode implements it: VS Code extension: every Claude Code chat on your computer and your SSH hosts in one view, with plan usage, notifications and animated Clawd (selected work: webview, src, src/shared)",
+ "domain": "an agent working on ai-coding, ai-coding-agent, claude queries this for how wzaielamri/talpy-den-vscode implements it: VS Code extension: every Claude Code chat on your computer and your SSH hosts in one view, with plan usage, notifications and animated Clawd (selected work: webview, src, src/shared)",
  "repos": [
   {
    "repo": "claude-status-vscode",

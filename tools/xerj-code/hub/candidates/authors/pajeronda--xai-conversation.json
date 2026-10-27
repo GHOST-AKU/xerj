@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on assist, grok, home-assistant queries this for how pajeronda/xai_conversation implements it: Super xAI Grok Conversation Agent for Home Assistant (selected work: custom_components)",
+ "domain": "an agent working on assist, grok, home-assistant queries this for how pajeronda/xai_conversation implements it: Super xAI Grok Conversation Agent for Home Assistant with xAI STT/TTS (selected work: custom_components)",
  "repos": [
   {
    "repo": "xai_conversation",

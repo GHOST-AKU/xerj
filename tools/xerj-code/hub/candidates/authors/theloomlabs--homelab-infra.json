@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "OPS",
- "domain": "an agent working on Python queries this for how TheLoomLabs/homelab-infra implements it: TheLoomLabs/homelab-infra (Python) (selected work: ansible, logging, the project root)",
+ "domain": "an agent working on argocd, dns, dns-server queries this for how TheLoomLabs/homelab-infra implements it: Personal infrastructure from code (selected work: ansible, logging, the project root)",
  "repos": [
   {
    "repo": "homelab-infra",

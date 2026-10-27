@@ -1,9 +1,9 @@
 {
- "corpus": "pooriaaskarim--logd",
+ "corpus": "pccria--logd",
  "cloned_at": null,
  "status": "draft",
  "shelf": "OPS",
- "domain": "an agent working on dart, flutter, logger queries this for how pooriaaskarim/logd implements it: High-performance hierarchical logging engine for Dart & Flutter. Zero-jank isolate offloading, ambient async tracing, and LLM token-optimize (selected work: packages/logd_network)",
+ "domain": "an agent working on dart, flutter, logger queries this for how pccria/logd implements it: High-performance hierarchical logging engine for Dart & Flutter. Zero-jank isolate offloading, ambient async tracing, and LLM token-optimize (selected work: packages/logd_network)",
  "repos": [
   {
    "repo": "logd",

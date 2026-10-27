@@ -1,0 +1,23 @@
+{
+ "corpus": "jozuern--tunero",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on debloat, gaming, optimizer queries this for how jozuern/Tunero implements it: PC optimizer for Windows 11 (selected work: tests, src/Optimizer.Core, src/Optimizer.App)",
+ "repos": [
+  {
+   "repo": "Tunero",
+   "url": "https://github.com/jozuern/Tunero",
+   "sha": "e5b9b17e3632dfc98272db0cccc5c70b04811601",
+   "licence": "GPL-3.0 (LICENSE file at pin e5b9b17e3632, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-27T11:58Z",
+    "consent_receipt": "264e4cc1fadf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T11:58Z (receipt 264e4cc1fadf); selected commit e5b9b17e3632: \"Windows install media: clean up a mount DISM lost after a hard restart\". LICENSE file at pin e5b9b17e3632 detected as GPL-3.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

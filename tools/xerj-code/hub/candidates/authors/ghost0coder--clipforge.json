@@ -8,15 +8,15 @@
   {
    "repo": "ClipForge",
    "url": "https://github.com/Ghost0coder/ClipForge",
-   "sha": "10e49f0f9f7814926e9e90a5a76091271ffdbee1",
-   "licence": "MIT (LICENSE file at pin 10e49f0f9f78, GitHub licence API 2026-10-27)",
+   "sha": "467d894206a8039ce54c826fb6c6308211716f73",
+   "licence": "MIT (LICENSE file at pin 467d894206a8, GitHub licence API 2026-10-27)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-27T02:56Z",
     "consent_receipt": "ff81be88fa12",
-    "note": "Inclusion consented by the commit author by email at 2026-10-27T02:56Z (receipt ff81be88fa12); selected commit 10e49f0f9f78: \"feat: implement AI smart highlights and template system\". LICENSE file at pin 10e49f0f9f78 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution. Pinned to head 10e49f0f9f78 (contains the selected commit): the LICENSE at the selected commit was NONE."
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T02:56Z (receipt ff81be88fa12); selected commit 467d894206a8: \"feat: implement AI smart highlights and template system\". LICENSE file at pin 467d894206a8 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution. Pinned to head 467d894206a8 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]
