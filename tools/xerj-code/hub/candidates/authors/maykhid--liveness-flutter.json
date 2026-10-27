@@ -1,0 +1,23 @@
+{
+ "corpus": "maykhid--liveness-flutter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Dart queries this for how maykhid/liveness_flutter implements it: maykhid/liveness_flutter (Dart) (selected work: skills, test, bin)",
+ "repos": [
+  {
+   "repo": "liveness_flutter",
+   "url": "https://github.com/maykhid/liveness_flutter",
+   "sha": "ddfbb08c1fb0aeb3a2995ce38e2f6931b8eba85e",
+   "licence": "MIT (LICENSE file at pin ddfbb08c1fb0, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T01:32Z",
+    "consent_receipt": "c0961ab0cf99",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T01:32Z (receipt c0961ab0cf99); selected commit ddfbb08c1fb0: \"fix: tighten the server guidance in the agent skills\". LICENSE file at pin ddfbb08c1fb0 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

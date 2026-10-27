@@ -1,0 +1,23 @@
+{
+ "corpus": "gabecordo--distributedfunctions",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on data-engineering, oss queries this for how GabeCordo/DistributedFunctions implements it: An open source router for horizontally scaling applications (selected work: cmd/dfunc, internal/shared, examples)",
+ "repos": [
+  {
+   "repo": "DistributedFunctions",
+   "url": "https://github.com/GabeCordo/DistributedFunctions",
+   "sha": "1e6c042382e5e50c98e3cb2a1f195a0aa49c7391",
+   "licence": "GPL-2.0 (LICENSE file at pin 1e6c042382e5, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "GPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-27T02:27Z",
+    "consent_receipt": "959bbf68a73a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T02:27Z (receipt 959bbf68a73a); selected commit 1e6c042382e5: \"[minor] update cli to use the latest rest endpoint (#60)\". LICENSE file at pin 1e6c042382e5 detected as GPL-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
