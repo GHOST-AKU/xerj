@@ -1,0 +1,23 @@
+{
+ "corpus": "deltan04--rul-turbofan-jet-engine",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on c-mapss, conformal-prediction, gradient-boosting queries this for how DeltaN04/rul-turbofan-Jet-Engine implements it: ML-based remaining useful life estimation and maintenance alerting for aircraft turbofan engines (C-MAPSS, TE7483) (selected work: the project root, scripts, tests)",
+ "repos": [
+  {
+   "repo": "rul-turbofan-Jet-Engine",
+   "url": "https://github.com/DeltaN04/rul-turbofan-Jet-Engine",
+   "sha": "48b6d6a1d3ebb905992e2e210a69824c36a757bc",
+   "licence": "MIT (LICENSE file at pin 48b6d6a1d3eb, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T17:50Z",
+    "consent_receipt": "e552cc786f40",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T17:50Z (receipt e552cc786f40); selected commit 48b6d6a1d3eb: \"Expand Streamlit demo to six pages + add Wilson CIs to report\". LICENSE file at pin 48b6d6a1d3eb detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

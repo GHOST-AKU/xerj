@@ -1,0 +1,23 @@
+{
+ "corpus": "unxwares--helm",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on Go Template queries this for how UnxWares/helm implements it: The helm charts repository of UnxWares (selected work: charts)",
+ "repos": [
+  {
+   "repo": "helm",
+   "url": "https://github.com/UnxWares/helm",
+   "sha": "1daddea79cb2a83a903dc6f81c906dddc65c54b9",
+   "licence": "MIT (LICENSE file at pin 1daddea79cb2, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T18:03Z",
+    "consent_receipt": "6a6c104ada9c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T18:03Z (receipt 6a6c104ada9c); selected commit 1daddea79cb2: \"fix(taiga)!: upgrade to Taiga 6.10 on supported PostgreSQL, RabbitMQ \u2026\". LICENSE file at pin 1daddea79cb2 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

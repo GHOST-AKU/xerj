@@ -1,0 +1,23 @@
+{
+ "corpus": "ice-citron--project-liberty",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Jupyter Notebook queries this for how Ice-Citron/Project-Liberty implements it: My central library for ongoing technical study and programming practice (selected work: ai-workflows)",
+ "repos": [
+  {
+   "repo": "Project-Liberty",
+   "url": "https://github.com/Ice-Citron/Project-Liberty",
+   "sha": "5a83a985fffccc3aec85672cafbf4508ce3aff37",
+   "licence": "MIT (LICENSE file at pin 5a83a985fffc, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T18:25Z",
+    "consent_receipt": "961d8996d259",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T18:25Z (receipt 961d8996d259); selected commit 5a83a985fffc: \"feat: add wandb skill files; also modify cv.md for accuracy; also res\u2026\". LICENSE file at pin 5a83a985fffc detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

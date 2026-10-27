@@ -1,0 +1,23 @@
+{
+ "corpus": "aurph--gridtilt",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on ai-infrastructure, d3, dashboard queries this for how aurph/GridTilt implements it: Live research dashboard tracking the AI-infrastructure buildout: compute, data centers, power, transmission, and the public companies around (selected work: client)",
+ "repos": [
+  {
+   "repo": "GridTilt",
+   "url": "https://github.com/aurph/GridTilt",
+   "sha": "ca4a1ab7bbf794be190511c42765cc469fc1d12c",
+   "licence": "MIT (LICENSE file at pin ca4a1ab7bbf7, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T17:42Z",
+    "consent_receipt": "88ea0dfac9fc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T17:42Z (receipt 88ea0dfac9fc); selected commit ca4a1ab7bbf7: \"Power Map: AI Clusters view\". LICENSE file at pin ca4a1ab7bbf7 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "aliaksie--engineering-pack",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Rust queries this for how Aliaksie/engineering-pack implements it: engineering-pack is a vendor-neutral collection of reusable engineering workflows, decision playbooks, and deterministic tools for AI coding (selected work: platform, engine, application)",
+ "repos": [
+  {
+   "repo": "engineering-pack",
+   "url": "https://github.com/Aliaksie/engineering-pack",
+   "sha": "952c93bf9ddc9729315fea730034395ff1039a96",
+   "licence": "MIT (LICENSE file at pin 952c93bf9ddc, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T17:55Z",
+    "consent_receipt": "ce7f2af598b2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T17:55Z (receipt ce7f2af598b2); selected commit 952c93bf9ddc: \"feat: readable layout and state-clean (#11)\". LICENSE file at pin 952c93bf9ddc detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

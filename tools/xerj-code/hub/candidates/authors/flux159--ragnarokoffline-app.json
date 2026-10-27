@@ -1,0 +1,30 @@
+{
+ "corpus": "flux159--ragnarokoffline-app",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on JavaScript queries this for how Flux159/ragnarokoffline.app implements it: Self-contained crossplatform app for playing Ragnarok Online offline \u2014 rAthena server + roBrowserLegacy client in a microVM running in elect (selected work: mods, tests, patches)",
+ "repos": [
+  {
+   "repo": "ragnarokoffline.app",
+   "url": "https://github.com/Flux159/ragnarokoffline.app",
+   "sha": "6c3b587260a4401b7fc168b7f5897a9264675970",
+   "licence": "GPL-3.0 (LICENSE file at pin 6c3b587260a4, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-27T18:49Z",
+    "consent_receipt": "4b38e3d35f22",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T18:49Z (receipt 4b38e3d35f22); selected commit 6c3b587260a4: \"Add a DPS meter mod and a combat:damage client event\". LICENSE file at pin 6c3b587260a4 detected as GPL-3.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "6c3b587260a4401b7fc168b7f5897a9264675970",
+     "at": "2026-10-27T18:49Z",
+     "receipt": "4b38e3d35f22"
+    }
+   }
+  }
+ ]
+}

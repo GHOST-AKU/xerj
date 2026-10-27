@@ -1,0 +1,23 @@
+{
+ "corpus": "asheesoftworks--asheeui",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on component-library, design-system, design-system-frontend queries this for how AsheeSoftworks/AsheeUI implements it: Modern React component library with native Tailwind CSS v4 support, TypeScript types, and a CLI for setup and troubleshooting (selected work: packages/native, scripts, packages/ui)",
+ "repos": [
+  {
+   "repo": "AsheeUI",
+   "url": "https://github.com/AsheeSoftworks/AsheeUI",
+   "sha": "8207bfd3690deb259c65315dcaa4ca9737f7603e",
+   "licence": "Apache-2.0 (LICENSE file at pin 8207bfd3690d, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T18:31Z",
+    "consent_receipt": "0b20ff838583",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T18:31Z (receipt 0b20ff838583); selected commit 8207bfd3690d: \"fix(native): render styled in a correctly configured app\". LICENSE file at pin 8207bfd3690d detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

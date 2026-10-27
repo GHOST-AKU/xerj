@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on Python queries this for how DuNorth595/xrpl_agent_log implements it: Tamper-evident history log for AI agents on the XRP Ledger \u2014 append-only, hash-chained, mutually-signed, optionally XRPL-anchored (selected work: scripts, the project root)",
+ "domain": "an agent working on ai-agents, append-only, audit-log queries this for how DuNorth595/xrpl_agent_log implements it: Tamper-evident history log for AI agents on the XRP Ledger \u2014 append-only, hash-chained, mutually-signed, optionally XRPL-anchored (selected work: scripts, the project root)",
  "repos": [
   {
    "repo": "xrpl_agent_log",

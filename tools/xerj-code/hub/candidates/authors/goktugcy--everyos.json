@@ -1,0 +1,23 @@
+{
+ "corpus": "goktugcy--everyos",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on cloud, cloud-os, linux queries this for how goktugcy/everyos implements it: A self-hosted web GUI for managing Linux servers, Docker containers, apps, files, services and backups (selected work: scripts, tests, apps/api)",
+ "repos": [
+  {
+   "repo": "everyos",
+   "url": "https://github.com/goktugcy/everyos",
+   "sha": "2451554006f9aa45a14e44bc9b2c84bb54260a00",
+   "licence": "MIT (LICENSE file at pin 2451554006f9, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T18:55Z",
+    "consent_receipt": "bbded3d231af",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T18:55Z (receipt bbded3d231af); selected commit 2451554006f9: \"fix(app-sdk): restore local app runtime and retain acceptance observa\u2026\". LICENSE file at pin 2451554006f9 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
