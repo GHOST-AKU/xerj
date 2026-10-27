@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "OPS",
- "domain": "an agent working on python, cyber-security, dos-detection queries this for how RazEini/WireWarden implements it: Hybrid Python/C network intrusion detection & prevention system (NIDS/NIPS): multi-threaded L3\u2013L7 analysis, C-accelerated DPI, time-limited  (selected work: the project root, tests, c_src)",
+ "domain": "an agent working on python, cyber-security, dos-detection queries this for how RazEini/WireWarden implements it: Hybrid Python/C network intrusion detection & prevention system (NIDS/NIPS): multi-threaded L3\u2013L7 analysis, memory-safe C signature engine,  (selected work: the project root, tests, c_src)",
  "repos": [
   {
    "repo": "WireWarden",

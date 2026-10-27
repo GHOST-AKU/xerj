@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on benchmarking, gguf, gguf-models queries this for how Ton-Llop/Jaull implements it: Evidence-driven qualification and validation of local LLM deployments (selected work: tests, validation, scripts)",
+ "domain": "an agent working on benchmarking, gguf, gguf-models queries this for how Ton-Llop/Jaull implements it: Find LLMs that fit your hardware and validate them with reproducible local tests (selected work: tests, validation, scripts)",
  "repos": [
   {
    "repo": "Jaull",

@@ -1,0 +1,23 @@
+{
+ "corpus": "hardikjp7--applytic",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on api-gateway, aws, aws-bedrock queries this for how hardikjp7/applytic implements it: AI-powered job application tracker with pattern analytics and coaching, built on AWS serverless (Lambda, DynamoDB, Bedrock, CDK) (selected work: lambdas, tests, cdk)",
+ "repos": [
+  {
+   "repo": "applytic",
+   "url": "https://github.com/hardikjp7/applytic",
+   "sha": "bea76d57d1c77a38af4d79e6853218fa1a4ae511",
+   "licence": "Apache-2.0 (LICENSE file at pin bea76d57d1c7, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T10:57Z",
+    "consent_receipt": "06ce9dccd2ea",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T10:57Z (receipt 06ce9dccd2ea); selected commit bea76d57d1c7: \"feat: add pagination and rate limits, harden URL/input validation, an\u2026\". LICENSE file at pin bea76d57d1c7 detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
