@@ -497,6 +497,12 @@ mod tests {
             if p.extension().and_then(|e| e.to_str()) != Some("json") {
                 continue;
             }
+            // TEMPLATE.json is the blank form contributors copy, not a pin:
+            // its `<placeholders>` fail the gate by design. validate_hub.py
+            // skips it by the same name.
+            if p.file_name().and_then(|n| n.to_str()) == Some("TEMPLATE.json") {
+                continue;
+            }
             let raw = std::fs::read_to_string(&p).unwrap_or_default();
             if raw.contains("\"withdrawn\"") {
                 let err = read_hub_manifest(&p).expect_err("a withdrawn hub pin must be refused");
