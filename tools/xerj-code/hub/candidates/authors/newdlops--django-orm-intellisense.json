@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how newdlops/django-orm-intellisense implements it: django-orm (selected work: src/server, src/client)",
+ "domain": "an agent working on Python queries this for how newdlops/django-orm-intellisense implements it: django-orm (selected work: src/server, src/client)",
  "repos": [
   {
    "repo": "django-orm-intellisense",

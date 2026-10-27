@@ -1,0 +1,23 @@
+{
+ "corpus": "juspay--neurolink",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, developer-tools, llm queries this for how juspay/neurolink implements it: The pipe layer of an AI nervous system \u2014 one interface connecting provider neurons to your application, across three inference types: genera (selected work: test, src/lib, the project root)",
+ "repos": [
+  {
+   "repo": "neurolink",
+   "url": "https://github.com/juspay/neurolink",
+   "sha": "ed63f84a4a6b3241a82dd12e8ee71aab7f38dd1d",
+   "licence": "MIT (LICENSE file at pin ed63f84a4a6b, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T04:27Z",
+    "consent_receipt": "44473f97a389",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T04:27Z (receipt 44473f97a389); selected commit ed63f84a4a6b: \"fix(proxy): honor egress proxy for command requests\". LICENSE file at pin ed63f84a4a6b detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

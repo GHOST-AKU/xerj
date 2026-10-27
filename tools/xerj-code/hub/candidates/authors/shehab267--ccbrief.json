@@ -1,0 +1,23 @@
+{
+ "corpus": "shehab267--ccbrief",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on claude, claude-code, cli queries this for how shehab267/ccbrief implements it: Minimal, configurable status line for Claude Code \u2014 context, tokens, cost and rate limits at a glance in your terminal (selected work: assets, test, src)",
+ "repos": [
+  {
+   "repo": "ccbrief",
+   "url": "https://github.com/shehab267/ccbrief",
+   "sha": "572125d8b3aba90d71548ca27c0e3da68cfa19a9",
+   "licence": "MIT (LICENSE file at pin 572125d8b3ab, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T03:40Z",
+    "consent_receipt": "0e0375511efe",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T03:40Z (receipt 0e0375511efe); selected commit 572125d8b3ab: \"feat: \u23f3 default timer, versioned model in previews, and a demo GIF (#21)\". LICENSE file at pin 572125d8b3ab detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

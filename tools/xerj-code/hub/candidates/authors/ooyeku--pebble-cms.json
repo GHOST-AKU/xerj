@@ -1,0 +1,23 @@
+{
+ "corpus": "ooyeku--pebble-cms",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how ooyeku/pebble-cms implements it: A lightweight, single-binary personal CMS (selected work: src/cli, src/services, the project root)",
+ "repos": [
+  {
+   "repo": "pebble-cms",
+   "url": "https://github.com/ooyeku/pebble-cms",
+   "sha": "839f79f6d3d6da2eb178793470c0c37fee6dbaa0",
+   "licence": "MIT (LICENSE file at pin 839f79f6d3d6, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T04:46Z",
+    "consent_receipt": "b73832755c98",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T04:46Z (receipt b73832755c98); selected commit 839f79f6d3d6: \"Fix security advisories in ammonia, quick-xml, and others\". LICENSE file at pin 839f79f6d3d6 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

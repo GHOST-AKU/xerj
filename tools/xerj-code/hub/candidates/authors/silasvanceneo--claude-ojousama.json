@@ -1,0 +1,23 @@
+{
+ "corpus": "silasvanceneo--claude-ojousama",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agent, ai-companion, deepseek-harness queries this for how Silasvanceneo/claude-ojousama implements it: \ud83c\udf3b Pixel-art AI desktop companion for Windows that sees your screen, helps on her own and remembers your habits \u00b7 \u50cf\u7d20\u98ce AI \u684c\u9762\u4f19\u4f34\uff1a\u4f1a\u770b\u5c4f\u5e55\u3001\u4e3b\u52a8\u5e2e\u5fd9\u3001\u8bb0\u5f97\u4f60\u7684\u4e60 (selected work: tools, the project root)",
+ "repos": [
+  {
+   "repo": "claude-ojousama",
+   "url": "https://github.com/Silasvanceneo/claude-ojousama",
+   "sha": "9481cbfec37f42ece7346fe68b3c5ed63a9e9c1c",
+   "licence": "MIT (LICENSE file at pin 9481cbfec37f, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T04:25Z",
+    "consent_receipt": "9b947d2e5091",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T04:25Z (receipt 9b947d2e5091); selected commit 9481cbfec37f: \"Add promo card and video generators (tools/promo)\". LICENSE file at pin 9481cbfec37f detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

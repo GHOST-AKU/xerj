@@ -1,0 +1,30 @@
+{
+ "corpus": "yaki-blake--code-editor-display-fix-skill",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Yaki-Blake/code-editor-display-fix-skill implements it: \u53ef\u4ee5\u4fee\u590d\u90e8\u5206\u56e0\u4e3a\u7f16\u8bd1\u5668\u81ea\u8eab\u95ee\u9898\u5bfc\u81f4\u7684\u6ce8\u91ca\u65e0\u6cd5\u663e\u793a (selected work: scripts)",
+ "repos": [
+  {
+   "repo": "code-editor-display-fix-skill",
+   "url": "https://github.com/Yaki-Blake/code-editor-display-fix-skill",
+   "sha": "47f8e3dbdb8031c34f27883d3ca1544efab34977",
+   "licence": "MPL-2.0 (LICENSE file at pin 47f8e3dbdb80, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-27T03:27Z",
+    "consent_receipt": "a8d18a030f93",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T03:27Z (receipt a8d18a030f93); selected commit 47f8e3dbdb80: \"Add code-editor-display-fix skill\". LICENSE file at pin 47f8e3dbdb80 detected as MPL-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "47f8e3dbdb8031c34f27883d3ca1544efab34977",
+     "at": "2026-10-27T03:27Z",
+     "receipt": "a8d18a030f93"
+    }
+   }
+  }
+ ]
+}
