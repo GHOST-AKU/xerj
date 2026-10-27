@@ -22,6 +22,7 @@ export async function onRequestGet({ request, env }) {
     user: u ? { provider: u.provider, login: u.login, name: u.name, avatar: u.avatar } : null,
     contributor: page,
     links: u ? [...(page ? [{ href: `/contributors/${page}`, label: 'My contributor page' }] : []),
+      ...(u.provider === 'github' ? [{ href: '/add', label: 'Add my repos' }] : []),
       { href: '/me', label: 'My stars' }] : [],
   });
 }
