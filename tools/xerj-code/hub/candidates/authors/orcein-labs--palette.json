@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on Rust queries this for how Orcein-Labs/Palette implements it: Give your agents a Julia supercomputer (selected work: runtime, the project root)",
+ "domain": "an agent working on Rust queries this for how Orcein-Labs/Palette implements it: Give your agents a Julia supercomputer and working memory (selected work: runtime, the project root)",
  "repos": [
   {
    "repo": "Palette",

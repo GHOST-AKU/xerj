@@ -1,0 +1,23 @@
+{
+ "corpus": "open-vela--contest2026-135-yongwangzhiqian",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on C queries this for how open-vela/contest2026_135_yongwangzhiqian implements it: openvela AI contest 2026 - team contest2026_135_yongwangzhiqian (selected work: tests, app/bk7258, android)",
+ "repos": [
+  {
+   "repo": "contest2026_135_yongwangzhiqian",
+   "url": "https://github.com/open-vela/contest2026_135_yongwangzhiqian",
+   "sha": "2e6caad11cda8b3fa12861138e8b0b6ad712fc4f",
+   "licence": "Apache-2.0 (LICENSE file at pin 2e6caad11cda, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T01:03Z",
+    "consent_receipt": "08fa87f70a3b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T01:03Z (receipt 08fa87f70a3b); selected commit 2e6caad11cda: \"feat(voice): persist answer length and permit validated direct answers\". LICENSE file at pin 2e6caad11cda detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

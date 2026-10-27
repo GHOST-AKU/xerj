@@ -1,0 +1,23 @@
+{
+ "corpus": "jutsumetsu--rimwarlord-code",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C# queries this for how jutsumetsu/RimWarlord-Code implements it: \u8fb9\u7f18\u6b66\u795e\u7684\u6e90\u4ee3\u7801\u5e93 (selected work: RWrd)",
+ "repos": [
+  {
+   "repo": "RimWarlord-Code",
+   "url": "https://github.com/jutsumetsu/RimWarlord-Code",
+   "sha": "c67274eaa36749d1a8fd566b8df98af005e84e80",
+   "licence": "GPL-3.0 (LICENSE file at pin c67274eaa367, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T23:12Z",
+    "consent_receipt": "5f8d9677864d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T23:12Z (receipt 5f8d9677864d); selected commit c67274eaa367: \"\u4fee\u590dAI\u65e0\u6cd5\u4f7f\u7528\u7ec6\u80de\u91cd\u7ec4\u3001\u98ce\u65a9\u5200\u548c\u91cd\u6838\u817f\u7684\u95ee\u9898\uff0c\u4e3aNPC\u78c1\u573a\u5f3a\u8005\u6dfb\u52a0\u81ea\u52a8\u5f00\u542f\u62a4\u8eab\u529b\u91cf\u7684Patch\uff0c\u4fee\u590d\u8fd1\u6218\u65f6NPC\u78c1\u573a\u5f3a\u8005\u4e0d\u4f1a\u4f7f\u7528\u6280\u80fd\u7684\u95ee\u9898\". LICENSE file at pin c67274eaa367 detected as GPL-3.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
