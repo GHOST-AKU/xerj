@@ -1,0 +1,23 @@
+{
+ "corpus": "aschoerk--chapterdesk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on angular, electron, fiction queries this for how aschoerk/chapterdesk implements it: A local writing studio for scene-by-scene story work with language models (selected work: src/app)",
+ "repos": [
+  {
+   "repo": "chapterdesk",
+   "url": "https://github.com/aschoerk/chapterdesk",
+   "sha": "1f5107395c90cbb5a6629295c2e4cc028905f085",
+   "licence": "Apache-2.0 (LICENSE file at pin 1f5107395c90, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T18:08Z",
+    "consent_receipt": "7ad1b248e516",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T18:08Z (receipt 7ad1b248e516); selected commit 1f5107395c90: \"llm-message.ts split up in subdir and 4 specialized files\". LICENSE file at pin 1f5107395c90 detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

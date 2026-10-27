@@ -1,0 +1,23 @@
+{
+ "corpus": "barval--flai",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on docker, docker-compose, piper-tts queries this for how barval/flai implements it: FLAI is a self-hosted, privacy-first AI platform. Your all-in-one local assistant: smart chat, web search, voice, media generation, and docu (selected work: demo)",
+ "repos": [
+  {
+   "repo": "flai",
+   "url": "https://github.com/barval/flai",
+   "sha": "2af99cb568adfe13433dcb170d0ff95218ec63b1",
+   "licence": "author's permission (LICENSE at pin 2af99cb568ad: NOASSERTION; repository: MIT)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T18:03Z",
+    "consent_receipt": "cd777d70c0b9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T18:03Z (receipt cd777d70c0b9); selected commit 2af99cb568ad: \"fix(demo): render message media, previews and tasks, and stop the mic\u2026\". LICENSE at pin 2af99cb568ad: NOASSERTION (repository: MIT); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

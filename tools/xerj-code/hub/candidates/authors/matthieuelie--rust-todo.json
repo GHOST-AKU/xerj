@@ -2,8 +2,8 @@
  "corpus": "matthieuelie--rust-todo",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on Rust queries this for how MatthieuELIE/rust-todo implements it: A small todo.txt editor: a command line and a full-screen list for a herdr popup (selected work: src, tests, the project root)",
+ "shelf": "WEB",
+ "domain": "an agent working on catppuccin, cli, herdr queries this for how MatthieuELIE/rust-todo implements it: A small todo.txt editor: a command line and a full-screen list for a herdr popup (selected work: src, tests, the project root)",
  "repos": [
   {
    "repo": "rust-todo",

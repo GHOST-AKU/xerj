@@ -8,15 +8,15 @@
   {
    "repo": "vocalworks",
    "url": "https://github.com/boraswim/vocalworks",
-   "sha": "320240feb8701a3f86556f13e1f35543f2deac58",
-   "licence": "MIT (LICENSE file at pin 320240feb870, GitHub licence API 2026-10-26)",
+   "sha": "2a3bf1315a3dc0d8f5cd835d5fa3927ab6f7b33d",
+   "licence": "MIT (LICENSE file at pin 2a3bf1315a3d, GitHub licence API 2026-10-27)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-25T18:42Z",
     "consent_receipt": "c5af18f0ad41",
-    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:42Z (receipt c5af18f0ad41); selected commit 320240feb870: \"Optional AI assistant, vocoder check, reverb fix, Windows installer\". LICENSE file at pin 320240feb870 detected as MIT by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 320240feb870 (contains the selected commit): the LICENSE at the selected commit was NONE.",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T18:42Z (receipt c5af18f0ad41); selected commit 2a3bf1315a3d: \"Optional AI assistant, vocoder check, reverb fix, Windows installer\". LICENSE file at pin 2a3bf1315a3d detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution. Pinned to head 2a3bf1315a3d (contains the selected commit): the LICENSE at the selected commit was NONE.",
     "author_grant": {
      "terms": "MIT",
      "scope": "the author's own changes in the selected commit",

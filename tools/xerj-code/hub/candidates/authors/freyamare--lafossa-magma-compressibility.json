@@ -1,0 +1,23 @@
+{
+ "corpus": "freyamare--lafossa-magma-compressibility",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on insar, magma, volcano queries this for how FreyaMare/lafossa-magma-compressibility implements it: Colab notebook linking magma compressibility to surface uplift at La Fossa volcano (Vulcano, Italy). Couples the EVo C-O-H-S degassing code  (selected work: windows_app)",
+ "repos": [
+  {
+   "repo": "lafossa-magma-compressibility",
+   "url": "https://github.com/FreyaMare/lafossa-magma-compressibility",
+   "sha": "c3553b3932dd9cb25723da07535b4327bd20988b",
+   "licence": "GPL-3.0 (LICENSE file at pin c3553b3932dd, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-27T19:01Z",
+    "consent_receipt": "71f43700d72d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:01Z (receipt 71f43700d72d); selected commit c3553b3932dd: \"Windows app 1.0.1: new About window, user guide and clear tab names\". LICENSE file at pin c3553b3932dd detected as GPL-3.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

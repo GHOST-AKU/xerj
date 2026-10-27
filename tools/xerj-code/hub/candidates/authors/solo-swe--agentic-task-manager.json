@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on TypeScript queries this for how solo-swe/agentic-task-manager implements it: A simple, light weight task manager for agentic project development (selected work: atm-cli, plugin, tests)",
+ "domain": "an agent working on agentic, agentic-workflow, claude-code queries this for how solo-swe/agentic-task-manager implements it: A simple, light weight task manager for agentic project development (selected work: atm-cli, plugin, tests)",
  "repos": [
   {
    "repo": "agentic-task-manager",

@@ -1,0 +1,23 @@
+{
+ "corpus": "yceachan--ai-morning-post",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how yceachan/Ai-Morning-Post implements it: Turn the Juya AI Morning Post RSS feed into a private, email-friendly newsletter (selected work: src, test, deploy)",
+ "repos": [
+  {
+   "repo": "Ai-Morning-Post",
+   "url": "https://github.com/yceachan/Ai-Morning-Post",
+   "sha": "df785a19215e79afe7f92601a967f5577612d4d9",
+   "licence": "MIT (LICENSE file at pin df785a19215e, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T17:49Z",
+    "consent_receipt": "9658aa6abc40",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T17:49Z (receipt 9658aa6abc40); selected commit df785a19215e: \"feat: notify subscribers about Codex reset announcements\". LICENSE file at pin df785a19215e detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

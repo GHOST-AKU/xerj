@@ -1,0 +1,23 @@
+{
+ "corpus": "kelvin-marques-cyber--real-codar",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Kelvin-Marques-Cyber/ReAL-Codar implements it: Kelvin-Marques-Cyber/ReAL-Codar (Python) (selected work: src/codar, tests)",
+ "repos": [
+  {
+   "repo": "ReAL-Codar",
+   "url": "https://github.com/Kelvin-Marques-Cyber/ReAL-Codar",
+   "sha": "1d1c008d9ad06860cd6be12abd3402f6e4ce37d5",
+   "licence": "Apache-2.0 (LICENSE file at pin 1d1c008d9ad0, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T18:08Z",
+    "consent_receipt": "532f50929a3a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T18:08Z (receipt 532f50929a3a); selected commit 1d1c008d9ad0: \"feat: ver no celular o que precisa de interface (pr\u00e9via na rede com Q\u2026\". LICENSE file at pin 1d1c008d9ad0 detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

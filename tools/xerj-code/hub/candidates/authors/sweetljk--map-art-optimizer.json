@@ -1,0 +1,23 @@
+{
+ "corpus": "sweetljk--map-art-optimizer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how sweetljk/Map-Art-Optimizer implements it: Displays locally explored Xaero World Map terrain on vanilla framed maps (selected work: src/main, the project root, verification)",
+ "repos": [
+  {
+   "repo": "Map-Art-Optimizer",
+   "url": "https://github.com/sweetljk/Map-Art-Optimizer",
+   "sha": "d41c677af1097e22c5b8898bbb32ddedf0e57c6b",
+   "licence": "MIT (LICENSE file at pin d41c677af109, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:08Z",
+    "consent_receipt": "08a8cce00521",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:08Z (receipt 08a8cce00521); selected commit d41c677af109: \"Publish Map Art Optimizer 0.1.0\". LICENSE file at pin d41c677af109 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}

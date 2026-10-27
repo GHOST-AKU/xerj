@@ -1,0 +1,23 @@
+{
+ "corpus": "proxycheng--qtsharp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on bindings, clang, csharp queries this for how ProxyCheng/QtSharp implements it: Qt for .NET - a C# binding generated from Qt's own headers: signals, virtual overrides, ownership, no hand-written wrappers (selected work: samples)",
+ "repos": [
+  {
+   "repo": "QtSharp",
+   "url": "https://github.com/ProxyCheng/QtSharp",
+   "sha": "17709416fb33db085b2feee77477f28ec5444783",
+   "licence": "MIT (LICENSE file at pin 17709416fb33, GitHub licence API 2026-10-27)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T18:55Z",
+    "consent_receipt": "0b2fc0614eba",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T18:55Z (receipt 0b2fc0614eba); selected commit 17709416fb33: \"Improve onboarding docs and clarify pre-1.0 API compatibility\". LICENSE file at pin 17709416fb33 detected as MIT by the GitHub licence API on 2026-10-27; used under that licence with attribution."
+   }
+  }
+ ]
+}
