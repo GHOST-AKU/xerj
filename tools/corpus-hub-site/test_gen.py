@@ -465,6 +465,12 @@ class ContributorVolumeTest(unittest.TestCase):
         self.assertIn('href="../contributors/Ann"', html)
         self.assertEqual(contributors.corpus_section([], gen.esc, people), "")
 
+    def test_one_shared_badge_file_serves_every_readme_badge_url(self):
+        # Cloudflare Pages takes at most 20,000 files; a badge copy per login broke deploys at ~6,300 contributors
+        self.assertIn("/contributors/:login/badge.svg /contributors/badge.svg 200", gen.REDIRECTS)
+        import contributors
+        self.assertIn("contributors/{login}/badge.svg", open(contributors.__file__).read())   # README markdown URL unchanged
+
     def test_pinned_repo_stars_are_distinct_and_never_estimated(self):
         import contributors
         with tempfile.TemporaryDirectory() as d:

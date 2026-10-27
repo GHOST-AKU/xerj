@@ -1727,11 +1727,13 @@ HEADERS = """/me
   X-Robots-Tag: noindex
 """
 
-# Cloudflare Pages _redirects: the old About URLs keep working.
+# Cloudflare Pages _redirects: the old About URLs keep working; every README badge URL
+# (/contributors/<login>/badge.svg) is served from the one shared badge file.
 REDIRECTS = """/about /whats-this/ 301
 /about/ /whats-this/ 301
 /about.html /whats-this/ 301
 /favicon.ico /favicon.png 200
+/contributors/:login/badge.svg /contributors/badge.svg 200
 """
 
 
