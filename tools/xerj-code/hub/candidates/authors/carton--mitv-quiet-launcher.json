@@ -1,9 +1,9 @@
 {
- "corpus": "carton--miquiet-launcher",
+ "corpus": "carton--mitv-quiet-launcher",
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on accessibility, adb, android-tv queries this for how Carton/miquiet-launcher implements it: \u7b80\u51c0\u684c\u9762\uff08MiQuiet Launcher\uff09\uff1a\u9762\u5411\u5c0f\u7c73\u7535\u89c6 / \u5c0f\u7c73TV\uff08Xiaomi TV / Mi TV\uff09\u7684\u8f7b\u91cf\u5f00\u6e90\u684c\u9762\uff0c\u652f\u6301\u53ef\u914d\u7f6e\u5e94\u7528\u680f\u3001\u4fe1\u53f7\u6e90\u5165\u53e3\u3001\u5929\u6c14\u65b0\u95fb\u4e0e\u672c\u5730\u56fe\u7247\u5c4f\u4fdd\uff0c\u53ef\u901a\u8fc7 ADB \u90e8\u7f72\u5e76\u6062\u590d\u539f\u5382\u684c\u9762\u3002 (selected work: tools, tests, the project root)",
+ "domain": "an agent working on accessibility, adb, android-tv queries this for how Carton/mitv-quiet-launcher implements it: \u7b80\u51c0\u684c\u9762\uff08MiTV Quiet Launcher\uff09\uff1a\u9762\u5411\u5c0f\u7c73\u7535\u89c6 / \u5c0f\u7c73TV\uff08Xiaomi TV / Mi TV\uff09\u7684\u8f7b\u91cf\u5f00\u6e90\u684c\u9762\uff0c\u652f\u6301\u53ef\u914d\u7f6e\u5e94\u7528\u680f\u3001\u4fe1\u53f7\u6e90\u5165\u53e3\u3001\u5929\u6c14\u65b0\u95fb\u4e0e\u672c\u5730\u56fe\u7247\u5c4f\u4fdd\uff0c\u53ef\u901a\u8fc7 ADB \u90e8\u7f72\u5e76\u6062\u590d\u539f\u5382\u684c\u9762\u3002 (selected work: tools, tests, the project root)",
  "repos": [
   {
    "repo": "miquiet-launcher",

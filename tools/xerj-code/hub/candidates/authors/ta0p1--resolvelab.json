@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on agent-evaluation, ai-agents, fastapi queries this for how Ta0p1/ResolveLab implements it: A local support-agent recovery lab with Ollama, durable tool execution, independent outcome verification, and reproducible failure-scenario  (selected work: scripts, tests, benchmarks)",
+ "domain": "an agent working on agent-evaluation, ai-agents, fastapi queries this for how Ta0p1/ResolveLab implements it: Fault-injected tool environments with side-effect grading for evaluating and post-training LLM agents (selected work: scripts, tests, benchmarks)",
  "repos": [
   {
    "repo": "ResolveLab",
