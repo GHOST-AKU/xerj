@@ -13,7 +13,7 @@ live), so the pages show no retrieval figure at all rather than a placeholder.
   out/contributors/list.<n>.json       the rest of the list, CHUNK rows a file (infinite scroll)
   out/contributors/list.<n>.html       the same chunks as plain HTML pages (crawlable fallback)
   out/contributors/<login>.html        one author (or one upstream owner, see upstream())
-  out/contributors/<login>/badge.svg   "XERJ Corpus Hub | contributor" badge
+  out/contributors/badge.svg          "XERJ Corpus Hub | contributor" badge, served at /contributors/<login>/badge.svg
   out/corpus/<slug>.html               candidate corpora (author / themed) that have no
                                        registry page yet, so every contributor's corpus links
 """
@@ -1284,8 +1284,9 @@ def generate(out, hub_dir, page, esc, live_slugs, registry=None, people=None, up
         (d / f"{login}.html").write_text(html)
         if dates:
             lastmod[f"contributors/{login}.html"] = max(dates)
-        (d / login).mkdir(exist_ok=True)
-        (d / login / "badge.svg").write_text(badge_svg())
+    # one badge for everyone, served at /contributors/<login>/badge.svg by a _redirects rewrite: a copy per login
+    # (identical bytes) pushed the site past the 20,000-file Cloudflare Pages limit (deploys failed from 2026-10-27)
+    (d / "badge.svg").write_text(badge_svg())
     # upstream owners and the curator: attribution pages, kept out of search indexes
     if upstream is None:
         upstream = credits(registry, people)[1]
