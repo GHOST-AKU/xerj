@@ -465,7 +465,7 @@ def repo_body(f, esc, people, cats, related, fetched, rel="../"):
     # licence
     spdx = f["spdx"] if f["spdx"] not in ("", "?") else "Not stated"
     reviewed = bool((w.get("reviewed")))
-    lic1 = ("Checked by a person at the pinned commit." if reviewed else
+    lic1 = ("LICENSE file checked at the pinned commit; the author agreed to inclusion." if reviewed else
             "From GitHub's licence detection. A person still checks the LICENSE file at the pinned commit.")
     big2, p2 = USE.get(f["use"], ("Same as the repository", "Answers name the repo, the commit and the file:line."))
     agreed = (w.get("agreed") or "")[:10]
@@ -484,7 +484,8 @@ def repo_body(f, esc, people, cats, related, fetched, rel="../"):
     p2 = how + esc(p2)
     lic = (f'<div class="rptwo"><div class="rpbox"><h3>The repository</h3><div class="big">{esc(spdx)}</div><p>{lic1}</p></div>'
            f'<div class="rpbox"><h3>The XERJ corpus</h3><div class="big">{esc(big2.format(spdx=spdx))}</div><p>{p2}</p></div></div>'
-           f'<p class="rpchips"><span class="chip warn">in licence review</span><span class="chip">not in the hub yet</span>'
+           + (f'<p class="rpchips"><span class="chip ok">selected for the XERJ Corpus Hub</span><span class="chip ok">licence cleared</span>' if reviewed else
+              f'<p class="rpchips"><span class="chip warn">in licence review</span><span class="chip">not in the hub yet</span>')
            + (f'<span class="chip">suggested use: {esc(f["use"].replace("-", " "))}</span>' if f["use"] else "") + "</p>")
     qs = questions(f["short"], dict(w, topics=f["topics"]))
     qs_html = f'<ul class="rpq">{"".join(f"<li>{esc(q)}</li>" for q in qs)}</ul>' if qs else ""

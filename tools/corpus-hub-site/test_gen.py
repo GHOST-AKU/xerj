@@ -1207,7 +1207,7 @@ class BuiltSiteDiscoverabilityTest(SiteLinksTest):
         self.assertIn('href="../contributors/Yiming1997"', corpus)
         self.assertIn(pin, corpus)
         self.assertIn("The author agreed in a GitHub discussion on 2026-10-25.", corpus)
-        self.assertIn("in licence review", corpus)
+        self.assertIn("licence cleared", corpus); self.assertNotIn("in licence review", corpus)
         self.assertIn(f"https://hub.xerj.org/contributors/Yiming1997", (self.out / "sitemap-contributors.xml").read_text())
         self.assertIn(f"https://hub.xerj.org/corpus/{slug}", (self.out / "sitemap-repos.xml").read_text())
         llms = (self.out / "llms-contributors.txt").read_text()
