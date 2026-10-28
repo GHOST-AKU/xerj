@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on TypeScript queries this for how YorickFin/ParallelAgent implements it: Parallel multi-agent development pattern: arbiter session + track sessions + file-mailbox coordination, orchestrated via CDP (selected work: adapters)",
+ "domain": "an agent working on JavaScript queries this for how YorickFin/ParallelAgent implements it: Parallel multi-agent development pattern: arbiter session + track sessions + file-mailbox coordination, orchestrated via CDP (selected work: adapters)",
  "repos": [
   {
    "repo": "ParallelAgent",

@@ -1,0 +1,23 @@
+{
+ "corpus": "aji110905--carpet-aji-addition",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how aji110905/Carpet-Aji-Addition implements it: \u4e00\u4e2aMinecraft\u6a21\u7ec4\uff0c\u4e3aFabric-Carpet\u63d0\u4f9b\u4e86\u66f4\u591a\u89c4\u5219\u3002 (selected work: src/main, versions)",
+ "repos": [
+  {
+   "repo": "Carpet-Aji-Addition",
+   "url": "https://github.com/aji110905/Carpet-Aji-Addition",
+   "sha": "0e35d247ad6c2a8abc21ab56c669c781cb191104",
+   "licence": "MIT (LICENSE file at pin 0e35d247ad6c, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T01:26Z",
+    "consent_receipt": "72203a585f9d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T01:26Z (receipt 72203a585f9d); selected commit 0e35d247ad6c: \"\u91cd\u6784\u89c4\u5219\u7cfb\u7edf\u4e3a\u81ea\u5b9a\u4e49 Rule \u7c7b\u5c42\u6b21\u7ed3\u6784\". LICENSE file at pin 0e35d247ad6c detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

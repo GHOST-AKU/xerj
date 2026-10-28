@@ -1,0 +1,23 @@
+{
+ "corpus": "s0cks--prose2json",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cli, cli-tool, prose queries this for how s0cks/prose2json implements it: A CLI tool for converting prose segments into structured JSON (selected work: cmd, internal/prose, internal)",
+ "repos": [
+  {
+   "repo": "prose2json",
+   "url": "https://github.com/s0cks/prose2json",
+   "sha": "92feff094f5d3e6a3b65b38fe47f8c92613c0349",
+   "licence": "MIT (LICENSE file at pin 92feff094f5d, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T03:00Z",
+    "consent_receipt": "44fa7dc6062f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T03:00Z (receipt 44fa7dc6062f); selected commit 92feff094f5d: \"refactor: \ud83d\udd28 some more code cleanup\". LICENSE file at pin 92feff094f5d detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "conflux-chain--confura",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Go queries this for how Conflux-Chain/confura implements it: Ethereum infura like service to provide RPC endpoints for Conflux network (selected work: rpc, store, config)",
+ "repos": [
+  {
+   "repo": "confura",
+   "url": "https://github.com/Conflux-Chain/confura",
+   "sha": "63c30b6842bf8f8038af39fe187288cdf23c3d17",
+   "licence": "MIT (LICENSE file at pin 63c30b6842bf, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T02:07Z",
+    "consent_receipt": "089a9cd9d70c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T02:07Z (receipt 089a9cd9d70c); selected commit 63c30b6842bf: \"fix(getLogs): guard merge boundaries and preserve complete log result\u2026\". LICENSE file at pin 63c30b6842bf detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

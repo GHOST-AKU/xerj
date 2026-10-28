@@ -1,0 +1,23 @@
+{
+ "corpus": "freakyali--resilion",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on circuit-breaker, circuit-breaker-pattern, csharp queries this for how FreakyAli/Resilion implements it: Comprehensive .NET resilience library with circuit breakers, retries, fallbacks, hedging, timeouts, and rate limiting with full AOT support (selected work: tests, src/Resilion.Extensions, benchmarks)",
+ "repos": [
+  {
+   "repo": "Resilion",
+   "url": "https://github.com/FreakyAli/Resilion",
+   "sha": "05955834e3fa7251c151be73e1dd4a42df6e17d4",
+   "licence": "Apache-2.0 (LICENSE file at pin 05955834e3fa, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T01:57Z",
+    "consent_receipt": "f50a4a357c2f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T01:57Z (receipt f50a4a357c2f); selected commit 05955834e3fa: \"feat: Resilion.Http, config binding, and dependency cleanup\". LICENSE file at pin 05955834e3fa detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "tuhamho--usebrowse",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how tuhamho/Usebrowse implements it: tuhamho/Usebrowse (TypeScript) (selected work: src/windows)",
+ "repos": [
+  {
+   "repo": "Usebrowse",
+   "url": "https://github.com/tuhamho/Usebrowse",
+   "sha": "148299fb8a617cf153ffa9830500f9fc14f3f1a7",
+   "licence": "Apache-2.0 (LICENSE file at pin 148299fb8a61, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T02:54Z",
+    "consent_receipt": "3fc473b00bcb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T02:54Z (receipt 3fc473b00bcb); selected commit 148299fb8a61: \"Polish desktop UI and add Vietnamese language\". LICENSE file at pin 148299fb8a61 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
