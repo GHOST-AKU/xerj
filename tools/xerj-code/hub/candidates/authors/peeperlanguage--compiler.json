@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on Go queries this for how PeeperLanguage/compiler implements it: Peeper is a systems programming language with memory safety and less complex than other systems languages (selected work: internal/frontend, x_test, internal/semantics)",
+ "domain": "an agent working on Rust queries this for how PeeperLanguage/compiler implements it: Peeper is a systems programming language with memory safety and less complex than other systems languages (selected work: internal/frontend, x_test, internal/semantics)",
  "repos": [
   {
    "repo": "compiler",

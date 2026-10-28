@@ -2,8 +2,8 @@
  "corpus": "red-eyed--stackformers",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on Python queries this for how Red-Eyed/stackformers implements it: Red-Eyed/stackformers (Python) (selected work: stackformers, the project root)",
+ "shelf": "AI",
+ "domain": "an agent working on attention, computer-vision, deep-learning queries this for how Red-Eyed/stackformers implements it: Composable PyTorch transformers for vision, spatial, and sequence research (selected work: stackformers, the project root)",
  "repos": [
   {
    "repo": "stackformers",

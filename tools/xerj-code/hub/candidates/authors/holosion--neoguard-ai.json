@@ -1,0 +1,23 @@
+{
+ "corpus": "holosion--neoguard-ai",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how holosion/neoguard-ai implements it: An embedded ai system that i used to monitor the health of young babies at birth (selected work: ai, backend, the project root)",
+ "repos": [
+  {
+   "repo": "neoguard-ai",
+   "url": "https://github.com/holosion/neoguard-ai",
+   "sha": "06da4598b2127b963c6e10d59b1563003353bfc9",
+   "licence": "MIT (LICENSE file at pin 06da4598b212, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T08:21Z",
+    "consent_receipt": "bd2e5868f358",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T08:21Z (receipt bd2e5868f358); selected commit 06da4598b212: \"Implement synthetic risk model training and scoring system\". LICENSE file at pin 06da4598b212 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

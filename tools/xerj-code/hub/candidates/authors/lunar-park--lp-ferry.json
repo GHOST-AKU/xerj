@@ -1,9 +1,9 @@
 {
- "corpus": "dspury--file-ferry",
+ "corpus": "lunar-park--lp-ferry",
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on asset-management, backup, cli queries this for how dspury/file-ferry implements it: Local-first CLI and terminal UI for post-production media ops: probe camera cards, organize footage, generate proxies, build DaVinci Resolve (selected work: tests, src/file_ferry)",
+ "domain": "an agent working on asset-management, backup, cli queries this for how Lunar-Park/lp-ferry implements it: Local-first CLI and terminal UI for post-production media ops: probe camera cards, organize footage, generate proxies, build DaVinci Resolve (selected work: tests, src/file_ferry)",
  "repos": [
   {
    "repo": "file-ferry",

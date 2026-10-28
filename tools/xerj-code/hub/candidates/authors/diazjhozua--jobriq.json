@@ -2,8 +2,8 @@
  "corpus": "diazjhozua--jobriq",
  "cloned_at": null,
  "status": "draft",
- "shelf": "AI",
- "domain": "an agent working on ai, cli, openai queries this for how diazjhozua/jobriq implements it: AI-powered resume builder CLI. Fill a plain-text template, let AI enhance your bullets and summary, pick a design, export .md + .docx (selected work: web)",
+ "shelf": "WEB",
+ "domain": "an agent working on openai, resume-builder, aspnet-core queries this for how diazjhozua/jobriq implements it: Web app for building a resume profile, tracking job applications, and generating a tailored resume per application with OpenAI (selected work: web)",
  "repos": [
   {
    "repo": "jobriq",

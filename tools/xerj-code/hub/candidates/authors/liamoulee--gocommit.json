@@ -1,0 +1,23 @@
+{
+ "corpus": "liamoulee--gocommit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how Liamoulee/GoCommit implements it: GoCommit is a Node.js tool that automatically generates Git commits over a chosen date range. It can create commit activity without manually (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "GoCommit",
+   "url": "https://github.com/Liamoulee/GoCommit",
+   "sha": "610dd5d1b70c9e8a4c8873410b8277079416b992",
+   "licence": "GPL-3.0 (LICENSE file at pin 610dd5d1b70c, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-28T08:01Z",
+    "consent_receipt": "52c57833ad1c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T08:01Z (receipt 52c57833ad1c); selected commit 610dd5d1b70c: \"all the files\". LICENSE file at pin 610dd5d1b70c detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "corpus": "shithead--python-mtg-deckbuilder-ai",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how shithead/python-mtg-deckbuilder-ai implements it: My first AI to create a MTG Modern deck (selected work: the project root, ai, environment)",
+ "repos": [
+  {
+   "repo": "python-mtg-deckbuilder-ai",
+   "url": "https://github.com/shithead/python-mtg-deckbuilder-ai",
+   "sha": "df11a8be170940711625148e323f0fd3114ff199",
+   "licence": "GPL-3.0 (LICENSE file at pin df11a8be1709, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-28T08:59Z",
+    "consent_receipt": "45eb35fff179",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T08:59Z (receipt 45eb35fff179); selected commit df11a8be1709: \"feat: generalize deck ingestion, dataset, training, and scraper for d\u2026\". LICENSE file at pin df11a8be1709 detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "df11a8be170940711625148e323f0fd3114ff199",
+     "at": "2026-10-28T08:59Z",
+     "receipt": "45eb35fff179"
+    }
+   }
+  }
+ ]
+}

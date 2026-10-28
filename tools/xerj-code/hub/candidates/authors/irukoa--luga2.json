@@ -1,0 +1,23 @@
+{
+ "corpus": "irukoa--luga2",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C queries this for how irukoa/LUGA2 implements it: Zero-dependency C/Fortran library with common utilities (selected work: test, src/GRTP, buildsystem)",
+ "repos": [
+  {
+   "repo": "LUGA2",
+   "url": "https://github.com/irukoa/LUGA2",
+   "sha": "74f79459f03808647e9035ae1af8b95f39b7858d",
+   "licence": "GPL-3.0 (LICENSE file at pin 74f79459f038, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-28T07:23Z",
+    "consent_receipt": "0b7fba9d92ac",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T07:23Z (receipt 0b7fba9d92ac); selected commit 74f79459f038: \"C-side GRTP module.\". LICENSE file at pin 74f79459f038 detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
