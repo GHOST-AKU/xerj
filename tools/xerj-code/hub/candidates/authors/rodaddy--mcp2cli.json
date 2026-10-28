@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on ai-tools, claude, claude-code queries this for how rodaddy/mcp2cli implements it: CLI bridge that wraps MCP servers as bash-invokable commands, recovering ~11K tokens of context window per session (selected work: scripts, tests, the project root)",
+ "domain": "an agent working on ai-tools, claude, claude-code queries this for how rodaddy/mcp2cli implements it: Call any MCP server's tools from bash, so AI agents load a tool schema only when they need it (selected work: scripts, tests, the project root)",
  "repos": [
   {
    "repo": "mcp2cli",

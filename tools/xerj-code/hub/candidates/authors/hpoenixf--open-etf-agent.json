@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on agent, etf, investment queries this for how hpoenixf/open-etf-agent implements it: Build an ETF research agent, one working module at a time. Runnable code, bilingual deep dives, and a traceable 0\u21921 journey.\uff5c\u9010\u6a21\u5757\u6784\u5efa ETF \u6295\u7814 Ag (selected work: test, src, openspec)",
+ "domain": "an agent working on ai-agent, harness, harness-engineering queries this for how hpoenixf/open-etf-agent implements it: Build an ETF research agent, one working module at a time. Runnable code, bilingual deep dives, and a traceable 0\u21921 journey.\uff5c\u9010\u6a21\u5757\u6784\u5efa ETF \u6295\u7814 Ag (selected work: test, src, openspec)",
  "repos": [
   {
    "repo": "open-etf-agent",
