@@ -1,0 +1,23 @@
+{
+ "corpus": "bhusaremayur--resilient-queue",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on JavaScript queries this for how bhusareMayur/resilient-queue implements it: Minimal Redis-backed resilient job queue for Node.js with exponential retry, DLQ handling, idempotency guarantees, and graceful shutdown (selected work: tests, src/managers, src/core)",
+ "repos": [
+  {
+   "repo": "resilient-queue",
+   "url": "https://github.com/bhusareMayur/resilient-queue",
+   "sha": "216cbea5179d65800cc066d03e4321adcd2974d6",
+   "licence": "MIT (LICENSE file at pin 216cbea5179d, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T07:30Z",
+    "consent_receipt": "0f34b1583190",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T07:30Z (receipt 0f34b1583190); selected commit 216cbea5179d: \"feat: implement atomic enqueue-time idempotency\". LICENSE file at pin 216cbea5179d detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

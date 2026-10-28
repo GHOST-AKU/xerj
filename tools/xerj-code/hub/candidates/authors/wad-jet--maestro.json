@@ -1,0 +1,23 @@
+{
+ "corpus": "wad-jet--maestro",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how wad-jet/maestro implements it: wad-jet/maestro (JavaScript) (selected work: plugins)",
+ "repos": [
+  {
+   "repo": "maestro",
+   "url": "https://github.com/wad-jet/maestro",
+   "sha": "dfa147a29390d283144f83dbc7df2cc9707e71ad",
+   "licence": "Apache-2.0 (LICENSE file at pin dfa147a29390, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T13:15Z",
+    "consent_receipt": "db27e812a78d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T13:15Z (receipt db27e812a78d); selected commit dfa147a29390: \"feat(plugin): mask active config path; backup-cli 4-layer resolve\". LICENSE file at pin dfa147a29390 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

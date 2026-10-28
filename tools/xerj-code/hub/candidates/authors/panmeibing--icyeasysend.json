@@ -1,0 +1,23 @@
+{
+ "corpus": "panmeibing--icyeasysend",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Dart queries this for how panmeibing/IcyEasySend implements it: Icy Easy Send is a local area network file transfer tool developed based on Flutter, supporting fast and secure file transfers and clipboard (selected work: test, lib/services, lib/pages)",
+ "repos": [
+  {
+   "repo": "IcyEasySend",
+   "url": "https://github.com/panmeibing/IcyEasySend",
+   "sha": "7a82d18938992bb722d765d0605fbf925548967f",
+   "licence": "BSD-3-Clause (LICENSE file at pin 7a82d1893899, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "BSD-3-Clause",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T15:38Z",
+    "consent_receipt": "fb4a8d5769c1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T15:38Z (receipt fb4a8d5769c1); selected commit 7a82d1893899: \"Support canceling files when transferring\". LICENSE file at pin 7a82d1893899 detected as BSD-3-Clause by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "roothytx--nervctf",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on Rust queries this for how rootHytx/NervCTF implements it: A CLI + server toolchain for running CTF competitions on CTFd. Deploy challenges from YAML, provision ephemeral per-team containers, and det (selected work: src/remote-monitor, src/nervctf, the project root)",
+ "repos": [
+  {
+   "repo": "NervCTF",
+   "url": "https://github.com/rootHytx/NervCTF",
+   "sha": "4b030c2a243566daafa465f97b2f2165afcac4fc",
+   "licence": "GPL-3.0 (LICENSE file at pin 4b030c2a2435, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-20T10:33Z",
+    "consent_receipt": "685ba3de6a69",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T10:33Z (receipt 685ba3de6a69); selected commit 4b030c2a2435: \"feat(setup): add event management, lifecycle log, and first-run admin\u2026\". LICENSE file at pin 4b030c2a2435 detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "stashbase--cli",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-security, agent-security-tools, claude-code queries this for how stashbase/cli implements it: Open-source access layer for coding agents. Scoped secrets, APIs, tools, files, and dependencies for Claude Code, Codex, Cursor, and more (selected work: src/handlers, docker, src/cmd)",
+ "repos": [
+  {
+   "repo": "cli",
+   "url": "https://github.com/stashbase/cli",
+   "sha": "ca76d6a9f783b8b95eba9e3713c4459f5a90372e",
+   "licence": "Apache-2.0 (LICENSE file at pin ca76d6a9f783, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T16:48Z",
+    "consent_receipt": "1f299f27c195",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T16:48Z (receipt 1f299f27c195); selected commit ca76d6a9f783: \"feat(agent): refresh agent CLIs on docker build --force and flag stal\u2026\". LICENSE file at pin ca76d6a9f783 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

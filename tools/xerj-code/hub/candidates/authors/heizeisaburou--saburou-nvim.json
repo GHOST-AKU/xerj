@@ -1,0 +1,23 @@
+{
+ "corpus": "heizeisaburou--saburou-nvim",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Lua queries this for how heizeisaburou/saburou-nvim implements it: Mi configuraci\u00f3n de Neovim (selected work: lua, syntax, after)",
+ "repos": [
+  {
+   "repo": "saburou-nvim",
+   "url": "https://github.com/heizeisaburou/saburou-nvim",
+   "sha": "602dc9a42f60ae29f4730b2fa29c028c08d4832a",
+   "licence": "Apache-2.0 (LICENSE file at pin 602dc9a42f60, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T21:26Z",
+    "consent_receipt": "6fa10b83eb99",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T21:26Z (receipt 6fa10b83eb99); selected commit 602dc9a42f60: \"feat(fluent): a\u00f1adir soporte de Project Fluent (.ftl)\". LICENSE file at pin 602dc9a42f60 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

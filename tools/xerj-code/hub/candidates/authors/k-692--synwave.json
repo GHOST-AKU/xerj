@@ -1,0 +1,23 @@
+{
+ "corpus": "k-692--synwave",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on music-visualizer, youtube, synwave queries this for how K-692/Synwave implements it: Autonomous Procedural 3D Concert Stage Simulator & Neural Music Player (selected work: src, the project root, src/services)",
+ "repos": [
+  {
+   "repo": "Synwave",
+   "url": "https://github.com/K-692/Synwave",
+   "sha": "b33a8d052a3c5dc9822a72f12d4b81070dd971e4",
+   "licence": "MIT (LICENSE file at pin b33a8d052a3c, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T04:29Z",
+    "consent_receipt": "ebd9633dea87",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T04:29Z (receipt ebd9633dea87); selected commit b33a8d052a3c: \"Integrate Demucs AI 4-stem separation, stem-reactive visual fixtures,\u2026\". LICENSE file at pin b33a8d052a3c detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

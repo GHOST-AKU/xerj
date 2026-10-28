@@ -1,0 +1,23 @@
+{
+ "corpus": "stevenshiau--clonezilla",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Shell queries this for how stevenshiau/clonezilla implements it: Clonezilla is a partition or disk clone tool similar to Norton Ghost\u00ae. It saves and restores only used blocks in hard drive. Two types of Cl (selected work: debian, sbin, scripts)",
+ "repos": [
+  {
+   "repo": "clonezilla",
+   "url": "https://github.com/stevenshiau/clonezilla",
+   "sha": "d869e3c5a3e1f7195ac3b2cd619bf6360b69b277",
+   "licence": "GPL-2.0 (LICENSE file at pin d869e3c5a3e1, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-09T07:08Z",
+    "consent_receipt": "72d4f37dda15",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T07:08Z (receipt 72d4f37dda15); selected commit d869e3c5a3e1: \"Support Btrfs subvolumes for openSUSE Tumbleweed in ocs-update-initrd\". LICENSE file at pin d869e3c5a3e1 detected as GPL-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

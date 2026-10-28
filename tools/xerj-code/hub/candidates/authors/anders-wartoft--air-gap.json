@@ -1,0 +1,23 @@
+{
+ "corpus": "anders-wartoft--air-gap",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "CRYPTO",
+ "domain": "an agent working on Go queries this for how anders-wartoft/air-gap implements it: Send UDP messages over a one-way diode with detection of lost packages, encryption, and a way to resend lost messages. air-gap is written in (selected work: src/upstream, tests, config)",
+ "repos": [
+  {
+   "repo": "air-gap",
+   "url": "https://github.com/anders-wartoft/air-gap",
+   "sha": "84cee3c20b62e77bd985705acab443706fc48b4d",
+   "licence": "LGPL-2.1 (LICENSE file at pin 84cee3c20b62, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "LGPL-2.1",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-15T05:30Z",
+    "consent_receipt": "7c79ef8bf03e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T05:30Z (receipt 7c79ef8bf03e); selected commit 84cee3c20b62: \"Upstream Large-Message Memory Safety\". LICENSE file at pin 84cee3c20b62 detected as LGPL-2.1 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

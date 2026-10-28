@@ -1,0 +1,23 @@
+{
+ "corpus": "mlavrinenko--outdatty",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how mlavrinenko/outdatty implements it: Declare a dependency graph between arbitrary files and have CI fail when a source changes but its dependents were not re-confirmed. Language (selected work: tests, src, www)",
+ "repos": [
+  {
+   "repo": "outdatty",
+   "url": "https://github.com/mlavrinenko/outdatty",
+   "sha": "dc0bd3f08cc7ccbb69e4359bc7f60e9d6d9b2621",
+   "licence": "MIT (LICENSE file at pin dc0bd3f08cc7, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T19:08Z",
+    "consent_receipt": "578291b64dc3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T19:08Z (receipt 578291b64dc3); selected commit dc0bd3f08cc7: \"feat(check): fail on lock groups the manifest no longer declares\". LICENSE file at pin dc0bd3f08cc7 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

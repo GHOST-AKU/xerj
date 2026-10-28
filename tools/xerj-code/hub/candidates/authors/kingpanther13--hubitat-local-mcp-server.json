@@ -1,0 +1,23 @@
+{
+ "corpus": "kingpanther13--hubitat-local-mcp-server",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Groovy queries this for how kingpanther13/Hubitat-local-MCP-server implements it: An MCP server for Hubitat Elevation that runs natively on your Hubitat (selected work: src/test, libraries, tests)",
+ "repos": [
+  {
+   "repo": "Hubitat-local-MCP-server",
+   "url": "https://github.com/kingpanther13/Hubitat-local-MCP-server",
+   "sha": "659b8084921b78d6b58ea0356673d014b178e9b6",
+   "licence": "MIT (LICENSE file at pin 659b8084921b, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T08:17Z",
+    "consent_receipt": "0a56013127da",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T08:17Z (receipt 0a56013127da); selected commit 659b8084921b: \"fix: copy a variable into a String target through valStringOp (#445)\". LICENSE file at pin 659b8084921b detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

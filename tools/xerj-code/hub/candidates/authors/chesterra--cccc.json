@@ -1,0 +1,23 @@
+{
+ "corpus": "chesterra--cccc",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, claude-code, codex-cli queries this for how ChesterRa/cccc implements it: Coordinate your coding agents like a group chat \u2014 read receipts, delivery tracking, and remote ops from your phone. One pip install, zero in (selected work: crates/cccc-daemon, web, crates/cccc-web)",
+ "repos": [
+  {
+   "repo": "cccc",
+   "url": "https://github.com/ChesterRa/cccc",
+   "sha": "e6de7f9a3ff02439dbd852a549ff79ebb6784631",
+   "licence": "Apache-2.0 (LICENSE file at pin e6de7f9a3ff0, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T03:09Z",
+    "consent_receipt": "4745269dafba",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T03:09Z (receipt 4745269dafba); selected commit e6de7f9a3ff0: \"fix(daemon): settle a failed managed turn as error and a cancelled on\u2026\". LICENSE file at pin e6de7f9a3ff0 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

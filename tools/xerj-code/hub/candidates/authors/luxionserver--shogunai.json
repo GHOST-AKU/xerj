@@ -1,0 +1,23 @@
+{
+ "corpus": "luxionserver--shogunai",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, android, claude-code queries this for how LuxionServer/ShogunAi implements it: Run AI coding agents in parallel on one machine without them stepping on each other: each gets its own worktree, local files, ports, devices (selected work: core/src, desktopApp, cli)",
+ "repos": [
+  {
+   "repo": "ShogunAi",
+   "url": "https://github.com/LuxionServer/ShogunAi",
+   "sha": "283ef18a73c50c8a0c0161f64266cc19fd03bb01",
+   "licence": "Apache-2.0 (LICENSE file at pin 283ef18a73c5, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T14:01Z",
+    "consent_receipt": "313fff2e3efd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T14:01Z (receipt 313fff2e3efd); selected commit 283ef18a73c5: \"Show and clean up Xcode DerivedData per worktree with the Xcode provider\". LICENSE file at pin 283ef18a73c5 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution. Pinned to head 283ef18a73c5 (contains the selected commit): the LICENSE at the selected commit was GPL-3.0."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "rgmez--swift-comments-that-matter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Swift queries this for how rgmez/swift-comments-that-matter implements it: Cross-agent standard for high-signal comments in Swift codebases, focused on intent, invariants, constraints, side effects, and concurrency  (selected work: skills, standards, tests)",
+ "repos": [
+  {
+   "repo": "swift-comments-that-matter",
+   "url": "https://github.com/rgmez/swift-comments-that-matter",
+   "sha": "ce3468a3736c47d50dd9b0eb4549659d9de6126c",
+   "licence": "MIT (LICENSE file at pin ce3468a3736c, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T21:32Z",
+    "consent_receipt": "a5b743fa3f12",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T21:32Z (receipt a5b743fa3f12); selected commit ce3468a3736c: \"Update: Prepare v1.3.0 release\". LICENSE file at pin ce3468a3736c detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "fkrzski--php-steam-api-sdk",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on PHP queries this for how fkrzski/php-steam-api-sdk implements it: Framework-agnostic PHP SDK for the Steam Web API, built on top of Saloon v4 (selected work: src/Testing, tests)",
+ "repos": [
+  {
+   "repo": "php-steam-api-sdk",
+   "url": "https://github.com/fkrzski/php-steam-api-sdk",
+   "sha": "4ce0359bba7ca2857f2bb63a3905c32a98780f68",
+   "licence": "MIT (LICENSE file at pin 4ce0359bba7c, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T04:50Z",
+    "consent_receipt": "614837c42b86",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T04:50Z (receipt 614837c42b86); selected commit 4ce0359bba7c: \"feat(testing): add a fluent Steam fake\". LICENSE file at pin 4ce0359bba7c detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

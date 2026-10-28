@@ -1,0 +1,23 @@
+{
+ "corpus": "betanumeric--climate-spiral",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on climate-change, data-visualization, spiral queries this for how BetaNumeric/climate_spiral implements it: Interactive 3D web visualization of global temperature since 1880 (selected work: scripts, the project root, tests)",
+ "repos": [
+  {
+   "repo": "climate_spiral",
+   "url": "https://github.com/BetaNumeric/climate_spiral",
+   "sha": "f8cc8dc36b4cdadaa72a740427f191cded724818",
+   "licence": "MIT (LICENSE file at pin f8cc8dc36b4c, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T04:04Z",
+    "consent_receipt": "7bc7a0c82d74",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T04:04Z (receipt 7bc7a0c82d74); selected commit f8cc8dc36b4c: \"local temperature\". LICENSE file at pin f8cc8dc36b4c detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

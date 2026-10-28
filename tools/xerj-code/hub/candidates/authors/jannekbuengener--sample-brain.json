@@ -1,0 +1,23 @@
+{
+ "corpus": "jannekbuengener--sample-brain",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-assisted-development, audio, local-first queries this for how jannekbuengener/sample-brain implements it: Local-first sample management and editing music in easy ways to spend more time in live performance. never leave the box anymore (selected work: src, tests)",
+ "repos": [
+  {
+   "repo": "sample-brain",
+   "url": "https://github.com/jannekbuengener/sample-brain",
+   "sha": "ddce26258d6b3677f42421d91a8cf84e039a11a5",
+   "licence": "author's permission (LICENSE at pin ddce26258d6b: NOASSERTION; repository: MIT)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T19:21Z",
+    "consent_receipt": "b264f88a01bf",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T19:21Z (receipt b264f88a01bf); selected commit ddce26258d6b: \"[DOMAIN][#1087][ARRANGEMENT] Blocks, group/track masks, end marker st\u2026\". LICENSE at pin ddce26258d6b: NOASSERTION (repository: MIT); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

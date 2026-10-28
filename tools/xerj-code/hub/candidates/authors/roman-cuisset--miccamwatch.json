@@ -1,0 +1,23 @@
+{
+ "corpus": "roman-cuisset--miccamwatch",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on camera, cli, cross-platform queries this for how Roman-Cuisset/miccamwatch implements it: MicCamWatch \u2014 Free, open-source microphone and camera activity monitoring for Windows, Linux and macOS (selected work: src/updater, src/frontends, installer)",
+ "repos": [
+  {
+   "repo": "miccamwatch",
+   "url": "https://github.com/Roman-Cuisset/miccamwatch",
+   "sha": "9b52e43b3fa9d4d58be0b9eb667e65e23a2b4f54",
+   "licence": "MIT (LICENSE file at pin 9b52e43b3fa9, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T14:49Z",
+    "consent_receipt": "ba1f7a1de64b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T14:49Z (receipt ba1f7a1de64b); selected commit 9b52e43b3fa9: \"fix(windows): detach tray restart handles and neutralize shell identity\". LICENSE file at pin 9b52e43b3fa9 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

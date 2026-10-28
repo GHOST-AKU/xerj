@@ -1,0 +1,23 @@
+{
+ "corpus": "ksanadock--verdict-lab",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how KsanaDock/verdict-lab implements it: An experiment comparing the capabilities and costs of the JEV model and LLM models in the field of content moderation (selected work: src/verdict_lab, tests, config)",
+ "repos": [
+  {
+   "repo": "verdict-lab",
+   "url": "https://github.com/KsanaDock/verdict-lab",
+   "sha": "82e47ee115e16444c54b4eaeb5807547be257162",
+   "licence": "Apache-2.0 (LICENSE file at pin 82e47ee115e1, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T06:40Z",
+    "consent_receipt": "b12de0093ed6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T06:40Z (receipt b12de0093ed6); selected commit 82e47ee115e1: \"feat: complete benchmark implementation and results dashboard\". LICENSE file at pin 82e47ee115e1 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

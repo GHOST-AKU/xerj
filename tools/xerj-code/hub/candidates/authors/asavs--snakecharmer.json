@@ -1,0 +1,23 @@
+{
+ "corpus": "asavs--snakecharmer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on deathadder, gpl, hid queries this for how asavs/snakecharmer implements it: A tiny native Windows replacement for Razer Synapse with a toolkit to crack your own peripherals (selected work: crates/platform, src, crates/razer-proto)",
+ "repos": [
+  {
+   "repo": "snakecharmer",
+   "url": "https://github.com/asavs/snakecharmer",
+   "sha": "1b55d0b132bfdc5b1a32c51ecffbef43d01af6e2",
+   "licence": "GPL-2.0 (LICENSE file at pin 1b55d0b132bf, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T21:31Z",
+    "consent_receipt": "41e0f5f14cab",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T21:31Z (receipt 41e0f5f14cab); selected commit 1b55d0b132bf: \"Guided on-board binding and keyboard/screen-reader support in setting\u2026\". LICENSE file at pin 1b55d0b132bf detected as GPL-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

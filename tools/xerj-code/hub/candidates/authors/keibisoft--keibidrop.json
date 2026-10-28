@@ -1,0 +1,23 @@
+{
+ "corpus": "keibisoft--keibidrop",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on cross-platform, file-sharing, filesystem queries this for how KeibiSoft/KeibiDrop implements it: Share files between devices on demand. They show up as a folder on your computer, available instantly while downloading (selected work: rust, cmd/kd, cmd/cli)",
+ "repos": [
+  {
+   "repo": "KeibiDrop",
+   "url": "https://github.com/KeibiSoft/KeibiDrop",
+   "sha": "e7e789af317994f48812804e9977b8a496b49afe",
+   "licence": "AGPL-3.0 (LICENSE file at pin e7e789af3179, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-16T17:39Z",
+    "consent_receipt": "b98fa7c7af1a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T17:39Z (receipt b98fa7c7af1a); selected commit e7e789af3179: \"Add help text around the configuartion\". LICENSE file at pin e7e789af3179 detected as AGPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

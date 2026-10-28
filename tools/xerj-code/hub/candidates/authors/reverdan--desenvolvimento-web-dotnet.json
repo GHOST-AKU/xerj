@@ -1,0 +1,23 @@
+{
+ "corpus": "reverdan--desenvolvimento-web-dotnet",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on C# queries this for how Reverdan/Desenvolvimento_Web_DotNet implements it: Material de apoio curso de An\u00e1lise e Desenvolvimento Unip Sorocaba (selected work: 18 - WebApi com cookie, 17 - WebApi com DAL Entity, 15 - WebAPI com DAL)",
+ "repos": [
+  {
+   "repo": "Desenvolvimento_Web_DotNet",
+   "url": "https://github.com/Reverdan/Desenvolvimento_Web_DotNet",
+   "sha": "8b4e1fa12d4d8aff0f7c311906b52e31684cf331",
+   "licence": "MIT (LICENSE file at pin 8b4e1fa12d4d, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T17:16Z",
+    "consent_receipt": "8e6045d2e2d8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T17:16Z (receipt 8e6045d2e2d8); selected commit 8b4e1fa12d4d: \"Cookies\". LICENSE file at pin 8b4e1fa12d4d detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

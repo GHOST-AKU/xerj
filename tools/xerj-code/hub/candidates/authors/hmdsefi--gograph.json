@@ -1,0 +1,23 @@
+{
+ "corpus": "hmdsefi--gograph",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on generic, golang, graph queries this for how hmdsefi/gograph implements it: Generic graph data structures and algorithms for Go (Golang): dependency graphs (DAGs) with cycle checks and topological sort, BFS and DFS t (selected work: path, the project root)",
+ "repos": [
+  {
+   "repo": "gograph",
+   "url": "https://github.com/hmdsefi/gograph",
+   "sha": "afa7174fee6597a4148f94de2f21024b3c69f4f7",
+   "licence": "Apache-2.0 (LICENSE file at pin afa7174fee65, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T09:31Z",
+    "consent_receipt": "6f0dc7cfcee8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T09:31Z (receipt 6f0dc7cfcee8); selected commit afa7174fee65: \"Add DijkstraMultiSource for the nearest of several sources (#233)\". LICENSE file at pin afa7174fee65 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

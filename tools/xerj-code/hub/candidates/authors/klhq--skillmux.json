@@ -1,0 +1,23 @@
+{
+ "corpus": "klhq--skillmux",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-skills, developer-tools, mcp queries this for how klhq/skillmux implements it: Skill management and retrieval for AI agents: sync native skills across clients and route the long tail over MCP (selected work: tests, src, the project root)",
+ "repos": [
+  {
+   "repo": "skillmux",
+   "url": "https://github.com/klhq/skillmux",
+   "sha": "e9b7ffd5ef7cbe3a32441a796c3f3fbab17c1ce0",
+   "licence": "MIT (LICENSE file at pin e9b7ffd5ef7c, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T11:31Z",
+    "consent_receipt": "88755de4fad1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T11:31Z (receipt 88755de4fad1); selected commit e9b7ffd5ef7c: \"feat(embedding): configure model input prefixes (#225)\". LICENSE file at pin e9b7ffd5ef7c detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

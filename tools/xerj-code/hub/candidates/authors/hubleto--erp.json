@@ -1,0 +1,23 @@
+{
+ "corpus": "hubleto--erp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on crm, erp, open-source queries this for how hubleto/erp implements it: Core of Hubleto platform | \ud83c\udf1f Star if you like it! (selected work: apps/LinkedinMessages)",
+ "repos": [
+  {
+   "repo": "erp",
+   "url": "https://github.com/hubleto/erp",
+   "sha": "a6d8262f4bd6b9249cf2de8219792259f118118e",
+   "licence": "GPL-3.0 (LICENSE file at pin a6d8262f4bd6, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-06T05:38Z",
+    "consent_receipt": "0e5a4ef04657",
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T05:38Z (receipt 0e5a4ef04657); selected commit a6d8262f4bd6: \"added LinkedinMessages app\". LICENSE file at pin a6d8262f4bd6 detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

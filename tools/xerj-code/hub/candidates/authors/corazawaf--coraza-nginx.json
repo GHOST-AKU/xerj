@@ -1,0 +1,23 @@
+{
+ "corpus": "corazawaf--coraza-nginx",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on coraza-waf, nginx queries this for how corazawaf/coraza-nginx implements it: Coraza NGINX Experimental Connector (selected work: src, t, lint)",
+ "repos": [
+  {
+   "repo": "coraza-nginx",
+   "url": "https://github.com/corazawaf/coraza-nginx",
+   "sha": "e40152aad7c8776dc4aa4ebc18405be22bc4b697",
+   "licence": "Apache-2.0 (LICENSE file at pin e40152aad7c8, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T13:43Z",
+    "consent_receipt": "e212023bc463",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T13:43Z (receipt e212023bc463); selected commit e40152aad7c8: \"fix: finalise phase 4 before the headers when the body will not be in\u2026\". LICENSE file at pin e40152aad7c8 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

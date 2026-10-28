@@ -1,0 +1,23 @@
+{
+ "corpus": "travsr-com--travsr",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, code-intelligence, developer-tools queries this for how Travsr-com/travsr implements it: The code graph that lives next to git. Graph-native code intelligence over MCP, built from real edges, not vector approximations (selected work: crates/travsr-analysis, crates/travsr-indexer)",
+ "repos": [
+  {
+   "repo": "travsr",
+   "url": "https://github.com/Travsr-com/travsr",
+   "sha": "b81b60ba6aa230c4f82c200b5ec948ae3d349d75",
+   "licence": "Apache-2.0 (LICENSE file at pin b81b60ba6aa2, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T07:54Z",
+    "consent_receipt": "98ecfa025aaa",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T07:54Z (receipt 98ecfa025aaa); selected commit b81b60ba6aa2: \"[travsr-analysis] index enum members as variant:Enum.Member nodes\". LICENSE file at pin b81b60ba6aa2 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

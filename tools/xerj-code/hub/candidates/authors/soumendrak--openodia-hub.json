@@ -1,0 +1,23 @@
+{
+ "corpus": "soumendrak--openodia-hub",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on cloudflare-workers, nlp, odia queries this for how soumendrak/openodia-hub implements it: Open source for the Odia language \u2014 tools, datasets, and AI resources for \u0b13\u0b21\u0b3c\u0b3f\u0b06 (selected work: test, src/routes, the project root)",
+ "repos": [
+  {
+   "repo": "openodia-hub",
+   "url": "https://github.com/soumendrak/openodia-hub",
+   "sha": "b55cb9aa2795aa6ba8d4d3330986381d625b97f7",
+   "licence": "MIT (LICENSE file at pin b55cb9aa2795, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T14:20Z",
+    "consent_receipt": "437ea2860f5d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T14:20Z (receipt 437ea2860f5d); selected commit b55cb9aa2795: \"fix: make the hub keyboard accessible and gate every route (#132)\". LICENSE file at pin b55cb9aa2795 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

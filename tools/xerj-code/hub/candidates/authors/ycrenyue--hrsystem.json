@@ -1,0 +1,23 @@
+{
+ "corpus": "ycrenyue--hrsystem",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how YCRenyue/hrsystem implements it: YCRenyue/hrsystem (JavaScript) (selected work: backend, frontend)",
+ "repos": [
+  {
+   "repo": "hrsystem",
+   "url": "https://github.com/YCRenyue/hrsystem",
+   "sha": "2c1b0d38f9347feae6de57d10279bb45022be061",
+   "licence": "MIT (LICENSE file at pin 2c1b0d38f934, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-21T21:20Z",
+    "consent_receipt": "7920cf9df6b7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-21T21:20Z (receipt 7920cf9df6b7); selected commit 2c1b0d38f934: \"feat(documents): secure contract signing workflow\". LICENSE file at pin 2c1b0d38f934 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

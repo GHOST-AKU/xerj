@@ -1,0 +1,23 @@
+{
+ "corpus": "romelium--mpatch",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, automation, cli queries this for how Romelium/mpatch implements it: Applies diffs by context, not line numbers. Paste a diff from ChatGPT, Claude or Gemini and mpatch finds where each hunk belongs, even when  (selected work: src, tests)",
+ "repos": [
+  {
+   "repo": "mpatch",
+   "url": "https://github.com/Romelium/mpatch",
+   "sha": "c04f13cad9f44e02eb383e32efd07d7b65861ba2",
+   "licence": "MIT (LICENSE file at pin c04f13cad9f4, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T22:01Z",
+    "consent_receipt": "c72fe17e6a10",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T22:01Z (receipt c72fe17e6a10); selected commit c04f13cad9f4: \"feat(cli): apply Git executable-bit mode changes\". LICENSE file at pin c04f13cad9f4 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

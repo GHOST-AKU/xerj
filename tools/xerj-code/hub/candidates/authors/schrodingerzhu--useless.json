@@ -1,0 +1,23 @@
+{
+ "corpus": "schrodingerzhu--useless",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how SchrodingerZhu/useless implements it: Useless Utilities (selected work: crates/lamlock)",
+ "repos": [
+  {
+   "repo": "useless",
+   "url": "https://github.com/SchrodingerZhu/useless",
+   "sha": "2f14600a2f276ab2c427e5f87252af7634c72027",
+   "licence": "author's permission (LICENSE at pin 2f14600a2f27: NOASSERTION; repository: Apache-2.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-06T02:56Z",
+    "consent_receipt": "4d6eed19fd7f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T02:56Z (receipt 4d6eed19fd7f); selected commit 2f14600a2f27: \"lamlock: separate poisoning and add scheduled recovery\". LICENSE at pin 2f14600a2f27: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

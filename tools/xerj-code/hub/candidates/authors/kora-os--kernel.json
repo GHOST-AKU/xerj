@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on C queries this for how kora-os/kernel implements it: Kernel (selected work: tests, user, src/sys)",
+ "domain": "an agent working on operating-system, operating-system-kernel, operating-systems queries this for how kora-os/kernel implements it: KoraOS Kernel (selected work: tests, user, src/sys)",
  "repos": [
   {
    "repo": "kernel",

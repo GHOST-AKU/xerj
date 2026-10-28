@@ -1,0 +1,23 @@
+{
+ "corpus": "eibelucas--kiosk-satellite-sip",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Python queries this for how Eibelucas/Kiosk-Satellite-SIP implements it: Eibelucas/Kiosk-Satellite-SIP (Python) (selected work: tests, kiosk_sip, src/de)",
+ "repos": [
+  {
+   "repo": "Kiosk-Satellite-SIP",
+   "url": "https://github.com/Eibelucas/Kiosk-Satellite-SIP",
+   "sha": "ff0d4267cfd707fb8c18c577c3a4c39047d7ffab",
+   "licence": "Apache-2.0 (LICENSE file at pin ff0d4267cfd7, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T23:17Z",
+    "consent_receipt": "f9c38569f5a9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T23:17Z (receipt f9c38569f5a9); selected commit ff0d4267cfd7: \"Support independent SIP identities and incoming ring groups across ki\u2026\". LICENSE file at pin ff0d4267cfd7 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

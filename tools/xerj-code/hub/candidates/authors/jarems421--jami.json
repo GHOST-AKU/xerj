@@ -1,0 +1,23 @@
+{
+ "corpus": "jarems421--jami",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on education, flashcards, learning queries this for how jarems421/jami implements it: Adaptive AI study platform with exam practice, dual-model marking, flashcards, notebooks, revision planning and a deterministic student lear (selected work: tests, lib/ai, services)",
+ "repos": [
+  {
+   "repo": "jami-flashcards",
+   "url": "https://github.com/jarems421/jami-flashcards",
+   "sha": "e41f1aa10ac1751f2a5c99507839d4f3ff807e64",
+   "licence": "MIT (LICENSE file at pin e41f1aa10ac1, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T23:25Z",
+    "consent_receipt": "17445b60196e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T23:25Z (receipt 17445b60196e); selected commit e41f1aa10ac1: \"Tutor agent: check on another family, only where a slip is plausible,\u2026\". LICENSE file at pin e41f1aa10ac1 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

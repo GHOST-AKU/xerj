@@ -1,0 +1,23 @@
+{
+ "corpus": "anthonyhaussman--opencode-agy-auth",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on antigravity, opencode, opencode-plugin queries this for how anthonyhaussman/opencode-agy-auth implements it: Antigravity auth plugin for opencode (selected work: src/plugin, test, src)",
+ "repos": [
+  {
+   "repo": "opencode-agy-auth",
+   "url": "https://github.com/anthonyhaussman/opencode-agy-auth",
+   "sha": "d7e9001207f11466167e855abcdec4ab89ba607d",
+   "licence": "Apache-2.0 (LICENSE file at pin d7e9001207f1, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T08:47Z",
+    "consent_receipt": "643e7063ee15",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T08:47Z (receipt 643e7063ee15); selected commit d7e9001207f1: \"refactor(v2): modularize opencode v2 adapter\". LICENSE file at pin d7e9001207f1 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "kenfilms--magicpilot-remote",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on arduino, blackmagic, ble queries this for how KenFilms/MagicPilot_Remote implements it: \u2728 MagicPilot Remote \u2014 Open-source Bluetooth touchscreen remote for the Blackmagic Pocket Cinema Camera 6K (BMPCC6K). ESP32 firmware for M5St (selected work: src, scripts, the project root)",
+ "repos": [
+  {
+   "repo": "MagicPilot_Remote",
+   "url": "https://github.com/KenFilms/MagicPilot_Remote",
+   "sha": "2d39411929b722ad5a781ecdc9440d91358283be",
+   "licence": "LGPL-3.0 (LICENSE file at pin 2d39411929b7, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "LGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T09:13Z",
+    "consent_receipt": "2dc9ab149ab4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T09:13Z (receipt 2dc9ab149ab4); selected commit 2d39411929b7: \"Add CoreS3 support and ambient brightness\". LICENSE file at pin 2d39411929b7 detected as LGPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

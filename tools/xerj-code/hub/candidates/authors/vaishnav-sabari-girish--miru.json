@@ -1,0 +1,23 @@
+{
+ "corpus": "vaishnav-sabari-girish--miru",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on cli, cmake, cprogramming queries this for how Vaishnav-Sabari-Girish/miru implements it: Wayland-native zooming daemon (Mirror of https://codeberg.org/Vaishnav-Sabari-Girish/miru) (selected work: src, ctl)",
+ "repos": [
+  {
+   "repo": "miru",
+   "url": "https://github.com/Vaishnav-Sabari-Girish/miru",
+   "sha": "9bac7e9bb54141c6c5440e3748bf603b8b04b217",
+   "licence": "MIT (LICENSE file at pin 9bac7e9bb541, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T01:50Z",
+    "consent_receipt": "36c0da97d039",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T01:50Z (receipt 36c0da97d039); selected commit 9bac7e9bb541: \"feat(spotlight): standalone click-through dim overlay\". LICENSE file at pin 9bac7e9bb541 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

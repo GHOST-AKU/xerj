@@ -1,0 +1,23 @@
+{
+ "corpus": "adriancs2--auto-folder-backup",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C# queries this for how adriancs2/auto-folder-backup implements it: A Simple Solution for Automatic Backup a Folder with Task Scheduler (selected work: source code, src/AutoFilesBackup.Core, src/AutoFilesBackup.App)",
+ "repos": [
+  {
+   "repo": "auto-folder-backup",
+   "url": "https://github.com/adriancs2/auto-folder-backup",
+   "sha": "2ee6b38e84f9c9f17960efa780ddf029dce246c3",
+   "licence": "Unlicense (LICENSE file at pin 2ee6b38e84f9, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Unlicense",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T10:27Z",
+    "consent_receipt": "99b1a53c48e2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T10:27Z (receipt 99b1a53c48e2); selected commit 2ee6b38e84f9: \"update v2\". LICENSE file at pin 2ee6b38e84f9 detected as Unlicense by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

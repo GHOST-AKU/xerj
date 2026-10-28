@@ -1,0 +1,23 @@
+{
+ "corpus": "sailrain--scientific-plotting-skill",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on MATLAB queries this for how SailRain/scientific-plotting-skill implements it: A MATLAB scientific plotting skill with independent workflows for plot types and figure placements (selected work: tests, scientific-plotting)",
+ "repos": [
+  {
+   "repo": "scientific-plotting-skill",
+   "url": "https://github.com/SailRain/scientific-plotting-skill",
+   "sha": "d5abc16ab634b37661cfbd5f994b8868de58217a",
+   "licence": "MIT (LICENSE file at pin d5abc16ab634, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T09:48Z",
+    "consent_receipt": "e7feac2d96af",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T09:48Z (receipt e7feac2d96af); selected commit d5abc16ab634: \"Add shared SailRain color schemes and MATLAB loader\". LICENSE file at pin d5abc16ab634 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

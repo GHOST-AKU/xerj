@@ -1,0 +1,23 @@
+{
+ "corpus": "fklavyenet--webblocks-cms",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on automation, cms, composer-package queries this for how fklavyenet/webblocks-cms implements it: Open-source Laravel-native CMS for structured, multi-site publishing and automation (selected work: tests, resources, src/Support)",
+ "repos": [
+  {
+   "repo": "webblocks-cms",
+   "url": "https://github.com/fklavyenet/webblocks-cms",
+   "sha": "cc8a191c30a866a4a4d8afa22f01a1ccc73cdcbb",
+   "licence": "MIT (LICENSE file at pin cc8a191c30a8, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T19:29Z",
+    "consent_receipt": "9490ef9f70ed",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T19:29Z (receipt 9490ef9f70ed); selected commit cc8a191c30a8: \"feat(auth): use email verification inside CMS account management\". LICENSE file at pin cc8a191c30a8 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

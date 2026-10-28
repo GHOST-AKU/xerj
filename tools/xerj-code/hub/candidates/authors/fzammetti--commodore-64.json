@@ -1,0 +1,23 @@
+{
+ "corpus": "fzammetti--commodore-64",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how fzammetti/commodore-64 implements it: A few VERY old Commodore-64 related things (selected work: c64-conversions)",
+ "repos": [
+  {
+   "repo": "commodore-64",
+   "url": "https://github.com/fzammetti/commodore-64",
+   "sha": "26f9898364dc3a1ffed14d96a90cf8062a0f7f9b",
+   "licence": "MIT (LICENSE file at pin 26f9898364dc, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T17:49Z",
+    "consent_receipt": "c8377c2b7e50",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T17:49Z (receipt c8377c2b7e50); selected commit 26f9898364dc: \"Added c64 conversions and aura demo\". LICENSE file at pin 26f9898364dc detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

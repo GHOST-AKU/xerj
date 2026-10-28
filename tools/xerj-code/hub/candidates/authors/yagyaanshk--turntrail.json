@@ -1,0 +1,23 @@
+{
+ "corpus": "yagyaanshk--turntrail",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how yagyaanshK/turntrail implements it: Vendor-neutral handoff layer for continuing developer agent sessions across Codex, Claude, and other tools (selected work: packages/core)",
+ "repos": [
+  {
+   "repo": "turntrail",
+   "url": "https://github.com/yagyaanshK/turntrail",
+   "sha": "ab4e4b4b45fd29c8914c2eb1ec384a7dcd5a55f1",
+   "licence": "MIT (LICENSE file at pin ab4e4b4b45fd, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T10:14Z",
+    "consent_receipt": "1e65f40c0fe9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T10:14Z (receipt 1e65f40c0fe9); selected commit ab4e4b4b45fd: \"Read the chats Codex compresses, without ever touching the files\". LICENSE file at pin ab4e4b4b45fd detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

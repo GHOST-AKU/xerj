@@ -1,0 +1,23 @@
+{
+ "corpus": "freakyady--interactive-machines",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how FreakyAdy/INTERACTIVE-MACHINES implements it: Operable Reconstructions of Classical Chinese Mechanical Masterpieces A museum where ancient engineering runs on verifiable physics, strict  (selected work: src/ui, the project root)",
+ "repos": [
+  {
+   "repo": "INTERACTIVE-MACHINES",
+   "url": "https://github.com/FreakyAdy/INTERACTIVE-MACHINES",
+   "sha": "f9bc9eb7fa6a70bd80dcf01d1533d6535689b4ac",
+   "licence": "MIT (LICENSE file at pin f9bc9eb7fa6a, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T15:11Z",
+    "consent_receipt": "1a52aa21aaee",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T15:11Z (receipt 1a52aa21aaee); selected commit f9bc9eb7fa6a: \"feat: add interactive 3D machine viewer and carousel hero components \u2026\". LICENSE file at pin f9bc9eb7fa6a detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "ezequielgk--noctalia-dynamic-icons",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Shell queries this for how ezequielgk/Noctalia-Dynamic-Icons implements it: ezequielgk/Noctalia-Dynamic-Icons (Shell) (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "Noctalia-Dynamic-Icons",
+   "url": "https://github.com/ezequielgk/Noctalia-Dynamic-Icons",
+   "sha": "8324ae95c49beed38221df0d2c27efe1df00c6c2",
+   "licence": "BSD-2-Clause (LICENSE file at pin 8324ae95c49b, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "BSD-2-Clause",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T04:07Z",
+    "consent_receipt": "0871b9fc8f6b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T04:07Z (receipt 0871b9fc8f6b); selected commit 8324ae95c49b: \"Add files via upload\". LICENSE file at pin 8324ae95c49b detected as BSD-2-Clause by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "hamzagbada--gpu-stress-test",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on cuda, deep-learning, monitoring queries this for how HamzaGbada/gpu-stress-test implements it: A full GPU stress-testing and benchmarking suite for NVIDIA GPUs with PyTorch (selected work: gpu_stress, tests, the project root)",
+ "repos": [
+  {
+   "repo": "gpu-stress-test",
+   "url": "https://github.com/HamzaGbada/gpu-stress-test",
+   "sha": "fff31ebd0d6d7bd9c76e43a17f75f2916f285704",
+   "licence": "MIT (LICENSE file at pin fff31ebd0d6d, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T12:44Z",
+    "consent_receipt": "fbb1d3441e2a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T12:44Z (receipt fbb1d3441e2a); selected commit fff31ebd0d6d: \"Add physics/edge-case steps, fix unified-memory GPUs, package for rel\u2026\". LICENSE file at pin fff31ebd0d6d detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

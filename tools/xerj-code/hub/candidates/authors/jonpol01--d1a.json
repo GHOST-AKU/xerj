@@ -1,0 +1,23 @@
+{
+ "corpus": "jonpol01--d1a",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how jonpol01/d1a implements it: D1A \u2014 a small decision model on Gemma 4: typed questions in, calibrated probabilities out (built on Kev) (selected work: d1a, tests)",
+ "repos": [
+  {
+   "repo": "d1a",
+   "url": "https://github.com/jonpol01/d1a",
+   "sha": "8c7b6139154c8ae248c18426c9b0714a5c8ab43e",
+   "licence": "Apache-2.0 (LICENSE file at pin 8c7b6139154c, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T09:46Z",
+    "consent_receipt": "705f8f66a930",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T09:46Z (receipt 705f8f66a930); selected commit 8c7b6139154c: \"Self-learning: per-option (vector) recalibration, served recalibrated\u2026\". LICENSE file at pin 8c7b6139154c detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

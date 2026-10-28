@@ -1,0 +1,23 @@
+{
+ "corpus": "whelanh--omarchy-catholic-reference",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on catholic, catholic-bible, catholic-church queries this for how whelanh/omarchy-catholic-reference implements it: An Omarchy Quattro bar widget: Douay-Rheims Bible and Catechism search, prayers, daily Mass readings (with Lecto Divina), Liturgy of the Hou (selected work: bin, the project root, tests)",
+ "repos": [
+  {
+   "repo": "omarchy-catholic-reference",
+   "url": "https://github.com/whelanh/omarchy-catholic-reference",
+   "sha": "c8a2b81e654d6b503b3c6688414538dd9d23b007",
+   "licence": "author's permission (LICENSE at pin c8a2b81e654d: MIT; repository: NOASSERTION)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T18:15Z",
+    "consent_receipt": "bdb65c7297fe",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T18:15Z (receipt bdb65c7297fe); selected commit c8a2b81e654d: \"Replace the Node helper with a Python 3 helper; bump to 1.4.5\". LICENSE at pin c8a2b81e654d: MIT (repository: NOASSERTION); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}
