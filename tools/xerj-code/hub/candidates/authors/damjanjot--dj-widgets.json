@@ -1,0 +1,23 @@
+{
+ "corpus": "damjanjot--dj-widgets",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how DamJanJot/dj-widgets implements it: Lightweight dashboard template built with React, Vite, and TypeScript (selected work: src, src/pages, src/components)",
+ "repos": [
+  {
+   "repo": "dj-widgets",
+   "url": "https://github.com/DamJanJot/dj-widgets",
+   "sha": "87d65a6076767b93513044d712be91c62a8b827c",
+   "licence": "MIT (LICENSE file at pin 87d65a607676, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T20:06Z",
+    "consent_receipt": "a7248d8cef8b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:06Z (receipt a7248d8cef8b); selected commit 87d65a607676: \"add Mobilka apps catalog\". LICENSE file at pin 87d65a607676 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

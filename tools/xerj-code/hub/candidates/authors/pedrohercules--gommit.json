@@ -1,0 +1,23 @@
+{
+ "corpus": "pedrohercules--gommit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-commit-generator, cli, commit-message queries this for how PedroHercules/gommit implements it: AI-powered Git CLI for commit messages and pull request descriptions, with configurable LLM providers and Conventional Commits support (selected work: pkg/interfaces)",
+ "repos": [
+  {
+   "repo": "gommit",
+   "url": "https://github.com/PedroHercules/gommit",
+   "sha": "af9aaec205ccb7fba567c7029ee0256594721430",
+   "licence": "MIT (LICENSE file at pin af9aaec205cc, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T22:05Z",
+    "consent_receipt": "e25eba229660",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T22:05Z (receipt e25eba229660); selected commit af9aaec205cc: \"feat(cli): add interactive pr preview flow\". LICENSE file at pin af9aaec205cc detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

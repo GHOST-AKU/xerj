@@ -1,0 +1,23 @@
+{
+ "corpus": "lorddarq--omvra",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on acp-protocol, local-first, mcp queries this for how lorddarq/omvra implements it: Combined human and agentic local work surface for work planning that supports MCP and ACP protocols as well as graph-based task execution fo (selected work: pages, src/app)",
+ "repos": [
+  {
+   "repo": "omvra",
+   "url": "https://github.com/lorddarq/omvra",
+   "sha": "216fb1b38173765ee40fd872f9999590a354f8d6",
+   "licence": "MIT (LICENSE file at pin 216fb1b38173, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T20:14Z",
+    "consent_receipt": "bd899bf75647",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T20:14Z (receipt bd899bf75647); selected commit 216fb1b38173: \"feat: add Handoff Rig interactive component with SVG art and controls\". LICENSE file at pin 216fb1b38173 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

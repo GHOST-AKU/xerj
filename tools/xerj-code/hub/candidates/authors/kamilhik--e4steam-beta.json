@@ -1,0 +1,23 @@
+{
+ "corpus": "kamilhik--e4steam-beta",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Java queries this for how Kamilhik/e4steam-Beta implements it: e4steam is an e4mc fork that lets you play Minecraft with friends over the Steam network (selected work: addons, common, api)",
+ "repos": [
+  {
+   "repo": "e4steam-Beta",
+   "url": "https://github.com/Kamilhik/e4steam-Beta",
+   "sha": "e7dc92faa1273a9d43b0ae94488bb5f4305695ba",
+   "licence": "Apache-2.0 (LICENSE file at pin e7dc92faa127, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T12:26Z",
+    "consent_receipt": "a62e97fff64b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T12:26Z (receipt a62e97fff64b); selected commit e7dc92faa127: \"Update e4steam sync.3 and Public Servers beta.12 sources across suppo\u2026\". LICENSE file at pin e7dc92faa127 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

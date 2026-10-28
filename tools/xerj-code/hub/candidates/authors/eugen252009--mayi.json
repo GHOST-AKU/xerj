@@ -1,0 +1,23 @@
+{
+ "corpus": "eugen252009--mayi",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how eugen252009/mayi implements it: eugen252009/mayi (Rust) (selected work: executor, mayi, tests)",
+ "repos": [
+  {
+   "repo": "mayi",
+   "url": "https://github.com/eugen252009/mayi",
+   "sha": "c1d42d59ca0b59265d30474bfc032c36609c5c18",
+   "licence": "MIT (LICENSE file at pin c1d42d59ca0b, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T10:35Z",
+    "consent_receipt": "96370763e051",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T10:35Z (receipt 96370763e051); selected commit c1d42d59ca0b: \"Improve bounded approval layouts, compact status and distinguishable \u2026\". LICENSE file at pin c1d42d59ca0b detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

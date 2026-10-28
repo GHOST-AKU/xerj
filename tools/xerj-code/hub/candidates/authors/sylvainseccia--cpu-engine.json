@@ -1,0 +1,23 @@
+{
+ "corpus": "sylvainseccia--cpu-engine",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how sylvainseccia/cpu-engine implements it: CPU Engine is a retro 3D rendering engine that runs exclusively on the CPU using SIMD and multithreading (selected work: vs)",
+ "repos": [
+  {
+   "repo": "cpu-engine",
+   "url": "https://github.com/sylvainseccia/cpu-engine",
+   "sha": "b1c500a928d4dfc7091b71606d1e55258863fb4c",
+   "licence": "MIT (LICENSE file at pin b1c500a928d4, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T04:39Z",
+    "consent_receipt": "f5f148ad2c05",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T04:39Z (receipt f5f148ad2c05); selected commit b1c500a928d4: \"obj importer\". LICENSE file at pin b1c500a928d4 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "awarelyeu--awarely-scan-plugin",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on cve, cyclonedx, devsecops queries this for how awarelyeu/awarely-scan-plugin implements it: Historical Awarely Scan Jenkins plugin releases. Active development: jenkinsci/awarely-scan-plugin (selected work: src/main, src/test, scripts)",
+ "repos": [
+  {
+   "repo": "awarely-scan-plugin",
+   "url": "https://github.com/awarelyeu/awarely-scan-plugin",
+   "sha": "23c9eea91750c75fe84f9bc2474a269ab6c6e56a",
+   "licence": "Apache-2.0 (LICENSE file at pin 23c9eea91750, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T08:16Z",
+    "consent_receipt": "24f864509975",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T08:16Z (receipt 24f864509975); selected commit 23c9eea91750: \"Explain Jenkins scan progress and failures safely (#8)\". LICENSE file at pin 23c9eea91750 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

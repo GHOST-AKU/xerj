@@ -1,0 +1,23 @@
+{
+ "corpus": "thanatos9404--llmslim",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on cost-optimization, llm, prompt-engineering queries this for how Thanatos9404/llmslim implements it: Long-term memory for AI agents with no LLM call: an MCP server and Claude Code plugin, plus local-first context compression for LLM apps (selected work: web, tests)",
+ "repos": [
+  {
+   "repo": "llmslim",
+   "url": "https://github.com/Thanatos9404/llmslim",
+   "sha": "333787d3faab96cc4480d12c2a02c1538f795c66",
+   "licence": "MIT (LICENSE file at pin 333787d3faab, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-10T20:59Z",
+    "consent_receipt": "e4735b93bea7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T20:59Z (receipt e4735b93bea7); selected commit 333787d3faab: \"fix: make v0.6.0 playground adaptive\". LICENSE file at pin 333787d3faab detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

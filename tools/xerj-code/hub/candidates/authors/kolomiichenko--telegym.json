@@ -2,8 +2,8 @@
  "corpus": "kolomiichenko--telegym",
  "cloned_at": null,
  "status": "draft",
- "shelf": "NET",
- "domain": "an agent working on Go queries this for how kolomiichenko/telegym implements it: Load testing for Telegram bots (mock + proxy + k6) (selected work: pkg/mock, cmd/telegym-mock, the project root)",
+ "shelf": "API",
+ "domain": "an agent working on golang, htmx, k6 queries this for how kolomiichenko/telegym implements it: Load-test any Telegram bot: drop-in Bot API mock + k6 extension. Works with any language (selected work: pkg/mock, cmd/telegym-mock, the project root)",
  "repos": [
   {
    "repo": "telegym",

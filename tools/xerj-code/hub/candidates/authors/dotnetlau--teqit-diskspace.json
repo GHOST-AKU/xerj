@@ -1,0 +1,23 @@
+{
+ "corpus": "dotnetlau--teqit-diskspace",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C# queries this for how DotNetLau/Teqit.DiskSpace implements it: Find out where your disk space went. A fast, read-only, offline terminal tool for Windows and Linux (selected work: src/Teqit.DiskSpace.Tests, src/Teqit.DiskSpace, the project root)",
+ "repos": [
+  {
+   "repo": "Teqit.DiskSpace",
+   "url": "https://github.com/DotNetLau/Teqit.DiskSpace",
+   "sha": "49234e1c62dbae58c5b17d3184faf4a721c26879",
+   "licence": "MIT (LICENSE file at pin 49234e1c62db, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T14:07Z",
+    "consent_receipt": "0eb02f3d474c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T14:07Z (receipt 0eb02f3d474c); selected commit 49234e1c62db: \"feat: add disk space scanning tool with interactive UI\". LICENSE file at pin 49234e1c62db detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

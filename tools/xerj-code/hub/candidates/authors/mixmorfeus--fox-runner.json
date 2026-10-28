@@ -1,0 +1,23 @@
+{
+ "corpus": "mixmorfeus--fox-runner",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how mixmorfeus/fox-runner implements it: An open-source fox runner game for browser and terminal, built to test autonomous AI-agent collaboration, development, testing, and continuo (selected work: the project root, terminal, tests)",
+ "repos": [
+  {
+   "repo": "fox-runner",
+   "url": "https://github.com/mixmorfeus/fox-runner",
+   "sha": "08642888cae066db1cb93a587e812f9f7dd9608a",
+   "licence": "MIT (LICENSE file at pin 08642888cae0, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T14:20Z",
+    "consent_receipt": "b84157a00d4e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T14:20Z (receipt b84157a00d4e); selected commit 08642888cae0: \"feat(fox): initial playable baseline and automated checks (FOX-001)\". LICENSE file at pin 08642888cae0 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

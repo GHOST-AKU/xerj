@@ -1,0 +1,23 @@
+{
+ "corpus": "andreimerlescu--roc",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, ai-agents, claude-code queries this for how andreimerlescu/roc implements it: roc is a rust cli that runs opencode codex claude code or goose in an isolated container (selected work: src, tests, schema)",
+ "repos": [
+  {
+   "repo": "roc",
+   "url": "https://github.com/andreimerlescu/roc",
+   "sha": "344089b8e91279a94115f6ccd8d90b478b4cab58",
+   "licence": "Apache-2.0 (LICENSE file at pin 344089b8e912, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T23:29Z",
+    "consent_receipt": "4ebbc8a5b953",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T23:29Z (receipt 4ebbc8a5b953); selected commit 344089b8e912: \"Added Toktail Agent Integration\". LICENSE file at pin 344089b8e912 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

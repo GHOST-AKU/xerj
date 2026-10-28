@@ -1,0 +1,23 @@
+{
+ "corpus": "eduardobcosta712--n2o-hybrid-injector-sizing",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on aerospace, aerospace-engineering, compressible-flow queries this for how eduardobcosta712/n2o-hybrid-injector-sizing implements it: Predicting and mitigating N2O flashing in hybrid rocket feed systems (selected work: validation, src/model, tools)",
+ "repos": [
+  {
+   "repo": "n2o-hybrid-injector-sizing",
+   "url": "https://github.com/eduardobcosta712/n2o-hybrid-injector-sizing",
+   "sha": "b3a2bf0fda1db57ccaf33e455b1222ea5168fdb1",
+   "licence": "MIT (LICENSE file at pin b3a2bf0fda1d, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T19:41Z",
+    "consent_receipt": "009f5bb6581e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T19:41Z (receipt 009f5bb6581e); selected commit b3a2bf0fda1d: \"v1.1.1: Palacz validation, HEM-leg analysis, documentation fixes\". LICENSE file at pin b3a2bf0fda1d detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

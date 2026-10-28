@@ -1,0 +1,23 @@
+{
+ "corpus": "elie222--rakazo",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, chatgpt, docker queries this for how elie222/rakazo implements it: Open-source Grok Bot alternative. Choose your own model and sandbox (selected work: apps/web, packages/db, packages/contracts)",
+ "repos": [
+  {
+   "repo": "rakazo",
+   "url": "https://github.com/elie222/rakazo",
+   "sha": "45a52aab4714223ceb5860895b18a1b02fd437c6",
+   "licence": "Apache-2.0 (LICENSE file at pin 45a52aab4714, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T05:54Z",
+    "consent_receipt": "95bb7b192736",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T05:54Z (receipt 95bb7b192736); selected commit 45a52aab4714: \"feat(web): add Compact and Comfortable sidebar density (#1327)\". LICENSE file at pin 45a52aab4714 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "itherso--termivar",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on Rust queries this for how ITherso/termivar implements it: Termivar \u2014 deterministic security testing. Evidence before verdicts (selected work: crates/termivar-scanner, xtask)",
+ "repos": [
+  {
+   "repo": "termivar",
+   "url": "https://github.com/ITherso/termivar",
+   "sha": "5b39c7fdd291b96ee584647e473fb001e312da02",
+   "licence": "MIT (LICENSE file at pin 5b39c7fdd291, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T03:45Z",
+    "consent_receipt": "8780c8b813b1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T03:45Z (receipt 8780c8b813b1); selected commit 5b39c7fdd291: \"test(http): add isolated parser-boundary laboratory\". LICENSE file at pin 5b39c7fdd291 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

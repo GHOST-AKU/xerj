@@ -1,0 +1,23 @@
+{
+ "corpus": "cdcailf--cjkfold",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on chinese, cjk, nfkc queries this for how cdcailf/cjkfold implements it: Fold look-alike CJK glyphs (Kangxi radicals, CJK radical supplements) so text extracted from PDFs matches again (selected work: tests, src/cjkfold)",
+ "repos": [
+  {
+   "repo": "cjkfold",
+   "url": "https://github.com/cdcailf/cjkfold",
+   "sha": "aa861076f3e6fa33ef9e91fe1072093830a01a95",
+   "licence": "MIT (LICENSE file at pin aa861076f3e6, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T09:27Z",
+    "consent_receipt": "8c331a0873e4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T09:27Z (receipt 8c331a0873e4); selected commit aa861076f3e6: \"fix(cli): refuse non-text input instead of scanning it \u2014 a PDF used t\u2026\". LICENSE file at pin aa861076f3e6 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

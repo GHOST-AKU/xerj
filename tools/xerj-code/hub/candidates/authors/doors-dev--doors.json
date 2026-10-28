@@ -1,0 +1,23 @@
+{
+ "corpus": "doors-dev--doors",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Go queries this for how doors-dev/doors implements it: Server-driven framework for building stateful, reactive web applications entirely in Go (selected work: internal/test, the project root, internal/front)",
+ "repos": [
+  {
+   "repo": "doors",
+   "url": "https://github.com/doors-dev/doors",
+   "sha": "b32e5ca149bed300ad698724a0f9ae49558ad43c",
+   "licence": "Apache-2.0 (LICENSE file at pin b32e5ca149be, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T16:18Z",
+    "consent_receipt": "5745e4aa2a27",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T16:18Z (receipt 5745e4aa2a27); selected commit b32e5ca149be: \"feat: add ActionTime to read the client clock\". LICENSE file at pin b32e5ca149be detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

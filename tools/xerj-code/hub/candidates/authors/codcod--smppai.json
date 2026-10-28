@@ -1,0 +1,23 @@
+{
+ "corpus": "codcod--smppai",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Python queries this for how codcod/smppai implements it: Async SMPP (Short Message Peer-to-Peer) Protocol v3.4 Implementation (selected work: tests, src/smpp)",
+ "repos": [
+  {
+   "repo": "smppai",
+   "url": "https://github.com/codcod/smppai",
+   "sha": "59d0ece5a0ff3f3d48f659738eeffa4ab5f16d03",
+   "licence": "MIT (LICENSE file at pin 59d0ece5a0ff, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T18:34Z",
+    "consent_receipt": "2292ddc3ee5d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T18:34Z (receipt 2292ddc3ee5d); selected commit 59d0ece5a0ff: \"feat(transport): connect and serve SMPP over TLS (SMP-029)\". LICENSE file at pin 59d0ece5a0ff detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

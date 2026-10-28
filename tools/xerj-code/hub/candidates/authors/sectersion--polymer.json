@@ -1,0 +1,23 @@
+{
+ "corpus": "sectersion--polymer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, fleet-management, model-context-protocol queries this for how sectersion/polymer implements it: Coordination and observability for fleets of autonomous AI agents: task leases, @mentions, OTel telemetry, admin console (selected work: packages/skill, apps/server)",
+ "repos": [
+  {
+   "repo": "polymer",
+   "url": "https://github.com/sectersion/polymer",
+   "sha": "15461f76a17918abb01f465354ba792dc711a653",
+   "licence": "MIT (LICENSE file at pin 15461f76a179, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T13:39Z",
+    "consent_receipt": "febdd34c1bf3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T13:39Z (receipt febdd34c1bf3); selected commit 15461f76a179: \"bringup: opencode-mcp-config \u2014 agents connect out of the box (#23)\". LICENSE file at pin 15461f76a179 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "discord-go--discord-go",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on discord, discord-api, discord-bot queries this for how discord-go/discord.go implements it: A typed Discord API client and bot framework for building discord bots and applications in Go (selected work: rest, bot, gateway)",
+ "repos": [
+  {
+   "repo": "discord.go",
+   "url": "https://github.com/discord-go/discord.go",
+   "sha": "3fc52c615e4a4f9523dca56b52224028e73741b9",
+   "licence": "Apache-2.0 (LICENSE file at pin 3fc52c615e4a, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T07:23Z",
+    "consent_receipt": "0742f4140009",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T07:23Z (receipt 0742f4140009); selected commit 3fc52c615e4a: \"feat: Discord 2026 API parity \u2014 ChannelFlags with IsObfuscated, ident\u2026\". LICENSE file at pin 3fc52c615e4a detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

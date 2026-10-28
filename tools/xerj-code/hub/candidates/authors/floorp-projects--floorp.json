@@ -1,0 +1,23 @@
+{
+ "corpus": "floorp-projects--floorp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on firefox, mozilla, browser queries this for how Floorp-Projects/Floorp implements it: All of source code of Floorp 12, the most Advanced and Fastest Firefox derivative \ud83e\udd8a (selected work: browser-features)",
+ "repos": [
+  {
+   "repo": "Floorp",
+   "url": "https://github.com/Floorp-Projects/Floorp",
+   "sha": "2efaa777955efe222d95d81efb4b33406c2e9a4f",
+   "licence": "MPL-2.0 (LICENSE file at pin 2efaa777955e, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-26T03:40Z",
+    "consent_receipt": "651fbe585f33",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T03:40Z (receipt 651fbe585f33); selected commit 2efaa777955e: \"feat(workspaces): show sync status and error details (#2946)\". LICENSE file at pin 2efaa777955e detected as MPL-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

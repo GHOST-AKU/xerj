@@ -1,0 +1,23 @@
+{
+ "corpus": "arlieeee--dura-agent",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-framework, ai-agent, benchmark queries this for how Arlieeee/Dura-Agent implements it: Event-sourced agent framework with a benchmark that measures the harness itself \u2014 same model, same tools, swap only the execution layer (selected work: apps/server, packages/bench)",
+ "repos": [
+  {
+   "repo": "Dura-Agent",
+   "url": "https://github.com/Arlieeee/Dura-Agent",
+   "sha": "f2cc18c93a1682afe4cb71ad10c9a7e0af454909",
+   "licence": "MIT (LICENSE file at pin f2cc18c93a16, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T09:29Z",
+    "consent_receipt": "1fefefbf84ad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T09:29Z (receipt 1fefefbf84ad); selected commit f2cc18c93a16: \"feat(engine): spill oversized tool results to a file instead of silen\u2026\". LICENSE file at pin f2cc18c93a16 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

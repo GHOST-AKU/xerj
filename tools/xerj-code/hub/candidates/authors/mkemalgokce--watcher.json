@@ -1,0 +1,23 @@
+{
+ "corpus": "mkemalgokce--watcher",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on debugging, developer-tools, http queries this for how mkemalgokce/Watcher implements it: Free, open-source HTTP(S) debugging proxy for macOS: capture, decrypt, inspect, mock and modify traffic from your Mac, simulators and device (selected work: Sources, Tests, the project root)",
+ "repos": [
+  {
+   "repo": "Watcher",
+   "url": "https://github.com/mkemalgokce/Watcher",
+   "sha": "ec3677652c43b4b05b3a5a695e6a345a2c02ea62",
+   "licence": "MIT (LICENSE file at pin ec3677652c43, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T08:44Z",
+    "consent_receipt": "86cb1d0757e9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:44Z (receipt 86cb1d0757e9); selected commit ec3677652c43: \"feat(ui): json/yaml tree viewer, resizable inspector, memory cap (#45)\". LICENSE file at pin ec3677652c43 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

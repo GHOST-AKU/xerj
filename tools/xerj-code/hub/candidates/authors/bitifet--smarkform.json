@@ -1,0 +1,23 @@
+{
+ "corpus": "bitifet--smarkform",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on form, form-builder, frontend-web queries this for how bitifet/SmarkForm implements it: Complex HTML forms without complex JavaScript (selected work: media)",
+ "repos": [
+  {
+   "repo": "SmarkForm",
+   "url": "https://github.com/bitifet/SmarkForm",
+   "sha": "93e408d922614a79c438d207367e7329eda8c65c",
+   "licence": "MIT (LICENSE file at pin 93e408d92261, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T13:36Z",
+    "consent_receipt": "01fb144fbbe0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T13:36Z (receipt 01fb144fbbe0); selected commit 93e408d92261: \"media(hero): add the hero video build pipeline\". LICENSE file at pin 93e408d92261 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

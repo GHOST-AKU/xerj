@@ -1,0 +1,23 @@
+{
+ "corpus": "steelcrab--firecrab",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Rust queries this for how SteelCrab/firecrab implements it: A self-hosted MicroVM platform for operations, hosting, and AI agents (selected work: firecrab-cli, firecrab-helper-protocol, firecrab-e2e)",
+ "repos": [
+  {
+   "repo": "firecrab",
+   "url": "https://github.com/SteelCrab/firecrab",
+   "sha": "ef0f7990476e6a8f06117d2e3e694438ad90a94d",
+   "licence": "Apache-2.0 (LICENSE file at pin ef0f7990476e, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T21:25Z",
+    "consent_receipt": "c9f8e13b0532",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T21:25Z (receipt c9f8e13b0532); selected commit ef0f7990476e: \"feat(pipe): add Cloudflare Quick Tunnel controls\". LICENSE file at pin ef0f7990476e detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

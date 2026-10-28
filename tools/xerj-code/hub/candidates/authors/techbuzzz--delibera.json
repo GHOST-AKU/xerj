@@ -1,0 +1,23 @@
+{
+ "corpus": "techbuzzz--delibera",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, council, embeddings queries this for how techbuzzz/Delibera implements it: Delibera - Thoughtful AI Decisions. A framework for collective decision making through structured AI deliberation. Supports multi-model coun (selected work: src/Delibera.WebUI, deploy, src/Delibera.Server)",
+ "repos": [
+  {
+   "repo": "Delibera",
+   "url": "https://github.com/techbuzzz/Delibera",
+   "sha": "a39323d019402f10aa6c1979f9343d43913bdeae",
+   "licence": "MIT (LICENSE file at pin a39323d01940, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-09T17:58Z",
+    "consent_receipt": "44aae974e55a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-09T17:58Z (receipt 44aae974e55a); selected commit a39323d01940: \"v10.5.2 - Added WebUI\". LICENSE file at pin a39323d01940 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

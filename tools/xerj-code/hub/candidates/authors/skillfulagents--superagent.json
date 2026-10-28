@@ -1,0 +1,23 @@
+{
+ "corpus": "skillfulagents--superagent",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how SkillfulAgents/SuperAgent implements it: SkillfulAgents/SuperAgent (TypeScript) (selected work: src/renderer, scripts, perf)",
+ "repos": [
+  {
+   "repo": "SuperAgent",
+   "url": "https://github.com/SkillfulAgents/SuperAgent",
+   "sha": "d342e5fd5417effbed1673cccf67c2417997d869",
+   "licence": "MIT (LICENSE file at pin d342e5fd5417, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T19:43Z",
+    "consent_receipt": "acd972f39fa1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T19:43Z (receipt acd972f39fa1); selected commit d342e5fd5417: \"refactor(agents): centralize avatar lifecycle and reduce animation work\". LICENSE file at pin d342e5fd5417 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

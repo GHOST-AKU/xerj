@@ -1,0 +1,23 @@
+{
+ "corpus": "huandc--stockbar",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Swift queries this for how huandc/StockBar implements it: \u83dc\u5355\u680f\u80a1\u7968\u4ef7\u683c\u5e94\u7528 \u2014 Menu bar stock price app (SwiftUI) (selected work: Tests, scripts, the project root)",
+ "repos": [
+  {
+   "repo": "StockBar",
+   "url": "https://github.com/huandc/StockBar",
+   "sha": "85e287fcc7d7802c8fdb4b281951e5aa054b3e63",
+   "licence": "MIT (LICENSE file at pin 85e287fcc7d7, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T01:58Z",
+    "consent_receipt": "40c846159d50",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T01:58Z (receipt 40c846159d50); selected commit 85e287fcc7d7: \"test: \u5f15\u5165 swift-testing \u6d4b\u8bd5\u5957\u4ef6\u5e76\u63a5\u5165 CI (#10)\". LICENSE file at pin 85e287fcc7d7 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

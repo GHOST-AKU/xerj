@@ -1,0 +1,23 @@
+{
+ "corpus": "cloudfoundry--uaa",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on oidc, oidc-proxy, oidc-server queries this for how cloudfoundry/uaa implements it: CloudFoundry User Account and Authentication (UAA) Server (selected work: uaa, server)",
+ "repos": [
+  {
+   "repo": "uaa",
+   "url": "https://github.com/cloudfoundry/uaa",
+   "sha": "fc53e9604debf8351be8a4a83d28e77064a9ee83",
+   "licence": "Apache-2.0 (LICENSE file at pin fc53e9604deb, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T14:31Z",
+    "consent_receipt": "d7879608952d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T14:31Z (receipt d7879608952d); selected commit fc53e9604deb: \"Protect token exchange extensions from exposing themselves from lacki\u2026\". LICENSE file at pin fc53e9604deb detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

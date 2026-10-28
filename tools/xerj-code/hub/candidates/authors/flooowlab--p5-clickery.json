@@ -1,0 +1,23 @@
+{
+ "corpus": "flooowlab--p5-clickery",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how flooowlab/p5.clickery implements it: flooowlab/p5.clickery (JavaScript) (selected work: src/game, tools, src)",
+ "repos": [
+  {
+   "repo": "p5.clickery",
+   "url": "https://github.com/flooowlab/p5.clickery",
+   "sha": "1f5bae10d1f238c937bcd98e5bcc689c9292fe22",
+   "licence": "MIT (LICENSE file at pin 1f5bae10d1f2, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T09:47Z",
+    "consent_receipt": "3fda119d3b6a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T09:47Z (receipt 3fda119d3b6a); selected commit 1f5bae10d1f2: \"createGame\". LICENSE file at pin 1f5bae10d1f2 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

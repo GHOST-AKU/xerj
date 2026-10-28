@@ -1,0 +1,23 @@
+{
+ "corpus": "mr-elk--codex-pulse",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Mr-Elk/codex-pulse implements it: A local Windows Codex usage strip with composer following, desktop capsule, SVG glass themes, and conversation statistics (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "codex-pulse",
+   "url": "https://github.com/Mr-Elk/codex-pulse",
+   "sha": "82396483ac45efd5e8e145ed6a45daed920425f5",
+   "licence": "MIT (LICENSE file at pin 82396483ac45, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T03:48Z",
+    "consent_receipt": "4f399bf2b0f9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T03:48Z (receipt 4f399bf2b0f9); selected commit 82396483ac45: \"feat: add scoped account quota and local usage history\". LICENSE file at pin 82396483ac45 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

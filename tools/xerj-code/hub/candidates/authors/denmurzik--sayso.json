@@ -1,0 +1,23 @@
+{
+ "corpus": "denmurzik--sayso",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on csharp, dictation, gemini queries this for how Denmurzik/SaySo implements it: Hold a key, speak, get clean text in any Windows app. Native Windows 11 voice dictation (WinUI 3 + NativeAOT) \u2014 free Wispr Flow alternative  (selected work: src/SaySo.Mac, tests, the project root)",
+ "repos": [
+  {
+   "repo": "SaySo",
+   "url": "https://github.com/Denmurzik/SaySo",
+   "sha": "4f5dad5e7f11ea1e259ce5a8285eff7990ed8c53",
+   "licence": "GPL-3.0 (LICENSE file at pin 4f5dad5e7f11, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-19T06:31Z",
+    "consent_receipt": "8d2957aee7f2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:31Z (receipt 8d2957aee7f2); selected commit 4f5dad5e7f11: \"feat(mac): SaySo \u0434\u043b\u044f macOS \u2014 \u0434\u0435\u043c\u043e\u043d \u0432 \u0441\u0442\u0440\u043e\u043a\u0435 \u043c\u0435\u043d\u044e, \u043f\u043b\u0430\u0448\u043a\u0430 v2 \u043d\u0430 Core A\u2026\". LICENSE file at pin 4f5dad5e7f11 detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

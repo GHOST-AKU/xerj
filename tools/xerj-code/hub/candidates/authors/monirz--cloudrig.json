@@ -1,0 +1,23 @@
+{
+ "corpus": "monirz--cloudrig",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on ci, gcp, gcp-cloud-functions queries this for how monirz/cloudrig implements it: Deterministic local GCP environment and emulator for integration testing (selected work: test, services, state)",
+ "repos": [
+  {
+   "repo": "cloudrig",
+   "url": "https://github.com/monirz/cloudrig",
+   "sha": "0df9cb7da787a285d00bfce6f32fd6ba9d03635b",
+   "licence": "MIT (LICENSE file at pin 0df9cb7da787, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T05:36Z",
+    "consent_receipt": "0c04c6d70b3f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T05:36Z (receipt 0c04c6d70b3f); selected commit 0df9cb7da787: \"Carry unacknowledged Pub/Sub messages in snapshots and forks\". LICENSE file at pin 0df9cb7da787 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

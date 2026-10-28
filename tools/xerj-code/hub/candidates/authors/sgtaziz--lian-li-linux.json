@@ -1,0 +1,23 @@
+{
+ "corpus": "sgtaziz--lian-li-linux",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Rust queries this for how sgtaziz/lian-li-linux implements it: Linux replacement for L-Connect 3. Fan/RGB control and LCD streaming for Lian Li fans (selected work: crates/lianli-session, crates/lianli-display)",
+ "repos": [
+  {
+   "repo": "lian-li-linux",
+   "url": "https://github.com/sgtaziz/lian-li-linux",
+   "sha": "71857c2be4238f11a06d0185689227bb220ceeff",
+   "licence": "MIT (LICENSE file at pin 71857c2be423, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T06:46Z",
+    "consent_receipt": "47db1f2abf6e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T06:46Z (receipt 47db1f2abf6e); selected commit 71857c2be423: \"fix(session): discover KDE sessions and log why capture is waiting\". LICENSE file at pin 71857c2be423 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

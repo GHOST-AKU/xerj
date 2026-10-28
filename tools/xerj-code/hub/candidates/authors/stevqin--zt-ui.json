@@ -1,0 +1,23 @@
+{
+ "corpus": "stevqin--zt-ui",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Vue queries this for how stevqin/zt-ui implements it: A lightweight Vue 3 UI component library with TypeScript support (selected work: tests, src/components)",
+ "repos": [
+  {
+   "repo": "zt-ui",
+   "url": "https://github.com/stevqin/zt-ui",
+   "sha": "33f093d022956862a0c5c16ff2f33d4c3539ca64",
+   "licence": "MIT (LICENSE file at pin 33f093d02295, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T08:03Z",
+    "consent_receipt": "7d9803fd174c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T08:03Z (receipt 7d9803fd174c); selected commit 33f093d02295: \"feat: expand icon set and polish focus, select, and docs navigation\". LICENSE file at pin 33f093d02295 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

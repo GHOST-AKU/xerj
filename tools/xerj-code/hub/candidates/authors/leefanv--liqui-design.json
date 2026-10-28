@@ -1,0 +1,23 @@
+{
+ "corpus": "leefanv--liqui-design",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on liquid, liquid-glass, liqui-design queries this for how leefanv/liqui-design implements it: Liquid glass UI components for React, built on Base UI. Distributed as source through the shadcn CLI (selected work: apps/www)",
+ "repos": [
+  {
+   "repo": "liqui-design",
+   "url": "https://github.com/leefanv/liqui-design",
+   "sha": "888d3c6ec0a96e11ec274790bfba4f41d383506b",
+   "licence": "MIT (LICENSE file at pin 888d3c6ec0a9, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-22T07:54Z",
+    "consent_receipt": "e86a3b8f0d5b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T07:54Z (receipt e86a3b8f0d5b); selected commit 888d3c6ec0a9: \"feat(registry): give the lens controls a dome and a colour fringe\". LICENSE file at pin 888d3c6ec0a9 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

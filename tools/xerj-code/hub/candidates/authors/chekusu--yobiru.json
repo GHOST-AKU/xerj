@@ -1,0 +1,23 @@
+{
+ "corpus": "chekusu--yobiru",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how chekusu/yobiru implements it: Let your agents talk: messages, data, files and wake-ups over Tailscale (selected work: tests, plugins, the project root)",
+ "repos": [
+  {
+   "repo": "yobiru",
+   "url": "https://github.com/chekusu/yobiru",
+   "sha": "ab4350b16549fdf4ce2fcf068f4d67124a5b6b77",
+   "licence": "MIT (LICENSE file at pin ab4350b16549, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T05:36Z",
+    "consent_receipt": "e1a5d4a1121b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T05:36Z (receipt e1a5d4a1121b); selected commit ab4350b16549: \"feat: prepare 0.4.0 tailnet access policy and durable upgrade mainten\u2026\". LICENSE file at pin ab4350b16549 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

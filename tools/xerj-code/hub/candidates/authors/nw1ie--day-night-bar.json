@@ -1,0 +1,23 @@
+{
+ "corpus": "nw1ie--day-night-bar",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how Nw1IE/Day-Night-Bar implements it: Nw1IE/Day-Night-Bar (JavaScript) (selected work: server, client)",
+ "repos": [
+  {
+   "repo": "Day-Night-Bar",
+   "url": "https://github.com/Nw1IE/Day-Night-Bar",
+   "sha": "a18e20c35d8f4329b7100058e7e21a1d86dcfd89",
+   "licence": "MIT (LICENSE file at pin a18e20c35d8f, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T13:38Z",
+    "consent_receipt": "99b205cd79a2",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T13:38Z (receipt 99b205cd79a2); selected commit a18e20c35d8f: \"fix client\". LICENSE file at pin a18e20c35d8f detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

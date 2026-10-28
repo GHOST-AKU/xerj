@@ -1,0 +1,23 @@
+{
+ "corpus": "daadlang--d-editor",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how daadLang/d-editor implements it: \u0645\u062d\u0631\u0631 \u0646\u0635\u0648\u0635 \u0645\u062e\u0635\u0635 \u0644\u0644\u063a\u0629 \u0627\u0644\u0628\u0631\u0645\u062c\u0629 \u0636 (selected work: frontend, the project root)",
+ "repos": [
+  {
+   "repo": "d-editor",
+   "url": "https://github.com/daadLang/d-editor",
+   "sha": "1e6f6aea08b74f0f267128ab0693e7fbd8fbfe01",
+   "licence": "Apache-2.0 (LICENSE file at pin 1e6f6aea08b7, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-17T16:41Z",
+    "consent_receipt": "e9999ecf2a8f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-17T16:41Z (receipt e9999ecf2a8f); selected commit 1e6f6aea08b7: \"feat: add interpreter download/select\". LICENSE file at pin 1e6f6aea08b7 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

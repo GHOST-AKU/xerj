@@ -1,0 +1,23 @@
+{
+ "corpus": "jyxu97--distkv",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on Go queries this for how jyxu97/distkv implements it: Distributed key-value store in Go featuring fault-tolerant replication, conflict resolution, and persistent storage (selected work: cmd/server, pkg/partition, pkg/replication)",
+ "repos": [
+  {
+   "repo": "distkv",
+   "url": "https://github.com/jyxu97/distkv",
+   "sha": "4f5d7cc790647d73eaa3c954d68af4401e759c2c",
+   "licence": "MIT (LICENSE file at pin 4f5d7cc79064, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T21:09Z",
+    "consent_receipt": "0730584e9c6b",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T21:09Z (receipt 0730584e9c6b); selected commit 4f5d7cc79064: \"feat: bootstrap joining nodes before they serve reads\". LICENSE file at pin 4f5d7cc79064 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

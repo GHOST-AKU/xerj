@@ -1,0 +1,23 @@
+{
+ "corpus": "arpahls--skillware",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-skills, skillware, ai-agents queries this for how ARPAHLS/skillware implements it: A Python framework for modular, self-contained skill management for machines (selected work: skills, scripts, examples)",
+ "repos": [
+  {
+   "repo": "skillware",
+   "url": "https://github.com/ARPAHLS/skillware",
+   "sha": "f9612e29ffe2cb0bb78798a8f42dc52840ef7f71",
+   "licence": "MIT (LICENSE file at pin f9612e29ffe2, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-16T02:35Z",
+    "consent_receipt": "af0785a953f8",
+    "note": "Inclusion consented by the commit author by email at 2026-10-16T02:35Z (receipt af0785a953f8); selected commit f9612e29ffe2: \"feat(data_engineering): add telemetry_normalizer skill for sensor har\u2026\". LICENSE file at pin f9612e29ffe2 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

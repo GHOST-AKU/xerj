@@ -1,0 +1,23 @@
+{
+ "corpus": "zhaofuheng--swan-aisql",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on C++ queries this for how ZhaoFuheng/SWAN-AISQL implements it: ZhaoFuheng/SWAN-AISQL (C++) (selected work: test, src/client, src/functions)",
+ "repos": [
+  {
+   "repo": "SWAN-AISQL",
+   "url": "https://github.com/ZhaoFuheng/SWAN-AISQL",
+   "sha": "af66b22dd5c202fc57b49a22c4368fb209d784dc",
+   "licence": "MIT (LICENSE file at pin af66b22dd5c2, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-23T20:56Z",
+    "consent_receipt": "dfa535f667e1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T20:56Z (receipt dfa535f667e1); selected commit af66b22dd5c2: \"Prefix-cache lifecycle, ai_api auto, and correctness fixes from review\". LICENSE file at pin af66b22dd5c2 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

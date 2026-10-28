@@ -1,0 +1,23 @@
+{
+ "corpus": "poisdahl--meal-concierge",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how poisdahl/meal-concierge implements it: Weekly meal planning and grocery ordering for agents, with Oda, Mathem and MENY support (selected work: tests, the project root)",
+ "repos": [
+  {
+   "repo": "meal-concierge",
+   "url": "https://github.com/poisdahl/meal-concierge",
+   "sha": "5eecb11876db65b7ef0bfc77f691d41fc9ccd011",
+   "licence": "MIT (LICENSE file at pin 5eecb11876db, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T10:28Z",
+    "consent_receipt": "ea2af4bf3971",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T10:28Z (receipt ea2af4bf3971); selected commit 5eecb11876db: \"Support store-free planning and optional retailer shopping lists (#348)\". LICENSE file at pin 5eecb11876db detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

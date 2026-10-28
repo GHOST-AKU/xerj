@@ -1,0 +1,23 @@
+{
+ "corpus": "yogthos--newsroom",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Clojure queries this for how yogthos/newsroom implements it: Your personal news briefing of the world events (selected work: test, native, src/newsroom)",
+ "repos": [
+  {
+   "repo": "newsroom",
+   "url": "https://github.com/yogthos/newsroom",
+   "sha": "7e9cabcbb98ae1460069edaec3c80bb42ca9b1aa",
+   "licence": "AGPL-3.0 (LICENSE file at pin 7e9cabcbb98a, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "AGPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-10T20:25Z",
+    "consent_receipt": "043d815b4fd0",
+    "note": "Inclusion consented by the commit author by email at 2026-10-10T20:25Z (receipt 043d815b4fd0); selected commit 7e9cabcbb98a: \"Add KittenTTS mini as a small speech engine (#24)\". LICENSE file at pin 7e9cabcbb98a detected as AGPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

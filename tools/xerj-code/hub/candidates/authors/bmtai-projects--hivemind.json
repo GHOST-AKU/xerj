@@ -1,0 +1,23 @@
+{
+ "corpus": "bmtai-projects--hivemind",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agentic-ai, code-review, harness queries this for how bmtai-projects/HiveMind implements it: Open-source agentic coding and code-review harness with multi-model support, tool execution, skills, approvals, and clear terminal workflows (selected work: crates/harness-cli, crates/harness-tools)",
+ "repos": [
+  {
+   "repo": "HiveMind",
+   "url": "https://github.com/bmtai-projects/HiveMind",
+   "sha": "60d46a85ad580f42964f5fdc436b489f835778a2",
+   "licence": "author's permission (LICENSE at pin 60d46a85ad58: NOASSERTION; repository: Apache-2.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T18:03Z",
+    "consent_receipt": "23408bea8866",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T18:03Z (receipt 23408bea8866); selected commit 60d46a85ad58: \"Fix edit_file on Windows line endings and TUI usability gaps\". LICENSE at pin 60d46a85ad58: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

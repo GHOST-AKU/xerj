@@ -1,0 +1,23 @@
+{
+ "corpus": "wafertools--wafermap",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on ate, bin-map, canvas queries this for how wafertools/wafermap implements it: Interactive wafer map visualization and yield analysis for semiconductor test data. Rendering, spatial statistics, failure clustering, lot-l (selected work: packages/stats, tests)",
+ "repos": [
+  {
+   "repo": "wafermap",
+   "url": "https://github.com/wafertools/wafermap",
+   "sha": "17852dad11e9f491f1292ee0f52f738616ed3bba",
+   "licence": "MIT (LICENSE file at pin 17852dad11e9, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-15T07:07Z",
+    "consent_receipt": "87e54c7907d7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T07:07Z (receipt 87e54c7907d7); selected commit 17852dad11e9: \"Classify scratches at any angle and donuts by their radial profile\". LICENSE file at pin 17852dad11e9 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

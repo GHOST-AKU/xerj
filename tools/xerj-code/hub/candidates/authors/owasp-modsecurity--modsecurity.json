@@ -1,0 +1,23 @@
+{
+ "corpus": "owasp-modsecurity--modsecurity",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "SEC",
+ "domain": "an agent working on modsecurity, nginx, apache queries this for how owasp-modsecurity/ModSecurity implements it: ModSecurity is an open source, cross platform web application firewall (WAF) engine for Apache, IIS and Nginx. It has a robust event-based p (selected work: src/parser, test)",
+ "repos": [
+  {
+   "repo": "ModSecurity",
+   "url": "https://github.com/owasp-modsecurity/ModSecurity",
+   "sha": "c70a4a7a71a860647b4b17c1b402c06bc6802bd6",
+   "licence": "Apache-2.0 (LICENSE file at pin c70a4a7a71a8, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-06T09:15Z",
+    "consent_receipt": "031716d8f1eb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-06T09:15Z (receipt 031716d8f1eb); selected commit c70a4a7a71a8: \"fix: make configured resp CT lowercase\". LICENSE file at pin c70a4a7a71a8 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "taygunsavas--patina-unity-mcp",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on C# queries this for how taygunsavas/patina-unity-mcp implements it: A high-performance Unity MCP with extensible APIs for agentic tools (selected work: unity-package, rust-server)",
+ "repos": [
+  {
+   "repo": "patina-unity-mcp",
+   "url": "https://github.com/taygunsavas/patina-unity-mcp",
+   "sha": "d56cb160111e2c54f775c9d55e67f570ab23f23c",
+   "licence": "MIT (LICENSE file at pin d56cb160111e, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-13T15:14Z",
+    "consent_receipt": "7fc28bb9e4e6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T15:14Z (receipt 7fc28bb9e4e6); selected commit d56cb160111e: \"fix(unity-package): \ud83d\udc1b Run OnValidate on components touched by edit_pr\u2026\". LICENSE file at pin d56cb160111e detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

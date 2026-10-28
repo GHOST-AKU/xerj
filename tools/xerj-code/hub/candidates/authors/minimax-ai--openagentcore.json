@@ -1,0 +1,23 @@
+{
+ "corpus": "minimax-ai--openagentcore",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-runtime, ai-agents, claude-code queries this for how MiniMax-AI/OpenAgentCore implements it: The OpenAI Agents API, open source and self-hosted. Run Codex, Claude Code or MiniMax Code on your own machines with your own models, throug (selected work: services)",
+ "repos": [
+  {
+   "repo": "OpenAgentCore",
+   "url": "https://github.com/MiniMax-AI/OpenAgentCore",
+   "sha": "f29e406e78f247659bdcb369cf6b7549e53a5b8d",
+   "licence": "MIT (LICENSE file at pin f29e406e78f2, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-07T05:45Z",
+    "consent_receipt": "2275f35a7b99",
+    "note": "Inclusion consented by the commit author by email at 2026-10-07T05:45Z (receipt 2275f35a7b99); selected commit f29e406e78f2: \"Move Core metrics, Runtime history and Runtime targets out of store (\u2026\". LICENSE file at pin f29e406e78f2 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

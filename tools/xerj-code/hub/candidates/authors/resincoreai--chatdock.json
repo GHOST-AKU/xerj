@@ -1,0 +1,23 @@
+{
+ "corpus": "resincoreai--chatdock",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on always-on-top, chat, desktop-app queries this for how ResinCoreAI/ChatDock implements it: Windows app for chatting on Instagram, Facebook, X and Discord (plus Telegram & WhatsApp) without leaving your game \u2014 hides on the screen ed (selected work: src-tauri)",
+ "repos": [
+  {
+   "repo": "ChatDock",
+   "url": "https://github.com/ResinCoreAI/ChatDock",
+   "sha": "c5f0772038886edabf4290a7aacc2bad2a672d26",
+   "licence": "MIT (LICENSE file at pin c5f077203888, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T07:11Z",
+    "consent_receipt": "4e7b40ff1075",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T07:11Z (receipt 4e7b40ff1075); selected commit c5f077203888: \"Updates can't stall, come back older, or be swapped before they run\". LICENSE file at pin c5f077203888 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

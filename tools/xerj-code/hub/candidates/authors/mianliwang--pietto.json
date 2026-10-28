@@ -1,0 +1,23 @@
+{
+ "corpus": "mianliwang--pietto",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on Python queries this for how MianliWang/pietto implements it: A gradual, semantic SQL authoring DSL with Python-style syntax, type constraints, and SQL generation (selected work: tests, src/pietto)",
+ "repos": [
+  {
+   "repo": "pietto",
+   "url": "https://github.com/MianliWang/pietto",
+   "sha": "2b8239ab60848dbe7e100344f6bdaf86d2b64a5b",
+   "licence": "MIT (LICENSE file at pin 2b8239ab6084, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-20T05:34Z",
+    "consent_receipt": "ccdda8352fac",
+    "note": "Inclusion consented by the commit author by email at 2026-10-20T05:34Z (receipt ccdda8352fac); selected commit 2b8239ab6084: \"feat: add public result schemas and pinned Arrow\". LICENSE file at pin 2b8239ab6084 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

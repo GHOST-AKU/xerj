@@ -1,0 +1,23 @@
+{
+ "corpus": "huy3ko--toolshed",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on Python queries this for how Huy3ko/toolshed implements it: An adaptive tool-surface proxy for Hermes \u2014 reduces repeated tool-schema overhead while preserving on-demand recovery (selected work: the project root, tests, runtime)",
+ "repos": [
+  {
+   "repo": "toolshed",
+   "url": "https://github.com/Huy3ko/toolshed",
+   "sha": "21d4509b86b6b3d6d88a59a67fedee41fadeff33",
+   "licence": "MIT (LICENSE file at pin 21d4509b86b6, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T20:25Z",
+    "consent_receipt": "423d286bdb01",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T20:25Z (receipt 423d286bdb01); selected commit 21d4509b86b6: \"fix(router): flaches Root-Payload importierbar machen und stillen MCP\u2026\". LICENSE file at pin 21d4509b86b6 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

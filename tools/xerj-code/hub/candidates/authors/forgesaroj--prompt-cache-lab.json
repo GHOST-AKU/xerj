@@ -1,0 +1,23 @@
+{
+ "corpus": "forgesaroj--prompt-cache-lab",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-cost, claude, javascript queries this for how Forgesaroj/prompt-cache-lab implements it: Interactive LLM prompt-caching calculator with editable rates, savings and break-even analysis (selected work: web, src, test)",
+ "repos": [
+  {
+   "repo": "prompt-cache-lab",
+   "url": "https://github.com/Forgesaroj/prompt-cache-lab",
+   "sha": "817b610c9aa7688e00531f94858caa5108c55c4b",
+   "licence": "MIT (LICENSE file at pin 817b610c9aa7, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-11T09:15Z",
+    "consent_receipt": "1754c843c304",
+    "note": "Inclusion consented by the commit author by email at 2026-10-11T09:15Z (receipt 1754c843c304); selected commit 817b610c9aa7: \"feat: productize the prompt-cache calculator (#4)\". LICENSE file at pin 817b610c9aa7 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

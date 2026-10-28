@@ -1,0 +1,23 @@
+{
+ "corpus": "desynkro--quote-assistant",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how DeSynkro/quote-assistant implements it: Offline estimating for earthmoving jobs. Truck loads, material and a rough price, worked out on site (selected work: app, tests)",
+ "repos": [
+  {
+   "repo": "quote-assistant",
+   "url": "https://github.com/DeSynkro/quote-assistant",
+   "sha": "6a3da1147a233b253798cb5ba4fe5f740d0e5321",
+   "licence": "MIT (LICENSE file at pin 6a3da1147a23, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T02:59Z",
+    "consent_receipt": "8f38236ab084",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T02:59Z (receipt 8f38236ab084); selected commit 6a3da1147a23: \"Added preferences and decimal display\". LICENSE file at pin 6a3da1147a23 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution. Pinned to head 6a3da1147a23 (contains the selected commit): the LICENSE at the selected commit was NONE."
+   }
+  }
+ ]
+}

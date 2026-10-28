@@ -1,0 +1,23 @@
+{
+ "corpus": "aleksey-kazakevich--2kos",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C queries this for how aleksey-kazakevich/2kOS implements it: 2kOS is a 64-bit operating system kernel for x86_64 processors. The project is built from scratch with a focus on clean design, hardware sup (selected work: Kernel)",
+ "repos": [
+  {
+   "repo": "2kOS",
+   "url": "https://github.com/aleksey-kazakevich/2kOS",
+   "sha": "3276e5bb68a644d124c2438604bb00b417a1107a",
+   "licence": "GPL-3.0 (LICENSE file at pin 3276e5bb68a6, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-22T08:04Z",
+    "consent_receipt": "78413f82904a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-22T08:04Z (receipt 78413f82904a); selected commit 3276e5bb68a6: \"critical bug fix\". LICENSE file at pin 3276e5bb68a6 detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

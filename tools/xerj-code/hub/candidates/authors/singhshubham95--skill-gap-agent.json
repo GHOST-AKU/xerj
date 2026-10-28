@@ -1,0 +1,23 @@
+{
+ "corpus": "singhshubham95--skill-gap-agent",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how singhshubham95/skill-gap-agent implements it: An AI agent that maps your skill gaps against target job descriptions and generates a personalized, project-based plan to close them (selected work: src/skill_gap_agent, extension)",
+ "repos": [
+  {
+   "repo": "skill-gap-agent",
+   "url": "https://github.com/singhshubham95/skill-gap-agent",
+   "sha": "8fc3efd8fa4663f700a99db8994037223202cb66",
+   "licence": "MIT (LICENSE file at pin 8fc3efd8fa46, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-12T16:48Z",
+    "consent_receipt": "78d8b7d6f63d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-12T16:48Z (receipt 78d8b7d6f63d); selected commit 8fc3efd8fa46: \"Implement M9 verification framework conversational intake (c3) for sk\u2026\". LICENSE file at pin 8fc3efd8fa46 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

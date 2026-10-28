@@ -1,0 +1,23 @@
+{
+ "corpus": "kestra-io--plugin-scripts",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on kestra, groovy, jython queries this for how kestra-io/plugin-scripts implements it: Plugin to orchestrate custom scripts in any language including Python, Go, Node.js, R, Shell, PowerShell, and more (selected work: plugin-script-dotnet)",
+ "repos": [
+  {
+   "repo": "plugin-scripts",
+   "url": "https://github.com/kestra-io/plugin-scripts",
+   "sha": "0f3fbadb16bcd9a784b967d1643adf30f6c2a230",
+   "licence": "Apache-2.0 (LICENSE file at pin 0f3fbadb16bc, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-14T15:52Z",
+    "consent_receipt": "cba3392e89d1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-14T15:52Z (receipt cba3392e89d1); selected commit 0f3fbadb16bc: \"feat(dotnet): add F# script execution support (#460)\". LICENSE file at pin 0f3fbadb16bc detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

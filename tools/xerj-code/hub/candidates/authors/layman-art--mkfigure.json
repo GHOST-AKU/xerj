@@ -1,0 +1,23 @@
+{
+ "corpus": "layman-art--mkfigure",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TypeScript queries this for how Layman-art/MKfigure implements it: MK Figure: editable scientific figures with a Codex skill, desktop app, and SVG icon pack (selected work: src/main, src/renderer, scripts)",
+ "repos": [
+  {
+   "repo": "MKfigure",
+   "url": "https://github.com/Layman-art/MKfigure",
+   "sha": "0b7c12bee3c4510847d96a60a92194b7fe7bceaf",
+   "licence": "MIT (LICENSE file at pin 0b7c12bee3c4, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T06:49Z",
+    "consent_receipt": "fe987c93851d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T06:49Z (receipt fe987c93851d); selected commit 0b7c12bee3c4: \"Add 0.6.0 folder workspaces and six-pane creation\". LICENSE file at pin 0b7c12bee3c4 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

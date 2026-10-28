@@ -1,0 +1,23 @@
+{
+ "corpus": "johnsonlee--graphite",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on android, bytecode, code-graph queries this for how johnsonlee/graphite implements it: Structured codebase context for LLMs (selected work: frontend)",
+ "repos": [
+  {
+   "repo": "graphite",
+   "url": "https://github.com/johnsonlee/graphite",
+   "sha": "019f00247dc5e9c2da2ae7a77c6af9860583f547",
+   "licence": "Apache-2.0 (LICENSE file at pin 019f00247dc5, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-07T01:52Z",
+    "consent_receipt": "20fcfb1837a6",
+    "note": "Inclusion consented by the commit author by email at 2026-10-07T01:52Z (receipt 20fcfb1837a6); selected commit 019f00247dc5: \"Give compiler-numbered synthetic members a stable identity (#164)\". LICENSE file at pin 019f00247dc5 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

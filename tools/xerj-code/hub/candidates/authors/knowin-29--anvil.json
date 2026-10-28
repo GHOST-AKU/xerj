@@ -1,0 +1,23 @@
+{
+ "corpus": "knowin-29--anvil",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how Knowin-29/Anvil implements it: Anvil: Scaling Embodied Spatial Intelligence through Knowledge Recirculation. Sanitized research source (selected work: tests, trains, scripts)",
+ "repos": [
+  {
+   "repo": "Anvil",
+   "url": "https://github.com/Knowin-29/Anvil",
+   "sha": "f99ee1604bc2d7b62f8d8f091e6002a322dc0ceb",
+   "licence": "MIT (LICENSE file at pin f99ee1604bc2, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T17:37Z",
+    "consent_receipt": "c8d4b0161154",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T17:37Z (receipt c8d4b0161154); selected commit f99ee1604bc2: \"Fix resolved MOPD prefixes and Swift batch encoding compatibility\". LICENSE file at pin f99ee1604bc2 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

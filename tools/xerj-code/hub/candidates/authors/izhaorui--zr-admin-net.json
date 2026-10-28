@@ -1,0 +1,23 @@
+{
+ "corpus": "izhaorui--zr-admin-net",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on sqlsugar, admin, saas queries this for how izhaorui/Zr.Admin.NET implements it: \ud83c\udf89 ZR.Admin.NET \u2014\u2014 \u57fa\u4e8e .NET 8 + SqlSugar + Vue3 \u7684\u524d\u540e\u7aef\u5206\u79bb\u901a\u7528\u6743\u9650\u7ba1\u7406\u6846\u67b6\uff08RBAC\uff09\uff0c\u8de8\u5e73\u53f0\u3001\u5f00\u7bb1\u5373\u7528\u3002\u5185\u7f6e SaaS \u591a\u79df\u6237\uff08\u4e00\u79df\u6237\u4e00\u5e93\uff09\u3001\u53ef\u89c6\u5316\u5de5\u4f5c\u6d41\u5f15\u64ce\u3001\u4e00\u952e\u4ee3\u7801\u751f\u6210\u3001Quartz.NET \u4efb\u52a1\u8c03\u5ea6\u3001Redis \u7f13\u5b58\u3001Sign (selected work: Infrastructure, ZR.Workflow, ZR.Admin.WebApi)",
+ "repos": [
+  {
+   "repo": "Zr.Admin.NET",
+   "url": "https://github.com/izhaorui/Zr.Admin.NET",
+   "sha": "311d34ce64f3100633b5bbfc5519b8137677a330",
+   "licence": "MIT (LICENSE file at pin 311d34ce64f3, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-24T22:05Z",
+    "consent_receipt": "67a6dde307b7",
+    "note": "Inclusion consented by the commit author by email at 2026-10-24T22:05Z (receipt 67a6dde307b7); selected commit 311d34ce64f3: \":bug:(ai) \u6d41\u5f0f\u8d85\u65f6\u6539\u4e3a\u7a7a\u95f2\u8d85\u65f6+\u603b\u65f6\u957f\u786c\u4e0a\u9650\uff0c\u8865\u9f50 429 Retry-After \u4e0e\u6cbb\u7406\u62d2\u7edd\u539f\u56e0\u900f\u51fa\". LICENSE file at pin 311d34ce64f3 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

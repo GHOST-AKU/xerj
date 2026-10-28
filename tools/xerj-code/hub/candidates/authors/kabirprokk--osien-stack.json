@@ -1,0 +1,23 @@
+{
+ "corpus": "kabirprokk--osien-stack",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on MDX queries this for how kabirprokk/Osien-Stack implements it: Portable AI tooling stack: 45 MCP tools, skills, commands, agents, runner. Works with any MCP-compatible AI (opencode, Claude Code, Cursor,  (selected work: app, city, mcp-server)",
+ "repos": [
+  {
+   "repo": "Osien-Stack",
+   "url": "https://github.com/kabirprokk/Osien-Stack",
+   "sha": "69440a3837832eefb27d4ed2663ca6be0ace4767",
+   "licence": "MIT (LICENSE file at pin 69440a383783, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-19T22:41Z",
+    "consent_receipt": "bbe9a9f3c9df",
+    "note": "Inclusion consented by the commit author by email at 2026-10-19T22:41Z (receipt bbe9a9f3c9df); selected commit 69440a383783: \"security: fix RCE, path traversal, CORS and DoS in app + mcp server\". LICENSE file at pin 69440a383783 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

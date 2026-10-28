@@ -1,0 +1,23 @@
+{
+ "corpus": "qiskit--qiskit-ibm-runtime",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on qiskit queries this for how Qiskit/qiskit-ibm-runtime implements it: Client for IBM Quantum Compute (formerly known as Qiskit Runtime) (selected work: test, qiskit_ibm_runtime)",
+ "repos": [
+  {
+   "repo": "qiskit-ibm-runtime",
+   "url": "https://github.com/Qiskit/qiskit-ibm-runtime",
+   "sha": "3bc84b295f240d88f1227013e1f18dc1fd1912a3",
+   "licence": "Apache-2.0 (LICENSE file at pin 3bc84b295f24, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-26T07:22Z",
+    "consent_receipt": "714ca1dbdcbb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-26T07:22Z (receipt 714ca1dbdcbb); selected commit 3bc84b295f24: \"Remove elements of transpiler module deprecated since 0.43 (#3381)\". LICENSE file at pin 3bc84b295f24 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

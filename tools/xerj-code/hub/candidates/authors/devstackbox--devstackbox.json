@@ -1,0 +1,23 @@
+{
+ "corpus": "devstackbox--devstackbox",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on TypeScript queries this for how DevStackBox/DevStackBox implements it: Local PHP development for Windows - Apache, MySQL, PHP, and phpMyAdmin in one desktop app (selected work: src-tauri, src/pages, src/components)",
+ "repos": [
+  {
+   "repo": "DevStackBox",
+   "url": "https://github.com/DevStackBox/DevStackBox",
+   "sha": "9ddd318d2473616ccb0329513227fa336d7e8cda",
+   "licence": "MIT (LICENSE file at pin 9ddd318d2473, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-18T12:04Z",
+    "consent_receipt": "c524cc0ad699",
+    "note": "Inclusion consented by the commit author by email at 2026-10-18T12:04Z (receipt c524cc0ad699); selected commit 9ddd318d2473: \"Update version to 0.1.15 and enhance project documentation\". LICENSE file at pin 9ddd318d2473 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

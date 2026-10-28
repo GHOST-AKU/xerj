@@ -1,0 +1,23 @@
+{
+ "corpus": "samerassil--tulipbettercomments",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Pascal queries this for how SamerAssil/TulipBetterComments implements it: A Delphi IDE plugin that enhances code readability by colorizing comments dynamically based on specific prefixes (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "TulipBetterComments",
+   "url": "https://github.com/SamerAssil/TulipBetterComments",
+   "sha": "67e79d0d230f7fc90fa48e5df2d6cf400a9d81d1",
+   "licence": "MIT (LICENSE file at pin 67e79d0d230f, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T03:04Z",
+    "consent_receipt": "ad5e0c2563d9",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T03:04Z (receipt ad5e0c2563d9); selected commit 67e79d0d230f: \"feat: add //ai comment prefix and improve rendering, performance, and\u2026\". LICENSE file at pin 67e79d0d230f detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

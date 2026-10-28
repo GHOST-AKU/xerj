@@ -1,0 +1,23 @@
+{
+ "corpus": "brxerq--claude-cockpit",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on claude, claude-code, claude-code-plugin queries this for how Brxerq/claude-cockpit implements it: Zero-token progress bars and a cache-aware model and effort router for Claude Code (selected work: plugins)",
+ "repos": [
+  {
+   "repo": "claude-cockpit",
+   "url": "https://github.com/Brxerq/claude-cockpit",
+   "sha": "d09e37c5aeb291b702d52d216d2854c292f846ff",
+   "licence": "MIT (LICENSE file at pin d09e37c5aeb2, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T06:29Z",
+    "consent_receipt": "fedadf7cdbc3",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T06:29Z (receipt fedadf7cdbc3); selected commit d09e37c5aeb2: \"Cockpit 0.8.0: compact or hand off before Claude Code compacts\". LICENSE file at pin d09e37c5aeb2 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
