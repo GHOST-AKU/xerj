@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--deepseekv3-minimal",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/deepseekv3-minimal implements it: Creating the DeepSeek V3 model from scratch",
+ "repos": [
+  {
+   "repo": "deepseekv3-minimal",
+   "url": "https://github.com/wajihullahbaig/deepseekv3-minimal",
+   "sha": "ae77d23dfb9d09ac6e19720936f1533646409415",
+   "licence": "author's permission (LICENSE at pin ae77d23dfb9d: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "e9a6b18ce7f4",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt e9a6b18ce7f4); pinned to the default-branch head. LICENSE at pin ae77d23dfb9d: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

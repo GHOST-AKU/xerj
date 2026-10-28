@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--brain-tumor-classifier",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/brain-tumor-classifier implements it: Using pytorch's TIMM package to solve brain tumor classification problem for MRI images",
+ "repos": [
+  {
+   "repo": "brain-tumor-classifier",
+   "url": "https://github.com/wajihullahbaig/brain-tumor-classifier",
+   "sha": "8a0b5c93d66bb07471b7de291dd9d8406477bb72",
+   "licence": "author's permission (LICENSE at pin 8a0b5c93d66b: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "6f008b3a8a66",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt 6f008b3a8a66); pinned to the default-branch head. LICENSE at pin 8a0b5c93d66b: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

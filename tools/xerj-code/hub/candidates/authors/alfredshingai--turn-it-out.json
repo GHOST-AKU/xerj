@@ -2,8 +2,8 @@
  "corpus": "alfredshingai--turn-it-out",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on Python queries this for how alfredshingai/Turn-It-Out implements it: alfredshingai/Turn-It-Out (Python) (selected work: app, tests, public)",
+ "shelf": "AI",
+ "domain": "an agent working on Python queries this for how alfredshingai/Turn-It-Out implements it: Free, anonymous similarity + AI-writing checks for any text - essays, articles, reports, letters, anything written (selected work: app, tests, public)",
  "repos": [
   {
    "repo": "Turn-It-Out",

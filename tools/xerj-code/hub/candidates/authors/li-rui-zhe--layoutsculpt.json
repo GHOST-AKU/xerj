@@ -2,8 +2,8 @@
  "corpus": "li-rui-zhe--layoutsculpt",
  "cloned_at": null,
  "status": "draft",
- "shelf": "WEB",
- "domain": "an agent working on JavaScript queries this for how Li-Rui-Zhe/LayoutSculpt implements it: \u57fa\u4e8e React\u3001Three.js \u548c FastAPI \u6784\u5efa\u7684\u5f00\u6e90 AI \u6237\u578b\u8bbe\u8ba1\u5de5\u4f5c\u53f0\uff0c\u901a\u8fc7\u672c\u5730 Codex \u5c06\u4e8c\u7ef4\u6237\u578b\u56fe\u8f6c\u5316\u4e3a\u53ef\u4ea4\u4e92\u7684 3D \u7a7a\u95f4\uff0c\u652f\u6301\u7ed3\u6784\u6838\u5bf9\u3001\u624b\u52a8\u5e03\u5c40\u3001\u6750\u8d28\u4e0e\u706f\u5149\u8c03\u6574\u53ca GLB \u5bfc\u51fa\uff0c\u65e0\u9700\u4f9d\u8d56 Blender\u3002 (selected work: frontend, scripts, backend)",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how Li-Rui-Zhe/LayoutSculpt implements it: \u652f\u6301 Codex \u4e0e API \u63a5\u5165\u7684\u5f00\u6e90 AI \u7a7a\u95f4\u8bbe\u8ba1\u5de5\u4f5c\u53f0\uff0c\u6db5\u76d6\u6237\u578b\u8bc6\u522b\u3001\u4ea4\u4e92\u5f0f 3D \u7f16\u8f91\u3001\u5efa\u7b51\u6784\u4ef6\u4e0e\u706f\u5177\u3001\u5bb6\u5177\u4e0e\u5899\u5730\u9762 DIY\u3001\u7d20\u6750\u7ba1\u7406\u53ca GLB \u5bfc\u51fa\u3002 (selected work: frontend, scripts, backend)",
  "repos": [
   {
    "repo": "LayoutSculpt",

@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--dialect-conversion",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/dialect-conversion implements it: Convert a dialect from British to American English - without overfitting",
+ "repos": [
+  {
+   "repo": "dialect-conversion",
+   "url": "https://github.com/wajihullahbaig/dialect-conversion",
+   "sha": "4befdd7652efa336cbab35800f4d2657bb1cc6f8",
+   "licence": "author's permission (LICENSE at pin 4befdd7652ef: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "60afc5b6a73b",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt 60afc5b6a73b); pinned to the default-branch head. LICENSE at pin 4befdd7652ef: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--memory-assisted-classifier",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/memory-assisted-classifier implements it: How we can leverage memory module to enhance classification tasks on CIFAR10 Dataset",
+ "repos": [
+  {
+   "repo": "memory-assisted-classifier",
+   "url": "https://github.com/wajihullahbaig/memory-assisted-classifier",
+   "sha": "ae3fcbbf5d9b62b951992ea80fad7e236aee209b",
+   "licence": "author's permission (LICENSE at pin ae3fcbbf5d9b: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "6bbecd26e861",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt 6bbecd26e861); pinned to the default-branch head. LICENSE at pin ae3fcbbf5d9b: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

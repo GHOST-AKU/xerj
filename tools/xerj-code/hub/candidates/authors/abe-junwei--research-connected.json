@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how Abe-Junwei/research-connected implements it: Obsidian plugin: OpenAlex similarity map (Connected Papers\u2013style) for a seed paper (selected work: src, scripts, preview)",
+ "domain": "an agent working on TypeScript queries this for how Abe-Junwei/research-connected implements it: Obsidian literature maps with citation evidence, research projects, reading workflows, and linked notes, powered by OpenAlex (selected work: src, scripts, preview)",
  "repos": [
   {
    "repo": "research-connected",

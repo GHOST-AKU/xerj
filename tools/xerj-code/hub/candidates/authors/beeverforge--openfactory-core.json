@@ -1,9 +1,9 @@
 {
- "corpus": "open-factory-digital--openfactory-core",
+ "corpus": "beeverforge--openfactory-core",
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on ai-agents, autonomous-agents, devops queries this for how Open-Factory-Digital/openfactory-core implements it: An autonomous software factory: tickets in, reviewed pull requests out. Apache-2.0, runs on your machines, no vendor lock-in (selected work: tests, openfactory, tools)",
+ "domain": "an agent working on ai-agents, autonomous-agents, devops queries this for how BeeverForge/openfactory-core implements it: An autonomous software factory: tickets in, reviewed pull requests out. Apache-2.0, runs on your machines, no vendor lock-in (selected work: tests, openfactory, tools)",
  "repos": [
   {
    "repo": "openfactory-core",
