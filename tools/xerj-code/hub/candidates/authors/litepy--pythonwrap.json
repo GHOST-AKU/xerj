@@ -2,8 +2,8 @@
  "corpus": "litepy--pythonwrap",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on Python queries this for how LitePy/PythonWrap implements it: A comprehensive collection of Python decorators and utility functions to enhance your development workflow (selected work: tests, src/python_wrap)",
+ "shelf": "DB",
+ "domain": "an agent working on asyncio, bulkhead, caching queries this for how LitePy/PythonWrap implements it: The resilience and concurrency toolkit for every Python project: retry, circuit breaker, timeout, cache, rate limit, bulkhead, batching, asy (selected work: tests, src/python_wrap)",
  "repos": [
   {
    "repo": "PythonWrap",

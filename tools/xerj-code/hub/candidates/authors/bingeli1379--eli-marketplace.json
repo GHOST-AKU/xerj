@@ -1,0 +1,23 @@
+{
+ "corpus": "bingeli1379--eli-marketplace",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on Go Template queries this for how bingeli1379/eli-marketplace implements it: Eli claude marketplace (selected work: plugins)",
+ "repos": [
+  {
+   "repo": "eli-marketplace",
+   "url": "https://github.com/bingeli1379/eli-marketplace",
+   "sha": "d978b2da67fcafb98b87c980c175eaa28cf888e5",
+   "licence": "MIT (LICENSE file at pin d978b2da67fc, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T08:00Z",
+    "consent_receipt": "2d8fe69226ec",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T08:00Z (receipt 2d8fe69226ec); selected commit d978b2da67fc: \"feat(knowledge-generator): add other-tools slot\". LICENSE file at pin d978b2da67fc detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

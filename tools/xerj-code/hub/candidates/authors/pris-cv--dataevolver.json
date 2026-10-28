@@ -1,0 +1,23 @@
+{
+ "corpus": "pris-cv--dataevolver",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how PRIS-CV/DataEvolver implements it: Autonomous synthetic data construction via VLM-guided iterative rendering \u2014 let your data build and improve itself (selected work: apps/project-page, the project root)",
+ "repos": [
+  {
+   "repo": "DataEvolver",
+   "url": "https://github.com/PRIS-CV/DataEvolver",
+   "sha": "dc26eae043e4d0c680576ff2b1b807bc06ccac5d",
+   "licence": "Apache-2.0 (LICENSE file at pin dc26eae043e4, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T08:54Z",
+    "consent_receipt": "93248cd1e80c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T08:54Z (receipt 93248cd1e80c); selected commit dc26eae043e4: \"feat(web): polish project pages and present DataRSI research\". LICENSE file at pin dc26eae043e4 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

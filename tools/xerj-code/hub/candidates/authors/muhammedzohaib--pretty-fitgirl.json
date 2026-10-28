@@ -1,0 +1,23 @@
+{
+ "corpus": "muhammedzohaib--pretty-fitgirl",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on fitgirl, fitgirl-repacks, opensource queries this for how MuhammedZohaib/pretty-fitgirl implements it: unofficial theme extension for fitgirl-repacks.site (selected work: pretty-fitgirl, qa, scripts)",
+ "repos": [
+  {
+   "repo": "pretty-fitgirl",
+   "url": "https://github.com/MuhammedZohaib/pretty-fitgirl",
+   "sha": "33b037e33a12ddb11a33cd967d169c09a16ebe33",
+   "licence": "MIT (LICENSE file at pin 33b037e33a12, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T07:59Z",
+    "consent_receipt": "87cfe874dc5a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T07:59Z (receipt 87cfe874dc5a); selected commit 33b037e33a12: \"perf: batch + two-level artwork cache, parallel Steam/GOG lookups; do\u2026\". LICENSE file at pin 33b037e33a12 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
