@@ -1,0 +1,23 @@
+{
+ "corpus": "dekrovdev--firefox-ghost-ui",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on PowerShell queries this for how DekrovDev/firefox-ghost-ui implements it: Floating Firefox toolbar, native vertical tabs and automatic Windows installer (selected work: companion, scripts, tests)",
+ "repos": [
+  {
+   "repo": "firefox-ghost-ui",
+   "url": "https://github.com/DekrovDev/firefox-ghost-ui",
+   "sha": "b8915fd900636c9c2dbf11f324ba0bbc14f88acb",
+   "licence": "MIT (LICENSE file at pin b8915fd90063, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T23:48Z",
+    "consent_receipt": "df7d32c54574",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T23:48Z (receipt df7d32c54574); selected commit b8915fd90063: \"Add adaptive Firefox window grips and offscreen recovery\". LICENSE file at pin b8915fd90063 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "armanfm--explorerchem",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on HTML queries this for how armanfm/ExplorerChem implements it: armanfm/ExplorerChem (HTML) (selected work: contracts)",
+ "repos": [
+  {
+   "repo": "ExplorerChem",
+   "url": "https://github.com/armanfm/ExplorerChem",
+   "sha": "e49e442b6cecf9ed0cd231ade694befbaaa6795a",
+   "licence": "Apache-2.0 (LICENSE file at pin e49e442b6cec, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T23:30Z",
+    "consent_receipt": "f8e328ddff26",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T23:30Z (receipt f8e328ddff26); selected commit e49e442b6cec: \"Add files via upload\". LICENSE file at pin e49e442b6cec detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
