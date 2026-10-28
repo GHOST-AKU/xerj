@@ -1,0 +1,23 @@
+{
+ "corpus": "cacity--videohub",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-video, coding-agents, ffmpeg queries this for how cacity/VideoHub implements it: VideoHub \u662f\u4e00\u6b3e\u672c\u5730\u5316\u591a\u5e73\u53f0\u89c6\u9891\u5904\u7406\u4e0e\u667a\u80fd\u526a\u8f91\u5de5\u5177\uff0c\u652f\u6301 YouTube\u3001\u6296\u97f3/TikTok\u3001Instagram\u3001Bilibili \u548c Twitter/X\uff0c\u63d0\u4f9b\u89c6\u9891\u4e0b\u8f7d\u3001Whisper \u8f6c\u5199\u3001\u5b57\u5e55\u7ffb\u8bd1\u4e0e\u6da6\u8272\u3001\u591a\u6a21\u578b AI \u914d\u97f3\u3001\u5f71\u89c6\u89e3\u8bf4\u3001\u6545\u4e8b\u526a\u8f91\u3001\u97f3\u4e50\u5361\u70b9\u53ca\u5267\u96c6\u6279\u91cf\u5904\u7406\uff0c (selected work: src/learning, tests, src)",
+ "repos": [
+  {
+   "repo": "VideoHub",
+   "url": "https://github.com/cacity/VideoHub",
+   "sha": "a2326839161cfd33c99a188a44adf32870ce2e37",
+   "licence": "MIT (LICENSE file at pin a2326839161c, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T00:19Z",
+    "consent_receipt": "82a31fc35721",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T00:19Z (receipt 82a31fc35721); selected commit a2326839161c: \"feat: add video learning workspace and automatic download projects\". LICENSE file at pin a2326839161c detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

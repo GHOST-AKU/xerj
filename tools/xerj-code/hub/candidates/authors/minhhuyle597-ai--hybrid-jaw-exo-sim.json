@@ -1,0 +1,23 @@
+{
+ "corpus": "minhhuyle597-ai--hybrid-jaw-exo-sim",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how minhhuyle597-ai/Hybrid-Jaw-Exo-Sim implements it: minhhuyle597-ai/Hybrid-Jaw-Exo-Sim (JavaScript) (selected work: public, src, tests)",
+ "repos": [
+  {
+   "repo": "Hybrid-Jaw-Exo-Sim",
+   "url": "https://github.com/minhhuyle597-ai/Hybrid-Jaw-Exo-Sim",
+   "sha": "d3bb5b33fc268604b19f41d9a3bca6722a490fb9",
+   "licence": "Apache-2.0 (LICENSE file at pin d3bb5b33fc26, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T23:26Z",
+    "consent_receipt": "edc2be5f3e8d",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T23:26Z (receipt edc2be5f3e8d); selected commit d3bb5b33fc26: \"Add evidence-linked textbook navigation and verified pages\". LICENSE file at pin d3bb5b33fc26 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

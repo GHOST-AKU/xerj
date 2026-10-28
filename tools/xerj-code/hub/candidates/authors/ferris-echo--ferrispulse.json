@@ -1,0 +1,30 @@
+{
+ "corpus": "ferris-echo--ferrispulse",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C# queries this for how Ferris-echo/FerrisPulse implements it: FerrisPulse \u00b7 \u7075\u8109 - \u4e13\u4e3a\u96f7\u86c7\u3001\u7f57\u6280\u3001\u96f7\u67cf\u3001NuPhy \u53ca\u4e3b\u6d41\u56fd\u7535\u7ade\u5916\u8bbe\u6253\u9020\u7684\u9ad8\u989c\u503c\u3001\u8f7b\u91cf\u7ea7\u4efb\u52a1\u680f\u7535\u91cf\u7ba1\u7406\u4e0e\u786c\u4ef6\u8c03\u5ea6\u5f15\u64ce (selected work: src/Hardware, tests, examples)",
+ "repos": [
+  {
+   "repo": "FerrisPulse",
+   "url": "https://github.com/Ferris-echo/FerrisPulse",
+   "sha": "ac524183487ab71e541a806d98eecb184b6df75a",
+   "licence": "GPL-3.0 (LICENSE file at pin ac524183487a, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-28T00:39Z",
+    "consent_receipt": "2479d3835b30",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T00:39Z (receipt 2479d3835b30); selected commit ac524183487a: \"feat: \u652f\u6301\u6f2b\u6b65\u8005\u82b1\u518d Halo Space 2.4G \u65e0\u7ebf\u5934\u6234\u8033\u673a (2D99:E049)\". LICENSE file at pin ac524183487a detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "ac524183487ab71e541a806d98eecb184b6df75a",
+     "at": "2026-10-28T00:39Z",
+     "receipt": "2479d3835b30"
+    }
+   }
+  }
+ ]
+}

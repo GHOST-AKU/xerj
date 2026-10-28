@@ -1,0 +1,23 @@
+{
+ "corpus": "masrockey--rentcars-mobile",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on TypeScript queries this for how Masrockey/rentcars-mobile implements it: Masrockey/rentcars-mobile (TypeScript) (selected work: src/app, src/services, the project root)",
+ "repos": [
+  {
+   "repo": "rentcars-mobile",
+   "url": "https://github.com/Masrockey/rentcars-mobile",
+   "sha": "0d5b621ca19a897cac8049a2f18e702f2a6ca39b",
+   "licence": "MIT (LICENSE file at pin 0d5b621ca19a, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-25T10:00Z",
+    "consent_receipt": "cb68b18c7b54",
+    "note": "Inclusion consented by the commit author by email at 2026-10-25T10:00Z (receipt cb68b18c7b54); selected commit 0d5b621ca19a: \"feat: add booking management screens, service, and brand color consta\u2026\". LICENSE file at pin 0d5b621ca19a detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

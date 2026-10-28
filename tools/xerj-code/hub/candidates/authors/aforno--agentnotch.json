@@ -1,0 +1,23 @@
+{
+ "corpus": "aforno--agentnotch",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agents, developer-tools, macos queries this for how Aforno/AgentNotch implements it: Native macOS notch status surface for autonomous coding agents (selected work: Tests, Sources, script)",
+ "repos": [
+  {
+   "repo": "AgentNotch",
+   "url": "https://github.com/Aforno/AgentNotch",
+   "sha": "81aef3d1e09b2ccbfe455e06353be4e8097a6826",
+   "licence": "MIT (LICENSE file at pin 81aef3d1e09b, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-27T23:15Z",
+    "consent_receipt": "13d167cc36a4",
+    "note": "Inclusion consented by the commit author by email at 2026-10-27T23:15Z (receipt 13d167cc36a4); selected commit 81aef3d1e09b: \"feat(updates): support manual update flow for unsigned betas\". LICENSE file at pin 81aef3d1e09b detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
