@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "WEB",
- "domain": "an agent working on asp-net-core, billing, cpanel queries this for how innovayse/hostpanel implements it: Self-hosted billing and automation for web hosting companies \u2014 client portal, admin panel, domains, provisioning (ASP.NET Core 9 + Vue 3) (selected work: admin)",
+ "domain": "an agent working on asp-net-core, billing, cpanel queries this for how innovayse/hostpanel implements it: Open source, self hosted billing and automation for web hosting companies: client portal, invoicing, payments, domains and provisioning. ASP (selected work: admin)",
  "repos": [
   {
    "repo": "hostpanel",

@@ -2,8 +2,8 @@
  "corpus": "bilalsabugar--nook",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how BilalSabugar/Nook implements it: BilalSabugar/Nook (TypeScript) (selected work: src/app, src/lib, the project root)",
+ "shelf": "AI",
+ "domain": "an agent working on ai, ai-agents, ai-coworkers queries this for how BilalSabugar/Nook implements it: Open-source sovereign workspace for persistent AI coworkers with isolated sandboxed execution, living spaces, and human-in-the-loop safeguar (selected work: src/app, src/lib, the project root)",
  "repos": [
   {
    "repo": "Nook",

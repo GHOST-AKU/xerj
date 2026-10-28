@@ -8,15 +8,15 @@
   {
    "repo": "agent-graph-engineering",
    "url": "https://github.com/huynguyengl99/agent-graph-engineering",
-   "sha": "19010e4b1b776b402569fd56d29389f9588a3616",
-   "licence": "MIT (LICENSE file at pin 19010e4b1b77, GitHub licence API 2026-10-28)",
+   "sha": "5d395cd725e42644983a2a08d71bfe931fce5545",
+   "licence": "MIT (LICENSE file at pin 5d395cd725e4, GitHub licence API 2026-10-28)",
    "review": {
     "spdx": "MIT",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-15T04:36Z",
     "consent_receipt": "68a3689c252e",
-    "note": "Inclusion consented by the commit author by email at 2026-10-15T04:36Z (receipt 68a3689c252e); selected commit 19010e4b1b77: \"fix(agent): screen the message that started the run\". LICENSE file at pin 19010e4b1b77 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution. Pinned to head 19010e4b1b77 (contains the selected commit): the LICENSE at the selected commit was NONE."
+    "note": "Inclusion consented by the commit author by email at 2026-10-15T04:36Z (receipt 68a3689c252e); selected commit 5d395cd725e4: \"fix(agent): screen the message that started the run\". LICENSE file at pin 5d395cd725e4 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution. Pinned to head 5d395cd725e4 (contains the selected commit): the LICENSE at the selected commit was NONE."
    }
   }
  ]

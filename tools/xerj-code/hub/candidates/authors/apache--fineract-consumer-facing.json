@@ -1,0 +1,23 @@
+{
+ "corpus": "apache--fineract-consumer-facing",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Java queries this for how apache/fineract-consumer-facing implements it: Apache fineract (selected work: consumer)",
+ "repos": [
+  {
+   "repo": "fineract-consumer-facing",
+   "url": "https://github.com/apache/fineract-consumer-facing",
+   "sha": "929a98b8966ef2d142dd15f5270d333d176ee5e9",
+   "licence": "Apache-2.0 (LICENSE file at pin 929a98b8966e, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T06:22Z",
+    "consent_receipt": "f558bc99d8fc",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T06:22Z (receipt f558bc99d8fc); selected commit 929a98b8966e: \"refactor(loans): route Fineract loan command calls through LoansFiner\u2026\". LICENSE file at pin 929a98b8966e detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

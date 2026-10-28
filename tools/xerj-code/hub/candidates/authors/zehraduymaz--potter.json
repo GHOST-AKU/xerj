@@ -1,0 +1,23 @@
+{
+ "corpus": "zehraduymaz--potter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on C++ queries this for how ZehraDuymaz/potter implements it: Potter is like pomodorotimer.online but in the terminal. It is for TUI geeks who like a nice terminal environment for work. Thanks to pomodo (selected work: src/core, src, src/ui)",
+ "repos": [
+  {
+   "repo": "potter",
+   "url": "https://github.com/ZehraDuymaz/potter",
+   "sha": "564d4df1108cbea270d7da73399df24af96b0bb3",
+   "licence": "GPL-3.0 (LICENSE file at pin 564d4df1108c, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-28T06:13Z",
+    "consent_receipt": "fe2644afd135",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T06:13Z (receipt fe2644afd135); selected commit 564d4df1108c: \"v0.6.0: !!! better music controls, faster jumps and resume music\". LICENSE file at pin 564d4df1108c detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

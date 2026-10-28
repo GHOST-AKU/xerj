@@ -1,0 +1,30 @@
+{
+ "corpus": "babali42--drumbeatrepo",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on sequencer-music, drum-machine, music queries this for how Babali42/DrumBeatRepo implements it: A library of drums patterns for music lovers \ud83c\udfb5 - Angular 22 - Scala3 (selected work: engine, frontend)",
+ "repos": [
+  {
+   "repo": "DrumBeatRepo",
+   "url": "https://github.com/Babali42/DrumBeatRepo",
+   "sha": "4c43b51da3e2a9ee96100e21f83c3276e877f63a",
+   "licence": "GPL-3.0 (LICENSE file at pin 4c43b51da3e2, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-28T06:36Z",
+    "consent_receipt": "e6124f0181ad",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T06:36Z (receipt e6124f0181ad); selected commit 4c43b51da3e2: \"Scala wip : add compact beat on scala side - add json decoder using c\u2026\". LICENSE file at pin 4c43b51da3e2 detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "4c43b51da3e2a9ee96100e21f83c3276e877f63a",
+     "at": "2026-10-28T06:36Z",
+     "receipt": "e6124f0181ad"
+    }
+   }
+  }
+ ]
+}

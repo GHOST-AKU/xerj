@@ -1,0 +1,23 @@
+{
+ "corpus": "lucien-rose--contextweave",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agent-memory, agent-memory-mcp, agent-memory-system queries this for how Lucien-rose/contextweave implements it: Long-term memory infrastructure for AI agents (selected work: server, scripts, deploy)",
+ "repos": [
+  {
+   "repo": "contextweave",
+   "url": "https://github.com/Lucien-rose/contextweave",
+   "sha": "8951dd9ca6f0a5947f47503c39f6be92696db909",
+   "licence": "Apache-2.0 (LICENSE file at pin 8951dd9ca6f0, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T07:05Z",
+    "consent_receipt": "405f68d77091",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T07:05Z (receipt 405f68d77091); selected commit 8951dd9ca6f0: \"Split runtime and admin MCP surfaces (#5)\". LICENSE file at pin 8951dd9ca6f0 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
