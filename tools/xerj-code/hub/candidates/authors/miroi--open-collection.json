@@ -1,0 +1,23 @@
+{
+ "corpus": "miroi--open-collection",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on TeX queries this for how miroi/open-collection implements it: Personal collection (storage) of scientific and educational open software data (selected work: theoretical_chemistry)",
+ "repos": [
+  {
+   "repo": "open-collection",
+   "url": "https://github.com/miroi/open-collection",
+   "sha": "31fe4dfb4a9fb5bdb1eac20f50fabd197bf046e8",
+   "licence": "MIT (LICENSE file at pin 31fe4dfb4a9f, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T01:10Z",
+    "consent_receipt": "fdfe0ebb4129",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T01:10Z (receipt fdfe0ebb4129); selected commit 31fe4dfb4a9f: \"u\". LICENSE file at pin 31fe4dfb4a9f detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

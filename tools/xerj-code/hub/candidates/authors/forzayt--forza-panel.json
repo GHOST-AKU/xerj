@@ -1,0 +1,23 @@
+{
+ "corpus": "forzayt--forza-panel",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on didicated, gaming-tools, panel queries this for how forzayt/Forza_Panel implements it: Turn any VPS into your own cloud host ! The Universal VPS Control Panel (selected work: app/packages, components)",
+ "repos": [
+  {
+   "repo": "Forza_Panel",
+   "url": "https://github.com/forzayt/Forza_Panel",
+   "sha": "f1ee74c9cb503d75ccbdd66ad87499f9d2f60650",
+   "licence": "MIT (LICENSE file at pin f1ee74c9cb50, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T02:32Z",
+    "consent_receipt": "37e1c7af0d82",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T02:32Z (receipt 37e1c7af0d82); selected commit f1ee74c9cb50: \"feat(packages): add Packages page with curated package list and copy \u2026\". LICENSE file at pin f1ee74c9cb50 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

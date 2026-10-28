@@ -1,0 +1,23 @@
+{
+ "corpus": "deran2016--lunetile",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how deran2016/lunetile implements it: An experimental Windows x86 runtime for classic tile-based RPGs, targeting RPG Maker XP compatibility. C++17, Ruby 4 and Direct3D 11 (selected work: src/runtime, scripts, tests)",
+ "repos": [
+  {
+   "repo": "lunetile",
+   "url": "https://github.com/deran2016/lunetile",
+   "sha": "28a21dbab5161460f8fdbd98e2c5fe7d0994fc3b",
+   "licence": "MIT (LICENSE file at pin 28a21dbab516, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T02:46Z",
+    "consent_receipt": "d7cc2637f23a",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T02:46Z (receipt d7cc2637f23a); selected commit 28a21dbab516: \"feat: add VX Ace runtime and separate release packages\". LICENSE file at pin 28a21dbab516 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

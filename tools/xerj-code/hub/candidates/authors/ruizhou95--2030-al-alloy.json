@@ -1,0 +1,23 @@
+{
+ "corpus": "ruizhou95--2030-al-alloy",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how RuiZhou95/2030-Al-alloy implements it: RuiZhou95/2030-Al-alloy (Python) (selected work: scripts, tests, the project root)",
+ "repos": [
+  {
+   "repo": "2030-Al-alloy",
+   "url": "https://github.com/RuiZhou95/2030-Al-alloy",
+   "sha": "4a435f0ec9f00d88a45a3deac6c6ea1bebc388ae",
+   "licence": "MIT (LICENSE file at pin 4a435f0ec9f0, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T02:23Z",
+    "consent_receipt": "615409dba845",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T02:23Z (receipt 615409dba845); selected commit 4a435f0ec9f0: \"Clarify derived strength metrics and revise material-design figures\". LICENSE file at pin 4a435f0ec9f0 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

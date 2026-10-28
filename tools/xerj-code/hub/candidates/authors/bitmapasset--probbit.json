@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on constraint-satisfaction, decision-making, gibbs-sampling queries this for how BitmapAsset/probbit implements it: probbit \u2014 the p-bit processor your agents decide on: every rule kept by construction, exact odds for every part, and a refusal when it can't (selected work: probbit-cli, examples, probbit-ir)",
+ "domain": "an agent working on constraint-satisfaction, decision-making, gibbs-sampling queries this for how BitmapAsset/probbit implements it: probbit: a personality, mood and memory layer for AI agents, on an exact p-bit decision engine. Every stance and plan is computed on a CPU,  (selected work: probbit-cli, examples, probbit-ir)",
  "repos": [
   {
    "repo": "probbit",
