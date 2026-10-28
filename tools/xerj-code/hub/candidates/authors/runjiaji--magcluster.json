@@ -1,0 +1,23 @@
+{
+ "corpus": "runjiaji--magcluster",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "HEALTH",
+ "domain": "an agent working on bioinformatics, magnetotactic-bacteria, magnetosome-gene-cluster queries this for how RunJiaJi/MagCluster implements it: Magnetosome gene cluster annotation, screening and visualization tool (selected work: src/magcluster, tests)",
+ "repos": [
+  {
+   "repo": "MagCluster",
+   "url": "https://github.com/RunJiaJi/MagCluster",
+   "sha": "583661977640b05884385015db8927c64301b4f8",
+   "licence": "GPL-3.0 (LICENSE file at pin 583661977640, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-3.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-28T05:27Z",
+    "consent_receipt": "3be2eba32e72",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T05:27Z (receipt 3be2eba32e72); selected commit 583661977640: \"feat(cluster): slice discrete subclusters with --flank to eliminate w\u2026\". LICENSE file at pin 583661977640 detected as GPL-3.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

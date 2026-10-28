@@ -1,0 +1,23 @@
+{
+ "corpus": "mploscos--virtual-tree-canvas",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how mploscos/virtual-tree-canvas implements it: High-performance Canvas2D virtual tree/table widget for very large hierarchical datasets (selected work: src/core, test, src)",
+ "repos": [
+  {
+   "repo": "virtual-tree-canvas",
+   "url": "https://github.com/mploscos/virtual-tree-canvas",
+   "sha": "fb64e93df85de51d9d1fc84619131195050a4cb9",
+   "licence": "MIT (LICENSE file at pin fb64e93df85d, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T06:31Z",
+    "consent_receipt": "a14712df681e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T06:31Z (receipt a14712df681e); selected commit fb64e93df85d: \"feat: release virtual-tree-canvas 0.8.0\". LICENSE file at pin fb64e93df85d detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

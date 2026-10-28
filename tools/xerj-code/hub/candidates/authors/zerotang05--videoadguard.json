@@ -1,0 +1,30 @@
+{
+ "corpus": "zerotang05--videoadguard",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ad-detection, adguard, bilibili queries this for how ZeroTang05/VideoAdGuard implements it: \u54d4\u54e9\u54d4\u54e9\u6d4f\u89c8\u5668\u63d2\u4ef6\uff1a\u57fa\u4e8e\u5927\u8bed\u8a00\u6a21\u578b\uff0c\u5bf9B\u7ad9\u89c6\u9891\u4e2d\u7684\u690d\u5165\u5e7f\u544a\u8fdb\u884c\u68c0\u6d4b\u3002\u4e00\u952e\u8df3\u8fc7\u89c6\u9891\u4e2d\u7684\u690d\u5165/\u53e3\u64ad\u5e7f\u544a\u3002 (selected work: src/services, src/utils, src)",
+ "repos": [
+  {
+   "repo": "VideoAdGuard",
+   "url": "https://github.com/ZeroTang05/VideoAdGuard",
+   "sha": "d674eadc011d4f5f4a77fb7d4127c5d86a253d52",
+   "licence": "GPL-2.0 (LICENSE file at pin d674eadc011d, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "GPL-2.0",
+    "use": "approach-only",
+    "by": "author-consent",
+    "at": "2026-10-28T07:01Z",
+    "consent_receipt": "a15c14d16c7f",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T07:01Z (receipt a15c14d16c7f); selected commit d674eadc011d: \"feat: add support for System One provider in LLM settings and API int\u2026\". LICENSE file at pin d674eadc011d detected as GPL-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution.",
+    "author_grant": {
+     "terms": "MIT",
+     "scope": "the author's own changes in the selected commit",
+     "commit": "d674eadc011d4f5f4a77fb7d4127c5d86a253d52",
+     "at": "2026-10-28T07:01Z",
+     "receipt": "a15c14d16c7f"
+    }
+   }
+  }
+ ]
+}

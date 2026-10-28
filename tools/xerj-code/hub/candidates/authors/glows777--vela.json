@@ -2,8 +2,8 @@
  "corpus": "glows777--vela",
  "cloned_at": null,
  "status": "draft",
- "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how glows777/Vela implements it: glows777/Vela (TypeScript) (selected work: test, src/extensions, src/channels)",
+ "shelf": "AI",
+ "domain": "an agent working on ai-agent, bun, chatbot queries this for how glows777/Vela implements it: An AI coworker for team group chats, built on a pi-style terminal agent and TypeScript SDK (selected work: test, src/extensions, src/channels)",
  "repos": [
   {
    "repo": "Vela",

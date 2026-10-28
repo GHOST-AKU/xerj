@@ -1,0 +1,23 @@
+{
+ "corpus": "alwindoss--twitterati",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on download, downloader, downloadmanager queries this for how alwindoss/twitterati implements it: A twitter video downloader (selected work: internal/twitter, cmd, internal/engine)",
+ "repos": [
+  {
+   "repo": "twitterati",
+   "url": "https://github.com/alwindoss/twitterati",
+   "sha": "fa69fef7b309e31ab75e0c6216e98ab0f329c457",
+   "licence": "Unlicense (LICENSE file at pin fa69fef7b309, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Unlicense",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T07:02Z",
+    "consent_receipt": "385a1c782edb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T07:02Z (receipt 385a1c782edb); selected commit fa69fef7b309: \"Fully working copy of the twitter video downloader\". LICENSE file at pin fa69fef7b309 detected as Unlicense by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
