@@ -1,0 +1,23 @@
+{
+ "corpus": "tslsun--tmux-collie",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on bash, cli, tmux queries this for how TSLsun/tmux-collie implements it: Herd coding agents across git worktrees, from tmux (selected work: bin, test, completions)",
+ "repos": [
+  {
+   "repo": "tmux-collie",
+   "url": "https://github.com/TSLsun/tmux-collie",
+   "sha": "93091793fbed2d1cf857a11f22713fc622abe9fb",
+   "licence": "MIT (LICENSE file at pin 93091793fbed, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T13:02Z",
+    "consent_receipt": "e5814784cf48",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T13:02Z (receipt e5814784cf48); selected commit 93091793fbed: \"feat(dash): status/agent at a glance, action menu, terminal popup, ad\u2026\". LICENSE file at pin 93091793fbed detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

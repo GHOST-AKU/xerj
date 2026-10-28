@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--text-processor-task",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/text-processor-task implements it: A text processing task for NER using Spacy, Summarization using HF, searching summarization using TF-IDF",
+ "repos": [
+  {
+   "repo": "text-processor-task",
+   "url": "https://github.com/wajihullahbaig/text-processor-task",
+   "sha": "e443acae81e6b0e5abf796672b98356ca5cf812c",
+   "licence": "Apache-2.0 (LICENSE file at pin e443acae81e6, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "d435fe3e2054",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt d435fe3e2054); pinned to the default-branch head. LICENSE file at pin e443acae81e6 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

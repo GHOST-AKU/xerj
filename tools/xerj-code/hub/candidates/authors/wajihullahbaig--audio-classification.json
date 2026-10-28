@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--audio-classification",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/audio-classification implements it: torchaudio and associated libraries to build a DNN for audio classification",
+ "repos": [
+  {
+   "repo": "audio-classification",
+   "url": "https://github.com/wajihullahbaig/audio-classification",
+   "sha": "6747e5c30945e9c48bcbd827aa5dcea707676409",
+   "licence": "author's permission (LICENSE at pin 6747e5c30945: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "ab75d965ae4f",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt ab75d965ae4f); pinned to the default-branch head. LICENSE at pin 6747e5c30945: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

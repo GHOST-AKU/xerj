@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--vggfacematching",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/VGGFaceMatching implements it: wajihullahbaig/VGGFaceMatching (Python)",
+ "repos": [
+  {
+   "repo": "VGGFaceMatching",
+   "url": "https://github.com/wajihullahbaig/VGGFaceMatching",
+   "sha": "1e84fbb4a5e4d1b8d6c229453c294ad6b063ceed",
+   "licence": "author's permission (LICENSE at pin 1e84fbb4a5e4: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "26ef54ddb4c0",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt 26ef54ddb4c0); pinned to the default-branch head. LICENSE at pin 1e84fbb4a5e4: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

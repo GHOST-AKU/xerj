@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "AI",
- "domain": "an agent working on 3d-printing, ai-agents, build123d queries this for how nanassound/mnft implements it: Text-to-CAD tools in Elixir with build123d, OpenSCAD, and smlibpy (selected work: mnft_cad, the project root, mnft_cad_web)",
+ "domain": "an agent working on 3d-printing, ai-agents, build123d queries this for how nanassound/mnft implements it: Text-to-CAD tools in Elixir with build123d, OpenSCAD, replicad, and smlibpy (selected work: mnft_cad, the project root, mnft_cad_web)",
  "repos": [
   {
    "repo": "mnft",

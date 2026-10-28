@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--websitescrapeandrank",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/WebsiteScrapeAndRank implements it: A small repo that has a service and seperate python programs to scrape and rank websites with TF-IDF scores and ngrams (mono,bi,tri)",
+ "repos": [
+  {
+   "repo": "WebsiteScrapeAndRank",
+   "url": "https://github.com/wajihullahbaig/WebsiteScrapeAndRank",
+   "sha": "48e2cc54cc578105b120597d931eae1cb03734a3",
+   "licence": "author's permission (LICENSE at pin 48e2cc54cc57: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "ffcc679343ee",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt ffcc679343ee); pinned to the default-branch head. LICENSE at pin 48e2cc54cc57: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

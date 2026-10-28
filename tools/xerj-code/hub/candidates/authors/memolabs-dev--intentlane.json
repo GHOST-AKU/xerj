@@ -1,0 +1,23 @@
+{
+ "corpus": "memolabs-dev--intentlane",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "WEB",
+ "domain": "an agent working on app-intents, apple-intelligence, codegen queries this for how memolabs-dev/intentlane implements it: Audit an iOS or macOS app's Siri and App Intents surface, then generate the native code (selected work: pilots)",
+ "repos": [
+  {
+   "repo": "intentlane",
+   "url": "https://github.com/memolabs-dev/intentlane",
+   "sha": "16cfbdbea9f827159dde78a67d4a99ed69fb2b2d",
+   "licence": "MIT (LICENSE file at pin 16cfbdbea9f8, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T11:13Z",
+    "consent_receipt": "39c1ce231049",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T11:13Z (receipt 39c1ce231049); selected commit 16cfbdbea9f8: \"Make the IINA pilot reproducible from a clean checkout\". LICENSE file at pin 16cfbdbea9f8 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

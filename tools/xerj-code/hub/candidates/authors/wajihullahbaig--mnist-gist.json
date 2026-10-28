@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--mnist-gist",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/MNIST_GIST implements it: Experinmenting with GIST feartures of MNIST dataset",
+ "repos": [
+  {
+   "repo": "MNIST_GIST",
+   "url": "https://github.com/wajihullahbaig/MNIST_GIST",
+   "sha": "e42561e1449d745d3fd10e1cdd70d2e550e8c328",
+   "licence": "author's permission (LICENSE at pin e42561e1449d: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "d15d72d2b899",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt d15d72d2b899); pinned to the default-branch head. LICENSE at pin e42561e1449d: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

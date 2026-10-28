@@ -1,0 +1,23 @@
+{
+ "corpus": "luizgabrielteixeira--llm-usage",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on agents, ai, llm queries this for how LuizGabrielTeixeira/llm-usage implements it: Multi-provider AI subscription usage monitor for GNOME Shell \u2014 OpenAI Codex, Google Antigravity, GitHub Copilot and Mistral in one panel ind (selected work: the project root)",
+ "repos": [
+  {
+   "repo": "llm-usage",
+   "url": "https://github.com/LuizGabrielTeixeira/llm-usage",
+   "sha": "958f50d871a7da9cd6dc437e8a6642579abbfb10",
+   "licence": "MIT (LICENSE file at pin 958f50d871a7, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T11:14Z",
+    "consent_receipt": "2b85f3576cd5",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T11:14Z (receipt 2b85f3576cd5); selected commit 958f50d871a7: \"feat: multi-provider panel, menu, preferences and provider icons\". LICENSE file at pin 958f50d871a7 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

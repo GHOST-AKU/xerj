@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--video-clustering",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/video_clustering implements it: Finding keyframes in video using image features and clustering",
+ "repos": [
+  {
+   "repo": "video_clustering",
+   "url": "https://github.com/wajihullahbaig/video_clustering",
+   "sha": "d7aa06136b9f53471f982cfe8c1c37523a26eb90",
+   "licence": "author's permission (LICENSE at pin d7aa06136b9f: NONE; repository: none)",
+   "review": {
+    "spdx": "NONE",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "3c07e13302e3",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt 3c07e13302e3); pinned to the default-branch head. LICENSE at pin d7aa06136b9f: NONE (repository: none); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

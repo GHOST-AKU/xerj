@@ -1,0 +1,23 @@
+{
+ "corpus": "tunnel-whisperer--tunnel-whisperer",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "NET",
+ "domain": "an agent working on port-forwarding, reverse-proxy, tunneling queries this for how Tunnel-Whisperer/Tunnel-Whisperer implements it: Surgical port forwarding for hostile network environments. Self-hosted, stealthy, and DPI-resistant (selected work: internal/ops, e2e)",
+ "repos": [
+  {
+   "repo": "Tunnel-Whisperer",
+   "url": "https://github.com/Tunnel-Whisperer/Tunnel-Whisperer",
+   "sha": "ba0129e74d32ef0c43ace98509e8df9a79157f64",
+   "licence": "MIT (LICENSE file at pin ba0129e74d32, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:02Z",
+    "consent_receipt": "236f9615fab1",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T12:02Z (receipt 236f9615fab1); selected commit ba0129e74d32: \"relay: carry client-user UUIDs over when enroll/un-enroll rewrite xra\u2026\". LICENSE file at pin ba0129e74d32 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

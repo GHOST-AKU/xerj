@@ -1,0 +1,23 @@
+{
+ "corpus": "wajihullahbaig--mixture-of-experts",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how wajihullahbaig/mixture-of-experts implements it: A simple design for MOE on Mnist data",
+ "repos": [
+  {
+   "repo": "mixture-of-experts",
+   "url": "https://github.com/wajihullahbaig/mixture-of-experts",
+   "sha": "cec5a9f79367e29742d5475c5ac1488b3b24f93b",
+   "licence": "Apache-2.0 (LICENSE file at pin cec5a9f79367, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:00Z",
+    "consent_receipt": "3f05c2184afc",
+    "note": "Inclusion consented by the repository owner, signed in with GitHub on hub.xerj.org/add, at 2026-10-28T12:00Z (receipt 3f05c2184afc); pinned to the default-branch head. LICENSE file at pin cec5a9f79367 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

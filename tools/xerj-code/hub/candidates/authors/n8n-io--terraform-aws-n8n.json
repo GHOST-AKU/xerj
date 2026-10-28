@@ -1,0 +1,23 @@
+{
+ "corpus": "n8n-io--terraform-aws-n8n",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "OPS",
+ "domain": "an agent working on automation, aws, aws-eks queries this for how n8n-io/terraform-aws-n8n implements it: Production-grade n8n Enterprise on AWS \u2014 multi-main EKS, RDS Postgres, ElastiCache Redis, S3, and ALB in one terraform apply (selected work: tests, the project root)",
+ "repos": [
+  {
+   "repo": "terraform-aws-n8n",
+   "url": "https://github.com/n8n-io/terraform-aws-n8n",
+   "sha": "80612ff4c670b0cee3b8953f2936c7b9692f67f8",
+   "licence": "MIT (LICENSE file at pin 80612ff4c670, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T12:40Z",
+    "consent_receipt": "d2e15b15c805",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T12:40Z (receipt d2e15b15c805); selected commit 80612ff4c670: \"feat(n8n): support offline licence activation with N8N_LICENSE_CERT (\u2026\". LICENSE file at pin 80612ff4c670 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

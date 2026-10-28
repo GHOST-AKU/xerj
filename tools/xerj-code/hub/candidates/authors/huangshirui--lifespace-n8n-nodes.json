@@ -1,0 +1,23 @@
+{
+ "corpus": "huangshirui--lifespace-n8n-nodes",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on TypeScript queries this for how huangshirui/lifespace-n8n-nodes implements it: Official n8n community nodes for integrating workflows and AI agents with LifeSpace (selected work: nodes, test)",
+ "repos": [
+  {
+   "repo": "lifespace-n8n-nodes",
+   "url": "https://github.com/huangshirui/lifespace-n8n-nodes",
+   "sha": "cc33fd4cb8b0177f1dfb74345ebb4851b26e150c",
+   "licence": "MIT (LICENSE file at pin cc33fd4cb8b0, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T11:41Z",
+    "consent_receipt": "a8bc6f426a5e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T11:41Z (receipt a8bc6f426a5e); selected commit cc33fd4cb8b0: \"feat(n8n): add Semantic Relation CRUD and query (#109)\". LICENSE file at pin cc33fd4cb8b0 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
