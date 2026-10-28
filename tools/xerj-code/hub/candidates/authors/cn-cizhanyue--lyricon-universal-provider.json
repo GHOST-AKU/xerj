@@ -1,0 +1,23 @@
+{
+ "corpus": "cn-cizhanyue--lyricon-universal-provider",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Kotlin queries this for how CN-CiZhanYue/Lyricon-Universal-Provider implements it: \u8bcd\u5e55\u901a\u7528\u64ad\u653e\u5668 Provider (selected work: universal-provider-lyricon)",
+ "repos": [
+  {
+   "repo": "Lyricon-Universal-Provider",
+   "url": "https://github.com/CN-CiZhanYue/Lyricon-Universal-Provider",
+   "sha": "51ed36e0423b034e9f4624088bf30aacd7eab68f",
+   "licence": "Apache-2.0 (LICENSE file at pin 51ed36e0423b, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T09:14Z",
+    "consent_receipt": "fa6de27f8dbd",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T09:14Z (receipt fa6de27f8dbd); selected commit 51ed36e0423b: \"\u589e\u52a0\u4e86ai\u7ffb\u8bd1\u548c\u65b0UI\". LICENSE file at pin 51ed36e0423b detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "jesusjoana--proyecto-ingenieria-software",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on JavaScript queries this for how jesusJoana/Proyecto-Ingenieria-Software implements it: jesusJoana/Proyecto-Ingenieria-Software (JavaScript) (selected work: tests, src/auth, views)",
+ "repos": [
+  {
+   "repo": "Proyecto-Ingenieria-Software",
+   "url": "https://github.com/jesusJoana/Proyecto-Ingenieria-Software",
+   "sha": "ca10ac14359414f3cad2b8e7d74dbf74552e0e0f",
+   "licence": "Apache-2.0 (LICENSE file at pin ca10ac143594, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "Apache-2.0",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T09:49Z",
+    "consent_receipt": "411ef8b67c2c",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T09:49Z (receipt 411ef8b67c2c); selected commit ca10ac143594: \"Recuperaci\u00f3n de contrase\u00f1a por correo con enlace de un solo uso y pru\u2026\". LICENSE file at pin ca10ac143594 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

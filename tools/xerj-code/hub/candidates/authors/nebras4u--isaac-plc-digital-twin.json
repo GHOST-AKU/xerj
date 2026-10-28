@@ -8,15 +8,15 @@
   {
    "repo": "isaac-plc-digital-twin",
    "url": "https://github.com/Nebras4u/isaac-plc-digital-twin",
-   "sha": "a0f63afb40eb8cbf3c39714ee7f587935a4d0756",
-   "licence": "Apache-2.0 (LICENSE file at pin a0f63afb40eb, GitHub licence API 2026-10-27)",
+   "sha": "98c7853e74c47ecba6ff2e67df10bfbfb4362c8b",
+   "licence": "Apache-2.0 (LICENSE file at pin 98c7853e74c4, GitHub licence API 2026-10-28)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-23T20:23Z",
     "consent_receipt": "c2ead1955973",
-    "note": "Inclusion consented by the commit author by email at 2026-10-23T20:23Z (receipt c2ead1955973); selected commit a0f63afb40eb: \"feat(config, safety): Pydantic v2 schema + 60 Hz safety fixes\". LICENSE file at pin a0f63afb40eb detected as Apache-2.0 by the GitHub licence API on 2026-10-27; used under that licence with attribution. Pinned to head a0f63afb40eb (contains the selected commit): the LICENSE at the selected commit was MIT."
+    "note": "Inclusion consented by the commit author by email at 2026-10-23T20:23Z (receipt c2ead1955973); selected commit 98c7853e74c4: \"feat(config, safety): Pydantic v2 schema + 60 Hz safety fixes\". LICENSE file at pin 98c7853e74c4 detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution. Pinned to head 98c7853e74c4 (contains the selected commit): the LICENSE at the selected commit was MIT."
    }
   }
  ]

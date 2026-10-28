@@ -1,0 +1,23 @@
+{
+ "corpus": "maiwulanjiangmaiming--niftispy",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "HEALTH",
+ "domain": "an agent working on TypeScript queries this for how MaiwulanjiangMaiming/NiftiSpy implements it: \ud83e\udde0 High-performance NIfTI medical image viewer for VS Code (selected work: tests, src/io, webview)",
+ "repos": [
+  {
+   "repo": "NiftiSpy",
+   "url": "https://github.com/MaiwulanjiangMaiming/NiftiSpy",
+   "sha": "91dab17eac39dc8efbfe7c51a53587d8707ae22d",
+   "licence": "MIT (LICENSE file at pin 91dab17eac39, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T09:23Z",
+    "consent_receipt": "1b00c5aa0beb",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T09:23Z (receipt 1b00c5aa0beb); selected commit 91dab17eac39: \"v2.3.3: seekable remote gzip cache, on-demand WAN slices, loading-sta\u2026\". LICENSE file at pin 91dab17eac39 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

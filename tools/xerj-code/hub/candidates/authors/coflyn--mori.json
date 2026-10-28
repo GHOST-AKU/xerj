@@ -3,7 +3,7 @@
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on capacitor, downloader, mori queries this for how coflyn/Mori implements it: Client-side media downloader app and CLI built with Capacitor and Node.js (selected work: public)",
+ "domain": "an agent working on capacitor, downloader, mori queries this for how coflyn/Mori implements it: Client-side media downloader App and CLI built with Capacitor and Node.js (selected work: public)",
  "repos": [
   {
    "repo": "Mori",

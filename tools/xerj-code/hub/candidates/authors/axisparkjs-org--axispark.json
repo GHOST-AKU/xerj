@@ -1,9 +1,9 @@
 {
- "corpus": "axisparkjs--axispark",
+ "corpus": "axisparkjs-org--axispark",
  "cloned_at": null,
  "status": "draft",
  "shelf": "API",
- "domain": "an agent working on TypeScript queries this for how axisparkjs/axispark implements it: axisparkjs/axispark (TypeScript) (selected work: packages/http, samples, e2e)",
+ "domain": "an agent working on TypeScript queries this for how axisparkjs-org/axispark implements it: axisparkjs-org/axispark (TypeScript) (selected work: packages/http, samples, e2e)",
  "repos": [
   {
    "repo": "axispark",

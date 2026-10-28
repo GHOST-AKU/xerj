@@ -1,0 +1,23 @@
+{
+ "corpus": "dashscope--dashscope-sdk-python",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on Python queries this for how dashscope/dashscope-sdk-python implements it: python sdk for dashscope [model studio](https://www.alibabacloud.com/en/product/modelstudio?_p_lc=1) (selected work: dashscope, tests, examples)",
+ "repos": [
+  {
+   "repo": "dashscope-sdk-python",
+   "url": "https://github.com/dashscope/dashscope-sdk-python",
+   "sha": "25e9a23d58e9a008da1848892669628b32a418ea",
+   "licence": "author's permission (LICENSE at pin 25e9a23d58e9: NOASSERTION; repository: Apache-2.0)",
+   "review": {
+    "spdx": "NOASSERTION",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T09:28Z",
+    "consent_receipt": "5d963f80cd32",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T09:28Z (receipt 5d963f80cd32); selected commit 25e9a23d58e9: \"feat(agentstudio): carry inference parameters in the agent model config\". LICENSE at pin 25e9a23d58e9: NOASSERTION (repository: Apache-2.0); used with the author's permission, with attribution."
+   }
+  }
+ ]
+}

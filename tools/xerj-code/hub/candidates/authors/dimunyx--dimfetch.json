@@ -1,0 +1,23 @@
+{
+ "corpus": "dimunyx--dimfetch",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "API",
+ "domain": "an agent working on C++ queries this for how dimunyx/dimfetch implements it: A minimalistic fetch made by dimunyx (selected work: src, src/modules, the project root)",
+ "repos": [
+  {
+   "repo": "dimfetch",
+   "url": "https://github.com/dimunyx/dimfetch",
+   "sha": "f079246053970b014c7134ec9004cf2caec96f3b",
+   "licence": "MIT (LICENSE file at pin f07924605397, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T10:02Z",
+    "consent_receipt": "d2eb195a0351",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T10:02Z (receipt d2eb195a0351); selected commit f07924605397: \"0.5.0\". LICENSE file at pin f07924605397 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
