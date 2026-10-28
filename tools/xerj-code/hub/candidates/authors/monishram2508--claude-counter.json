@@ -1,0 +1,23 @@
+{
+ "corpus": "monishram2508--claude-counter",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on JavaScript queries this for how monishram2508/claude-counter implements it: monishram2508/claude-counter (JavaScript) (selected work: Claude Counter Extension)",
+ "repos": [
+  {
+   "repo": "claude-counter",
+   "url": "https://github.com/monishram2508/claude-counter",
+   "sha": "b704eb4cc0c5bca5d99cd4c54a385247f632db87",
+   "licence": "MIT (LICENSE file at pin b704eb4cc0c5, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T04:49Z",
+    "consent_receipt": "3d827e335636",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T04:49Z (receipt 3d827e335636); selected commit b704eb4cc0c5: \"feat: add the slim bar layout and a per-metric palette\". LICENSE file at pin b704eb4cc0c5 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

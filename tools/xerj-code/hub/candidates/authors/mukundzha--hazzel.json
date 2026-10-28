@@ -8,15 +8,15 @@
   {
    "repo": "hazzel",
    "url": "https://github.com/mukundzha/hazzel",
-   "sha": "65f9d50008ca540889d4135d51883749d850d244",
-   "licence": "Apache-2.0 (LICENSE file at pin 65f9d50008ca, GitHub licence API 2026-10-26)",
+   "sha": "84c201a56fbd0c18c9ffa3d5dcae405e20ffc947",
+   "licence": "Apache-2.0 (LICENSE file at pin 84c201a56fbd, GitHub licence API 2026-10-28)",
    "review": {
     "spdx": "Apache-2.0",
     "use": "adapt-with-attribution",
     "by": "author-consent",
     "at": "2026-10-13T08:57Z",
     "consent_receipt": "108a406f0c55",
-    "note": "Inclusion consented by the commit author by email at 2026-10-13T08:57Z (receipt 108a406f0c55); selected commit 65f9d50008ca: \"speed: stop wasting model calls, and four latency bugs\". LICENSE file at pin 65f9d50008ca detected as Apache-2.0 by the GitHub licence API on 2026-10-26; used under that licence with attribution. Pinned to head 65f9d50008ca (contains the selected commit): the LICENSE at the selected commit was AGPL-3.0."
+    "note": "Inclusion consented by the commit author by email at 2026-10-13T08:57Z (receipt 108a406f0c55); selected commit 84c201a56fbd: \"speed: stop wasting model calls, and four latency bugs\". LICENSE file at pin 84c201a56fbd detected as Apache-2.0 by the GitHub licence API on 2026-10-28; used under that licence with attribution. Pinned to head 84c201a56fbd (contains the selected commit): the LICENSE at the selected commit was AGPL-3.0."
    }
   }
  ]
