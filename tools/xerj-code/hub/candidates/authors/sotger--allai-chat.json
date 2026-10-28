@@ -1,0 +1,23 @@
+{
+ "corpus": "sotger--allai-chat",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "AI",
+ "domain": "an agent working on ai, browser, chatgpt queries this for how sotger/allai-chat implements it: All your AI chats in one app: vertical tabs, isolated sessions per service (selected work: src/renderer, src/main, src/shared)",
+ "repos": [
+  {
+   "repo": "allai-chat",
+   "url": "https://github.com/sotger/allai-chat",
+   "sha": "b4ee544139a5135b5d3ca76b0efd562684ab8ef1",
+   "licence": "MIT (LICENSE file at pin b4ee544139a5, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T10:59Z",
+    "consent_receipt": "5adceb9c249e",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T10:59Z (receipt 5adceb9c249e); selected commit b4ee544139a5: \"feat: search across all services (Cmd/Ctrl+Shift+F)\". LICENSE file at pin b4ee544139a5 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "corpus": "guembri01--noema",
+ "cloned_at": null,
+ "status": "draft",
+ "shelf": "DB",
+ "domain": "an agent working on database, docs, local-first queries this for how Guembri01/noema implements it: An original, open-source, self-hosted workspace for notes, docs and databases (selected work: video)",
+ "repos": [
+  {
+   "repo": "noema",
+   "url": "https://github.com/Guembri01/noema",
+   "sha": "a03556e61cd824233973426487335fe60e0083de",
+   "licence": "MIT (LICENSE file at pin a03556e61cd8, GitHub licence API 2026-10-28)",
+   "review": {
+    "spdx": "MIT",
+    "use": "adapt-with-attribution",
+    "by": "author-consent",
+    "at": "2026-10-28T11:00Z",
+    "consent_receipt": "6007f42d9100",
+    "note": "Inclusion consented by the commit author by email at 2026-10-28T11:00Z (receipt 6007f42d9100); selected commit a03556e61cd8: \"fix(video): retime the film, ration the camera, re-cut the bed\". LICENSE file at pin a03556e61cd8 detected as MIT by the GitHub licence API on 2026-10-28; used under that licence with attribution."
+   }
+  }
+ ]
+}
